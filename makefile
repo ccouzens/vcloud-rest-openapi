@@ -1,3 +1,15 @@
+specs = \
+website/27.0.json \
+website/29.0.json \
+website/30.0.json \
+website/31.0.json \
+website/32.0.json \
+website/33.0.json \
+website/34.0.json
+
+.PHONY : all
+all : $(specs)
+
 website/27.0.zip:
 	mkdir -p $(dir $@)
 	curl https://vdc-repo.vmware.com/vmwb-repository/dcr-public/76f491b4-679c-4e1e-8428-f813d668297a/a2555a1b-22f1-4cca-b481-2a98ab874022/doc/a2555a1b-22f1-4cca-b481-2a98ab874022.zip > $@
@@ -25,4 +37,6 @@ website/33.0.zip:
 website/34.0.zip:
 	mkdir -p $(dir $@)
 	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/06a3b3da-4c6d-4984-b795-5d64081a4b10/8e47d46b-cfa7-4c06-8b81-4f5548da3102/doc/8e47d46b-cfa7-4c06-8b81-4f5548da3102.zip > $@
-	
+
+website/%.json: website/%.zip
+	(cd transformer; cargo run --release) < $(addsuffix .zip,$(basename $@)) > $@

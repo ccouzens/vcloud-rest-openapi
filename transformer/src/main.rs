@@ -1,9 +1,11 @@
 #[macro_use]
 extern crate unhtml_derive;
 
+use openapiv3::OpenAPI;
 use serde::Serialize;
 use std::io::Read;
 use unhtml::FromHtml;
+mod info;
 
 #[derive(FromHtml, Debug, Serialize)]
 #[html]
@@ -33,7 +35,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut html = String::new();
     admin_op_file.read_to_string(&mut html)?;
-    let operations = LandingOperations::from_html(&html)?;
-    println!("{}", serde_json::to_string_pretty(&operations)?);
+    std::mem::drop(admin_op_file);
+    // let operations = LandingOperations::from_html(&html)?;
+
+    let spec = OpenAPI {
+        openapi: "3.0.2".into(),
+        info: info::info(&mut zip)?,
+        ..Default::default()
+    };
+    println!("{}", serde_json::to_string_pretty(&spec)?);
     Ok(())
 }
