@@ -2,7 +2,10 @@
   "openapi": "3.0.2",
   "info": {
     "title": "VMware Cloud Director",
-    "version": "VCD-sp"
+    "license": {
+      "name": "© 2020 VMware, Inc. All rights reserved."
+    },
+    "version": "Revision 20200408 Version 34.0"
   },
   "paths": {}
 }

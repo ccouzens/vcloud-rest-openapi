@@ -1,5 +1,4 @@
-use javascript_lexer::Lexer;
-use openapiv3::Info;
+use openapiv3::{Info, License};
 use std::io::{Read, Seek};
 use unhtml::FromHtml;
 use zip::read::ZipArchive;
@@ -18,20 +17,18 @@ pub fn info<R: Read + Seek>(zip: &mut ZipArchive<R>) -> Result<Info, Box<dyn std
 
     let about_info = AboutInfo::from_html(&html)?;
 
-    let mut javascript = String::new();
+    let mut javascript = Vec::new();
     zip.by_name("doc/commonRes.js")?
-        .read_to_string(&mut javascript)?;
-    dbg!(Lexer::lex_tokens(&javascript)?
-        .iter()
-        .filter_map(|t| match t {
-            javascript_lexer::token::Token::StringLiteral(s) => Some(s),
-            _ => None,
-        })
-        .collect::<Vec<_>>());
+        .read_to_end(&mut javascript)?;
 
+    let common_res = crate::parsers::doc::common_res::parse(&javascript);
     Ok(Info {
         title: about_info.prodname,
-        version: about_info.version,
+        version: common_res.version_information,
+        license: Some(License {
+            name: common_res.copyright,
+            ..Default::default()
+        }),
         ..Default::default()
     })
 }

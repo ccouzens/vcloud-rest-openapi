@@ -2,7 +2,10 @@
   "openapi": "3.0.2",
   "info": {
     "title": "vCloud Director",
-    "version": "VCD-sp"
+    "license": {
+      "name": "© 2019 VMware, Inc. All rights reserved."
+    },
+    "version": "Revision 20190317 Version 32.0"
   },
   "paths": {}
 }

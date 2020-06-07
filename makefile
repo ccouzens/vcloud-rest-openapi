@@ -39,4 +39,4 @@ website/34.0.zip:
 	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/06a3b3da-4c6d-4984-b795-5d64081a4b10/8e47d46b-cfa7-4c06-8b81-4f5548da3102/doc/8e47d46b-cfa7-4c06-8b81-4f5548da3102.zip > $@
 
 website/%.json: website/%.zip
-	(cd transformer; cargo +nightly run --release) < $(addsuffix .zip,$(basename $@)) > $@
+	(cd transformer; cargo run --release) < $(addsuffix .zip,$(basename $@)) > $@

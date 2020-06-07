@@ -4,8 +4,8 @@ extern crate unhtml_derive;
 use openapiv3::OpenAPI;
 use serde::Serialize;
 use std::io::Read;
-use unhtml::FromHtml;
 mod info;
+mod parsers;
 
 #[derive(FromHtml, Debug, Serialize)]
 #[html]
