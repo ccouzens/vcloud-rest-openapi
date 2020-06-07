@@ -21,7 +21,7 @@ pub fn info<R: Read + Seek>(zip: &mut ZipArchive<R>) -> Result<Info, Box<dyn std
     zip.by_name("doc/commonRes.js")?
         .read_to_end(&mut javascript)?;
 
-    let common_res = crate::parsers::doc::common_res::parse(&javascript);
+    let common_res = crate::parsers::doc::common_res::parse(&javascript)?;
     Ok(Info {
         title: about_info.prodname,
         version: common_res.version_information,

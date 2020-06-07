@@ -6,13 +6,15 @@ pub struct CommonRes {
     pub version_information: String,
     pub copyright: String,
 }
-fn decode_html_attributes(input: &str) -> String {
+fn decode_html_attributes(input: &str) -> Result<String, Box<dyn std::error::Error>> {
     #[derive(FromHtml, Debug)]
     struct HtmlText(#[html(attr = "inner")] String);
-    HtmlText::from_html(&input).unwrap().0
+    Ok(HtmlText::from_html(&input)?.0)
 }
-pub fn parse(file_contents: &[u8]) -> CommonRes {
-    let platform = v8::new_default_platform().unwrap();
+pub fn parse(file_contents: &[u8]) -> Result<CommonRes, Box<dyn std::error::Error>> {
+    let platform = v8::new_default_platform()
+        .take()
+        .ok_or("Error getting v8")?;
     v8::V8::initialize_platform(platform);
     v8::V8::initialize();
 
@@ -22,48 +24,53 @@ pub fn parse(file_contents: &[u8]) -> CommonRes {
     let scope = handle_scope.enter();
 
     let context = v8::Context::new(scope);
-    let global = context.global(scope);
     let mut context_scope = v8::ContextScope::new(scope, context);
     let scope = context_scope.enter();
 
-    let code = v8::String::new_from_utf8(scope, file_contents, v8::NewStringType::Normal).unwrap();
+    let code = v8::String::new_from_utf8(scope, file_contents, v8::NewStringType::Normal)
+        .ok_or("Error creating code object")?;
 
-    let mut script = v8::Script::compile(scope, context, code, None).unwrap();
-    script.run(scope, context).unwrap();
+    let mut script =
+        v8::Script::compile(scope, context, code, None).ok_or("Error compiling Javascript")?;
+    script
+        .run(scope, context)
+        .ok_or("Error running Javascript")?;
 
     let version_key = rusty_v8::String::new(scope, "ID_VersionInformation")
-        .unwrap()
+        .ok_or("Error creating version string key")?
         .into();
-    let copyright_key = rusty_v8::String::new(scope, "ID_Copyright").unwrap().into();
-    assert!(context
-        .global(scope)
+    let copyright_key = rusty_v8::String::new(scope, "ID_Copyright")
+        .ok_or("Error creating copyright string key")?
+        .into();
+    let global = context.global(scope);
+    let version_value = global
         .get(scope, context, version_key)
-        .unwrap()
-        .is_string());
-    assert!(context
-        .global(scope)
+        .ok_or("Error getting version value")?;
+    let copyright_value = global
         .get(scope, context, copyright_key)
-        .unwrap()
-        .is_string());
+        .ok_or("Error getting copyright value")?;
+
+    if !version_value.is_string() {
+        Err("Expected version to be a string")?;
+    }
+    if !copyright_value.is_string() {
+        Err("Expected copyright to be a string")?;
+    }
 
     let version_information = decode_html_attributes(
-        &global
-            .get(scope, context, version_key)
-            .unwrap()
+        &version_value
             .to_string(scope)
-            .unwrap()
+            .ok_or("Expected to get string of version")?
             .to_rust_string_lossy(scope),
-    );
+    )?;
     let copyright = decode_html_attributes(
-        &global
-            .get(scope, context, copyright_key)
-            .unwrap()
+        &copyright_value
             .to_string(scope)
-            .unwrap()
+            .ok_or("Expected to get string of copyright")?
             .to_rust_string_lossy(scope),
-    );
-    CommonRes {
+    )?;
+    Ok(CommonRes {
         version_information,
         copyright,
-    }
+    })
 }
