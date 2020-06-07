@@ -31,11 +31,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     std::io::stdin().read_to_end(&mut zip_buffer)?;
 
     let mut zip = zip::ZipArchive::new(std::io::Cursor::new(zip_buffer))?;
-    let mut admin_op_file = zip.by_name("doc/landing-admin_operations.html")?;
 
     let mut html = String::new();
-    admin_op_file.read_to_string(&mut html)?;
-    std::mem::drop(admin_op_file);
+    zip.by_name("doc/landing-admin_operations.html")?
+        .read_to_string(&mut html)?;
     // let operations = LandingOperations::from_html(&html)?;
 
     let spec = OpenAPI {
