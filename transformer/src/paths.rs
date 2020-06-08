@@ -13,7 +13,7 @@ pub fn paths<R: Read + Seek>(zip: &mut ZipArchive<R>) -> Result<Paths, Box<dyn s
     let mut paths = Paths::new();
     for raw_op in admin_ops.raws {
         paths.entry(raw_op.path()?.into()).or_insert_with(|| {
-            openapiv3::ReferenceOr::Item(openapiv3::PathItem {
+            openapiv3::ReferenceOr::Item(PathItem {
                 ..Default::default()
             })
         });

@@ -1,7 +1,6 @@
-use serde::Serialize;
 use unhtml::FromHtml;
 
-#[derive(FromHtml, Debug, Serialize)]
+#[derive(FromHtml, Debug)]
 #[html]
 pub struct RawOperation {
     #[html(selector = "td:first-child > a", attr = "href")]
@@ -30,7 +29,7 @@ impl RawOperation {
     }
 }
 
-#[derive(FromHtml, Debug, Serialize)]
+#[derive(FromHtml, Debug)]
 pub struct LandingOperations {
     #[html(selector = "h2", attr = "inner")]
     pub subtitle: String,
