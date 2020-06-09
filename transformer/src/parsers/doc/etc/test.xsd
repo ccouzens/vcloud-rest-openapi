@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vmware.com/vcloud/v1.5" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:meta="http://www.vmware.com/vcloud/meta" elementFormDefault="qualified" targetNamespace="http://www.vmware.com/vcloud/v1.5" version="1.0">
+
+    <xs:include schemaLocationac="test_base.xsd"/>
+
+    <xs:element name="Test" type="TestType"/>
+    <xs:complexType name="TestType">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:content-type>application/vnd.ccouzens.test</meta:content-type>
+            </xs:appinfo>
+            <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A simple type to test the parser
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="BaseType">
+                <xs:sequence>
+                    <xs:element name="OptionalString" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                String that may or may not be here
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="RequiredString" type="xs:string" minOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                String that will be here
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ReadOnlyString" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                String that can not be modified
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CreateOnlyString" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">create</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                String that can only be modified on create
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="UpdateOnlyString" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">update</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                String that can only be modified on update
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BooleanField" type="xs:boolean" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Test boolean field
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DeprecatedField" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                This field is unused and is deprecated.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                            <xs:documentation source="deprecated">6.0</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="MultilineDoc" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                This is
+                                multiple
+                                lines of documentation.
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SignedThirtyTwo" type="xs:int" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                A signed 32 bit value
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BoundedCustom2" type="Custom2Type" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                A reference to another type, but only one or none
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="UnboundedCustom2" type="Custom3Type" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                A reference to many of another type
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="Custom2" type="Custom2Type"/>
+    <xs:complexType name="Custom2Type">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:content-type>application/vnd.ccouzens.custom2</meta:content-type>
+            </xs:appinfo>
+            <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Part of a test.
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:complexContent>
+            <xs:extension base="BaseType">
+                <xs:sequence>
+                    <xs:element name="SomeField" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Foo
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Custom3Type">
+        <xs:annotation>
+            <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Part of a test continued.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="BaseType">
+                <xs:sequence>
+                    <xs:element name="SomeField2" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">none</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                Bar
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
