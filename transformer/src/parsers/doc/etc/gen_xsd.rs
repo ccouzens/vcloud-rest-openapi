@@ -1,6 +1,9 @@
+const XML_SCHEMA_NS: &str = "http://www.w3.org/2001/XMLSchema";
+
 #[derive(Debug, PartialEq)]
 struct Annotation {
     description: String,
+    required: Option<bool>,
 }
 
 fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
@@ -10,7 +13,7 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
             name,
             children,
             ..
-        }) if namespace == "http://www.w3.org/2001/XMLSchema" && name == "annotation" => {
+        }) if namespace == XML_SCHEMA_NS && name == "annotation" => {
             let description = children
                 .iter()
                 .filter_map(|child| match child {
@@ -20,7 +23,7 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                         children,
                         attributes,
                         ..
-                    }) if namespace == "http://www.w3.org/2001/XMLSchema"
+                    }) if namespace == XML_SCHEMA_NS
                         && name == "documentation"
                         && attributes.get("lang").map(String::as_str) == Some("en") =>
                     {
@@ -32,8 +35,33 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                     _ => None,
                 })
                 .next()?;
+            let required = children
+                .iter()
+                .filter_map(|child| match child {
+                    xmltree::XMLNode::Element(xmltree::Element {
+                        namespace: Some(namespace),
+                        name,
+                        children,
+                        attributes,
+                        ..
+                    }) if namespace == XML_SCHEMA_NS
+                        && name == "documentation"
+                        && attributes.get("source").map(String::as_str) == Some("required") =>
+                    {
+                        match children.get(0) {
+                            Some(xmltree::XMLNode::Text(r)) if r == "true" => Some(true),
+                            Some(xmltree::XMLNode::Text(r)) if r == "false" => Some(false),
+                            _ => None,
+                        }
+                    }
+                    _ => None,
+                })
+                .next();
             let description = html2md::parse_html(description);
-            Some(Annotation { description })
+            Some(Annotation {
+                description,
+                required,
+            })
         }
         _ => None,
     }
@@ -54,7 +82,50 @@ fn test_parse_annotation() {
     assert_eq!(
         parse_annotation(&xmltree::XMLNode::Element(tree)),
         Some(Annotation {
-            description: "A base abstract **type** for all the  \ntypes.".to_owned()
+            description: "A base abstract **type** for all the  \ntypes.".to_owned(),
+            required: None
+        })
+    );
+}
+
+#[test]
+fn test_parse_annotation_required() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:documentation source="since">0.9</xs:documentation>
+        <xs:documentation xml:lang="en">
+            A field that is &lt;i&gt;required&lt;/i&gt;.
+        </xs:documentation>
+        <xs:documentation source="required">true</xs:documentation>
+    </xs:annotation>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_annotation(&xmltree::XMLNode::Element(tree)),
+        Some(Annotation {
+            description: "A field that is *required*.".to_owned(),
+            required: Some(true)
+        })
+    );
+}
+
+#[test]
+fn test_parse_annotation_not_required() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:documentation source="since">0.9</xs:documentation>
+        <xs:documentation xml:lang="en">
+            A field that is &lt;i&gt;not required&lt;/i&gt;.
+        </xs:documentation>
+        <xs:documentation source="required">false</xs:documentation>
+    </xs:annotation>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_annotation(&xmltree::XMLNode::Element(tree)),
+        Some(Annotation {
+            description: "A field that is *not required*.".to_owned(),
+            required: Some(false)
         })
     );
 }
@@ -70,7 +141,7 @@ fn basic() {
             name,
             children,
             ..
-        }) if namespace == "http://www.w3.org/2001/XMLSchema" && name == "schema" => {
+        }) if namespace == XML_SCHEMA_NS && name == "schema" => {
             for child in children {
                 match child {
                     xmltree::XMLNode::Element(xmltree::Element {
@@ -79,7 +150,7 @@ fn basic() {
                         children,
                         attributes,
                         ..
-                    }) if namespace == "http://www.w3.org/2001/XMLSchema"
+                    }) if namespace == XML_SCHEMA_NS
                         && name == "complexType"
                         && attributes.contains_key("name") =>
                     {
@@ -90,9 +161,7 @@ fn basic() {
                                 namespace: Some(namespace),
                                 children,
                                 ..
-                            })) if name == "annotation"
-                                && namespace == "http://www.w3.org/2001/XMLSchema" =>
-                            {
+                            })) if name == "annotation" && namespace == XML_SCHEMA_NS => {
                                 dbg!(children);
                             }
                             _ => panic!("no annotations"),
