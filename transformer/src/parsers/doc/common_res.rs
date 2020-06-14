@@ -1,15 +1,9 @@
 use rusty_v8 as v8;
-use unhtml::FromHtml;
 
 #[derive(Debug)]
 pub struct CommonRes {
     pub version_information: String,
     pub copyright: String,
-}
-fn decode_html_attributes(input: &str) -> Result<String, Box<dyn std::error::Error>> {
-    #[derive(FromHtml, Debug)]
-    struct HtmlText(#[html(attr = "inner")] String);
-    Ok(HtmlText::from_html(&input)?.0)
 }
 pub fn parse(file_contents: &[u8]) -> Result<CommonRes, Box<dyn std::error::Error>> {
     let platform = v8::new_default_platform()
@@ -57,18 +51,18 @@ pub fn parse(file_contents: &[u8]) -> Result<CommonRes, Box<dyn std::error::Erro
         Err("Expected copyright to be a string")?;
     }
 
-    let version_information = decode_html_attributes(
+    let version_information = html2md::parse_html(
         &version_value
             .to_string(scope)
             .ok_or("Expected to get string of version")?
             .to_rust_string_lossy(scope),
-    )?;
-    let copyright = decode_html_attributes(
+    );
+    let copyright = html2md::parse_html(
         &copyright_value
             .to_string(scope)
             .ok_or("Expected to get string of copyright")?
             .to_rust_string_lossy(scope),
-    )?;
+    );
     Ok(CommonRes {
         version_information,
         copyright,
