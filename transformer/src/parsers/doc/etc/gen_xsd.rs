@@ -1,10 +1,19 @@
 const XML_SCHEMA_NS: &str = "http://www.w3.org/2001/XMLSchema";
 
 #[derive(Debug, PartialEq)]
+enum Modifiable {
+    Create,
+    Update,
+    Always,
+    None,
+}
+
+#[derive(Debug, PartialEq)]
 struct Annotation {
     description: String,
     required: Option<bool>,
     deprecated: bool,
+    modifiable: Option<Modifiable>,
 }
 
 fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
@@ -72,12 +81,40 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                 }
                 _ => false,
             });
+            let modifiable = children
+                .iter()
+                .filter_map(|child| match child {
+                    xmltree::XMLNode::Element(xmltree::Element {
+                        namespace: Some(namespace),
+                        name,
+                        children,
+                        attributes,
+                        ..
+                    }) if namespace == XML_SCHEMA_NS
+                        && name == "documentation"
+                        && attributes.get("source").map(String::as_str) == Some("modifiable") =>
+                    {
+                        match children.get(0) {
+                            Some(xmltree::XMLNode::Text(r)) => match r.as_str() {
+                                "create" => Some(Modifiable::Create),
+                                "update" => Some(Modifiable::Update),
+                                "always" => Some(Modifiable::Always),
+                                "none" => Some(Modifiable::None),
+                                _ => None,
+                            },
+                            _ => None,
+                        }
+                    }
+                    _ => None,
+                })
+                .next();
 
             let description = html2md::parse_html(description);
             Some(Annotation {
                 description,
                 required,
                 deprecated,
+                modifiable,
             })
         }
         _ => None,
@@ -101,7 +138,8 @@ fn test_parse_annotation() {
         Some(Annotation {
             description: "A base abstract **type** for all the  \ntypes.".to_owned(),
             required: None,
-            deprecated: false
+            deprecated: false,
+            modifiable: None
         })
     );
 }
@@ -123,7 +161,8 @@ fn test_parse_annotation_required() {
         Some(Annotation {
             description: "A field that is *required*.".to_owned(),
             required: Some(true),
-            deprecated: false
+            deprecated: false,
+            modifiable: None
         })
     );
 }
@@ -145,7 +184,8 @@ fn test_parse_annotation_not_required() {
         Some(Annotation {
             description: "A field that is *not required*.".to_owned(),
             required: Some(false),
-            deprecated: false
+            deprecated: false,
+            modifiable: None
         })
     );
 }
@@ -166,7 +206,96 @@ fn test_parse_annotation_deprecated() {
         Some(Annotation {
             description: "A field that is *deprecated*.".to_owned(),
             required: None,
-            deprecated: true
+            deprecated: true,
+            modifiable: None
+        })
+    );
+}
+
+#[test]
+fn test_parse_annotation_modifiable_create() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:documentation source="modifiable">create</xs:documentation>
+        <xs:documentation xml:lang="en">
+            A field that is only settable on &lt;i&gt;create&lt;/i&gt;.
+        </xs:documentation>
+        </xs:annotation>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_annotation(&xmltree::XMLNode::Element(tree)),
+        Some(Annotation {
+            description: "A field that is only settable on *create*.".to_owned(),
+            required: None,
+            deprecated: false,
+            modifiable: Some(Modifiable::Create)
+        })
+    );
+}
+
+#[test]
+fn test_parse_annotation_modifiable_update() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:documentation source="modifiable">update</xs:documentation>
+        <xs:documentation xml:lang="en">
+            A field that is only settable on &lt;i&gt;update&lt;/i&gt;.
+        </xs:documentation>
+        </xs:annotation>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_annotation(&xmltree::XMLNode::Element(tree)),
+        Some(Annotation {
+            description: "A field that is only settable on *update*.".to_owned(),
+            required: None,
+            deprecated: false,
+            modifiable: Some(Modifiable::Update)
+        })
+    );
+}
+
+#[test]
+fn test_parse_annotation_modifiable_always() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:documentation source="modifiable">always</xs:documentation>
+        <xs:documentation xml:lang="en">
+            A field that is &lt;i&gt;always&lt;/i&gt; settable.
+        </xs:documentation>
+        </xs:annotation>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_annotation(&xmltree::XMLNode::Element(tree)),
+        Some(Annotation {
+            description: "A field that is *always* settable.".to_owned(),
+            required: None,
+            deprecated: false,
+            modifiable: Some(Modifiable::Always)
+        })
+    );
+}
+
+#[test]
+fn test_parse_annotation_modifiable_none() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:documentation source="modifiable">none</xs:documentation>
+        <xs:documentation xml:lang="en">
+            A field that is &lt;i&gt;read only&lt;/i&gt;.
+        </xs:documentation>
+        </xs:annotation>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_annotation(&xmltree::XMLNode::Element(tree)),
+        Some(Annotation {
+            description: "A field that is *read only*.".to_owned(),
+            required: None,
+            deprecated: false,
+            modifiable: Some(Modifiable::None)
         })
     );
 }
