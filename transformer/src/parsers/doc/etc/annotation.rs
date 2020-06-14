@@ -1,4 +1,4 @@
-use crate::parsers::doc::etc::gen_xsd::XML_SCHEMA_NS;
+use crate::parsers::doc::etc::XML_SCHEMA_NS;
 
 #[derive(Debug, PartialEq)]
 enum Modifiable {
@@ -73,8 +73,11 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                         && attributes.get("source").map(String::as_str) == Some("required") =>
                     {
                         match children.get(0) {
-                            Some(xmltree::XMLNode::Text(r)) if r == "true" => Some(true),
-                            Some(xmltree::XMLNode::Text(r)) if r == "false" => Some(false),
+                            Some(xmltree::XMLNode::Text(r)) => match r.trim() {
+                                "true" => Some(true),
+                                "false" => Some(false),
+                                _ => None,
+                            },
                             _ => None,
                         }
                     }
@@ -109,7 +112,7 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                         && attributes.get("source").map(String::as_str) == Some("modifiable") =>
                     {
                         match children.get(0) {
-                            Some(xmltree::XMLNode::Text(r)) => match r.as_str() {
+                            Some(xmltree::XMLNode::Text(r)) => match r.trim() {
                                 "create" => Some(Modifiable::Create),
                                 "update" => Some(Modifiable::Update),
                                 "always" => Some(Modifiable::Always),
@@ -143,7 +146,7 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                                 && name == "content-type" =>
                             {
                                 match children.get(0) {
-                                    Some(xmltree::XMLNode::Text(ct)) => Some(ct),
+                                    Some(xmltree::XMLNode::Text(ct)) => Some(ct.trim().to_owned()),
                                     _ => None,
                                 }
                             }
@@ -152,8 +155,7 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                         .next(),
                     _ => None,
                 })
-                .next()
-                .cloned();
+                .next();
 
             Some(Annotation {
                 description,
@@ -223,7 +225,9 @@ fn test_parse_annotation_not_required() {
         <xs:documentation xml:lang="en">
             A field that is &lt;i&gt;not required&lt;/i&gt;.
         </xs:documentation>
-        <xs:documentation source="required">false</xs:documentation>
+        <xs:documentation source="required">
+          false
+        </xs:documentation>
     </xs:annotation>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
@@ -266,7 +270,9 @@ fn test_parse_annotation_deprecated() {
 fn test_parse_annotation_modifiable_create() {
     let xml: &[u8] = br#"
     <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
-        <xs:documentation source="modifiable">create</xs:documentation>
+        <xs:documentation source="modifiable">
+          create
+        </xs:documentation>
         <xs:documentation xml:lang="en">
             A field that is only settable on &lt;i&gt;create&lt;/i&gt;.
         </xs:documentation>
@@ -359,7 +365,9 @@ fn test_parse_content_type() {
     let xml: &[u8] = br#"
     <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
         <xs:appinfo>
-            <meta:content-type>application/vnd.ccouzens.test</meta:content-type>
+            <meta:content-type>
+              application/vnd.ccouzens.test
+            </meta:content-type>
         </xs:appinfo>
         <xs:documentation xml:lang="en">
             A type with a content type.

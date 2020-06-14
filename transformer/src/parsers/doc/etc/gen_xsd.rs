@@ -1,4 +1,4 @@
-pub const XML_SCHEMA_NS: &str = "http://www.w3.org/2001/XMLSchema";
+use crate::parsers::doc::etc::XML_SCHEMA_NS;
 
 #[test]
 fn basic() {
