@@ -4,15 +4,10 @@ use crate::parsers::doc::etc::parse_annotation;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
 
 #[derive(Debug, PartialEq)]
-pub(super) enum MinOccurrences {
-    Zero,
+pub(super) enum Occurrences {
+    Optional,
     One,
-}
-
-#[derive(Debug, PartialEq)]
-pub(super) enum MaxOccurrences {
-    One,
-    Unbounded,
+    Array,
 }
 
 #[derive(Debug, PartialEq)]
@@ -20,8 +15,7 @@ pub(super) struct SequenceElement {
     pub(super) annotation: Option<Annotation>,
     pub(super) name: String,
     pub(super) r#type: String,
-    pub(super) min_occurs: Option<MinOccurrences>,
-    pub(super) max_occurs: Option<MaxOccurrences>,
+    occurrences: Occurrences,
 }
 
 pub(super) fn parse_sequence_element(input: &xmltree::XMLNode) -> Option<SequenceElement> {
@@ -43,18 +37,26 @@ pub(super) fn parse_sequence_element(input: &xmltree::XMLNode) -> Option<Sequenc
                 .map(|(i, c)| if i == 0 { c.to_ascii_lowercase() } else { c })
                 .collect();
             let r#type = attributes.get("type")?.to_owned();
-            let min_occurs = match attributes.get("minOccurs").map(String::as_str) {
-                Some("0") => Some(MinOccurrences::Zero),
-                Some("1") => Some(MinOccurrences::One),
-                _ => None,
+            let occurrences = match (
+                attributes
+                    .get("minOccurs")
+                    .map(String::as_str)
+                    .unwrap_or("1"),
+                attributes
+                    .get("maxOccurs")
+                    .map(String::as_str)
+                    .unwrap_or("1"),
+            ) {
+                (_, "unbounded") => Occurrences::Array,
+                ("0", _) => Occurrences::Optional,
+                _ => Occurrences::One,
             };
             let annotation = children.iter().filter_map(parse_annotation).next();
             Some(SequenceElement {
                 annotation,
                 name,
                 r#type,
-                min_occurs,
-                max_occurs: None,
+                occurrences,
             })
         }
         _ => None,
@@ -62,7 +64,7 @@ pub(super) fn parse_sequence_element(input: &xmltree::XMLNode) -> Option<Sequenc
 }
 
 #[test]
-fn test_parse_sequence_element() {
+fn test_parse_sequence_element_optional() {
     let xml: &[u8] = br#"
     <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:string" minOccurs="0">
         <xs:annotation>
@@ -87,8 +89,69 @@ fn test_parse_sequence_element() {
             }),
             name: "baseField".to_owned(),
             r#type: "xs:string".to_owned(),
-            min_occurs: Some(MinOccurrences::Zero),
-            max_occurs: None
+            occurrences: Occurrences::Optional
+        })
+    );
+}
+
+#[test]
+fn test_parse_sequence_element_array() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:int" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that could be repeated many times in the &lt;code&gt;XML&lt;/code&gt;.
+            </xs:documentation>
+            <xs:documentation source="required">false</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_sequence_element(&xmltree::XMLNode::Element(tree)),
+        Some(SequenceElement {
+            annotation: Some(Annotation {
+                description: "A field that could be repeated many times in the `XML`.".to_owned(),
+                required: Some(false),
+                deprecated: false,
+                modifiable: Some(Modifiable::None),
+                content_type: None
+            }),
+            name: "baseField".to_owned(),
+            r#type: "xs:int".to_owned(),
+            occurrences: Occurrences::Array
+        })
+    );
+}
+
+#[test]
+fn test_parse_sequence_element_exactly_one() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:boolean">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that appears precisely once in the &lt;code&gt;XML&lt;/code&gt;.
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_sequence_element(&xmltree::XMLNode::Element(tree)),
+        Some(SequenceElement {
+            annotation: Some(Annotation {
+                description: "A field that appears precisely once in the `XML`.".to_owned(),
+                required: Some(true),
+                deprecated: false,
+                modifiable: Some(Modifiable::None),
+                content_type: None
+            }),
+            name: "baseField".to_owned(),
+            r#type: "xs:boolean".to_owned(),
+            occurrences: Occurrences::One
         })
     );
 }
