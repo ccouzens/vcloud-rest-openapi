@@ -1,7 +1,7 @@
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
 
 #[derive(Debug, PartialEq)]
-enum Modifiable {
+pub(super) enum Modifiable {
     Create,
     Update,
     Always,
@@ -9,7 +9,7 @@ enum Modifiable {
 }
 
 impl Modifiable {
-    fn is_readonly(&self) -> bool {
+    pub(super) fn is_readonly(&self) -> bool {
         match self {
             Modifiable::Create => false,
             Modifiable::Update => false,
@@ -20,15 +20,15 @@ impl Modifiable {
 }
 
 #[derive(Debug, PartialEq)]
-struct Annotation {
-    description: String,
-    required: Option<bool>,
-    deprecated: bool,
-    modifiable: Option<Modifiable>,
-    content_type: Option<String>,
+pub(super) struct Annotation {
+    pub(super) description: String,
+    pub(super) required: Option<bool>,
+    pub(super) deprecated: bool,
+    pub(super) modifiable: Option<Modifiable>,
+    pub(super) content_type: Option<String>,
 }
 
-fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
+pub(super) fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
     match input {
         xmltree::XMLNode::Element(xmltree::Element {
             namespace: Some(namespace),
