@@ -14,6 +14,7 @@ struct Annotation {
     required: Option<bool>,
     deprecated: bool,
     modifiable: Option<Modifiable>,
+    content_type: Option<String>,
 }
 
 fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
@@ -24,27 +25,29 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
             children,
             ..
         }) if namespace == XML_SCHEMA_NS && name == "annotation" => {
-            let description = children
-                .iter()
-                .filter_map(|child| match child {
-                    xmltree::XMLNode::Element(xmltree::Element {
-                        namespace: Some(namespace),
-                        name,
-                        children,
-                        attributes,
-                        ..
-                    }) if namespace == XML_SCHEMA_NS
-                        && name == "documentation"
-                        && attributes.get("lang").map(String::as_str) == Some("en") =>
-                    {
-                        match children.get(0) {
-                            Some(xmltree::XMLNode::Text(doc)) => Some(doc),
-                            _ => None,
+            let description = html2md::parse_html(
+                children
+                    .iter()
+                    .filter_map(|child| match child {
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name,
+                            children,
+                            attributes,
+                            ..
+                        }) if namespace == XML_SCHEMA_NS
+                            && name == "documentation"
+                            && attributes.get("lang").map(String::as_str) == Some("en") =>
+                        {
+                            match children.get(0) {
+                                Some(xmltree::XMLNode::Text(doc)) => Some(doc),
+                                _ => None,
+                            }
                         }
-                    }
-                    _ => None,
-                })
-                .next()?;
+                        _ => None,
+                    })
+                    .next()?,
+            );
             let required = children
                 .iter()
                 .filter_map(|child| match child {
@@ -109,12 +112,44 @@ fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                 })
                 .next();
 
-            let description = html2md::parse_html(description);
+            let content_type = children
+                .iter()
+                .filter_map(|child| match child {
+                    xmltree::XMLNode::Element(xmltree::Element {
+                        namespace: Some(namespace),
+                        name,
+                        children,
+                        ..
+                    }) if namespace == XML_SCHEMA_NS && name == "appinfo" => children
+                        .iter()
+                        .filter_map(|child| match child {
+                            xmltree::XMLNode::Element(xmltree::Element {
+                                namespace: Some(namespace),
+                                name,
+                                children,
+                                ..
+                            }) if namespace == "http://www.vmware.com/vcloud/meta"
+                                && name == "content-type" =>
+                            {
+                                match children.get(0) {
+                                    Some(xmltree::XMLNode::Text(ct)) => Some(ct),
+                                    _ => None,
+                                }
+                            }
+                            _ => None,
+                        })
+                        .next(),
+                    _ => None,
+                })
+                .next()
+                .cloned();
+
             Some(Annotation {
                 description,
                 required,
                 deprecated,
                 modifiable,
+                content_type,
             })
         }
         _ => None,
@@ -139,7 +174,8 @@ fn test_parse_annotation() {
             description: "A base abstract **type** for all the  \ntypes.".to_owned(),
             required: None,
             deprecated: false,
-            modifiable: None
+            modifiable: None,
+            content_type: None
         })
     );
 }
@@ -162,7 +198,8 @@ fn test_parse_annotation_required() {
             description: "A field that is *required*.".to_owned(),
             required: Some(true),
             deprecated: false,
-            modifiable: None
+            modifiable: None,
+            content_type: None
         })
     );
 }
@@ -185,7 +222,8 @@ fn test_parse_annotation_not_required() {
             description: "A field that is *not required*.".to_owned(),
             required: Some(false),
             deprecated: false,
-            modifiable: None
+            modifiable: None,
+            content_type: None
         })
     );
 }
@@ -207,7 +245,8 @@ fn test_parse_annotation_deprecated() {
             description: "A field that is *deprecated*.".to_owned(),
             required: None,
             deprecated: true,
-            modifiable: None
+            modifiable: None,
+            content_type: None
         })
     );
 }
@@ -229,7 +268,8 @@ fn test_parse_annotation_modifiable_create() {
             description: "A field that is only settable on *create*.".to_owned(),
             required: None,
             deprecated: false,
-            modifiable: Some(Modifiable::Create)
+            modifiable: Some(Modifiable::Create),
+            content_type: None
         })
     );
 }
@@ -251,7 +291,8 @@ fn test_parse_annotation_modifiable_update() {
             description: "A field that is only settable on *update*.".to_owned(),
             required: None,
             deprecated: false,
-            modifiable: Some(Modifiable::Update)
+            modifiable: Some(Modifiable::Update),
+            content_type: None
         })
     );
 }
@@ -273,7 +314,8 @@ fn test_parse_annotation_modifiable_always() {
             description: "A field that is *always* settable.".to_owned(),
             required: None,
             deprecated: false,
-            modifiable: Some(Modifiable::Always)
+            modifiable: Some(Modifiable::Always),
+            content_type: None
         })
     );
 }
@@ -295,7 +337,33 @@ fn test_parse_annotation_modifiable_none() {
             description: "A field that is *read only*.".to_owned(),
             required: None,
             deprecated: false,
-            modifiable: Some(Modifiable::None)
+            modifiable: Some(Modifiable::None),
+            content_type: None
+        })
+    );
+}
+
+#[test]
+fn test_parse_content_type() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
+        <xs:appinfo>
+            <meta:content-type>application/vnd.ccouzens.test</meta:content-type>
+        </xs:appinfo>
+        <xs:documentation xml:lang="en">
+            A type with a content type.
+        </xs:documentation>
+        </xs:annotation>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        parse_annotation(&xmltree::XMLNode::Element(tree)),
+        Some(Annotation {
+            description: "A type with a content type.".to_owned(),
+            required: None,
+            deprecated: false,
+            modifiable: None,
+            content_type: Some("application/vnd.ccouzens.test".to_owned())
         })
     );
 }
