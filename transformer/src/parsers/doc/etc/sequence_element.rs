@@ -15,7 +15,7 @@ pub(super) struct SequenceElement {
     pub(super) annotation: Option<Annotation>,
     pub(super) name: String,
     pub(super) r#type: String,
-    occurrences: Occurrences,
+    pub(super) occurrences: Occurrences,
 }
 
 pub(super) fn parse_sequence_element(input: &xmltree::XMLNode) -> Option<SequenceElement> {
