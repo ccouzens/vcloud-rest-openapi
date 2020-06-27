@@ -1,9 +1,12 @@
 use crate::parsers::doc::etc::annotation::Annotation;
+#[cfg(test)]
 use crate::parsers::doc::etc::annotation::Modifiable;
-use crate::parsers::doc::etc::parse_annotation;
-use crate::parsers::doc::etc::parse_sequence_element;
-use crate::parsers::doc::etc::sequence_element::{Occurrences, SequenceElement};
+#[cfg(test)]
+use crate::parsers::doc::etc::sequence_element::Occurrences;
+use crate::parsers::doc::etc::sequence_element::SequenceElement;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
+use std::convert::TryFrom;
+use thiserror::Error;
 
 #[derive(Debug, PartialEq)]
 pub(super) struct ComplexType {
@@ -13,86 +16,105 @@ pub(super) struct ComplexType {
     pub(super) parent: Option<String>,
 }
 
-pub(super) fn parse_complex_type(input: &xmltree::XMLNode) -> Option<ComplexType> {
-    match input {
-        xmltree::XMLNode::Element(xmltree::Element {
-            namespace: Some(namespace),
-            name,
-            attributes,
-            children,
-            ..
-        }) if namespace == XML_SCHEMA_NS && name == "complexType" => {
-            let name = attributes.get("name")?.clone();
-            let annotation = children.iter().filter_map(parse_annotation).next()?;
-            let mut sequence_elements = Vec::new();
-            let mut parent = None;
+#[derive(Error, Debug, PartialEq)]
+pub enum ComplexTypeParseError {
+    #[error("not a complex type node")]
+    NotComplexTypeNode,
+    #[error("missing name attribute")]
+    MissingName,
+    #[error("missing annotation element")]
+    MissingAnnotation,
+}
 
-            for child in children {
-                match child {
-                    xmltree::XMLNode::Element(xmltree::Element {
-                        namespace: Some(namespace),
-                        name,
-                        children,
-                        ..
-                    }) if namespace == XML_SCHEMA_NS && name == "sequence" => {
-                        sequence_elements
-                            .extend(children.iter().filter_map(parse_sequence_element));
-                    }
-                    xmltree::XMLNode::Element(xmltree::Element {
-                        namespace: Some(namespace),
-                        name,
-                        children,
-                        ..
-                    }) if namespace == XML_SCHEMA_NS && name == "complexContent" => {
-                        for child in children {
-                            match child {
-                                xmltree::XMLNode::Element(xmltree::Element {
-                                    attributes,
-                                    namespace: Some(namespace),
-                                    name,
-                                    children,
-                                    ..
-                                }) if namespace == XML_SCHEMA_NS && name == "extension" => {
-                                    parent = attributes.get("base").cloned();
-                                    for child in children {
-                                        match child {
-                                            xmltree::XMLNode::Element(xmltree::Element {
-                                                namespace: Some(namespace),
-                                                name,
-                                                children,
-                                                ..
-                                            }) if namespace == XML_SCHEMA_NS
-                                                && name == "sequence" =>
-                                            {
-                                                sequence_elements.extend(
-                                                    children
-                                                        .iter()
-                                                        .filter_map(parse_sequence_element),
-                                                );
+impl TryFrom<&xmltree::XMLNode> for ComplexType {
+    type Error = ComplexTypeParseError;
+
+    fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
+        match value {
+            xmltree::XMLNode::Element(xmltree::Element {
+                namespace: Some(namespace),
+                name,
+                attributes,
+                children,
+                ..
+            }) if namespace == XML_SCHEMA_NS && name == "complexType" => {
+                let name = attributes
+                    .get("name")
+                    .ok_or(ComplexTypeParseError::MissingName)?
+                    .clone();
+                let annotation = children
+                    .iter()
+                    .filter_map(|c| Annotation::try_from(c).ok())
+                    .next()
+                    .ok_or(ComplexTypeParseError::MissingAnnotation)?;
+                let mut sequence_elements = Vec::new();
+                let mut parent = None;
+                for child in children {
+                    match child {
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name,
+                            children,
+                            ..
+                        }) if namespace == XML_SCHEMA_NS && name == "sequence" => {
+                            sequence_elements
+                                .extend(children.iter().flat_map(SequenceElement::try_from));
+                        }
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name,
+                            children,
+                            ..
+                        }) if namespace == XML_SCHEMA_NS && name == "complexContent" => {
+                            for child in children {
+                                match child {
+                                    xmltree::XMLNode::Element(xmltree::Element {
+                                        attributes,
+                                        namespace: Some(namespace),
+                                        name,
+                                        children,
+                                        ..
+                                    }) if namespace == XML_SCHEMA_NS && name == "extension" => {
+                                        parent = attributes.get("base").cloned();
+                                        for child in children {
+                                            match child {
+                                                xmltree::XMLNode::Element(xmltree::Element {
+                                                    namespace: Some(namespace),
+                                                    name,
+                                                    children,
+                                                    ..
+                                                }) if namespace == XML_SCHEMA_NS
+                                                    && name == "sequence" =>
+                                                {
+                                                    sequence_elements.extend(
+                                                        children
+                                                            .iter()
+                                                            .flat_map(SequenceElement::try_from),
+                                                    );
+                                                }
+                                                _ => {}
                                             }
-                                            _ => {}
                                         }
+                                        sequence_elements.extend(
+                                            children.iter().flat_map(SequenceElement::try_from),
+                                        );
                                     }
-                                    sequence_elements
-                                        .extend(children.iter().filter_map(parse_sequence_element));
+                                    _ => {}
                                 }
-                                _ => {}
                             }
                         }
+                        _ => {}
                     }
-
-                    _ => {}
                 }
+                Ok(ComplexType {
+                    name,
+                    annotation,
+                    sequence_elements,
+                    parent,
+                })
             }
-
-            Some(ComplexType {
-                name,
-                annotation,
-                sequence_elements,
-                parent,
-            })
+            _ => Err(ComplexTypeParseError::NotComplexTypeNode),
         }
-        _ => None,
     }
 }
 
@@ -122,8 +144,8 @@ fn parse_base_type_test() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_complex_type(&xmltree::XMLNode::Element(tree)),
-        Some(ComplexType {
+        ComplexType::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(ComplexType {
             annotation: Annotation {
                 description: "A base abstract type for all the types.".to_owned(),
                 required: None,
@@ -189,8 +211,8 @@ fn parse_type_wth_parent_test() {
     </xs:complexType>    "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_complex_type(&xmltree::XMLNode::Element(tree)),
-        Some(ComplexType {
+        ComplexType::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(ComplexType {
             annotation: Annotation {
                 description: "A simple type to test the parser".to_owned(),
                 required: None,

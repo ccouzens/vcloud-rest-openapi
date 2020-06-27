@@ -13,6 +13,7 @@ rusty_v8 = "0.5.1"
 openapiv3 = "0.3.2"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+thiserror = "1.0"
 unhtml = "0.7.5"
 unhtml_derive = "0.7.5"
 xmltree = "0.10"

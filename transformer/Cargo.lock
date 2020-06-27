@@ -936,6 +936,7 @@ dependencies = [
  "rusty_v8",
  "serde",
  "serde_json",
+ "thiserror",
  "unhtml",
  "unhtml_derive",
  "xmltree",

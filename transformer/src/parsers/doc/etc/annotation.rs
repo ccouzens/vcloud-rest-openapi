@@ -1,4 +1,6 @@
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
+use std::convert::TryFrom;
+use thiserror::Error;
 
 #[derive(Debug, PartialEq)]
 pub(super) enum Modifiable {
@@ -28,16 +30,50 @@ pub(super) struct Annotation {
     pub(super) content_type: Option<String>,
 }
 
-pub(super) fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
-    match input {
-        xmltree::XMLNode::Element(xmltree::Element {
-            namespace: Some(namespace),
-            name,
-            children,
-            ..
-        }) if namespace == XML_SCHEMA_NS && name == "annotation" => {
-            let description = html2md::parse_html(
-                children
+#[derive(Error, Debug, PartialEq)]
+pub enum AnnotationParseError {
+    #[error("missing description")]
+    NoDescription,
+    #[error("not an annotation node")]
+    NotAnnotationNode,
+}
+
+impl TryFrom<&xmltree::XMLNode> for Annotation {
+    type Error = AnnotationParseError;
+
+    fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
+        match value {
+            xmltree::XMLNode::Element(xmltree::Element {
+                namespace: Some(namespace),
+                name,
+                children,
+                ..
+            }) if namespace == XML_SCHEMA_NS && name == "annotation" => {
+                let description = html2md::parse_html(
+                    children
+                        .iter()
+                        .filter_map(|child| match child {
+                            xmltree::XMLNode::Element(xmltree::Element {
+                                namespace: Some(namespace),
+                                name,
+                                children,
+                                attributes,
+                                ..
+                            }) if namespace == XML_SCHEMA_NS
+                                && name == "documentation"
+                                && attributes.get("lang").map(String::as_str) == Some("en") =>
+                            {
+                                match children.get(0) {
+                                    Some(xmltree::XMLNode::Text(doc)) => Some(doc),
+                                    _ => None,
+                                }
+                            }
+                            _ => None,
+                        })
+                        .next()
+                        .ok_or(AnnotationParseError::NoDescription)?,
+                );
+                let required = children
                     .iter()
                     .filter_map(|child| match child {
                         xmltree::XMLNode::Element(xmltree::Element {
@@ -48,124 +84,104 @@ pub(super) fn parse_annotation(input: &xmltree::XMLNode) -> Option<Annotation> {
                             ..
                         }) if namespace == XML_SCHEMA_NS
                             && name == "documentation"
-                            && attributes.get("lang").map(String::as_str) == Some("en") =>
+                            && attributes.get("source").map(String::as_str) == Some("required") =>
                         {
                             match children.get(0) {
-                                Some(xmltree::XMLNode::Text(doc)) => Some(doc),
+                                Some(xmltree::XMLNode::Text(r)) => match r.trim() {
+                                    "true" => Some(true),
+                                    "false" => Some(false),
+                                    _ => None,
+                                },
                                 _ => None,
                             }
                         }
                         _ => None,
                     })
-                    .next()?,
-            );
-            let required = children
-                .iter()
-                .filter_map(|child| match child {
+                    .next();
+                let deprecated = children.iter().any(|child| match child {
                     xmltree::XMLNode::Element(xmltree::Element {
                         namespace: Some(namespace),
                         name,
-                        children,
                         attributes,
                         ..
                     }) if namespace == XML_SCHEMA_NS
                         && name == "documentation"
-                        && attributes.get("source").map(String::as_str) == Some("required") =>
+                        && attributes.get("source").map(String::as_str) == Some("deprecated") =>
                     {
-                        match children.get(0) {
-                            Some(xmltree::XMLNode::Text(r)) => match r.trim() {
-                                "true" => Some(true),
-                                "false" => Some(false),
-                                _ => None,
-                            },
-                            _ => None,
-                        }
+                        true
                     }
-                    _ => None,
-                })
-                .next();
-            let deprecated = children.iter().any(|child| match child {
-                xmltree::XMLNode::Element(xmltree::Element {
-                    namespace: Some(namespace),
-                    name,
-                    attributes,
-                    ..
-                }) if namespace == XML_SCHEMA_NS
-                    && name == "documentation"
-                    && attributes.get("source").map(String::as_str) == Some("deprecated") =>
-                {
-                    true
-                }
-                _ => false,
-            });
-            let modifiable = children
-                .iter()
-                .filter_map(|child| match child {
-                    xmltree::XMLNode::Element(xmltree::Element {
-                        namespace: Some(namespace),
-                        name,
-                        children,
-                        attributes,
-                        ..
-                    }) if namespace == XML_SCHEMA_NS
-                        && name == "documentation"
-                        && attributes.get("source").map(String::as_str) == Some("modifiable") =>
-                    {
-                        match children.get(0) {
-                            Some(xmltree::XMLNode::Text(r)) => match r.trim() {
-                                "create" => Some(Modifiable::Create),
-                                "update" => Some(Modifiable::Update),
-                                "always" => Some(Modifiable::Always),
-                                "none" => Some(Modifiable::None),
-                                _ => None,
-                            },
-                            _ => None,
-                        }
-                    }
-                    _ => None,
-                })
-                .next();
-
-            let content_type = children
-                .iter()
-                .filter_map(|child| match child {
-                    xmltree::XMLNode::Element(xmltree::Element {
-                        namespace: Some(namespace),
-                        name,
-                        children,
-                        ..
-                    }) if namespace == XML_SCHEMA_NS && name == "appinfo" => children
-                        .iter()
-                        .filter_map(|child| match child {
-                            xmltree::XMLNode::Element(xmltree::Element {
-                                namespace: Some(namespace),
-                                name,
-                                children,
-                                ..
-                            }) if namespace == "http://www.vmware.com/vcloud/meta"
-                                && name == "content-type" =>
-                            {
-                                match children.get(0) {
-                                    Some(xmltree::XMLNode::Text(ct)) => Some(ct.trim().to_owned()),
+                    _ => false,
+                });
+                let modifiable = children
+                    .iter()
+                    .filter_map(|child| match child {
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name,
+                            children,
+                            attributes,
+                            ..
+                        }) if namespace == XML_SCHEMA_NS
+                            && name == "documentation"
+                            && attributes.get("source").map(String::as_str)
+                                == Some("modifiable") =>
+                        {
+                            match children.get(0) {
+                                Some(xmltree::XMLNode::Text(r)) => match r.trim() {
+                                    "create" => Some(Modifiable::Create),
+                                    "update" => Some(Modifiable::Update),
+                                    "always" => Some(Modifiable::Always),
+                                    "none" => Some(Modifiable::None),
                                     _ => None,
-                                }
+                                },
+                                _ => None,
                             }
-                            _ => None,
-                        })
-                        .next(),
-                    _ => None,
+                        }
+                        _ => None,
+                    })
+                    .next();
+                let content_type = children
+                    .iter()
+                    .filter_map(|child| match child {
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name,
+                            children,
+                            ..
+                        }) if namespace == XML_SCHEMA_NS && name == "appinfo" => children
+                            .iter()
+                            .filter_map(|child| match child {
+                                xmltree::XMLNode::Element(xmltree::Element {
+                                    namespace: Some(namespace),
+                                    name,
+                                    children,
+                                    ..
+                                }) if namespace == "http://www.vmware.com/vcloud/meta"
+                                    && name == "content-type" =>
+                                {
+                                    match children.get(0) {
+                                        Some(xmltree::XMLNode::Text(ct)) => {
+                                            Some(ct.trim().to_owned())
+                                        }
+                                        _ => None,
+                                    }
+                                }
+                                _ => None,
+                            })
+                            .next(),
+                        _ => None,
+                    })
+                    .next();
+                Ok(Annotation {
+                    description,
+                    required,
+                    deprecated,
+                    modifiable,
+                    content_type,
                 })
-                .next();
-
-            Some(Annotation {
-                description,
-                required,
-                deprecated,
-                modifiable,
-                content_type,
-            })
+            }
+            _ => Err(AnnotationParseError::NotAnnotationNode),
         }
-        _ => None,
     }
 }
 
@@ -182,8 +198,8 @@ fn test_parse_annotation() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A base abstract **type** for all the  \ntypes.".to_owned(),
             required: None,
             deprecated: false,
@@ -206,8 +222,8 @@ fn test_parse_annotation_required() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A field that is *required*.".to_owned(),
             required: Some(true),
             deprecated: false,
@@ -232,8 +248,8 @@ fn test_parse_annotation_not_required() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A field that is *not required*.".to_owned(),
             required: Some(false),
             deprecated: false,
@@ -255,8 +271,8 @@ fn test_parse_annotation_deprecated() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A field that is *deprecated*.".to_owned(),
             required: None,
             deprecated: true,
@@ -280,8 +296,8 @@ fn test_parse_annotation_modifiable_create() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A field that is only settable on *create*.".to_owned(),
             required: None,
             deprecated: false,
@@ -303,8 +319,8 @@ fn test_parse_annotation_modifiable_update() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A field that is only settable on *update*.".to_owned(),
             required: None,
             deprecated: false,
@@ -326,8 +342,8 @@ fn test_parse_annotation_modifiable_always() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A field that is *always* settable.".to_owned(),
             required: None,
             deprecated: false,
@@ -349,8 +365,8 @@ fn test_parse_annotation_modifiable_none() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A field that is *read only*.".to_owned(),
             required: None,
             deprecated: false,
@@ -376,8 +392,8 @@ fn test_parse_content_type() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        parse_annotation(&xmltree::XMLNode::Element(tree)),
-        Some(Annotation {
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
             description: "A type with a content type.".to_owned(),
             required: None,
             deprecated: false,

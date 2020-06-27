@@ -1,8 +1,11 @@
+#[cfg(test)]
 use crate::parsers::doc::etc::annotation::{Annotation, Modifiable};
-use crate::parsers::doc::etc::complex_type::parse_complex_type;
 use crate::parsers::doc::etc::complex_type::ComplexType;
+#[cfg(test)]
 use crate::parsers::doc::etc::sequence_element::{Occurrences, SequenceElement};
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
+use std::convert::TryFrom;
+use thiserror::Error;
 
 #[derive(Debug, PartialEq)]
 pub(super) struct Schema {
@@ -10,31 +13,41 @@ pub(super) struct Schema {
     pub(super) complex_types: Vec<ComplexType>,
 }
 
-pub(super) fn parse_schema(input: &xmltree::XMLNode) -> Option<Schema> {
-    match input {
-        xmltree::XMLNode::Element(xmltree::Element {
-            namespace: Some(namespace),
-            name,
-            children,
-            ..
-        }) if namespace == XML_SCHEMA_NS && name == "schema" => Some(Schema {
-            complex_types: children.iter().filter_map(parse_complex_type).collect(),
-            includes: children
-                .iter()
-                .filter_map(|child| match child {
-                    xmltree::XMLNode::Element(xmltree::Element {
-                        namespace: Some(namespace),
-                        name,
-                        attributes,
-                        ..
-                    }) if namespace == XML_SCHEMA_NS && name == "include" => {
-                        attributes.get("schemaLocation").cloned()
-                    }
-                    _ => None,
-                })
-                .collect(),
-        }),
-        _ => None,
+#[derive(Error, Debug, PartialEq)]
+pub enum SchemaParseError {
+    #[error("not a schema node")]
+    NotSchemaNode,
+}
+
+impl TryFrom<&xmltree::XMLNode> for Schema {
+    type Error = SchemaParseError;
+
+    fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
+        match value {
+            xmltree::XMLNode::Element(xmltree::Element {
+                namespace: Some(namespace),
+                name,
+                children,
+                ..
+            }) if namespace == XML_SCHEMA_NS && name == "schema" => Ok(Schema {
+                complex_types: children.iter().flat_map(ComplexType::try_from).collect(),
+                includes: children
+                    .iter()
+                    .filter_map(|child| match child {
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name,
+                            attributes,
+                            ..
+                        }) if namespace == XML_SCHEMA_NS && name == "include" => {
+                            attributes.get("schemaLocation").cloned()
+                        }
+                        _ => None,
+                    })
+                    .collect(),
+            }),
+            _ => Err(SchemaParseError::NotSchemaNode),
+        }
     }
 }
 
@@ -42,8 +55,8 @@ pub(super) fn parse_schema(input: &xmltree::XMLNode) -> Option<Schema> {
 fn test_parse_base_schema() {
     let tree = xmltree::Element::parse(include_bytes!("test_base.xsd") as &[u8]).unwrap();
     assert_eq!(
-        parse_schema(&xmltree::XMLNode::Element(tree)),
-        Some(Schema {
+        Schema::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Schema {
             includes: vec![],
             complex_types: vec![ComplexType {
                 annotation: Annotation {
@@ -76,8 +89,8 @@ fn test_parse_base_schema() {
 fn test_parse_schema() {
     let tree = xmltree::Element::parse(include_bytes!("test.xsd") as &[u8]).unwrap();
     assert_eq!(
-        parse_schema(&xmltree::XMLNode::Element(tree)),
-        Some(Schema {
+        Schema::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Schema {
             includes: vec!["test_base.xsd".to_owned()],
             complex_types: vec![
                 ComplexType {
