@@ -678,20 +678,14 @@
               "resourceGuaranteedMemory": {
                 "nullable": true,
                 "description": "Percentage of allocated memory resources guaranteed to vApps deployed in this vDC. For example, if this value is 0.75, then 75% of allocated resources are guaranteed. Required when AllocationModel is AllocationVApp or AllocationPool. Value defaults to 1.0 if the element is empty.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "resourceGuaranteedCpu": {
                 "nullable": true,
                 "description": "Percentage of allocated CPU resources guaranteed to vApps deployed in this vDC. For example, if this value is 0.75, then 75% of allocated resources are guaranteed. Required when AllocationModel is AllocationVApp or AllocationPool. Value defaults to 1.0 if the element is empty.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "vCpuInMhz": {
                 "nullable": true,
@@ -821,20 +815,14 @@
               "resourceGuaranteedMemory": {
                 "nullable": true,
                 "description": "Percentage of allocated memory resources guaranteed to vApps deployed in this vDC. For example, if this value is 0.75, then 75% of allocated resources are guaranteed. Required when AllocationModel is AllocationVApp or AllocationPool. Value defaults to 1.0 if the element is empty.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "resourceGuaranteedCpu": {
                 "nullable": true,
                 "description": "Percentage of allocated CPU resources guaranteed to vApps deployed in this vDC. For example, if this value is 0.75, then 75% of allocated resources are guaranteed. Required when AllocationModel is AllocationVApp or AllocationPool. Value defaults to 1.0 if the element is empty.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "vCpuInMhz": {
                 "nullable": true,
@@ -1185,21 +1173,15 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Total capacity of this storage profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "capacityUsed": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Used capacity in this storage profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "iopsCapacity": {
                 "nullable": true,
@@ -7566,20 +7548,14 @@
               "memUsed": {
                 "readOnly": true,
                 "description": "The used memory in the host.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "memTotal": {
                 "readOnly": true,
                 "description": "The total memory in the host.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "hostOsName": {
                 "nullable": true,
@@ -8525,75 +8501,48 @@
               },
               "totalCapacityMb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "totalCapacityGb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "usedCapacityMb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "usedCapacityGb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "usedCapacityPercent": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "provisionedSpaceMb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "provisionedSpaceGb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "requestedStorageMb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "requestedStorageGb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "vimPropertyPageUrl": {
                 "nullable": true,
@@ -8658,19 +8607,13 @@
               },
               "freeStorageMb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "totalStorageMb": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "dataStoreRefs": {
                 "nullable": true,
@@ -14344,20 +14287,14 @@
               "inRateLimit": {
                 "nullable": true,
                 "description": "Incoming rate limit expressed as Gbps.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "outRateLimit": {
                 "nullable": true,
                 "description": "Outgoing rate limit expressed as Gbps.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:double"
-                  }
-                ]
+                "type": "number",
+                "format": "double"
               },
               "useForDefaultRoute": {
                 "nullable": true,

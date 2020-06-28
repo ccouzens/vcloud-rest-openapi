@@ -87,12 +87,18 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
 impl From<&SequenceElement> for openapiv3::Schema {
     fn from(s: &SequenceElement) -> Self {
         let reference_or_schema_type = match s.r#type.as_ref() {
-            "xs:string" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::String(Default::default()))
-            }
             "xs:anyURI" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
                     format: openapiv3::VariantOrUnknownOrEmpty::Unknown("uri".to_owned()),
+                    ..Default::default()
+                }))
+            }
+            "xs:boolean" => openapiv3::ReferenceOr::Item(openapiv3::Type::Boolean {}),
+            "xs:double" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::Number(openapiv3::NumberType {
+                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
+                        openapiv3::NumberFormat::Double,
+                    ),
                     ..Default::default()
                 }))
             }
@@ -104,7 +110,9 @@ impl From<&SequenceElement> for openapiv3::Schema {
                     ..Default::default()
                 }))
             }
-            "xs:boolean" => openapiv3::ReferenceOr::Item(openapiv3::Type::Boolean {}),
+            "xs:string" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::String(Default::default()))
+            }
             other => openapiv3::ReferenceOr::Reference {
                 reference: format!("#/components/schemas/{}", other),
             },
@@ -352,6 +360,33 @@ fn test_anyuri_into_schema() {
             "description": "A field that is meant to represent a URL.",
             "format": "uri",
             "type": "string",
+            "readOnly": true,
+        })
+    );
+}
+
+#[test]
+fn test_double_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:double">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that represents a double precision float
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A field that represents a double precision float",
+            "format": "double",
+            "type": "number",
             "readOnly": true,
         })
     );
