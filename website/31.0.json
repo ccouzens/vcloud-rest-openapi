@@ -5150,11 +5150,7 @@
               "vcTruststoreContents": {
                 "nullable": true,
                 "description": "vCenter truststore bytes (if used).",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:hexBinary"
-                  }
-                ]
+                "type": "string"
               },
               "vcTruststoreType": {
                 "nullable": true,
@@ -5734,11 +5730,7 @@
               "loginPageCustomizationTheme": {
                 "nullable": true,
                 "description": "Allows setting a login page custom theme. See the online help for more information.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:hexBinary"
-                  }
-                ]
+                "type": "string"
               },
               "theme": {
                 "nullable": true,
@@ -5748,20 +5740,12 @@
               "previewCustomTheme": {
                 "nullable": true,
                 "description": "Allows setting a custom theme. See the online help for more information.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:hexBinary"
-                  }
-                ]
+                "type": "string"
               },
               "finalCustomTheme": {
                 "nullable": true,
                 "description": "The online help provides information on how you can customize the vCloud Director Web console theme.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:hexBinary"
-                  }
-                ]
+                "type": "string"
               },
               "aboutCompanyUrl": {
                 "nullable": true,
