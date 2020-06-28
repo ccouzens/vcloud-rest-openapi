@@ -90,6 +90,12 @@ impl From<&SequenceElement> for openapiv3::Schema {
             "xs:string" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::String(Default::default()))
             }
+            "xs:anyURI" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
+                    format: openapiv3::VariantOrUnknownOrEmpty::Unknown("uri".to_owned()),
+                    ..Default::default()
+                }))
+            }
             "xs:int" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(openapiv3::IntegerType {
                     format: openapiv3::VariantOrUnknownOrEmpty::Item(
@@ -319,6 +325,33 @@ fn test_sequence_element_exactly_one_into_schema() {
         json!({
             "description": "A field that appears precisely once in the `XML`.",
             "type": "boolean",
+            "readOnly": true,
+        })
+    );
+}
+
+#[test]
+fn test_anyuri_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:anyURI">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that is meant to represent a URL.
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A field that is meant to represent a URL.",
+            "format": "uri",
+            "type": "string",
             "readOnly": true,
         })
     );

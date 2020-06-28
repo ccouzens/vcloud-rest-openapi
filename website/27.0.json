@@ -2385,11 +2385,8 @@
             "properties": {
               "memberUrl": {
                 "description": "The URI of an organization to add to this association.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "memberName": {
                 "description": "The name of the organization whose URI is MemberUri.",
@@ -2736,11 +2733,8 @@
               "samlSPEntityId": {
                 "nullable": true,
                 "description": "Service Provider Entity ID to be used when generating SP Metadata",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "roleAttributeName": {
                 "nullable": true,
@@ -6263,11 +6257,8 @@
               },
               "url": {
                 "description": "URL of the server.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               }
             },
             "required": [
@@ -6331,11 +6322,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "vShield manager IP address or fully qualified domain name.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "shieldManagerUserName": {
                 "nullable": true,
@@ -8600,11 +8588,8 @@
         "type": "object",
         "properties": {
           "name": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:anyURI"
-              }
-            ]
+            "type": "string",
+            "format": "uri"
           },
           "value": {
             "allOf": [
@@ -8916,11 +8901,8 @@
               },
               "vdcHref": {
                 "description": "The ID of the VDC (virtual data center). Refer to vcloud1.5:EntityType#id for details",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "vCloudUILink": {
                 "description": "Link to manage this resource in vCloud Director.",

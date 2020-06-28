@@ -2679,11 +2679,8 @@
               "samlSPEntityId": {
                 "nullable": true,
                 "description": "Service Provider Entity ID to be used when generating SP Metadata",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "roleAttributeName": {
                 "nullable": true,
@@ -6206,11 +6203,8 @@
               },
               "url": {
                 "description": "URL of the server.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               }
             },
             "required": [
@@ -6274,11 +6268,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "vShield manager IP address or fully qualified domain name.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "shieldManagerUserName": {
                 "nullable": true,
@@ -8563,11 +8554,8 @@
         "type": "object",
         "properties": {
           "name": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:anyURI"
-              }
-            ]
+            "type": "string",
+            "format": "uri"
           },
           "value": {
             "allOf": [
@@ -8949,11 +8937,8 @@
               },
               "vdcHref": {
                 "description": "The ID of the VDC (virtual data center). Refer to vcloud1.5:EntityType#id for details",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "vCloudUILink": {
                 "description": "Link to manage this resource in vCloud Director.",
@@ -10756,19 +10741,13 @@
             "properties": {
               "restEndpoint": {
                 "description": "The URI of the REST API end\\-point for the site.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "tenantUiEndpoint": {
                 "description": "The URI of the Tenant UI end\\-point for the site.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "restEndpointCertificate": {
                 "nullable": true,
@@ -10797,11 +10776,8 @@
             "properties": {
               "multiSiteUrl": {
                 "description": "The URL that represents the entire multisite setup.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "siteAssociations": {
                 "nullable": true,
@@ -10994,19 +10970,13 @@
               },
               "restApiEndpoint": {
                 "description": "The vCloud API endpoint (RestApiBaseUri) for the location.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "uIEndpoint": {
                 "description": "The vCloud Director Web Console (SystemExternalHttpAddress) endpoint for the location.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyURI"
-                  }
-                ]
+                "type": "string",
+                "format": "uri"
               },
               "useMultisiteToken": {
                 "description": "True if the location accepts multisite x\\-vcloud\\-authorization token for this user.",
