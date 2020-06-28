@@ -2748,11 +2748,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "The expiration time of this org's certificate.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "samlSPEntityId": {
                 "nullable": true,
@@ -3098,11 +3095,8 @@
               "expirationDate": {
                 "nullable": true,
                 "description": "Expiration date for this key. If specified, tokens signed with this key should be considered invalid after this time.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               }
             },
             "required": [
@@ -3980,11 +3974,8 @@
               },
               "timestamp": {
                 "description": "Timestamp applied when the notification was posted.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "operationSuccess": {
                 "description": "True if the notification refers to a successful operation.",
@@ -5171,11 +5162,8 @@
               },
               "syncStartDate": {
                 "description": "Number of minutes to timeout client session.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "syncIntervalInHours": {
                 "description": "LDAP sync repeats interval time in hours.",
@@ -5906,11 +5894,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "The expiration date for this serial number. This is a read only field. for the API client. The license manager will set this field appropriately.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "validSerial": {
                 "nullable": true,
@@ -6023,11 +6008,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Date that the report was collected.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "publishingToRemoteSites": {
                 "nullable": true,
@@ -6317,30 +6299,21 @@
               "syncStartDate": {
                 "nullable": true,
                 "description": "Date and Time at which the synchronization will start.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "syncStopDate": {
                 "nullable": true,
                 "description": "Date and Time at which the synchronization will stop.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "nextSyncDate": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Date and Time at which the next synchronization will start.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "refreshInterval": {
                 "nullable": true,
@@ -8949,11 +8922,8 @@
               },
               "deletionDate": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "errorMessage": {
                 "nullable": true,
@@ -9748,11 +9718,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Creation date and time of the catalog.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "versionNumber": {
                 "nullable": true,
@@ -9850,11 +9817,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Creation date and time of the catalog item.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "versionNumber": {
                 "nullable": true,
@@ -16158,11 +16122,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Creation date/time of the vApp.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               }
             },
             "required": [
@@ -16415,11 +16376,8 @@
               "lastComplianceCheckTime": {
                 "readOnly": true,
                 "description": "Time when last compliance check for this VM for this policy was done. This is a read\\-only value.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "policyName": {
                 "readOnly": true,
@@ -16670,21 +16628,15 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Expiration date/time of deployment lease.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               },
               "storageLeaseExpiration": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Expiration date/time of storage lease.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               }
             },
             "required": [
@@ -18589,11 +18541,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "The date/time when the compliance check was run.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               }
             },
             "required": [
@@ -18690,11 +18639,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Creation date/time of the template.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:dateTime"
-                  }
-                ]
+                "type": "string",
+                "format": "date-time"
               }
             },
             "required": [

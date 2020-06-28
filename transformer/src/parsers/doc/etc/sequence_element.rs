@@ -94,6 +94,14 @@ impl From<&SequenceElement> for openapiv3::Schema {
                 }))
             }
             "xs:boolean" => openapiv3::ReferenceOr::Item(openapiv3::Type::Boolean {}),
+            "xs:dateTime" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
+                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
+                        openapiv3::StringFormat::DateTime,
+                    ),
+                    ..Default::default()
+                }))
+            }
             "xs:double" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::Number(openapiv3::NumberType {
                     format: openapiv3::VariantOrUnknownOrEmpty::Item(
@@ -422,6 +430,33 @@ fn test_long_into_schema() {
             "description": "A field that represents 64 bit signed integer",
             "format": "int64",
             "type": "integer",
+            "readOnly": true,
+        })
+    );
+}
+
+#[test]
+fn test_datetime_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:dateTime">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that represents date time in ISO 8601 which is basically RFC 3339.
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A field that represents date time in ISO 8601 which is basically RFC 3339.",
+            "format": "date-time",
+            "type": "string",
             "readOnly": true,
         })
     );
