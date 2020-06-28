@@ -87,6 +87,9 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
 impl From<&SequenceElement> for openapiv3::Schema {
     fn from(s: &SequenceElement) -> Self {
         let reference_or_schema_type = match s.r#type.as_ref() {
+            "xs:anyType" | "xs:hexBinary" | "xs:string" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::String(Default::default()))
+            }
             "xs:anyURI" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
                     format: openapiv3::VariantOrUnknownOrEmpty::Unknown("uri".to_owned()),
@@ -115,9 +118,6 @@ impl From<&SequenceElement> for openapiv3::Schema {
                     ),
                     ..Default::default()
                 }))
-            }
-            "xs:hexBinary" | "xs:string" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::String(Default::default()))
             }
             "xs:int" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(openapiv3::IntegerType {
@@ -545,6 +545,32 @@ fn test_integer_into_schema() {
         json!({
             "description": "Unbounded signed integer",
             "type": "integer",
+            "readOnly": true,
+        })
+    );
+}
+
+#[test]
+fn test_any_type_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:anyType">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that could be anything
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A field that could be anything",
+            "type": "string",
             "readOnly": true,
         })
     );

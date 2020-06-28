@@ -9514,11 +9514,7 @@
           "resultContent": {
             "nullable": true,
             "description": "An optional element that can be used to hold the result of operations.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:anyType"
-              }
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -15340,11 +15336,7 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "The parameters with which this task was started.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:anyType"
-                  }
-                ]
+                "type": "string"
               },
               "details": {
                 "nullable": true,
