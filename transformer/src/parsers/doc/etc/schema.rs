@@ -21,6 +21,24 @@ pub enum SchemaParseError {
     NotSchemaNode,
 }
 
+#[derive(Error, Debug)]
+pub enum SchemaFromBytesError {
+    #[error("XML parse error")]
+    XmlParse(#[from] xmltree::ParseError),
+    #[error("XSD parse error")]
+    XsdParse(#[from] SchemaParseError),
+}
+
+impl TryFrom<&[u8]> for Schema {
+    type Error = SchemaFromBytesError;
+
+    fn try_from(value: &[u8]) -> Result<Self, Self::Error> {
+        Ok(Self::try_from(&xmltree::XMLNode::Element(
+            xmltree::Element::parse(value)?,
+        ))?)
+    }
+}
+
 impl TryFrom<&xmltree::XMLNode> for Schema {
     type Error = SchemaParseError;
 
@@ -64,10 +82,9 @@ impl From<&Schema> for Vec<openapiv3::Schema> {
 
 #[test]
 fn test_parse_base_schema() {
-    let tree = xmltree::Element::parse(include_bytes!("test_base.xsd") as &[u8]).unwrap();
     assert_eq!(
-        Schema::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(Schema {
+        Schema::try_from(include_bytes!("test_base.xsd") as &[u8]).unwrap(),
+        Schema {
             includes: vec![],
             complex_types: vec![ComplexType {
                 annotation: Annotation {
@@ -92,16 +109,15 @@ fn test_parse_base_schema() {
                 }],
                 parent: None
             }]
-        })
+        }
     );
 }
 
 #[test]
 fn test_parse_schema() {
-    let tree = xmltree::Element::parse(include_bytes!("test.xsd") as &[u8]).unwrap();
     assert_eq!(
-        Schema::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(Schema {
+        Schema::try_from(include_bytes!("test.xsd") as &[u8]).unwrap(),
+        Schema {
             includes: vec!["test_base.xsd".to_owned()],
             complex_types: vec![
                 ComplexType {
@@ -299,14 +315,13 @@ fn test_parse_schema() {
                     parent: Some("BaseType".to_owned())
                 }
             ]
-        })
+        }
     );
 }
 
 #[test]
 fn base_schema_into_schemas_test() {
-    let tree = xmltree::Element::parse(include_bytes!("test_base.xsd") as &[u8]).unwrap();
-    let s = Schema::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Schema::try_from(include_bytes!("test_base.xsd") as &[u8]).unwrap();
     let value = Vec::<openapiv3::Schema>::from(&s);
 
     assert_eq!(
@@ -334,8 +349,7 @@ fn base_schema_into_schemas_test() {
 
 #[test]
 fn schema_into_schemas_test() {
-    let tree = xmltree::Element::parse(include_bytes!("test.xsd") as &[u8]).unwrap();
-    let s = Schema::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Schema::try_from(include_bytes!("test.xsd") as &[u8]).unwrap();
     let value = Vec::<openapiv3::Schema>::from(&s);
 
     assert_eq!(
