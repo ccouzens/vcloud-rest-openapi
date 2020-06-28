@@ -3680,11 +3680,8 @@
               "sslCertificateEncoded": {
                 "nullable": true,
                 "description": "SSL Certificate, if required. XSD formats byte[] as base64binary",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:base64Binary"
-                  }
-                ]
+                "type": "string",
+                "format": "byte"
               }
             },
             "required": [

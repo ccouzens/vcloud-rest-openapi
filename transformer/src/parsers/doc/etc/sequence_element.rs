@@ -93,6 +93,12 @@ impl From<&SequenceElement> for openapiv3::Schema {
                     ..Default::default()
                 }))
             }
+            "xs:base64Binary" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
+                    format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::Byte),
+                    ..Default::default()
+                }))
+            }
             "xs:boolean" => openapiv3::ReferenceOr::Item(openapiv3::Type::Boolean {}),
             "xs:dateTime" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
@@ -456,6 +462,33 @@ fn test_datetime_into_schema() {
         json!({
             "description": "A field that represents date time in ISO 8601 which is basically RFC 3339.",
             "format": "date-time",
+            "type": "string",
+            "readOnly": true,
+        })
+    );
+}
+
+#[test]
+fn test_base64_binary_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:base64Binary">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Base64 binary data
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "Base64 binary data",
+            "format": "byte",
             "type": "string",
             "readOnly": true,
         })
