@@ -127,6 +127,9 @@ impl From<&SequenceElement> for openapiv3::Schema {
                     ..Default::default()
                 }))
             }
+            "xs:integer" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(Default::default()))
+            }
             "xs:long" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(openapiv3::IntegerType {
                     format: openapiv3::VariantOrUnknownOrEmpty::Item(
@@ -516,6 +519,32 @@ fn test_hex_binary_into_schema() {
         json!({
             "description": "Hexadecimal binary data",
             "type": "string",
+            "readOnly": true,
+        })
+    );
+}
+
+#[test]
+fn test_integer_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:integer">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                Unbounded signed integer
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "Unbounded signed integer",
+            "type": "integer",
             "readOnly": true,
         })
     );

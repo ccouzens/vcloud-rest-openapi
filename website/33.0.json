@@ -1388,11 +1388,7 @@
               "priority": {
                 "nullable": true,
                 "description": "Specifies priority level of a extension selector association.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:integer"
-                  }
-                ]
+                "type": "integer"
               },
               "objectExtensionId": {
                 "description": "Opaque string identifying the associated registered object extension.",
