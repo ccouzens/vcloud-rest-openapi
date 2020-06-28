@@ -5,6 +5,8 @@ use crate::parsers::doc::etc::annotation::Modifiable;
 use crate::parsers::doc::etc::sequence_element::Occurrences;
 use crate::parsers::doc::etc::sequence_element::SequenceElement;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
+#[cfg(test)]
+use serde_json::json;
 use std::convert::TryFrom;
 use thiserror::Error;
 
@@ -118,6 +120,53 @@ impl TryFrom<&xmltree::XMLNode> for ComplexType {
     }
 }
 
+impl From<&ComplexType> for openapiv3::Schema {
+    fn from(c: &ComplexType) -> Self {
+        let schema_kind =
+            openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
+                properties: c
+                    .sequence_elements
+                    .iter()
+                    .map(|s| {
+                        (
+                            s.name.clone(),
+                            openapiv3::ReferenceOr::boxed_item(openapiv3::Schema::from(s)),
+                        )
+                    })
+                    .collect(),
+                additional_properties: Some(openapiv3::AdditionalProperties::Any(false)),
+                required: c.sequence_elements.iter().map(|s| s.name.clone()).collect(),
+                ..Default::default()
+            }));
+        let schema_data = openapiv3::SchemaData {
+            deprecated: c.annotation.deprecated,
+            title: Some(c.name.clone()),
+            description: Some(c.annotation.description.clone()),
+            ..Default::default()
+        };
+        match &c.parent {
+            None => openapiv3::Schema {
+                schema_data,
+                schema_kind,
+            },
+            Some(reference) => openapiv3::Schema {
+                schema_data,
+                schema_kind: openapiv3::SchemaKind::AllOf {
+                    all_of: vec![
+                        openapiv3::ReferenceOr::Reference {
+                            reference: format!("#/components/schemas/{}", reference),
+                        },
+                        openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                            schema_kind,
+                            schema_data: Default::default(),
+                        }),
+                    ],
+                },
+            },
+        }
+    }
+}
+
 #[test]
 fn parse_base_type_test() {
     let xml: &[u8] = br#"
@@ -208,7 +257,8 @@ fn parse_type_wth_parent_test() {
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType>    "#;
+    </xs:complexType>
+    "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
         ComplexType::try_from(&xmltree::XMLNode::Element(tree)),
@@ -248,6 +298,124 @@ fn parse_type_wth_parent_test() {
                 }
             ],
             parent: Some("BaseType".to_owned())
+        })
+    );
+}
+
+#[test]
+fn base_type_into_schema_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" abstract="true" name="BaseType">
+        <xs:annotation>
+            <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A base abstract type for all the types.
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="BaseField" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation source="modifiable">always</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        A base field for the base type
+                    </xs:documentation>
+                    <xs:documentation source="required">false</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = ComplexType::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "additionalProperties": false,
+            "description": "A base abstract type for all the types.",
+            "properties": {
+                "baseField": {
+                    "description": "A base field for the base type",
+                    "nullable": true,
+                    "type": "string"
+                }
+            },
+            "required": ["baseField"],
+            "title": "BaseType",
+            "type": "object"
+        })
+    );
+}
+
+#[test]
+fn parent_type_into_schema_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta" name="TestType">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:content-type>application/vnd.ccouzens.test</meta:content-type>
+            </xs:appinfo>
+            <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A simple type to test the parser
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="BaseType">
+                <xs:sequence>
+                    <xs:element name="OptionalString" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                String that may or may not be here
+                            </xs:documentation>
+                            <xs:documentation source="required">false</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="RequiredString" type="xs:string" minOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation source="modifiable">always</xs:documentation>
+                            <xs:documentation xml:lang="en">
+                                String that will be here
+                            </xs:documentation>
+                            <xs:documentation source="required">true</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = ComplexType::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A simple type to test the parser",
+            "allOf": [
+                {
+                    "$ref": "#/components/schemas/BaseType"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "optionalString": {
+                        "description": "String that may or may not be here",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    "requiredString": {
+                        "description": "String that will be here",
+                        "type": "string"
+                    }
+                  },
+                  "required": ["optionalString", "requiredString"],
+                  "type": "object"
+              }
+            ],
+            "title": "TestType",
         })
     );
 }

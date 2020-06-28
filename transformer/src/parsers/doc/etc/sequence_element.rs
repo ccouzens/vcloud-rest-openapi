@@ -1,11 +1,12 @@
 use crate::parsers::doc::etc::annotation::Annotation;
-#[cfg(test)]
 use crate::parsers::doc::etc::annotation::Modifiable;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
+#[cfg(test)]
+use serde_json::json;
 use std::convert::TryFrom;
 use thiserror::Error;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub(super) enum Occurrences {
     Optional,
     One,
@@ -79,6 +80,71 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                 })
             }
             _ => Err(SequenceElementParseError::NotSequenceElementNode),
+        }
+    }
+}
+
+impl From<&SequenceElement> for openapiv3::Schema {
+    fn from(s: &SequenceElement) -> Self {
+        let reference_or_schema_type = match s.r#type.as_ref() {
+            "xs:string" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::String(Default::default()))
+            }
+            "xs:int" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(openapiv3::IntegerType {
+                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
+                        openapiv3::IntegerFormat::Int32,
+                    ),
+                    ..Default::default()
+                }))
+            }
+            "xs:boolean" => openapiv3::ReferenceOr::Item(openapiv3::Type::Boolean {}),
+            other => openapiv3::ReferenceOr::Reference {
+                reference: format!("#/components/schemas/{}", other),
+            },
+        };
+
+        openapiv3::Schema {
+            schema_data: openapiv3::SchemaData {
+                nullable: s.occurrences == Occurrences::Optional,
+                read_only: s.annotation.as_ref().and_then(|a| a.modifiable)
+                    == Some(Modifiable::None),
+                deprecated: s.annotation.as_ref().map(|a| a.deprecated) == Some(true),
+                description: s.annotation.as_ref().map(|a| a.description.clone()),
+                ..Default::default()
+            },
+            schema_kind: match (s.occurrences, reference_or_schema_type) {
+                (Occurrences::Array, openapiv3::ReferenceOr::Item(schema_type)) => {
+                    openapiv3::SchemaKind::Type(openapiv3::Type::Array(openapiv3::ArrayType {
+                        items: openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                            schema_data: Default::default(),
+                            schema_kind: openapiv3::SchemaKind::Type(schema_type),
+                        }),
+                        min_items: None,
+                        max_items: None,
+                        unique_items: false,
+                    }))
+                }
+
+                (Occurrences::Array, openapiv3::ReferenceOr::Reference { reference }) => {
+                    openapiv3::SchemaKind::Type(openapiv3::Type::Array(openapiv3::ArrayType {
+                        items: openapiv3::ReferenceOr::Reference { reference },
+                        min_items: None,
+                        max_items: None,
+                        unique_items: false,
+                    }))
+                }
+
+                (_, openapiv3::ReferenceOr::Item(schema_type)) => {
+                    openapiv3::SchemaKind::Type(schema_type)
+                }
+
+                (_, openapiv3::ReferenceOr::Reference { reference }) => {
+                    openapiv3::SchemaKind::AllOf {
+                        all_of: vec![openapiv3::ReferenceOr::Reference { reference }],
+                    }
+                }
+            },
         }
     }
 }
@@ -172,6 +238,88 @@ fn test_parse_sequence_element_exactly_one() {
             name: "baseField".to_owned(),
             r#type: "xs:boolean".to_owned(),
             occurrences: Occurrences::One
+        })
+    );
+}
+
+#[test]
+fn test_sequence_element_optional_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:string" minOccurs="0">
+        <xs:annotation>
+            <xs:documentation source="modifiable">always</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A base field for the base type
+            </xs:documentation>
+            <xs:documentation source="required">false</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A base field for the base type",
+            "nullable": true,
+            "type": "string"
+        })
+    );
+}
+
+#[test]
+fn test_sequence_element_array_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:int" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that could be repeated many times in the &lt;code&gt;XML&lt;/code&gt;.
+            </xs:documentation>
+            <xs:documentation source="required">false</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A field that could be repeated many times in the `XML`.",
+            "type": "array",
+            "readOnly": true,
+            "items": {
+                "format": "int32",
+                "type": "integer"
+            }
+        })
+    );
+}
+
+#[test]
+fn test_sequence_element_exactly_one_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:boolean">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that appears precisely once in the &lt;code&gt;XML&lt;/code&gt;.
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A field that appears precisely once in the `XML`.",
+            "type": "boolean",
+            "readOnly": true,
         })
     );
 }

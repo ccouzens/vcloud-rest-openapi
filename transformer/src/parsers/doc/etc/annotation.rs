@@ -2,23 +2,12 @@ use crate::parsers::doc::etc::XML_SCHEMA_NS;
 use std::convert::TryFrom;
 use thiserror::Error;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub(super) enum Modifiable {
     Create,
     Update,
     Always,
     None,
-}
-
-impl Modifiable {
-    pub(super) fn is_readonly(&self) -> bool {
-        match self {
-            Modifiable::Create => false,
-            Modifiable::Update => false,
-            Modifiable::Always => false,
-            Modifiable::None => true,
-        }
-    }
 }
 
 #[derive(Debug, PartialEq)]
