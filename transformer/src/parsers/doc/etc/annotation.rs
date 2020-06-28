@@ -50,7 +50,8 @@ impl TryFrom<&xmltree::XMLNode> for Annotation {
                                 ..
                             }) if namespace == XML_SCHEMA_NS
                                 && name == "documentation"
-                                && attributes.get("lang").map(String::as_str) == Some("en") =>
+                                && (attributes.get("lang").map(String::as_str) == Some("en")
+                                    || attributes.is_empty()) =>
                             {
                                 match children.get(0) {
                                     Some(xmltree::XMLNode::Text(doc)) => Some(doc),

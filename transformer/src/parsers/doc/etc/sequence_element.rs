@@ -79,6 +79,29 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                     occurrences,
                 })
             }
+            xmltree::XMLNode::Element(xmltree::Element {
+                namespace: Some(namespace),
+                name,
+                attributes,
+                children,
+                ..
+            }) if namespace == XML_SCHEMA_NS && name == "attribute" => {
+                let name = attributes
+                    .get("name")
+                    .ok_or(SequenceElementParseError::MissingName)?
+                    .to_owned();
+                let r#type = attributes
+                    .get("type")
+                    .ok_or(SequenceElementParseError::MissingType)?
+                    .to_owned();
+                let annotation = children.iter().flat_map(Annotation::try_from).next();
+                Ok(SequenceElement {
+                    annotation,
+                    name,
+                    r#type,
+                    occurrences: Occurrences::One,
+                })
+            }
             _ => Err(SequenceElementParseError::NotSequenceElementNode),
         }
     }
@@ -276,6 +299,37 @@ fn test_parse_sequence_element_exactly_one() {
             }),
             name: "baseField".to_owned(),
             r#type: "xs:boolean".to_owned(),
+            occurrences: Occurrences::One
+        })
+    );
+}
+
+#[test]
+fn test_parse_sequence_element_from_attribute() {
+    let xml: &[u8] = br#"
+    <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="requiredAttribute" type="xs:string" use="required">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation>
+                A field that comes from an attribute.
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+"#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        SequenceElement::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(SequenceElement {
+            annotation: Some(Annotation {
+                description: "A field that comes from an attribute.".to_owned(),
+                required: Some(true),
+                deprecated: false,
+                modifiable: Some(Modifiable::None),
+                content_type: None
+            }),
+            name: "requiredAttribute".to_owned(),
+            r#type: "xs:string".to_owned(),
             occurrences: Occurrences::One
         })
     );

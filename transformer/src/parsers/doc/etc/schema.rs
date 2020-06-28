@@ -132,6 +132,18 @@ fn test_parse_schema() {
                     sequence_elements: vec![
                         SequenceElement {
                             annotation: Some(Annotation {
+                                description: "A field that comes from an attribute.".to_owned(),
+                                required: Some(true),
+                                deprecated: false,
+                                modifiable: Some(Modifiable::None),
+                                content_type: None
+                            }),
+                            name: "requiredAttribute".to_owned(),
+                            r#type: "xs:string".to_owned(),
+                            occurrences: Occurrences::One
+                        },
+                        SequenceElement {
+                            annotation: Some(Annotation {
                                 description: "String that may or may not be here".to_owned(),
                                 required: Some(false),
                                 deprecated: false,
@@ -365,6 +377,11 @@ fn schema_into_schemas_test() {
               {
                 "type": "object",
                 "properties": {
+                  "requiredAttribute": {
+                    "readOnly": true,
+                    "description": "A field that comes from an attribute.",
+                    "type": "string"
+                  },
                   "optionalString": {
                     "nullable": true,
                     "description": "String that may or may not be here",
@@ -431,6 +448,7 @@ fn schema_into_schemas_test() {
                   }
                 },
                 "required": [
+                  "requiredAttribute",
                   "optionalString",
                   "requiredString",
                   "readOnlyString",

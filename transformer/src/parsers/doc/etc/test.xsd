@@ -120,6 +120,16 @@
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
+
+                <xs:attribute name="requiredAttribute" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation>
+                            A field that comes from an attribute.
+                        </xs:documentation>
+                        <xs:documentation source="required">true</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
