@@ -16,7 +16,7 @@ impl RawOperation {
         Ok(self
             .route
             .split_ascii_whitespace()
-            .nth(0)
+            .next()
             .ok_or("Failed to get method")?)
     }
 

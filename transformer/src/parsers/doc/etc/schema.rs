@@ -10,9 +10,9 @@ use std::convert::TryFrom;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq)]
-pub(super) struct Schema {
-    pub(super) includes: Vec<String>,
-    pub(super) complex_types: Vec<ComplexType>,
+pub struct Schema {
+    includes: Vec<String>,
+    complex_types: Vec<ComplexType>,
 }
 
 #[derive(Error, Debug, PartialEq)]

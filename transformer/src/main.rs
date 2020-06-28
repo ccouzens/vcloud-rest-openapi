@@ -1,11 +1,12 @@
 #[macro_use]
 extern crate unhtml_derive;
 
-use openapiv3::OpenAPI;
+use openapiv3::{Components, OpenAPI};
 use std::io::Read;
 mod info;
 mod parsers;
 mod paths;
+mod schemas;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut zip_buffer = Vec::new();
@@ -16,6 +17,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let spec = OpenAPI {
         openapi: "3.0.2".into(),
         info: info::info(&mut zip)?,
+        components: Some(Components {
+            schemas: schemas::schemas(&mut zip)?,
+            ..Default::default()
+        }),
         paths: paths::paths(&mut zip)?,
         ..Default::default()
     };
