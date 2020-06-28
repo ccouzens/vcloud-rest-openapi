@@ -110,6 +110,14 @@ impl From<&SequenceElement> for openapiv3::Schema {
                     ..Default::default()
                 }))
             }
+            "xs:long" => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(openapiv3::IntegerType {
+                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
+                        openapiv3::IntegerFormat::Int64,
+                    ),
+                    ..Default::default()
+                }))
+            }
             "xs:string" => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::String(Default::default()))
             }
@@ -387,6 +395,33 @@ fn test_double_into_schema() {
             "description": "A field that represents a double precision float",
             "format": "double",
             "type": "number",
+            "readOnly": true,
+        })
+    );
+}
+
+#[test]
+fn test_long_into_schema() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:long">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A field that represents 64 bit signed integer
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "A field that represents 64 bit signed integer",
+            "format": "int64",
+            "type": "integer",
             "readOnly": true,
         })
     );

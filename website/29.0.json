@@ -691,11 +691,8 @@
               "vCpuInMhz": {
                 "nullable": true,
                 "description": "Specifies the clock frequency, in Megahertz, for any virtual CPU that is allocated to a VM. A VM with 2 vCPUs will consume twice as much of this value. Ignored for ReservationPool. Required when AllocationModel is AllocationVApp or AllocationPool, and may not be less than 256 MHz. Defaults to 1000 MHz if the element is empty or missing. As of API version 5.7 this element became redundant with the \"VCpuInMhz2\" element in VdcType. Both elements are set to the same value in responses. However, on requests this element's value is the one that's used.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "isThinProvision": {
                 "nullable": true,
@@ -794,11 +791,8 @@
               "vCpuInMhz": {
                 "nullable": true,
                 "description": "Specifies the clock frequency, in Megahertz, for any virtual CPU that is allocated to a VM. A VM with 2 vCPUs will consume twice as much of this value. Ignored for ReservationPool. Required when AllocationModel is AllocationVApp or AllocationPool, and may not be less than 256 MHz. Defaults to 1000 MHz if the element is empty or missing.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "isThinProvision": {
                 "nullable": true,
@@ -921,50 +915,35 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Number of Units that have been allocated to consumers.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "reserved": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Number of Units that have been reserved.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "total": {
                 "readOnly": true,
                 "description": "Total number of Units that can be allocated to all consumers.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "used": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Percentage of the allocation in use.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "overhead": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Number of Units allocated to system resources such as vShield Manager virtual machines and shadow virtual machines provisioned from this Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -1132,21 +1111,15 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "IOPS capacity in this storage profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "iopsAllocated": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Allocated IOPS in this storage profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -1182,11 +1155,8 @@
               },
               "limit": {
                 "description": "Maximum number of Units allocated for this storage profile. A value of 0 specifies unlimited Units.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "default": {
                 "description": "True if this is default storage profile for this vDC. The default storage profile is used when an object that can specify a storage profile is created with no storage profile specified.",
@@ -4807,11 +4777,8 @@
               },
               "syncIntervalInHours": {
                 "description": "LDAP sync repeats interval time in hours.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "systemExternalHttpAddress": {
                 "nullable": true,
@@ -5602,41 +5569,29 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Virtual memory allocation.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "vCPU": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Number of virtual processors used.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "runningVMs": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Number of VMs.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "physicalMemoryUsed": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Physical memory used during the observation period.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "physicalSocketCount": {
                 "nullable": true,
@@ -5649,11 +5604,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Total physical memory used during the observation period.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "lastUpdate": {
                 "nullable": true,
@@ -5967,11 +5919,8 @@
               "refreshInterval": {
                 "nullable": true,
                 "description": "Number of hours between attempts to synchronize with external catalogs. Default is 24 hours.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -6077,11 +6026,8 @@
               "timeoutValueInMilliseconds": {
                 "nullable": true,
                 "description": "The new timeout in milliseconds that will serve as an offset value to the current time. If this value is absent the timeout date for the blocking task will not be changed.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -6746,11 +6692,8 @@
               "cpuTotal": {
                 "readOnly": true,
                 "description": "The total CPU power measured in MHz.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "memUsed": {
                 "readOnly": true,
@@ -9104,11 +9047,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Represents the current version number of the catalog.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -9210,11 +9150,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Represents the current version number of the catalog item",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -9477,20 +9414,14 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Capacity that is committed to be available.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "limit": {
                 "readOnly": true,
                 "description": "Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies overprovisioning.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -9516,32 +9447,23 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Capacity reserved.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "used": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Capacity used. If the VDC AllocationModel is ReservationPool, this number represents the percentage of the reservation that is in use. For all other allocation models, it represents the percentage of the allocation that is in use.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "overhead": {
                 "nullable": true,
                 "readOnly": true,
                 "deprecated": true,
                 "description": "Number of Units allocated to system resources such as vShield Manager virtual machines and shadow virtual machines provisioned from this Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -15266,11 +15188,8 @@
               "bootDelay": {
                 "nullable": true,
                 "description": "Number of milliseconds to wait between powering\\-on and booting this virtual machine. Defaults to 0. Maximum permissible value is 10000 milliseconds.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "enterBIOSSetup": {
                 "nullable": true,
@@ -15699,11 +15618,8 @@
               },
               "sizeMb": {
                 "description": "The size of the disk in MB.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "unitNumber": {
                 "description": "The device number on the SCSI or IDE controller of the disk.",
@@ -15749,11 +15665,8 @@
               "iops": {
                 "nullable": true,
                 "description": "Specifies the IOPS for the disk.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "virtualQuantityUnit": {
                 "nullable": true,
@@ -15765,11 +15678,8 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "The actual size of the disk.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -15852,29 +15762,20 @@
             "properties": {
               "configured": {
                 "description": "xxx.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "reservation": {
                 "nullable": true,
                 "description": "xxx.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "limit": {
                 "nullable": true,
                 "description": "xxx.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "sharesLevel": {
                 "nullable": true,
@@ -17017,11 +16918,8 @@
               },
               "memorySize": {
                 "nullable": true,
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -17699,11 +17597,8 @@
               "vCpuInMhz2": {
                 "nullable": true,
                 "description": "Specifies the clock frequency, in Megahertz, for any virtual CPU that is allocated to a VM. A VM with 2 vCPUs will consume twice as much of this value. Ignored for ReservationPool. Required when AllocationModel is AllocationVApp or AllocationPool, and may not be less than 256 MHz. Defaults to 1000 MHz if the element is empty or missing.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
@@ -17843,11 +17738,8 @@
               },
               "maxCoresPerSocket": {
                 "description": "Specifies the maximum number of cores per socket supported.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "supportedOperatingSystems": {
                 "description": "Operating systems available for use on virtual machines at this virtual hardware version.",
@@ -17859,27 +17751,18 @@
               },
               "maxMemorySizeMb": {
                 "description": "Specifies the maximum amount of memory supported (in MB).",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "maxCPUs": {
                 "description": "Specifies the maximum number of vCPUs supported.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "maxNICs": {
                 "description": "Specifies the maximum number of vNICs supported.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "supportsNestedHV": {
                 "description": "Specifies nested virtualization is supported.",
@@ -17897,14 +17780,16 @@
                 "description": "Specifies the supported memory sizes (in GB).",
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/xs:long"
+                  "type": "integer",
+                  "format": "int64"
                 }
               },
               "supportedCoresPerSocket": {
                 "description": "Specifies the supported number of cores per socket combos.",
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/xs:long"
+                  "type": "integer",
+                  "format": "int64"
                 }
               },
               "hardDiskAdapter": {
@@ -17970,37 +17855,25 @@
           },
           "diskIopsMax": {
             "description": "The maximum IOPS value that this storage profile is permitted to deliver. Value must be in the range 0\\-Integer.MAX\\_VALUE, and if greater than 0, cannot be less than the value of DiskIopsDefault. Value of 0 means this max setting is is disabled and there is no max disk IOPS restriction.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:long"
-              }
-            ]
+            "type": "integer",
+            "format": "int64"
           },
           "diskIopsDefault": {
             "description": "This value is applied when provisioning a disk that does not specify vcloud:iops. Value must be in the range 0\\-Integer.MAX\\_VALUE. If DiskIopsPerGbMax is greater than 0 and if (diskSize \\* DiskIopsPerGbMax) less than DiskIopsDefault, then the default iops for the disk will be set as (diskSize \\* DiskIopsPerGbMax). Value of 0 for disk iops means that no iops would be reserved or provisioned for that virtual disk.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:long"
-              }
-            ]
+            "type": "integer",
+            "format": "int64"
           },
           "storageProfileIopsLimit": {
             "nullable": true,
             "description": "Maximum number of IOPs that can be allocated for this profile. A value of 0 is understood to mean \"maximum possible.\"",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:long"
-              }
-            ]
+            "type": "integer",
+            "format": "int64"
           },
           "diskIopsPerGbMax": {
             "nullable": true,
             "description": "The maximum disk IOPs per GB value that this storage profile is permitted to deliver. A value of 0 means there is no perGB IOPS restriction.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:long"
-              }
-            ]
+            "type": "integer",
+            "format": "int64"
           }
         },
         "required": [
@@ -18033,11 +17906,8 @@
               },
               "limit": {
                 "description": "Maximum number of storage bytes (scaled by Units) allocated for this profile. A value of 0 is understood to mean \"maximum possible.\"",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "default": {
                 "description": "True if this is default storage profile for this vDC. The default storage profile is used when an object that can specify a storage profile is created with no storage profile specified.",
@@ -18056,21 +17926,15 @@
                 "nullable": true,
                 "readOnly": true,
                 "description": "Storage used, in Megabytes, by the storage profile",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               },
               "iopsAllocated": {
                 "nullable": true,
                 "readOnly": true,
                 "description": "Total IOPS currently allocated to this storage profile",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:long"
-                  }
-                ]
+                "type": "integer",
+                "format": "int64"
               }
             },
             "required": [
