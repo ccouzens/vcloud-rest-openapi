@@ -94,12 +94,16 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                     .get("type")
                     .ok_or(SequenceElementParseError::MissingType)?
                     .to_owned();
+                let occurrences = match attributes.get("use").map(String::as_str) {
+                    Some("required") => Occurrences::One,
+                    _ => Occurrences::Optional,
+                };
                 let annotation = children.iter().flat_map(Annotation::try_from).next();
                 Ok(SequenceElement {
                     annotation,
                     name,
                     r#type,
-                    occurrences: Occurrences::One,
+                    occurrences,
                 })
             }
             _ => Err(SequenceElementParseError::NotSequenceElementNode),
@@ -305,7 +309,7 @@ fn test_parse_sequence_element_exactly_one() {
 }
 
 #[test]
-fn test_parse_sequence_element_from_attribute() {
+fn test_parse_sequence_element_from_required_attribute() {
     let xml: &[u8] = br#"
     <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="requiredAttribute" type="xs:string" use="required">
         <xs:annotation>
@@ -331,6 +335,37 @@ fn test_parse_sequence_element_from_attribute() {
             name: "requiredAttribute".to_owned(),
             r#type: "xs:string".to_owned(),
             occurrences: Occurrences::One
+        })
+    );
+}
+
+#[test]
+fn test_parse_sequence_element_from_optional_attribute() {
+    let xml: &[u8] = br#"
+    <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="requiredAttribute" type="xs:string">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation>
+                A field that comes from an optional attribute.
+            </xs:documentation>
+            <xs:documentation source="required">false</xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+"#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        SequenceElement::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(SequenceElement {
+            annotation: Some(Annotation {
+                description: "A field that comes from an optional attribute.".to_owned(),
+                required: Some(false),
+                deprecated: false,
+                modifiable: Some(Modifiable::None),
+                content_type: None
+            }),
+            name: "requiredAttribute".to_owned(),
+            r#type: "xs:string".to_owned(),
+            occurrences: Occurrences::Optional
         })
     );
 }
