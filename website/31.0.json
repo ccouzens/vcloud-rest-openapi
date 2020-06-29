@@ -27245,6 +27245,85 @@
             "additionalProperties": false
           }
         ]
+      },
+      "SupportedVersionsType": {
+        "title": "SupportedVersionsType",
+        "description": "List all supported versions.",
+        "type": "object",
+        "properties": {
+          "versionInfo": {
+            "readOnly": true,
+            "description": "Information about one version of the API.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VersionInfoType"
+            }
+          }
+        },
+        "required": [
+          "versionInfo"
+        ],
+        "additionalProperties": false
+      },
+      "VersionInfoType": {
+        "title": "VersionInfoType",
+        "description": "Information for one version of the API.",
+        "type": "object",
+        "properties": {
+          "version": {
+            "readOnly": true,
+            "description": "Version string.",
+            "type": "string"
+          },
+          "loginUrl": {
+            "readOnly": true,
+            "description": "Login URL for the version.",
+            "type": "string"
+          },
+          "mediaTypeMapping": {
+            "readOnly": true,
+            "description": "Media type mapping. This element is not present when the API version is 5.7 or higher.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MediaTypeMappingType"
+            }
+          }
+        },
+        "required": [
+          "version",
+          "loginUrl",
+          "mediaTypeMapping"
+        ],
+        "additionalProperties": false
+      },
+      "MediaTypeMappingType": {
+        "title": "MediaTypeMappingType",
+        "description": "Mapping of a content media type to a xsd complex type.",
+        "type": "object",
+        "properties": {
+          "mediaType": {
+            "readOnly": true,
+            "description": "Content media type.",
+            "type": "string"
+          },
+          "complexTypeName": {
+            "readOnly": true,
+            "description": "Complex type mapping.",
+            "type": "string"
+          },
+          "schemaLocation": {
+            "readOnly": true,
+            "description": "Location of the schema file describing the complex type.",
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "mediaType",
+          "complexTypeName",
+          "schemaLocation"
+        ],
+        "additionalProperties": false
       }
     }
   }
