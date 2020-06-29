@@ -6545,6 +6545,20 @@
         "description": "A list of references to virtual machines in vCenter inventory.",
         "type": "object",
         "properties": {
+          "numberOfPages": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "The total number of pages in the response.",
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "The current page number. The first page is page number 1.",
+            "type": "integer",
+            "format": "int32"
+          },
           "vmObjectRef": {
             "readOnly": true,
             "description": "A reference to a virtual machine in vCenter inventory.",
@@ -6555,6 +6569,8 @@
           }
         },
         "required": [
+          "numberOfPages",
+          "page",
           "vmObjectRef"
         ],
         "additionalProperties": false
@@ -7758,6 +7774,17 @@
         "title": "LicensingReportSampleType",
         "description": "Represents a single licensing data collection point.",
         "type": "object",
+        "properties": {
+          "observationDate": {
+            "readOnly": true,
+            "description": "The date when the metrics were observed.",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "observationDate"
+        ],
         "additionalProperties": false
       },
       "LicensingManagedServerType": {
@@ -7766,6 +7793,18 @@
         "description": "Captures a single set of metrics for a managed server for a given sample.",
         "type": "object",
         "properties": {
+          "cpu": {
+            "readOnly": true,
+            "description": "Number of CPUs in the server.",
+            "type": "integer",
+            "format": "int32"
+          },
+          "memoryInstalled": {
+            "readOnly": true,
+            "description": "Installed memory, in MB, in the server.",
+            "type": "integer",
+            "format": "int32"
+          },
           "vimObjectRef": {
             "readOnly": true,
             "description": "Managed object reference of the server.",
@@ -7777,6 +7816,8 @@
           }
         },
         "required": [
+          "cpu",
+          "memoryInstalled",
           "vimObjectRef"
         ],
         "additionalProperties": false
@@ -7787,6 +7828,18 @@
         "description": "Represents a single set of virtual machine metrics.",
         "type": "object",
         "properties": {
+          "cpu": {
+            "readOnly": true,
+            "description": "Virtual machine CPUs use.",
+            "type": "integer",
+            "format": "int32"
+          },
+          "memory": {
+            "readOnly": true,
+            "description": "Virtual machine memory use.",
+            "type": "integer",
+            "format": "int32"
+          },
           "vimObjectRef": {
             "readOnly": true,
             "description": "Managed object reference of the virtual machine.",
@@ -7798,6 +7851,8 @@
           }
         },
         "required": [
+          "cpu",
+          "memory",
           "vimObjectRef"
         ],
         "additionalProperties": false
@@ -8339,6 +8394,10 @@
         "description": "Represents a stranded item for VIM object.",
         "type": "object",
         "properties": {
+          "name": {
+            "description": "Contains the name of the VIM object.",
+            "type": "string"
+          },
           "errorMessage": {
             "nullable": true,
             "readOnly": true,
@@ -8356,6 +8415,7 @@
           }
         },
         "required": [
+          "name",
           "errorMessage",
           "vimObjectRef"
         ],
@@ -9509,6 +9569,16 @@
         "title": "VCloudExtensionType",
         "description": "General purpose extension element. Not related to extension services.",
         "type": "object",
+        "properties": {
+          "required": {
+            "nullable": true,
+            "description": "True if the request should fail when the server does not understand the extension.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "required"
+        ],
         "additionalProperties": false
       },
       "VCloudExtensibleType": {
@@ -11120,12 +11190,52 @@
         "title": "SimpleMetricType",
         "description": "A simple scalar metric value",
         "type": "object",
+        "properties": {
+          "name": {
+            "description": "name of metric",
+            "type": "string"
+          },
+          "unit": {
+            "description": "Unit of measure for this metric",
+            "type": "string"
+          },
+          "value": {
+            "description": "metric value",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/xs:decimal"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "unit",
+          "value"
+        ],
         "additionalProperties": false
       },
       "SampleType": {
         "title": "SampleType",
         "description": "Represents a data point in a metric series",
         "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "value": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/xs:decimal"
+              }
+            ]
+          }
+        },
+        "required": [
+          "timestamp",
+          "value"
+        ],
         "additionalProperties": false
       },
       "TimeSeriesMetricType": {
@@ -11133,6 +11243,19 @@
         "description": "A sequence of metric values measured at specified times",
         "type": "object",
         "properties": {
+          "name": {
+            "description": "name of metric",
+            "type": "string"
+          },
+          "unit": {
+            "description": "Unit of measure for this metric",
+            "type": "string"
+          },
+          "expectedInterval": {
+            "description": "Integer number of seconds between samples.",
+            "type": "integer",
+            "format": "int32"
+          },
           "sample": {
             "type": "array",
             "items": {
@@ -11141,6 +11264,9 @@
           }
         },
         "required": [
+          "name",
+          "unit",
+          "expectedInterval",
           "sample"
         ],
         "additionalProperties": false
@@ -14062,6 +14188,22 @@
         "description": "Base type for a single record from query result in records format. Subtypes define more specific elements.",
         "type": "object",
         "properties": {
+          "href": {
+            "nullable": true,
+            "description": "Contains the URI to the resource.",
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "nullable": true,
+            "description": "The resource identifier, expressed in URN format. The value of this attribute uniquely identifies the resource, persists for the life of the resource, and is never reused.",
+            "type": "string"
+          },
+          "type": {
+            "nullable": true,
+            "description": "Contains the type of the resource.",
+            "type": "string"
+          },
           "link": {
             "readOnly": true,
             "description": "Contains a link to an operation associated with a specific relation type.",
@@ -14080,6 +14222,9 @@
           }
         },
         "required": [
+          "href",
+          "id",
+          "type",
           "link",
           "metadata"
         ],
@@ -21542,6 +21687,17 @@
         "description": "Describes an asynchronous operation to be performed by vCloud Director extension.",
         "type": "object",
         "properties": {
+          "operation": {
+            "nullable": true,
+            "description": "A message describing the operation that is tracked by this task.",
+            "type": "string"
+          },
+          "operationName": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "The short name of the operation that is tracked by this task.",
+            "type": "string"
+          },
           "owner": {
             "nullable": true,
             "description": "Reference to the owner of the task. This is typically the object that the task is updating.",
@@ -21553,6 +21709,8 @@
           }
         },
         "required": [
+          "operation",
+          "operationName",
           "owner"
         ],
         "additionalProperties": false
@@ -24639,6 +24797,12 @@
         "description": "Information for one version of the API.",
         "type": "object",
         "properties": {
+          "deprecated": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "Indicates whether the API version is deprecated for upcoming removal.",
+            "type": "boolean"
+          },
           "version": {
             "readOnly": true,
             "description": "Version string.",
@@ -24659,6 +24823,7 @@
           }
         },
         "required": [
+          "deprecated",
           "version",
           "loginUrl",
           "mediaTypeMapping"

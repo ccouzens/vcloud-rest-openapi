@@ -51,6 +51,7 @@ impl TryFrom<&xmltree::XMLNode> for ComplexType {
                     .ok_or(ComplexTypeParseError::MissingAnnotation)?;
                 let mut sequence_elements = Vec::new();
                 let mut parent = None;
+                sequence_elements.extend(children.iter().flat_map(SequenceElement::try_from));
                 for child in children {
                     match child {
                         xmltree::XMLNode::Element(xmltree::Element {
@@ -355,6 +356,59 @@ fn parse_type_that_is_attribute_test() {
                 occurrences: Occurrences::One
             }],
             parent: Some("BaseType".to_owned())
+        })
+    );
+}
+
+#[test]
+fn parse_type_that_is_attribute_but_not_extension_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta" name="TestType">
+        <xs:annotation>
+            <xs:appinfo>
+                <meta:content-type>application/vnd.ccouzens.test</meta:content-type>
+            </xs:appinfo>
+            <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A simple type to test the parser
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="requiredAttribute" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation source="modifiable">none</xs:documentation>
+                <xs:documentation>
+                    A field that comes from an attribute.
+                </xs:documentation>
+                <xs:documentation source="required">true</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        ComplexType::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(ComplexType {
+            annotation: Annotation {
+                description: "A simple type to test the parser".to_owned(),
+                required: None,
+                deprecated: false,
+                modifiable: None,
+                content_type: Some("application/vnd.ccouzens.test".to_owned())
+            },
+            name: "TestType".to_owned(),
+            sequence_elements: vec![SequenceElement {
+                annotation: Some(Annotation {
+                    description: "A field that comes from an attribute.".to_owned(),
+                    required: Some(true),
+                    deprecated: false,
+                    modifiable: Some(Modifiable::None),
+                    content_type: None
+                }),
+                name: "requiredAttribute".to_owned(),
+                r#type: "xs:string".to_owned(),
+                occurrences: Occurrences::One
+            }],
+            parent: None
         })
     );
 }
