@@ -30,7 +30,7 @@ pub(super) struct SimpleType {
     pub(super) annotation: Option<Annotation>,
     pub(super) name: String,
     pub(super) pattern: Option<String>,
-    pub(super) list: Option<String>,
+    pub(super) list: bool,
     pub(super) parent: BaseType,
     pub(super) enumeration: Vec<String>,
     pub(super) min_inclusive: Option<String>,
@@ -48,6 +48,8 @@ pub enum TypeParseError {
     BaseTypeParseError(#[from] ParseBaseTypeError),
     #[error("Missing base attribute")]
     MissingBase,
+    #[error("Missing item type attribute")]
+    MissingItemTypeValue,
 }
 
 #[derive(Debug, PartialEq)]
@@ -129,11 +131,59 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
                             namespace: Some(namespace),
                             name: node_name,
                             attributes,
+                            ..
+                        }) if namespace == XML_SCHEMA_NS && node_name == "list" => {
+                            let parent = attributes
+                                .get("itemType")
+                                .ok_or(TypeParseError::MissingItemTypeValue)?;
+                            return Ok(Self {
+                                annotation,
+                                name: name.clone(),
+                                enumeration: Vec::new(),
+                                list: true,
+                                min_inclusive: None,
+                                parent: parent.parse()?,
+                                pattern: None,
+                            });
+                        }
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name: node_name,
+                            attributes,
                             children,
                             ..
                         }) if namespace == XML_SCHEMA_NS && node_name == "restriction" => {
                             let parent =
                                 attributes.get("base").ok_or(TypeParseError::MissingBase)?;
+                            let pattern = children
+                                .iter()
+                                .filter_map(|child| match child {
+                                    xmltree::XMLNode::Element(xmltree::Element {
+                                        namespace: Some(namespace),
+                                        name,
+                                        attributes,
+                                        ..
+                                    }) if namespace == XML_SCHEMA_NS && name == "pattern" => {
+                                        attributes.get("value").cloned()
+                                    }
+                                    _ => None,
+                                })
+                                .next();
+                            let min_inclusive = children
+                                .iter()
+                                .filter_map(|child| match child {
+                                    xmltree::XMLNode::Element(xmltree::Element {
+                                        namespace: Some(namespace),
+                                        name,
+                                        attributes,
+                                        ..
+                                    }) if namespace == XML_SCHEMA_NS && name == "minInclusive" => {
+                                        attributes.get("value").cloned()
+                                    }
+                                    _ => None,
+                                })
+                                .next();
+
                             let enumeration = children
                                 .iter()
                                 .filter_map(|child| match child {
@@ -152,10 +202,10 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
                                 annotation,
                                 name: name.clone(),
                                 enumeration,
-                                list: None,
-                                min_inclusive: None,
+                                list: false,
+                                min_inclusive,
                                 parent: parent.parse()?,
-                                pattern: None,
+                                pattern,
                             });
                         }
                         _ => {}
@@ -393,12 +443,27 @@ impl From<&SimpleType> for openapiv3::Schema {
                 ..Default::default()
             }),
         };
-
         let schema_kind = openapiv3::SchemaKind::Type(r#type);
-
-        Self {
-            schema_data,
-            schema_kind,
+        if t.list {
+            Self {
+                schema_data,
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Array(
+                    openapiv3::ArrayType {
+                        items: openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                            schema_kind,
+                            schema_data: Default::default(),
+                        }),
+                        max_items: None,
+                        min_items: None,
+                        unique_items: false,
+                    },
+                )),
+            }
+        } else {
+            Self {
+                schema_data,
+                schema_kind,
+            }
         }
     }
 }
@@ -676,6 +741,75 @@ fn simple_type_into_schema_test() {
             "type": "string",
             "enum": ["Heads", "Tails"],
             "title": "CoinType"
+        })
+    );
+}
+
+#[test]
+fn simple_type_with_pattern_into_schema_test() {
+    let xml: &[u8] = br#"
+    <xs:simpleType name="HttpsType"xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:anyURI">
+            <xs:pattern value="https://.+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    "#;
+
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "type": "string",
+            "format": "uri",
+            "pattern": "https://.+",
+            "title": "HttpsType"
+        })
+    );
+}
+
+#[test]
+fn simple_type_with_min_inclusive_into_schema_test() {
+    let xml: &[u8] = br#"
+    <xs:simpleType name="DaysInMonth" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="28"/>
+        </xs:restriction>
+    </xs:simpleType>
+    "#;
+
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "type": "integer",
+            "format": "int32",
+            "minimum": 28,
+            "title": "DaysInMonth"
+        })
+    );
+}
+
+#[test]
+fn simple_type_with_list_into_schema_test() {
+    let xml: &[u8] = br#"
+    <xs:simpleType name="FavouriteFoods" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:list itemType="xs:string"/>
+    </xs:simpleType>
+    "#;
+
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "type": "array",
+            "items": { "type": "string" },
+            "title": "FavouriteFoods"
         })
     );
 }

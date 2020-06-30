@@ -2570,6 +2570,13 @@
           }
         ]
       },
+      "NetworkBackingInfoType": {
+        "title": "NetworkBackingInfoType",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "OrgSettingsType": {
         "title": "OrgSettingsType",
         "description": "Container for this organization's settings.",
