@@ -1,6 +1,6 @@
 #[cfg(test)]
 use crate::parsers::doc::etc::annotation::{Annotation, Modifiable};
-use crate::parsers::doc::etc::complex_type::ComplexType;
+use crate::parsers::doc::etc::r#type::Type;
 #[cfg(test)]
 use crate::parsers::doc::etc::sequence_element::{Occurrences, SequenceElement};
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
@@ -12,7 +12,7 @@ use thiserror::Error;
 #[derive(Debug, PartialEq)]
 pub struct Schema {
     includes: Vec<String>,
-    complex_types: Vec<ComplexType>,
+    types: Vec<Type>,
 }
 
 #[derive(Error, Debug, PartialEq)]
@@ -50,7 +50,7 @@ impl TryFrom<&xmltree::XMLNode> for Schema {
                 children,
                 ..
             }) if namespace == XML_SCHEMA_NS && name == "schema" => Ok(Schema {
-                complex_types: children.iter().flat_map(ComplexType::try_from).collect(),
+                types: children.iter().flat_map(Type::try_from).collect(),
                 includes: children
                     .iter()
                     .filter_map(|child| match child {
@@ -73,10 +73,7 @@ impl TryFrom<&xmltree::XMLNode> for Schema {
 
 impl From<&Schema> for Vec<openapiv3::Schema> {
     fn from(s: &Schema) -> Self {
-        s.complex_types
-            .iter()
-            .map(openapiv3::Schema::from)
-            .collect()
+        s.types.iter().map(openapiv3::Schema::from).collect()
     }
 }
 
@@ -86,7 +83,7 @@ fn test_parse_base_schema() {
         Schema::try_from(include_bytes!("test_base.xsd") as &[u8]).unwrap(),
         Schema {
             includes: vec![],
-            complex_types: vec![ComplexType {
+            types: vec![Type {
                 annotation: Annotation {
                     description: "A base abstract type for all the types.".to_owned(),
                     required: None,
@@ -119,8 +116,8 @@ fn test_parse_schema() {
         Schema::try_from(include_bytes!("test.xsd") as &[u8]).unwrap(),
         Schema {
             includes: vec!["test_base.xsd".to_owned()],
-            complex_types: vec![
-                ComplexType {
+            types: vec![
+                Type {
                     annotation: Annotation {
                         description: "A simple type to test the parser".to_owned(),
                         required: None,
@@ -280,7 +277,7 @@ fn test_parse_schema() {
                     ],
                     parent: Some("BaseType".to_owned())
                 },
-                ComplexType {
+                Type {
                     annotation: Annotation {
                         description: "Part of a test.".to_owned(),
                         required: None,
@@ -303,7 +300,7 @@ fn test_parse_schema() {
                     }],
                     parent: Some("BaseType".to_owned())
                 },
-                ComplexType {
+                Type {
                     annotation: Annotation {
                         description: "Part of a test continued.".to_owned(),
                         required: None,

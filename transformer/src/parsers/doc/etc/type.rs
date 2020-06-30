@@ -11,7 +11,7 @@ use std::convert::TryFrom;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq)]
-pub(super) struct ComplexType {
+pub(super) struct Type {
     pub(super) annotation: Annotation,
     pub(super) name: String,
     pub(super) sequence_elements: Vec<SequenceElement>,
@@ -19,17 +19,17 @@ pub(super) struct ComplexType {
 }
 
 #[derive(Error, Debug, PartialEq)]
-pub enum ComplexTypeParseError {
-    #[error("not a complex type node")]
-    NotComplexTypeNode,
+pub enum TypeParseError {
+    #[error("not a complex or simple type node")]
+    NotTypeNode,
     #[error("missing name attribute")]
     MissingName,
     #[error("missing annotation element")]
     MissingAnnotation,
 }
 
-impl TryFrom<&xmltree::XMLNode> for ComplexType {
-    type Error = ComplexTypeParseError;
+impl TryFrom<&xmltree::XMLNode> for Type {
+    type Error = TypeParseError;
 
     fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
         match value {
@@ -42,13 +42,13 @@ impl TryFrom<&xmltree::XMLNode> for ComplexType {
             }) if namespace == XML_SCHEMA_NS && name == "complexType" => {
                 let name = attributes
                     .get("name")
-                    .ok_or(ComplexTypeParseError::MissingName)?
+                    .ok_or(TypeParseError::MissingName)?
                     .clone();
                 let annotation = children
                     .iter()
                     .filter_map(|c| Annotation::try_from(c).ok())
                     .next()
-                    .ok_or(ComplexTypeParseError::MissingAnnotation)?;
+                    .ok_or(TypeParseError::MissingAnnotation)?;
                 let mut sequence_elements = Vec::new();
                 let mut parent = None;
                 sequence_elements.extend(children.iter().flat_map(SequenceElement::try_from));
@@ -109,20 +109,20 @@ impl TryFrom<&xmltree::XMLNode> for ComplexType {
                         _ => {}
                     }
                 }
-                Ok(ComplexType {
+                Ok(Type {
                     name,
                     annotation,
                     sequence_elements,
                     parent,
                 })
             }
-            _ => Err(ComplexTypeParseError::NotComplexTypeNode),
+            _ => Err(TypeParseError::NotTypeNode),
         }
     }
 }
 
-impl From<&ComplexType> for openapiv3::Schema {
-    fn from(c: &ComplexType) -> Self {
+impl From<&Type> for openapiv3::Schema {
+    fn from(c: &Type) -> Self {
         let schema_kind =
             openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
                 properties: c
@@ -194,8 +194,8 @@ fn parse_base_type_test() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        ComplexType::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(ComplexType {
+        Type::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Type {
             annotation: Annotation {
                 description: "A base abstract type for all the types.".to_owned(),
                 required: None,
@@ -262,8 +262,8 @@ fn parse_type_wth_parent_test() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        ComplexType::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(ComplexType {
+        Type::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Type {
             annotation: Annotation {
                 description: "A simple type to test the parser".to_owned(),
                 required: None,
@@ -333,8 +333,8 @@ fn parse_type_that_is_attribute_test() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        ComplexType::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(ComplexType {
+        Type::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Type {
             annotation: Annotation {
                 description: "A simple type to test the parser".to_owned(),
                 required: None,
@@ -386,8 +386,8 @@ fn parse_type_that_is_attribute_but_not_extension_test() {
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
     assert_eq!(
-        ComplexType::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(ComplexType {
+        Type::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Type {
             annotation: Annotation {
                 description: "A simple type to test the parser".to_owned(),
                 required: None,
@@ -438,7 +438,7 @@ fn base_type_into_schema_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = ComplexType::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -499,7 +499,7 @@ fn parent_type_into_schema_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = ComplexType::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
