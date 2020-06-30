@@ -9234,28 +9234,8 @@
       },
       "IpAddressType": {
         "title": "IpAddressType",
-        "description": "Gateway Public IP free and allocated.",
-        "type": "object",
-        "properties": {
-          "ipAddress": {
-            "nullable": true,
-            "description": "Public IP address gateway.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud1.5:IpAddressType"
-              }
-            ]
-          },
-          "status": {
-            "description": "State of the Public IP \\- \"Allocated\" or \"Used\".",
-            "type": "string"
-          }
-        },
-        "required": [
-          "ipAddress",
-          "status"
-        ],
-        "additionalProperties": false
+        "description": "A valid IPv4 address or \"Any\".",
+        "type": "string"
       },
       "EdgeGatewaySummaryType": {
         "title": "EdgeGatewaySummaryType",
@@ -10304,6 +10284,16 @@
           }
         ]
       },
+      "SmtpSecureModeType": {
+        "title": "SmtpSecureModeType",
+        "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls \\-\\- Use the STARTTLS protocol  \n ssl \\-\\- \\-Use the SSL/TLS protocol  \n none \\-\\- Do not use any security protocol",
+        "type": "string",
+        "enum": [
+          "none",
+          "startTls",
+          "ssl"
+        ]
+      },
       "DiskType": {
         "title": "DiskType",
         "description": "Represents an independent disk.",
@@ -11126,6 +11116,18 @@
             ],
             "additionalProperties": false
           }
+        ]
+      },
+      "TimeUnitType": {
+        "title": "TimeUnitType",
+        "description": "An enumeration of time units that can be used to define a relative time",
+        "type": "string",
+        "enum": [
+          "second",
+          "minute",
+          "hour",
+          "day",
+          "week"
         ]
       },
       "RelativeTimeType": {
@@ -13238,6 +13240,11 @@
             "additionalProperties": false
           }
         ]
+      },
+      "FirewallIpAddressType": {
+        "title": "FirewallIpAddressType",
+        "description": "A valid IPv4 address or \"Any\".",
+        "type": "string"
       },
       "IpAddressesType": {
         "title": "IpAddressesType",
@@ -24183,6 +24190,11 @@
             "additionalProperties": false
           }
         ]
+      },
+      "SupportedHardwareVersionType": {
+        "title": "SupportedHardwareVersionType",
+        "description": "Represents a supported virtual hardware version.",
+        "type": "string"
       },
       "VdcStorageProfilesType": {
         "title": "VdcStorageProfilesType",

@@ -3815,6 +3815,20 @@
           }
         ]
       },
+      "RemoteUriProbeResultStatus": {
+        "title": "RemoteUriProbeResultStatus",
+        "description": "The enumerated status of the remote URI probe result",
+        "type": "string",
+        "enum": [
+          "SUCCESS",
+          "INVALID_URL_OR_PASSWORD",
+          "TIMED_OUT",
+          "HOST_NOT_FOUND",
+          "RESOURCE_NOT_FOUND",
+          "CERTIFICATE_ERROR",
+          "UNKNOWN_ERROR"
+        ]
+      },
       "RemoteUriProbeResultType": {
         "title": "RemoteUriProbeResultType",
         "description": "Test the library subscription settings to make sure the remote endpoint exists, the password matches (if set), and the SSL certificate is trusted (if necessary).",
@@ -10855,6 +10869,16 @@
           }
         ]
       },
+      "SmtpSecureModeType": {
+        "title": "SmtpSecureModeType",
+        "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls \\-\\- Use the STARTTLS protocol  \n ssl \\-\\- \\-Use the SSL/TLS protocol  \n none \\-\\- Do not use any security protocol",
+        "type": "string",
+        "enum": [
+          "none",
+          "startTls",
+          "ssl"
+        ]
+      },
       "DiskType": {
         "title": "DiskType",
         "description": "Represents an independent disk.",
@@ -11677,6 +11701,18 @@
             ],
             "additionalProperties": false
           }
+        ]
+      },
+      "TimeUnitType": {
+        "title": "TimeUnitType",
+        "description": "An enumeration of time units that can be used to define a relative time",
+        "type": "string",
+        "enum": [
+          "second",
+          "minute",
+          "hour",
+          "day",
+          "week"
         ]
       },
       "RelativeTimeType": {
@@ -14244,6 +14280,16 @@
           }
         ]
       },
+      "IpAddressType": {
+        "title": "IpAddressType",
+        "description": "A valid IPv4 address or \"Any\".",
+        "type": "string"
+      },
+      "FirewallIpAddressType": {
+        "title": "FirewallIpAddressType",
+        "description": "A valid IPv4 address or \"Any\".",
+        "type": "string"
+      },
       "IpAddressesType": {
         "title": "IpAddressesType",
         "description": "A list of IP addresses.",
@@ -14703,6 +14749,16 @@
             ],
             "additionalProperties": false
           }
+        ]
+      },
+      "EdgeGatewayType": {
+        "title": "EdgeGatewayType",
+        "description": "Represents an EdgeGatewayType",
+        "type": "string",
+        "enum": [
+          "NSXV_BACKED",
+          "NSXT_BACKED",
+          "NSXT_IMPORTED"
         ]
       },
       "GatewayType": {
@@ -24157,6 +24213,34 @@
           }
         ]
       },
+      "VirtualCpuTypeType": {
+        "title": "VirtualCpuTypeType",
+        "description": "Describes virtualCpu type of VM. VM32 \\-\\- for VMs which do not support longMode; VM64 \\-\\- for VMs which support longMode.",
+        "type": "string",
+        "enum": [
+          "VM32",
+          "VM64"
+        ]
+      },
+      "MediaTypeType": {
+        "title": "MediaTypeType",
+        "description": "Represents media supported by VM. This can be an ISO image and/or floppy.",
+        "type": "string",
+        "enum": [
+          "ISO",
+          "FLOPPY"
+        ]
+      },
+      "MediaStateType": {
+        "title": "MediaStateType",
+        "description": "Describes the possible configuration states of a media device. One of:  \n DISCONNECTED \\-\\- The media device is disconnected, i.e., it isn't configured to provide access to any local or remote media  \n SERVER \\-\\- The media device is configured to use a media file made available on the cell side.  \n REMOTE \\-\\- The media device is configured as a client side device through the VM console.",
+        "type": "string",
+        "enum": [
+          "DISCONNECTED",
+          "SERVER",
+          "REMOTE"
+        ]
+      },
       "MediaSettingsType": {
         "title": "MediaSettingsType",
         "description": "Describes a media in a VM device and what media is attached to it.",
@@ -24330,6 +24414,17 @@
             ],
             "additionalProperties": false
           }
+        ]
+      },
+      "ResourceSharesLevelType": {
+        "title": "ResourceSharesLevelType",
+        "description": "Allocation level for how much of a resource can be consumed by the underlying virtualization infrastructure. These levels map to a pre\\-determined set of numeric values for shares. Custom shares can be specified by using ResourceShareLevel as Custom.",
+        "type": "string",
+        "enum": [
+          "LOW",
+          "NORMAL",
+          "HIGH",
+          "CUSTOM"
         ]
       },
       "MediaSectionType": {

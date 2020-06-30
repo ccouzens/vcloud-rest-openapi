@@ -1,5 +1,7 @@
 #[cfg(test)]
 use crate::parsers::doc::etc::annotation::{Annotation, Modifiable};
+#[cfg(test)]
+use crate::parsers::doc::etc::r#type::ObjectType;
 use crate::parsers::doc::etc::r#type::Type;
 #[cfg(test)]
 use crate::parsers::doc::etc::sequence_element::{Occurrences, SequenceElement};
@@ -83,7 +85,7 @@ fn test_parse_base_schema() {
         Schema::try_from(include_bytes!("test_base.xsd") as &[u8]).unwrap(),
         Schema {
             includes: vec![],
-            types: vec![Type {
+            types: vec![Type::ObjectType(ObjectType {
                 annotation: Annotation {
                     description: "A base abstract type for all the types.".to_owned(),
                     required: None,
@@ -105,7 +107,7 @@ fn test_parse_base_schema() {
                     occurrences: Occurrences::Optional
                 }],
                 parent: None
-            }]
+            })]
         }
     );
 }
@@ -117,7 +119,7 @@ fn test_parse_schema() {
         Schema {
             includes: vec!["test_base.xsd".to_owned()],
             types: vec![
-                Type {
+                Type::ObjectType(ObjectType {
                     annotation: Annotation {
                         description: "A simple type to test the parser".to_owned(),
                         required: None,
@@ -276,8 +278,8 @@ fn test_parse_schema() {
                         }
                     ],
                     parent: Some("BaseType".to_owned())
-                },
-                Type {
+                }),
+                Type::ObjectType(ObjectType {
                     annotation: Annotation {
                         description: "Part of a test.".to_owned(),
                         required: None,
@@ -299,8 +301,8 @@ fn test_parse_schema() {
                         occurrences: Occurrences::Optional
                     }],
                     parent: Some("BaseType".to_owned())
-                },
-                Type {
+                }),
+                Type::ObjectType(ObjectType {
                     annotation: Annotation {
                         description: "Part of a test continued.".to_owned(),
                         required: None,
@@ -322,7 +324,7 @@ fn test_parse_schema() {
                         occurrences: Occurrences::Optional
                     }],
                     parent: Some("BaseType".to_owned())
-                }
+                })
             ]
         }
     );
