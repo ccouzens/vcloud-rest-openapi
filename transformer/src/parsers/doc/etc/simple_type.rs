@@ -1,5 +1,6 @@
 use crate::parsers::doc::etc::annotation::Annotation;
 use crate::parsers::doc::etc::primitive_type::PrimitiveType;
+use crate::parsers::doc::etc::primitive_type::RestrictedPrimitiveType;
 use crate::parsers::doc::etc::r#type::TypeParseError;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
 use std::convert::TryFrom;
@@ -137,73 +138,13 @@ impl From<&SimpleType> for openapiv3::Schema {
             ..Default::default()
         };
 
-        let r#type = match &t.parent {
-            PrimitiveType::AnyType | PrimitiveType::HexBinary | PrimitiveType::String => {
-                openapiv3::Type::String(openapiv3::StringType {
-                    enumeration: t.enumeration.clone(),
-                    pattern: t.pattern.clone(),
-                    ..Default::default()
-                })
-            }
-            PrimitiveType::AnyUri => openapiv3::Type::String(openapiv3::StringType {
-                enumeration: t.enumeration.clone(),
-                pattern: t.pattern.clone(),
-                format: openapiv3::VariantOrUnknownOrEmpty::Unknown("uri".to_owned()),
-                ..Default::default()
-            }),
-            PrimitiveType::Base64Binary => openapiv3::Type::String(openapiv3::StringType {
-                enumeration: t.enumeration.clone(),
-                pattern: t.pattern.clone(),
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::Byte),
-                ..Default::default()
-            }),
-            PrimitiveType::Boolean => openapiv3::Type::Boolean {},
-            PrimitiveType::DateTime => openapiv3::Type::String(openapiv3::StringType {
-                enumeration: t.enumeration.clone(),
-                pattern: t.pattern.clone(),
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::DateTime),
-                ..Default::default()
-            }),
-            PrimitiveType::Double => openapiv3::Type::Number(openapiv3::NumberType {
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Double),
-                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
-                enumeration: t
-                    .enumeration
-                    .iter()
-                    .filter_map(|s| s.parse().ok())
-                    .collect(),
-                ..Default::default()
-            }),
-            PrimitiveType::Int => openapiv3::Type::Integer(openapiv3::IntegerType {
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
-                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
-                enumeration: t
-                    .enumeration
-                    .iter()
-                    .filter_map(|s| s.parse().ok())
-                    .collect(),
-                ..Default::default()
-            }),
-            PrimitiveType::Integer => openapiv3::Type::Integer(openapiv3::IntegerType {
-                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
-                enumeration: t
-                    .enumeration
-                    .iter()
-                    .filter_map(|s| s.parse().ok())
-                    .collect(),
-                ..Default::default()
-            }),
-            PrimitiveType::Long => openapiv3::Type::Integer(openapiv3::IntegerType {
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
-                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
-                enumeration: t
-                    .enumeration
-                    .iter()
-                    .filter_map(|s| s.parse().ok())
-                    .collect(),
-                ..Default::default()
-            }),
-        };
+        let r#type = openapiv3::Type::from(&RestrictedPrimitiveType {
+            r#type: t.parent,
+            enumeration: &t.enumeration,
+            min_inclusive: &t.min_inclusive,
+            pattern: &t.pattern,
+        });
+
         let schema_kind = openapiv3::SchemaKind::Type(r#type);
         if t.list {
             Self {

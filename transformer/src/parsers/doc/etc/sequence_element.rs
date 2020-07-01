@@ -1,5 +1,7 @@
 use crate::parsers::doc::etc::annotation::Annotation;
 use crate::parsers::doc::etc::annotation::Modifiable;
+use crate::parsers::doc::etc::primitive_type::PrimitiveType;
+use crate::parsers::doc::etc::primitive_type::RestrictedPrimitiveType;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
 #[cfg(test)]
 use serde_json::json;
@@ -113,60 +115,17 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
 
 impl From<&SequenceElement> for openapiv3::Schema {
     fn from(s: &SequenceElement) -> Self {
-        let reference_or_schema_type = match s.r#type.as_ref() {
-            "xs:anyType" | "xs:hexBinary" | "xs:string" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::String(Default::default()))
-            }
-            "xs:anyURI" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
-                    format: openapiv3::VariantOrUnknownOrEmpty::Unknown("uri".to_owned()),
-                    ..Default::default()
+        let reference_or_schema_type = match s.r#type.parse::<PrimitiveType>() {
+            Ok(prim) => {
+                openapiv3::ReferenceOr::Item(openapiv3::Type::from(&RestrictedPrimitiveType {
+                    r#type: prim,
+                    enumeration: &vec![],
+                    min_inclusive: &None,
+                    pattern: &None,
                 }))
             }
-            "xs:base64Binary" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
-                    format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::Byte),
-                    ..Default::default()
-                }))
-            }
-            "xs:boolean" => openapiv3::ReferenceOr::Item(openapiv3::Type::Boolean {}),
-            "xs:dateTime" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::String(openapiv3::StringType {
-                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
-                        openapiv3::StringFormat::DateTime,
-                    ),
-                    ..Default::default()
-                }))
-            }
-            "xs:double" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::Number(openapiv3::NumberType {
-                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
-                        openapiv3::NumberFormat::Double,
-                    ),
-                    ..Default::default()
-                }))
-            }
-            "xs:int" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(openapiv3::IntegerType {
-                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
-                        openapiv3::IntegerFormat::Int32,
-                    ),
-                    ..Default::default()
-                }))
-            }
-            "xs:integer" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(Default::default()))
-            }
-            "xs:long" => {
-                openapiv3::ReferenceOr::Item(openapiv3::Type::Integer(openapiv3::IntegerType {
-                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
-                        openapiv3::IntegerFormat::Int64,
-                    ),
-                    ..Default::default()
-                }))
-            }
-            other => openapiv3::ReferenceOr::Reference {
-                reference: format!("#/components/schemas/{}", other),
+            Err(_) => openapiv3::ReferenceOr::Reference {
+                reference: format!("#/components/schemas/{}", s.r#type),
             },
         };
 

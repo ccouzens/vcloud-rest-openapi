@@ -1,7 +1,7 @@
 use std::str::FromStr;
 use thiserror::Error;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Copy, Clone)]
 pub enum PrimitiveType {
     AnyType,
     AnyUri,
@@ -40,5 +40,85 @@ impl FromStr for PrimitiveType {
             "xs:string" => PrimitiveType::String,
             _ => return Err(ParsePrimitiveTypeError::NoMatch(s.to_owned())),
         })
+    }
+}
+
+#[derive(Debug, PartialEq)]
+pub(super) struct RestrictedPrimitiveType<'a> {
+    pub(super) r#type: PrimitiveType,
+    pub(super) pattern: &'a Option<String>,
+    pub(super) enumeration: &'a Vec<String>,
+    pub(super) min_inclusive: &'a Option<String>,
+}
+
+impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
+    fn from(t: &RestrictedPrimitiveType) -> Self {
+        match &t.r#type {
+            PrimitiveType::AnyType | PrimitiveType::HexBinary | PrimitiveType::String => {
+                Self::String(openapiv3::StringType {
+                    enumeration: t.enumeration.clone(),
+                    pattern: t.pattern.clone(),
+                    ..Default::default()
+                })
+            }
+            PrimitiveType::AnyUri => Self::String(openapiv3::StringType {
+                enumeration: t.enumeration.clone(),
+                pattern: t.pattern.clone(),
+                format: openapiv3::VariantOrUnknownOrEmpty::Unknown("uri".to_owned()),
+                ..Default::default()
+            }),
+            PrimitiveType::Base64Binary => Self::String(openapiv3::StringType {
+                enumeration: t.enumeration.clone(),
+                pattern: t.pattern.clone(),
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::Byte),
+                ..Default::default()
+            }),
+            PrimitiveType::Boolean => Self::Boolean {},
+            PrimitiveType::DateTime => Self::String(openapiv3::StringType {
+                enumeration: t.enumeration.clone(),
+                pattern: t.pattern.clone(),
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::DateTime),
+                ..Default::default()
+            }),
+            PrimitiveType::Double => Self::Number(openapiv3::NumberType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Double),
+                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
+                enumeration: t
+                    .enumeration
+                    .iter()
+                    .filter_map(|s| s.parse().ok())
+                    .collect(),
+                ..Default::default()
+            }),
+            PrimitiveType::Int => Self::Integer(openapiv3::IntegerType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
+                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
+                enumeration: t
+                    .enumeration
+                    .iter()
+                    .filter_map(|s| s.parse().ok())
+                    .collect(),
+                ..Default::default()
+            }),
+            PrimitiveType::Integer => Self::Integer(openapiv3::IntegerType {
+                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
+                enumeration: t
+                    .enumeration
+                    .iter()
+                    .filter_map(|s| s.parse().ok())
+                    .collect(),
+                ..Default::default()
+            }),
+            PrimitiveType::Long => Self::Integer(openapiv3::IntegerType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
+                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
+                enumeration: t
+                    .enumeration
+                    .iter()
+                    .filter_map(|s| s.parse().ok())
+                    .collect(),
+                ..Default::default()
+            }),
+        }
     }
 }
