@@ -1,7 +1,7 @@
 #[cfg(test)]
 use crate::parsers::doc::etc::annotation::{Annotation, Modifiable};
 #[cfg(test)]
-use crate::parsers::doc::etc::r#type::ObjectType;
+use crate::parsers::doc::etc::object_type::ObjectType;
 use crate::parsers::doc::etc::r#type::Type;
 #[cfg(test)]
 use crate::parsers::doc::etc::sequence_element::{Occurrences, SequenceElement};
