@@ -8,7 +8,7 @@ use std::convert::TryFrom;
 #[derive(Debug, PartialEq)]
 pub(super) struct SimpleType {
     pub(super) annotation: Option<Annotation>,
-    pub(super) name: String,
+    pub(super) name: Option<String>,
     pub(super) pattern: Option<String>,
     pub(super) list: bool,
     pub(super) parent: PrimitiveType,
@@ -28,10 +28,7 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
                 children,
                 ..
             }) if namespace == XML_SCHEMA_NS && name == "simpleType" => {
-                let name = attributes
-                    .get("name")
-                    .ok_or(TypeParseError::MissingName)?
-                    .clone();
+                let name = attributes.get("name").cloned();
                 let annotation = children
                     .iter()
                     .filter_map(|c| Annotation::try_from(c).ok())
@@ -49,7 +46,7 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
                                 .ok_or(TypeParseError::MissingItemTypeValue)?;
                             return Ok(Self {
                                 annotation,
-                                name: name.clone(),
+                                name,
                                 enumeration: Vec::new(),
                                 list: true,
                                 min_inclusive: None,
@@ -111,7 +108,7 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
                                 .collect();
                             return Ok(Self {
                                 annotation,
-                                name: name.clone(),
+                                name,
                                 enumeration,
                                 list: false,
                                 min_inclusive,
@@ -129,23 +126,41 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
     }
 }
 
+pub(super) fn str_to_simple_type_or_reference(
+    type_name: &str,
+) -> openapiv3::ReferenceOr<SimpleType> {
+    match type_name.parse::<PrimitiveType>() {
+        Err(_) => openapiv3::ReferenceOr::Reference {
+            reference: type_name.to_owned(),
+        },
+        Ok(p) => openapiv3::ReferenceOr::Item(SimpleType {
+            annotation: None,
+            enumeration: Vec::new(),
+            list: false,
+            min_inclusive: None,
+            name: None,
+            parent: p,
+            pattern: None,
+        }),
+    }
+}
+
 impl From<&SimpleType> for openapiv3::Schema {
     fn from(t: &SimpleType) -> Self {
         let schema_data = openapiv3::SchemaData {
             deprecated: t.annotation.as_ref().map(|a| a.deprecated).unwrap_or(false),
-            title: Some(t.name.clone()),
+            title: t.name.clone(),
             description: t.annotation.as_ref().map(|a| a.description.clone()),
             ..Default::default()
         };
 
-        let r#type = openapiv3::Type::from(&RestrictedPrimitiveType {
-            r#type: t.parent,
-            enumeration: &t.enumeration,
-            min_inclusive: &t.min_inclusive,
-            pattern: &t.pattern,
-        });
-
-        let schema_kind = openapiv3::SchemaKind::Type(r#type);
+        let schema_kind =
+            openapiv3::SchemaKind::Type(openapiv3::Type::from(&RestrictedPrimitiveType {
+                r#type: t.parent,
+                enumeration: &t.enumeration,
+                min_inclusive: &t.min_inclusive,
+                pattern: &t.pattern,
+            }));
         if t.list {
             Self {
                 schema_data,

@@ -5668,11 +5668,18 @@
                     "$ref": "#/components/schemas/vcloud:TaskOperationListType"
                   }
                 ]
+              },
+              "timeoutInMilliseconds": {
+                "description": "Value in milliseconds that defines how long to wait for a blocking task to be processed before triggering automatic timeout policy.",
+                "type": "integer",
+                "format": "int64",
+                "minimum": 0
               }
             },
             "required": [
               "timeoutAction",
-              "blockingTaskOperations"
+              "blockingTaskOperations",
+              "timeoutInMilliseconds"
             ],
             "additionalProperties": false
           }
@@ -5700,12 +5707,19 @@
                 "description": "Number of invalid login attempts that will trigger account lockout.",
                 "type": "integer",
                 "format": "int32"
+              },
+              "accountLockoutIntervalMinutes": {
+                "description": "Number of minutes an account that is locked out will remain locked.",
+                "type": "integer",
+                "format": "int32",
+                "minimum": 1
               }
             },
             "required": [
               "accountLockoutEnabled",
               "adminAccountLockoutEnabled",
-              "invalidLoginsBeforeLockout"
+              "invalidLoginsBeforeLockout",
+              "accountLockoutIntervalMinutes"
             ],
             "additionalProperties": false
           }
@@ -8823,6 +8837,18 @@
                 "description": "Indicates whether the VAAI native snapshots for Fast Provisioning is enabled.",
                 "type": "boolean"
               },
+              "thresholdYellowGb": {
+                "description": "Minimum free space, in GB, to trigger a yellow status for the datastore.",
+                "type": "integer",
+                "format": "int32",
+                "minimum": 0
+              },
+              "thresholdRedGb": {
+                "description": "Minimum free space, in GB, to trigger a red status for the datastore.",
+                "type": "integer",
+                "format": "int32",
+                "minimum": 0
+              },
               "systemMessages": {
                 "nullable": true,
                 "readOnly": true,
@@ -8938,6 +8964,8 @@
               "enabled",
               "busy",
               "vAAIForFpEnabled",
+              "thresholdYellowGb",
+              "thresholdRedGb",
               "systemMessages",
               "datastoreFsType",
               "vcDisplayName",
@@ -28791,12 +28819,22 @@
                 "nullable": true,
                 "description": "True if this affinity rule is mandatory. When a rule is mandatory, a host failover will not power on the VM if doing so would violate the rule.",
                 "type": "boolean"
+              },
+              "polarity": {
+                "nullable": true,
+                "description": "The polarity of this rule. One of:   \nAffinity   \nAnti\\-Affinity",
+                "type": "string",
+                "enum": [
+                  "Affinity",
+                  "Anti-Affinity"
+                ]
               }
             },
             "required": [
               "name",
               "isEnabled",
-              "isMandatory"
+              "isMandatory",
+              "polarity"
             ],
             "additionalProperties": false
           }
@@ -28812,6 +28850,14 @@
           {
             "type": "object",
             "properties": {
+              "scope": {
+                "nullable": true,
+                "description": "This defines whether the rule can be applied on the basis of host or other group One of:   \nHost",
+                "type": "string",
+                "enum": [
+                  "Host"
+                ]
+              },
               "vmReferences": {
                 "description": "A list of VMs under a specific VM affinity rule.",
                 "allOf": [
@@ -28822,6 +28868,7 @@
               }
             },
             "required": [
+              "scope",
               "vmReferences"
             ],
             "additionalProperties": false

@@ -2,6 +2,8 @@ use crate::parsers::doc::etc::annotation::Annotation;
 use crate::parsers::doc::etc::annotation::Modifiable;
 use crate::parsers::doc::etc::primitive_type::PrimitiveType;
 use crate::parsers::doc::etc::primitive_type::RestrictedPrimitiveType;
+use crate::parsers::doc::etc::simple_type::str_to_simple_type_or_reference;
+use crate::parsers::doc::etc::simple_type::SimpleType;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
 #[cfg(test)]
 use serde_json::json;
@@ -19,7 +21,7 @@ pub(super) enum Occurrences {
 pub(super) struct SequenceElement {
     pub(super) annotation: Option<Annotation>,
     pub(super) name: String,
-    pub(super) r#type: String,
+    pub(super) r#type: openapiv3::ReferenceOr<SimpleType>,
     pub(super) occurrences: Occurrences,
 }
 
@@ -55,10 +57,15 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                     .enumerate()
                     .map(|(i, c)| if i == 0 { c.to_ascii_lowercase() } else { c })
                     .collect();
-                let r#type = attributes
-                    .get("type")
-                    .ok_or(SequenceElementParseError::MissingType)?
-                    .to_owned();
+                let r#type = match children.iter().flat_map(SimpleType::try_from).next() {
+                    Some(s) => openapiv3::ReferenceOr::Item(s),
+                    None => {
+                        let type_name = attributes
+                            .get("type")
+                            .ok_or(SequenceElementParseError::MissingType)?;
+                        str_to_simple_type_or_reference(type_name)
+                    }
+                };
                 let occurrences = match (
                     attributes
                         .get("minOccurs")
@@ -92,10 +99,23 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                     .get("name")
                     .ok_or(SequenceElementParseError::MissingName)?
                     .to_owned();
-                let r#type = attributes
+                let type_name = attributes
                     .get("type")
-                    .ok_or(SequenceElementParseError::MissingType)?
-                    .to_owned();
+                    .ok_or(SequenceElementParseError::MissingType)?;
+                let r#type = match type_name.parse::<PrimitiveType>() {
+                    Err(_) => openapiv3::ReferenceOr::Reference {
+                        reference: type_name.to_owned(),
+                    },
+                    Ok(p) => openapiv3::ReferenceOr::Item(SimpleType {
+                        annotation: None,
+                        enumeration: Vec::new(),
+                        list: false,
+                        min_inclusive: None,
+                        name: None,
+                        parent: p,
+                        pattern: None,
+                    }),
+                };
                 let occurrences = match attributes.get("use").map(String::as_str) {
                     Some("required") => Occurrences::One,
                     _ => Occurrences::Optional,
@@ -115,17 +135,17 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
 
 impl From<&SequenceElement> for openapiv3::Schema {
     fn from(s: &SequenceElement) -> Self {
-        let reference_or_schema_type = match s.r#type.parse::<PrimitiveType>() {
-            Ok(prim) => {
+        let reference_or_schema_type = match &s.r#type {
+            openapiv3::ReferenceOr::Item(s) => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::from(&RestrictedPrimitiveType {
-                    r#type: prim,
-                    enumeration: &vec![],
-                    min_inclusive: &None,
-                    pattern: &None,
+                    r#type: s.parent,
+                    enumeration: &s.enumeration,
+                    min_inclusive: &s.min_inclusive,
+                    pattern: &s.pattern,
                 }))
             }
-            Err(_) => openapiv3::ReferenceOr::Reference {
-                reference: format!("#/components/schemas/{}", s.r#type),
+            openapiv3::ReferenceOr::Reference { reference } => openapiv3::ReferenceOr::Reference {
+                reference: format!("#/components/schemas/{}", reference),
             },
         };
 
@@ -175,99 +195,6 @@ impl From<&SequenceElement> for openapiv3::Schema {
 }
 
 #[test]
-fn test_parse_sequence_element_optional() {
-    let xml: &[u8] = br#"
-    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:string" minOccurs="0">
-        <xs:annotation>
-            <xs:documentation source="modifiable">always</xs:documentation>
-            <xs:documentation xml:lang="en">
-                A base field for the base type
-            </xs:documentation>
-            <xs:documentation source="required">false</xs:documentation>
-        </xs:annotation>
-    </xs:element>
-    "#;
-    let tree = xmltree::Element::parse(xml).unwrap();
-    assert_eq!(
-        SequenceElement::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(SequenceElement {
-            annotation: Some(Annotation {
-                description: "A base field for the base type".to_owned(),
-                required: Some(false),
-                deprecated: false,
-                modifiable: Some(Modifiable::Always),
-                content_type: None
-            }),
-            name: "baseField".to_owned(),
-            r#type: "xs:string".to_owned(),
-            occurrences: Occurrences::Optional
-        })
-    );
-}
-
-#[test]
-fn test_parse_sequence_element_array() {
-    let xml: &[u8] = br#"
-    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:int" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-            <xs:documentation source="modifiable">none</xs:documentation>
-            <xs:documentation xml:lang="en">
-                A field that could be repeated many times in the &lt;code&gt;XML&lt;/code&gt;.
-            </xs:documentation>
-            <xs:documentation source="required">false</xs:documentation>
-        </xs:annotation>
-    </xs:element>
-    "#;
-    let tree = xmltree::Element::parse(xml).unwrap();
-    assert_eq!(
-        SequenceElement::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(SequenceElement {
-            annotation: Some(Annotation {
-                description: "A field that could be repeated many times in the `XML`.".to_owned(),
-                required: Some(false),
-                deprecated: false,
-                modifiable: Some(Modifiable::None),
-                content_type: None
-            }),
-            name: "baseField".to_owned(),
-            r#type: "xs:int".to_owned(),
-            occurrences: Occurrences::Array
-        })
-    );
-}
-
-#[test]
-fn test_parse_sequence_element_exactly_one() {
-    let xml: &[u8] = br#"
-    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:boolean">
-        <xs:annotation>
-            <xs:documentation source="modifiable">none</xs:documentation>
-            <xs:documentation xml:lang="en">
-                A field that appears precisely once in the &lt;code&gt;XML&lt;/code&gt;.
-            </xs:documentation>
-            <xs:documentation source="required">true</xs:documentation>
-        </xs:annotation>
-    </xs:element>
-    "#;
-    let tree = xmltree::Element::parse(xml).unwrap();
-    assert_eq!(
-        SequenceElement::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(SequenceElement {
-            annotation: Some(Annotation {
-                description: "A field that appears precisely once in the `XML`.".to_owned(),
-                required: Some(true),
-                deprecated: false,
-                modifiable: Some(Modifiable::None),
-                content_type: None
-            }),
-            name: "baseField".to_owned(),
-            r#type: "xs:boolean".to_owned(),
-            occurrences: Occurrences::One
-        })
-    );
-}
-
-#[test]
 fn test_parse_sequence_element_from_required_attribute() {
     let xml: &[u8] = br#"
     <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="requiredAttribute" type="xs:string" use="required">
@@ -281,19 +208,14 @@ fn test_parse_sequence_element_from_required_attribute() {
     </xs:attribute>
 "#;
     let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
     assert_eq!(
-        SequenceElement::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(SequenceElement {
-            annotation: Some(Annotation {
-                description: "A field that comes from an attribute.".to_owned(),
-                required: Some(true),
-                deprecated: false,
-                modifiable: Some(Modifiable::None),
-                content_type: None
-            }),
-            name: "requiredAttribute".to_owned(),
-            r#type: "xs:string".to_owned(),
-            occurrences: Occurrences::One
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "readOnly": true,
+            "description": "A field that comes from an attribute.",
+            "type": "string"
         })
     );
 }
@@ -301,7 +223,7 @@ fn test_parse_sequence_element_from_required_attribute() {
 #[test]
 fn test_parse_sequence_element_from_optional_attribute() {
     let xml: &[u8] = br#"
-    <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="requiredAttribute" type="xs:string">
+    <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="optionalAttribute" type="xs:string">
         <xs:annotation>
             <xs:documentation source="modifiable">none</xs:documentation>
             <xs:documentation>
@@ -312,19 +234,15 @@ fn test_parse_sequence_element_from_optional_attribute() {
     </xs:attribute>
 "#;
     let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
     assert_eq!(
-        SequenceElement::try_from(&xmltree::XMLNode::Element(tree)),
-        Ok(SequenceElement {
-            annotation: Some(Annotation {
-                description: "A field that comes from an optional attribute.".to_owned(),
-                required: Some(false),
-                deprecated: false,
-                modifiable: Some(Modifiable::None),
-                content_type: None
-            }),
-            name: "requiredAttribute".to_owned(),
-            r#type: "xs:string".to_owned(),
-            occurrences: Occurrences::Optional
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "readOnly": true,
+            "nullable": true,
+            "description": "A field that comes from an optional attribute.",
+            "type": "string"
         })
     );
 }
@@ -620,6 +538,38 @@ fn test_any_type_into_schema() {
             "description": "A field that could be anything",
             "type": "string",
             "readOnly": true,
+        })
+    );
+}
+
+#[test]
+fn test_element_with_simple_type() {
+    let xml: &[u8] = br#"
+    <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField">
+        <xs:annotation>
+            <xs:documentation source="modifiable">none</xs:documentation>
+            <xs:documentation xml:lang="en">
+                String with pattern
+            </xs:documentation>
+            <xs:documentation source="required">true</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="pattern"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "description": "String with pattern",
+            "type": "string",
+            "readOnly": true,
+            "pattern": "pattern"
         })
     );
 }
