@@ -140,7 +140,7 @@ impl From<&ObjectType> for openapiv3::Schema {
                         if s.annotation
                             .as_ref()
                             .and_then(|a| a.required)
-                            .unwrap_or(true)
+                            .unwrap_or(false)
                         {
                             Some(s.name.clone())
                         } else {

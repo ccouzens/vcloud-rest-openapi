@@ -1330,8 +1330,7 @@
             "required": [
               "enabled",
               "priority",
-              "objectExtensionId",
-              "phases"
+              "objectExtensionId"
             ],
             "additionalProperties": false
           }
@@ -2204,10 +2203,6 @@
             "format": "int64"
           }
         },
-        "required": [
-          "cpuAllocationMhz",
-          "memoryAllocationMB"
-        ],
         "additionalProperties": false
       },
       "AllocationVAppVdcSpecificationGroup": {
@@ -2243,11 +2238,6 @@
             "format": "int64"
           }
         },
-        "required": [
-          "cpuAllocationMhz",
-          "cpuLimitMhzPerVcpu",
-          "memoryAllocationMB"
-        ],
         "additionalProperties": false
       },
       "ReservationPoolVdcSpecificationGroup": {
@@ -2267,10 +2257,6 @@
             "format": "int64"
           }
         },
-        "required": [
-          "cpuAllocationMhz",
-          "memoryAllocationMB"
-        ],
         "additionalProperties": false
       },
       "VdcTemplateSpecificationType": {
@@ -2711,8 +2697,7 @@
               }
             },
             "required": [
-              "samlSPEntityId",
-              "samlAttributeMapping"
+              "samlSPEntityId"
             ],
             "additionalProperties": false
           }
@@ -3748,7 +3733,6 @@
             "required": [
               "type",
               "eventId",
-              "link",
               "timestamp",
               "operationSuccess"
             ],
@@ -4237,8 +4221,7 @@
               }
             },
             "required": [
-              "access",
-              "entity"
+              "access"
             ],
             "additionalProperties": false
           }
@@ -4283,7 +4266,6 @@
               }
             },
             "required": [
-              "serviceResourceAccess",
               "organizationAccess",
               "principalAccess"
             ],
@@ -5407,8 +5389,7 @@
               }
             },
             "required": [
-              "companyName",
-              "loginPageCustomizationTheme"
+              "companyName"
             ],
             "additionalProperties": false
           }
@@ -5669,9 +5650,6 @@
                 }
               }
             },
-            "required": [
-              "realm"
-            ],
             "additionalProperties": false
           }
         ]
@@ -7505,9 +7483,6 @@
                 }
               }
             },
-            "required": [
-              "transportZoneRef"
-            ],
             "additionalProperties": false
           }
         ]
@@ -7541,9 +7516,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "transportZonePath"
-            ],
             "additionalProperties": false
           }
         ]
@@ -8742,9 +8714,6 @@
                 }
               }
             },
-            "required": [
-              "binding"
-            ],
             "additionalProperties": false
           }
         ]
@@ -8766,10 +8735,6 @@
             ]
           }
         },
-        "required": [
-          "name",
-          "value"
-        ],
         "additionalProperties": false
       },
       "VMWVdcTemplatesType": {
@@ -9816,7 +9781,6 @@
             "required": [
               "domain",
               "key",
-              "value",
               "typedValue"
             ],
             "additionalProperties": false
@@ -9843,9 +9807,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "value"
-            ],
             "additionalProperties": false
           }
         ]
@@ -9865,9 +9826,6 @@
                 "format": "int64"
               }
             },
-            "required": [
-              "value"
-            ],
             "additionalProperties": false
           }
         ]
@@ -9886,9 +9844,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "value"
-            ],
             "additionalProperties": false
           }
         ]
@@ -9908,9 +9863,6 @@
                 "format": "date-time"
               }
             },
-            "required": [
-              "value"
-            ],
             "additionalProperties": false
           }
         ]
@@ -9964,10 +9916,6 @@
                 ]
               }
             },
-            "required": [
-              "value",
-              "typedValue"
-            ],
             "additionalProperties": false
           }
         ]
@@ -10956,10 +10904,6 @@
             ]
           }
         },
-        "required": [
-          "timestamp",
-          "value"
-        ],
         "additionalProperties": false
       },
       "TimeSeriesMetricType": {
@@ -10990,8 +10934,7 @@
         "required": [
           "name",
           "unit",
-          "expectedInterval",
-          "sample"
+          "expectedInterval"
         ],
         "additionalProperties": false
       },
@@ -11008,9 +10951,6 @@
             }
           }
         },
-        "required": [
-          "metricPattern"
-        ],
         "additionalProperties": false
       },
       "CurrentUsageType": {
@@ -11030,9 +10970,6 @@
                 }
               }
             },
-            "required": [
-              "metric"
-            ],
             "additionalProperties": false
           }
         ]
@@ -11050,9 +10987,6 @@
             }
           }
         },
-        "required": [
-          "metricPattern"
-        ],
         "additionalProperties": false
       },
       "HistoricUsageType": {
@@ -11072,9 +11006,6 @@
                 }
               }
             },
-            "required": [
-              "metricSeries"
-            ],
             "additionalProperties": false
           }
         ]
@@ -11273,10 +11204,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "siteId",
-              "siteName"
-            ],
             "additionalProperties": false
           }
         ]
@@ -11832,7 +11759,6 @@
               }
             },
             "required": [
-              "interface",
               "originalIp",
               "translatedIp"
             ],
@@ -12080,11 +12006,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "vAppScopedVmId",
-              "vmNicId",
-              "ipType"
-            ],
             "additionalProperties": false
           }
         ]
@@ -13503,8 +13424,7 @@
               }
             },
             "required": [
-              "isInherited",
-              "isEnabled"
+              "isInherited"
             ],
             "additionalProperties": false
           }
@@ -14140,11 +14060,6 @@
                 "type": "integer"
               }
             },
-            "required": [
-              "name",
-              "pageSize",
-              "page"
-            ],
             "additionalProperties": false
           }
         ]
@@ -14196,13 +14111,6 @@
             ]
           }
         },
-        "required": [
-          "href",
-          "id",
-          "type",
-          "link",
-          "metadata"
-        ],
         "additionalProperties": false
       },
       "QueryResultOrgRecordType": {
@@ -14283,20 +14191,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "name",
-              "isReadOnly",
-              "isEnabled",
-              "deployedVMQuota",
-              "storedVMQuota",
-              "displayName",
-              "canPublishCatalogs",
-              "numberOfCatalogs",
-              "numberOfVdcs",
-              "numberOfVApps",
-              "numberOfGroups",
-              "numberOfDisks"
-            ],
             "additionalProperties": false
           }
         ]
@@ -14509,44 +14403,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "description",
-              "computeProviderScope",
-              "networkProviderScope",
-              "isEnabled",
-              "cpuAllocationMhz",
-              "cpuLimitMhz",
-              "cpuUsedMhz",
-              "cpuReservedMhz",
-              "memoryAllocationMB",
-              "memoryLimitMB",
-              "memoryUsedMB",
-              "memoryReservedMB",
-              "storageAllocationMB",
-              "storageLimitMB",
-              "storageUsedMB",
-              "providerVdcName",
-              "providerVdc",
-              "orgName",
-              "numberOfVApps",
-              "numberOfUnmanagedVApps",
-              "numberOfMedia",
-              "numberOfDisks",
-              "numberOfVAppTemplates",
-              "isSystemVdc",
-              "isBusy",
-              "status",
-              "numberOfDatastores",
-              "numberOfStorageProfiles",
-              "numberOfVMs",
-              "numberOfRunningVMs",
-              "networkPoolUniversalId",
-              "numberOfDeployedVApps",
-              "numberOfDeployedUnmanagedVApps",
-              "isThinProvisioned",
-              "isFastProvisioned"
-            ],
             "additionalProperties": false
           }
         ]
@@ -14651,25 +14507,6 @@
                 "format": "date-time"
               }
             },
-            "required": [
-              "ownerName",
-              "catalogName",
-              "isPublished",
-              "name",
-              "vdc",
-              "vdcName",
-              "org",
-              "creationDate",
-              "isBusy",
-              "storageB",
-              "owner",
-              "catalog",
-              "catalogItem",
-              "status",
-              "storageProfileName",
-              "version",
-              "lastSuccessfulSync"
-            ],
             "additionalProperties": false
           }
         ]
@@ -14778,26 +14615,6 @@
                 "format": "date-time"
               }
             },
-            "required": [
-              "ownerName",
-              "catalogName",
-              "isPublished",
-              "name",
-              "description",
-              "vdc",
-              "vdcName",
-              "org",
-              "creationDate",
-              "isBusy",
-              "isGoldMaster",
-              "isEnabled",
-              "status",
-              "isDeployed",
-              "isExpired",
-              "storageProfileName",
-              "version",
-              "lastSuccessfulSync"
-            ],
             "additionalProperties": false
           }
         ]
@@ -14913,27 +14730,6 @@
                 "format": "int64"
               }
             },
-            "required": [
-              "name",
-              "vdc",
-              "vdcName",
-              "description",
-              "isPublic",
-              "isEnabled",
-              "isBusy",
-              "creationDate",
-              "status",
-              "ownerName",
-              "memoryAllocationMB",
-              "isDeployed",
-              "isInMaintenanceMode",
-              "isAutoNature",
-              "isExpired",
-              "numberOfCpus",
-              "snapshot",
-              "snapshotCreated",
-              "totalStorageAllocatedMb"
-            ],
             "additionalProperties": false
           }
         ]
@@ -15147,48 +14943,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "containerName",
-              "container",
-              "ownerName",
-              "owner",
-              "vdc",
-              "description",
-              "vappScopedLocalId",
-              "isVAppTemplate",
-              "isDeleted",
-              "guestOs",
-              "numberOfCpus",
-              "memoryMB",
-              "status",
-              "networkName",
-              "network",
-              "ipAddress",
-              "isBusy",
-              "isDeployed",
-              "isPublished",
-              "catalogName",
-              "hardwareVersion",
-              "vmToolsStatus",
-              "isInMaintenanceMode",
-              "isAutoNature",
-              "storageProfileName",
-              "snapshot",
-              "snapshotCreated",
-              "gcStatus",
-              "autoUndeployDate",
-              "autoDeleteDate",
-              "isAutoUndeployNotified",
-              "isAutoDeleteNotified",
-              "isComputePolicyCompliant",
-              "vmSizingPolicyId",
-              "vmPlacementPolicyId",
-              "encrypted",
-              "dateCreated",
-              "totalStorageAllocatedMb",
-              "isExpired"
-            ],
             "additionalProperties": false
           }
         ]
@@ -15270,21 +15024,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "networkPool",
-              "networkPoolName",
-              "org",
-              "ipScopeId",
-              "isIpScopeInherited",
-              "gateway",
-              "netmask",
-              "subnetPrefixLength",
-              "dns1",
-              "dns2",
-              "dnsSuffix",
-              "isBusy"
-            ],
             "additionalProperties": false
           }
         ]
@@ -15366,21 +15105,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "orgName",
-              "networkPool",
-              "networkPoolName",
-              "org",
-              "ipScopeId",
-              "isIpScopeInherited",
-              "gateway",
-              "netmask",
-              "subnetPrefixLength",
-              "dns1",
-              "dns2",
-              "isBusy"
-            ],
             "additionalProperties": false
           }
         ]
@@ -15457,20 +15181,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "ipScopeId",
-              "isIpScopeInherited",
-              "gateway",
-              "netmask",
-              "subnetPrefixLength",
-              "dns1",
-              "dns2",
-              "dnsSuffix",
-              "vApp",
-              "vAppName",
-              "isBusy"
-            ],
             "additionalProperties": false
           }
         ]
@@ -15555,21 +15265,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "description",
-              "isPublished",
-              "isShared",
-              "creationDate",
-              "orgName",
-              "ownerName",
-              "numberOfVAppTemplates",
-              "numberOfMedia",
-              "owner",
-              "publishSubscriptionType",
-              "version",
-              "status"
-            ],
             "additionalProperties": false
           }
         ]
@@ -15802,48 +15497,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "description",
-              "computeProviderScope",
-              "networkProviderScope",
-              "isEnabled",
-              "cpuAllocationMhz",
-              "cpuLimitMhz",
-              "cpuUsedMhz",
-              "memoryAllocationMB",
-              "memoryLimitMB",
-              "memoryUsedMB",
-              "storageAllocationMB",
-              "storageLimitMB",
-              "storageUsedMB",
-              "providerVdcName",
-              "providerVdc",
-              "orgName",
-              "org",
-              "allocationModel",
-              "numberOfVApps",
-              "numberOfUnmanagedVApps",
-              "numberOfMedia",
-              "numberOfDisks",
-              "numberOfVAppTemplates",
-              "vcName",
-              "isSystemVdc",
-              "isBusy",
-              "status",
-              "networkPool",
-              "numberOfResourcePools",
-              "numberOfStorageProfiles",
-              "usedNetworksInVdc",
-              "numberOfVMs",
-              "networkPoolUniversalId",
-              "numberOfRunningVMs",
-              "numberOfDeployedVApps",
-              "numberOfDeployedUnmanagedVApps",
-              "isThinProvisioned",
-              "isFastProvisioned",
-              "networkProviderType"
-            ],
             "additionalProperties": false
           }
         ]
@@ -15967,27 +15620,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "name",
-              "isEnabled",
-              "isDeleted",
-              "vcpuRatingMhz",
-              "cpuUsedMhz",
-              "cpuLimitMhz",
-              "cpuAllocationMhz",
-              "memoryUsedMB",
-              "memoryLimitMB",
-              "memoryAllocationMB",
-              "storageUsedMB",
-              "storageLimitMB",
-              "storageAllocationMB",
-              "numberOfDatastores",
-              "numberOfVdcs",
-              "isBusy",
-              "status",
-              "numberOfResourcePools",
-              "numberOfStorageProfiles"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16049,17 +15681,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "ipScopeId",
-              "gateway",
-              "netmask",
-              "subnetPrefixLength",
-              "dns1",
-              "dns2",
-              "dnsSuffix",
-              "isBusy"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16098,13 +15719,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "description",
-              "roleName",
-              "isReadOnly",
-              "identityProviderType"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16179,19 +15793,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "fullName",
-              "isEnabled",
-              "numberOfDeployedVMs",
-              "deployedVMQuota",
-              "numberOfStoredVMs",
-              "storedVMQuota",
-              "isLdapUser",
-              "identityProviderType",
-              "isLocked",
-              "roleNames"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16239,14 +15840,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "fullName",
-              "isInSync",
-              "numberOfDeployedVMs",
-              "numberOfStoredVMs",
-              "org"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16277,11 +15870,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "description",
-              "isReadOnly"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16312,11 +15900,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "network",
-              "ipAddress",
-              "linkedNetwork"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16395,20 +15978,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "eventId",
-              "eventType",
-              "timeStamp",
-              "eventStatus",
-              "userName",
-              "orgName",
-              "entityType",
-              "entityName",
-              "description",
-              "details",
-              "serviceNamespace",
-              "entity"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16474,18 +16043,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "moref",
-              "isDeleted",
-              "vc",
-              "vcName",
-              "providerVdc",
-              "providerName",
-              "isEnabled",
-              "isPrimary",
-              "clusterMoref"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16578,22 +16135,6 @@
                 "format": "int64"
               }
             },
-            "required": [
-              "name",
-              "datastoreType",
-              "isEnabled",
-              "isDeleted",
-              "storageUsedMB",
-              "storageMB",
-              "provisionedStorageMB",
-              "requestedStorageMB",
-              "vc",
-              "vcName",
-              "moref",
-              "numberOfProviderVdcs",
-              "iopsCapacity",
-              "iopsAllocated"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16648,16 +16189,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "networkPoolType",
-              "vcName",
-              "description",
-              "isVCEnabled",
-              "isBusy",
-              "dvSwitchNameList",
-              "universalId"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16719,17 +16250,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "moref",
-              "name",
-              "portgroupType",
-              "vc",
-              "vcName",
-              "isVCEnabled",
-              "network",
-              "networkName",
-              "scopeType"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16770,13 +16290,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "moref",
-              "name",
-              "vc",
-              "vcName",
-              "isVCEnabled"
-            ],
             "additionalProperties": false
           }
         ]
@@ -16825,14 +16338,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "primaryIp",
-              "name",
-              "isActive",
-              "isVMwareVc",
-              "buildDate",
-              "version"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17005,37 +16510,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "url",
-              "userName",
-              "isEnabled",
-              "vcVersion",
-              "status",
-              "vsmIP",
-              "vcproxy",
-              "isBusy",
-              "listenerState",
-              "uuid",
-              "isSupported",
-              "isTenantScoped",
-              "isProviderScoped",
-              "clusterHealthStatus",
-              "clustersCount",
-              "totalVmCount",
-              "poweredOnVmCount",
-              "totalMemMb",
-              "reservedMemMb",
-              "demandedMemMb",
-              "totalCpuMhz",
-              "reservedCpuMhz",
-              "demandedCpuMhz",
-              "diskSizeBytes",
-              "diskFreeBytes",
-              "diskUncommittedBytes",
-              "vsmVersion",
-              "hasProxy"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17131,24 +16605,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "isEnabled",
-              "isDeleted",
-              "isBusy",
-              "isPrepared",
-              "isSupported",
-              "isHung",
-              "isPendingUpgrade",
-              "state",
-              "osVersion",
-              "isCrossHostEnabled",
-              "numberOfVMs",
-              "isInMaintenanceMode",
-              "connectionState",
-              "vc",
-              "vcName"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17277,29 +16733,6 @@
                 "format": "int64"
               }
             },
-            "required": [
-              "name",
-              "org",
-              "vdc",
-              "vdcName",
-              "isVdcEnabled",
-              "description",
-              "isEnabled",
-              "isBusy",
-              "creationDate",
-              "status",
-              "ownerName",
-              "storageKB",
-              "numberOfVMs",
-              "cpuAllocationMhz",
-              "memoryAllocationMB",
-              "isDeployed",
-              "isInMaintenanceMode",
-              "isAutoNature",
-              "isExpired",
-              "numberOfCpus",
-              "totalStorageAllocatedMb"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17325,10 +16758,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "category"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17519,42 +16948,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "containerName",
-              "description",
-              "vappScopedLocalId",
-              "container",
-              "status",
-              "vdc",
-              "hostName",
-              "isVAppTemplate",
-              "isDeleted",
-              "guestOs",
-              "numberOfCpus",
-              "memoryMB",
-              "networkName",
-              "isDeployed",
-              "isPublished",
-              "catalogName",
-              "isVdcEnabled",
-              "hardwareVersion",
-              "vmToolsVersion",
-              "datastoreName",
-              "vc",
-              "moref",
-              "org",
-              "storageProfileName",
-              "gcStatus",
-              "isAutoNature",
-              "isComputePolicyCompliant",
-              "vmSizingPolicyId",
-              "vmPlacementPolicyId",
-              "ipAddress",
-              "encrypted",
-              "dateCreated",
-              "isExpired"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17590,12 +16983,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "network",
-              "ipAddress",
-              "linkedNetwork",
-              "org"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17646,15 +17033,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "org",
-              "orgNetwork",
-              "orgNetworkName",
-              "configurationType",
-              "status",
-              "ownerName"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17695,13 +17073,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "vdc",
-              "vc",
-              "resourcePoolMoref",
-              "vcName",
-              "resourcePoolName"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17783,20 +17154,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "name",
-              "resourcePoolMoref",
-              "cpuReservationLimitMhz",
-              "cpuReservationAllocationMhz",
-              "isEnabled",
-              "memoryReservationLimitMB",
-              "memoryReservationAllocationMB",
-              "isPrimary",
-              "providerVdc",
-              "vc",
-              "vcName",
-              "numberOfVMs"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17893,21 +17250,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "datastoreType",
-              "isEnabled",
-              "isDeleted",
-              "storageUsedMB",
-              "storageMB",
-              "provisionedStorageMB",
-              "requestedStorageMB",
-              "vc",
-              "vcName",
-              "moref",
-              "providerVdc",
-              "datastore"
-            ],
             "additionalProperties": false
           }
         ]
@@ -17989,20 +17331,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "org",
-              "fullName",
-              "isEnabled",
-              "numberOfDeployedVMs",
-              "deployedVMQuota",
-              "numberOfStoredVMs",
-              "storedVMQuota",
-              "isLdapUser",
-              "deployedVMQuotaRank",
-              "storedVMQuotaRank",
-              "identityProviderType"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18043,13 +17371,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "org",
-              "roleName",
-              "isReadOnly",
-              "identityProviderType"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18126,20 +17447,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "org",
-              "isIpScopeInherited",
-              "gateway",
-              "netmask",
-              "subnetPrefixLength",
-              "dns1",
-              "dns2",
-              "dnsSuffix",
-              "vApp",
-              "vappName",
-              "isBusy"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18208,18 +17515,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "org",
-              "name",
-              "isPublished",
-              "isShared",
-              "creationDate",
-              "orgName",
-              "ownerName",
-              "numberOfTemplates",
-              "numberOfMedia",
-              "owner"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18316,24 +17611,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "entity",
-              "entityName",
-              "entityType",
-              "catalog",
-              "catalogName",
-              "ownerName",
-              "owner",
-              "isPublished",
-              "vdc",
-              "vdcName",
-              "isVdcEnabled",
-              "org",
-              "creationDate",
-              "isExpired",
-              "status",
-              "name"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18425,23 +17702,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "entity",
-              "entityName",
-              "entityType",
-              "catalog",
-              "catalogName",
-              "ownerName",
-              "owner",
-              "isPublished",
-              "vdc",
-              "vdcName",
-              "isVdcEnabled",
-              "creationDate",
-              "isExpired",
-              "status",
-              "name"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18539,24 +17799,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "org",
-              "ownerName",
-              "owner",
-              "isPublished",
-              "name",
-              "storageB",
-              "vdc",
-              "vdcName",
-              "isVdcEnabled",
-              "catalog",
-              "catalogName",
-              "catalogItem",
-              "creationDate",
-              "isBusy",
-              "status",
-              "storageProfileName"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18668,27 +17910,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "org",
-              "ownerName",
-              "owner",
-              "isPublished",
-              "name",
-              "vdc",
-              "vdcName",
-              "isVdcEnabled",
-              "catalog",
-              "catalogName",
-              "catalogItem",
-              "creationDate",
-              "isBusy",
-              "isGoldMaster",
-              "isEnabled",
-              "isExpired",
-              "isDeployed",
-              "status",
-              "storageProfileName"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18779,23 +18000,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "isPublished",
-              "name",
-              "primaryVmName",
-              "shadowVApp",
-              "primaryVAppTemplate",
-              "primaryVAppName",
-              "datastoreName",
-              "vcName",
-              "isDeleted",
-              "status",
-              "isBusy",
-              "primaryVMOwner",
-              "primaryVM",
-              "primaryVMCatalog",
-              "org"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18884,22 +18088,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "org",
-              "orgName",
-              "name",
-              "operationFull",
-              "message",
-              "startDate",
-              "endDate",
-              "status",
-              "progress",
-              "ownerName",
-              "object",
-              "objectType",
-              "objectName",
-              "serviceNamespace"
-            ],
             "additionalProperties": false
           }
         ]
@@ -18998,24 +18186,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "org",
-              "orgName",
-              "name",
-              "operationFull",
-              "startDate",
-              "endDate",
-              "status",
-              "progress",
-              "owner",
-              "ownerName",
-              "object",
-              "objectType",
-              "objectName",
-              "cellName",
-              "serviceNamespace",
-              "hasOwner"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19098,21 +18268,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "status",
-              "operationName",
-              "owner",
-              "ownerName",
-              "originatingOrgName",
-              "originatingOrg",
-              "creationDate",
-              "expirationTime",
-              "timeoutAction",
-              "task",
-              "description",
-              "jobStatus",
-              "hasOwner"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19231,28 +18386,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "vdc",
-              "description",
-              "sizeB",
-              "sizeMb",
-              "iops",
-              "encrypted",
-              "datastore",
-              "datastoreName",
-              "ownerName",
-              "vdcName",
-              "task",
-              "storageProfile",
-              "storageProfileName",
-              "status",
-              "busType",
-              "busTypeDesc",
-              "busSubType",
-              "attachedVmCount",
-              "isAttached"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19283,11 +18416,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "vdc",
-              "disk",
-              "vm"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19403,28 +18531,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "vdc",
-              "description",
-              "sizeB",
-              "sizeMb",
-              "vc",
-              "datastore",
-              "datastoreName",
-              "ownerName",
-              "vdcName",
-              "org",
-              "task",
-              "storageProfile",
-              "storageProfileName",
-              "status",
-              "busType",
-              "busTypeDesc",
-              "busSubType",
-              "attachedVmCount",
-              "isAttached"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19455,11 +18561,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "vdc",
-              "disk",
-              "vm"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19506,14 +18607,6 @@
                 "format": "date-time"
               }
             },
-            "required": [
-              "object",
-              "objectType",
-              "severity",
-              "summary",
-              "details",
-              "occurenceDate"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19601,22 +18694,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "eventId",
-              "eventType",
-              "timeStamp",
-              "eventStatus",
-              "userName",
-              "orgName",
-              "entityType",
-              "entityName",
-              "description",
-              "details",
-              "serviceNamespace",
-              "productVersion",
-              "entity",
-              "org"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19674,16 +18751,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "name",
-              "description",
-              "vimObjectType",
-              "parentName",
-              "deletionDate",
-              "message",
-              "parent",
-              "numberOfPurgeAttempts"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19740,16 +18807,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "name",
-              "enabled",
-              "exchange",
-              "priority",
-              "routingKey",
-              "vendor",
-              "namespace",
-              "isAuthorizationEnabled"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19780,11 +18837,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "vendor",
-              "namespace"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19830,14 +18882,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "rel",
-              "linkHref",
-              "mimeType",
-              "resourceType",
-              "service",
-              "resourceId"
-            ],
             "additionalProperties": false
           }
         ]
@@ -19911,18 +18955,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "name",
-              "numberOfProviderVdcs",
-              "numberOfOrgVdcs",
-              "numberOfDatastores",
-              "requestedMb",
-              "totalMb",
-              "usedMb",
-              "provisionedMb",
-              "capabilities",
-              "numberOfCapabilities"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20027,24 +19059,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "name",
-              "isEnabled",
-              "isDefaultStorageProfile",
-              "storageUsedMB",
-              "storageLimitMB",
-              "iopsAllocated",
-              "iopsLimit",
-              "numberOfConditions",
-              "vdc",
-              "vdcName",
-              "isVdcBusy",
-              "diskIopsEnabled",
-              "diskIopsDefault",
-              "diskIopsMax",
-              "diskIopsPerGbMax",
-              "numberOfCapabilities"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20159,26 +19173,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "name",
-              "isEnabled",
-              "isDefaultStorageProfile",
-              "storageUsedMB",
-              "storageLimitMB",
-              "iopsAllocated",
-              "iopsLimit",
-              "numberOfConditions",
-              "vdc",
-              "vdcName",
-              "org",
-              "vc",
-              "storageProfileMoref",
-              "diskIopsEnabled",
-              "diskIopsDefault",
-              "diskIopsMax",
-              "diskIopsPerGbMax",
-              "numberOfCapabilities"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20261,21 +19255,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "isEnabled",
-              "name",
-              "storageTotalMB",
-              "storageUsedMB",
-              "storageRequestedMB",
-              "storageProvisionedMB",
-              "numberOfConditions",
-              "providerVdc",
-              "vc",
-              "storageProfileMoref",
-              "iopsCapacity",
-              "iopsAllocated",
-              "numberOfCapabilities"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20301,10 +19280,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "urlPattern",
-              "service"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20360,16 +19335,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "entryPoint",
-              "service",
-              "namespace",
-              "apiVendor",
-              "serviceName",
-              "serviceNamespace",
-              "serviceVendor"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20425,16 +19390,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "entryPoint",
-              "service",
-              "namespace",
-              "apiVendor",
-              "serviceName",
-              "serviceNamespace",
-              "serviceVendor"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20505,19 +19460,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "fileUrl",
-              "apiDefinition",
-              "fileMimeType",
-              "name",
-              "apiName",
-              "apiNamespace",
-              "apiVendor",
-              "serviceName",
-              "serviceNamespace",
-              "serviceVendor",
-              "service"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20588,19 +19530,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "fileUrl",
-              "apiDefinition",
-              "fileMimeType",
-              "name",
-              "apiName",
-              "apiNamespace",
-              "apiVendor",
-              "serviceName",
-              "serviceNamespace",
-              "serviceVendor",
-              "service"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20636,12 +19565,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "httpMethod",
-              "urlPattern",
-              "resourceClass"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20702,17 +19625,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "org",
-              "principal",
-              "name",
-              "serviceResource",
-              "principalType",
-              "resourceClassAction",
-              "orgAccess",
-              "serviceResourceAccess",
-              "principalAccess"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20758,14 +19670,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "service",
-              "mimeType",
-              "urlTemplate",
-              "nid",
-              "urnPattern"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20801,12 +19705,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "org",
-              "resourceClass",
-              "externalObjectId"
-            ],
             "additionalProperties": false
           }
         ]
@@ -20889,22 +19787,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "vdc",
-              "numberOfExtNetworks",
-              "numberOfOrgNetworks",
-              "isBusy",
-              "edgeGatewayType",
-              "orgVdcName",
-              "orgName",
-              "availableNetCount",
-              "gatewayStatus",
-              "haStatus",
-              "advancedNetworkingEnabled",
-              "distributedRoutingEnabled",
-              "egressPointId"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21025,28 +19907,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "defaultGateway",
-              "netmask",
-              "subnetPrefixLength",
-              "dns1",
-              "dns2",
-              "dnsSuffix",
-              "linkType",
-              "connectedTo",
-              "vdc",
-              "isBusy",
-              "isShared",
-              "vdcName",
-              "isIpScopeInherited",
-              "usedIpCount",
-              "totalIpCount",
-              "interfaceType",
-              "crossVdcNetworkId",
-              "vdcGroupId",
-              "crossVdcNetworkLocationId"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21097,15 +19957,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "entityType",
-              "name",
-              "org",
-              "orgVdcNetwork",
-              "orgVdcNetworkName",
-              "status",
-              "ownerName"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21141,12 +19992,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "serviceNamespace",
-              "locale",
-              "key",
-              "value"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21198,15 +20043,6 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "name",
-              "status",
-              "containerName",
-              "guestOs",
-              "isDeployed",
-              "isBusy",
-              "hardwareVersion"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21277,19 +20113,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "vmGroupName",
-              "vmName",
-              "vmMoref",
-              "vappName",
-              "vappId",
-              "orgVdcName",
-              "orgVdcId",
-              "clusterMoref",
-              "vcId",
-              "vmGroupId",
-              "isVappTemplate"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21335,14 +20158,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "vmGroupId",
-              "vmGroupName",
-              "clusterMoref",
-              "clusterName",
-              "vcId",
-              "namedVmGroupId"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21370,12 +20185,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "isReadOnly",
-              "org",
-              "orgName"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21406,11 +20215,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "url",
-              "version"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21446,12 +20250,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "description",
-              "tenantVisibleName",
-              "tenantVisibleDescription"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21480,11 +20278,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "description",
-              "org"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21520,12 +20313,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "ipAddress",
-              "gatewayId",
-              "networkName",
-              "category"
-            ],
             "additionalProperties": false
           }
         ]
@@ -21965,9 +20752,6 @@
                 }
               }
             },
-            "required": [
-              "vcTask"
-            ],
             "additionalProperties": false
           }
         ]
@@ -22013,19 +20797,6 @@
             "format": "date-time"
           }
         },
-        "required": [
-          "name",
-          "moref",
-          "status",
-          "description",
-          "errorMessage",
-          "objectName",
-          "objectType",
-          "objectMoref",
-          "virtualCenterID",
-          "startTime",
-          "endTime"
-        ],
         "additionalProperties": false
       },
       "TasksListType": {
@@ -22228,10 +20999,6 @@
                 "type": "string"
               }
             },
-            "required": [
-              "href",
-              "type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -22673,10 +21440,8 @@
             "required": [
               "network",
               "networkConnectionIndex",
-              "secondaryIpAddress",
               "isConnected",
-              "ipAddressAllocationMode",
-              "secondaryIpAddressAllocationMode"
+              "ipAddressAllocationMode"
             ],
             "additionalProperties": false
           }
@@ -23792,13 +22557,6 @@
                 ]
               }
             },
-            "required": [
-              "ovf",
-              "vsToVmxMap",
-              "ovfToVdcNetworkMap",
-              "externalNatIpMap",
-              "nicIpMap"
-            ],
             "additionalProperties": false
           }
         ]
@@ -23980,9 +22738,6 @@
                 "type": "boolean"
               }
             },
-            "required": [
-              "transferFormat"
-            ],
             "additionalProperties": false
           }
         ]
@@ -24001,10 +22756,6 @@
             "type": "string"
           }
         },
-        "required": [
-          "source",
-          "target"
-        ],
         "additionalProperties": false
       },
       "InstantiateOvfPropertyType": {
@@ -24029,10 +22780,6 @@
             "type": "string"
           }
         },
-        "required": [
-          "key",
-          "value"
-        ],
         "additionalProperties": false
       },
       "InstantiateVmParamsType": {
@@ -25999,9 +24746,6 @@
                 }
               }
             },
-            "required": [
-              "range"
-            ],
             "additionalProperties": false
           }
         ]
@@ -26273,10 +25017,6 @@
             "format": "uri"
           }
         },
-        "required": [
-          "versionInfo",
-          "schemaRoot"
-        ],
         "additionalProperties": false
       },
       "VersionInfoType": {
@@ -26309,12 +25049,6 @@
             }
           }
         },
-        "required": [
-          "deprecated",
-          "version",
-          "loginUrl",
-          "mediaTypeMapping"
-        ],
         "additionalProperties": false
       },
       "MediaTypeMappingType": {
@@ -26340,11 +25074,6 @@
             "format": "uri"
           }
         },
-        "required": [
-          "mediaType",
-          "complexTypeName",
-          "schemaLocation"
-        ],
         "additionalProperties": false
       }
     }

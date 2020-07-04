@@ -180,6 +180,51 @@ fn parse_type_that_is_attribute_test() {
 }
 
 #[test]
+fn parse_type_that_is_attribute_but_not_required_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta" name="TestType">
+        <xs:complexContent>
+            <xs:extension base="BaseType">
+                <xs:attribute name="optionalAttribute" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation>
+                            A field that comes from an attribute.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+          "title": "TestType",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/BaseType"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "optionalAttribute": {
+                  "readOnly": true,
+                  "description": "A field that comes from an attribute.",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        })
+    );
+}
+
+#[test]
 fn parse_type_that_is_attribute_but_not_extension_test() {
     let xml: &[u8] = br#"
     <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta" name="TestType">
