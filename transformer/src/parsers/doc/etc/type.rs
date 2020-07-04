@@ -466,3 +466,58 @@ fn parent_type_into_schema_test() {
         })
     );
 }
+
+#[test]
+fn parse_group_test() {
+    let xml: &[u8] = br#"
+    <xs:group xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta" name="SimpleGroup">
+        <xs:sequence>
+            <xs:element name="Field1" type="xs:int" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation source="modifiable">always</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        The first field in the group.
+                    </xs:documentation>
+                    <xs:documentation source="required">true</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Field2" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation source="modifiable">always</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        The second field in the group.
+                    </xs:documentation>
+                    <xs:documentation source="required">false</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+          "title": "SimpleGroup",
+          "type": "object",
+          "properties": {
+            "field1": {
+              "description": "The first field in the group.",
+              "type": "integer",
+              "format": "int32"
+            },
+            "field2": {
+              "nullable": true,
+              "description": "The second field in the group.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "field1",
+            "field2"
+          ],
+          "additionalProperties": false
+        })
+    );
+}

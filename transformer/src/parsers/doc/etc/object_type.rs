@@ -23,7 +23,7 @@ impl TryFrom<&xmltree::XMLNode> for ObjectType {
                 attributes,
                 children,
                 ..
-            }) if namespace == XML_SCHEMA_NS && name == "complexType" => {
+            }) if namespace == XML_SCHEMA_NS && (name == "complexType" || name == "group") => {
                 let name = attributes
                     .get("name")
                     .ok_or(TypeParseError::MissingName)?

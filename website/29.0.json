@@ -2294,6 +2294,170 @@
           }
         ]
       },
+      "VdcSpecificationGroup": {
+        "title": "VdcSpecificationGroup",
+        "type": "object",
+        "properties": {
+          "nicQuota": {
+            "description": "Maximum number of virtual NICs allowed in this vDC. Defaults to 0, which specifies an unlimited number.",
+            "type": "integer",
+            "format": "int32"
+          },
+          "vmQuota": {
+            "nullable": true,
+            "description": "The quota of VMs that can be created in this vDC. Includes VMs in both vApps and vApp templates, deployed, or otherwise. Defaults to 0, which specifies an unlimited number.",
+            "type": "integer",
+            "format": "int32"
+          },
+          "provisionedNetworkQuota": {
+            "description": "Maximum number of network objects that can be deployed in this VDC. Defaults to 0, which means no networks can be deployed.",
+            "type": "integer",
+            "format": "int32"
+          },
+          "gatewayConfiguration": {
+            "nullable": true,
+            "description": "Defines a gateway and NAT Routed organization VDC network to be created.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/VdcTemplateSpecificationGatewayConfigurationType"
+              }
+            ]
+          },
+          "storageProfile": {
+            "description": "A set of name of Storage Profiles, with corresponding limit value, that all Provider VDCs must have, and that are selected at the time of VDC Template instantiation.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VdcStorageProfileType"
+            }
+          }
+        },
+        "required": [
+          "nicQuota",
+          "vmQuota",
+          "provisionedNetworkQuota",
+          "gatewayConfiguration",
+          "storageProfile"
+        ],
+        "additionalProperties": false
+      },
+      "AllocationPoolVdcSpecificationGroup": {
+        "title": "AllocationPoolVdcSpecificationGroup",
+        "type": "object",
+        "properties": {
+          "cpuAllocationMhz": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "CPU allocation in Mhz",
+            "type": "integer",
+            "format": "int64"
+          },
+          "memoryAllocationMB": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "Memory allocation in MB",
+            "type": "integer",
+            "format": "int64"
+          },
+          "cpuGuaranteedPercentage": {
+            "nullable": true,
+            "description": "Percentage of allocated CPU resources guaranteed to vApps deployed in this vDC. For example, if this value is 75, then 75% of allocated resources are guaranteed. Required when AllocationModel is AllocationVApp or AllocationPool. Value defaults to 100 if the element is empty.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "vCpuInMhz": {
+            "nullable": true,
+            "description": "Specifies the clock frequency, in Megahertz, for any virtual CPU that is allocated to a VM. A VM with 2 vCPUs will consume twice as much of this value. Ignored for ReservationPool. Required when AllocationModel is AllocationVApp or AllocationPool, and may not be less than 256 MHz. Defaults to 1000 MHz if the element is empty or missing.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "memoryGuaranteedPercentage": {
+            "nullable": true,
+            "description": "Percentage of allocated memory resources guaranteed to vApps deployed in this vDC. For example, if this value is 75, then 75% of allocated resources are guaranteed. Required when AllocationModel is AllocationVApp or AllocationPool. Value defaults to 100 if the element is empty.",
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "cpuAllocationMhz",
+          "memoryAllocationMB",
+          "cpuGuaranteedPercentage",
+          "vCpuInMhz",
+          "memoryGuaranteedPercentage"
+        ],
+        "additionalProperties": false
+      },
+      "AllocationVAppVdcSpecificationGroup": {
+        "title": "AllocationVAppVdcSpecificationGroup",
+        "type": "object",
+        "properties": {
+          "cpuAllocationMhz": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "CPU allocation in Mhz",
+            "type": "integer",
+            "format": "int64"
+          },
+          "cpuLimitMhzPerVcpu": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "CPU allocation in Mhz",
+            "type": "integer",
+            "format": "int64"
+          },
+          "memoryAllocationMB": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "Memory allocation in MB",
+            "type": "integer",
+            "format": "int64"
+          },
+          "cpuGuaranteedPercentage": {
+            "nullable": true,
+            "description": "Percentage of allocated CPU resources guaranteed to vApps deployed in this vDC. For example, if this value is 75, then 75% of allocated resources are guaranteed. Required when AllocationModel is AllocationVApp or AllocationPool. Value defaults to 100 if the element is empty.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "memoryGuaranteedPercentage": {
+            "nullable": true,
+            "description": "Percentage of allocated memory resources guaranteed to vApps deployed in this vDC. For example, if this value is 75, then 75% of allocated resources are guaranteed. Required when AllocationModel is AllocationVApp or AllocationPool. Value defaults to 100 if the element is empty.",
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "cpuAllocationMhz",
+          "cpuLimitMhzPerVcpu",
+          "memoryAllocationMB",
+          "cpuGuaranteedPercentage",
+          "memoryGuaranteedPercentage"
+        ],
+        "additionalProperties": false
+      },
+      "ReservationPoolVdcSpecificationGroup": {
+        "title": "ReservationPoolVdcSpecificationGroup",
+        "type": "object",
+        "properties": {
+          "cpuAllocationMhz": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "CPU allocation in Mhz",
+            "type": "integer",
+            "format": "int64"
+          },
+          "memoryAllocationMB": {
+            "nullable": true,
+            "readOnly": true,
+            "description": "Memory allocation in MB",
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "cpuAllocationMhz",
+          "memoryAllocationMB"
+        ],
+        "additionalProperties": false
+      },
       "VdcTemplateSpecificationType": {
         "title": "VdcTemplateSpecificationType",
         "type": "object",
@@ -11383,6 +11547,32 @@
             "additionalProperties": false
           }
         ]
+      },
+      "FromCloudTunnelListenerProperties": {
+        "title": "FromCloudTunnelListenerProperties",
+        "type": "object",
+        "properties": {
+          "port": {
+            "description": "The port number of the from\\-the\\-cloud tunnel listener",
+            "type": "integer",
+            "format": "int32"
+          },
+          "trafficType": {
+            "description": "An opaque string indicating the type of traffic (for example, HBR)",
+            "type": "string"
+          },
+          "endpointTag": {
+            "nullable": true,
+            "description": "Optional opaque string used in identifying a shared port for the tunnel. A shared port is associated with a (traffic type, endpoint tag) tuple.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "port",
+          "trafficType",
+          "endpointTag"
+        ],
+        "additionalProperties": false
       },
       "FromCloudTunnelListenerCreateParamsType": {
         "title": "FromCloudTunnelListenerCreateParamsType",
