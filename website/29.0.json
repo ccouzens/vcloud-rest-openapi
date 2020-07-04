@@ -2460,8 +2460,15 @@
       },
       "VdcTemplateSpecificationType": {
         "title": "VdcTemplateSpecificationType",
-        "type": "object",
-        "additionalProperties": false
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VdcSpecificationGroup"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
       },
       "AllocationPoolVdcTemplateSpecificationType": {
         "title": "AllocationPoolVdcTemplateSpecificationType",
@@ -2469,6 +2476,9 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/VdcTemplateSpecificationType"
+          },
+          {
+            "$ref": "#/components/schemas/AllocationPoolVdcSpecificationGroup"
           },
           {
             "type": "object",
@@ -2484,6 +2494,9 @@
             "$ref": "#/components/schemas/VdcTemplateSpecificationType"
           },
           {
+            "$ref": "#/components/schemas/AllocationVAppVdcSpecificationGroup"
+          },
+          {
             "type": "object",
             "additionalProperties": false
           }
@@ -2495,6 +2508,9 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/VdcTemplateSpecificationType"
+          },
+          {
+            "$ref": "#/components/schemas/ReservationPoolVdcSpecificationGroup"
           },
           {
             "type": "object",
@@ -8960,22 +8976,29 @@
       },
       "VMWVdcTemplateSpecificationType": {
         "title": "VMWVdcTemplateSpecificationType",
-        "type": "object",
-        "properties": {
-          "thinProvision": {
-            "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over\\-allocation of storage.",
-            "type": "boolean"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/vcloud:VdcSpecificationGroup"
           },
-          "fastProvisioningEnabled": {
-            "description": "Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.",
-            "type": "boolean"
+          {
+            "type": "object",
+            "properties": {
+              "thinProvision": {
+                "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over\\-allocation of storage.",
+                "type": "boolean"
+              },
+              "fastProvisioningEnabled": {
+                "description": "Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "thinProvision",
+              "fastProvisioningEnabled"
+            ],
+            "additionalProperties": false
           }
-        },
-        "required": [
-          "thinProvision",
-          "fastProvisioningEnabled"
-        ],
-        "additionalProperties": false
+        ]
       },
       "AutomaticNetworkPoolReferenceType": {
         "title": "AutomaticNetworkPoolReferenceType",
@@ -8988,6 +9011,9 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/VMWVdcTemplateSpecificationType"
+          },
+          {
+            "$ref": "#/components/schemas/vcloud:AllocationPoolVdcSpecificationGroup"
           },
           {
             "type": "object",
@@ -9003,6 +9029,9 @@
             "$ref": "#/components/schemas/VMWVdcTemplateSpecificationType"
           },
           {
+            "$ref": "#/components/schemas/vcloud:AllocationVAppVdcSpecificationGroup"
+          },
+          {
             "type": "object",
             "additionalProperties": false
           }
@@ -9014,6 +9043,9 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/VMWVdcTemplateSpecificationType"
+          },
+          {
+            "$ref": "#/components/schemas/vcloud:ReservationPoolVdcSpecificationGroup"
           },
           {
             "type": "object",
@@ -11582,6 +11614,9 @@
             "$ref": "#/components/schemas/VCloudExtensibleType"
           },
           {
+            "$ref": "#/components/schemas/FromCloudTunnelListenerProperties"
+          },
+          {
             "type": "object",
             "additionalProperties": false
           }
@@ -11593,6 +11628,9 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/EntityType"
+          },
+          {
+            "$ref": "#/components/schemas/FromCloudTunnelListenerProperties"
           },
           {
             "type": "object",

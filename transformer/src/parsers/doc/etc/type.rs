@@ -521,3 +521,120 @@ fn parse_group_test() {
         })
     );
 }
+
+#[test]
+fn parse_group_ref_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType name="ObjectWithTwoBases" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Object with 2 bases
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Base1">
+                <xs:sequence>
+                    <xs:group ref="Base2"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "title": "ObjectWithTwoBases",
+            "description": "Object with 2 bases",
+            "allOf": [
+                {
+                    "$ref": "#/components/schemas/Base1"
+                },
+                {
+                    "$ref": "#/components/schemas/Base2"
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false
+                }
+            ]
+        })
+    );
+}
+
+#[test]
+fn parse_group_ref_no_sequence_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType name="ObjectWithTwoBases" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Object with 2 bases
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Base1">
+                <xs:group ref="Base2"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "title": "ObjectWithTwoBases",
+            "description": "Object with 2 bases",
+            "allOf": [
+                {
+                    "$ref": "#/components/schemas/Base1"
+                },
+                {
+                    "$ref": "#/components/schemas/Base2"
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false
+                }
+            ]
+        })
+    );
+}
+
+#[test]
+fn parse_group_ref_one_parent_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType name="ObjectWithOneBase" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Object with 1 base
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:group ref="Base1"/>
+        </xs:sequence>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "title": "ObjectWithOneBase",
+            "description": "Object with 1 base",
+            "allOf": [
+                {
+                    "$ref": "#/components/schemas/Base1"
+                },
+                {
+                    "type": "object",
+                    "additionalProperties": false
+                }
+            ]
+        })
+    );
+}
