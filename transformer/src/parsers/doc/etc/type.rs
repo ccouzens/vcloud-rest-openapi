@@ -101,7 +101,6 @@ fn parse_type_wth_parent_test() {
               "type": "object",
               "properties": {
                 "optionalString": {
-                  "nullable": true,
                   "description": "String that may or may not be here",
                   "type": "string"
                 },
@@ -111,7 +110,6 @@ fn parse_type_wth_parent_test() {
                 }
               },
               "required": [
-                "optionalString",
                 "requiredString"
               ],
               "additionalProperties": false
@@ -384,11 +382,9 @@ fn base_type_into_schema_test() {
             "properties": {
                 "baseField": {
                     "description": "A base field for the base type",
-                    "nullable": true,
                     "type": "string"
                 }
             },
-            "required": ["baseField"],
             "title": "BaseType",
             "type": "object"
         })
@@ -450,7 +446,6 @@ fn parent_type_into_schema_test() {
                   "properties": {
                     "optionalString": {
                         "description": "String that may or may not be here",
-                        "nullable": true,
                         "type": "string"
                     },
                     "requiredString": {
@@ -458,7 +453,7 @@ fn parent_type_into_schema_test() {
                         "type": "string"
                     }
                   },
-                  "required": ["optionalString", "requiredString"],
+                  "required": ["requiredString"],
                   "type": "object"
               }
             ],
@@ -508,14 +503,12 @@ fn parse_group_test() {
               "format": "int32"
             },
             "field2": {
-              "nullable": true,
               "description": "The second field in the group.",
               "type": "string"
             }
           },
           "required": [
-            "field1",
-            "field2"
+            "field1"
           ],
           "additionalProperties": false
         })

@@ -140,7 +140,7 @@ impl From<&Field> for openapiv3::Schema {
 
         openapiv3::Schema {
             schema_data: openapiv3::SchemaData {
-                nullable: s.occurrences == Occurrences::Optional,
+                nullable: false,
                 read_only: s.annotation.as_ref().and_then(|a| a.modifiable)
                     == Some(Modifiable::None),
                 deprecated: s.annotation.as_ref().map(|a| a.deprecated) == Some(true),
@@ -229,7 +229,6 @@ fn test_parse_field_from_optional_attribute() {
         serde_json::to_value(value).unwrap(),
         json!({
             "readOnly": true,
-            "nullable": true,
             "description": "A field that comes from an optional attribute.",
             "type": "string"
         })
@@ -256,7 +255,6 @@ fn test_field_optional_into_schema() {
         serde_json::to_value(value).unwrap(),
         json!({
             "description": "A base field for the base type",
-            "nullable": true,
             "type": "string"
         })
     );

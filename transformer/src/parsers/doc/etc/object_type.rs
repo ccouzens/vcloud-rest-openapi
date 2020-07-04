@@ -133,7 +133,21 @@ impl From<&ObjectType> for openapiv3::Schema {
                     })
                     .collect(),
                 additional_properties: Some(openapiv3::AdditionalProperties::Any(false)),
-                required: c.fields.iter().map(|s| s.name.clone()).collect(),
+                required: c
+                    .fields
+                    .iter()
+                    .filter_map(|s| {
+                        if s.annotation
+                            .as_ref()
+                            .and_then(|a| a.required)
+                            .unwrap_or(true)
+                        {
+                            Some(s.name.clone())
+                        } else {
+                            None
+                        }
+                    })
+                    .collect(),
                 ..Default::default()
             }));
         let schema_data = openapiv3::SchemaData {
