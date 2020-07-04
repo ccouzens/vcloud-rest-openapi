@@ -2421,6 +2421,11 @@
           }
         ]
       },
+      "VdcTemplateSpecificationType": {
+        "title": "VdcTemplateSpecificationType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "AllocationPoolVdcTemplateSpecificationType": {
         "title": "AllocationPoolVdcTemplateSpecificationType",
         "description": "Specification for a VDC template using the AllocationPool allocation model.",
@@ -9084,6 +9089,31 @@
           }
         ]
       },
+      "VimObjectRefListType": {
+        "title": "VimObjectRefListType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/vcloud:ResourceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vimObjectRefs": {
+                "description": "A list of VimServerObjRef objects.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/VimObjectRefsType"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "vimObjectRefs"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
       "VMWProviderVdcResourcePoolSetType": {
         "title": "VMWProviderVdcResourcePoolSetType",
         "description": "Represents backing resource pool set",
@@ -9707,6 +9737,30 @@
           "vmRef",
           "resourcePoolRef"
         ],
+        "additionalProperties": false
+      },
+      "VMWVdcTemplateSpecificationType": {
+        "title": "VMWVdcTemplateSpecificationType",
+        "type": "object",
+        "properties": {
+          "thinProvision": {
+            "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over\\-allocation of storage.",
+            "type": "boolean"
+          },
+          "fastProvisioningEnabled": {
+            "description": "Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "thinProvision",
+          "fastProvisioningEnabled"
+        ],
+        "additionalProperties": false
+      },
+      "AutomaticNetworkPoolReferenceType": {
+        "title": "AutomaticNetworkPoolReferenceType",
+        "type": "object",
         "additionalProperties": false
       },
       "VMWAllocationPoolVdcTemplateSpecificationType": {
@@ -10966,6 +11020,52 @@
         "type": "object",
         "additionalProperties": false
       },
+      "MetadataEntryType": {
+        "title": "MetadataEntryType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResourceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "nullable": true,
+                "description": "A value of SYSTEM places this MetadataEntry in the SYSTEM domain. Omit or leave empty to place this MetadataEntry in the GENERAL domain.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetadataDomainTagType"
+                  }
+                ]
+              },
+              "key": {
+                "description": "An arbitrary key name. Length cannot exceed 256 UTF\\-8 characters.",
+                "type": "string"
+              },
+              "value": {
+                "nullable": true,
+                "type": "string"
+              },
+              "typedValue": {
+                "nullable": true,
+                "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetadataTypedValue"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "domain",
+              "key",
+              "value",
+              "typedValue"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
       "MetadataTypedValue": {
         "title": "MetadataTypedValue",
         "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
@@ -11053,6 +11153,70 @@
             },
             "required": [
               "value"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "MetadataType": {
+        "title": "MetadataType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResourceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "metadataEntry": {
+                "description": "A single metadata entry, including access domain and visibility controls.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MetadataEntryType"
+                }
+              }
+            },
+            "required": [
+              "metadataEntry"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "MetadataValueType": {
+        "title": "MetadataValueType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResourceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "nullable": true,
+                "description": "One of:  \n GENERAL  \n SYSTEM",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetadataDomainTagType"
+                  }
+                ]
+              },
+              "value": {
+                "nullable": true,
+                "type": "string"
+              },
+              "typedValue": {
+                "nullable": true,
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetadataTypedValue"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "domain",
+              "value",
+              "typedValue"
             ],
             "additionalProperties": false
           }
@@ -11993,6 +12157,11 @@
           "week"
         ]
       },
+      "TimeType": {
+        "title": "TimeType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "RelativeTimeType": {
         "title": "RelativeTimeType",
         "description": "Specifies an earlier time relative to the current time",
@@ -12827,6 +12996,25 @@
         "title": "NetworkFeaturesType",
         "description": "Represents features of a network.",
         "type": "object",
+        "additionalProperties": false
+      },
+      "RouterInfoType": {
+        "title": "RouterInfoType",
+        "type": "object",
+        "properties": {
+          "externalIp": {
+            "readOnly": true,
+            "description": "Specifies the external IP of the router. Applicable for NAT Routed / Fenced networks only.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IpAddressType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "externalIp"
+        ],
         "additionalProperties": false
       },
       "DhcpServiceType": {
@@ -13693,6 +13881,57 @@
             },
             "required": [
               "staticRoute"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StaticRouteType": {
+        "title": "StaticRouteType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VCloudExtensibleType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Name for the static route.",
+                "type": "string"
+              },
+              "network": {
+                "description": "Network specification in CIDR.",
+                "type": "string"
+              },
+              "nextHopIp": {
+                "description": "IP Address of Next Hop router/gateway.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/IpAddressType"
+                  }
+                ]
+              },
+              "interface": {
+                "nullable": true,
+                "description": "Interface to use for static routing. Internal and External are the supported values.",
+                "type": "string"
+              },
+              "gatewayInterface": {
+                "nullable": true,
+                "description": "Gateway interface to which static route is bound.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ReferenceType"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "network",
+              "nextHopIp",
+              "interface",
+              "gatewayInterface"
             ],
             "additionalProperties": false
           }
@@ -25692,6 +25931,11 @@
           }
         ]
       },
+      "HardwareVersionBaseType": {
+        "title": "HardwareVersionBaseType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "HardwareVersionType": {
         "title": "HardwareVersionType",
         "description": "Represents a supported virtual hardware version.",
@@ -28051,6 +28295,11 @@
           }
         ]
       },
+      "SupportedHardwareVersionBaseType": {
+        "title": "SupportedHardwareVersionBaseType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "SupportedHardwareVersionType": {
         "title": "SupportedHardwareVersionType",
         "description": "Represents a supported virtual hardware version.",
@@ -29150,6 +29399,11 @@
           "busNumber",
           "unitNumber"
         ],
+        "additionalProperties": false
+      },
+      "NICBaseType": {
+        "title": "NICBaseType",
+        "type": "object",
         "additionalProperties": false
       },
       "NICType": {

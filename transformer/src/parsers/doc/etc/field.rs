@@ -1,6 +1,5 @@
 use crate::parsers::doc::etc::annotation::Annotation;
 use crate::parsers::doc::etc::annotation::Modifiable;
-use crate::parsers::doc::etc::primitive_type::PrimitiveType;
 use crate::parsers::doc::etc::primitive_type::RestrictedPrimitiveType;
 use crate::parsers::doc::etc::simple_type::str_to_simple_type_or_reference;
 use crate::parsers::doc::etc::simple_type::SimpleType;

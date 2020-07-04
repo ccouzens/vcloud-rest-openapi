@@ -6,7 +6,7 @@ use std::convert::TryFrom;
 
 #[derive(Debug, PartialEq)]
 pub(super) struct ObjectType {
-    pub(super) annotation: Annotation,
+    pub(super) annotation: Option<Annotation>,
     pub(super) name: String,
     pub(super) fields: Vec<Field>,
     pub(super) parent: Option<String>,
@@ -31,8 +31,7 @@ impl TryFrom<&xmltree::XMLNode> for ObjectType {
                 let annotation = children
                     .iter()
                     .filter_map(|c| Annotation::try_from(c).ok())
-                    .next()
-                    .ok_or(TypeParseError::MissingAnnotation)?;
+                    .next();
                 let mut fields = Vec::new();
                 let mut parent = None;
                 fields.extend(children.iter().flat_map(Field::try_from));
@@ -119,9 +118,9 @@ impl From<&ObjectType> for openapiv3::Schema {
                 ..Default::default()
             }));
         let schema_data = openapiv3::SchemaData {
-            deprecated: c.annotation.deprecated,
+            deprecated: c.annotation.as_ref().map(|a| a.deprecated).unwrap_or(false),
             title: Some(c.name.clone()),
-            description: Some(c.annotation.description.clone()),
+            description: c.annotation.as_ref().map(|a| &a.description).cloned(),
             ..Default::default()
         };
         match &c.parent {

@@ -18,8 +18,6 @@ pub enum TypeParseError {
     NotTypeNode,
     #[error("missing name attribute")]
     MissingName,
-    #[error("missing annotation element")]
-    MissingAnnotation,
     #[error("failure to parse PrimitiveType")]
     PrimitiveTypeParseError(#[from] ParsePrimitiveTypeError),
     #[error("Missing base attribute")]

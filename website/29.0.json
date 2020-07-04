@@ -2294,6 +2294,11 @@
           }
         ]
       },
+      "VdcTemplateSpecificationType": {
+        "title": "VdcTemplateSpecificationType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "AllocationPoolVdcTemplateSpecificationType": {
         "title": "AllocationPoolVdcTemplateSpecificationType",
         "description": "Specification for a VDC template using the AllocationPool allocation model.",
@@ -8139,6 +8144,31 @@
           }
         ]
       },
+      "VimObjectRefListType": {
+        "title": "VimObjectRefListType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/vcloud:ResourceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vimObjectRefs": {
+                "description": "A list of VimServerObjRef objects.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/VimObjectRefsType"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "vimObjectRefs"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
       "VMWProviderVdcResourcePoolSetType": {
         "title": "VMWProviderVdcResourcePoolSetType",
         "description": "Represents backing resource pool set",
@@ -8764,6 +8794,30 @@
         ],
         "additionalProperties": false
       },
+      "VMWVdcTemplateSpecificationType": {
+        "title": "VMWVdcTemplateSpecificationType",
+        "type": "object",
+        "properties": {
+          "thinProvision": {
+            "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over\\-allocation of storage.",
+            "type": "boolean"
+          },
+          "fastProvisioningEnabled": {
+            "description": "Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "thinProvision",
+          "fastProvisioningEnabled"
+        ],
+        "additionalProperties": false
+      },
+      "AutomaticNetworkPoolReferenceType": {
+        "title": "AutomaticNetworkPoolReferenceType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "VMWAllocationPoolVdcTemplateSpecificationType": {
         "title": "VMWAllocationPoolVdcTemplateSpecificationType",
         "description": "Specification for a VDC template using the AllocationPool allocation model.",
@@ -9220,6 +9274,23 @@
           }
         ]
       },
+      "DiagnosticInfoType": {
+        "title": "DiagnosticInfoType",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "host"
+        ],
+        "additionalProperties": false
+      },
       "StatefulEntityType": {
         "title": "StatefulEntityType",
         "description": "Extension to the Basic entity type in the vCD object model, to introduce State Awareness.",
@@ -9308,6 +9379,27 @@
         "description": "A valid IPv4 address or \"Any\".",
         "type": "string"
       },
+      "EdgeGatewaySummaryListType": {
+        "title": "EdgeGatewaySummaryListType",
+        "type": "object",
+        "properties": {
+          "isPartial": {
+            "type": "boolean"
+          },
+          "edgeGatewaySummary": {
+            "description": "List of Gateway Summary Information (usually in a VDC)",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EdgeGatewaySummaryType"
+            }
+          }
+        },
+        "required": [
+          "isPartial",
+          "edgeGatewaySummary"
+        ],
+        "additionalProperties": false
+      },
       "EdgeGatewaySummaryType": {
         "title": "EdgeGatewaySummaryType",
         "description": "Summary Information for a specific Edge Gateway",
@@ -9377,6 +9469,206 @@
           }
         ]
       },
+      "EdgeGatewayIpAddressListType": {
+        "title": "EdgeGatewayIpAddressListType",
+        "type": "object",
+        "properties": {
+          "edgeGatewayIpAddress": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EdgeGatewayIpAddressType"
+            }
+          }
+        },
+        "required": [
+          "edgeGatewayIpAddress"
+        ],
+        "additionalProperties": false
+      },
+      "EdgeGatewayIpAddressType": {
+        "title": "EdgeGatewayIpAddressType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ipam:IpAddressType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "gatewayInterfaceNetworkName": {
+                "nullable": true,
+                "description": "The name of the Gateway Interface Name (as shown in VCD) that is associated to a network",
+                "type": "string"
+              },
+              "gatewayInterfaceNetworkUri": {
+                "nullable": true,
+                "description": "The name of the Gateway Interface URI that is associated to a external network which could be an 'Uplink' or a PLC.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "gatewayInterfaceNetworkName",
+              "gatewayInterfaceNetworkUri"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NetworkSummaryListType": {
+        "title": "NetworkSummaryListType",
+        "type": "object",
+        "properties": {
+          "networkSummary": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NetworkSummaryType"
+            }
+          }
+        },
+        "required": [
+          "networkSummary"
+        ],
+        "additionalProperties": false
+      },
+      "NetworkSummaryType": {
+        "title": "NetworkSummaryType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/common:VdcAwareEntityType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "fenceMode": {
+                "description": "Allowed values are: \"isolated\", \"bridged\" and \"natRouted\"",
+                "type": "string"
+              },
+              "vmsAllocated": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "vmsPoweredOn": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "defaultGateway": {
+                "type": "string"
+              },
+              "ipRanges": {
+                "nullable": true,
+                "description": "List of IP ranges this Network is associated to (for 'isolated' and 'natRouted').",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/vcloud1.5:IpRangesType"
+                  }
+                ]
+              },
+              "defaultNetwork": {
+                "type": "boolean"
+              },
+              "defaultGatewaySubnetmask": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fenceMode",
+              "vmsAllocated",
+              "vmsPoweredOn",
+              "defaultGateway",
+              "ipRanges",
+              "defaultNetwork",
+              "defaultGatewaySubnetmask"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "RoutedNetworkDetailsType": {
+        "title": "RoutedNetworkDetailsType",
+        "type": "object",
+        "properties": {
+          "edgeGatewayName": {
+            "type": "string"
+          },
+          "edgeGatewayAddress": {
+            "type": "string"
+          },
+          "publicIpUsage": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ipam:IpAddressUsageType"
+              }
+            ]
+          },
+          "edgeGatewayHref": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "edgeGatewayName",
+          "edgeGatewayAddress",
+          "publicIpUsage",
+          "edgeGatewayHref"
+        ],
+        "additionalProperties": false
+      },
+      "DirectNetworkDetailsType": {
+        "title": "DirectNetworkDetailsType",
+        "type": "object",
+        "properties": {
+          "virtualCircuitId": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "virtualCircuitId"
+        ],
+        "additionalProperties": false
+      },
+      "IpAddressAllocationListType": {
+        "title": "IpAddressAllocationListType",
+        "type": "object",
+        "properties": {
+          "allocation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IpAddressAllocationType"
+            }
+          },
+          "deallocation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IpAddressAllocationType"
+            }
+          }
+        },
+        "required": [
+          "allocation",
+          "deallocation"
+        ],
+        "additionalProperties": false
+      },
+      "IpAddressAllocationType": {
+        "title": "IpAddressAllocationType",
+        "type": "object",
+        "properties": {
+          "gatewayInterfaceNetworkName": {
+            "nullable": true,
+            "description": "The name of the Gateway Interface Name (as shown in VCD) that is associated to a network",
+            "type": "string"
+          },
+          "gatewayInterfaceNetworkUri": {
+            "nullable": true,
+            "description": "The name of the Gateway Interface URI that is associated to a external network which could be an 'Uplink' or a PLC.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "gatewayInterfaceNetworkName",
+          "gatewayInterfaceNetworkUri"
+        ],
+        "additionalProperties": false
+      },
       "EdgeGatewayExternalConnectionListType": {
         "title": "EdgeGatewayExternalConnectionListType",
         "description": "A description of a set of external gateways.",
@@ -9391,6 +9683,40 @@
         },
         "required": [
           "edgeGatewayExternalConnection"
+        ],
+        "additionalProperties": false
+      },
+      "EdgeGatewayExternalConnectionType": {
+        "title": "EdgeGatewayExternalConnectionType",
+        "type": "object",
+        "properties": {
+          "ipAddress": {
+            "nullable": true,
+            "description": "The external IP address of this connection.",
+            "type": "string"
+          },
+          "isUsedInRule": {
+            "nullable": true,
+            "description": "True if this ipAddress is used in a GatewayNatRule or FirewallRule.",
+            "type": "boolean"
+          },
+          "externalNetworkName": {
+            "nullable": true,
+            "description": "The name of the external network to which this ipAddress belongs.",
+            "type": "string"
+          },
+          "externalNetworkRef": {
+            "nullable": true,
+            "description": "The URL of the external network to which this ipAddress belongs.",
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "ipAddress",
+          "isUsedInRule",
+          "externalNetworkName",
+          "externalNetworkRef"
         ],
         "additionalProperties": false
       },
@@ -9415,6 +9741,64 @@
         "required": [
           "allocation",
           "deallocation"
+        ],
+        "additionalProperties": false
+      },
+      "ExternalIpAddressAllocationType": {
+        "title": "ExternalIpAddressAllocationType",
+        "type": "object",
+        "properties": {
+          "externalNetworkName": {
+            "nullable": true,
+            "description": "The name of the external network from which IP addresses should be allocated. Required only if the gateway is connected to more than one external network.",
+            "type": "string"
+          },
+          "externalNetworkRef": {
+            "nullable": true,
+            "description": "The URI of the external network from which IP addresses should be allocated. Required only if the gateway is connected to more than one external network.",
+            "type": "string",
+            "format": "uri"
+          },
+          "numberOfExternalIpAddressesToAllocate": {
+            "description": "The number of external IP addresses to be allocated from the specified external network.",
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "externalNetworkName",
+          "externalNetworkRef",
+          "numberOfExternalIpAddressesToAllocate"
+        ],
+        "additionalProperties": false
+      },
+      "ExternalIpAddressDeallocationType": {
+        "title": "ExternalIpAddressDeallocationType",
+        "type": "object",
+        "properties": {
+          "externalNetworkName": {
+            "nullable": true,
+            "description": "The name of the external network from which IP addresses should be deallocated. Required only if the gateway is connected to more than one external network.",
+            "type": "string"
+          },
+          "externalNetworkRef": {
+            "nullable": true,
+            "description": "The URI of the external network from which IP addresses should be deallocated. Required only if the gateway is connected to more than one external network.",
+            "type": "string",
+            "format": "uri"
+          },
+          "externalIpAddress": {
+            "description": "A particular external IP address to be deallocated.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "externalNetworkName",
+          "externalNetworkRef",
+          "externalIpAddress"
         ],
         "additionalProperties": false
       },
@@ -10204,6 +10588,52 @@
         "type": "object",
         "additionalProperties": false
       },
+      "MetadataEntryType": {
+        "title": "MetadataEntryType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResourceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "nullable": true,
+                "description": "A value of SYSTEM places this MetadataEntry in the SYSTEM domain. Omit or leave empty to place this MetadataEntry in the GENERAL domain.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetadataDomainTagType"
+                  }
+                ]
+              },
+              "key": {
+                "description": "An arbitrary key name. Length cannot exceed 256 UTF\\-8 characters.",
+                "type": "string"
+              },
+              "value": {
+                "nullable": true,
+                "type": "string"
+              },
+              "typedValue": {
+                "nullable": true,
+                "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetadataTypedValue"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "domain",
+              "key",
+              "value",
+              "typedValue"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
       "MetadataTypedValue": {
         "title": "MetadataTypedValue",
         "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
@@ -10291,6 +10721,70 @@
             },
             "required": [
               "value"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "MetadataType": {
+        "title": "MetadataType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResourceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "metadataEntry": {
+                "description": "A single metadata entry, including access domain and visibility controls.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MetadataEntryType"
+                }
+              }
+            },
+            "required": [
+              "metadataEntry"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "MetadataValueType": {
+        "title": "MetadataValueType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResourceType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "domain": {
+                "nullable": true,
+                "description": "One of:  \n GENERAL  \n SYSTEM",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetadataDomainTagType"
+                  }
+                ]
+              },
+              "value": {
+                "nullable": true,
+                "type": "string"
+              },
+              "typedValue": {
+                "nullable": true,
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MetadataTypedValue"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "domain",
+              "value",
+              "typedValue"
             ],
             "additionalProperties": false
           }
@@ -11201,6 +11695,11 @@
           "week"
         ]
       },
+      "TimeType": {
+        "title": "TimeType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "RelativeTimeType": {
         "title": "RelativeTimeType",
         "description": "Specifies an earlier time relative to the current time",
@@ -11881,6 +12380,25 @@
         "title": "NetworkFeaturesType",
         "description": "Represents features of a network.",
         "type": "object",
+        "additionalProperties": false
+      },
+      "RouterInfoType": {
+        "title": "RouterInfoType",
+        "type": "object",
+        "properties": {
+          "externalIp": {
+            "readOnly": true,
+            "description": "Specifies the external IP of the router. Applicable for NAT Routed / Fenced networks only.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IpAddressType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "externalIp"
+        ],
         "additionalProperties": false
       },
       "DhcpServiceType": {
@@ -12751,6 +13269,57 @@
             },
             "required": [
               "staticRoute"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StaticRouteType": {
+        "title": "StaticRouteType",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VCloudExtensibleType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Name for the static route.",
+                "type": "string"
+              },
+              "network": {
+                "description": "Network specification in CIDR.",
+                "type": "string"
+              },
+              "nextHopIp": {
+                "description": "IP Address of Next Hop router/gateway.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/IpAddressType"
+                  }
+                ]
+              },
+              "interface": {
+                "nullable": true,
+                "description": "Interface to use for static routing. Internal and External are the supported values.",
+                "type": "string"
+              },
+              "gatewayInterface": {
+                "nullable": true,
+                "description": "Gateway interface to which static route is bound.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ReferenceType"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "network",
+              "nextHopIp",
+              "interface",
+              "gatewayInterface"
             ],
             "additionalProperties": false
           }
@@ -23111,6 +23680,11 @@
           }
         ]
       },
+      "HardwareVersionBaseType": {
+        "title": "HardwareVersionBaseType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "HardwareVersionType": {
         "title": "HardwareVersionType",
         "description": "Represents a supported virtual hardware version.",
@@ -25297,6 +25871,11 @@
           }
         ]
       },
+      "SupportedHardwareVersionBaseType": {
+        "title": "SupportedHardwareVersionBaseType",
+        "type": "object",
+        "additionalProperties": false
+      },
       "SupportedHardwareVersionType": {
         "title": "SupportedHardwareVersionType",
         "description": "Represents a supported virtual hardware version.",
@@ -26023,6 +26602,11 @@
             "additionalProperties": false
           }
         ]
+      },
+      "NICBaseType": {
+        "title": "NICBaseType",
+        "type": "object",
+        "additionalProperties": false
       },
       "NICType": {
         "title": "NICType",
