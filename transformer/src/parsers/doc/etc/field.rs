@@ -98,20 +98,13 @@ impl TryFrom<&xmltree::XMLNode> for Field {
                     .get("name")
                     .ok_or(FieldParseError::MissingName)?
                     .to_owned();
-                let type_name = attributes.get("type").ok_or(FieldParseError::MissingType)?;
-                let r#type = match type_name.parse::<PrimitiveType>() {
-                    Err(_) => openapiv3::ReferenceOr::Reference {
-                        reference: type_name.to_owned(),
-                    },
-                    Ok(p) => openapiv3::ReferenceOr::Item(SimpleType {
-                        annotation: None,
-                        enumeration: Vec::new(),
-                        list: false,
-                        min_inclusive: None,
-                        name: None,
-                        parent: p,
-                        pattern: None,
-                    }),
+                let r#type = match children.iter().flat_map(SimpleType::try_from).next() {
+                    Some(s) => openapiv3::ReferenceOr::Item(s),
+                    None => {
+                        let type_name =
+                            attributes.get("type").ok_or(FieldParseError::MissingType)?;
+                        str_to_simple_type_or_reference(type_name)
+                    }
                 };
                 let occurrences = match attributes.get("use").map(String::as_str) {
                     Some("required") => Occurrences::One,
@@ -567,6 +560,29 @@ fn test_element_with_simple_type() {
             "type": "string",
             "readOnly": true,
             "pattern": "pattern"
+        })
+    );
+}
+
+#[test]
+fn test_attribute_with_simple_type() {
+    let xml: &[u8] = br#"
+    <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="robotName" use="required">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[A-Z]-?[0-9]-?[A-Z]-?[0-9]"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let value = openapiv3::Schema::from(&s);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "type": "string",
+            "pattern": "[A-Z]-?[0-9]-?[A-Z]-?[0-9]"
         })
     );
 }
