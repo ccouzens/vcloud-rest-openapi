@@ -18,7 +18,7 @@ pub(super) enum Occurrences {
 }
 
 #[derive(Debug, PartialEq)]
-pub(super) struct SequenceElement {
+pub(super) struct Field {
     pub(super) annotation: Option<Annotation>,
     pub(super) name: String,
     pub(super) r#type: openapiv3::ReferenceOr<SimpleType>,
@@ -26,17 +26,17 @@ pub(super) struct SequenceElement {
 }
 
 #[derive(Error, Debug, PartialEq)]
-pub enum SequenceElementParseError {
+pub enum FieldParseError {
     #[error("missing name attribute")]
     MissingName,
     #[error("missing type attribute")]
     MissingType,
     #[error("not a sequence element node")]
-    NotSequenceElementNode,
+    NotFieldNode,
 }
 
-impl TryFrom<&xmltree::XMLNode> for SequenceElement {
-    type Error = SequenceElementParseError;
+impl TryFrom<&xmltree::XMLNode> for Field {
+    type Error = FieldParseError;
 
     fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
         match value {
@@ -52,7 +52,7 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                 // But in the JSON, the first letter is lowercase.
                 let name = attributes
                     .get("name")
-                    .ok_or(SequenceElementParseError::MissingName)?
+                    .ok_or(FieldParseError::MissingName)?
                     .chars()
                     .enumerate()
                     .map(|(i, c)| if i == 0 { c.to_ascii_lowercase() } else { c })
@@ -60,9 +60,8 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                 let r#type = match children.iter().flat_map(SimpleType::try_from).next() {
                     Some(s) => openapiv3::ReferenceOr::Item(s),
                     None => {
-                        let type_name = attributes
-                            .get("type")
-                            .ok_or(SequenceElementParseError::MissingType)?;
+                        let type_name =
+                            attributes.get("type").ok_or(FieldParseError::MissingType)?;
                         str_to_simple_type_or_reference(type_name)
                     }
                 };
@@ -81,7 +80,7 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                     _ => Occurrences::One,
                 };
                 let annotation = children.iter().flat_map(Annotation::try_from).next();
-                Ok(SequenceElement {
+                Ok(Field {
                     annotation,
                     name,
                     r#type,
@@ -97,11 +96,9 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
             }) if namespace == XML_SCHEMA_NS && name == "attribute" => {
                 let name = attributes
                     .get("name")
-                    .ok_or(SequenceElementParseError::MissingName)?
+                    .ok_or(FieldParseError::MissingName)?
                     .to_owned();
-                let type_name = attributes
-                    .get("type")
-                    .ok_or(SequenceElementParseError::MissingType)?;
+                let type_name = attributes.get("type").ok_or(FieldParseError::MissingType)?;
                 let r#type = match type_name.parse::<PrimitiveType>() {
                     Err(_) => openapiv3::ReferenceOr::Reference {
                         reference: type_name.to_owned(),
@@ -121,20 +118,20 @@ impl TryFrom<&xmltree::XMLNode> for SequenceElement {
                     _ => Occurrences::Optional,
                 };
                 let annotation = children.iter().flat_map(Annotation::try_from).next();
-                Ok(SequenceElement {
+                Ok(Field {
                     annotation,
                     name,
                     r#type,
                     occurrences,
                 })
             }
-            _ => Err(SequenceElementParseError::NotSequenceElementNode),
+            _ => Err(FieldParseError::NotFieldNode),
         }
     }
 }
 
-impl From<&SequenceElement> for openapiv3::Schema {
-    fn from(s: &SequenceElement) -> Self {
+impl From<&Field> for openapiv3::Schema {
+    fn from(s: &Field) -> Self {
         let reference_or_schema_type = match &s.r#type {
             openapiv3::ReferenceOr::Item(s) => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::from(&RestrictedPrimitiveType {
@@ -195,7 +192,7 @@ impl From<&SequenceElement> for openapiv3::Schema {
 }
 
 #[test]
-fn test_parse_sequence_element_from_required_attribute() {
+fn test_parse_field_from_required_attribute() {
     let xml: &[u8] = br#"
     <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="requiredAttribute" type="xs:string" use="required">
         <xs:annotation>
@@ -208,7 +205,7 @@ fn test_parse_sequence_element_from_required_attribute() {
     </xs:attribute>
 "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -221,7 +218,7 @@ fn test_parse_sequence_element_from_required_attribute() {
 }
 
 #[test]
-fn test_parse_sequence_element_from_optional_attribute() {
+fn test_parse_field_from_optional_attribute() {
     let xml: &[u8] = br#"
     <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="optionalAttribute" type="xs:string">
         <xs:annotation>
@@ -234,7 +231,7 @@ fn test_parse_sequence_element_from_optional_attribute() {
     </xs:attribute>
 "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -248,7 +245,7 @@ fn test_parse_sequence_element_from_optional_attribute() {
 }
 
 #[test]
-fn test_sequence_element_optional_into_schema() {
+fn test_field_optional_into_schema() {
     let xml: &[u8] = br#"
     <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:string" minOccurs="0">
         <xs:annotation>
@@ -261,7 +258,7 @@ fn test_sequence_element_optional_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -274,7 +271,7 @@ fn test_sequence_element_optional_into_schema() {
 }
 
 #[test]
-fn test_sequence_element_array_into_schema() {
+fn test_field_array_into_schema() {
     let xml: &[u8] = br#"
     <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:int" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
@@ -287,7 +284,7 @@ fn test_sequence_element_array_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -304,7 +301,7 @@ fn test_sequence_element_array_into_schema() {
 }
 
 #[test]
-fn test_sequence_element_exactly_one_into_schema() {
+fn test_field_exactly_one_into_schema() {
     let xml: &[u8] = br#"
     <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BaseField" type="xs:boolean">
         <xs:annotation>
@@ -317,7 +314,7 @@ fn test_sequence_element_exactly_one_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -343,7 +340,7 @@ fn test_anyuri_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -370,7 +367,7 @@ fn test_double_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -397,7 +394,7 @@ fn test_long_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -424,7 +421,7 @@ fn test_datetime_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -451,7 +448,7 @@ fn test_base64_binary_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -478,7 +475,7 @@ fn test_hex_binary_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -504,7 +501,7 @@ fn test_integer_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -530,7 +527,7 @@ fn test_any_type_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -561,7 +558,7 @@ fn test_element_with_simple_type() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = SequenceElement::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let s = Field::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
