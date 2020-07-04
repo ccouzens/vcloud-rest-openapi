@@ -9926,11 +9926,7 @@
               "checksum": {
                 "readOnly": true,
                 "description": "The checksum of the file.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:normalizedString"
-                  }
-                ]
+                "type": "string"
               }
             },
             "additionalProperties": false
@@ -10471,11 +10467,7 @@
             "properties": {
               "interval": {
                 "description": "numeric portion of time specification",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:short"
-                  }
-                ]
+                "type": "integer"
               },
               "unit": {
                 "description": "time unit enumeration value",
@@ -10532,11 +10524,7 @@
           },
           "value": {
             "description": "metric value",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:decimal"
-              }
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -10556,11 +10544,7 @@
             "format": "date-time"
           },
           "value": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/xs:decimal"
-              }
-            ]
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -16048,38 +16032,26 @@
               "storageUsedMB": {
                 "readOnly": true,
                 "description": "Storage used in MB",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:float"
-                  }
-                ]
+                "type": "number",
+                "format": "float"
               },
               "storageMB": {
                 "readOnly": true,
                 "description": "Storage in MB",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:float"
-                  }
-                ]
+                "type": "number",
+                "format": "float"
               },
               "provisionedStorageMB": {
                 "readOnly": true,
                 "description": "Provisioned storage in MB",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:float"
-                  }
-                ]
+                "type": "number",
+                "format": "float"
               },
               "requestedStorageMB": {
                 "readOnly": true,
                 "description": "Requested storage in MB",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/xs:float"
-                  }
-                ]
+                "type": "number",
+                "format": "float"
               },
               "vc": {
                 "readOnly": true,

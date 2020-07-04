@@ -8,11 +8,15 @@ pub enum PrimitiveType {
     Base64Binary,
     Boolean,
     DateTime,
+    Decimal,
     Double,
+    Float,
     HexBinary,
     Int,
     Integer,
     Long,
+    NormalizedString,
+    Short,
     String,
 }
 
@@ -32,11 +36,15 @@ impl FromStr for PrimitiveType {
             "xs:base64Binary" => PrimitiveType::Base64Binary,
             "xs:boolean" => PrimitiveType::Boolean,
             "xs:dateTime" => PrimitiveType::DateTime,
+            "xs:decimal" => PrimitiveType::Decimal,
             "xs:double" => PrimitiveType::Double,
+            "xs:float" => PrimitiveType::Float,
             "xs:hexBinary" => PrimitiveType::HexBinary,
             "xs:int" => PrimitiveType::Int,
             "xs:integer" => PrimitiveType::Integer,
             "xs:long" => PrimitiveType::Long,
+            "xs:normalizedString" => PrimitiveType::NormalizedString,
+            "xs:short" => PrimitiveType::Short,
             "xs:string" => PrimitiveType::String,
             _ => return Err(ParsePrimitiveTypeError::NoMatch(s.to_owned())),
         })
@@ -54,13 +62,15 @@ pub(super) struct RestrictedPrimitiveType<'a> {
 impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
     fn from(t: &RestrictedPrimitiveType) -> Self {
         match &t.r#type {
-            PrimitiveType::AnyType | PrimitiveType::HexBinary | PrimitiveType::String => {
-                Self::String(openapiv3::StringType {
-                    enumeration: t.enumeration.clone(),
-                    pattern: t.pattern.clone(),
-                    ..Default::default()
-                })
-            }
+            PrimitiveType::AnyType
+            | PrimitiveType::Decimal // verify decimal is encoded as a string
+            | PrimitiveType::HexBinary
+            | PrimitiveType::NormalizedString
+            | PrimitiveType::String => Self::String(openapiv3::StringType {
+                enumeration: t.enumeration.clone(),
+                pattern: t.pattern.clone(),
+                ..Default::default()
+            }),
             PrimitiveType::AnyUri => Self::String(openapiv3::StringType {
                 enumeration: t.enumeration.clone(),
                 pattern: t.pattern.clone(),
@@ -90,6 +100,16 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                     .collect(),
                 ..Default::default()
             }),
+            PrimitiveType::Float => Self::Number(openapiv3::NumberType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
+                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
+                enumeration: t
+                    .enumeration
+                    .iter()
+                    .filter_map(|s| s.parse().ok())
+                    .collect(),
+                ..Default::default()
+            }),
             PrimitiveType::Int => Self::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
                 minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
@@ -100,15 +120,17 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                     .collect(),
                 ..Default::default()
             }),
-            PrimitiveType::Integer => Self::Integer(openapiv3::IntegerType {
-                minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
-                enumeration: t
-                    .enumeration
-                    .iter()
-                    .filter_map(|s| s.parse().ok())
-                    .collect(),
-                ..Default::default()
-            }),
+            PrimitiveType::Integer | PrimitiveType::Short => {
+                Self::Integer(openapiv3::IntegerType {
+                    minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
+                    enumeration: t
+                        .enumeration
+                        .iter()
+                        .filter_map(|s| s.parse().ok())
+                        .collect(),
+                    ..Default::default()
+                })
+            }
             PrimitiveType::Long => Self::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
                 minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
