@@ -94,11 +94,11 @@ fn parse_type_wth_parent_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "test:TestType",
+          "title": "test_TestType",
           "description": "A simple type to test the parser",
           "allOf": [
             {
-              "$ref": "#/components/schemas/test:BaseType"
+              "$ref": "#/components/schemas/test_BaseType"
             },
             {
               "type": "object",
@@ -157,11 +157,11 @@ fn parse_type_that_is_attribute_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "test:TestType",
+          "title": "test_TestType",
           "description": "A simple type to test the parser",
           "allOf": [
             {
-              "$ref": "#/components/schemas/test:BaseType"
+              "$ref": "#/components/schemas/test_BaseType"
             },
             {
               "type": "object",
@@ -206,10 +206,10 @@ fn parse_type_that_is_attribute_but_not_required_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "test:TestType",
+          "title": "test_TestType",
           "allOf": [
             {
-              "$ref": "#/components/schemas/test:BaseType"
+              "$ref": "#/components/schemas/test_BaseType"
             },
             {
               "type": "object",
@@ -257,7 +257,7 @@ fn parse_type_that_is_attribute_but_not_extension_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "test:TestType",
+          "title": "test_TestType",
           "description": "A simple type to test the parser",
           "type": "object",
           "properties": {
@@ -303,7 +303,7 @@ fn simple_type_into_schema_test() {
             "description": "An enumeration of the sides of a coin",
             "type": "string",
             "enum": ["Heads", "Tails"],
-            "title": "test:CoinType"
+            "title": "test_CoinType"
         })
     );
 }
@@ -327,7 +327,7 @@ fn simple_type_with_pattern_into_schema_test() {
             "type": "string",
             "format": "uri",
             "pattern": "https://.+",
-            "title": "test:HttpsType"
+            "title": "test_HttpsType"
         })
     );
 }
@@ -351,7 +351,7 @@ fn simple_type_with_min_inclusive_into_schema_test() {
             "type": "integer",
             "format": "int32",
             "minimum": 28,
-            "title": "test:DaysInMonth"
+            "title": "test_DaysInMonth"
         })
     );
 }
@@ -372,7 +372,7 @@ fn simple_type_with_list_into_schema_test() {
         json!({
             "type": "array",
             "items": { "type": "string" },
-            "title": "test:FavouriteFoods"
+            "title": "test_FavouriteFoods"
         })
     );
 }
@@ -433,7 +433,7 @@ fn base_type_into_schema_test() {
                     "type": "string"
                 }
             },
-            "title": "test:BaseType",
+            "title": "test_BaseType",
             "type": "object"
         })
     );
@@ -487,7 +487,7 @@ fn parent_type_into_schema_test() {
             "description": "A simple type to test the parser",
             "allOf": [
                 {
-                    "$ref": "#/components/schemas/test:BaseType"
+                    "$ref": "#/components/schemas/test_BaseType"
                 },
                 {
                   "additionalProperties": false,
@@ -505,7 +505,7 @@ fn parent_type_into_schema_test() {
                   "type": "object"
               }
             ],
-            "title": "test:TestType",
+            "title": "test_TestType",
         })
     );
 }
@@ -542,7 +542,7 @@ fn parse_group_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "test:SimpleGroup",
+          "title": "test_SimpleGroup",
           "type": "object",
           "properties": {
             "field1": {
@@ -587,14 +587,14 @@ fn parse_group_ref_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "title": "test:ObjectWithTwoBases",
+            "title": "test_ObjectWithTwoBases",
             "description": "Object with 2 bases",
             "allOf": [
                 {
-                    "$ref": "#/components/schemas/test:Base1"
+                    "$ref": "#/components/schemas/test_Base1"
                 },
                 {
-                    "$ref": "#/components/schemas/test:Base2"
+                    "$ref": "#/components/schemas/test_Base2"
                 },
                 {
                     "type": "object",
@@ -627,14 +627,14 @@ fn parse_group_ref_no_sequence_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "title": "test:ObjectWithTwoBases",
+            "title": "test_ObjectWithTwoBases",
             "description": "Object with 2 bases",
             "allOf": [
                 {
-                    "$ref": "#/components/schemas/test:Base1"
+                    "$ref": "#/components/schemas/test_Base1"
                 },
                 {
-                    "$ref": "#/components/schemas/test:Base2"
+                    "$ref": "#/components/schemas/test_Base2"
                 },
                 {
                     "type": "object",
@@ -665,11 +665,11 @@ fn parse_group_ref_one_parent_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "title": "test:ObjectWithOneBase",
+            "title": "test_ObjectWithOneBase",
             "description": "Object with 1 base",
             "allOf": [
                 {
-                    "$ref": "#/components/schemas/test:Base1"
+                    "$ref": "#/components/schemas/test_Base1"
                 },
                 {
                     "type": "object",

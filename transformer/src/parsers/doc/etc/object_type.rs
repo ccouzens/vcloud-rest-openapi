@@ -27,7 +27,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
             }) if namespace == XML_SCHEMA_NS && (name == "complexType" || name == "group") => {
                 let name = attributes
                     .get("name")
-                    .map(|n| format!("{}:{}", schema_namespace, n))
+                    .map(|n| format!("{}_{}", schema_namespace, n))
                     .ok_or(TypeParseError::MissingName)?;
                 let annotation = children
                     .iter()
@@ -126,9 +126,9 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                         .into_iter()
                         .map(|p| {
                             if p.contains(':') {
-                                p
+                                p.replacen(':', "_", 1)
                             } else {
-                                format!("{}:{}", schema_namespace, p)
+                                format!("{}_{}", schema_namespace, p)
                             }
                         })
                         .collect(),

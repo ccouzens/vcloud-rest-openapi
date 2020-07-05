@@ -30,7 +30,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
             }) if namespace == XML_SCHEMA_NS && name == "simpleType" => {
                 let name = attributes
                     .get("name")
-                    .map(|n| format!("{}:{}", schema_namespace, n));
+                    .map(|n| format!("{}_{}", schema_namespace, n));
                 let annotation = children
                     .iter()
                     .filter_map(|c| Annotation::try_from(c).ok())
@@ -135,9 +135,9 @@ pub(super) fn str_to_simple_type_or_reference(
     match type_name.parse::<PrimitiveType>() {
         Err(_) => openapiv3::ReferenceOr::Reference {
             reference: if type_name.contains(':') {
-                type_name.to_owned()
+                type_name.replacen(':', "_", 1)
             } else {
-                format!("{}:{}", namespace, type_name)
+                format!("{}_{}", namespace, type_name)
             },
         },
         Ok(p) => openapiv3::ReferenceOr::Item(SimpleType {

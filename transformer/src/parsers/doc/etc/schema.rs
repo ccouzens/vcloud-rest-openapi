@@ -71,7 +71,7 @@ fn base_schema_into_schemas_test() {
     serde_json::to_value(value).unwrap(),
     json!([
         {
-            "title": "test:BaseType",
+            "title": "test_BaseType",
             "description": "A base abstract type for all the types.",
             "type": "object",
             "properties": {
@@ -95,11 +95,11 @@ fn schema_into_schemas_test() {
     serde_json::to_value(value).unwrap(),
     json!([
       {
-        "title": "test:TestType",
+        "title": "test_TestType",
         "description": "A simple type to test the parser",
         "allOf": [
           {
-            "$ref": "#/components/schemas/test:BaseType"
+            "$ref": "#/components/schemas/test_BaseType"
           },
           {
             "type": "object",
@@ -152,7 +152,7 @@ fn schema_into_schemas_test() {
                 "description": "A reference to another type, but only one or none",
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/test:Custom2Type"
+                    "$ref": "#/components/schemas/test_Custom2Type"
                   }
                 ]
               },
@@ -161,7 +161,7 @@ fn schema_into_schemas_test() {
                 "description": "A reference to many of another type",
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/test:Custom3Type"
+                  "$ref": "#/components/schemas/test_Custom3Type"
                 }
               }
             },
@@ -174,11 +174,11 @@ fn schema_into_schemas_test() {
         ]
       },
       {
-        "title": "test:Custom2Type",
+        "title": "test_Custom2Type",
         "description": "Part of a test.",
         "allOf": [
           {
-            "$ref": "#/components/schemas/test:BaseType"
+            "$ref": "#/components/schemas/test_BaseType"
           },
           {
             "type": "object",
@@ -193,11 +193,11 @@ fn schema_into_schemas_test() {
         ]
       },
       {
-        "title": "test:Custom3Type",
+        "title": "test_Custom3Type",
         "description": "Part of a test continued.",
         "allOf": [
           {
-            "$ref": "#/components/schemas/test:BaseType"
+            "$ref": "#/components/schemas/test_BaseType"
           },
           {
             "type": "object",
