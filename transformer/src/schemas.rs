@@ -36,5 +36,13 @@ pub fn schemas<R: Read + Seek>(
         );
     }
 
+    output.insert(
+        "ovf:Section_Type".to_owned(),
+        ReferenceOr::Item(openapiv3::Schema {
+            schema_data: Default::default(),
+            schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Object(Default::default())),
+        }),
+    );
+
     Ok(output)
 }

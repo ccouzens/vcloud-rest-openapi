@@ -21564,6 +21564,9 @@
           }
         },
         "additionalProperties": false
+      },
+      "ovf:Section_Type": {
+        "type": "object"
       }
     }
   }
