@@ -13,6 +13,7 @@ pub fn schemas<R: Read + Seek>(
         .filter(|n| n.starts_with("doc/etc/"))
         .filter(|n| n.ends_with(".xsd"))
         .filter(|&n| n != "doc/etc/schemas/external/xml.xsd")
+        .filter(|n| !n.starts_with("doc/etc/schemas/external/ovf1.1"))
         .map(|n| n.into())
         .collect::<Vec<String>>();
 
