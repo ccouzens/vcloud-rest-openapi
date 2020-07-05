@@ -13,7 +13,7 @@ pub fn schemas<R: Read + Seek>(
         .filter(|n| n.starts_with("doc/etc/"))
         .filter(|n| n.ends_with(".xsd"))
         .filter(|&n| n != "doc/etc/schemas/external/xml.xsd")
-        .filter(|n| !n.starts_with("doc/etc/schemas/external/ovf1.1"))
+        .filter(|n| !n.starts_with("doc/etc/schemas/external/ovf1.1/"))
         .map(|n| n.into())
         .collect::<Vec<String>>();
 
@@ -23,7 +23,20 @@ pub fn schemas<R: Read + Seek>(
         let mut bytes = Vec::new();
         zip.by_name(&type_file_name)?.read_to_end(&mut bytes)?;
 
-        let xsd_schema = crate::parsers::doc::etc::schema::Schema::try_from(&bytes as &[u8])?;
+        let namespace = if type_file_name.starts_with("doc/etc/1.5/schemas/extension/") {
+            "vcloud-ext"
+        } else if type_file_name.starts_with("doc/etc/1.5/schemas/") {
+            "vcloud"
+        } else if type_file_name.starts_with("doc/etc/schemas/versioning/") {
+            "versioning"
+        } else if type_file_name.starts_with("doc/etc/schemas/external/ovf1.1/") {
+            "ovf"
+        } else {
+            "unknown"
+        };
+
+        let xsd_schema =
+            crate::parsers::doc::etc::schema::Schema::try_from((&bytes as &[u8], namespace))?;
         output.extend(
             Vec::<Schema>::from(&xsd_schema)
                 .into_iter()

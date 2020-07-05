@@ -26,11 +26,14 @@ pub enum TypeParseError {
     MissingItemTypeValue,
 }
 
-impl TryFrom<&xmltree::XMLNode> for Type {
+impl TryFrom<(&xmltree::XMLNode, &str)> for Type {
     type Error = TypeParseError;
-    fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
-        match ObjectType::try_from(value) {
-            Err(TypeParseError::NotTypeNode) => Ok(Type::SimpleType(SimpleType::try_from(value)?)),
+    fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
+        match ObjectType::try_from((xml, schema_namespace)) {
+            Err(TypeParseError::NotTypeNode) => Ok(Type::SimpleType(SimpleType::try_from((
+                xml,
+                schema_namespace,
+            ))?)),
             Ok(object) => Ok(Type::ObjectType(object)),
             Err(e) => Err(e),
         }
@@ -86,16 +89,16 @@ fn parse_type_wth_parent_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "TestType",
+          "title": "test:TestType",
           "description": "A simple type to test the parser",
           "allOf": [
             {
-              "$ref": "#/components/schemas/BaseType"
+              "$ref": "#/components/schemas/test:BaseType"
             },
             {
               "type": "object",
@@ -149,16 +152,16 @@ fn parse_type_that_is_attribute_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "TestType",
+          "title": "test:TestType",
           "description": "A simple type to test the parser",
           "allOf": [
             {
-              "$ref": "#/components/schemas/BaseType"
+              "$ref": "#/components/schemas/test:BaseType"
             },
             {
               "type": "object",
@@ -198,15 +201,15 @@ fn parse_type_that_is_attribute_but_not_required_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "TestType",
+          "title": "test:TestType",
           "allOf": [
             {
-              "$ref": "#/components/schemas/BaseType"
+              "$ref": "#/components/schemas/test:BaseType"
             },
             {
               "type": "object",
@@ -249,12 +252,12 @@ fn parse_type_that_is_attribute_but_not_extension_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "TestType",
+          "title": "test:TestType",
           "description": "A simple type to test the parser",
           "type": "object",
           "properties": {
@@ -292,7 +295,7 @@ fn simple_type_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -300,7 +303,7 @@ fn simple_type_into_schema_test() {
             "description": "An enumeration of the sides of a coin",
             "type": "string",
             "enum": ["Heads", "Tails"],
-            "title": "CoinType"
+            "title": "test:CoinType"
         })
     );
 }
@@ -316,7 +319,7 @@ fn simple_type_with_pattern_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -324,7 +327,7 @@ fn simple_type_with_pattern_into_schema_test() {
             "type": "string",
             "format": "uri",
             "pattern": "https://.+",
-            "title": "HttpsType"
+            "title": "test:HttpsType"
         })
     );
 }
@@ -340,7 +343,7 @@ fn simple_type_with_min_inclusive_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -348,7 +351,7 @@ fn simple_type_with_min_inclusive_into_schema_test() {
             "type": "integer",
             "format": "int32",
             "minimum": 28,
-            "title": "DaysInMonth"
+            "title": "test:DaysInMonth"
         })
     );
 }
@@ -362,14 +365,14 @@ fn simple_type_with_list_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
             "type": "array",
             "items": { "type": "string" },
-            "title": "FavouriteFoods"
+            "title": "test:FavouriteFoods"
         })
     );
 }
@@ -384,7 +387,7 @@ fn simplest_simple_type_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -417,7 +420,7 @@ fn base_type_into_schema_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -430,7 +433,7 @@ fn base_type_into_schema_test() {
                     "type": "string"
                 }
             },
-            "title": "BaseType",
+            "title": "test:BaseType",
             "type": "object"
         })
     );
@@ -476,7 +479,7 @@ fn parent_type_into_schema_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -484,7 +487,7 @@ fn parent_type_into_schema_test() {
             "description": "A simple type to test the parser",
             "allOf": [
                 {
-                    "$ref": "#/components/schemas/BaseType"
+                    "$ref": "#/components/schemas/test:BaseType"
                 },
                 {
                   "additionalProperties": false,
@@ -502,7 +505,7 @@ fn parent_type_into_schema_test() {
                   "type": "object"
               }
             ],
-            "title": "TestType",
+            "title": "test:TestType",
         })
     );
 }
@@ -534,12 +537,12 @@ fn parse_group_test() {
     </xs:group>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-          "title": "SimpleGroup",
+          "title": "test:SimpleGroup",
           "type": "object",
           "properties": {
             "field1": {
@@ -579,19 +582,19 @@ fn parse_group_ref_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "title": "ObjectWithTwoBases",
+            "title": "test:ObjectWithTwoBases",
             "description": "Object with 2 bases",
             "allOf": [
                 {
-                    "$ref": "#/components/schemas/Base1"
+                    "$ref": "#/components/schemas/test:Base1"
                 },
                 {
-                    "$ref": "#/components/schemas/Base2"
+                    "$ref": "#/components/schemas/test:Base2"
                 },
                 {
                     "type": "object",
@@ -619,19 +622,19 @@ fn parse_group_ref_no_sequence_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "title": "ObjectWithTwoBases",
+            "title": "test:ObjectWithTwoBases",
             "description": "Object with 2 bases",
             "allOf": [
                 {
-                    "$ref": "#/components/schemas/Base1"
+                    "$ref": "#/components/schemas/test:Base1"
                 },
                 {
-                    "$ref": "#/components/schemas/Base2"
+                    "$ref": "#/components/schemas/test:Base2"
                 },
                 {
                     "type": "object",
@@ -657,16 +660,16 @@ fn parse_group_ref_one_parent_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from(&xmltree::XMLNode::Element(tree)).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "title": "ObjectWithOneBase",
+            "title": "test:ObjectWithOneBase",
             "description": "Object with 1 base",
             "allOf": [
                 {
-                    "$ref": "#/components/schemas/Base1"
+                    "$ref": "#/components/schemas/test:Base1"
                 },
                 {
                     "type": "object",

@@ -13,11 +13,11 @@ pub(super) struct ObjectType {
     pub(super) parents: Vec<String>,
 }
 
-impl TryFrom<&xmltree::XMLNode> for ObjectType {
+impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
     type Error = TypeParseError;
 
-    fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
-        match value {
+    fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
+        match xml {
             xmltree::XMLNode::Element(xmltree::Element {
                 namespace: Some(namespace),
                 name,
@@ -27,15 +27,19 @@ impl TryFrom<&xmltree::XMLNode> for ObjectType {
             }) if namespace == XML_SCHEMA_NS && (name == "complexType" || name == "group") => {
                 let name = attributes
                     .get("name")
-                    .ok_or(TypeParseError::MissingName)?
-                    .clone();
+                    .map(|n| format!("{}:{}", schema_namespace, n))
+                    .ok_or(TypeParseError::MissingName)?;
                 let annotation = children
                     .iter()
                     .filter_map(|c| Annotation::try_from(c).ok())
                     .next();
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();
-                fields.extend(children.iter().flat_map(Field::try_from));
+                fields.extend(
+                    children
+                        .iter()
+                        .flat_map(|xml| Field::try_from((xml, schema_namespace))),
+                );
                 for child in children {
                     match child {
                         xmltree::XMLNode::Element(xmltree::Element {
@@ -44,7 +48,11 @@ impl TryFrom<&xmltree::XMLNode> for ObjectType {
                             children,
                             ..
                         }) if namespace == XML_SCHEMA_NS && name == "sequence" => {
-                            fields.extend(children.iter().flat_map(Field::try_from));
+                            fields.extend(
+                                children
+                                    .iter()
+                                    .flat_map(|xml| Field::try_from((xml, schema_namespace))),
+                            );
                             parents.extend(
                                 children
                                     .iter()
@@ -68,7 +76,9 @@ impl TryFrom<&xmltree::XMLNode> for ObjectType {
                                         ..
                                     }) if namespace == XML_SCHEMA_NS && name == "extension" => {
                                         parents.extend(attributes.get("base").cloned());
-                                        fields.extend(children.iter().flat_map(Field::try_from));
+                                        fields.extend(children.iter().flat_map(|xml| {
+                                            Field::try_from((xml, schema_namespace))
+                                        }));
                                         parents.extend(
                                             children
                                                 .iter()
@@ -85,9 +95,11 @@ impl TryFrom<&xmltree::XMLNode> for ObjectType {
                                                 }) if namespace == XML_SCHEMA_NS
                                                     && name == "sequence" =>
                                                 {
-                                                    fields.extend(
-                                                        children.iter().flat_map(Field::try_from),
-                                                    );
+                                                    fields.extend(children.iter().flat_map(
+                                                        |xml| {
+                                                            Field::try_from((xml, schema_namespace))
+                                                        },
+                                                    ));
                                                     parents.extend(
                                                         children
                                                             .iter()
@@ -110,7 +122,16 @@ impl TryFrom<&xmltree::XMLNode> for ObjectType {
                     name,
                     annotation,
                     fields,
-                    parents,
+                    parents: parents
+                        .into_iter()
+                        .map(|p| {
+                            if p.contains(':') {
+                                p
+                            } else {
+                                format!("{}:{}", schema_namespace, p)
+                            }
+                        })
+                        .collect(),
                 })
             }
             _ => Err(TypeParseError::NotTypeNode),

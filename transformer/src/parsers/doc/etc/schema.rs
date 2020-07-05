@@ -7,7 +7,6 @@ use thiserror::Error;
 
 #[derive(Debug, PartialEq)]
 pub struct Schema {
-  includes: Vec<String>,
   types: Vec<Type>,
 }
 
@@ -25,41 +24,31 @@ pub enum SchemaFromBytesError {
   XsdParse(#[from] SchemaParseError),
 }
 
-impl TryFrom<&[u8]> for Schema {
+impl TryFrom<(&[u8], &str)> for Schema {
   type Error = SchemaFromBytesError;
 
-  fn try_from(value: &[u8]) -> Result<Self, Self::Error> {
-    Ok(Self::try_from(&xmltree::XMLNode::Element(
-      xmltree::Element::parse(value)?,
+  fn try_from((bytes, namespace): (&[u8], &str)) -> Result<Self, Self::Error> {
+    Ok(Self::try_from((
+      &xmltree::XMLNode::Element(xmltree::Element::parse(bytes)?),
+      namespace,
     ))?)
   }
 }
 
-impl TryFrom<&xmltree::XMLNode> for Schema {
+impl TryFrom<(&xmltree::XMLNode, &str)> for Schema {
   type Error = SchemaParseError;
 
-  fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
-    match value {
+  fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
+    match xml {
       xmltree::XMLNode::Element(xmltree::Element {
         namespace: Some(namespace),
         name,
         children,
         ..
       }) if namespace == XML_SCHEMA_NS && name == "schema" => Ok(Schema {
-        types: children.iter().flat_map(Type::try_from).collect(),
-        includes: children
+        types: children
           .iter()
-          .filter_map(|child| match child {
-            xmltree::XMLNode::Element(xmltree::Element {
-              namespace: Some(namespace),
-              name,
-              attributes,
-              ..
-            }) if namespace == XML_SCHEMA_NS && name == "include" => {
-              attributes.get("schemaLocation").cloned()
-            }
-            _ => None,
-          })
+          .flat_map(|x| Type::try_from((x, schema_namespace)))
           .collect(),
       }),
       _ => Err(SchemaParseError::NotSchemaNode),
@@ -75,14 +64,14 @@ impl From<&Schema> for Vec<openapiv3::Schema> {
 
 #[test]
 fn base_schema_into_schemas_test() {
-  let s = Schema::try_from(include_bytes!("test_base.xsd") as &[u8]).unwrap();
+  let s = Schema::try_from((include_bytes!("test_base.xsd") as &[u8], "test")).unwrap();
   let value = Vec::<openapiv3::Schema>::from(&s);
 
   assert_eq!(
     serde_json::to_value(value).unwrap(),
     json!([
         {
-            "title": "BaseType",
+            "title": "test:BaseType",
             "description": "A base abstract type for all the types.",
             "type": "object",
             "properties": {
@@ -99,18 +88,18 @@ fn base_schema_into_schemas_test() {
 
 #[test]
 fn schema_into_schemas_test() {
-  let s = Schema::try_from(include_bytes!("test.xsd") as &[u8]).unwrap();
+  let s = Schema::try_from((include_bytes!("test.xsd") as &[u8], "test")).unwrap();
   let value = Vec::<openapiv3::Schema>::from(&s);
 
   assert_eq!(
     serde_json::to_value(value).unwrap(),
     json!([
       {
-        "title": "TestType",
+        "title": "test:TestType",
         "description": "A simple type to test the parser",
         "allOf": [
           {
-            "$ref": "#/components/schemas/BaseType"
+            "$ref": "#/components/schemas/test:BaseType"
           },
           {
             "type": "object",
@@ -163,7 +152,7 @@ fn schema_into_schemas_test() {
                 "description": "A reference to another type, but only one or none",
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Custom2Type"
+                    "$ref": "#/components/schemas/test:Custom2Type"
                   }
                 ]
               },
@@ -172,7 +161,7 @@ fn schema_into_schemas_test() {
                 "description": "A reference to many of another type",
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Custom3Type"
+                  "$ref": "#/components/schemas/test:Custom3Type"
                 }
               }
             },
@@ -185,11 +174,11 @@ fn schema_into_schemas_test() {
         ]
       },
       {
-        "title": "Custom2Type",
+        "title": "test:Custom2Type",
         "description": "Part of a test.",
         "allOf": [
           {
-            "$ref": "#/components/schemas/BaseType"
+            "$ref": "#/components/schemas/test:BaseType"
           },
           {
             "type": "object",
@@ -204,11 +193,11 @@ fn schema_into_schemas_test() {
         ]
       },
       {
-        "title": "Custom3Type",
+        "title": "test:Custom3Type",
         "description": "Part of a test continued.",
         "allOf": [
           {
-            "$ref": "#/components/schemas/BaseType"
+            "$ref": "#/components/schemas/test:BaseType"
           },
           {
             "type": "object",

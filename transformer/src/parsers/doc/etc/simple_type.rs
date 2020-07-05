@@ -16,11 +16,11 @@ pub(super) struct SimpleType {
     pub(super) min_inclusive: Option<String>,
 }
 
-impl TryFrom<&xmltree::XMLNode> for SimpleType {
+impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
     type Error = TypeParseError;
 
-    fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
-        match value {
+    fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
+        match xml {
             xmltree::XMLNode::Element(xmltree::Element {
                 namespace: Some(namespace),
                 name,
@@ -28,7 +28,9 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
                 children,
                 ..
             }) if namespace == XML_SCHEMA_NS && name == "simpleType" => {
-                let name = attributes.get("name").cloned();
+                let name = attributes
+                    .get("name")
+                    .map(|n| format!("{}:{}", schema_namespace, n));
                 let annotation = children
                     .iter()
                     .filter_map(|c| Annotation::try_from(c).ok())
@@ -127,11 +129,16 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
 }
 
 pub(super) fn str_to_simple_type_or_reference(
+    namespace: &str,
     type_name: &str,
 ) -> openapiv3::ReferenceOr<SimpleType> {
     match type_name.parse::<PrimitiveType>() {
         Err(_) => openapiv3::ReferenceOr::Reference {
-            reference: type_name.to_owned(),
+            reference: if type_name.contains(':') {
+                type_name.to_owned()
+            } else {
+                format!("{}:{}", namespace, type_name)
+            },
         },
         Ok(p) => openapiv3::ReferenceOr::Item(SimpleType {
             annotation: None,
