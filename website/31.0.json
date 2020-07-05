@@ -23681,7 +23681,7 @@
         },
         "additionalProperties": false
       },
-      "ovf:Section_Type": {
+      "ovf_Section_Type": {
         "type": "object"
       }
     }
