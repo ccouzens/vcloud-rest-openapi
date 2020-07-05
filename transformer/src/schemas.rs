@@ -10,8 +10,9 @@ pub fn schemas<R: Read + Seek>(
     let mut output = IndexMap::new();
     let mut type_file_names = zip
         .file_names()
-        .filter(|n| n.starts_with("doc/etc/1.5/") || n.starts_with("doc/etc/schemas/versioning"))
+        .filter(|n| n.starts_with("doc/etc/"))
         .filter(|n| n.ends_with(".xsd"))
+        .filter(|&n| n != "doc/etc/schemas/external/xml.xsd")
         .map(|n| n.into())
         .collect::<Vec<String>>();
 
