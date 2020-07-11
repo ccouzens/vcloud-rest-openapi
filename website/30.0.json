@@ -8,143 +8,6164 @@
     "version": "Revision 20180216 Version 30.0"
   },
   "paths": {
-    "/admin/": {},
-    "/admin/catalog/{id}": {},
-    "/admin/catalog/{id}/action/publish": {},
-    "/admin/catalog/{id}/action/publishToExternalOrganizations": {},
-    "/admin/catalog/{id}/action/subscribeToExternalCatalog": {},
-    "/admin/catalog/{id}/extension": {},
-    "/admin/catalog/{id}/extension/{selectorExtensionId}": {},
-    "/admin/catalog/{id}/metadata": {},
-    "/admin/catalog/{id}/metadata/{domain}/{key}": {},
-    "/admin/catalog/{id}/metadata/{key}": {},
-    "/admin/catalog/{id}/owner": {},
-    "/admin/catalogs/extension": {},
-    "/admin/catalogs/extension/{selectorExtensionId}": {},
-    "/admin/edgeGateway/{id}": {},
-    "/admin/edgeGateway/{id}/action/configureServices": {},
-    "/admin/edgeGateway/{id}/action/configureSyslogServerSettings": {},
-    "/admin/edgeGateway/{id}/action/convertToAdvancedGateway": {},
-    "/admin/edgeGateway/{id}/action/convertToAdvancedNetworking": {},
-    "/admin/edgeGateway/{id}/action/disableDistributedRouting": {},
-    "/admin/edgeGateway/{id}/action/enableDistributedRouting": {},
-    "/admin/edgeGateway/{id}/action/modifyFormFactor": {},
-    "/admin/edgeGateway/{id}/action/reapplyServices": {},
-    "/admin/edgeGateway/{id}/action/redeploy": {},
-    "/admin/edgeGateway/{id}/action/syncSyslogServerSettings": {},
-    "/admin/edgeGateway/{id}/action/updateProperties": {},
-    "/admin/edgeGateway/{id}/action/upgradeConfig": {},
-    "/admin/event/{id}": {},
-    "/admin/group/{id}": {},
-    "/admin/groups/query": {},
-    "/admin/network/{id}": {},
-    "/admin/network/{id}/action/convertToDistributedInterface": {},
-    "/admin/network/{id}/action/convertToInternalInterface": {},
-    "/admin/network/{id}/action/convertToSubInterface": {},
-    "/admin/network/{id}/action/reset": {},
-    "/admin/network/{id}/action/syncSyslogServerSettings": {},
-    "/admin/network/{id}/allocatedAddresses": {},
-    "/admin/network/{id}/metadata": {},
-    "/admin/network/{id}/metadata/{domain}/{key}": {},
-    "/admin/network/{id}/metadata/{key}": {},
-    "/admin/org/{id}": {},
-    "/admin/org/{id}/action/disable": {},
-    "/admin/org/{id}/action/enable": {},
-    "/admin/org/{id}/associations": {},
-    "/admin/org/{id}/associations/localAssociationData": {},
-    "/admin/org/{id}/associations/localAssociationData/action/regenerateKeyPair": {},
-    "/admin/org/{id}/associations/{remoteSiteId}/{remoteOrgId}": {},
-    "/admin/org/{id}/catalogs": {},
-    "/admin/org/{id}/events": {},
-    "/admin/org/{id}/extension": {},
-    "/admin/org/{id}/extension/{selectorExtensionId}": {},
-    "/admin/org/{id}/groups": {},
-    "/admin/org/{id}/metadata": {},
-    "/admin/org/{id}/metadata/{domain}/{key}": {},
-    "/admin/org/{id}/metadata/{key}": {},
-    "/admin/org/{id}/networks": {},
-    "/admin/org/{id}/settings": {},
-    "/admin/org/{id}/settings/email": {},
-    "/admin/org/{id}/settings/federation": {},
-    "/admin/org/{id}/settings/federation/action/regenerateFederationCertificate": {},
-    "/admin/org/{id}/settings/general": {},
-    "/admin/org/{id}/settings/guestPersonalizationSettings": {},
-    "/admin/org/{id}/settings/ldap": {},
-    "/admin/org/{id}/settings/ldap/action/resetLdapCertificate": {},
-    "/admin/org/{id}/settings/ldap/action/resetLdapKeyStore": {},
-    "/admin/org/{id}/settings/ldap/action/resetLdapSspiKeytab": {},
-    "/admin/org/{id}/settings/ldap/action/updateLdapCertificate": {},
-    "/admin/org/{id}/settings/ldap/action/updateLdapKeyStore": {},
-    "/admin/org/{id}/settings/ldap/action/updateLdapSspiKeytab": {},
-    "/admin/org/{id}/settings/oauth": {},
-    "/admin/org/{id}/settings/operationLimitsSettings": {},
-    "/admin/org/{id}/settings/passwordPolicy": {},
-    "/admin/org/{id}/settings/vAppLeaseSettings": {},
-    "/admin/org/{id}/settings/vAppLeaseSettings/action/expireVAppsRuntimeLease": {},
-    "/admin/org/{id}/settings/vAppLeaseSettings/action/expireVAppsStorageLease": {},
-    "/admin/org/{id}/settings/vAppTemplateLeaseSettings": {},
-    "/admin/org/{id}/settings/vAppTemplateLeaseSettings/action/expireVAppTemplatesStorageLease": {},
-    "/admin/org/{id}/users": {},
-    "/admin/org/{id}/vdcs": {},
-    "/admin/org/{id}/vdcsparams": {},
-    "/admin/org/{orgId}/right/{id}": {},
-    "/admin/org/{orgId}/rights": {},
-    "/admin/org/{orgId}/role/{id}": {},
-    "/admin/org/{orgId}/role/{id}/action/relinkToTemplate": {},
-    "/admin/org/{orgId}/role/{id}/action/unlinkFromTemplate": {},
-    "/admin/org/{orgId}/roles": {},
-    "/admin/org/{orgId}/roles/query": {},
-    "/admin/orgs": {},
-    "/admin/orgs/extension": {},
-    "/admin/orgs/extension/{selectorExtensionId}": {},
-    "/admin/orgs/query": {},
-    "/admin/providervdc/{id}": {},
-    "/admin/providervdc/{id}/extension": {},
-    "/admin/providervdc/{id}/extension/{selectorExtensionId}": {},
-    "/admin/providervdc/{id}/metadata": {},
-    "/admin/providervdc/{id}/metadata/{domain}/{key}": {},
-    "/admin/providervdc/{id}/metadata/{key}": {},
-    "/admin/providervdc/{id}/vdcReferences": {},
-    "/admin/providervdcs/extension": {},
-    "/admin/providervdcs/extension/{selectorExtensionId}": {},
-    "/admin/pvdcStorageProfile/{id}": {},
-    "/admin/pvdcStorageProfile/{id}/metadata": {},
-    "/admin/pvdcStorageProfile/{id}/metadata/{domain}/{key}": {},
-    "/admin/pvdcStorageProfile/{id}/metadata/{key}": {},
-    "/admin/right/{id}": {},
-    "/admin/rights/query": {},
-    "/admin/role/{id}": {},
-    "/admin/role/{id}/action/relinkToTemplate": {},
-    "/admin/role/{id}/action/unlinkFromTemplate": {},
-    "/admin/roles": {},
-    "/admin/roles/query": {},
-    "/admin/strandedUsers/query": {},
-    "/admin/user/{id}": {},
-    "/admin/user/{id}/action/takeOwnership": {},
-    "/admin/user/{id}/action/unlock": {},
-    "/admin/user/{id}/entityRights": {},
-    "/admin/user/{id}/grantedRights": {},
-    "/admin/users/query": {},
-    "/admin/vdc/{id}": {},
-    "/admin/vdc/{id}/action/disable": {},
-    "/admin/vdc/{id}/action/enable": {},
-    "/admin/vdc/{id}/action/registerVApp": {},
-    "/admin/vdc/{id}/edgeGateways": {},
-    "/admin/vdc/{id}/extension": {},
-    "/admin/vdc/{id}/extension/{selectorExtensionId}": {},
-    "/admin/vdc/{id}/metadata": {},
-    "/admin/vdc/{id}/metadata/{domain}/{key}": {},
-    "/admin/vdc/{id}/metadata/{key}": {},
-    "/admin/vdc/{id}/migrateVcdniToVxlan": {},
-    "/admin/vdc/{id}/networks": {},
-    "/admin/vdc/{id}/vdcStorageProfiles": {},
-    "/admin/vdcStorageProfile/{id}": {},
-    "/admin/vdcStorageProfile/{id}/metadata": {},
-    "/admin/vdcStorageProfile/{id}/metadata/{domain}/{key}": {},
-    "/admin/vdcStorageProfile/{id}/metadata/{key}": {},
-    "/admin/vdcs/extension": {},
-    "/admin/vdcs/extension/{selectorExtensionId}": {},
-    "/admin/vdcs/query": {}
+    "/admin/extension/service/aclrule/{id}": {
+      "get": {
+        "description": "Retrieve (GET) ACL rule",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete (DELETE) ACL rule",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/rule/{ruleId}": {
+      "get": {
+        "description": "Retrieves the specified VM Host affinity rule",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the specified VM Host affinity rule.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/strandedItems": {
+      "delete": {
+        "description": "Removes all stranded items.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/apidefinition/{id}": {
+      "get": {
+        "description": "Retrieve API definition.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes API definition.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/apifilter/{id}": {
+      "get": {
+        "description": "Retrieves API filter.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes API filter.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/associations/{remoteSiteId}/{remoteOrgId}": {
+      "get": {
+        "description": "Retrieves a specific member from the organization's associations as identified by identifier\n included in the request",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update an organization association",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Removes the specified member from this organization's associations.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}": {
+      "get": {
+        "description": "Retrieve a catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the name or description of a catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalogItem/{id}": {
+      "get": {
+        "description": "Retrieve a catalog item.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Modify a catalog item.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a catalog item.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalogItem/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from catalog item metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the metadata value for the specified key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from catalog item metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from catalog metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from catalog metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/disk/{id}": {
+      "get": {
+        "description": "Retrieve a disk.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the name, description, and storage class of a disk.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a disk.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/disk/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from disk metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from disk metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}": {
+      "get": {
+        "description": "Retrieve an edge gateway",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update an edge gateway",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete an edge gateway.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/externalnet/{id}": {
+      "get": {
+        "description": "Retrieve a system administrator view of an external network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update an external network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete an external network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/file/{id}": {
+      "get": {
+        "description": "Retrieve a file descriptor",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes file descriptor.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/group/{id}": {
+      "get": {
+        "description": "Retrieve a group.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the name or description of a group.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a group.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/link/{id}": {
+      "get": {
+        "description": "Retrieves service link.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes service link.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/session": {
+      "get": {
+        "description": "Retrieve a representation of the current session.\n \n\n A Session object contains one or more URLs from which you can begin\n browsing, as well as links to the query service and entity resolver.\n The list of URLs in the Session object is based on the role and\n privileges of the authenticated user.\n \n\n A Session object expires after a\n configurable interval of client inactivity. To change the length of this\n client inactivity timeout, a system administrator can change the value of\n SessionTimeoutMinutes in the system's GeneralSettings",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the current session.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/media/{id}": {
+      "get": {
+        "description": "Retrieve a media object.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the name and description of a media object.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a media object.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/media/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from media object metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from media object metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}": {
+      "get": {
+        "description": "Retrieve an administrative view of a network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update an organization network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from network metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from network metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/networkPool/{id}": {
+      "get": {
+        "description": "Retrieve a network pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a network pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a network pool.\n\n\n The pool must not be in use.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/object/{id}": {
+      "get": {
+        "description": "Retrieves a registered object extension.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates a registered object extension.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a registered object extension with specified ID.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}": {
+      "get": {
+        "description": "Retrieve an administrative view of an organization.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update an organization.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete an organization.\n\n\n Before you can delete an organization, you must disable it and then\n delete or change ownership of all objects that the organization's\n users own.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from organization metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from organization metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}": {
+      "get": {
+        "description": "Retrieve a system administrator view of a provider vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a provider vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a provider vDC.\n \n\n Before you can delete a provider vDC, you must disable it.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/providervdc/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from provider vDC metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided, overwriting any existing\n value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from provider vDC metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/pvdcStorageProfile/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from Provider VDC Storage Profile metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from Provider VDC Storage Profile metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/resourceclass/{id}": {
+      "get": {
+        "description": "Retrieve (GET) resource class info",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes (DELETE) resource class",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/resourceclassaction/{id}": {
+      "get": {
+        "description": "Retrieve (GET) resource class action info",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes (DELETE) resource class action",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/right/{id}": {
+      "get": {
+        "description": "Retrieves a right.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates a right.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a right.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{orgId}/right/{id}": {
+      "get": {
+        "description": "Retrieves right in the context of an organization",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Unlink a right from an organization",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{orgId}/rights": {
+      "get": {
+        "description": "Retrieve rights for an organization",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Modify rights for an organization",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Add rights to an organization",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Remove all rights from an organization",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/role/{id}": {
+      "get": {
+        "description": "Retrieve a role.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a role.\n \n\n This request changes the name or description of the role, and adds or\n removes rights.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a role.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdcs/extension/{selectorExtensionId}": {
+      "get": {
+        "description": "Retrieves a Selector Extension.\n \n\n The association can be the default policy, or an overridden instance of the default policy.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates a Selector Extension.\n \n\n The association can be the default policy, or an overridden instance of the default policy.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a Selector Extension.\n \n\n The association can be the default policy, or an overridden instance of the default policy.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/{id}": {
+      "get": {
+        "description": "Gives information about a concrete extension service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates already registered service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes registered service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/serviceresource/{id}": {
+      "get": {
+        "description": "Retrieve (GET) service resource",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete (DELETE) service resource",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/shadowVm/{id}": {
+      "get": {
+        "description": "Retrieve a shadow VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes shadow VM.\n \n\n This API for deletion of shadow VMs has changed URL signature\n to better reflect the API object model.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/site/associations/{id}": {
+      "get": {
+        "description": "Get the {@link SiteAssociationType} for the specified site id.\n\n GET /api/site/associations/{siteId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Adds an association for the specified site.\n\n PUT /api/site/associations/{siteId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the association for the specified site.\n\n DELETE /api/site/associations/{siteId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/strandedItem/{id}": {
+      "get": {
+        "description": "Gets the representation of a strandedItem.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Removes stranded item.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vdcTemplate/{id}": {
+      "get": {
+        "description": "Retrieve a vDC template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a vDC template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a vDC template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/user/{id}": {
+      "get": {
+        "description": "Retrieve a user.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a user.\n\n\n Use this request to update any property of a local user, or to update\n the name or description of an imported user. A locked user cannot be\n updated.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a user.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}": {
+      "get": {
+        "description": "Retrieve a vApp or VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Modify the name or description of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a vApp or VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from vApp or VM metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from vApp or VM metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}": {
+      "get": {
+        "description": "Retrieve a vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the name, description and gold master of a vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from vApp template or VM\n metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from vApp template or VM\n metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}": {
+      "get": {
+        "description": "Retrieve the admin view of an organization vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Modify an organization vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete an organization vDC.\n\n \n\n You must disable the virtual datacenter before you can delete it.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}": {
+      "get": {
+        "description": "Retrieve a vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Modify the name and/or description of an organization vDC.\n\n \n\n This operation is asynchronous and returns a task that\n you can monitor to track the progress of the request.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete an organization vDC.\n\n \n\n You must disable the virtual datacenter before you can delete it, unless\n {@code RestConstants.DeleteParameters.FORCE} is asserted",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from virtual datacenter metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from virtual datacenter metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdcStorageProfile/{id}/metadata/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Set the value for the specified metadata key to the value provided,\n overwriting any existing value.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified key and its value from vDC storage profile metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/vmAffinityRules/{ruleId}": {
+      "get": {
+        "description": "Retrieves the specified VM affinity rule",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates the specified VM affinity/anti-affinity rule. This operation is\n asynchronous and returns a task that you can monitor to track the\n progress of the request.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the specified VM affinity/anti-affinity rule",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vmGroup/{groupId}": {
+      "get": {
+        "description": "Retrieves the vm group by Id",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the specified VM group",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/resourceclassaction/{id}/aclrules": {
+      "get": {
+        "description": "List registered resource class ACL rule for extension service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Registers resource class ACL rule for extension service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/blockingTasks": {
+      "get": {
+        "description": "Retrieve a list of active or recently completed blocking task requests.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vdcTemplateReferences": {
+      "get": {
+        "description": "Retrieve a list of all VDC templates.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/allocatedAddresses": {
+      "get": {
+        "description": "Retrieve the list of IP addresses allocated to the network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/network/{id}/allocatedAddresses": {
+      "get": {
+        "description": "Retrieve a list of IP addresses allocated to the network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/amqp": {
+      "get": {
+        "description": "Retrieve system AMQP settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system AMQP settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/apidefinition/{id}": {
+      "get": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/{id}/apidefinitions": {
+      "get": {
+        "description": "Returns the API definitions registered by this service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates API definition.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/apidefinitions": {
+      "get": {
+        "description": "Return all API definitions.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/files": {
+      "get": {
+        "description": "Return all API definition file descriptors.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/service/{id}/apidefinitions": {
+      "get": {
+        "description": "Return all Extension Service API Definitions.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/extensibility": {
+      "get": {
+        "description": "Retrieve a list of links to API extensibility operations and entities.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/{id}/apifilters": {
+      "get": {
+        "description": "Returns the API filters registered by this service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates API filter.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/associations/localAssociationData": {
+      "get": {
+        "description": "Gets the associaiton data for a given local org. This can be pasted into the body of a\n request to add an associated org on a remote site",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/associations": {
+      "get": {
+        "description": "Retrieves the complete list of Organizations associated with this organization",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Replaces the organization's current list of association members with the specified list of\n members\n \n\n If the list is empty, all existing members will be deleted.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Adds a new member to this organization's associations",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/hostReferences": {
+      "get": {
+        "description": "Retrieve the list of ESX/ESXi hosts in the cloud.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/networks": {
+      "get": {
+        "description": "Retrieve a list of available vCenter networks and portgroups.\n \n\n Networks and portgroups that are already in use by a vCloud Director\n network are not listed.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/availableStorageProfiles": {
+      "get": {
+        "description": "Retrieve a list of storage classes that can be added to the\n specified provider vDC. Storage classes that have already been added to\n the provider vDC are not included in the list.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/resourcePoolList": {
+      "get": {
+        "description": "Retrieve a list of unused resource pools from a vCenter server.\n \n\n Resource pools that are already in use by a provider vDC are not listed.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/blockingTask/{id}": {
+      "get": {
+        "description": "Retrieve the representation of a blocking task.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/blockingTask/operations": {
+      "get": {
+        "description": "Retrieve a list of operations that are configured as blocking tasks.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the list of operations that are configured as blocking tasks.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/blockingTask": {
+      "get": {
+        "description": "Retrieve system blocking task settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system blocking task settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/bootOptions": {
+      "get": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/branding": {
+      "get": {
+        "description": "Retrieve system branding settings.\n \n\n You can use system branding settings to customize the vCloud\n Director Web console and some of the links that appear on the vCloud\n Director Home login screen.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system branding settings.\n \n\n You can use system branding settings to customize the vCloud\n Director Web console and some of the links that appear on the vCloud\n Director Home login screen.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalog/{id}": {
+      "get": {
+        "description": "Retrieve a catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalogItem/{id}/metadata": {
+      "get": {
+        "description": "Retrieve all metadata associated with a catalog item.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing catalog item metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalog/{id}/metadata": {
+      "get": {
+        "description": "Retrieve all catalog metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}/metadata/{domain}/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key in the specified domain from catalog metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}/owner": {
+      "get": {
+        "description": "Retrieve the owner of a catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the owner of a catalog.\n \n\n The request body specifies the new owner",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalogs/query": {
+      "get": {
+        "description": "Retrieves a list of Catalogs by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/checkpostcustomizationscript": {
+      "get": {
+        "description": "Retrieve the flag value\n check_post_guest_customization. This flag decides if property collector\n would wait for post guest customization script to complete",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Modify the PostGC Status check of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/org/{id}/catalog/{catalogId}/controlAccess": {
+      "get": {
+        "description": "Retrieve access control information for a catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/controlAccess": {
+      "get": {
+        "description": "Retrieve access control information for a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/controlAccess": {
+      "get": {
+        "description": "Retrieve access control information for a VDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vdcTemplate/{id}/controlAccess": {
+      "get": {
+        "description": "Retrieve access control information for a VDC template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/virtualHardwareSection/cpu": {
+      "get": {
+        "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the RASD item that specifies CPU properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/virtualHardwareSection/cpu": {
+      "get": {
+        "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the RASD item that specifies CPU properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/datastore/{id}": {
+      "get": {
+        "description": "Retrieve a datastore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update datastore properties, including name, description, and low disk\n space thresholds.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/datastores": {
+      "get": {
+        "description": "Retrieve a list of references to datastores in the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/datastores/query": {
+      "get": {
+        "description": "Get a list of all datastores by using REST API General QueryHandler.\n This is read only list of datastores.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - referenceView or simpleView.\n Default format is referenceView.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/discoverResourcePools": {
+      "get": {
+        "description": "Get direct children resource pools of Provider VDC that are valid candidates for creating\n a new VDC",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/discoverResourcePools/{parent_rp_moref}": {
+      "get": {
+        "description": "Get direct children resource pools of {parent_rp_moref} nested under the\n Provider VDC which are valid candidates for creating a new VDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/disk/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the disk.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/disk/{id}/owner": {
+      "get": {
+        "description": "Retrieve the owner of a disk.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Change the owner of a disk.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/disks/query": {
+      "get": {
+        "description": "Retrieves a disk list by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/virtualHardwareSection/disks": {
+      "get": {
+        "description": "Retrieve all RASD items that specify hard disk and hard disk\n controller properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update all RASD items that specify hard disk and hard disk\n controller properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/virtualHardwareSection/disks": {
+      "get": {
+        "description": "Retrieve all RASD items that specify hard disk and hard disk\n controller properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update all RASD items that specify hard disk and hard disk\n controller properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/email": {
+      "get": {
+        "description": "Retrieve system email settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system email settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/entity/{id}": {
+      "get": {
+        "description": "Redirects to the URL of an entity with the given VCD ID.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/event/{id}": {
+      "get": {
+        "description": "Returns event with specified ID.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/query": {
+      "get": {
+        "description": "REST API General queries handler",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension": {
+      "get": {
+        "description": "Retrieve a list of extension objects and operations.\n \n\n The VMWExtension element provides access to a cloud-wide namespace of\n vSphere platform objects that are registered for use by the system, and\n links that allow you to add vSphere servers and related resources such\n as networks and resource pools to the cloud. It also provides access to\n system level configuration settings for Kerberos and LDAP services.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service": {
+      "get": {
+        "description": "Retrieves a list of extension service operations.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/externalNetworkReferences": {
+      "get": {
+        "description": "Retrieve a list of references to exernal networks in the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/externalNetworkReferences/query": {
+      "get": {
+        "description": "Get list of external networks by using REST API general QueryHandler.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - referenceView or simpleView.\n Default format is referenceView.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/federation": {
+      "get": {
+        "description": "Retrieve other organization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update other organization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/apidefinition/{id}/files": {
+      "get": {
+        "description": "Returns all file descriptors for the API definition.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates file descriptor.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/apidefinition/{id}/files": {
+      "get": {
+        "description": "Returns all file descriptors for the API definition.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/general": {
+      "get": {
+        "description": "Retrieve other system settings.\n \n\n These settings include catalog publishing rights, VM quotas, and related\n system-wide configuration defaults.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update other system settings.\n \n\n These settings include catalog publishing rights, VM quotas, and related\n system-wide configuration defaults.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/general": {
+      "get": {
+        "description": "Retrieve other organization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update other organization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/groups/query": {
+      "get": {
+        "description": "Retrieves a list of groups for organization the org admin belongs to\n by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/guestcustomizationstatus": {
+      "get": {
+        "description": "Retrieve status of guest customization for that VM\n  Following are the possible status\n  0 - PENDING_GC      : Guest Customization is either not started or in progress.\n    This is set whenever a VM need customization.\n  1 - PENDING_REBOOT  : GC is successful, but reboot is pending.\n    This is set when vCloud receives \"guestinfo.gc.status\" as successful\n  2 - PENDING_POST_GC : Reboot has happened, waiting for post gc script to complete.\n    This is set when tools running status comes as \"Running\" based on conditions 1 & 2\n  3 - COMPLETE        : GC is complete.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/guestCustomizationSection": {
+      "get": {
+        "description": "Retrieves the guest customization section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates the guest customization section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/guestCustomizationSection": {
+      "get": {
+        "description": "Retrieves the guest customization section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates the guest customization section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/hwv/{id}": {
+      "get": {
+        "description": "Retrieve a Virtual Hardware Version.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/host/{id}": {
+      "get": {
+        "description": "Retrieve a host.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/hostGroup/{groupId}": {
+      "get": {
+        "description": "Retrieves the host group by Id",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/resourcePool/{rpId}/hostGroups": {
+      "get": {
+        "description": "List all HostGroups within this resource pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/hostReferences": {
+      "get": {
+        "description": "Retrieve a list of references to ESX/ESXi hosts attached to the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/hostReferences/query": {
+      "get": {
+        "description": "Get list of hosts by using REST API general QueryHAndler;\n This is read only list of host references and is not bound to specific states.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - referenceView or simpleView.\n Default format is referenceView.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/kerberosSettings": {
+      "get": {
+        "description": "Retrieve system Kerberos settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system Kerberos settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/ldapSettings": {
+      "get": {
+        "description": "Retrieve system LDAP settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system LDAP settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/leaseSettingsSection": {
+      "get": {
+        "description": "Retrieves the lease settings section of a vApp or vApp template",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates the lease settings section of a vApp or vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/leaseSettingsSection": {
+      "get": {
+        "description": "Retrieves the lease settings section of a vApp or vApp template",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates the lease settings section of a vApp or vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/catalog": {
+      "get": {
+        "description": "Retrieve vCloud Director catalog setting details.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update catalog settings details.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/license": {
+      "get": {
+        "description": "Retrieve vCloud Director software license details.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update vCloud Director software license details.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/{id}/links": {
+      "get": {
+        "description": "Returns the links registered by this service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Create service link.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/site": {
+      "get": {
+        "description": "Get the {@link SiteType} that represents this local site.\n\n GET /api/site",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Sets the local site to match what is specified in the {@link SiteType}. It can contain a list\n of associated sites in addition to info specific to the local site\n\n PUT /api/site",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/login": {
+      "get": {
+        "description": "Login with HTTP GET request. (Same as POST, implemented for convenience.)",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Login with HTTP POST request.\n \n\n The response includes an authorization token in this format:\n \n\n x-vcloud-authorization: \ntoken\n\n \n\n Include this header in all subsequent requests.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/lookupService": {
+      "get": {
+        "description": "Retrieve settings that describe how vCloud Director connects to a vSphere lookup service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Register / unregister Lookup Service to / from vCD. In \nLookupServiceParamsType\n\n   1. If LookupServiceUrl is set and not empty, the action is for register lookup service.\n   2. If LookupServiceUrl is unset or empty, the action is for unregister lookup service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/virtualHardwareSection/media": {
+      "get": {
+        "description": "Retrieve all RASD items that specify CD-ROM, DVD, and floppy disk\n device and controller properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/virtualHardwareSection/media": {
+      "get": {
+        "description": "Retrieve all RASD items that specify CD-ROM, DVD, and floppy disk\n device and controller properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/media/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with a media object.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/media/{id}/owner": {
+      "get": {
+        "description": "Retrieve the owner of a media object.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/mediaList/query": {
+      "get": {
+        "description": "Retrieves a media list by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/virtualHardwareSection/memory": {
+      "get": {
+        "description": "Retrieve the RASD item that specifies memory properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the RASD item that specifies memory properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/virtualHardwareSection/memory": {
+      "get": {
+        "description": "Retrieve the RASD item that specifies memory properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the RASD item that specifies memory properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vmGroup/name/{groupName}": {
+      "get": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/namedVmGroupReferences": {
+      "get": {
+        "description": "Gets all references to named VM groups.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/network/{id}": {
+      "get": {
+        "description": "Retrieve an organization network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/virtualHardwareSection/networkCards": {
+      "get": {
+        "description": "Retrieve all RASD items that specify network card properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update all RASD items that specify network card properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/virtualHardwareSection/networkCards": {
+      "get": {
+        "description": "Retrieve all RASD items that specify network card properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update all RASD items that specify network card properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/networkConfigSection": {
+      "get": {
+        "description": "Retrieve the network config section of a vApp or vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the network config section of a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/networkConfigSection": {
+      "get": {
+        "description": "Retrieve the network config section of a vApp or vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the network config section of a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/networkConnectionSection": {
+      "get": {
+        "description": "Retrieve the network connection section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the network connection section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/networkConnectionSection": {
+      "get": {
+        "description": "Retrieve the network connection section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the network connection section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/network/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/metadata/{domain}/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key in the specified domain from network metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/networkPoolReferences": {
+      "get": {
+        "description": "Retrieve a list of references to network pools in the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/networkPoolReferences/query": {
+      "get": {
+        "description": "Get list of network pools by using REST API general QueryHandler.\n This is read only list of network pool references and is not bound to specific states.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - referenceView or simpleView.\n Default format is referenceView.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/networkSection": {
+      "get": {
+        "description": "Retrieve the network section of a vApp or vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/networkSection": {
+      "get": {
+        "description": "Retrieve the network section of a vApp or vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/notifications": {
+      "get": {
+        "description": "Retrieve system AMQP notifications settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system AMQP notifications settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/oauth": {
+      "get": {
+        "description": "Retrieve organization OAuth settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update organization OAuth settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/object": {
+      "get": {
+        "description": "Displays the list of currently registered object extensions",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Registers a new object extension",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/operatingSystemSection": {
+      "get": {
+        "description": "Retrieve the operating system section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the operating system section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/operationLimitsSettings": {
+      "get": {
+        "description": "Retrieves the system wide defaults for tenant throttling",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update catalog settings details.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/email": {
+      "get": {
+        "description": "Retrieve organization email settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update organization email settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/guestPersonalizationSettings": {
+      "get": {
+        "description": "Retrieve organization defaults for guest personalization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update organization defaults for guest personalization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/ldap": {
+      "get": {
+        "description": "Retrieve organization LDAP settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update organization LDAP settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/orgNetworks/query": {
+      "get": {
+        "description": "Get list of Organization Networks for the system by using REST API general QueryHandler.\n This is read only list and is not bound to specific states.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - referenceView or simpleView.\n Default format is referenceView.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/operationLimitsSettings": {
+      "get": {
+        "description": "Retrieve organization defaults for guest personalization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update organization operation limits settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/passwordPolicy": {
+      "get": {
+        "description": "Retrieve organization password policy settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update organization password policy settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings": {
+      "get": {
+        "description": "Retrieve settings for this organization.\n \n\n Organization settings are divided into categories. This request retrieves\n all categories of organization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates settings for this organization.\n \n\n Organization settings are divided into categories. This request updates\n all categories of organization settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/edgeGateways": {
+      "get": {
+        "description": "List all gateways for this Org vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Create an edge gateway.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/networks": {
+      "get": {
+        "description": "List all networks for this Org vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Create an Org vDC network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/org/{id}/vdcRollup": {
+      "get": {
+        "description": "Retrieve the summary of usage and reserve capacity of all OrgVDCs in this org, and, if\n specified, any associated orgs.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/orgVdcs/query": {
+      "get": {
+        "description": "Get list of all Organization Vdcs in the system by using REST API general QueryHandler.\n This is read only list and is not bound to specific states.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - referenceView or simpleView.\n Default format is referenceView.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/org/{id}": {
+      "get": {
+        "description": "Retrieve an organization.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the organization.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/org/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the organization.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/metadata/{domain}/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key in the specified domain from organization metadata .",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vdc/{id}/resourcePools": {
+      "get": {
+        "description": "Retrieve resource pools associated with an organization VDC",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/org": {
+      "get": {
+        "description": "Retrieve a list of organizations accessible to you.\n\n\n The system administrator has access to all organizations.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/orgs/query": {
+      "get": {
+        "description": "Retrieves a list of organizations by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/productSections": {
+      "get": {
+        "description": "Retrieve a list of ProductSection elements from a vApp template, vApp,\n or VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update all ProductSection elements in a vApp template, vApp, or VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/productSections": {
+      "get": {
+        "description": "Retrieve a list of ProductSection elements from a vApp template, vApp,\n or VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/providervdc/{id}": {
+      "get": {
+        "description": "Retrieve a provider vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/providervdc/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the provider vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providerVdcReferences": {
+      "get": {
+        "description": "Retrieve a list of references to provider vDCs in the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/pvdcStorageProfile/{id}": {
+      "get": {
+        "description": "Retrieve provider vDC storage profile details.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a provider vDC storage profile\n \n\n You can update a storage profile to enable or disable it.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/pvdcStorageProfile/{id}": {
+      "get": {
+        "description": "Retrieve provider vDC storage profile details.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/pvdcStorageProfile/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the Provider VDC Storage Profile.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providerVdcReferences/query": {
+      "get": {
+        "description": "Get list of provider vDCs by using REST API general QueryHandler.\n This is read only list and is not bound to specific states.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references, records or idrecords.\n Default format is records.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/resourcePools": {
+      "get": {
+        "description": "Retrieve a provider vDC resource pool set.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/service": {
+      "get": {
+        "description": "Return all extension services registered with the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/user/{id}/grantedRights": {
+      "get": {
+        "description": "Queries user granted privileges",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/resourceclass/{id}/resourceclassactions": {
+      "get": {
+        "description": "List registered resource class actions for extension service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Registers resource class action for extension service. The resource class action will be\n added only if a resource class with the same name does not exist.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/{id}/resourceclasses": {
+      "get": {
+        "description": "List registered resource classes for extension service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Registers resource class for extension service. The resource class will be added only if a\n resource class with the same name does not exist.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/{id}/rights": {
+      "get": {
+        "description": "Gives the rights registered by this extension service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Registers right to the rights managed by this extension service. The right will be added only\n if a right with the same name does not already exists.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdcs/query": {
+      "get": {
+        "description": "Retrieves a list of vdcs in the organization;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{orgId}/roles/query": {
+      "get": {
+        "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/roles/query": {
+      "get": {
+        "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/resourcePool/{rpId}/rules": {
+      "get": {
+        "description": "List all VmHostAffinityRules within this resource pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Create VM Affinity Rules within this resource pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/runtimeInfoSection": {
+      "get": {
+        "description": "Retrieve the runtime info section of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/v1.5/schema/{schemaFileName}": {
+      "get": {
+        "description": "Retrieve the specified schema definition file from the server.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/versions/schema/versions.xsd": {
+      "get": {
+        "description": "Unauthenticated GET of versions.xsd schema definition file.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}/extension": {
+      "get": {
+        "description": "Displays a list of Selector Extensions that are associated with a selector.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a Selector Extension.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdcs/extension": {
+      "get": {
+        "description": "Displays a list of Selector Extensions that are associated with a selector.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a Selector Extension.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/extension": {
+      "get": {
+        "description": "Displays a list of Selector Extensions that are associated with a selector.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a Selector Extension.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/providervdc/{id}/extension": {
+      "get": {
+        "description": "Displays a list of Selector Extensions that are associated with a selector.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a Selector Extension.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/extension": {
+      "get": {
+        "description": "Displays a list of Selector Extensions that are associated with a selector.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a Selector Extension.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/object/{id}/selectorExtensions": {
+      "get": {
+        "description": "Displays a list of all selector extensions of a registered object extension.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/virtualHardwareSection/serialPorts": {
+      "get": {
+        "description": "Retrieve all RASD items that specify serial port properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Modifies all RASD items that specify serial port properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/virtualHardwareSection/serialPorts": {
+      "get": {
+        "description": "Retrieve all RASD items that specify serial port properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Modifies all RASD items that specify serial port properties of a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/server_status": {
+      "get": {
+        "description": "Always returns HTTP 200",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/service/{id}": {
+      "get": {
+        "description": "Return the Extension Service API Definition.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/resourceclass/{id}/serviceresources": {
+      "get": {
+        "description": "List registered service resources for extension service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Registers service resource for extension service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/query": {
+      "get": {
+        "description": "Return the System Administrator representation of all extension services registered with the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/shadowVms": {
+      "get": {
+        "description": "Retrieve a list of shadow VMs associated with the specified vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/site/associations/localAssociationData": {
+      "get": {
+        "description": "Get the {@link SiteAssociationsType} for this site.\n\n GET /api/site/associations/localAssociationData",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/site/associations": {
+      "get": {
+        "description": "Get the {@link SiteAssociationsType} for this site.\n\n GET /api/site/associations",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the site's list of associated sites\n\n PUT /api/site/associations",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Add a new {@link SiteAssociationType} for this site.\n\n POST /api/site/associations",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/snapshotSection": {
+      "get": {
+        "description": "Retrieve SnapshotSection element for a vApp or VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/startupSection": {
+      "get": {
+        "description": "Retrieve the startup section of a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the startup section of a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/storageProfiles": {
+      "get": {
+        "description": "Retrieve all storage profiles in the VIM server",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/strandedItems/query": {
+      "get": {
+        "description": "Get list of all stranded items in the system by using REST API general QueryHandler.\n This is read only list and is not bound to specific states.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references, records or idrecords.\n Default format is records.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/supportedSystemsInfo": {
+      "get": {
+        "description": "List operating systems available for use on virtual machines owned by this organization.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/versions": {
+      "get": {
+        "description": "Retrieve a list of vCloud API versions supported by this system. This\n request does not require an authentication token.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/passwordPolicy": {
+      "get": {
+        "description": "Retrieve system password policy settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system password policy settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings": {
+      "get": {
+        "description": "Retrieve system settings.\n \n\n System settings specify default values and behaviors for the cloud and\n all of the organizations in it. System settings are divided into\n categories. This request retrieves all categories of system settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update system settings.\n \n\n System settings specify default values and behaviors for the cloud and\n all of the organizations in it. System settings are divided into\n categories. This request updates all categories of system settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/task/{id}": {
+      "get": {
+        "description": "Retrieve a task.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a task.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/tasksList/{id}": {
+      "get": {
+        "description": "Retrieve a list of this organization's queued, running, or recently\n completed tasks.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Post an external task to this organization.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/screen": {
+      "get": {
+        "description": "Retrieves a thumbnail image of a VM console. The content type of the\n response can be any of {@code image/png}, {@code image/gif}.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/users/query": {
+      "get": {
+        "description": "Retrieves a list of users for organization the org admin belongs to\n by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/vAppLeaseSettings": {
+      "get": {
+        "description": "Retrieve organization vApp lease settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update organization vApp lease settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the vApp or VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/ovf": {
+      "get": {
+        "description": "Retrieve the OVF descriptor of a vApp directly.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/owner": {
+      "get": {
+        "description": "Retrieve the owner of a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Change the owner of a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/customizationSection": {
+      "get": {
+        "description": "Retrieve the customization section of a vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/vAppTemplateLeaseSettings": {
+      "get": {
+        "description": "Retrieve organization vApp template lease settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update organization vApp template lease settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the vApp template or VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/ovf": {
+      "get": {
+        "description": "Retrieve the OVF descriptor of a vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/owner": {
+      "get": {
+        "description": "Retrieve the owner of a vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplates/query": {
+      "get": {
+        "description": "Retrieves a list of vAppTemplates using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vapps/query": {
+      "get": {
+        "description": "Get list of all vApps in the system by using REST API general QueryHandler.\n This is read only list and is not bound to specific states.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - referenceView or simpleView.\n Default format is referenceView.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApps/query": {
+      "get": {
+        "description": "Retrieves a list of vApps by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set. Format determines\n the elements representation - references or records. Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vms/query": {
+      "get": {
+        "description": "Retrieves a list of VMs in lease by using REST API general QueryHandler;\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - references or records.\n Default format is references.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vsm/{id}": {
+      "get": {
+        "description": "Retrieve vShield Manager configuration details, including administrator\n credentials.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update vShield Manager configuration details, including administrator\n credentials.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/{vimObjType}/{vimObjMoref}/vSphereWebClientUrl": {
+      "get": {
+        "description": "Retrieve the vSphere URL of an object.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/": {
+      "get": {
+        "description": "Retrieve an administrative view of a cloud.\n \n\n The VCloud element provides access to cloud-wide namespace of objects\n that an administrator can view and, in most cases, modify.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/org/{id}/metrics/historic": {
+      "get": {
+        "description": "Retrieve the all the metrics for a given org for the past 24 hours",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Retrieve the metrics for a given org based on the filters provided by the spec",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/metrics/historic": {
+      "get": {
+        "description": "Retrieves the past 24h rolled up metrics for a VDC",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Retrieves rolled up metrics for a VDC according to the spec",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the virtual datacenter.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with a vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/metadata/{domain}/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key in the specified domain from virtual datacenter metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdcStorageProfile/{id}": {
+      "get": {
+        "description": "Returns storage class referred by the Id. All properties of the storage classes are visible\n to vcloud user, except for VDC Storage Class reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdcStorageProfile/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the vDC storage profile.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Merge the metadata provided in the request with existing metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdcStorageProfile/{id}/metadata": {
+      "get": {
+        "description": "Retrieve metadata associated with the vDC storage profile.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdcStorageProfile/{id}/metadata/{domain}/{key}": {
+      "get": {
+        "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdcStorageProfile/{id}": {
+      "get": {
+        "description": "Returns the representation of a vDC storage profile",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates a single storage profile with user supplied data",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdcTemplate/{id}": {
+      "get": {
+        "description": "Retrieve a vDC template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdcTemplates": {
+      "get": {
+        "description": "Retrieve a list of vDC templates accessible to you.\n\n\n The system administrator has access to all templates.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/providervdc/{id}/vdcReferences": {
+      "get": {
+        "description": "Retrieve a list of organization vDCs supported by a given provider vDC.\n \n\n Resources from the provider vDC are allocated across all organization\n vDCs in the list.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/networkPool/{id}/vendorServices": {
+      "get": {
+        "description": "Retrieve services associated with this network pool",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServerReferences": {
+      "get": {
+        "description": "Retrieve a list of references to vCenter servers attached to the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServerReferences/query": {
+      "get": {
+        "description": "Get list of vSphere servers by using REST API general QueryHandler;\n This is read only list of vim servers and is not bound to specific states.\n\n If filter is provided it will be applied to the corresponding result set.\n Format determines the elements representation - referenceView or simpleView.\n Default format is referenceView.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}": {
+      "get": {
+        "description": "Retrieve the representation of a registered vCenter server.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the representation of a registered vCenter server.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/virtualHardwareSection": {
+      "get": {
+        "description": "Retrieve the virtual hardware section of a VM.\n \n\n This operation retrieves the entire VirtualHardwareSection of a VM.\n You can also retrieve many RASD item elements of a VirtualHardwareSection\n individually, or as groups of related items.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the virtual hardware section of a VM.\n\n\n This operation updates the entire VirtualHardwareSection of a VM.\n You can also update many RASD item elements of a VirtualHardwareSection\n individually, or as groups of related items.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/virtualHardwareSection": {
+      "get": {
+        "description": "Retrieve the virtual hardware section of a VM.\n \n\n This operation retrieves the entire VirtualHardwareSection of a VM.\n You can also retrieve many RASD item elements of a VirtualHardwareSection\n individually, or as groups of related items.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the virtual hardware section of a VM.\n\n\n This operation updates the entire VirtualHardwareSection of a VM.\n You can also update many RASD item elements of a VirtualHardwareSection\n individually, or as groups of related items.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/vmAffinityRules": {
+      "get": {
+        "description": "Retrieves a list of all VM Affinity rules within a given vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new VM affinity rule.This operation is asynchronous and returns\n a task that you can monitor to track the progress of the request.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/vmCapabilities": {
+      "get": {
+        "description": "Gets {@link VmCapabilitiesType} for the VM identified by id.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates VM's {@link VmCapabilities}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/complianceResult": {
+      "get": {
+        "description": "Return the results of the most recent\n POST /vApp/vm-{id}/action/checkCompliance\n request to the specified VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/metrics/current": {
+      "get": {
+        "description": "Gets the current usage for all available VM metrics.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Gets the current usage for VM metrics according to the provided spec object. \n\n\n The spec object can contain a collection of wildcard-style metric name patterns\n to fine-tune the list of returned metrics.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/resourcePool/{rpId}/vmGroup/name/{groupName}": {
+      "get": {
+        "description": "Gets {@link JAXBElement\n} with given VM group name.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vmGroup/name/{groupName}": {
+      "get": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vmGroups/name/{groupName}": {
+      "get": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/resourcePool/{rpId}/vmGroups": {
+      "get": {
+        "description": "List all VmGroups within this resource pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Create VM group within this resource pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vmGroups": {
+      "get": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/metrics/historic": {
+      "get": {
+        "description": "Gets the past 24 hours worth of samples for all available VM metrics.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "post": {
+        "description": "Gets the historic usage for VM metrics according to the provided spec object. \n\n\n The spec object can contain a collection of wildcard-style metric name patterns\n to fine-tune the list of returned metrics, as well as a start and end time (either\n relative or absolute) to refine the set of sample points to a specific date range.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/question": {
+      "get": {
+        "description": "Retrieve a question being asked by a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/disk/{id}/attachedVms": {
+      "get": {
+        "description": "Retrieve a list of all VMs attached to a disk.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/resourcePool/{id}/vmList": {
+      "get": {
+        "description": "List all VMs using this resource pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/vmsList": {
+      "get": {
+        "description": "Retrieve a list of virtual machines that can be imported from a registered vCenter server.\n \n\n This request supports optional query parameters:\n \n\n \n\n page - The page to return. The first page is page 1.\n \n\n \n\n pageSize - The number of virtual machines to list on a page. An integer\n value between 1 and 100. The default value is 1.\n \n\n ",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vmGroup/{groupId}/vmsList": {
+      "get": {
+        "description": "Enumerate the properties of the specified VM group",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vmGroup/name/{groupName}/vmsList": {
+      "get": {
+        "description": "Get all VMs from all clusters in given VM group.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/blockingTask/{id}/action/abort": {
+      "post": {
+        "description": "Abort a blocking task.\n \n\n This request ends the task, cleaning up any transient objects that it\n created. Task status is set to ABORTED.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/screen/action/acquireMksTicket": {
+      "post": {
+        "description": "Retrieve a mks ticket that you can use to gain access to\n the console of a running VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/screen/action/acquireTicket": {
+      "post": {
+        "description": "Retrieve a screen ticket that you can use with the VMRC browser plug-in\n to gain access to the console of a running VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vmGroup/name/{groupName}/action/addVms": {
+      "post": {
+        "description": "Adds virtual machines to the specified VM group. \n\n\n This asynchronous call returns a task.  The process of adding virtual\n machines to a VM group can result in the virtual machine being processed\n and redeployed by the placement engine.  All virtual machines provided to\n this call will be marked busy until the add to group process is complete.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/question/action/answer": {
+      "post": {
+        "description": "Answer a question being asked by a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/disk/action/attach": {
+      "post": {
+        "description": "Attach a disk to a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/task/{id}/action/cancel": {
+      "post": {
+        "description": "Cancel a task.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalog/{id}/action/captureVApp": {
+      "post": {
+        "description": "Create a vApp template in this catalog from a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/captureVApp": {
+      "post": {
+        "description": "Create a vApp template from a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/{id}/authorizationcheck": {
+      "post": {
+        "description": "Checks user authorization for service, URL and request verb.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/authorizationcheck": {
+      "post": {
+        "description": "Checks user authorization for all services with enabled authorization, URL and request verb.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/checkCompliance": {
+      "post": {
+        "description": "Check storage profile compliance for the specified VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/action/clearunusedlocalizationbundles": {
+      "post": {
+        "description": "Cleanup for unused external localization resources.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/action/clearunusedrights": {
+      "post": {
+        "description": "Clears all the rights that are not associated with a role or acl rule and which extension\n service is already deleted.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/cloneMedia": {
+      "post": {
+        "description": "Create a copy of a media object.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/cloneVApp": {
+      "post": {
+        "description": "Create a copy of a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/cloneVAppTemplate": {
+      "post": {
+        "description": "Create a copy of a vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/composeVApp": {
+      "post": {
+        "description": "Compose a vApp from existing virtual machines.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/configureServices": {
+      "post": {
+        "description": "Update edgeGateway configuration.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/configureSyslogServerSettings": {
+      "post": {
+        "description": "Configure Syslog server settings for the org vdc edge gateway",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/consolidate": {
+      "post": {
+        "description": "Consolidate VM snapshots.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/action/consolidate": {
+      "post": {
+        "description": "Consolidate VM snapshots.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/org/{id}/catalog/{catalogId}/action/controlAccess": {
+      "post": {
+        "description": "Update access control information for a catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/controlAccess": {
+      "post": {
+        "description": "Update access control information for a vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/convertToAdvancedGateway": {
+      "post": {
+        "description": "Mark a gateway as an advanced gateway.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/convertToAdvancedNetworking": {
+      "post": {
+        "description": "Upgrade to advanced networking for a gateway",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/action/convertToDistributedInterface": {
+      "post": {
+        "description": "Convert org vdc network to a distributed interface\n\n\n This operation is valid for internal org vdc routed networks that are subinterfaces or internal.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/action/convertToInternalInterface": {
+      "post": {
+        "description": "Convert org vdc network to an interface\n\n\n This operation is valid for internal org vdc routed networks that are subinterfaces",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/action/convertToSubInterface": {
+      "post": {
+        "description": "Convert org vdc network to an sub interface\n\n\n This operation is valid for internal org vdc routed networks",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalog/{id}/action/copy": {
+      "post": {
+        "description": "Copy a catalog item from one catalog to another.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/catalogs": {
+      "post": {
+        "description": "Create a catalog.\n\n\n The catalog is created in the unpublished state.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalog/{id}/catalogItems": {
+      "post": {
+        "description": "Add an item to a catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/disk": {
+      "post": {
+        "description": "Create a disk.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/networkPools": {
+      "post": {
+        "description": "Create a network pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/networks": {
+      "post": {
+        "description": "Create an organization network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/orgs": {
+      "post": {
+        "description": "Create an organization.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/externalnets": {
+      "post": {
+        "description": "Create an external network.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdcs": {
+      "post": {
+        "description": "Create a provider vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdcsparams": {
+      "post": {
+        "description": "Create a provider vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{orgId}/roles": {
+      "post": {
+        "description": "Creates a role or optionally creates a role template along with role instances based\n on the tempalte for a sys-admin client at API version < 27",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/roles": {
+      "post": {
+        "description": "Creates a role or optionally creates a role template along with role instances based\n on the tempalte for a sys-admin client at API version < 27",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/createSnapshot": {
+      "post": {
+        "description": "Creates new snapshot of a virtual machine or of all the virtual machines in a vApp.\n Prior to creation of the new snapshots, any existing user created snapshots associated\n with the virtual machines are removed.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vdcTemplates": {
+      "post": {
+        "description": "Create a VDC template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/users": {
+      "post": {
+        "description": "Create or import a user.\n\n\n Users can be created locally or imported from the organization's LDAP\n service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/vdcs": {
+      "post": {
+        "description": "Create an organization VDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/vdcsparams": {
+      "post": {
+        "description": "Creates an organization vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/deploy": {
+      "post": {
+        "description": "Deploy a vApp or VM.\n\n\n Deployment allocates all resources for the vApp and the virtual machines\n it contains.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/disk/action/detach": {
+      "post": {
+        "description": "Detach a disk from a VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/rule/{ruleId}/action/disable": {
+      "post": {
+        "description": "Disables the specified VM Host affinity rule.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/datastore/{id}/action/disable": {
+      "post": {
+        "description": "Disable a datastore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/disableDistributedRouting": {
+      "post": {
+        "description": "Disable distributed routing for a gateway",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/host/{id}/action/disable": {
+      "post": {
+        "description": "Disable a host.\n\n\n Disabling a host prevents vApps from stratin gon it. vApps that are\n running on the host continue to run.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/disableNestedHypervisor": {
+      "post": {
+        "description": "Hide hardware-assisted CPU virtualization from guest OS.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/action/disable": {
+      "post": {
+        "description": "Disable an organization.\n \n\n Disabling an organization prevents users from logging in to it.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/action/disable": {
+      "post": {
+        "description": "Disable a provider vDC.\n\n\n You can disable a provider vDC to prevent the creation of organization\n vDCs that use its resources. When you disable a provider vDC, you also\n disable the organization vDCs that use its resources. Running vApps and\n powered on virtual machines continue to run in those vDCs, but users\n cannot deploy additional vApps in them.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/resourcePool/{id}/action/disable": {
+      "post": {
+        "description": "Disable a provider vDC resource pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/disableDownload": {
+      "post": {
+        "description": "Disable a vApp for download.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/action/disableDownload": {
+      "post": {
+        "description": "Disable a vApp template for download.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/action/disable": {
+      "post": {
+        "description": "Disable an organization vDC.\n\n \n\n Disabling an organization vDC prevents prevent any further allocation of\n resources to it, but does not affect existing allocations. When an\n organization vDC is disabled, an organization user cannot deploy new\n virtual machines in it.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/discardSuspendedState": {
+      "post": {
+        "description": "Discard suspended state of a vApp or VM.\n\n\n Discarding the suspended state of a vApp discards the\n suspended state of all VMs it contains.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/media/action/ejectMedia": {
+      "post": {
+        "description": "Eject virtual media.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/rule/{ruleId}/action/enable": {
+      "post": {
+        "description": "Enables the specified VM Host affinity rule.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/datastore/{id}/action/enable": {
+      "post": {
+        "description": "Enable a datastore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/enableDistributedRouting": {
+      "post": {
+        "description": "Enable distributed routing for a gateway",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/media/{id}/action/enableDownload": {
+      "post": {
+        "description": "Enable download for the media",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/host/{id}/action/enable": {
+      "post": {
+        "description": "Enable a host.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/action/enable": {
+      "post": {
+        "description": "Enable an organization.\n \n\n Enabling an organization allows users to log in to it.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/action/enable": {
+      "post": {
+        "description": "Enable a provider vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/resourcePool/{id}/action/enable": {
+      "post": {
+        "description": "Enable a provider VDC resource pool",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/enableDownload": {
+      "post": {
+        "description": "Enable a vApp for download.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/action/enableDownload": {
+      "post": {
+        "description": "Enable a vApp template for download",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/action/enable": {
+      "post": {
+        "description": "Enable an organization vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/enableNestedHypervisor": {
+      "post": {
+        "description": "Expose hardware-assisted CPU virtualization to guest OS.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/enterMaintenanceMode": {
+      "post": {
+        "description": "Place the vApp in maintenance mode.\n \n\n When a vApp is in maintenance mode,\n it is read-only to users. Only a system administrator can modify it.\n User-initiated tasks that are running when the vApp enters maintenance\n mode continue to run.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/exitMaintenanceMode": {
+      "post": {
+        "description": "Take the vApp out of maintenance mode.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/vAppLeaseSettings/action/expireVAppsRuntimeLease": {
+      "post": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/vAppTemplateLeaseSettings/action/expireVAppTemplatesStorageLease": {
+      "post": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/vAppLeaseSettings/action/expireVAppsStorageLease": {
+      "post": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/blockingTask/{id}/action/fail": {
+      "post": {
+        "description": "Fail a blocking task.\n \n\n This request ends the task, setting the status of any transient objects\n that it created to ERROR. Task status is set to ERROR.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/customizeAtNextPowerOn": {
+      "post": {
+        "description": "Force guest customization on next power on.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/strandedItem/{id}/action/forceDelete": {
+      "post": {
+        "description": "Removes stranded item and its children",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/action/forcevimserverreconnect": {
+      "post": {
+        "description": "Force vCloud Director to reconnect to a registered vCenter server.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/groups": {
+      "post": {
+        "description": "Import a group from the LDAP directory service.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/importMedia": {
+      "post": {
+        "description": "Import media from vCenter.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/importVm": {
+      "post": {
+        "description": "Import a virtual machine from vCenter.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/importVmAsVApp": {
+      "post": {
+        "description": "Import a virtual machine from vCenter as a vCloud Director vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/importVmAsVAppTemplate": {
+      "post": {
+        "description": "Import a virtual machine from vCenter as a vCloud Director vApp template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/importVmIntoExistingVApp": {
+      "post": {
+        "description": "Import a virtual machine from vCenter into an existing vCloud Director\n vApp.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/media/action/insertMedia": {
+      "post": {
+        "description": "Insert virtual media.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/installVMwareTools": {
+      "post": {
+        "description": "Install VMware Tools on a running VM.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/instantiateOvf": {
+      "post": {
+        "description": "Instantiate a vApp or VM from an OVF",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/instantiateVAppTemplate": {
+      "post": {
+        "description": "Create a vApp from a vApp template",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/org/{id}/action/instantiate": {
+      "post": {
+        "description": "Instantiates a VDC template. The caller supplies the VDC template and the name and description (as a ParamsType), which\n are the only two things the tenant can override in the template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/sessions": {
+      "post": {
+        "description": "Log in and create a Session object.\n \n\n To authenticate to the API service, POST a request to its login URL.\n The request body must contain a MIME Base64 encoding of your\n credentials in the form:\n \n\n \nuser\n@\norganization\n:\npassword\n\n\n\n To obtain the login URL, make an unauthenticated GET request to the\n vCloud Director api/versions URL. The response to this request lists\n the API versions that the server supports, and provides a login URL for\n each version.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/rule/{ruleId}/action/makeMandatory": {
+      "post": {
+        "description": "Make specified VM Host affinity rule mandatory.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/rule/{ruleId}/action/makeOptional": {
+      "post": {
+        "description": "Make the specified VM Host affinity optional.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/action/merge": {
+      "post": {
+        "description": "Merge provider vDCs.\n \n\n This operation merges the provider vDC specified in the request URL with\n one or more provider vDCs specified in the request parameters, and\n returns a representation of the merged provider vDC.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/action/migrateTenant": {
+      "post": {
+        "description": "Initiate relocation of all entities for a given org (tenant).",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/migrateVcdniToVxlan": {
+      "post": {
+        "description": "Migrate vcdni networks to vxlan networks\n\n Since 27.0",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/resourcePool/{id}/action/migrateVms": {
+      "post": {
+        "description": "Migrate one or more virtual machines to a different resource pool.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/modifyFormFactor": {
+      "post": {
+        "description": "Modify edgeGateway form factor.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalog/{id}/action/move": {
+      "post": {
+        "description": "Move a catalog item from one catalog to another.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/events": {
+      "post": {
+        "description": "Post an external event to the system.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/power/action/powerOff": {
+      "post": {
+        "description": "Power off a vApp or VM.\n\n\n If used on a vApp, powers off all VMs in the vApp. If used on a VM,\n powers off the VM. This operation is available only for a vApp or VM\n that is powered on.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/power/action/powerOn": {
+      "post": {
+        "description": "Power on a vApp or VM.\n\n\n If used on a vApp, powers on all VMs in the vApp. If used on a VM,\n powers on the VM. This operation is available only for a vApp or VM that\n is powered off.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/host/{id}/action/prepare": {
+      "post": {
+        "description": "Prepare a host.\n \n\n When you add a host to a cluster, you must prepare the host\n before vCloud Director can use the host's resources.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/user/{id}/entityRights": {
+      "post": {
+        "description": "Queries user privileges on a set of entities",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/role/{id}/action/relinkToTemplate": {
+      "post": {
+        "description": "Relink a role to the template specified by its defaultRoleId.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/reapplyServices": {
+      "post": {
+        "description": "Reapply services on an edgeGateway.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/power/action/reboot": {
+      "post": {
+        "description": "Reboot a vApp or VM.\n\n\n If used on a vApp, reboots all VMs in the vApp. If used on a VM,\n reboots the VM. This operation is available only for a vApp or VM\n that is powered on.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/recomposeVApp": {
+      "post": {
+        "description": "Recompose a vApp to add or remove VMs.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/reconfigureVm": {
+      "post": {
+        "description": "Updates Vm name, Description, and any or all of the following sections.\n\n \n\n \nVirtualHardwareSection\n\n \nOperatingSystemSection\n\n \nNetworkConnectionSection\n\n \nGuestCustomizationSection\n\n \n\n Sections not included in the request body will not be updated.\n In API requests that specify version 29.0 or higher, this operation allows to also update:\n \n\n \nthe boot-options of the VM (boot-delay and enter-bios).\n\n \nthe storage profile\n\n \nthe VM capabilities (ability to add CPU or MEM while the VM is powered-on)\n\n \nthe hardware-assisted CPU virtualization capability\n\n ",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/redeploy": {
+      "post": {
+        "description": "Redeploy edgeGateway.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/action/refreshStorageProfiles": {
+      "post": {
+        "description": "Refresh Storage Classes data from a registered vCenter server.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/action/refresh": {
+      "post": {
+        "description": "Refresh vCenter server.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/federation/action/regenerateFederationCertificate": {
+      "post": {
+        "description": "Regenerates the certificates used to establish trust between an organization and its identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/associations/localAssociationData/action/regenerateKeyPair": {
+      "post": {
+        "description": "Regenerates an org's key pair for associations",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/site/associations/localAssociationData/action/regenerateKeyPair": {
+      "post": {
+        "description": "Add a new {@link SiteAssociationType} for this site.\n\n POST /api/site/action/localAssociationData/regenerateSiteKey",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/action/registerVApp": {
+      "post": {
+        "description": "Create a vApp based on a set of .vmx files and resource mappings",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/action/registervimserver": {
+      "post": {
+        "description": "Register a vCenter server and vShield manager.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/reloadFromVc": {
+      "post": {
+        "description": "Reloads VM state from VC. Checks VM's extra configuration properties to ensure\n that they include all the default properties required for cloud-managed VMs and do\n not include any blacklisted properties or values. Reconfigures VM to add default\n properties and remove blacklisted properties and values if needed.\n \n\n This API is available to sysadmin users only.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/relocate": {
+      "post": {
+        "description": "Relocate a VM to a different datastore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vAppTemplate/{id}/action/relocate": {
+      "post": {
+        "description": "Relocate a VM to a different datastore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/removeAllSnapshots": {
+      "post": {
+        "description": "Removes all user created snapshots for a vApp or virtual machine.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vmGroup/name/{groupName}/action/removeVms": {
+      "post": {
+        "description": "Removes virtual machines from the specified VM group. \n\n\n This asynchronous call returns a task.  The process of removing virtual\n machines from a VM group can result in the virtual machine being processed\n and redeployed by the placement engine.  All virtual machines provided to\n this call will be marked busy until the remove from group process is complete.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/host/{id}/action/repair": {
+      "post": {
+        "description": "Repair a host.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/amqp/action/resetAmqpCertificate": {
+      "post": {
+        "description": "Resets AMQP certificate.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/amqp/action/resetAmqpTruststore": {
+      "post": {
+        "description": "Resets AMQP truststore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/ldapSettings/action/resetLdapKeyStore": {
+      "post": {
+        "description": "Resets system LDAP keystore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/ldap/action/resetLdapKeyStore": {
+      "post": {
+        "description": "Resets organization LDAP keystore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/ldapSettings/action/resetLdapCertificate": {
+      "post": {
+        "description": "Resets system LDAP SSL certificate.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/ldap/action/resetLdapCertificate": {
+      "post": {
+        "description": "Resets organization LDAP SSL certificate.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/action/reset": {
+      "post": {
+        "description": "Reset networking services on a network.\n\n\n This operation is valid for all networks except vApp networks in\n undeployed vApps.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/ldapSettings/action/resetLdapSspiKeytab": {
+      "post": {
+        "description": "Resets system LDAP SSPI key tab.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/ldap/action/resetLdapSspiKeytab": {
+      "post": {
+        "description": "Resets organization LDAP SSPI keytab.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/power/action/reset": {
+      "post": {
+        "description": "Reset a vApp or VM.\n\n\n If used on a vApp, resets all VMs in the vApp. If used on a VM,\n resets the VM. This operation is available only for a vApp or VM\n that is powered on.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/general/action/resetVcTrustsore": {
+      "post": {
+        "description": "Resets vCenter trust store.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/blockingTask/{id}/action/resume": {
+      "post": {
+        "description": "Resume a blocking task.\n \n\n This request unblocks the task and allows it to continue.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/revertToCurrentSnapshot": {
+      "post": {
+        "description": "Reverts a vApp or virtual machine to the current snapshot, if any.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/power/action/shutdown": {
+      "post": {
+        "description": "Shut down a vApp or VM.\n\n\n If used on a vApp, shuts down all VMs in the vApp. If used on a VM,\n shuts down the VM. This operation is available only for a vApp or VM\n that is powered on.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/power/action/suspend": {
+      "post": {
+        "description": "Suspend a vApp or VM.\n\n\n If used on a vApp, suspends all VMs in the vApp. If used on a VM,\n suspends the VM. This operation is available only for a vApp or VM\n that is powered on.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalog/{id}/action/sync": {
+      "post": {
+        "description": "Force sync the catalog to the remote subscribed catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalogItem/{id}/action/sync": {
+      "post": {
+        "description": "Synchronize a catalog item with its source object.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/network/{id}/action/syncSyslogServerSettings": {
+      "post": {
+        "description": "Synchronize syslog server settings for a network.\n \n\n When you change the IP addresses of the primary or secondary syslog\n server for a cloud, you must also synchronize the syslog server\n settings for organization and vApp networks that include a firewall\n service for which logging has been enabled.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/syncSyslogServerSettings": {
+      "post": {
+        "description": "Synchronize syslog server settings on an edgeGateway.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/user/{id}/action/takeOwnership": {
+      "post": {
+        "description": "Transfer ownership of this user's vApps, media, and catalogs to the caller.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/amqp/action/test": {
+      "post": {
+        "description": "Validate provisional AMQP settings.\n \n\n This request attempts to contact an AMQP broker using the values in the\n request body (an AmqpSettings element). If the attempt succeeds, the\n AmqpSettings are considered valid and can be used to update the system's\n AMQP settings.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/undeploy": {
+      "post": {
+        "description": "Undeploy a vApp/VM.\n\n\n Undeployment deallocates all resources used by the vApp and the VMs it\n contains.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/role/{id}/action/unlinkFromTemplate": {
+      "post": {
+        "description": "Unlink a role from the template specified by its defaultRoleId.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/user/{id}/action/unlock": {
+      "post": {
+        "description": "Unlock a user.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/host/{id}/action/unprepare": {
+      "post": {
+        "description": "Unprepare a host.\n \n\n Unpreparing host makes its resources inaccessible to vCloud Director.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vimServer/{id}/action/unregister": {
+      "post": {
+        "description": "Unregister a vCenter server.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/bootOptions": {
+      "post": {
+        "description": "",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}/action/publish": {
+      "post": {
+        "description": "Publish a catalog.\n\n\n Publishing a catalog sets the value of its IsPublished element to true\n and makes the catalog visible to organization administrators of all\n organizations in a cloud.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}/action/publishToExternalOrganizations": {
+      "post": {
+        "description": "Publish a catalog to external orgs.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/blockingTask/{id}/action/updateProgress": {
+      "post": {
+        "description": "Extend the expiration timeout of an active task.\n \n\n This request resets the timeout value and timeout action for an active\n task. Use this request to keep the task alive when it might become\n subject to a timeout action.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/storageProfiles": {
+      "post": {
+        "description": "Update storage classes of a provider vDC.\n \n\n The request parameters specify storage classes to add or remove.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/providervdc/{id}/action/updateResourcePools": {
+      "post": {
+        "description": "Add or remove provider vDC resource pools.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/catalog/{id}/action/subscribeToExternalCatalog": {
+      "post": {
+        "description": "Subscribe to an external catalog.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/vdc/{id}/vdcStorageProfiles": {
+      "post": {
+        "description": "Add or remove virtual datacenter storage classes.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/upgradeConfig": {
+      "post": {
+        "description": "Upgrades the edge gateway appliance size.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/host/{id}/action/upgrade": {
+      "post": {
+        "description": "Upgrade the vCloud Director host agent on a host\n after you have upgraded vCloud Director software.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vApp/{id}/action/upgradeHardwareVersion": {
+      "post": {
+        "description": "Upgrade the virtual hardware version of a VM to the highest supported\n virtual hardware version of the vDC that contains it.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/amqp/action/updateAmqpCertificate": {
+      "post": {
+        "description": "Updates AMQP certificate. AMQP certificate and trust store are mutually exclusive.\n Overrides AMQP trust store, if update is successful.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/amqp/action/updateAmqpTruststore": {
+      "post": {
+        "description": "Updates AMQP trust store. AMQP certificate and trust store are mutually exclusive.\n Overrides AMQP certificate, if update is successful.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/ldapSettings/action/updateLdapKeyStore": {
+      "post": {
+        "description": "Updates system LDAP keystore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/ldap/action/updateLdapKeyStore": {
+      "post": {
+        "description": "Updates organization LDAP keystore.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/ldapSettings/action/updateLdapCertificate": {
+      "post": {
+        "description": "Updates system LDAP SSL certificate.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/ldap/action/updateLdapCertificate": {
+      "post": {
+        "description": "Updates organization LDAP SSL certificate.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/service/localizationbundles": {
+      "post": {
+        "description": "Initiates localization bundle upload.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/media": {
+      "post": {
+        "description": "Upload a media image",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/ldapSettings/action/updateLdapSspiKeytab": {
+      "post": {
+        "description": "Updates system LDAP SSPI key tab.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/org/{id}/settings/ldap/action/updateLdapSspiKeytab": {
+      "post": {
+        "description": "Updates organization LDAP SSPI keytab.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/catalog/{id}/action/upload": {
+      "post": {
+        "description": "Upload a vApp template to a catalog",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/uploadVAppTemplate": {
+      "post": {
+        "description": "Upload an OVF package to create a vApp template",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/settings/general/action/updateVcTrustsore": {
+      "post": {
+        "description": "Updates vCenter trust store.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/extension/vdcTemplate/{id}/action/controlAccess": {
+      "put": {
+        "description": "Update access control information for a VDC template.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/vdc/{id}/action/controlAccess": {
+      "put": {
+        "description": "Update access control information for a VDC. Provided access control information should only\n use ReadOnly access level or else {@link BadRequestException} is thrown",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/admin/edgeGateway/{id}/action/updateProperties": {
+      "put": {
+        "description": "Endpoint for just updating gateway properties by themselves.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    }
   },
   "components": {
     "schemas": {
