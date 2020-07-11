@@ -24,7 +24,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/rule/{ruleId}": {
       "get": {
@@ -42,7 +53,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "ruleId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/strandedItems": {
       "delete": {
@@ -70,7 +92,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/apifilter/{id}": {
       "get": {
@@ -88,7 +121,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/associations/{remoteSiteId}/{remoteOrgId}": {
       "get": {
@@ -114,7 +158,36 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "remoteSiteId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "remoteOrgId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/catalog/{id}": {
       "get": {
@@ -140,7 +213,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalogItem/{id}": {
       "get": {
@@ -166,7 +250,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalogItem/{id}/metadata/{key}": {
       "get": {
@@ -192,7 +287,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/catalog/{id}/metadata/{key}": {
       "get": {
@@ -218,7 +333,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/disk/{id}": {
       "get": {
@@ -244,7 +379,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/disk/{id}/metadata/{key}": {
       "get": {
@@ -270,7 +416,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}": {
       "get": {
@@ -296,7 +462,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/externalnet/{id}": {
       "get": {
@@ -322,7 +499,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/file/{id}": {
       "get": {
@@ -340,7 +528,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/group/{id}": {
       "get": {
@@ -366,7 +565,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/link/{id}": {
       "get": {
@@ -384,7 +594,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/session": {
       "get": {
@@ -428,7 +649,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/media/{id}/metadata/{key}": {
       "get": {
@@ -454,7 +686,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}": {
       "get": {
@@ -480,7 +732,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}/metadata/{key}": {
       "get": {
@@ -506,7 +769,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/networkPool/{id}": {
       "get": {
@@ -532,7 +815,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/object/{id}": {
       "get": {
@@ -558,7 +852,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}": {
       "get": {
@@ -584,7 +889,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/metadata/{key}": {
       "get": {
@@ -610,7 +926,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providervdc/{id}": {
       "get": {
@@ -636,7 +972,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/providervdc/{id}/metadata/{key}": {
       "get": {
@@ -662,7 +1009,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/pvdcStorageProfile/{id}/metadata/{key}": {
       "get": {
@@ -688,7 +1055,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/resourceclass/{id}": {
       "get": {
@@ -706,7 +1093,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/resourceclassaction/{id}": {
       "get": {
@@ -724,7 +1122,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/right/{id}": {
       "get": {
@@ -750,7 +1159,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{orgId}/right/{id}": {
       "get": {
@@ -768,7 +1188,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "orgId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{orgId}/rights": {
       "get": {
@@ -802,7 +1242,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "orgId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/role/{id}": {
       "get": {
@@ -828,7 +1279,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdcs/extension/{selectorExtensionId}": {
       "get": {
@@ -854,7 +1316,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "selectorExtensionId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/{id}": {
       "get": {
@@ -880,7 +1353,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/serviceresource/{id}": {
       "get": {
@@ -898,7 +1382,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/shadowVm/{id}": {
       "get": {
@@ -916,7 +1411,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/site/associations/{id}": {
       "get": {
@@ -942,7 +1448,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/strandedItem/{id}": {
       "get": {
@@ -960,7 +1477,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vdcTemplate/{id}": {
       "get": {
@@ -986,7 +1514,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/user/{id}": {
       "get": {
@@ -1012,7 +1551,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}": {
       "get": {
@@ -1038,7 +1588,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/metadata/{key}": {
       "get": {
@@ -1064,7 +1625,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}": {
       "get": {
@@ -1090,7 +1671,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/metadata/{key}": {
       "get": {
@@ -1116,7 +1708,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}": {
       "get": {
@@ -1142,7 +1754,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}": {
       "get": {
@@ -1168,7 +1791,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}/metadata/{key}": {
       "get": {
@@ -1194,7 +1828,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdcStorageProfile/{id}/metadata/{key}": {
       "get": {
@@ -1220,7 +1874,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/vmAffinityRules/{ruleId}": {
       "get": {
@@ -1246,7 +1920,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "ruleId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vmGroup/{groupId}": {
       "get": {
@@ -1264,7 +1958,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/resourceclassaction/{id}/aclrules": {
       "get": {
@@ -1282,7 +1987,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/blockingTasks": {
       "get": {
@@ -1312,7 +2028,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/network/{id}/allocatedAddresses": {
       "get": {
@@ -1322,7 +2049,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/amqp": {
       "get": {
@@ -1350,7 +2088,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/{id}/apidefinitions": {
       "get": {
@@ -1368,7 +2117,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/apidefinitions": {
       "get": {
@@ -1398,7 +2158,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/extensibility": {
       "get": {
@@ -1426,7 +2197,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/associations/localAssociationData": {
       "get": {
@@ -1436,7 +2218,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/associations": {
       "get": {
@@ -1462,7 +2255,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/hostReferences": {
       "get": {
@@ -1472,7 +2276,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/networks": {
       "get": {
@@ -1482,7 +2297,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providervdc/{id}/availableStorageProfiles": {
       "get": {
@@ -1492,7 +2318,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/resourcePoolList": {
       "get": {
@@ -1502,7 +2339,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/blockingTask/{id}": {
       "get": {
@@ -1512,7 +2360,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/blockingTask/operations": {
       "get": {
@@ -1558,7 +2417,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/branding": {
       "get": {
@@ -1586,7 +2456,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalogItem/{id}/metadata": {
       "get": {
@@ -1604,7 +2485,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/catalog/{id}/metadata": {
       "get": {
@@ -1622,7 +2514,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalog/{id}/metadata": {
       "get": {
@@ -1632,7 +2535,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/catalog/{id}/metadata/{domain}/{key}": {
       "get": {
@@ -1642,7 +2556,36 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "domain",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/catalog/{id}/owner": {
       "get": {
@@ -1660,7 +2603,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalogs/query": {
       "get": {
@@ -1688,7 +2642,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/org/{id}/catalog/{catalogId}/controlAccess": {
       "get": {
@@ -1698,7 +2663,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "catalogId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/controlAccess": {
       "get": {
@@ -1708,7 +2693,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/controlAccess": {
       "get": {
@@ -1718,7 +2714,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vdcTemplate/{id}/controlAccess": {
       "get": {
@@ -1728,7 +2735,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/virtualHardwareSection/cpu": {
       "get": {
@@ -1746,7 +2764,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/virtualHardwareSection/cpu": {
       "get": {
@@ -1764,7 +2793,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/datastore/{id}": {
       "get": {
@@ -1782,7 +2822,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/datastores": {
       "get": {
@@ -1812,7 +2863,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providervdc/{id}/discoverResourcePools/{parent_rp_moref}": {
       "get": {
@@ -1822,7 +2884,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "parent_rp_moref",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/disk/{id}/metadata": {
       "get": {
@@ -1840,7 +2922,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/disk/{id}/owner": {
       "get": {
@@ -1858,7 +2951,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/disks/query": {
       "get": {
@@ -1886,7 +2990,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/virtualHardwareSection/disks": {
       "get": {
@@ -1904,7 +3019,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/email": {
       "get": {
@@ -1932,7 +3058,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/event/{id}": {
       "get": {
@@ -1942,7 +3079,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/query": {
       "get": {
@@ -2018,7 +3166,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/apidefinition/{id}/files": {
       "get": {
@@ -2036,7 +3195,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/apidefinition/{id}/files": {
       "get": {
@@ -2046,7 +3216,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/general": {
       "get": {
@@ -2082,7 +3263,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/groups/query": {
       "get": {
@@ -2102,7 +3294,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/guestCustomizationSection": {
       "get": {
@@ -2120,7 +3323,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/guestCustomizationSection": {
       "get": {
@@ -2138,7 +3352,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/hwv/{id}": {
       "get": {
@@ -2148,7 +3373,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/host/{id}": {
       "get": {
@@ -2158,7 +3394,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/hostGroup/{groupId}": {
       "get": {
@@ -2168,7 +3415,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/resourcePool/{rpId}/hostGroups": {
       "get": {
@@ -2178,7 +3436,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "rpId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/hostReferences": {
       "get": {
@@ -2252,7 +3521,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/leaseSettingsSection": {
       "get": {
@@ -2270,7 +3550,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/catalog": {
       "get": {
@@ -2324,7 +3615,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/site": {
       "get": {
@@ -2388,7 +3690,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/virtualHardwareSection/media": {
       "get": {
@@ -2398,7 +3711,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/media/{id}/metadata": {
       "get": {
@@ -2416,7 +3740,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/media/{id}/owner": {
       "get": {
@@ -2426,7 +3761,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/mediaList/query": {
       "get": {
@@ -2454,7 +3800,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/virtualHardwareSection/memory": {
       "get": {
@@ -2472,7 +3829,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vmGroup/name/{groupName}": {
       "get": {
@@ -2482,7 +3850,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/namedVmGroupReferences": {
       "get": {
@@ -2502,7 +3881,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/virtualHardwareSection/networkCards": {
       "get": {
@@ -2520,7 +3910,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/virtualHardwareSection/networkCards": {
       "get": {
@@ -2538,7 +3939,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/networkConfigSection": {
       "get": {
@@ -2556,7 +3968,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/networkConfigSection": {
       "get": {
@@ -2574,7 +3997,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/networkConnectionSection": {
       "get": {
@@ -2592,7 +4026,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/networkConnectionSection": {
       "get": {
@@ -2610,7 +4055,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}/metadata": {
       "get": {
@@ -2628,7 +4084,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/network/{id}/metadata": {
       "get": {
@@ -2638,7 +4105,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}/metadata/{domain}/{key}": {
       "get": {
@@ -2648,7 +4126,36 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "domain",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/networkPoolReferences": {
       "get": {
@@ -2678,7 +4185,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/networkSection": {
       "get": {
@@ -2688,7 +4206,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/notifications": {
       "get": {
@@ -2724,7 +4253,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/object": {
       "get": {
@@ -2760,7 +4300,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/operationLimitsSettings": {
       "get": {
@@ -2796,7 +4347,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings/guestPersonalizationSettings": {
       "get": {
@@ -2814,7 +4376,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings/ldap": {
       "get": {
@@ -2832,7 +4405,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/orgNetworks/query": {
       "get": {
@@ -2860,7 +4444,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings/passwordPolicy": {
       "get": {
@@ -2878,7 +4473,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings": {
       "get": {
@@ -2896,7 +4502,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}/edgeGateways": {
       "get": {
@@ -2914,7 +4531,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}/networks": {
       "get": {
@@ -2932,7 +4560,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/orgVdcs/query": {
       "get": {
@@ -2952,7 +4591,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/metadata": {
       "get": {
@@ -2970,7 +4620,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/org/{id}/metadata": {
       "get": {
@@ -2980,7 +4641,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/metadata/{domain}/{key}": {
       "get": {
@@ -2990,7 +4662,36 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "domain",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vdc/{id}/resourcePools": {
       "get": {
@@ -3000,7 +4701,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/org": {
       "get": {
@@ -3038,7 +4750,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/productSections": {
       "get": {
@@ -3048,7 +4771,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/providervdc/{id}": {
       "get": {
@@ -3058,7 +4792,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/providervdc/{id}/metadata": {
       "get": {
@@ -3076,7 +4821,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providerVdcReferences": {
       "get": {
@@ -3104,7 +4860,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/pvdcStorageProfile/{id}": {
       "get": {
@@ -3114,7 +4881,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/pvdcStorageProfile/{id}/metadata": {
       "get": {
@@ -3132,7 +4910,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providerVdcReferences/query": {
       "get": {
@@ -3152,7 +4941,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/service": {
       "get": {
@@ -3172,7 +4972,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/resourceclass/{id}/resourceclassactions": {
       "get": {
@@ -3190,7 +5001,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/{id}/resourceclasses": {
       "get": {
@@ -3208,7 +5030,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/{id}/rights": {
       "get": {
@@ -3226,7 +5059,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdcs/query": {
       "get": {
@@ -3246,7 +5090,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "orgId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/roles/query": {
       "get": {
@@ -3274,7 +5129,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "rpId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/runtimeInfoSection": {
       "get": {
@@ -3284,7 +5150,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/v1.5/schema/{schemaFileName}": {
       "get": {
@@ -3294,7 +5171,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "schemaFileName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/versions/schema/versions.xsd": {
       "get": {
@@ -3322,7 +5210,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdcs/extension": {
       "get": {
@@ -3358,7 +5257,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/providervdc/{id}/extension": {
       "get": {
@@ -3376,7 +5286,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}/extension": {
       "get": {
@@ -3394,7 +5315,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/object/{id}/selectorExtensions": {
       "get": {
@@ -3404,7 +5336,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/virtualHardwareSection/serialPorts": {
       "get": {
@@ -3422,7 +5365,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/virtualHardwareSection/serialPorts": {
       "get": {
@@ -3440,7 +5394,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/server_status": {
       "get": {
@@ -3460,7 +5425,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/resourceclass/{id}/serviceresources": {
       "get": {
@@ -3478,7 +5454,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/query": {
       "get": {
@@ -3498,7 +5485,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/site/associations/localAssociationData": {
       "get": {
@@ -3544,7 +5542,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/startupSection": {
       "get": {
@@ -3562,7 +5571,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/storageProfiles": {
       "get": {
@@ -3572,7 +5592,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/strandedItems/query": {
       "get": {
@@ -3656,7 +5687,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/tasksList/{id}": {
       "get": {
@@ -3674,7 +5716,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/screen": {
       "get": {
@@ -3684,7 +5737,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/users/query": {
       "get": {
@@ -3712,7 +5776,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/metadata": {
       "get": {
@@ -3730,7 +5805,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/ovf": {
       "get": {
@@ -3740,7 +5826,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/owner": {
       "get": {
@@ -3758,7 +5855,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/customizationSection": {
       "get": {
@@ -3768,7 +5876,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings/vAppTemplateLeaseSettings": {
       "get": {
@@ -3786,7 +5905,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/metadata": {
       "get": {
@@ -3804,7 +5934,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/ovf": {
       "get": {
@@ -3814,7 +5955,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/owner": {
       "get": {
@@ -3824,7 +5976,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplates/query": {
       "get": {
@@ -3882,7 +6045,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/{vimObjType}/{vimObjMoref}/vSphereWebClientUrl": {
       "get": {
@@ -3892,7 +6066,36 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "vimObjType",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "vimObjMoref",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/": {
       "get": {
@@ -3920,7 +6123,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/metadata": {
       "get": {
@@ -3930,7 +6144,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}/metadata/{domain}/{key}": {
       "get": {
@@ -3940,7 +6165,36 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "domain",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdcStorageProfile/{id}": {
       "get": {
@@ -3950,7 +6204,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdcStorageProfile/{id}/metadata": {
       "get": {
@@ -3968,7 +6233,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdcStorageProfile/{id}/metadata": {
       "get": {
@@ -3978,7 +6254,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdcStorageProfile/{id}/metadata/{domain}/{key}": {
       "get": {
@@ -3988,7 +6275,36 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "domain",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdcStorageProfile/{id}": {
       "get": {
@@ -4006,7 +6322,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{gatewayId}/externalIpUsage": {
       "get": {
@@ -4016,7 +6343,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "gatewayId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdcTemplate/{id}": {
       "get": {
@@ -4026,7 +6364,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdcTemplates": {
       "get": {
@@ -4046,7 +6395,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/networkPool/{id}/vendorServices": {
       "get": {
@@ -4056,7 +6416,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServerReferences": {
       "get": {
@@ -4094,7 +6465,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/virtualHardwareSection": {
       "get": {
@@ -4112,7 +6494,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/virtualHardwareSection": {
       "get": {
@@ -4130,7 +6523,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/vmAffinityRules": {
       "get": {
@@ -4148,7 +6552,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/vmCapabilities": {
       "get": {
@@ -4166,7 +6581,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/complianceResult": {
       "get": {
@@ -4176,7 +6602,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/metrics/current": {
       "get": {
@@ -4194,7 +6631,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/resourcePool/{rpId}/vmGroup/name/{groupName}": {
       "get": {
@@ -4204,7 +6652,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "rpId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "groupName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vmGroup/name/{groupName}": {
       "get": {
@@ -4214,7 +6682,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vmGroups/name/{groupName}": {
       "get": {
@@ -4224,7 +6703,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/resourcePool/{rpId}/vmGroups": {
       "get": {
@@ -4242,7 +6732,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "rpId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vmGroups": {
       "get": {
@@ -4278,7 +6779,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/question": {
       "get": {
@@ -4288,7 +6800,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/disk/{id}/attachedVms": {
       "get": {
@@ -4298,7 +6821,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/resourcePool/{id}/vmList": {
       "get": {
@@ -4308,7 +6842,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/vmsList": {
       "get": {
@@ -4318,7 +6863,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vmGroup/{groupId}/vmsList": {
       "get": {
@@ -4328,7 +6884,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vmGroup/name/{groupName}/vmsList": {
       "get": {
@@ -4338,7 +6905,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/blockingTask/{id}/action/abort": {
       "post": {
@@ -4348,7 +6926,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/screen/action/acquireMksTicket": {
       "post": {
@@ -4358,7 +6947,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/screen/action/acquireTicket": {
       "post": {
@@ -4368,7 +6968,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vmGroup/name/{groupName}/action/addVms": {
       "post": {
@@ -4378,7 +6989,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/question/action/answer": {
       "post": {
@@ -4388,7 +7010,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/disk/action/attach": {
       "post": {
@@ -4398,7 +7031,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/task/{id}/action/cancel": {
       "post": {
@@ -4408,7 +7052,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalog/{id}/action/captureVApp": {
       "post": {
@@ -4418,7 +7073,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/action/captureVApp": {
       "post": {
@@ -4428,7 +7094,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/{id}/authorizationcheck": {
       "post": {
@@ -4438,7 +7115,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/authorizationcheck": {
       "post": {
@@ -4458,7 +7146,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/action/clearunusedlocalizationbundles": {
       "post": {
@@ -4488,7 +7187,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/action/cloneVApp": {
       "post": {
@@ -4498,7 +7208,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/action/cloneVAppTemplate": {
       "post": {
@@ -4508,7 +7229,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/action/composeVApp": {
       "post": {
@@ -4518,7 +7250,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/configureServices": {
       "post": {
@@ -4528,7 +7271,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/configureSyslogServerSettings": {
       "post": {
@@ -4538,7 +7292,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/consolidate": {
       "post": {
@@ -4548,7 +7313,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/action/consolidate": {
       "post": {
@@ -4558,7 +7334,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/org/{id}/catalog/{catalogId}/action/controlAccess": {
       "post": {
@@ -4568,7 +7355,27 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "catalogId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/controlAccess": {
       "post": {
@@ -4578,7 +7385,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/convertToAdvancedGateway": {
       "post": {
@@ -4588,7 +7406,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/convertToAdvancedNetworking": {
       "post": {
@@ -4598,7 +7427,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}/action/convertToDistributedInterface": {
       "post": {
@@ -4608,7 +7448,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}/action/convertToInternalInterface": {
       "post": {
@@ -4618,7 +7469,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}/action/convertToSubInterface": {
       "post": {
@@ -4628,7 +7490,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalog/{id}/action/copy": {
       "post": {
@@ -4638,7 +7511,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/catalogs": {
       "post": {
@@ -4648,7 +7532,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalog/{id}/catalogItems": {
       "post": {
@@ -4658,7 +7553,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/disk": {
       "post": {
@@ -4668,7 +7574,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/networkPools": {
       "post": {
@@ -4688,7 +7605,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/orgs": {
       "post": {
@@ -4738,7 +7666,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "orgId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/roles": {
       "post": {
@@ -4758,7 +7697,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vdcTemplates": {
       "post": {
@@ -4778,7 +7728,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/vdcs": {
       "post": {
@@ -4788,7 +7749,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/vdcsparams": {
       "post": {
@@ -4798,7 +7770,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/deploy": {
       "post": {
@@ -4808,7 +7791,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/disk/action/detach": {
       "post": {
@@ -4818,7 +7812,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/rule/{ruleId}/action/disable": {
       "post": {
@@ -4828,7 +7833,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "ruleId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/datastore/{id}/action/disable": {
       "post": {
@@ -4838,7 +7854,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/disableDistributedRouting": {
       "post": {
@@ -4848,7 +7875,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/host/{id}/action/disable": {
       "post": {
@@ -4858,7 +7896,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/disableNestedHypervisor": {
       "post": {
@@ -4868,7 +7917,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/action/disable": {
       "post": {
@@ -4878,7 +7938,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providervdc/{id}/action/disable": {
       "post": {
@@ -4888,7 +7959,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/resourcePool/{id}/action/disable": {
       "post": {
@@ -4898,7 +7980,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/disableDownload": {
       "post": {
@@ -4908,7 +8001,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/action/disableDownload": {
       "post": {
@@ -4918,7 +8022,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}/action/disable": {
       "post": {
@@ -4928,7 +8043,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/discardSuspendedState": {
       "post": {
@@ -4938,7 +8064,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/media/action/ejectMedia": {
       "post": {
@@ -4948,7 +8085,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/rule/{ruleId}/action/enable": {
       "post": {
@@ -4958,7 +8106,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "ruleId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/datastore/{id}/action/enable": {
       "post": {
@@ -4968,7 +8127,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/enableDistributedRouting": {
       "post": {
@@ -4978,7 +8148,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/media/{id}/action/enableDownload": {
       "post": {
@@ -4988,7 +8169,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/host/{id}/action/enable": {
       "post": {
@@ -4998,7 +8190,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/action/enable": {
       "post": {
@@ -5008,7 +8211,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providervdc/{id}/action/enable": {
       "post": {
@@ -5018,7 +8232,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/resourcePool/{id}/action/enable": {
       "post": {
@@ -5028,7 +8253,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/enableDownload": {
       "post": {
@@ -5038,7 +8274,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/action/enableDownload": {
       "post": {
@@ -5048,7 +8295,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}/action/enable": {
       "post": {
@@ -5058,7 +8316,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/enableNestedHypervisor": {
       "post": {
@@ -5068,7 +8337,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/enterMaintenanceMode": {
       "post": {
@@ -5078,7 +8358,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/exitMaintenanceMode": {
       "post": {
@@ -5088,7 +8379,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings/vAppLeaseSettings/action/expireVAppsRuntimeLease": {
       "post": {
@@ -5098,7 +8400,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings/vAppTemplateLeaseSettings/action/expireVAppTemplatesStorageLease": {
       "post": {
@@ -5108,7 +8421,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings/vAppLeaseSettings/action/expireVAppsStorageLease": {
       "post": {
@@ -5118,7 +8442,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/blockingTask/{id}/action/fail": {
       "post": {
@@ -5128,7 +8463,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/customizeAtNextPowerOn": {
       "post": {
@@ -5138,7 +8484,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/strandedItem/{id}/action/forceDelete": {
       "post": {
@@ -5148,7 +8505,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/action/forcevimserverreconnect": {
       "post": {
@@ -5158,7 +8526,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/groups": {
       "post": {
@@ -5168,7 +8547,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/importMedia": {
       "post": {
@@ -5178,7 +8568,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/importVmAsVApp": {
       "post": {
@@ -5188,7 +8589,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/importVmAsVAppTemplate": {
       "post": {
@@ -5198,7 +8610,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/importVmIntoExistingVApp": {
       "post": {
@@ -5208,7 +8631,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/media/action/insertMedia": {
       "post": {
@@ -5218,7 +8652,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/installVMwareTools": {
       "post": {
@@ -5228,7 +8673,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/action/instantiateOvf": {
       "post": {
@@ -5238,7 +8694,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/action/instantiateVAppTemplate": {
       "post": {
@@ -5248,7 +8715,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/org/{id}/action/instantiate": {
       "post": {
@@ -5258,7 +8736,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/sessions": {
       "post": {
@@ -5278,7 +8767,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "ruleId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/rule/{ruleId}/action/makeOptional": {
       "post": {
@@ -5288,7 +8788,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "ruleId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providervdc/{id}/action/merge": {
       "post": {
@@ -5298,7 +8809,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/action/migrateTenant": {
       "post": {
@@ -5318,7 +8840,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/resourcePool/{id}/action/migrateVms": {
       "post": {
@@ -5328,7 +8861,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/modifyFormFactor": {
       "post": {
@@ -5338,7 +8882,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalog/{id}/action/move": {
       "post": {
@@ -5348,7 +8903,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/events": {
       "post": {
@@ -5358,7 +8924,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/power/action/powerOff": {
       "post": {
@@ -5368,7 +8945,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/power/action/powerOn": {
       "post": {
@@ -5378,7 +8966,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/host/{id}/action/prepare": {
       "post": {
@@ -5388,7 +8987,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/user/{id}/entityRights": {
       "post": {
@@ -5398,7 +9008,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/role/{id}/action/relinkToTemplate": {
       "post": {
@@ -5408,7 +9029,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/reapplyServices": {
       "post": {
@@ -5418,7 +9050,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/power/action/reboot": {
       "post": {
@@ -5428,7 +9071,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/recomposeVApp": {
       "post": {
@@ -5438,7 +9092,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/vm-{id}/action/reconfigureVm": {
       "post": {
@@ -5448,7 +9113,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/redeploy": {
       "post": {
@@ -5458,7 +9134,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/action/refreshStorageProfiles": {
       "post": {
@@ -5468,7 +9155,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/action/refresh": {
       "post": {
@@ -5478,7 +9176,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/settings/federation/action/regenerateFederationCertificate": {
       "post": {
@@ -5488,7 +9197,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/org/{id}/associations/localAssociationData/action/regenerateKeyPair": {
       "post": {
@@ -5498,7 +9218,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/site/associations/localAssociationData/action/regenerateKeyPair": {
       "post": {
@@ -5518,7 +9249,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/action/registervimserver": {
       "post": {
@@ -5538,7 +9280,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/relocate": {
       "post": {
@@ -5548,7 +9301,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vAppTemplate/{id}/action/relocate": {
       "post": {
@@ -5558,7 +9322,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/removeAllSnapshots": {
       "post": {
@@ -5568,7 +9343,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vmGroup/name/{groupName}/action/removeVms": {
       "post": {
@@ -5578,7 +9364,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/host/{id}/action/repair": {
       "post": {
@@ -5588,7 +9385,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/amqp/action/resetAmqpCertificate": {
       "post": {
@@ -5628,7 +9436,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/ldapSettings/action/resetLdapCertificate": {
       "post": {
@@ -5648,7 +9467,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}/action/reset": {
       "post": {
@@ -5658,7 +9488,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/ldapSettings/action/resetLdapSspiKeytab": {
       "post": {
@@ -5678,7 +9519,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/power/action/reset": {
       "post": {
@@ -5688,7 +9540,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/general/action/resetVcTrustsore": {
       "post": {
@@ -5708,7 +9571,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/revertToCurrentSnapshot": {
       "post": {
@@ -5718,7 +9592,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/power/action/shutdown": {
       "post": {
@@ -5728,7 +9613,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/power/action/suspend": {
       "post": {
@@ -5738,7 +9634,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalog/{id}/action/sync": {
       "post": {
@@ -5748,7 +9655,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalogItem/{id}/action/sync": {
       "post": {
@@ -5758,7 +9676,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/network/{id}/action/syncSyslogServerSettings": {
       "post": {
@@ -5768,7 +9697,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/syncSyslogServerSettings": {
       "post": {
@@ -5778,7 +9718,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/user/{id}/action/takeOwnership": {
       "post": {
@@ -5788,7 +9739,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/amqp/action/test": {
       "post": {
@@ -5808,7 +9770,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/role/{id}/action/unlinkFromTemplate": {
       "post": {
@@ -5818,7 +9791,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/user/{id}/action/unlock": {
       "post": {
@@ -5828,7 +9812,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/host/{id}/action/unprepare": {
       "post": {
@@ -5838,7 +9833,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/vimServer/{id}/action/unregister": {
       "post": {
@@ -5848,7 +9854,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/bootOptions": {
       "post": {
@@ -5858,7 +9875,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/catalog/{id}/action/publish": {
       "post": {
@@ -5868,7 +9896,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/catalog/{id}/action/publishToExternalOrganizations": {
       "post": {
@@ -5878,7 +9917,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/blockingTask/{id}/action/updateProgress": {
       "post": {
@@ -5888,7 +9938,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providervdc/{id}/storageProfiles": {
       "post": {
@@ -5898,7 +9959,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/providervdc/{id}/action/updateResourcePools": {
       "post": {
@@ -5908,7 +9980,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/catalog/{id}/action/subscribeToExternalCatalog": {
       "post": {
@@ -5918,7 +10001,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/vdc/{id}/vdcStorageProfiles": {
       "post": {
@@ -5928,7 +10022,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/upgradeConfig": {
       "post": {
@@ -5938,7 +10043,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/host/{id}/action/upgrade": {
       "post": {
@@ -5948,7 +10064,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/{id}/action/upgradeHardwareVersion": {
       "post": {
@@ -5958,7 +10085,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/amqp/action/updateAmqpCertificate": {
       "post": {
@@ -5998,7 +10136,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/ldapSettings/action/updateLdapCertificate": {
       "post": {
@@ -6018,7 +10167,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/service/localizationbundles": {
       "post": {
@@ -6038,7 +10198,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/ldapSettings/action/updateLdapSspiKeytab": {
       "post": {
@@ -6058,7 +10229,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/catalog/{id}/action/upload": {
       "post": {
@@ -6068,7 +10250,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/action/uploadVAppTemplate": {
       "post": {
@@ -6078,7 +10271,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/extension/settings/general/action/updateVcTrustsore": {
       "post": {
@@ -6098,7 +10302,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vdc/{id}/action/controlAccess": {
       "put": {
@@ -6108,7 +10323,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{id}/action/updateProperties": {
       "put": {
@@ -6118,7 +10344,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/admin/edgeGateway/{gatewayId}/action/manageExternalIpAddresses": {
       "put": {
@@ -6128,7 +10365,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "gatewayId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
     "/vApp/vm-{id}": {
       "put": {
@@ -6138,7 +10386,18 @@
             "description": "success"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     }
   },
   "components": {

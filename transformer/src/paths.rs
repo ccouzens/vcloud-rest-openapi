@@ -7,6 +7,7 @@ use std::{
 use zip::read::ZipArchive;
 
 pub fn paths<R: Read + Seek>(zip: &mut ZipArchive<R>) -> Result<Paths, Box<dyn std::error::Error>> {
+    let path_param_regex = regex::Regex::new(r"\{([^}]+)}")?;
     let mut path_file_names = zip
         .file_names()
         .filter(|n| n.starts_with("doc/operations/"))
@@ -23,9 +24,38 @@ pub fn paths<R: Read + Seek>(zip: &mut ZipArchive<R>) -> Result<Paths, Box<dyn s
         zip.by_name(&file_name)?.read_to_string(&mut html)?;
 
         let operation = Operation::try_from(html.as_str())?;
-        if let openapiv3::ReferenceOr::Item(path_item) = paths
-            .entry(operation.path.clone())
-            .or_insert(openapiv3::ReferenceOr::Item(openapiv3::PathItem::default()))
+        if let openapiv3::ReferenceOr::Item(path_item) =
+            paths.entry(operation.path.clone()).or_insert_with(|| {
+                openapiv3::ReferenceOr::Item(openapiv3::PathItem {
+                    parameters: path_param_regex
+                        .captures_iter(&operation.path)
+                        .map(|c| {
+                            openapiv3::ReferenceOr::Item(openapiv3::Parameter::Path {
+                                parameter_data: openapiv3::ParameterData {
+                                    name: c[1].into(),
+                                    required: true,
+                                    description: None,
+                                    deprecated: None,
+                                    format: openapiv3::ParameterSchemaOrContent::Schema(
+                                        openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                                            schema_data: Default::default(),
+                                            schema_kind: openapiv3::SchemaKind::Type(
+                                                openapiv3::Type::String(
+                                                    openapiv3::StringType::default(),
+                                                ),
+                                            ),
+                                        }),
+                                    ),
+                                    example: None,
+                                    examples: Default::default(),
+                                },
+                                style: Default::default(),
+                            })
+                        })
+                        .collect(),
+                    ..Default::default()
+                })
+            })
         {
             match operation.method {
                 Method::Get => path_item.get = Some(operation.into()),
