@@ -10,6 +10,9 @@
   "paths": {
     "/admin/extension/service/aclrule/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve (GET) ACL rule",
         "responses": {
           "2XX": {
@@ -18,6 +21,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Delete (DELETE) ACL rule",
         "responses": {
           "2XX": {
@@ -39,6 +45,9 @@
     },
     "/admin/extension/rule/{ruleId}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieves the specified VM Host affinity rule",
         "responses": {
           "2XX": {
@@ -47,6 +56,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
@@ -68,6 +80,9 @@
     },
     "/admin/extension/strandedItems": {
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Removes all stranded items.",
         "responses": {
           "2XX": {
@@ -78,6 +93,9 @@
     },
     "/admin/extension/service/apidefinition/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve API definition.",
         "responses": {
           "2XX": {
@@ -86,6 +104,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes API definition.",
         "responses": {
           "2XX": {
@@ -107,6 +128,9 @@
     },
     "/admin/extension/service/apifilter/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieves API filter.",
         "responses": {
           "2XX": {
@@ -115,6 +139,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes API filter.",
         "responses": {
           "2XX": {
@@ -136,6 +163,9 @@
     },
     "/admin/org/{id}/associations/{remoteSiteId}/{remoteOrgId}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a specific member from the organization's associations as identified by identifier included in the request",
         "responses": {
           "2XX": {
@@ -144,6 +174,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update an organization association",
         "responses": {
           "2XX": {
@@ -152,6 +185,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Removes the specified member from this organization's associations.",
         "responses": {
           "2XX": {
@@ -191,6 +227,9 @@
     },
     "/admin/catalog/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve a catalog.",
         "responses": {
           "2XX": {
@@ -199,6 +238,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update the name or description of a catalog.",
         "responses": {
           "2XX": {
@@ -207,6 +249,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete a catalog.",
         "responses": {
           "2XX": {
@@ -228,6 +273,9 @@
     },
     "/catalogItem/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a catalog item.",
         "responses": {
           "2XX": {
@@ -236,6 +284,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Modify a catalog item.",
         "responses": {
           "2XX": {
@@ -244,6 +295,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete a catalog item.",
         "responses": {
           "2XX": {
@@ -265,6 +319,9 @@
     },
     "/catalogItem/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the value of the specified key from catalog item metadata.",
         "responses": {
           "2XX": {
@@ -273,6 +330,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Set the metadata value for the specified key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -281,6 +341,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete the specified key and its value from catalog item metadata.",
         "responses": {
           "2XX": {
@@ -311,6 +374,9 @@
     },
     "/admin/catalog/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key from catalog metadata.",
         "responses": {
           "2XX": {
@@ -319,6 +385,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -327,6 +396,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete the specified key and its value from catalog metadata.",
         "responses": {
           "2XX": {
@@ -357,6 +429,9 @@
     },
     "/disk/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a disk.",
         "responses": {
           "2XX": {
@@ -365,6 +440,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the name, description, and storage class of a disk.",
         "responses": {
           "2XX": {
@@ -373,6 +451,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete a disk.",
         "responses": {
           "2XX": {
@@ -394,6 +475,9 @@
     },
     "/disk/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the value of the specified key from disk metadata.",
         "responses": {
           "2XX": {
@@ -402,6 +486,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -410,6 +497,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete the specified key and its value from disk metadata.",
         "responses": {
           "2XX": {
@@ -440,6 +530,9 @@
     },
     "/admin/edgeGateway/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve an edge gateway",
         "responses": {
           "2XX": {
@@ -448,6 +541,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update an edge gateway",
         "responses": {
           "2XX": {
@@ -456,6 +552,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete an edge gateway.",
         "responses": {
           "2XX": {
@@ -477,6 +576,9 @@
     },
     "/admin/extension/externalnet/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a system administrator view of an external network.",
         "responses": {
           "2XX": {
@@ -485,6 +587,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update an external network.",
         "responses": {
           "2XX": {
@@ -493,6 +598,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Delete an external network.",
         "responses": {
           "2XX": {
@@ -514,6 +622,9 @@
     },
     "/admin/extension/service/file/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a file descriptor",
         "responses": {
           "2XX": {
@@ -522,6 +633,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes file descriptor.",
         "responses": {
           "2XX": {
@@ -543,6 +657,9 @@
     },
     "/admin/group/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve a group.",
         "responses": {
           "2XX": {
@@ -551,6 +668,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update the name or description of a group.",
         "responses": {
           "2XX": {
@@ -559,6 +679,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Deletes a group.",
         "responses": {
           "2XX": {
@@ -580,6 +703,9 @@
     },
     "/admin/extension/service/link/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieves service link.",
         "responses": {
           "2XX": {
@@ -588,6 +714,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes service link.",
         "responses": {
           "2XX": {
@@ -609,6 +738,9 @@
     },
     "/session": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a representation of the current session.\n\n A Session object contains one or more URLs from which you can begin browsing, as well as links to the query service and entity resolver. The list of URLs in the Session object is based on the role and privileges of the authenticated user.\n\n A Session object expires after a configurable interval of client inactivity. To change the length of this client inactivity timeout, a system administrator can change the value of SessionTimeoutMinutes in the system's GeneralSettings",
         "responses": {
           "2XX": {
@@ -617,6 +749,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete the current session.",
         "responses": {
           "2XX": {
@@ -627,6 +762,9 @@
     },
     "/media/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a media object.",
         "responses": {
           "2XX": {
@@ -635,6 +773,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the name and description of a media object.",
         "responses": {
           "2XX": {
@@ -643,6 +784,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete a media object.",
         "responses": {
           "2XX": {
@@ -664,6 +808,9 @@
     },
     "/media/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the value of the specified key from media object metadata.",
         "responses": {
           "2XX": {
@@ -672,6 +819,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -680,6 +830,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete the specified key and its value from media object metadata.",
         "responses": {
           "2XX": {
@@ -710,6 +863,9 @@
     },
     "/admin/network/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve an administrative view of a network.",
         "responses": {
           "2XX": {
@@ -718,6 +874,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update an organization network.",
         "responses": {
           "2XX": {
@@ -726,6 +885,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete a network.",
         "responses": {
           "2XX": {
@@ -747,6 +909,9 @@
     },
     "/network/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve an organization network.",
         "responses": {
           "2XX": {
@@ -755,6 +920,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -763,6 +931,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -784,6 +955,9 @@
     },
     "/admin/network/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key from network metadata.",
         "responses": {
           "2XX": {
@@ -792,6 +966,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -800,6 +977,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete the specified key and its value from network metadata.",
         "responses": {
           "2XX": {
@@ -830,6 +1010,9 @@
     },
     "/admin/extension/networkPool/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a network pool.",
         "responses": {
           "2XX": {
@@ -838,6 +1021,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update a network pool.",
         "responses": {
           "2XX": {
@@ -846,6 +1032,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Delete a network pool.\n\n The pool must not be in use.",
         "responses": {
           "2XX": {
@@ -867,6 +1056,9 @@
     },
     "/admin/extension/object/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieves a registered object extension.",
         "responses": {
           "2XX": {
@@ -875,6 +1067,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Updates a registered object extension.",
         "responses": {
           "2XX": {
@@ -883,6 +1078,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes a registered object extension with specified ID.",
         "responses": {
           "2XX": {
@@ -904,6 +1102,9 @@
     },
     "/admin/org/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve an administrative view of an organization.",
         "responses": {
           "2XX": {
@@ -912,6 +1113,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update an organization.",
         "responses": {
           "2XX": {
@@ -920,6 +1124,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete an organization.\n\n Before you can delete an organization, you must disable it and then delete or change ownership of all objects that the organization's users own.",
         "responses": {
           "2XX": {
@@ -941,6 +1148,9 @@
     },
     "/admin/org/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key from organization metadata.",
         "responses": {
           "2XX": {
@@ -949,6 +1159,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -957,6 +1170,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete the specified key and its value from organization metadata.",
         "responses": {
           "2XX": {
@@ -987,6 +1203,9 @@
     },
     "/admin/extension/providervdc/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a system administrator view of a provider vDC.",
         "responses": {
           "2XX": {
@@ -995,6 +1214,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update a provider vDC.",
         "responses": {
           "2XX": {
@@ -1003,6 +1225,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Delete a provider vDC.\n\n Before you can delete a provider vDC, you must disable it.",
         "responses": {
           "2XX": {
@@ -1024,6 +1249,9 @@
     },
     "/admin/providervdc/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key from provider vDC metadata.",
         "responses": {
           "2XX": {
@@ -1032,6 +1260,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -1040,6 +1271,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete the specified key and its value from provider vDC metadata.",
         "responses": {
           "2XX": {
@@ -1070,6 +1304,9 @@
     },
     "/admin/pvdcStorageProfile/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key from Provider VDC Storage Profile metadata.",
         "responses": {
           "2XX": {
@@ -1078,6 +1315,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -1086,6 +1326,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete the specified key and its value from Provider VDC Storage Profile metadata.",
         "responses": {
           "2XX": {
@@ -1116,6 +1359,9 @@
     },
     "/admin/extension/service/resourceclass/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve (GET) resource class info",
         "responses": {
           "2XX": {
@@ -1124,6 +1370,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes (DELETE) resource class",
         "responses": {
           "2XX": {
@@ -1145,6 +1394,9 @@
     },
     "/admin/extension/service/resourceclassaction/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve (GET) resource class action info",
         "responses": {
           "2XX": {
@@ -1153,6 +1405,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes (DELETE) resource class action",
         "responses": {
           "2XX": {
@@ -1174,6 +1429,9 @@
     },
     "/admin/right/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a right.",
         "responses": {
           "2XX": {
@@ -1182,6 +1440,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Updates a right.",
         "responses": {
           "2XX": {
@@ -1190,6 +1451,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Deletes a right.",
         "responses": {
           "2XX": {
@@ -1211,6 +1475,9 @@
     },
     "/admin/org/{orgId}/right/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves right in the context of an organization",
         "responses": {
           "2XX": {
@@ -1219,6 +1486,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Unlink a right from an organization",
         "responses": {
           "2XX": {
@@ -1249,6 +1519,9 @@
     },
     "/admin/org/{orgId}/rights": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve rights for an organization",
         "responses": {
           "2XX": {
@@ -1257,6 +1530,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Modify rights for an organization",
         "responses": {
           "2XX": {
@@ -1265,6 +1541,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Add rights to an organization",
         "responses": {
           "2XX": {
@@ -1273,6 +1552,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Remove all rights from an organization",
         "responses": {
           "2XX": {
@@ -1294,6 +1576,9 @@
     },
     "/admin/role/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve a role.",
         "responses": {
           "2XX": {
@@ -1302,6 +1587,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update a role.\n\n This request changes the name or description of the role, and adds or removes rights.",
         "responses": {
           "2XX": {
@@ -1310,6 +1598,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete a role.",
         "responses": {
           "2XX": {
@@ -1331,6 +1622,9 @@
     },
     "/admin/vdcs/extension/{selectorExtensionId}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a Selector Extension.\n\n The association can be the default policy, or an overridden instance of the default policy.",
         "responses": {
           "2XX": {
@@ -1339,6 +1633,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Updates a Selector Extension.\n\n The association can be the default policy, or an overridden instance of the default policy.",
         "responses": {
           "2XX": {
@@ -1347,6 +1644,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Deletes a Selector Extension.\n\n The association can be the default policy, or an overridden instance of the default policy.",
         "responses": {
           "2XX": {
@@ -1368,6 +1668,9 @@
     },
     "/admin/extension/service/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Gives information about a concrete extension service.",
         "responses": {
           "2XX": {
@@ -1376,6 +1679,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Updates already registered service.",
         "responses": {
           "2XX": {
@@ -1384,6 +1690,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Deletes registered service.",
         "responses": {
           "2XX": {
@@ -1405,6 +1714,9 @@
     },
     "/admin/extension/service/serviceresource/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve (GET) service resource",
         "responses": {
           "2XX": {
@@ -1413,6 +1725,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Delete (DELETE) service resource",
         "responses": {
           "2XX": {
@@ -1434,6 +1749,9 @@
     },
     "/shadowVm/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a shadow VM.",
         "responses": {
           "2XX": {
@@ -1442,6 +1760,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Deletes shadow VM.\n\n This API for deletion of shadow VMs has changed URL signature to better reflect the API object model.",
         "responses": {
           "2XX": {
@@ -1463,6 +1784,9 @@
     },
     "/site/associations/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Get the {@link SiteAssociationType} for the specified site id. GET /api/site/associations/{siteId}",
         "responses": {
           "2XX": {
@@ -1471,6 +1795,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Adds an association for the specified site. PUT /api/site/associations/{siteId}",
         "responses": {
           "2XX": {
@@ -1479,6 +1806,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Deletes the association for the specified site. DELETE /api/site/associations/{siteId}",
         "responses": {
           "2XX": {
@@ -1500,6 +1830,9 @@
     },
     "/admin/extension/strandedItem/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Gets the representation of a strandedItem.",
         "responses": {
           "2XX": {
@@ -1508,6 +1841,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Removes stranded item.",
         "responses": {
           "2XX": {
@@ -1529,6 +1865,9 @@
     },
     "/admin/extension/vdcTemplate/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a vDC template.",
         "responses": {
           "2XX": {
@@ -1537,6 +1876,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update a vDC template.",
         "responses": {
           "2XX": {
@@ -1545,6 +1887,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Delete a vDC template.",
         "responses": {
           "2XX": {
@@ -1566,6 +1911,9 @@
     },
     "/admin/extension/nsxtManagers/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve the representation of a registered NSX\\-T manager.",
         "responses": {
           "2XX": {
@@ -1574,6 +1922,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update an existing NSX\\-T Manager.",
         "responses": {
           "2XX": {
@@ -1582,6 +1933,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Delete an existing NSX\\-T Manager.",
         "responses": {
           "2XX": {
@@ -1603,6 +1957,9 @@
     },
     "/nsxtManagers/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -1611,6 +1968,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -1619,6 +1979,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -1640,6 +2003,9 @@
     },
     "/admin/user/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve a user.",
         "responses": {
           "2XX": {
@@ -1648,6 +2014,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update a user.\n\n Use this request to update any property of a local user, or to update the name or description of an imported user. A locked user cannot be updated.",
         "responses": {
           "2XX": {
@@ -1656,6 +2025,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete a user.",
         "responses": {
           "2XX": {
@@ -1677,6 +2049,9 @@
     },
     "/vApp/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a vApp or VM.",
         "responses": {
           "2XX": {
@@ -1685,6 +2060,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Modify the name or description of a VM.",
         "responses": {
           "2XX": {
@@ -1693,6 +2071,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete a vApp or VM.",
         "responses": {
           "2XX": {
@@ -1714,6 +2095,9 @@
     },
     "/vApp/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the value of the specified key from vApp or VM metadata.",
         "responses": {
           "2XX": {
@@ -1722,6 +2106,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -1730,6 +2117,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete the specified key and its value from vApp or VM metadata.",
         "responses": {
           "2XX": {
@@ -1760,6 +2150,9 @@
     },
     "/vAppTemplate/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a vApp template.",
         "responses": {
           "2XX": {
@@ -1768,6 +2161,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the name, description and gold master of a vApp template.",
         "responses": {
           "2XX": {
@@ -1776,6 +2172,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete a vApp template.",
         "responses": {
           "2XX": {
@@ -1797,6 +2196,9 @@
     },
     "/vAppTemplate/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the value of the specified key from vApp template or VM metadata.",
         "responses": {
           "2XX": {
@@ -1805,6 +2207,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -1813,6 +2218,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete the specified key and its value from vApp template or VM metadata.",
         "responses": {
           "2XX": {
@@ -1843,6 +2251,9 @@
     },
     "/admin/vdc/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the admin view of an organization vDC.",
         "responses": {
           "2XX": {
@@ -1851,6 +2262,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Modify an organization vDC.",
         "responses": {
           "2XX": {
@@ -1859,6 +2273,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete an organization vDC.\n\n You must disable the virtual datacenter before you can delete it.",
         "responses": {
           "2XX": {
@@ -1880,6 +2297,9 @@
     },
     "/vdc/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a vDC.",
         "responses": {
           "2XX": {
@@ -1888,6 +2308,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Modify the name and/or description of an organization vDC.\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
         "responses": {
           "2XX": {
@@ -1896,6 +2319,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Delete an organization vDC.\n\n You must disable the virtual datacenter before you can delete it, unless {@code RestConstants.DeleteParameters.FORCE} is asserted",
         "responses": {
           "2XX": {
@@ -1917,6 +2343,9 @@
     },
     "/admin/vdc/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key from virtual datacenter metadata.",
         "responses": {
           "2XX": {
@@ -1925,6 +2354,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -1933,6 +2365,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete the specified key and its value from virtual datacenter metadata.",
         "responses": {
           "2XX": {
@@ -1963,6 +2398,9 @@
     },
     "/admin/vdcStorageProfile/{id}/metadata/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
@@ -1971,6 +2409,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
@@ -1979,6 +2420,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "admin"
+        ],
         "description": "Delete the specified key and its value from vDC storage profile metadata.",
         "responses": {
           "2XX": {
@@ -2009,6 +2453,9 @@
     },
     "/vdc/{id}/vmAffinityRules/{ruleId}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves the specified VM affinity rule",
         "responses": {
           "2XX": {
@@ -2017,6 +2464,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Updates the specified VM affinity/anti\\-affinity rule. This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
         "responses": {
           "2XX": {
@@ -2025,6 +2475,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "user"
+        ],
         "description": "Deletes the specified VM affinity/anti\\-affinity rule",
         "responses": {
           "2XX": {
@@ -2055,6 +2508,9 @@
     },
     "/admin/extension/vmGroup/{groupId}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieves the vm group by Id",
         "responses": {
           "2XX": {
@@ -2063,6 +2519,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "extension"
+        ],
         "description": "Delete the specified VM group",
         "responses": {
           "2XX": {
@@ -2084,6 +2543,9 @@
     },
     "/admin/extension/service/resourceclassaction/{id}/aclrules": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "List registered resource class ACL rule for extension service.",
         "responses": {
           "2XX": {
@@ -2092,6 +2554,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Registers resource class ACL rule for extension service.",
         "responses": {
           "2XX": {
@@ -2113,6 +2578,9 @@
     },
     "/admin/extension/blockingTasks": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of active or recently completed blocking task requests.",
         "responses": {
           "2XX": {
@@ -2123,6 +2591,9 @@
     },
     "/admin/extension/vdcTemplateReferences": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of all VDC templates.",
         "responses": {
           "2XX": {
@@ -2133,6 +2604,9 @@
     },
     "/admin/network/{id}/allocatedAddresses": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the list of IP addresses allocated to the network.",
         "responses": {
           "2XX": {
@@ -2154,6 +2628,9 @@
     },
     "/network/{id}/allocatedAddresses": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of IP addresses allocated to the network.",
         "responses": {
           "2XX": {
@@ -2175,6 +2652,9 @@
     },
     "/admin/extension/settings/amqp": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system AMQP settings.",
         "responses": {
           "2XX": {
@@ -2183,6 +2663,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system AMQP settings.",
         "responses": {
           "2XX": {
@@ -2193,6 +2676,9 @@
     },
     "/apidefinition/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -2214,6 +2700,9 @@
     },
     "/admin/extension/service/{id}/apidefinitions": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Returns the API definitions registered by this service.",
         "responses": {
           "2XX": {
@@ -2222,6 +2711,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Creates API definition.",
         "responses": {
           "2XX": {
@@ -2243,6 +2735,9 @@
     },
     "/apidefinitions": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Return all API definitions.",
         "responses": {
           "2XX": {
@@ -2253,6 +2748,9 @@
     },
     "/files": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Return all API definition file descriptors.",
         "responses": {
           "2XX": {
@@ -2263,6 +2761,9 @@
     },
     "/service/{id}/apidefinitions": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Return all Extension Service API Definitions.",
         "responses": {
           "2XX": {
@@ -2284,6 +2785,9 @@
     },
     "/extensibility": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of links to API extensibility operations and entities.",
         "responses": {
           "2XX": {
@@ -2294,6 +2798,9 @@
     },
     "/admin/extension/service/{id}/apifilters": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Returns the API filters registered by this service.",
         "responses": {
           "2XX": {
@@ -2302,6 +2809,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Creates API filter.",
         "responses": {
           "2XX": {
@@ -2323,6 +2833,9 @@
     },
     "/admin/org/{id}/associations/localAssociationData": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Gets the associaiton data for a given local org. This can be pasted into the body of a request to add an associated org on a remote site",
         "responses": {
           "2XX": {
@@ -2344,6 +2857,9 @@
     },
     "/admin/org/{id}/associations": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves the complete list of Organizations associated with this organization",
         "responses": {
           "2XX": {
@@ -2352,6 +2868,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Replaces the organization's current list of association members with the specified list of members\n\n If the list is empty, all existing members will be deleted.",
         "responses": {
           "2XX": {
@@ -2360,6 +2879,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Adds a new member to this organization's associations",
         "responses": {
           "2XX": {
@@ -2381,6 +2903,9 @@
     },
     "/admin/extension/vimServer/{id}/hostReferences": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve the list of ESX/ESXi hosts in the cloud.",
         "responses": {
           "2XX": {
@@ -2402,6 +2927,9 @@
     },
     "/admin/extension/vimServer/{id}/networks": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of available vCenter networks and portgroups.\n\n Networks and portgroups that are already in use by a vCloud Director network are not listed.",
         "responses": {
           "2XX": {
@@ -2423,6 +2951,9 @@
     },
     "/admin/extension/providervdc/{id}/availableStorageProfiles": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of storage classes that can be added to the specified provider vDC. Storage classes that have already been added to the provider vDC are not included in the list.",
         "responses": {
           "2XX": {
@@ -2444,6 +2975,9 @@
     },
     "/admin/extension/vimServer/{id}/resourcePoolList": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of unused resource pools from a vCenter server.\n\n Resource pools that are already in use by a provider vDC are not listed.",
         "responses": {
           "2XX": {
@@ -2465,6 +2999,9 @@
     },
     "/admin/extension/blockingTask/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve the representation of a blocking task.",
         "responses": {
           "2XX": {
@@ -2486,6 +3023,9 @@
     },
     "/admin/extension/settings/blockingTask/operations": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of operations that are configured as blocking tasks.",
         "responses": {
           "2XX": {
@@ -2494,6 +3034,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update the list of operations that are configured as blocking tasks.",
         "responses": {
           "2XX": {
@@ -2504,6 +3047,9 @@
     },
     "/admin/extension/settings/blockingTask": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system blocking task settings.",
         "responses": {
           "2XX": {
@@ -2512,6 +3058,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system blocking task settings.",
         "responses": {
           "2XX": {
@@ -2522,6 +3071,9 @@
     },
     "/vApp/{id}/bootOptions": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -2543,6 +3095,9 @@
     },
     "/admin/extension/settings/branding": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system branding settings.\n\n You can use system branding settings to customize the vCloud Director Web console and some of the links that appear on the vCloud Director Home login screen.",
         "responses": {
           "2XX": {
@@ -2551,6 +3106,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system branding settings.\n\n You can use system branding settings to customize the vCloud Director Web console and some of the links that appear on the vCloud Director Home login screen.",
         "responses": {
           "2XX": {
@@ -2561,6 +3119,9 @@
     },
     "/catalog/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a catalog.",
         "responses": {
           "2XX": {
@@ -2582,6 +3143,9 @@
     },
     "/catalogItem/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all metadata associated with a catalog item.",
         "responses": {
           "2XX": {
@@ -2590,6 +3154,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Merge the metadata provided in the request with existing catalog item metadata.",
         "responses": {
           "2XX": {
@@ -2611,6 +3178,9 @@
     },
     "/admin/catalog/{id}/metadata": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve metadata associated with the catalog.",
         "responses": {
           "2XX": {
@@ -2619,6 +3189,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -2640,6 +3213,9 @@
     },
     "/catalog/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all catalog metadata.",
         "responses": {
           "2XX": {
@@ -2661,6 +3237,9 @@
     },
     "/admin/catalog/{id}/metadata/{domain}/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key in the specified domain from catalog metadata.",
         "responses": {
           "2XX": {
@@ -2700,6 +3279,9 @@
     },
     "/admin/catalog/{id}/owner": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the owner of a catalog.",
         "responses": {
           "2XX": {
@@ -2708,6 +3290,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update the owner of a catalog.\n\n The request body specifies the new owner",
         "responses": {
           "2XX": {
@@ -2729,6 +3314,9 @@
     },
     "/catalogs/query": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves a list of Catalogs by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -2739,6 +3327,9 @@
     },
     "/vApp/{id}/checkpostcustomizationscript": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the flag value check\\_post\\_guest\\_customization. This flag decides if property collector would wait for post guest customization script to complete",
         "responses": {
           "2XX": {
@@ -2747,6 +3338,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Modify the PostGC Status check of a VM.",
         "responses": {
           "2XX": {
@@ -2768,6 +3362,9 @@
     },
     "/org/{id}/catalog/{catalogId}/controlAccess": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve access control information for a catalog.",
         "responses": {
           "2XX": {
@@ -2798,6 +3395,9 @@
     },
     "/vApp/{id}/controlAccess": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve access control information for a vApp.",
         "responses": {
           "2XX": {
@@ -2819,6 +3419,9 @@
     },
     "/vdc/{id}/controlAccess": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve access control information for a VDC.",
         "responses": {
           "2XX": {
@@ -2840,6 +3443,9 @@
     },
     "/admin/extension/vdcTemplate/{id}/controlAccess": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve access control information for a VDC template.",
         "responses": {
           "2XX": {
@@ -2861,6 +3467,9 @@
     },
     "/vApp/{id}/virtualHardwareSection/cpu": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
@@ -2869,6 +3478,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
@@ -2890,6 +3502,9 @@
     },
     "/vAppTemplate/{id}/virtualHardwareSection/cpu": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
@@ -2898,6 +3513,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
@@ -2919,6 +3537,9 @@
     },
     "/admin/extension/datastore/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a datastore.",
         "responses": {
           "2XX": {
@@ -2927,6 +3548,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update datastore properties, including name, description, and low disk space thresholds.",
         "responses": {
           "2XX": {
@@ -2948,6 +3572,9 @@
     },
     "/admin/extension/datastores": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of references to datastores in the system.",
         "responses": {
           "2XX": {
@@ -2958,6 +3585,9 @@
     },
     "/admin/extension/datastores/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get a list of all datastores by using REST API General QueryHandler. This is read only list of datastores. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
@@ -2968,6 +3598,9 @@
     },
     "/admin/extension/providervdc/{id}/discoverResourcePools": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get direct children resource pools of Provider VDC that are valid candidates for creating a new VDC",
         "responses": {
           "2XX": {
@@ -2989,6 +3622,9 @@
     },
     "/admin/extension/providervdc/{id}/discoverResourcePools/{parent_rp_moref}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get direct children resource pools of {parent\\_rp\\_moref} nested under the Provider VDC which are valid candidates for creating a new VDC.",
         "responses": {
           "2XX": {
@@ -3019,6 +3655,9 @@
     },
     "/disk/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve metadata associated with the disk.",
         "responses": {
           "2XX": {
@@ -3027,6 +3666,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -3048,6 +3690,9 @@
     },
     "/disk/{id}/owner": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the owner of a disk.",
         "responses": {
           "2XX": {
@@ -3056,6 +3701,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Change the owner of a disk.",
         "responses": {
           "2XX": {
@@ -3077,6 +3725,9 @@
     },
     "/disks/query": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves a disk list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -3087,6 +3738,9 @@
     },
     "/vApp/{id}/virtualHardwareSection/disks": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "responses": {
           "2XX": {
@@ -3095,6 +3749,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "responses": {
           "2XX": {
@@ -3116,6 +3773,9 @@
     },
     "/vAppTemplate/{id}/virtualHardwareSection/disks": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "responses": {
           "2XX": {
@@ -3124,6 +3784,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "responses": {
           "2XX": {
@@ -3145,6 +3808,9 @@
     },
     "/admin/extension/settings/email": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system email settings.",
         "responses": {
           "2XX": {
@@ -3153,6 +3819,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system email settings.",
         "responses": {
           "2XX": {
@@ -3163,6 +3832,9 @@
     },
     "/entity/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Redirects to the URL of an entity with the given VCD ID.",
         "responses": {
           "2XX": {
@@ -3184,6 +3856,9 @@
     },
     "/admin/event/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Returns event with specified ID.",
         "responses": {
           "2XX": {
@@ -3205,6 +3880,9 @@
     },
     "/query": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "REST API General queries handler",
         "responses": {
           "2XX": {
@@ -3215,6 +3893,9 @@
     },
     "/admin/extension": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of extension objects and operations.\n\n The VMWExtension element provides access to a cloud\\-wide namespace of vSphere platform objects that are registered for use by the system, and links that allow you to add vSphere servers and related resources such as networks and resource pools to the cloud. It also provides access to system level configuration settings for Kerberos and LDAP services.",
         "responses": {
           "2XX": {
@@ -3225,6 +3906,9 @@
     },
     "/admin/extension/service": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieves a list of extension service operations.",
         "responses": {
           "2XX": {
@@ -3233,6 +3917,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Creates service.",
         "responses": {
           "2XX": {
@@ -3243,6 +3930,9 @@
     },
     "/admin/extension/externalNetworkReferences": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of references to exernal networks in the system.",
         "responses": {
           "2XX": {
@@ -3253,6 +3943,9 @@
     },
     "/admin/extension/externalNetworkReferences/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of external networks by using REST API general QueryHandler. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
@@ -3263,6 +3956,9 @@
     },
     "/admin/org/{id}/settings/federation": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve other organization settings.",
         "responses": {
           "2XX": {
@@ -3271,6 +3967,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update other organization settings.",
         "responses": {
           "2XX": {
@@ -3292,6 +3991,9 @@
     },
     "/admin/extension/service/apidefinition/{id}/files": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Returns all file descriptors for the API definition.",
         "responses": {
           "2XX": {
@@ -3300,6 +4002,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Creates file descriptor.",
         "responses": {
           "2XX": {
@@ -3321,6 +4026,9 @@
     },
     "/apidefinition/{id}/files": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Returns all file descriptors for the API definition.",
         "responses": {
           "2XX": {
@@ -3342,6 +4050,9 @@
     },
     "/admin/extension/settings/general": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system\\-wide configuration defaults.",
         "responses": {
           "2XX": {
@@ -3350,6 +4061,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system\\-wide configuration defaults.",
         "responses": {
           "2XX": {
@@ -3360,6 +4074,9 @@
     },
     "/admin/org/{id}/settings/general": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve other organization settings.",
         "responses": {
           "2XX": {
@@ -3368,6 +4085,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update other organization settings.",
         "responses": {
           "2XX": {
@@ -3389,6 +4109,9 @@
     },
     "/admin/groups/query": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a list of groups for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -3399,6 +4122,9 @@
     },
     "/vApp/{id}/guestcustomizationstatus": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve status of guest customization for that VM Following are the possible status 0 \\- PENDING\\_GC : Guest Customization is either not started or in progress. This is set whenever a VM need customization. 1 \\- PENDING\\_REBOOT : GC is successful, but reboot is pending. This is set when vCloud receives \"guestinfo.gc.status\" as successful 2 \\- PENDING\\_POST\\_GC : Reboot has happened, waiting for post gc script to complete. This is set when tools running status comes as \"Running\" based on conditions 1 & 2 3 \\- COMPLETE : GC is complete.",
         "responses": {
           "2XX": {
@@ -3420,6 +4146,9 @@
     },
     "/vApp/{id}/guestCustomizationSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves the guest customization section of a VM.",
         "responses": {
           "2XX": {
@@ -3428,6 +4157,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Updates the guest customization section of a VM.",
         "responses": {
           "2XX": {
@@ -3449,6 +4181,9 @@
     },
     "/vAppTemplate/{id}/guestCustomizationSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves the guest customization section of a VM.",
         "responses": {
           "2XX": {
@@ -3457,6 +4192,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Updates the guest customization section of a VM.",
         "responses": {
           "2XX": {
@@ -3478,6 +4216,9 @@
     },
     "/vdc/{vdcId}/hwv/{hwVersionId}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a Virtual Hardware Version.",
         "responses": {
           "2XX": {
@@ -3508,6 +4249,9 @@
     },
     "/admin/providervdc/{pvdcId}/hwv/{hwVersionId}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve a Virtual Hardware Version.",
         "responses": {
           "2XX": {
@@ -3538,6 +4282,9 @@
     },
     "/admin/extension/host/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a host.",
         "responses": {
           "2XX": {
@@ -3559,6 +4306,9 @@
     },
     "/admin/extension/hostGroup/{groupId}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieves the host group by Id",
         "responses": {
           "2XX": {
@@ -3580,6 +4330,9 @@
     },
     "/admin/extension/resourcePool/{rpId}/hostGroups": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "List all HostGroups within this resource pool.",
         "responses": {
           "2XX": {
@@ -3601,6 +4354,9 @@
     },
     "/admin/extension/hostReferences": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of references to ESX/ESXi hosts attached to the system.",
         "responses": {
           "2XX": {
@@ -3611,6 +4367,9 @@
     },
     "/admin/extension/hostReferences/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of hosts by using REST API general QueryHAndler; This is read only list of host references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
@@ -3621,6 +4380,9 @@
     },
     "/admin/extension/settings/kerberosSettings": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system Kerberos settings.",
         "responses": {
           "2XX": {
@@ -3629,6 +4391,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system Kerberos settings.",
         "responses": {
           "2XX": {
@@ -3639,6 +4404,9 @@
     },
     "/admin/extension/settings/ldapSettings": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system LDAP settings.",
         "responses": {
           "2XX": {
@@ -3647,6 +4415,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system LDAP settings.",
         "responses": {
           "2XX": {
@@ -3657,6 +4428,9 @@
     },
     "/vApp/{id}/leaseSettingsSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves the lease settings section of a vApp or vApp template",
         "responses": {
           "2XX": {
@@ -3665,6 +4439,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Updates the lease settings section of a vApp or vApp template.",
         "responses": {
           "2XX": {
@@ -3686,6 +4463,9 @@
     },
     "/vAppTemplate/{id}/leaseSettingsSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves the lease settings section of a vApp or vApp template",
         "responses": {
           "2XX": {
@@ -3694,6 +4474,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Updates the lease settings section of a vApp or vApp template.",
         "responses": {
           "2XX": {
@@ -3715,6 +4498,9 @@
     },
     "/admin/extension/settings/catalog": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve vCloud Director catalog setting details.",
         "responses": {
           "2XX": {
@@ -3723,6 +4509,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update catalog settings details.",
         "responses": {
           "2XX": {
@@ -3733,6 +4522,9 @@
     },
     "/admin/extension/settings/license": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve vCloud Director software license details.",
         "responses": {
           "2XX": {
@@ -3741,6 +4533,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update vCloud Director software license details.",
         "responses": {
           "2XX": {
@@ -3751,6 +4546,9 @@
     },
     "/admin/extension/service/{id}/links": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Returns the links registered by this service.",
         "responses": {
           "2XX": {
@@ -3759,6 +4557,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Create service link.",
         "responses": {
           "2XX": {
@@ -3780,6 +4581,9 @@
     },
     "/site": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Get the {@link SiteType} that represents this local site. GET /api/site",
         "responses": {
           "2XX": {
@@ -3788,6 +4592,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Sets the local site to match what is specified in the {@link SiteType}. It can contain a list of associated sites in addition to info specific to the local site PUT /api/site",
         "responses": {
           "2XX": {
@@ -3798,6 +4605,9 @@
     },
     "/login": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Login with HTTP GET request. (Same as POST, implemented for convenience.)",
         "responses": {
           "2XX": {
@@ -3806,6 +4616,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Login with HTTP POST request.\n\n The response includes an authorization token in this format:\n\n x\\-vcloud\\-authorization: *token*\n\n Include this header in all subsequent requests.",
         "responses": {
           "2XX": {
@@ -3816,6 +4629,9 @@
     },
     "/admin/extension/settings/lookupService": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve settings that describe how vCloud Director connects to a vSphere lookup service.",
         "responses": {
           "2XX": {
@@ -3824,6 +4640,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Register / unregister Lookup Service to / from vCD. In `LookupServiceParamsType` 1. If LookupServiceUrl is set and not empty, the action is for register lookup service. 2. If LookupServiceUrl is unset or empty, the action is for unregister lookup service.",
         "responses": {
           "2XX": {
@@ -3834,6 +4653,9 @@
     },
     "/vApp/{id}/virtualHardwareSection/media": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all RASD items that specify CD\\-ROM, DVD, and floppy disk device and controller properties of a VM.",
         "responses": {
           "2XX": {
@@ -3855,6 +4677,9 @@
     },
     "/vAppTemplate/{id}/virtualHardwareSection/media": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all RASD items that specify CD\\-ROM, DVD, and floppy disk device and controller properties of a VM.",
         "responses": {
           "2XX": {
@@ -3876,6 +4701,9 @@
     },
     "/media/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve metadata associated with a media object.",
         "responses": {
           "2XX": {
@@ -3884,6 +4712,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -3905,6 +4736,9 @@
     },
     "/media/{id}/owner": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the owner of a media object.",
         "responses": {
           "2XX": {
@@ -3926,6 +4760,9 @@
     },
     "/mediaList/query": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves a media list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -3936,6 +4773,9 @@
     },
     "/vApp/{id}/virtualHardwareSection/memory": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
@@ -3944,6 +4784,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
@@ -3965,6 +4808,9 @@
     },
     "/vAppTemplate/{id}/virtualHardwareSection/memory": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
@@ -3973,6 +4819,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
@@ -3994,6 +4843,9 @@
     },
     "/admin/extension/vmGroup/name/{groupName}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -4015,6 +4867,9 @@
     },
     "/admin/extension/namedVmGroupReferences": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Gets all references to named VM groups.",
         "responses": {
           "2XX": {
@@ -4025,6 +4880,9 @@
     },
     "/vApp/{id}/virtualHardwareSection/networkCards": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all RASD items that specify network card properties of a VM.",
         "responses": {
           "2XX": {
@@ -4033,6 +4891,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update all RASD items that specify network card properties of a VM.",
         "responses": {
           "2XX": {
@@ -4054,6 +4915,9 @@
     },
     "/vAppTemplate/{id}/virtualHardwareSection/networkCards": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all RASD items that specify network card properties of a VM.",
         "responses": {
           "2XX": {
@@ -4062,6 +4926,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update all RASD items that specify network card properties of a VM.",
         "responses": {
           "2XX": {
@@ -4083,6 +4950,9 @@
     },
     "/vApp/{id}/networkConfigSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the network config section of a vApp or vApp template.",
         "responses": {
           "2XX": {
@@ -4091,6 +4961,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the network config section of a vApp.",
         "responses": {
           "2XX": {
@@ -4112,6 +4985,9 @@
     },
     "/vAppTemplate/{id}/networkConfigSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the network config section of a vApp or vApp template.",
         "responses": {
           "2XX": {
@@ -4120,6 +4996,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the network config section of a vApp.",
         "responses": {
           "2XX": {
@@ -4141,6 +5020,9 @@
     },
     "/vApp/{id}/networkConnectionSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the network connection section of a VM.",
         "responses": {
           "2XX": {
@@ -4149,6 +5031,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the network connection section of a VM.",
         "responses": {
           "2XX": {
@@ -4170,6 +5055,9 @@
     },
     "/vAppTemplate/{id}/networkConnectionSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the network connection section of a VM.",
         "responses": {
           "2XX": {
@@ -4178,6 +5066,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the network connection section of a VM.",
         "responses": {
           "2XX": {
@@ -4199,6 +5090,9 @@
     },
     "/admin/network/{id}/metadata": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
@@ -4207,6 +5101,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -4228,6 +5125,9 @@
     },
     "/network/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
@@ -4249,6 +5149,9 @@
     },
     "/admin/network/{id}/metadata/{domain}/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key in the specified domain from network metadata.",
         "responses": {
           "2XX": {
@@ -4288,6 +5191,9 @@
     },
     "/admin/extension/networkPoolReferences": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of references to network pools in the system.",
         "responses": {
           "2XX": {
@@ -4298,6 +5204,9 @@
     },
     "/admin/extension/networkPoolReferences/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of network pools by using REST API general QueryHandler. This is read only list of network pool references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
@@ -4308,6 +5217,9 @@
     },
     "/vApp/{id}/networkSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the network section of a vApp or vApp template.",
         "responses": {
           "2XX": {
@@ -4329,6 +5241,9 @@
     },
     "/vAppTemplate/{id}/networkSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the network section of a vApp or vApp template.",
         "responses": {
           "2XX": {
@@ -4350,6 +5265,9 @@
     },
     "/admin/extension/settings/notifications": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system AMQP notifications settings.",
         "responses": {
           "2XX": {
@@ -4358,6 +5276,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system AMQP notifications settings.",
         "responses": {
           "2XX": {
@@ -4368,6 +5289,9 @@
     },
     "/admin/extension/nsxtManagers": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve an existing NSX\\-T Manager.",
         "responses": {
           "2XX": {
@@ -4376,6 +5300,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Register an NSX\\-T Manager.",
         "responses": {
           "2XX": {
@@ -4386,6 +5313,9 @@
     },
     "/nsxtManagers": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -4394,6 +5324,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -4404,6 +5337,9 @@
     },
     "/admin/org/{id}/settings/oauth": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve organization OAuth settings.",
         "responses": {
           "2XX": {
@@ -4412,6 +5348,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update organization OAuth settings.",
         "responses": {
           "2XX": {
@@ -4433,6 +5372,9 @@
     },
     "/admin/extension/object": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Displays the list of currently registered object extensions",
         "responses": {
           "2XX": {
@@ -4441,6 +5383,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Registers a new object extension",
         "responses": {
           "2XX": {
@@ -4451,6 +5396,9 @@
     },
     "/vApp/{id}/operatingSystemSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the operating system section of a VM.",
         "responses": {
           "2XX": {
@@ -4459,6 +5407,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the operating system section of a VM.",
         "responses": {
           "2XX": {
@@ -4480,6 +5431,9 @@
     },
     "/admin/extension/settings/operationLimitsSettings": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieves the system wide defaults for tenant throttling",
         "responses": {
           "2XX": {
@@ -4488,6 +5442,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update catalog settings details.",
         "responses": {
           "2XX": {
@@ -4498,6 +5455,9 @@
     },
     "/admin/org/{id}/settings/email": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve organization email settings.",
         "responses": {
           "2XX": {
@@ -4506,6 +5466,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update organization email settings.",
         "responses": {
           "2XX": {
@@ -4527,6 +5490,9 @@
     },
     "/admin/org/{id}/settings/guestPersonalizationSettings": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
@@ -4535,6 +5501,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
@@ -4556,6 +5525,9 @@
     },
     "/admin/org/{id}/settings/ldap": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve organization LDAP settings.",
         "responses": {
           "2XX": {
@@ -4564,6 +5536,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update organization LDAP settings.",
         "responses": {
           "2XX": {
@@ -4585,6 +5560,9 @@
     },
     "/admin/extension/orgNetworks/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of Organization Networks for the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
@@ -4595,6 +5573,9 @@
     },
     "/admin/org/{id}/settings/operationLimitsSettings": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
@@ -4603,6 +5584,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update organization operation limits settings.",
         "responses": {
           "2XX": {
@@ -4624,6 +5608,9 @@
     },
     "/admin/org/{id}/settings/passwordPolicy": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve organization password policy settings.",
         "responses": {
           "2XX": {
@@ -4632,6 +5619,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update organization password policy settings.",
         "responses": {
           "2XX": {
@@ -4653,6 +5643,9 @@
     },
     "/admin/org/{id}/settings": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve settings for this organization.\n\n Organization settings are divided into categories. This request retrieves all categories of organization settings.",
         "responses": {
           "2XX": {
@@ -4661,6 +5654,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Updates settings for this organization.\n\n Organization settings are divided into categories. This request updates all categories of organization settings.",
         "responses": {
           "2XX": {
@@ -4682,6 +5678,9 @@
     },
     "/admin/vdc/{id}/edgeGateways": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "List all gateways for this Org vDC.",
         "responses": {
           "2XX": {
@@ -4690,6 +5689,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Create an edge gateway.",
         "responses": {
           "2XX": {
@@ -4711,6 +5713,9 @@
     },
     "/admin/vdc/{id}/networks": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "List all networks for this Org vDC.",
         "responses": {
           "2XX": {
@@ -4719,6 +5724,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Create an Org vDC network.",
         "responses": {
           "2XX": {
@@ -4740,6 +5748,9 @@
     },
     "/org/{id}/vdcRollup": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the summary of usage and reserve capacity of all OrgVDCs in this org, and, if specified, any associated orgs.",
         "responses": {
           "2XX": {
@@ -4761,6 +5772,9 @@
     },
     "/admin/extension/orgVdcs/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of all Organization Vdcs in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
@@ -4771,6 +5785,9 @@
     },
     "/org/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve an organization.",
         "responses": {
           "2XX": {
@@ -4792,6 +5809,9 @@
     },
     "/admin/org/{id}/metadata": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
@@ -4800,6 +5820,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -4821,6 +5844,9 @@
     },
     "/org/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
@@ -4842,6 +5868,9 @@
     },
     "/admin/org/{id}/metadata/{domain}/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key in the specified domain from organization metadata .",
         "responses": {
           "2XX": {
@@ -4881,6 +5910,9 @@
     },
     "/admin/extension/vdc/{id}/resourcePools": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve resource pools associated with an organization VDC",
         "responses": {
           "2XX": {
@@ -4902,6 +5934,9 @@
     },
     "/org": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of organizations accessible to you.\n\n The system administrator has access to all organizations.",
         "responses": {
           "2XX": {
@@ -4912,6 +5947,9 @@
     },
     "/admin/orgs/query": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a list of organizations by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -4922,6 +5960,9 @@
     },
     "/vApp/{id}/productSections": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of ProductSection elements from a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
@@ -4930,6 +5971,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update all ProductSection elements in a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
@@ -4951,6 +5995,9 @@
     },
     "/vAppTemplate/{id}/productSections": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of ProductSection elements from a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
@@ -4959,6 +6006,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update all ProductSection elements in a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
@@ -4980,6 +6030,9 @@
     },
     "/admin/providervdc/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve a provider vDC.",
         "responses": {
           "2XX": {
@@ -5001,6 +6054,9 @@
     },
     "/admin/providervdc/{id}/metadata": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve metadata associated with the provider vDC.",
         "responses": {
           "2XX": {
@@ -5009,6 +6065,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -5030,6 +6089,9 @@
     },
     "/admin/extension/providerVdcReferences": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of references to provider vDCs in the system.",
         "responses": {
           "2XX": {
@@ -5040,6 +6102,9 @@
     },
     "/admin/extension/pvdcStorageProfile/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve provider vDC storage profile details.",
         "responses": {
           "2XX": {
@@ -5048,6 +6113,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update a provider vDC storage profile\n\n You can update a storage profile to enable or disable it.",
         "responses": {
           "2XX": {
@@ -5069,6 +6137,9 @@
     },
     "/admin/pvdcStorageProfile/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve provider vDC storage profile details.",
         "responses": {
           "2XX": {
@@ -5090,6 +6161,9 @@
     },
     "/admin/pvdcStorageProfile/{id}/metadata": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve metadata associated with the Provider VDC Storage Profile.",
         "responses": {
           "2XX": {
@@ -5098,6 +6172,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -5119,6 +6196,9 @@
     },
     "/admin/extension/providerVdcReferences/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of provider vDCs by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references, records or idrecords. Default format is records.",
         "responses": {
           "2XX": {
@@ -5129,6 +6209,9 @@
     },
     "/admin/extension/providervdc/{id}/resourcePools": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a provider vDC resource pool set.",
         "responses": {
           "2XX": {
@@ -5150,6 +6233,9 @@
     },
     "/service": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Return all extension services registered with the system.",
         "responses": {
           "2XX": {
@@ -5160,6 +6246,9 @@
     },
     "/admin/user/{id}/grantedRights": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Queries user granted privileges",
         "responses": {
           "2XX": {
@@ -5181,6 +6270,9 @@
     },
     "/admin/extension/service/resourceclass/{id}/resourceclassactions": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "List registered resource class actions for extension service.",
         "responses": {
           "2XX": {
@@ -5189,6 +6281,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Registers resource class action for extension service. The resource class action will be added only if a resource class with the same name does not exist.",
         "responses": {
           "2XX": {
@@ -5210,6 +6305,9 @@
     },
     "/admin/extension/service/{id}/resourceclasses": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "List registered resource classes for extension service.",
         "responses": {
           "2XX": {
@@ -5218,6 +6316,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Registers resource class for extension service. The resource class will be added only if a resource class with the same name does not exist.",
         "responses": {
           "2XX": {
@@ -5239,6 +6340,9 @@
     },
     "/admin/extension/service/{id}/rights": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Gives the rights registered by this extension service.",
         "responses": {
           "2XX": {
@@ -5247,6 +6351,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Registers right to the rights managed by this extension service. The right will be added only if a right with the same name does not already exists.",
         "responses": {
           "2XX": {
@@ -5268,6 +6375,9 @@
     },
     "/admin/vdcs/query": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a list of vdcs in the organization; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -5278,6 +6388,9 @@
     },
     "/admin/org/{orgId}/roles/query": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -5299,6 +6412,9 @@
     },
     "/admin/roles/query": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -5309,6 +6425,9 @@
     },
     "/admin/extension/resourcePool/{rpId}/rules": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "List all VmHostAffinityRules within this resource pool.",
         "responses": {
           "2XX": {
@@ -5317,6 +6436,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Create VM Affinity Rules within this resource pool.",
         "responses": {
           "2XX": {
@@ -5338,6 +6460,9 @@
     },
     "/vApp/{id}/runtimeInfoSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the runtime info section of a VM.",
         "responses": {
           "2XX": {
@@ -5359,6 +6484,9 @@
     },
     "/v1.5/schema/{schemaFileName}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the specified schema definition file from the server.",
         "responses": {
           "2XX": {
@@ -5380,6 +6508,9 @@
     },
     "/versions/schema/versions.xsd": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Unauthenticated GET of versions.xsd schema definition file.",
         "responses": {
           "2XX": {
@@ -5390,6 +6521,9 @@
     },
     "/admin/catalog/{id}/extension": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
@@ -5398,6 +6532,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Creates a Selector Extension.",
         "responses": {
           "2XX": {
@@ -5419,6 +6556,9 @@
     },
     "/admin/vdcs/extension": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
@@ -5427,6 +6567,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Creates a Selector Extension.",
         "responses": {
           "2XX": {
@@ -5437,6 +6580,9 @@
     },
     "/admin/org/{id}/extension": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
@@ -5445,6 +6591,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Creates a Selector Extension.",
         "responses": {
           "2XX": {
@@ -5466,6 +6615,9 @@
     },
     "/admin/providervdc/{id}/extension": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
@@ -5474,6 +6626,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Creates a Selector Extension.",
         "responses": {
           "2XX": {
@@ -5495,6 +6650,9 @@
     },
     "/admin/vdc/{id}/extension": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
@@ -5503,6 +6661,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Creates a Selector Extension.",
         "responses": {
           "2XX": {
@@ -5524,6 +6685,9 @@
     },
     "/admin/extension/object/{id}/selectorExtensions": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Displays a list of all selector extensions of a registered object extension.",
         "responses": {
           "2XX": {
@@ -5545,6 +6709,9 @@
     },
     "/vApp/{id}/virtualHardwareSection/serialPorts": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all RASD items that specify serial port properties of a VM.",
         "responses": {
           "2XX": {
@@ -5553,6 +6720,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Modifies all RASD items that specify serial port properties of a VM.",
         "responses": {
           "2XX": {
@@ -5574,6 +6744,9 @@
     },
     "/vAppTemplate/{id}/virtualHardwareSection/serialPorts": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve all RASD items that specify serial port properties of a VM.",
         "responses": {
           "2XX": {
@@ -5582,6 +6755,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Modifies all RASD items that specify serial port properties of a VM.",
         "responses": {
           "2XX": {
@@ -5603,6 +6779,9 @@
     },
     "/server_status": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Always returns HTTP 200",
         "responses": {
           "2XX": {
@@ -5613,6 +6792,9 @@
     },
     "/service/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Return the Extension Service API Definition.",
         "responses": {
           "2XX": {
@@ -5634,6 +6816,9 @@
     },
     "/admin/extension/service/resourceclass/{id}/serviceresources": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "List registered service resources for extension service.",
         "responses": {
           "2XX": {
@@ -5642,6 +6827,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Registers service resource for extension service.",
         "responses": {
           "2XX": {
@@ -5663,6 +6851,9 @@
     },
     "/admin/extension/service/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Return the System Administrator representation of all extension services registered with the system.",
         "responses": {
           "2XX": {
@@ -5673,6 +6864,9 @@
     },
     "/vAppTemplate/{id}/shadowVms": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of shadow VMs associated with the specified vApp template.",
         "responses": {
           "2XX": {
@@ -5694,6 +6888,9 @@
     },
     "/site/associations/localAssociationData": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Get the {@link SiteAssociationsType} for this site. GET /api/site/associations/localAssociationData",
         "responses": {
           "2XX": {
@@ -5704,6 +6901,9 @@
     },
     "/site/associations": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Get the {@link SiteAssociationsType} for this site. GET /api/site/associations",
         "responses": {
           "2XX": {
@@ -5712,6 +6912,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the site's list of associated sites PUT /api/site/associations",
         "responses": {
           "2XX": {
@@ -5720,6 +6923,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Add a new {@link SiteAssociationType} for this site. POST /api/site/associations",
         "responses": {
           "2XX": {
@@ -5730,6 +6936,9 @@
     },
     "/vApp/{id}/snapshotSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve SnapshotSection element for a vApp or VM.",
         "responses": {
           "2XX": {
@@ -5751,6 +6960,9 @@
     },
     "/vApp/{id}/startupSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the startup section of a vApp.",
         "responses": {
           "2XX": {
@@ -5759,6 +6971,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the startup section of a vApp.",
         "responses": {
           "2XX": {
@@ -5780,6 +6995,9 @@
     },
     "/admin/extension/vimServer/{id}/storageProfiles": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve all storage profiles in the VIM server",
         "responses": {
           "2XX": {
@@ -5801,6 +7019,9 @@
     },
     "/admin/extension/strandedItems/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of all stranded items in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references, records or idrecords. Default format is records.",
         "responses": {
           "2XX": {
@@ -5811,6 +7032,9 @@
     },
     "/supportedSystemsInfo": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "List operating systems available for use on virtual machines owned by this organization.",
         "responses": {
           "2XX": {
@@ -5821,6 +7045,9 @@
     },
     "/versions": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of vCloud API versions supported by this system. This request does not require an authentication token.",
         "responses": {
           "2XX": {
@@ -5831,6 +7058,9 @@
     },
     "/admin/extension/settings/passwordPolicy": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system password policy settings.",
         "responses": {
           "2XX": {
@@ -5839,6 +7069,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system password policy settings.",
         "responses": {
           "2XX": {
@@ -5849,6 +7082,9 @@
     },
     "/admin/extension/settings": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve system settings.\n\n System settings specify default values and behaviors for the cloud and all of the organizations in it. System settings are divided into categories. This request retrieves all categories of system settings.",
         "responses": {
           "2XX": {
@@ -5857,6 +7093,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update system settings.\n\n System settings specify default values and behaviors for the cloud and all of the organizations in it. System settings are divided into categories. This request updates all categories of system settings.",
         "responses": {
           "2XX": {
@@ -5867,6 +7106,9 @@
     },
     "/task/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a task.",
         "responses": {
           "2XX": {
@@ -5875,6 +7117,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update a task.",
         "responses": {
           "2XX": {
@@ -5896,6 +7141,9 @@
     },
     "/tasksList/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of this organization's queued, running, or recently completed tasks.",
         "responses": {
           "2XX": {
@@ -5904,6 +7152,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Post an external task to this organization.",
         "responses": {
           "2XX": {
@@ -5925,6 +7176,9 @@
     },
     "/vApp/{id}/screen": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves a thumbnail image of a VM console. The content type of the response can be any of {@code image/png}, {@code image/gif}.",
         "responses": {
           "2XX": {
@@ -5946,6 +7200,9 @@
     },
     "/admin/users/query": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieves a list of users for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -5956,6 +7213,9 @@
     },
     "/admin/org/{id}/settings/vAppLeaseSettings": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve organization vApp lease settings.",
         "responses": {
           "2XX": {
@@ -5964,6 +7224,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update organization vApp lease settings.",
         "responses": {
           "2XX": {
@@ -5985,6 +7248,9 @@
     },
     "/vApp/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve metadata associated with the vApp or VM.",
         "responses": {
           "2XX": {
@@ -5993,6 +7259,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -6014,6 +7283,9 @@
     },
     "/vApp/{id}/ovf": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the OVF descriptor of a vApp directly.",
         "responses": {
           "2XX": {
@@ -6035,6 +7307,9 @@
     },
     "/vApp/{id}/owner": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the owner of a vApp.",
         "responses": {
           "2XX": {
@@ -6043,6 +7318,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Change the owner of a vApp.",
         "responses": {
           "2XX": {
@@ -6064,6 +7342,9 @@
     },
     "/vAppTemplate/{id}/customizationSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the customization section of a vApp template.",
         "responses": {
           "2XX": {
@@ -6085,6 +7366,9 @@
     },
     "/admin/org/{id}/settings/vAppTemplateLeaseSettings": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve organization vApp template lease settings.",
         "responses": {
           "2XX": {
@@ -6093,6 +7377,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update organization vApp template lease settings.",
         "responses": {
           "2XX": {
@@ -6114,6 +7401,9 @@
     },
     "/vAppTemplate/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve metadata associated with the vApp template or VM.",
         "responses": {
           "2XX": {
@@ -6122,6 +7412,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -6143,6 +7436,9 @@
     },
     "/vAppTemplate/{id}/ovf": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the OVF descriptor of a vApp template.",
         "responses": {
           "2XX": {
@@ -6164,6 +7460,9 @@
     },
     "/vAppTemplate/{id}/owner": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the owner of a vApp template.",
         "responses": {
           "2XX": {
@@ -6172,6 +7471,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Change the owner of a vApp Template.",
         "responses": {
           "2XX": {
@@ -6193,6 +7495,9 @@
     },
     "/vAppTemplates/query": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves a list of vAppTemplates using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -6203,6 +7508,9 @@
     },
     "/admin/extension/vapps/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of all vApps in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
@@ -6213,6 +7521,9 @@
     },
     "/vApps/query": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves a list of vApps by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -6223,6 +7534,9 @@
     },
     "/vms/query": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves a list of VMs in lease by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
@@ -6233,6 +7547,9 @@
     },
     "/admin/extension/vsm/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve vShield Manager configuration details, including administrator credentials.",
         "responses": {
           "2XX": {
@@ -6241,6 +7558,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update vShield Manager configuration details, including administrator credentials.",
         "responses": {
           "2XX": {
@@ -6262,6 +7582,9 @@
     },
     "/admin/extension/vimServer/{id}/{vimObjType}/{vimObjMoref}/vSphereWebClientUrl": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve the vSphere URL of an object.",
         "responses": {
           "2XX": {
@@ -6301,6 +7624,9 @@
     },
     "/admin/": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve an administrative view of a cloud.\n\n The VCloud element provides access to cloud\\-wide namespace of objects that an administrator can view and, in most cases, modify.",
         "responses": {
           "2XX": {
@@ -6311,6 +7637,9 @@
     },
     "/admin/vdc/{vdcId}/computePolicies": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Get all vDC compute policies references in given vDC",
         "responses": {
           "2XX": {
@@ -6319,6 +7648,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update vDC compute policies given vDC",
         "responses": {
           "2XX": {
@@ -6340,6 +7672,9 @@
     },
     "/vdc/{vdcId}/computePolicies": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Get all vDC compute policies references in given vDC",
         "responses": {
           "2XX": {
@@ -6361,6 +7696,9 @@
     },
     "/org/{id}/metrics/historic": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the all the metrics for a given org for the past 24 hours",
         "responses": {
           "2XX": {
@@ -6369,6 +7707,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the metrics for a given org based on the filters provided by the spec",
         "responses": {
           "2XX": {
@@ -6390,6 +7731,9 @@
     },
     "/vdc/{id}/metrics/historic": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves the past 24h rolled up metrics for a VDC",
         "responses": {
           "2XX": {
@@ -6398,6 +7742,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves rolled up metrics for a VDC according to the spec",
         "responses": {
           "2XX": {
@@ -6419,6 +7766,9 @@
     },
     "/admin/vdc/{id}/metadata": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve metadata associated with the virtual datacenter.",
         "responses": {
           "2XX": {
@@ -6427,6 +7777,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -6448,6 +7801,9 @@
     },
     "/vdc/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve metadata associated with a vDC.",
         "responses": {
           "2XX": {
@@ -6469,6 +7825,9 @@
     },
     "/admin/vdc/{id}/metadata/{domain}/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key in the specified domain from virtual datacenter metadata.",
         "responses": {
           "2XX": {
@@ -6508,6 +7867,9 @@
     },
     "/vdcStorageProfile/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Returns storage class referred by the Id. All properties of the storage classes are visible to vcloud user, except for VDC Storage Class reference",
         "responses": {
           "2XX": {
@@ -6529,6 +7891,9 @@
     },
     "/admin/vdcStorageProfile/{id}/metadata": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
@@ -6537,6 +7902,9 @@
         }
       },
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
@@ -6558,6 +7926,9 @@
     },
     "/vdcStorageProfile/{id}/metadata": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
@@ -6579,6 +7950,9 @@
     },
     "/admin/vdcStorageProfile/{id}/metadata/{domain}/{key}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
@@ -6618,6 +7992,9 @@
     },
     "/admin/vdcStorageProfile/{id}": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Returns the representation of a vDC storage profile",
         "responses": {
           "2XX": {
@@ -6626,6 +8003,9 @@
         }
       },
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Updates a single storage profile with user supplied data",
         "responses": {
           "2XX": {
@@ -6647,6 +8027,9 @@
     },
     "/vdcTemplate/{id}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a vDC template.",
         "responses": {
           "2XX": {
@@ -6668,6 +8051,9 @@
     },
     "/vdcTemplates": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of vDC templates accessible to you.\n\n The system administrator has access to all templates.",
         "responses": {
           "2XX": {
@@ -6678,6 +8064,9 @@
     },
     "/admin/providervdc/{id}/vdcReferences": {
       "get": {
+        "tags": [
+          "admin"
+        ],
         "description": "Retrieve a list of organization vDCs supported by a given provider vDC.\n\n Resources from the provider vDC are allocated across all organization vDCs in the list.",
         "responses": {
           "2XX": {
@@ -6699,6 +8088,9 @@
     },
     "/admin/extension/networkPool/{id}/vendorServices": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve services associated with this network pool",
         "responses": {
           "2XX": {
@@ -6720,6 +8112,9 @@
     },
     "/admin/extension/vimServerReferences": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of references to vCenter servers attached to the system.",
         "responses": {
           "2XX": {
@@ -6730,6 +8125,9 @@
     },
     "/admin/extension/vimServerReferences/query": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get list of vSphere servers by using REST API general QueryHandler; This is read only list of vim servers and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
@@ -6740,6 +8138,9 @@
     },
     "/admin/extension/vimServer/{id}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve the representation of a registered vCenter server.",
         "responses": {
           "2XX": {
@@ -6748,6 +8149,9 @@
         }
       },
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update the representation of a registered vCenter server.",
         "responses": {
           "2XX": {
@@ -6769,6 +8173,9 @@
     },
     "/vApp/{id}/virtualHardwareSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the virtual hardware section of a VM.\n\n This operation retrieves the entire VirtualHardwareSection of a VM. You can also retrieve many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
@@ -6777,6 +8184,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the virtual hardware section of a VM.\n\n This operation updates the entire VirtualHardwareSection of a VM. You can also update many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
@@ -6798,6 +8208,9 @@
     },
     "/vAppTemplate/{id}/virtualHardwareSection": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve the virtual hardware section of a VM.\n\n This operation retrieves the entire VirtualHardwareSection of a VM. You can also retrieve many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
@@ -6806,6 +8219,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update the virtual hardware section of a VM.\n\n This operation updates the entire VirtualHardwareSection of a VM. You can also update many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
@@ -6827,6 +8243,9 @@
     },
     "/vdc/{id}/vmAffinityRules": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieves a list of all VM Affinity rules within a given vDC.",
         "responses": {
           "2XX": {
@@ -6835,6 +8254,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Creates a new VM affinity rule.This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
         "responses": {
           "2XX": {
@@ -6856,6 +8278,9 @@
     },
     "/vApp/{id}/vmCapabilities": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Gets {@link VmCapabilitiesType} for the VM identified by id.",
         "responses": {
           "2XX": {
@@ -6864,6 +8289,9 @@
         }
       },
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Updates VM's {@link VmCapabilities}",
         "responses": {
           "2XX": {
@@ -6885,6 +8313,9 @@
     },
     "/vApp/{id}/complianceResult": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Return the results of the most recent POST /vApp/vm\\-{id}/action/checkCompliance request to the specified VM.",
         "responses": {
           "2XX": {
@@ -6906,6 +8337,9 @@
     },
     "/vApp/{id}/metrics/current": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Gets the current usage for all available VM metrics.",
         "responses": {
           "2XX": {
@@ -6914,6 +8348,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Gets the current usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard\\-style metric name patterns to fine\\-tune the list of returned metrics.",
         "responses": {
           "2XX": {
@@ -6935,6 +8372,9 @@
     },
     "/admin/extension/resourcePool/{rpId}/vmGroup/name/{groupName}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Gets {@link JAXBElement} with given VM group name.",
         "responses": {
           "2XX": {
@@ -6965,6 +8405,9 @@
     },
     "/vmGroup/name/{groupName}": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -6986,6 +8429,9 @@
     },
     "/admin/extension/vmGroups/name/{groupName}": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -7007,6 +8453,9 @@
     },
     "/admin/extension/resourcePool/{rpId}/vmGroups": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "List all VmGroups within this resource pool.",
         "responses": {
           "2XX": {
@@ -7015,6 +8464,9 @@
         }
       },
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Create VM group within this resource pool.",
         "responses": {
           "2XX": {
@@ -7036,6 +8488,9 @@
     },
     "/vmGroups": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -7044,6 +8499,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -7054,6 +8512,9 @@
     },
     "/vApp/{id}/metrics/historic": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Gets the past 24 hours worth of samples for all available VM metrics.",
         "responses": {
           "2XX": {
@@ -7062,6 +8523,9 @@
         }
       },
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Gets the historic usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard\\-style metric name patterns to fine\\-tune the list of returned metrics, as well as a start and end time (either relative or absolute) to refine the set of sample points to a specific date range.",
         "responses": {
           "2XX": {
@@ -7083,6 +8547,9 @@
     },
     "/vApp/{id}/question": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a question being asked by a VM.",
         "responses": {
           "2XX": {
@@ -7104,6 +8571,9 @@
     },
     "/disk/{id}/attachedVms": {
       "get": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a list of all VMs attached to a disk.",
         "responses": {
           "2XX": {
@@ -7125,6 +8595,9 @@
     },
     "/admin/extension/resourcePool/{id}/vmList": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "List all VMs using this resource pool.",
         "responses": {
           "2XX": {
@@ -7146,6 +8619,9 @@
     },
     "/admin/extension/vimServer/{id}/vmsList": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Retrieve a list of virtual machines that can be imported from a registered vCenter server.\n\n This request supports optional query parameters:\n\n* page \\- The page to return. The first page is page 1.\n* pageSize \\- The number of virtual machines to list on a page. An integer value between 1 and 100. The default value is 1.",
         "responses": {
           "2XX": {
@@ -7167,6 +8643,9 @@
     },
     "/admin/extension/vmGroup/{groupId}/vmsList": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Enumerate the properties of the specified VM group",
         "responses": {
           "2XX": {
@@ -7188,6 +8667,9 @@
     },
     "/admin/extension/vmGroup/name/{groupName}/vmsList": {
       "get": {
+        "tags": [
+          "extension"
+        ],
         "description": "Get all VMs from all clusters in given VM group.",
         "responses": {
           "2XX": {
@@ -7209,6 +8691,9 @@
     },
     "/admin/extension/blockingTask/{id}/action/abort": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Abort a blocking task.\n\n This request ends the task, cleaning up any transient objects that it created. Task status is set to ABORTED.",
         "responses": {
           "2XX": {
@@ -7230,6 +8715,9 @@
     },
     "/vApp/{id}/screen/action/acquireMksTicket": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a mks ticket that you can use to gain access to the console of a running VM.",
         "responses": {
           "2XX": {
@@ -7251,6 +8739,9 @@
     },
     "/vApp/{id}/screen/action/acquireTicket": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Retrieve a screen ticket that you can use with the VMRC browser plug\\-in to gain access to the console of a running VM.",
         "responses": {
           "2XX": {
@@ -7272,6 +8763,9 @@
     },
     "/admin/extension/vmGroup/name/{groupName}/action/addVms": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Adds virtual machines to the specified VM group.\n\n This asynchronous call returns a task. The process of adding virtual machines to a VM group can result in the virtual machine being processed and redeployed by the placement engine. All virtual machines provided to this call will be marked busy until the add to group process is complete.",
         "responses": {
           "2XX": {
@@ -7293,6 +8787,9 @@
     },
     "/vApp/{id}/question/action/answer": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Answer a question being asked by a VM.",
         "responses": {
           "2XX": {
@@ -7314,6 +8811,9 @@
     },
     "/vApp/{id}/disk/action/attach": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Attach a disk to a VM.",
         "responses": {
           "2XX": {
@@ -7335,6 +8835,9 @@
     },
     "/task/{id}/action/cancel": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Cancel a task.",
         "responses": {
           "2XX": {
@@ -7356,6 +8859,9 @@
     },
     "/catalog/{id}/action/captureVApp": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Create a vApp template in this catalog from a vApp.",
         "responses": {
           "2XX": {
@@ -7377,6 +8883,9 @@
     },
     "/vdc/{id}/action/captureVApp": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Create a vApp template from a vApp.",
         "responses": {
           "2XX": {
@@ -7398,6 +8907,9 @@
     },
     "/admin/extension/service/{id}/authorizationcheck": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Checks user authorization for service, URL and request verb.",
         "responses": {
           "2XX": {
@@ -7419,6 +8931,9 @@
     },
     "/admin/extension/service/authorizationcheck": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Checks user authorization for all services with enabled authorization, URL and request verb.",
         "responses": {
           "2XX": {
@@ -7429,6 +8944,9 @@
     },
     "/vApp/{id}/action/checkCompliance": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Check storage profile compliance for the specified VM.",
         "responses": {
           "2XX": {
@@ -7450,6 +8968,9 @@
     },
     "/admin/extension/service/action/clearunusedlocalizationbundles": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Cleanup for unused external localization resources.",
         "responses": {
           "2XX": {
@@ -7460,6 +8981,9 @@
     },
     "/admin/extension/service/action/clearunusedrights": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Clears all the rights that are not associated with a role or acl rule and which extension service is already deleted.",
         "responses": {
           "2XX": {
@@ -7470,6 +8994,9 @@
     },
     "/vdc/{id}/action/cloneMedia": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Create a copy of a media object.",
         "responses": {
           "2XX": {
@@ -7491,6 +9018,9 @@
     },
     "/vdc/{id}/action/cloneVApp": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Create a copy of a vApp.",
         "responses": {
           "2XX": {
@@ -7512,6 +9042,9 @@
     },
     "/vdc/{id}/action/cloneVAppTemplate": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Create a copy of a vApp template.",
         "responses": {
           "2XX": {
@@ -7533,6 +9066,9 @@
     },
     "/vdc/{id}/action/composeVApp": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Compose a vApp from existing virtual machines.",
         "responses": {
           "2XX": {
@@ -7554,6 +9090,9 @@
     },
     "/admin/edgeGateway/{id}/action/configureServices": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Update edgeGateway configuration.",
         "responses": {
           "2XX": {
@@ -7575,6 +9114,9 @@
     },
     "/admin/edgeGateway/{id}/action/configureSyslogServerSettings": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Configure Syslog server settings for the org vdc edge gateway",
         "responses": {
           "2XX": {
@@ -7596,6 +9138,9 @@
     },
     "/vApp/{id}/action/consolidate": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Consolidate VM snapshots.",
         "responses": {
           "2XX": {
@@ -7617,6 +9162,9 @@
     },
     "/vAppTemplate/{id}/action/consolidate": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Consolidate VM snapshots.",
         "responses": {
           "2XX": {
@@ -7638,6 +9186,9 @@
     },
     "/org/{id}/catalog/{catalogId}/action/controlAccess": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Update access control information for a catalog.",
         "responses": {
           "2XX": {
@@ -7668,6 +9219,9 @@
     },
     "/vApp/{id}/action/controlAccess": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Update access control information for a vApp.",
         "responses": {
           "2XX": {
@@ -7689,6 +9243,9 @@
     },
     "/admin/edgeGateway/{id}/action/convertToAdvancedGateway": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Mark a gateway as an advanced gateway.",
         "responses": {
           "2XX": {
@@ -7710,6 +9267,9 @@
     },
     "/admin/network/{id}/action/convertToDistributedInterface": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Convert org vdc network to a distributed interface\n\n This operation is valid for internal org vdc routed networks that are subinterfaces or internal.",
         "responses": {
           "2XX": {
@@ -7731,6 +9291,9 @@
     },
     "/admin/network/{id}/action/convertToInternalInterface": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Convert org vdc network to an interface\n\n This operation is valid for internal org vdc routed networks that are subinterfaces",
         "responses": {
           "2XX": {
@@ -7752,6 +9315,9 @@
     },
     "/admin/network/{id}/action/convertToSubInterface": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Convert org vdc network to an sub interface\n\n This operation is valid for internal org vdc routed networks",
         "responses": {
           "2XX": {
@@ -7773,6 +9339,9 @@
     },
     "/catalog/{id}/action/copy": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Copy a catalog item from one catalog to another.",
         "responses": {
           "2XX": {
@@ -7794,6 +9363,9 @@
     },
     "/admin/org/{id}/catalogs": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Create a catalog.\n\n The catalog is created in the unpublished state.",
         "responses": {
           "2XX": {
@@ -7815,6 +9387,9 @@
     },
     "/catalog/{id}/catalogItems": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Add an item to a catalog.",
         "responses": {
           "2XX": {
@@ -7836,6 +9411,9 @@
     },
     "/vdc/{id}/disk": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Create a disk.",
         "responses": {
           "2XX": {
@@ -7857,6 +9435,9 @@
     },
     "/admin/extension/networkPools": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Create a network pool.",
         "responses": {
           "2XX": {
@@ -7867,6 +9448,9 @@
     },
     "/admin/org/{id}/networks": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Create an organization network.",
         "responses": {
           "2XX": {
@@ -7888,6 +9472,9 @@
     },
     "/admin/orgs": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Create an organization.",
         "responses": {
           "2XX": {
@@ -7898,6 +9485,9 @@
     },
     "/admin/extension/externalnets": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Create an external network.",
         "responses": {
           "2XX": {
@@ -7908,6 +9498,9 @@
     },
     "/admin/extension/providervdcs": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Create a provider vDC.",
         "responses": {
           "2XX": {
@@ -7918,6 +9511,9 @@
     },
     "/admin/extension/providervdcsparams": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Create a provider vDC.",
         "responses": {
           "2XX": {
@@ -7928,6 +9524,9 @@
     },
     "/admin/org/{orgId}/roles": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys\\-admin client at API version < 27",
         "responses": {
           "2XX": {
@@ -7949,6 +9548,9 @@
     },
     "/admin/roles": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys\\-admin client at API version < 27",
         "responses": {
           "2XX": {
@@ -7959,6 +9561,9 @@
     },
     "/vApp/{id}/action/createSnapshot": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Creates new snapshot of a virtual machine or of all the virtual machines in a vApp. Prior to creation of the new snapshots, any existing user created snapshots associated with the virtual machines are removed.",
         "responses": {
           "2XX": {
@@ -7980,6 +9585,9 @@
     },
     "/admin/extension/vdcTemplates": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Create a VDC template.",
         "responses": {
           "2XX": {
@@ -7990,6 +9598,9 @@
     },
     "/admin/org/{id}/users": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Create or import a user.\n\n Users can be created locally or imported from the organization's LDAP service.",
         "responses": {
           "2XX": {
@@ -8011,6 +9622,9 @@
     },
     "/admin/org/{id}/vdcs": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Create an organization VDC.",
         "responses": {
           "2XX": {
@@ -8032,6 +9646,9 @@
     },
     "/admin/org/{id}/vdcsparams": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Creates an organization vDC.",
         "responses": {
           "2XX": {
@@ -8053,6 +9670,9 @@
     },
     "/vApp/{id}/action/deploy": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Deploy a vApp or VM.\n\n Deployment allocates all resources for the vApp and the virtual machines it contains.",
         "responses": {
           "2XX": {
@@ -8074,6 +9694,9 @@
     },
     "/vApp/{id}/disk/action/detach": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Detach a disk from a VM.",
         "responses": {
           "2XX": {
@@ -8095,6 +9718,9 @@
     },
     "/admin/extension/rule/{ruleId}/action/disable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Disables the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
@@ -8116,6 +9742,9 @@
     },
     "/admin/extension/datastore/{id}/action/disable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Disable a datastore.",
         "responses": {
           "2XX": {
@@ -8137,6 +9766,9 @@
     },
     "/admin/edgeGateway/{id}/action/disableDistributedRouting": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Disable distributed routing for a gateway",
         "responses": {
           "2XX": {
@@ -8158,6 +9790,9 @@
     },
     "/admin/extension/host/{id}/action/disable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Disable a host.\n\n Disabling a host prevents vApps from starting on it. vApps that are running on the host continue to run.",
         "responses": {
           "2XX": {
@@ -8179,6 +9814,9 @@
     },
     "/vApp/{id}/action/disableNestedHypervisor": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Hide hardware\\-assisted CPU virtualization from guest OS.",
         "responses": {
           "2XX": {
@@ -8200,6 +9838,9 @@
     },
     "/admin/org/{id}/action/disable": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Disable an organization.\n\n Disabling an organization prevents users from logging in to it.",
         "responses": {
           "2XX": {
@@ -8221,6 +9862,9 @@
     },
     "/admin/extension/providervdc/{id}/action/disable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Disable a provider vDC.\n\n You can disable a provider vDC to prevent the creation of organization vDCs that use its resources. When you disable a provider vDC, you also disable the organization vDCs that use its resources. Running vApps and powered on virtual machines continue to run in those vDCs, but users cannot deploy additional vApps in them.",
         "responses": {
           "2XX": {
@@ -8242,6 +9886,9 @@
     },
     "/admin/extension/resourcePool/{id}/action/disable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Disable a provider vDC resource pool.",
         "responses": {
           "2XX": {
@@ -8263,6 +9910,9 @@
     },
     "/vApp/{id}/action/disableDownload": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Disable a vApp for download.",
         "responses": {
           "2XX": {
@@ -8284,6 +9934,9 @@
     },
     "/vAppTemplate/{id}/action/disableDownload": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Disable a vApp template for download.",
         "responses": {
           "2XX": {
@@ -8305,6 +9958,9 @@
     },
     "/admin/vdc/{id}/action/disable": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Disable an organization vDC.\n\n Disabling an organization vDC prevents prevent any further allocation of resources to it, but does not affect existing allocations. When an organization vDC is disabled, an organization user cannot deploy new virtual machines in it.",
         "responses": {
           "2XX": {
@@ -8326,6 +9982,9 @@
     },
     "/vApp/{id}/action/discardSuspendedState": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Discard suspended state of a vApp or VM.\n\n Discarding the suspended state of a vApp discards the suspended state of all VMs it contains.",
         "responses": {
           "2XX": {
@@ -8347,6 +10006,9 @@
     },
     "/vApp/{id}/media/action/ejectMedia": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Eject virtual media.",
         "responses": {
           "2XX": {
@@ -8368,6 +10030,9 @@
     },
     "/admin/extension/rule/{ruleId}/action/enable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Enables the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
@@ -8389,6 +10054,9 @@
     },
     "/admin/extension/datastore/{id}/action/enable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Enable a datastore.",
         "responses": {
           "2XX": {
@@ -8410,6 +10078,9 @@
     },
     "/admin/edgeGateway/{id}/action/enableDistributedRouting": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Enable distributed routing for a gateway",
         "responses": {
           "2XX": {
@@ -8431,6 +10102,9 @@
     },
     "/media/{id}/action/enableDownload": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Enable download for the media",
         "responses": {
           "2XX": {
@@ -8452,6 +10126,9 @@
     },
     "/admin/extension/host/{id}/action/enable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Enable a host.",
         "responses": {
           "2XX": {
@@ -8473,6 +10150,9 @@
     },
     "/admin/org/{id}/action/enable": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Enable an organization.\n\n Enabling an organization allows users to log in to it.",
         "responses": {
           "2XX": {
@@ -8494,6 +10174,9 @@
     },
     "/admin/extension/providervdc/{id}/action/enable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Enable a provider vDC.",
         "responses": {
           "2XX": {
@@ -8515,6 +10198,9 @@
     },
     "/admin/extension/resourcePool/{id}/action/enable": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Enable a provider VDC resource pool",
         "responses": {
           "2XX": {
@@ -8536,6 +10222,9 @@
     },
     "/vApp/{id}/action/enableDownload": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Enable a vApp for download.",
         "responses": {
           "2XX": {
@@ -8557,6 +10246,9 @@
     },
     "/vAppTemplate/{id}/action/enableDownload": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Enable a vApp template for download",
         "responses": {
           "2XX": {
@@ -8578,6 +10270,9 @@
     },
     "/admin/vdc/{id}/action/enable": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Enable an organization vDC.",
         "responses": {
           "2XX": {
@@ -8599,6 +10294,9 @@
     },
     "/vApp/{id}/action/enableNestedHypervisor": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Expose hardware\\-assisted CPU virtualization to guest OS.",
         "responses": {
           "2XX": {
@@ -8620,6 +10318,9 @@
     },
     "/vApp/{id}/action/enterMaintenanceMode": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Place the vApp in maintenance mode.\n\n When a vApp is in maintenance mode, it is read\\-only to users. Only a system administrator can modify it. User\\-initiated tasks that are running when the vApp enters maintenance mode continue to run.",
         "responses": {
           "2XX": {
@@ -8641,6 +10342,9 @@
     },
     "/vApp/{id}/action/exitMaintenanceMode": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Take the vApp out of maintenance mode.",
         "responses": {
           "2XX": {
@@ -8662,6 +10366,9 @@
     },
     "/admin/org/{id}/settings/vAppLeaseSettings/action/expireVAppsRuntimeLease": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -8683,6 +10390,9 @@
     },
     "/admin/org/{id}/settings/vAppTemplateLeaseSettings/action/expireVAppTemplatesStorageLease": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -8704,6 +10414,9 @@
     },
     "/admin/org/{id}/settings/vAppLeaseSettings/action/expireVAppsStorageLease": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -8725,6 +10438,9 @@
     },
     "/admin/extension/blockingTask/{id}/action/fail": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Fail a blocking task.\n\n This request ends the task, setting the status of any transient objects that it created to ERROR. Task status is set to ERROR.",
         "responses": {
           "2XX": {
@@ -8746,6 +10462,9 @@
     },
     "/vApp/{id}/action/customizeAtNextPowerOn": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Force guest customization on next power on.",
         "responses": {
           "2XX": {
@@ -8767,6 +10486,9 @@
     },
     "/admin/extension/strandedItem/{id}/action/forceDelete": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Removes stranded item and its children",
         "responses": {
           "2XX": {
@@ -8788,6 +10510,9 @@
     },
     "/admin/extension/vimServer/{id}/action/forcevimserverreconnect": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Force vCloud Director to reconnect to a registered vCenter server.",
         "responses": {
           "2XX": {
@@ -8809,6 +10534,9 @@
     },
     "/admin/org/{id}/groups": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Import a group from the LDAP directory service.",
         "responses": {
           "2XX": {
@@ -8830,6 +10558,9 @@
     },
     "/admin/extension/vimServer/{id}/importMedia": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Import media from vCenter.",
         "responses": {
           "2XX": {
@@ -8851,6 +10582,9 @@
     },
     "/admin/extension/vimServer/{id}/importVm": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Import a virtual machine from vCenter.",
         "responses": {
           "2XX": {
@@ -8872,6 +10606,9 @@
     },
     "/admin/extension/vimServer/{id}/importVmAsVApp": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Import a virtual machine from vCenter as a vCloud Director vApp.",
         "responses": {
           "2XX": {
@@ -8893,6 +10630,9 @@
     },
     "/admin/extension/vimServer/{id}/importVmAsVAppTemplate": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Import a virtual machine from vCenter as a vCloud Director vApp template.",
         "responses": {
           "2XX": {
@@ -8914,6 +10654,9 @@
     },
     "/admin/extension/vimServer/{id}/importVmIntoExistingVApp": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Import a virtual machine from vCenter into an existing vCloud Director vApp.",
         "responses": {
           "2XX": {
@@ -8935,6 +10678,9 @@
     },
     "/vApp/{id}/media/action/insertMedia": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Insert virtual media.",
         "responses": {
           "2XX": {
@@ -8956,6 +10702,9 @@
     },
     "/vApp/{id}/action/installVMwareTools": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Install VMware Tools on a running VM.",
         "responses": {
           "2XX": {
@@ -8977,6 +10726,9 @@
     },
     "/vdc/{id}/action/instantiateOvf": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Instantiate a vApp or VM from an OVF",
         "responses": {
           "2XX": {
@@ -8998,6 +10750,9 @@
     },
     "/vdc/{id}/action/instantiateVAppTemplate": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Create a vApp from a vApp template",
         "responses": {
           "2XX": {
@@ -9019,6 +10774,9 @@
     },
     "/org/{id}/action/instantiate": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Instantiates a VDC template. The caller supplies the VDC template and the name and description (as a ParamsType), which are the only two things the tenant can override in the template.",
         "responses": {
           "2XX": {
@@ -9040,6 +10798,9 @@
     },
     "/sessions": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Log in and create a Session object.\n\n To authenticate to the API service, POST a request to its login URL. The request body must contain a MIME Base64 encoding of your credentials in the form:\n\n*user*@*organization*:*password*\n\n To obtain the login URL, make an unauthenticated GET request to the vCloud Director api/versions URL. The response to this request lists the API versions that the server supports, and provides a login URL for each version.",
         "responses": {
           "2XX": {
@@ -9050,6 +10811,9 @@
     },
     "/admin/extension/rule/{ruleId}/action/makeMandatory": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Make specified VM Host affinity rule mandatory.",
         "responses": {
           "2XX": {
@@ -9071,6 +10835,9 @@
     },
     "/admin/extension/rule/{ruleId}/action/makeOptional": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Make the specified VM Host affinity optional.",
         "responses": {
           "2XX": {
@@ -9092,6 +10859,9 @@
     },
     "/admin/extension/providervdc/{id}/action/merge": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Merge provider vDCs.\n\n This operation merges the provider vDC specified in the request URL with one or more provider vDCs specified in the request parameters, and returns a representation of the merged provider vDC.",
         "responses": {
           "2XX": {
@@ -9113,6 +10883,9 @@
     },
     "/admin/extension/action/migrateTenant": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Initiate relocation of all entities for a given org (tenant).",
         "responses": {
           "2XX": {
@@ -9123,6 +10896,9 @@
     },
     "/admin/extension/resourcePool/{id}/action/migrateVms": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Migrate one or more virtual machines to a different resource pool.",
         "responses": {
           "2XX": {
@@ -9144,6 +10920,9 @@
     },
     "/admin/edgeGateway/{id}/action/modifyFormFactor": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Modify edgeGateway form factor.",
         "responses": {
           "2XX": {
@@ -9165,6 +10944,9 @@
     },
     "/catalog/{id}/action/move": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Move a catalog item from one catalog to another.",
         "responses": {
           "2XX": {
@@ -9186,6 +10968,9 @@
     },
     "/admin/org/{id}/events": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Post an external event to the system.",
         "responses": {
           "2XX": {
@@ -9207,6 +10992,9 @@
     },
     "/vApp/{id}/power/action/powerOff": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Power off a vApp or VM.\n\n If used on a vApp, powers off all VMs in the vApp. If used on a VM, powers off the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
@@ -9228,6 +11016,9 @@
     },
     "/vApp/{id}/power/action/powerOn": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Power on a vApp or VM.\n\n If used on a vApp, powers on all VMs in the vApp. If used on a VM, powers on the VM. This operation is available only for a vApp or VM that is powered off.",
         "responses": {
           "2XX": {
@@ -9249,6 +11040,9 @@
     },
     "/admin/extension/host/{id}/action/prepare": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Prepare a host.\n\n When you add a host to a cluster, you must prepare the host before vCloud Director can use the host's resources.",
         "responses": {
           "2XX": {
@@ -9270,6 +11064,9 @@
     },
     "/admin/catalog/probeRemoteLibrary": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Test the library subscription settings to make sure the remote endpoint exists, the password matches (if set), and the SSL certificate is trusted (if necessary).",
         "responses": {
           "2XX": {
@@ -9280,6 +11077,9 @@
     },
     "/admin/user/{id}/entityRights": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Queries user privileges on a set of entities",
         "responses": {
           "2XX": {
@@ -9301,6 +11101,9 @@
     },
     "/admin/role/{id}/action/relinkToTemplate": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Relink a role to the template specified by its defaultRoleId.",
         "responses": {
           "2XX": {
@@ -9322,6 +11125,9 @@
     },
     "/admin/edgeGateway/{id}/action/reapplyServices": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Reapply services on an edgeGateway.",
         "responses": {
           "2XX": {
@@ -9343,6 +11149,9 @@
     },
     "/vApp/{id}/power/action/reboot": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Reboot a vApp or VM.\n\n If used on a vApp, reboots all VMs in the vApp. If used on a VM, reboots the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
@@ -9364,6 +11173,9 @@
     },
     "/vApp/{id}/action/recomposeVApp": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Recompose a vApp to add or remove VMs.",
         "responses": {
           "2XX": {
@@ -9385,6 +11197,9 @@
     },
     "/vApp/{id}/action/reconfigureVm": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Updates Vm name, Description, and any or all of the following sections.  \n\n* VirtualHardwareSection\n* OperatingSystemSection\n* NetworkConnectionSection\n* GuestCustomizationSection\n\n Sections not included in the request body will not be updated. In API requests that specify version 29.0 or higher, this operation allows to also update:\n* the boot\\-options of the VM (boot\\-delay and enter\\-bios).\n* the storage profile\n* the VM capabilities (ability to add CPU or MEM while the VM is powered\\-on)\n* the hardware\\-assisted CPU virtualization capability",
         "responses": {
           "2XX": {
@@ -9406,6 +11221,9 @@
     },
     "/admin/edgeGateway/{id}/action/redeploy": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Redeploy edgeGateway.",
         "responses": {
           "2XX": {
@@ -9427,6 +11245,9 @@
     },
     "/admin/extension/vimServer/{id}/action/refreshStorageProfiles": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Refresh Storage Classes data from a registered vCenter server.",
         "responses": {
           "2XX": {
@@ -9448,6 +11269,9 @@
     },
     "/admin/extension/vimServer/{id}/action/refresh": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Refresh vCenter server.",
         "responses": {
           "2XX": {
@@ -9469,6 +11293,9 @@
     },
     "/admin/org/{id}/settings/federation/action/regenerateFederationCertificate": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Regenerates the certificates used to establish trust between an organization and its identity provider",
         "responses": {
           "2XX": {
@@ -9490,6 +11317,9 @@
     },
     "/admin/org/{id}/associations/localAssociationData/action/regenerateKeyPair": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Regenerates an org's key pair for associations",
         "responses": {
           "2XX": {
@@ -9511,6 +11341,9 @@
     },
     "/site/associations/localAssociationData/action/regenerateKeyPair": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Add a new {@link SiteAssociationType} for this site. POST /api/site/action/localAssociationData/regenerateSiteKey",
         "responses": {
           "2XX": {
@@ -9521,6 +11354,9 @@
     },
     "/admin/vdc/{id}/action/registerVApp": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Create a vApp based on a set of .vmx files and resource mappings",
         "responses": {
           "2XX": {
@@ -9542,6 +11378,9 @@
     },
     "/admin/extension/action/registervimserver": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Register a vCenter server and vShield manager.",
         "responses": {
           "2XX": {
@@ -9552,6 +11391,9 @@
     },
     "/vApp/{id}/action/reloadFromVc": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Reloads VM state from VC. Checks VM's extra configuration properties to ensure that they include all the default properties required for cloud\\-managed VMs and do not include any blacklisted properties or values. Reconfigures VM to add default properties and remove blacklisted properties and values if needed.\n\n This API is available to sysadmin users only.",
         "responses": {
           "2XX": {
@@ -9573,6 +11415,9 @@
     },
     "/vApp/{id}/action/relocate": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Relocate a VM to a different datastore.",
         "responses": {
           "2XX": {
@@ -9594,6 +11439,9 @@
     },
     "/vAppTemplate/{id}/action/relocate": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Relocate a VM to a different datastore.",
         "responses": {
           "2XX": {
@@ -9615,6 +11463,9 @@
     },
     "/vApp/{id}/action/removeAllSnapshots": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Removes all user created snapshots for a vApp or virtual machine.",
         "responses": {
           "2XX": {
@@ -9636,6 +11487,9 @@
     },
     "/admin/extension/vmGroup/name/{groupName}/action/removeVms": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Removes virtual machines from the specified VM group.\n\n This asynchronous call returns a task. The process of removing virtual machines from a VM group can result in the virtual machine being processed and redeployed by the placement engine. All virtual machines provided to this call will be marked busy until the remove from group process is complete.",
         "responses": {
           "2XX": {
@@ -9657,6 +11511,9 @@
     },
     "/admin/extension/host/{id}/action/repair": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Repair a host.",
         "responses": {
           "2XX": {
@@ -9678,6 +11535,9 @@
     },
     "/admin/extension/settings/amqp/action/resetAmqpCertificate": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Resets AMQP certificate.",
         "responses": {
           "2XX": {
@@ -9688,6 +11548,9 @@
     },
     "/admin/extension/settings/amqp/action/resetAmqpTruststore": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Resets AMQP truststore.",
         "responses": {
           "2XX": {
@@ -9698,6 +11561,9 @@
     },
     "/admin/extension/settings/ldapSettings/action/resetLdapKeyStore": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Resets system LDAP keystore.",
         "responses": {
           "2XX": {
@@ -9708,6 +11574,9 @@
     },
     "/admin/org/{id}/settings/ldap/action/resetLdapKeyStore": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Resets organization LDAP keystore.",
         "responses": {
           "2XX": {
@@ -9729,6 +11598,9 @@
     },
     "/admin/extension/settings/ldapSettings/action/resetLdapCertificate": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Resets system LDAP SSL certificate.",
         "responses": {
           "2XX": {
@@ -9739,6 +11611,9 @@
     },
     "/admin/org/{id}/settings/ldap/action/resetLdapCertificate": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Resets organization LDAP SSL certificate.",
         "responses": {
           "2XX": {
@@ -9760,6 +11635,9 @@
     },
     "/admin/network/{id}/action/reset": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Reset networking services on a network.\n\n This operation is valid for all networks except vApp networks in undeployed vApps.",
         "responses": {
           "2XX": {
@@ -9781,6 +11659,9 @@
     },
     "/admin/extension/settings/ldapSettings/action/resetLdapSspiKeytab": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Resets system LDAP SSPI key tab.",
         "responses": {
           "2XX": {
@@ -9791,6 +11672,9 @@
     },
     "/admin/org/{id}/settings/ldap/action/resetLdapSspiKeytab": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Resets organization LDAP SSPI keytab.",
         "responses": {
           "2XX": {
@@ -9812,6 +11696,9 @@
     },
     "/vApp/{id}/power/action/reset": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Reset a vApp or VM.\n\n If used on a vApp, resets all VMs in the vApp. If used on a VM, resets the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
@@ -9833,6 +11720,9 @@
     },
     "/admin/extension/settings/general/action/resetVcTrustsore": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Resets vCenter trust store.",
         "responses": {
           "2XX": {
@@ -9843,6 +11733,9 @@
     },
     "/admin/extension/blockingTask/{id}/action/resume": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Resume a blocking task.\n\n This request unblocks the task and allows it to continue.",
         "responses": {
           "2XX": {
@@ -9864,6 +11757,9 @@
     },
     "/vApp/{id}/action/revertToCurrentSnapshot": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Reverts a vApp or virtual machine to the current snapshot, if any.",
         "responses": {
           "2XX": {
@@ -9885,6 +11781,9 @@
     },
     "/vApp/{id}/power/action/shutdown": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Shut down a vApp or VM.\n\n If used on a vApp, shuts down all VMs in the vApp. If used on a VM, shuts down the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
@@ -9906,6 +11805,9 @@
     },
     "/vApp/{id}/power/action/suspend": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Suspend a vApp or VM.\n\n If used on a vApp, suspends all VMs in the vApp. If used on a VM, suspends the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
@@ -9927,6 +11829,9 @@
     },
     "/catalog/{id}/action/sync": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Force sync the catalog to the remote subscribed catalog.",
         "responses": {
           "2XX": {
@@ -9948,6 +11853,9 @@
     },
     "/catalogItem/{id}/action/sync": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Synchronize a catalog item with its source object.",
         "responses": {
           "2XX": {
@@ -9969,6 +11877,9 @@
     },
     "/admin/network/{id}/action/syncSyslogServerSettings": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Synchronize syslog server settings for a network.\n\n When you change the IP addresses of the primary or secondary syslog server for a cloud, you must also synchronize the syslog server settings for organization and vApp networks that include a firewall service for which logging has been enabled.",
         "responses": {
           "2XX": {
@@ -9990,6 +11901,9 @@
     },
     "/admin/edgeGateway/{id}/action/syncSyslogServerSettings": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Synchronize syslog server settings on an edgeGateway.",
         "responses": {
           "2XX": {
@@ -10011,6 +11925,9 @@
     },
     "/admin/user/{id}/action/takeOwnership": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Transfer ownership of this user's vApps, media, and catalogs to the caller.",
         "responses": {
           "2XX": {
@@ -10032,6 +11949,9 @@
     },
     "/admin/extension/settings/amqp/action/test": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Validate provisional AMQP settings.\n\n This request attempts to contact an AMQP broker using the values in the request body (an AmqpSettings element). If the attempt succeeds, the AmqpSettings are considered valid and can be used to update the system's AMQP settings.",
         "responses": {
           "2XX": {
@@ -10042,6 +11962,9 @@
     },
     "/vApp/{id}/action/undeploy": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Undeploy a vApp/VM.\n\n Undeployment deallocates all resources used by the vApp and the VMs it contains.",
         "responses": {
           "2XX": {
@@ -10063,6 +11986,9 @@
     },
     "/admin/role/{id}/action/unlinkFromTemplate": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Unlink a role from the template specified by its defaultRoleId.",
         "responses": {
           "2XX": {
@@ -10084,6 +12010,9 @@
     },
     "/admin/user/{id}/action/unlock": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Unlock a user.",
         "responses": {
           "2XX": {
@@ -10105,6 +12034,9 @@
     },
     "/admin/extension/host/{id}/action/unprepare": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Unprepare a host.\n\n Unpreparing host makes its resources inaccessible to vCloud Director.",
         "responses": {
           "2XX": {
@@ -10126,6 +12058,9 @@
     },
     "/admin/extension/vimServer/{id}/action/unregister": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Unregister a vCenter server.",
         "responses": {
           "2XX": {
@@ -10147,6 +12082,9 @@
     },
     "/vApp/{id}/action/bootOptions": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "",
         "responses": {
           "2XX": {
@@ -10168,6 +12106,9 @@
     },
     "/admin/catalog/{id}/action/publish": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Publish a catalog.\n\n Publishing a catalog sets the value of its IsPublished element to true and makes the catalog visible to organization administrators of all organizations in a cloud.",
         "responses": {
           "2XX": {
@@ -10189,6 +12130,9 @@
     },
     "/admin/catalog/{id}/action/publishToExternalOrganizations": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Publish a catalog to external orgs.",
         "responses": {
           "2XX": {
@@ -10210,6 +12154,9 @@
     },
     "/admin/extension/blockingTask/{id}/action/updateProgress": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Extend the expiration timeout of an active task.\n\n This request resets the timeout value and timeout action for an active task. Use this request to keep the task alive when it might become subject to a timeout action.",
         "responses": {
           "2XX": {
@@ -10231,6 +12178,9 @@
     },
     "/admin/extension/providervdc/{id}/storageProfiles": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update storage classes of a provider vDC.\n\n The request parameters specify storage classes to add or remove.",
         "responses": {
           "2XX": {
@@ -10252,6 +12202,9 @@
     },
     "/admin/extension/providervdc/{id}/action/updateResourcePools": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Add or remove provider vDC resource pools.",
         "responses": {
           "2XX": {
@@ -10273,6 +12226,9 @@
     },
     "/admin/catalog/{id}/action/subscribeToExternalCatalog": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Subscribe to an external catalog.",
         "responses": {
           "2XX": {
@@ -10294,6 +12250,9 @@
     },
     "/admin/vdc/{id}/vdcStorageProfiles": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Add or remove virtual datacenter storage classes.",
         "responses": {
           "2XX": {
@@ -10315,6 +12274,9 @@
     },
     "/admin/edgeGateway/{id}/action/upgradeConfig": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Upgrades the edge gateway appliance size.",
         "responses": {
           "2XX": {
@@ -10336,6 +12298,9 @@
     },
     "/admin/extension/host/{id}/action/upgrade": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Upgrade the vCloud Director host agent on a host after you have upgraded vCloud Director software.",
         "responses": {
           "2XX": {
@@ -10357,6 +12322,9 @@
     },
     "/vApp/{id}/action/upgradeHardwareVersion": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Upgrade the virtual hardware version of a VM to the highest supported virtual hardware version of the vDC that contains it.",
         "responses": {
           "2XX": {
@@ -10378,6 +12346,9 @@
     },
     "/admin/extension/settings/amqp/action/updateAmqpCertificate": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Updates AMQP certificate. AMQP certificate and trust store are mutually exclusive. Overrides AMQP trust store, if update is successful.",
         "responses": {
           "2XX": {
@@ -10388,6 +12359,9 @@
     },
     "/admin/extension/settings/amqp/action/updateAmqpTruststore": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Updates AMQP trust store. AMQP certificate and trust store are mutually exclusive. Overrides AMQP certificate, if update is successful.",
         "responses": {
           "2XX": {
@@ -10398,6 +12372,9 @@
     },
     "/admin/extension/settings/ldapSettings/action/updateLdapKeyStore": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Updates system LDAP keystore.",
         "responses": {
           "2XX": {
@@ -10408,6 +12385,9 @@
     },
     "/admin/org/{id}/settings/ldap/action/updateLdapKeyStore": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Updates organization LDAP keystore.",
         "responses": {
           "2XX": {
@@ -10429,6 +12409,9 @@
     },
     "/admin/extension/settings/ldapSettings/action/updateLdapCertificate": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Updates system LDAP SSL certificate.",
         "responses": {
           "2XX": {
@@ -10439,6 +12422,9 @@
     },
     "/admin/org/{id}/settings/ldap/action/updateLdapCertificate": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Updates organization LDAP SSL certificate.",
         "responses": {
           "2XX": {
@@ -10460,6 +12446,9 @@
     },
     "/admin/extension/service/localizationbundles": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Initiates localization bundle upload.",
         "responses": {
           "2XX": {
@@ -10470,6 +12459,9 @@
     },
     "/vdc/{id}/media": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Upload a media image",
         "responses": {
           "2XX": {
@@ -10491,6 +12483,9 @@
     },
     "/admin/extension/settings/ldapSettings/action/updateLdapSspiKeytab": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Updates system LDAP SSPI key tab.",
         "responses": {
           "2XX": {
@@ -10501,6 +12496,9 @@
     },
     "/admin/org/{id}/settings/ldap/action/updateLdapSspiKeytab": {
       "post": {
+        "tags": [
+          "admin"
+        ],
         "description": "Updates organization LDAP SSPI keytab.",
         "responses": {
           "2XX": {
@@ -10522,6 +12520,9 @@
     },
     "/catalog/{id}/action/upload": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Upload a vApp template to a catalog",
         "responses": {
           "2XX": {
@@ -10543,6 +12544,9 @@
     },
     "/vdc/{id}/action/uploadVAppTemplate": {
       "post": {
+        "tags": [
+          "user"
+        ],
         "description": "Upload an OVF package to create a vApp template",
         "responses": {
           "2XX": {
@@ -10564,6 +12568,9 @@
     },
     "/admin/extension/settings/general/action/updateVcTrustsore": {
       "post": {
+        "tags": [
+          "extension"
+        ],
         "description": "Updates vCenter trust store.",
         "responses": {
           "2XX": {
@@ -10574,6 +12581,9 @@
     },
     "/admin/extension/vdcTemplate/{id}/action/controlAccess": {
       "put": {
+        "tags": [
+          "extension"
+        ],
         "description": "Update access control information for a VDC template.",
         "responses": {
           "2XX": {
@@ -10595,6 +12605,9 @@
     },
     "/vdc/{id}/action/controlAccess": {
       "put": {
+        "tags": [
+          "user"
+        ],
         "description": "Update access control information for a VDC. Provided access control information should only use ReadOnly access level or else {@link BadRequestException} is thrown",
         "responses": {
           "2XX": {
@@ -10616,6 +12629,9 @@
     },
     "/admin/edgeGateway/{id}/action/updateProperties": {
       "put": {
+        "tags": [
+          "admin"
+        ],
         "description": "Endpoint for just updating gateway properties by themselves.",
         "responses": {
           "2XX": {

@@ -37,6 +37,7 @@ pub struct Operation {
     pub method: Method,
     pub path: String,
     pub description: String,
+    pub tag: &'static str,
 }
 
 #[derive(Error, Debug)]
@@ -72,7 +73,7 @@ impl TryFrom<DetailPage> for Operation {
                 .next()
                 .ok_or(Self::Error::CannotFindMethodError)?
                 .parse()?;
-        let path =
+        let path: String =
             p.h1.splitn(2, ' ')
                 .nth(1)
                 .ok_or(Self::Error::CannotFindPathError)?
@@ -83,10 +84,18 @@ impl TryFrom<DetailPage> for Operation {
             .get("Description:")
             .and_then(DefinitionListValue::text_to_markdown)
             .ok_or(Self::Error::CannotFindDescriptionError)?;
+        let tag = if path.starts_with("/admin/extension") {
+            "extension"
+        } else if path.starts_with("/admin") {
+            "admin"
+        } else {
+            "user"
+        };
         Ok(Self {
             method,
             path,
             description,
+            tag,
         })
     }
 }
@@ -108,6 +117,7 @@ impl From<Operation> for openapiv3::Operation {
                 .collect(),
                 ..Default::default()
             },
+            tags: vec![o.tag.into()],
             ..Default::default()
         }
     }
@@ -121,7 +131,8 @@ fn parse_operation_test() {
         Operation {
             method: Method::Put,
             path: "/admin/test/{id}".into(),
-            description: "Update a test.".into()
+            description: "Update a test.".into(),
+            tag: "admin"
         }
     )
 }
@@ -133,6 +144,7 @@ fn generate_schema_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
+            "tags": [ "admin" ],
             "description": "Update a test.",
             "responses": {
                 "2XX": {
