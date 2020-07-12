@@ -41,7 +41,6 @@ impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionList {
 pub enum DefinitionListValue {
     Text(String),
     SubList(Box<DefinitionList>),
-    Link { href: String, text: String },
 }
 
 #[derive(Error, Debug)]
@@ -67,15 +66,16 @@ impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionListValue {
             (Some(child), Some("dl")) => Ok(Self::SubList(Box::new(
                 DefinitionList::try_from(&child).map_err(Box::new)?,
             ))),
-            (Some(child), Some("a")) => Ok(Self::Link {
-                text: child.text().collect(),
-                href: child
-                    .value()
-                    .attr("href")
-                    .ok_or(Self::Error::MissingHrefError)?
-                    .into(),
-            }),
-            _ => Ok(Self::Text(el.text().collect::<Vec<&str>>().join("\n"))),
+            _ => Ok(Self::Text(el.inner_html())),
+        }
+    }
+}
+
+impl DefinitionListValue {
+    pub fn text_to_markdown(&self) -> Option<String> {
+        match self {
+            DefinitionListValue::Text(html) => Some(html2md::parse_html(html).trim().into()),
+            DefinitionListValue::SubList(_) => None,
         }
     }
 }
@@ -168,17 +168,13 @@ fn parse_operation_test() {
                                 (
                                     "Consume media type(s):".into(),
                                     DefinitionListValue::Text(
-                                        r#"application/vnd.vmware.admin.test+xml
-application/vnd.vmware.admin.test+json"#
+                                        "application/vnd.vmware.admin.test+xml<br>application/vnd.vmware.admin.test+json<br>"
                                             .into()
                                     )
                                 ),
                                 (
                                     "Input type:".into(),
-                                    DefinitionListValue::Link {
-                                        text: "AdminTestType".into(),
-                                        href: "..//types/AdminTestType.html".into()
-                                    }
+                                    DefinitionListValue::Text ("<a href=\"..//types/AdminTestType.html\">AdminTestType</a>".into())
                                 )
                             ]
                             .iter()
@@ -193,17 +189,13 @@ application/vnd.vmware.admin.test+json"#
                                 (
                                     "Produce media type(s):".into(),
                                     DefinitionListValue::Text(
-                                        r#"application/vnd.vmware.admin.test+xml
-application/vnd.vmware.admin.test+json"#
+                                        "application/vnd.vmware.admin.test+xml<br>application/vnd.vmware.admin.test+json<br>"
                                             .into()
                                     )
                                 ),
                                 (
                                     "Output type:".into(),
-                                    DefinitionListValue::Link {
-                                        text: "AdminTestType".into(),
-                                        href: "..//types/AdminTestType.html".into()
-                                    }
+                                    DefinitionListValue::Text("<a href=\"..//types/AdminTestType.html\">AdminTestType</a>".into())
                                 )
                             ]
                             .iter()

@@ -77,15 +77,12 @@ impl TryFrom<DetailPage> for Operation {
                 .nth(1)
                 .ok_or(Self::Error::CannotFindPathError)?
                 .into();
-        let description = match p
+        let description = p
             .definition_list
             .0
             .get("Description:")
-            .ok_or(Self::Error::CannotFindDescriptionError)?
-        {
-            DefinitionListValue::Text(d) => d.clone(),
-            _ => Err(Self::Error::DescriptionWrongType)?,
-        };
+            .and_then(DefinitionListValue::text_to_markdown)
+            .ok_or(Self::Error::CannotFindDescriptionError)?;
         Ok(Self {
             method,
             path,
