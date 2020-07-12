@@ -24,6 +24,17 @@ pub enum SchemaFromBytesError {
     XsdParse(#[from] SchemaParseError),
 }
 
+impl Schema {
+    pub fn content_types_names(&self) -> impl Iterator<Item = (String, String)> + '_ {
+        self.types
+            .iter()
+            .filter_map(|t| match (t.content_type(), t.name()) {
+                (Some(c), Some(n)) => Some((c.into(), n.into())),
+                _ => None,
+            })
+    }
+}
+
 impl TryFrom<(&[u8], &str)> for Schema {
     type Error = SchemaFromBytesError;
 

@@ -1,12 +1,19 @@
 use indexmap::IndexMap;
 use openapiv3::{ReferenceOr, Schema};
+use std::collections::BTreeMap;
 use std::convert::TryFrom;
 use std::io::{Read, Seek};
 use zip::read::ZipArchive;
 
 pub fn schemas<R: Read + Seek>(
     zip: &mut ZipArchive<R>,
-) -> Result<IndexMap<String, ReferenceOr<Schema>>, Box<dyn std::error::Error>> {
+) -> Result<
+    (
+        IndexMap<String, ReferenceOr<Schema>>,
+        BTreeMap<String, String>,
+    ),
+    Box<dyn std::error::Error>,
+> {
     let mut output = IndexMap::new();
     let mut type_file_names = zip
         .file_names()
@@ -18,6 +25,8 @@ pub fn schemas<R: Read + Seek>(
         .collect::<Vec<String>>();
 
     type_file_names.sort();
+
+    let mut content_type_mapping = BTreeMap::new();
 
     for type_file_name in type_file_names {
         let mut bytes = Vec::new();
@@ -47,6 +56,7 @@ pub fn schemas<R: Read + Seek>(
                         .map(|title| (title, ReferenceOr::Item(s)))
                 }),
         );
+        content_type_mapping.extend(xsd_schema.content_types_names());
     }
 
     output.insert(
@@ -57,5 +67,5 @@ pub fn schemas<R: Read + Seek>(
         }),
     );
 
-    Ok(output)
+    Ok((output, content_type_mapping))
 }

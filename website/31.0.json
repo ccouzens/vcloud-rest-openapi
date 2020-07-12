@@ -178,6 +178,16 @@
           "admin"
         ],
         "description": "Update an organization association",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationAssociation+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgAssociationType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -242,6 +252,16 @@
           "admin"
         ],
         "description": "Update the name or description of a catalog.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.catalog+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_AdminCatalogType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -288,6 +308,16 @@
           "user"
         ],
         "description": "Modify a catalog item.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.catalogItem+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CatalogItemType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -444,6 +474,16 @@
           "user"
         ],
         "description": "Update the name, description, and storage class of a disk.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.disk+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_DiskType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -545,6 +585,16 @@
           "admin"
         ],
         "description": "Update an edge gateway",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.edgeGateway+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_GatewayType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -591,6 +641,16 @@
           "extension"
         ],
         "description": "Update an external network.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwexternalnet+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -672,6 +732,16 @@
           "admin"
         ],
         "description": "Update the name or description of a group.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.group+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_GroupType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -777,6 +847,16 @@
           "user"
         ],
         "description": "Update the name and description of a media object.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.media+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MediaType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -878,6 +958,16 @@
           "admin"
         ],
         "description": "Update an organization network.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.orgVdcNetwork+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -924,6 +1014,16 @@
           "user"
         ],
         "description": "",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vAppNetwork+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VAppNetworkType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1071,6 +1171,16 @@
           "extension"
         ],
         "description": "Updates a registered object extension.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.extensibility.object+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ObjectExtensionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1117,6 +1227,16 @@
           "admin"
         ],
         "description": "Update an organization.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organization+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_AdminOrgType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1218,6 +1338,16 @@
           "extension"
         ],
         "description": "Update a provider vDC.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwprovidervdc+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1444,6 +1574,16 @@
           "admin"
         ],
         "description": "Updates a right.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.right+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RightType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1534,6 +1674,16 @@
           "admin"
         ],
         "description": "Modify rights for an organization",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.org.rights+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrganizationRolesType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1545,6 +1695,16 @@
           "admin"
         ],
         "description": "Add rights to an organization",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.org.rights+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrganizationRolesType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1591,6 +1751,16 @@
           "admin"
         ],
         "description": "Update a role.\n\n This request changes the name or description of the role, and adds or removes rights.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.role+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RoleType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1637,6 +1807,16 @@
           "admin"
         ],
         "description": "Updates a Selector Extension.\n\n The association can be the default policy, or an overridden instance of the default policy.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.extensibility.selector+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1683,6 +1863,16 @@
           "extension"
         ],
         "description": "Updates already registered service.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.service+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AdminServiceType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1799,6 +1989,16 @@
           "user"
         ],
         "description": "Adds an association for the specified site. PUT /api/site/associations/{siteId}",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.siteAssociation+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SiteAssociationType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1880,6 +2080,16 @@
           "extension"
         ],
         "description": "Update a vDC template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwVdcTemplate+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1926,6 +2136,16 @@
           "extension"
         ],
         "description": "Update an existing NSX\\-T Manager.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.nsxTmanager+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_NsxTManagerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1972,6 +2192,16 @@
           "user"
         ],
         "description": "",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.nsxTmanager+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_NsxTManagerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2018,6 +2248,16 @@
           "admin"
         ],
         "description": "Update a user.\n\n Use this request to update any property of a local user, or to update the name or description of an imported user. A locked user cannot be updated.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.user+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_UserType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2064,6 +2304,16 @@
           "user"
         ],
         "description": "Modify the name or description of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vm+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2165,6 +2415,16 @@
           "user"
         ],
         "description": "Update the name, description and gold master of a vApp template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vAppTemplate+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VAppTemplateType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2266,6 +2526,16 @@
           "admin"
         ],
         "description": "Modify an organization vDC.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vdc+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_AdminVdcType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2312,6 +2582,16 @@
           "user"
         ],
         "description": "Modify the name and/or description of an organization vDC.\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vdc+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VdcType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2468,6 +2748,16 @@
           "user"
         ],
         "description": "Updates the specified VM affinity/anti\\-affinity rule. This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vmaffinityrule+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmAffinityRuleType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2558,6 +2848,16 @@
           "extension"
         ],
         "description": "Registers resource class ACL rule for extension service.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.aclRule+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AclRuleType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2667,6 +2967,16 @@
           "extension"
         ],
         "description": "Update system AMQP settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.amqpSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2715,6 +3025,16 @@
           "extension"
         ],
         "description": "Creates API definition.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.apiDefinition+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AdminApiDefinitionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2813,6 +3133,16 @@
           "extension"
         ],
         "description": "Creates API filter.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.apiFilter+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ApiFilterType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2872,6 +3202,16 @@
           "admin"
         ],
         "description": "Replaces the organization's current list of association members with the specified list of members\n\n If the list is empty, all existing members will be deleted.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationAssociations+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgAssociationsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2883,6 +3223,16 @@
           "admin"
         ],
         "description": "Adds a new member to this organization's associations",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationAssociation+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgAssociationType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3110,6 +3460,16 @@
           "extension"
         ],
         "description": "Update system branding settings.\n\n You can use system branding settings to customize the vCloud Director Web console and some of the links that appear on the vCloud Director Home login screen.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.brandingSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_BrandingSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3294,6 +3654,16 @@
           "admin"
         ],
         "description": "Update the owner of a catalog.\n\n The request body specifies the new owner",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.owner+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OwnerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3342,6 +3712,16 @@
           "user"
         ],
         "description": "Modify the PostGC Status check of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vm.checkPostGuestCustomizationSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmCheckPGCType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3705,6 +4085,16 @@
           "user"
         ],
         "description": "Change the owner of a disk.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.owner+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OwnerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3753,6 +4143,16 @@
           "user"
         ],
         "description": "Update all RASD items that specify hard disk and hard disk controller properties of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3788,6 +4188,16 @@
           "user"
         ],
         "description": "Update all RASD items that specify hard disk and hard disk controller properties of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3823,6 +4233,16 @@
           "extension"
         ],
         "description": "Update system email settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.emailSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_EmailSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3921,6 +4341,16 @@
           "extension"
         ],
         "description": "Creates service.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.service+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AdminServiceType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3971,6 +4401,16 @@
           "admin"
         ],
         "description": "Update other organization settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationFederationSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgFederationSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4006,6 +4446,16 @@
           "extension"
         ],
         "description": "Creates file descriptor.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.fileDescriptor+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AdminFileDescriptorType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4065,6 +4515,16 @@
           "extension"
         ],
         "description": "Update other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system\\-wide configuration defaults.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.generalSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_GeneralSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4089,6 +4549,16 @@
           "admin"
         ],
         "description": "Update other organization settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationGeneralSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgGeneralSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4161,6 +4631,16 @@
           "user"
         ],
         "description": "Updates the guest customization section of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.guestCustomizationSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_GuestCustomizationSectionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4196,6 +4676,16 @@
           "user"
         ],
         "description": "Updates the guest customization section of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.guestCustomizationSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_GuestCustomizationSectionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4395,6 +4885,16 @@
           "extension"
         ],
         "description": "Update system Kerberos settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.kerberosSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_KerberosSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4419,6 +4919,16 @@
           "extension"
         ],
         "description": "Update system LDAP settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.ldapSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_LdapSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4443,6 +4953,16 @@
           "user"
         ],
         "description": "Updates the lease settings section of a vApp or vApp template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.leaseSettingsSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_LeaseSettingsSectionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4478,6 +4998,16 @@
           "user"
         ],
         "description": "Updates the lease settings section of a vApp or vApp template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.leaseSettingsSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_LeaseSettingsSectionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4513,6 +5043,16 @@
           "extension"
         ],
         "description": "Update catalog settings details.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.catalogSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_CatalogSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4537,6 +5077,16 @@
           "extension"
         ],
         "description": "Update vCloud Director software license details.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.licenseSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_LicenseType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4561,6 +5111,16 @@
           "extension"
         ],
         "description": "Create service link.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.serviceLink+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AdminServiceLinkType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4596,6 +5156,16 @@
           "user"
         ],
         "description": "Sets the local site to match what is specified in the {@link SiteType}. It can contain a list of associated sites in addition to info specific to the local site PUT /api/site",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.site+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SiteType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4644,6 +5214,16 @@
           "extension"
         ],
         "description": "Register / unregister Lookup Service to / from vCD. In `LookupServiceParamsType` 1. If LookupServiceUrl is set and not empty, the action is for register lookup service. 2. If LookupServiceUrl is unset or empty, the action is for unregister lookup service.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.lookupServiceParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_LookupServiceParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4895,6 +5475,16 @@
           "user"
         ],
         "description": "Update all RASD items that specify network card properties of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4930,6 +5520,16 @@
           "user"
         ],
         "description": "Update all RASD items that specify network card properties of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4965,6 +5565,16 @@
           "user"
         ],
         "description": "Update the network config section of a vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.networkConfigSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_NetworkConfigSectionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5000,6 +5610,16 @@
           "user"
         ],
         "description": "Update the network config section of a vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.networkConfigSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_NetworkConfigSectionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5035,6 +5655,16 @@
           "user"
         ],
         "description": "Update the network connection section of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.networkConnectionSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_NetworkConnectionSectionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5070,6 +5700,16 @@
           "user"
         ],
         "description": "Update the network connection section of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.networkConnectionSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_NetworkConnectionSectionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5280,6 +5920,16 @@
           "extension"
         ],
         "description": "Update system AMQP notifications settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.notificationsSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_NotificationsSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5304,6 +5954,16 @@
           "extension"
         ],
         "description": "Register an NSX\\-T Manager.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.nsxTmanager+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_NsxTManagerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5328,6 +5988,16 @@
           "user"
         ],
         "description": "",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.nsxTmanager+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_NsxTManagerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5352,6 +6022,16 @@
           "admin"
         ],
         "description": "Update organization OAuth settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationOAuthSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgOAuthSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5387,6 +6067,16 @@
           "extension"
         ],
         "description": "Registers a new object extension",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.extensibility.object+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ObjectExtensionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5446,6 +6136,16 @@
           "extension"
         ],
         "description": "Update catalog settings details.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.operationLimitsSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5470,6 +6170,16 @@
           "admin"
         ],
         "description": "Update organization email settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationEmailSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgEmailSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5505,6 +6215,16 @@
           "admin"
         ],
         "description": "Update organization defaults for guest personalization settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.guestPersonalizationSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgGuestPersonalizationSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5540,6 +6260,16 @@
           "admin"
         ],
         "description": "Update organization LDAP settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationLdapSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgLdapSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5588,6 +6318,16 @@
           "admin"
         ],
         "description": "Update organization operation limits settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.operationLimitsSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5623,6 +6363,16 @@
           "admin"
         ],
         "description": "Update organization password policy settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organizationPasswordPolicySettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgPasswordPolicySettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5658,6 +6408,16 @@
           "admin"
         ],
         "description": "Updates settings for this organization.\n\n Organization settings are divided into categories. This request updates all categories of organization settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.orgSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5693,6 +6453,16 @@
           "admin"
         ],
         "description": "Create an edge gateway.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.edgeGateway+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_GatewayType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5728,6 +6498,16 @@
           "admin"
         ],
         "description": "Create an Org vDC network.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.orgVdcNetwork+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5975,6 +6755,16 @@
           "user"
         ],
         "description": "Update all ProductSection elements in a vApp template, vApp, or VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.productSections+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ProductSectionListType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6010,6 +6800,16 @@
           "user"
         ],
         "description": "Update all ProductSection elements in a vApp template, vApp, or VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.productSections+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ProductSectionListType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6117,6 +6917,16 @@
           "extension"
         ],
         "description": "Update a provider vDC storage profile\n\n You can update a storage profile to enable or disable it.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwPvdcStorageProfile+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcStorageProfileType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6285,6 +7095,16 @@
           "extension"
         ],
         "description": "Registers resource class action for extension service. The resource class action will be added only if a resource class with the same name does not exist.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.resourceClassAction+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ResourceClassActionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6320,6 +7140,16 @@
           "extension"
         ],
         "description": "Registers resource class for extension service. The resource class will be added only if a resource class with the same name does not exist.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.resourceClass+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ResourceClassType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6355,6 +7185,16 @@
           "extension"
         ],
         "description": "Registers right to the rights managed by this extension service. The right will be added only if a right with the same name does not already exists.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.right+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RightType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6536,6 +7376,16 @@
           "admin"
         ],
         "description": "Creates a Selector Extension.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.extensibility.selector+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6571,6 +7421,16 @@
           "admin"
         ],
         "description": "Creates a Selector Extension.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.extensibility.selector+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6595,6 +7455,16 @@
           "admin"
         ],
         "description": "Creates a Selector Extension.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.extensibility.selector+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6630,6 +7500,16 @@
           "admin"
         ],
         "description": "Creates a Selector Extension.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.extensibility.selector+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6665,6 +7545,16 @@
           "admin"
         ],
         "description": "Creates a Selector Extension.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.extensibility.selector+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6724,6 +7614,16 @@
           "user"
         ],
         "description": "Modifies all RASD items that specify serial port properties of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6759,6 +7659,16 @@
           "user"
         ],
         "description": "Modifies all RASD items that specify serial port properties of a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6831,6 +7741,16 @@
           "extension"
         ],
         "description": "Registers service resource for extension service.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.serviceResource+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ServiceResourceType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6916,6 +7836,16 @@
           "user"
         ],
         "description": "Update the site's list of associated sites PUT /api/site/associations",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.siteAssociations+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SiteAssociationsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6927,6 +7857,16 @@
           "user"
         ],
         "description": "Add a new {@link SiteAssociationType} for this site. POST /api/site/associations",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.siteAssociation+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SiteAssociationType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7073,6 +8013,16 @@
           "extension"
         ],
         "description": "Update system password policy settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.systemPasswordPolicySettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_SystemPasswordPolicySettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7097,6 +8047,16 @@
           "extension"
         ],
         "description": "Update system settings.\n\n System settings specify default values and behaviors for the cloud and all of the organizations in it. System settings are divided into categories. This request updates all categories of system settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.systemSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_SystemSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7121,6 +8081,16 @@
           "user"
         ],
         "description": "Update a task.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.task+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_TaskType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7156,6 +8126,16 @@
           "user"
         ],
         "description": "Post an external task to this organization.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.task+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_TaskType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7228,6 +8208,16 @@
           "admin"
         ],
         "description": "Update organization vApp lease settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vAppLeaseSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgLeaseSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7322,6 +8312,16 @@
           "user"
         ],
         "description": "Change the owner of a vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.owner+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OwnerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7381,6 +8381,16 @@
           "admin"
         ],
         "description": "Update organization vApp template lease settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vAppTemplateLeaseSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OrgVAppTemplateLeaseSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7475,6 +8485,16 @@
           "user"
         ],
         "description": "Change the owner of a vApp Template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.owner+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_OwnerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7562,6 +8582,16 @@
           "extension"
         ],
         "description": "Update vShield Manager configuration details, including administrator credentials.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vshieldmanager+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ShieldManagerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7652,6 +8682,16 @@
           "admin"
         ],
         "description": "Update vDC compute policies given vDC",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vdcComputePolicyReferences+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VdcComputePolicyReferencesType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7711,6 +8751,16 @@
           "user"
         ],
         "description": "Retrieve the metrics for a given org based on the filters provided by the spec",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_HistoricUsageSpecType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7746,6 +8796,16 @@
           "user"
         ],
         "description": "Retrieves rolled up metrics for a VDC according to the spec",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_HistoricUsageSpecType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8007,6 +9067,16 @@
           "admin"
         ],
         "description": "Updates a single storage profile with user supplied data",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vdcStorageProfile+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_AdminVdcStorageProfileType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8153,6 +9223,16 @@
           "extension"
         ],
         "description": "Update the representation of a registered vCenter server.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwvirtualcenter+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VimServerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8258,6 +9338,16 @@
           "user"
         ],
         "description": "Creates a new VM affinity rule.This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vmaffinityrule+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmAffinityRuleType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8293,6 +9383,16 @@
           "user"
         ],
         "description": "Updates VM's {@link VmCapabilities}",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vmCapabilitiesSection+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8352,6 +9452,16 @@
           "user"
         ],
         "description": "Gets the current usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard\\-style metric name patterns to fine\\-tune the list of returned metrics.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metrics.currentUsageSpec+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CurrentUsageSpecType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8503,6 +9613,16 @@
           "user"
         ],
         "description": "",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwVmGroupType+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWVmGroupType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8527,6 +9647,16 @@
           "user"
         ],
         "description": "Gets the historic usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard\\-style metric name patterns to fine\\-tune the list of returned metrics, as well as a start and end time (either relative or absolute) to refine the set of sample points to a specific date range.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_HistoricUsageSpecType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8767,6 +9897,16 @@
           "extension"
         ],
         "description": "Adds virtual machines to the specified VM group.\n\n This asynchronous call returns a task. The process of adding virtual machines to a VM group can result in the virtual machine being processed and redeployed by the placement engine. All virtual machines provided to this call will be marked busy until the add to group process is complete.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vms+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8791,6 +9931,16 @@
           "user"
         ],
         "description": "Answer a question being asked by a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vmPendingAnswer+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmQuestionAnswerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8815,6 +9965,16 @@
           "user"
         ],
         "description": "Attach a disk to a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.diskAttachOrDetachParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_DiskAttachOrDetachParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8863,6 +10023,16 @@
           "user"
         ],
         "description": "Create a vApp template in this catalog from a vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.captureVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CaptureVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8887,6 +10057,16 @@
           "user"
         ],
         "description": "Create a vApp template from a vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.captureVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CaptureVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8911,6 +10091,16 @@
           "extension"
         ],
         "description": "Checks user authorization for service, URL and request verb.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.authorizationCheckParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AuthorizationCheckParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8935,6 +10125,16 @@
           "extension"
         ],
         "description": "Checks user authorization for all services with enabled authorization, URL and request verb.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.authorizationCheckParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AuthorizationCheckParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8998,6 +10198,16 @@
           "user"
         ],
         "description": "Create a copy of a media object.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.cloneMediaParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CloneMediaParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9022,6 +10232,16 @@
           "user"
         ],
         "description": "Create a copy of a vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.cloneVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CloneVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9046,6 +10266,16 @@
           "user"
         ],
         "description": "Create a copy of a vApp template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.cloneVAppTemplateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CloneVAppTemplateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9070,6 +10300,16 @@
           "user"
         ],
         "description": "Compose a vApp from existing virtual machines.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.composeVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ComposeVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9094,6 +10334,16 @@
           "admin"
         ],
         "description": "Update edgeGateway configuration.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.edgeGatewayServiceConfiguration+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_GatewayFeaturesType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9118,6 +10368,16 @@
           "admin"
         ],
         "description": "Configure Syslog server settings for the org vdc edge gateway",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.SyslogSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SyslogServerType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9190,6 +10450,16 @@
           "user"
         ],
         "description": "Update access control information for a catalog.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.controlAccess+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9223,6 +10493,16 @@
           "user"
         ],
         "description": "Update access control information for a vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.controlAccess+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9343,6 +10623,16 @@
           "user"
         ],
         "description": "Copy a catalog item from one catalog to another.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.copyOrMoveCatalogItemParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CopyOrMoveCatalogItemParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9367,6 +10657,16 @@
           "admin"
         ],
         "description": "Create a catalog.\n\n The catalog is created in the unpublished state.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.catalog+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_AdminCatalogType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9391,6 +10691,16 @@
           "user"
         ],
         "description": "Add an item to a catalog.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.catalogItem+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CatalogItemType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9415,6 +10725,16 @@
           "user"
         ],
         "description": "Create a disk.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.diskCreateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_DiskCreateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9476,6 +10796,16 @@
           "admin"
         ],
         "description": "Create an organization.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.organization+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_AdminOrgType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9489,6 +10819,16 @@
           "extension"
         ],
         "description": "Create an external network.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwexternalnet+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9502,6 +10842,16 @@
           "extension"
         ],
         "description": "Create a provider vDC.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwprovidervdc+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9515,6 +10865,16 @@
           "extension"
         ],
         "description": "Create a provider vDC.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.createProviderVdcParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9528,6 +10888,16 @@
           "admin"
         ],
         "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys\\-admin client at API version < 27",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.role+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RoleType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9552,6 +10922,16 @@
           "admin"
         ],
         "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys\\-admin client at API version < 27",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.role+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RoleType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9565,6 +10945,16 @@
           "user"
         ],
         "description": "Creates new snapshot of a virtual machine or of all the virtual machines in a vApp. Prior to creation of the new snapshots, any existing user created snapshots associated with the virtual machines are removed.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.createSnapshotParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CreateSnapshotParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9589,6 +10979,16 @@
           "extension"
         ],
         "description": "Create a VDC template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwVdcTemplate+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9602,6 +11002,16 @@
           "admin"
         ],
         "description": "Create or import a user.\n\n Users can be created locally or imported from the organization's LDAP service.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.user+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_UserType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9626,6 +11036,16 @@
           "admin"
         ],
         "description": "Create an organization VDC.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vdc+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_AdminVdcType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9650,6 +11070,16 @@
           "admin"
         ],
         "description": "Creates an organization vDC.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.createVdcParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CreateVdcParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9674,6 +11104,16 @@
           "user"
         ],
         "description": "Deploy a vApp or VM.\n\n Deployment allocates all resources for the vApp and the virtual machines it contains.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.deployVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_DeployVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9698,6 +11138,16 @@
           "user"
         ],
         "description": "Detach a disk from a VM.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.diskAttachOrDetachParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_DiskAttachOrDetachParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10010,6 +11460,16 @@
           "user"
         ],
         "description": "Eject virtual media.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.mediaInsertOrEjectParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MediaInsertOrEjectParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10538,6 +11998,16 @@
           "admin"
         ],
         "description": "Import a group from the LDAP directory service.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.group+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_GroupType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10562,6 +12032,16 @@
           "extension"
         ],
         "description": "Import media from vCenter.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.importMediaParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ImportMediaParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10586,6 +12066,16 @@
           "extension"
         ],
         "description": "Import a virtual machine from vCenter.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.importVmParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ImportVmParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10610,6 +12100,16 @@
           "extension"
         ],
         "description": "Import a virtual machine from vCenter as a vCloud Director vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.importVmAsVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ImportVmAsVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10634,6 +12134,16 @@
           "extension"
         ],
         "description": "Import a virtual machine from vCenter as a vCloud Director vApp template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.importVmAsVAppTemplateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ImportVmAsVAppTemplateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10658,6 +12168,16 @@
           "extension"
         ],
         "description": "Import a virtual machine from vCenter into an existing vCloud Director vApp.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.importVmIntoExistingVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ImportVmIntoExistingVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10682,6 +12202,16 @@
           "user"
         ],
         "description": "Insert virtual media.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.mediaInsertOrEjectParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MediaInsertOrEjectParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10730,6 +12260,16 @@
           "user"
         ],
         "description": "Instantiate a vApp or VM from an OVF",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.instantiateOvfParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_InstantiateOvfParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10754,6 +12294,16 @@
           "user"
         ],
         "description": "Create a vApp from a vApp template",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.instantiateVAppTemplateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_InstantiateVAppTemplateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10778,6 +12328,16 @@
           "user"
         ],
         "description": "Instantiates a VDC template. The caller supplies the VDC template and the name and description (as a ParamsType), which are the only two things the tenant can override in the template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.instantiateVdcTemplateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_InstantiateVdcTemplateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10863,6 +12423,16 @@
           "extension"
         ],
         "description": "Merge provider vDCs.\n\n This operation merges the provider vDC specified in the request URL with one or more provider vDCs specified in the request parameters, and returns a representation of the merged provider vDC.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.providerVdcMergeParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_ProviderVdcMergeParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10887,6 +12457,16 @@
           "extension"
         ],
         "description": "Initiate relocation of all entities for a given org (tenant).",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.cloud.tenantMigrationParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_TenantMigrationParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10900,6 +12480,16 @@
           "extension"
         ],
         "description": "Migrate one or more virtual machines to a different resource pool.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.migrateVmParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_MigrateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10924,6 +12514,16 @@
           "admin"
         ],
         "description": "Modify edgeGateway form factor.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.edgeGatewayFormFactor+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_EdgeGatewayFormFactorType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10948,6 +12548,16 @@
           "user"
         ],
         "description": "Move a catalog item from one catalog to another.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.copyOrMoveCatalogItemParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CopyOrMoveCatalogItemParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -10972,6 +12582,16 @@
           "admin"
         ],
         "description": "Post an external event to the system.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.event+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_EventType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11044,6 +12664,16 @@
           "extension"
         ],
         "description": "Prepare a host.\n\n When you add a host to a cluster, you must prepare the host before vCloud Director can use the host's resources.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.prepareHostParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_PrepareHostParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11068,6 +12698,16 @@
           "admin"
         ],
         "description": "Test the library subscription settings to make sure the remote endpoint exists, the password matches (if set), and the SSL certificate is trusted (if necessary).",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.externalCatalogSubscriptionParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ExternalCatalogSubscriptionParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11081,6 +12721,16 @@
           "admin"
         ],
         "description": "Queries user privileges on a set of entities",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.entityReferences+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_EntityReferencesType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11177,6 +12827,16 @@
           "user"
         ],
         "description": "Recompose a vApp to add or remove VMs.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.recomposeVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RecomposeVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11201,6 +12861,16 @@
           "user"
         ],
         "description": "Updates Vm name, Description, and any or all of the following sections.  \n\n* VirtualHardwareSection\n* OperatingSystemSection\n* NetworkConnectionSection\n* GuestCustomizationSection\n\n Sections not included in the request body will not be updated. In API requests that specify version 29.0 or higher, this operation allows to also update:\n* the boot\\-options of the VM (boot\\-delay and enter\\-bios).\n* the storage profile\n* the VM capabilities (ability to add CPU or MEM while the VM is powered\\-on)\n* the hardware\\-assisted CPU virtualization capability",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vm+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11358,6 +13028,16 @@
           "admin"
         ],
         "description": "Create a vApp based on a set of .vmx files and resource mappings",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.registerVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RegisterVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11382,6 +13062,16 @@
           "extension"
         ],
         "description": "Register a vCenter server and vShield manager.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.registerVimServerParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_RegisterVimServerParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11419,6 +13109,16 @@
           "user"
         ],
         "description": "Relocate a VM to a different datastore.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.relocateVmParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RelocateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11443,6 +13143,16 @@
           "user"
         ],
         "description": "Relocate a VM to a different datastore.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.relocateVmParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_RelocateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11491,6 +13201,16 @@
           "extension"
         ],
         "description": "Removes virtual machines from the specified VM group.\n\n This asynchronous call returns a task. The process of removing virtual machines from a VM group can result in the virtual machine being processed and redeployed by the placement engine. All virtual machines provided to this call will be marked busy until the remove from group process is complete.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.vms+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_VmsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11953,6 +13673,16 @@
           "extension"
         ],
         "description": "Validate provisional AMQP settings.\n\n This request attempts to contact an AMQP broker using the values in the request body (an AmqpSettings element). If the attempt succeeds, the AmqpSettings are considered valid and can be used to update the system's AMQP settings.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.amqpSettings+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -11966,6 +13696,16 @@
           "user"
         ],
         "description": "Undeploy a vApp/VM.\n\n Undeployment deallocates all resources used by the vApp and the VMs it contains.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.undeployVAppParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_UndeployVAppParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12110,6 +13850,16 @@
           "admin"
         ],
         "description": "Publish a catalog.\n\n Publishing a catalog sets the value of its IsPublished element to true and makes the catalog visible to organization administrators of all organizations in a cloud.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.publishCatalogParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_PublishCatalogParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12134,6 +13884,16 @@
           "admin"
         ],
         "description": "Publish a catalog to external orgs.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.publishExternalCatalogParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_PublishExternalCatalogParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12182,6 +13942,16 @@
           "extension"
         ],
         "description": "Update storage classes of a provider vDC.\n\n The request parameters specify storage classes to add or remove.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.updateProviderVdcStorageProfiles+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_UpdateProviderVdcStorageProfilesParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12206,6 +13976,16 @@
           "extension"
         ],
         "description": "Add or remove provider vDC resource pools.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.resourcePoolSetUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_UpdateResourcePoolSetParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12230,6 +14010,16 @@
           "admin"
         ],
         "description": "Subscribe to an external catalog.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.externalCatalogSubscriptionParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ExternalCatalogSubscriptionParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12254,6 +14044,16 @@
           "admin"
         ],
         "description": "Add or remove virtual datacenter storage classes.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.updateVdcStorageProfiles+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_UpdateVdcStorageProfilesType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12350,6 +14150,16 @@
           "extension"
         ],
         "description": "Updates AMQP certificate. AMQP certificate and trust store are mutually exclusive. Overrides AMQP trust store, if update is successful.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.certificateUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CertificateUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12363,6 +14173,16 @@
           "extension"
         ],
         "description": "Updates AMQP trust store. AMQP certificate and trust store are mutually exclusive. Overrides AMQP certificate, if update is successful.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.trustStoreUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_TrustStoreUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12376,6 +14196,16 @@
           "extension"
         ],
         "description": "Updates system LDAP keystore.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.keystoreUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_KeystoreUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12389,6 +14219,16 @@
           "admin"
         ],
         "description": "Updates organization LDAP keystore.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.keystoreUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_KeystoreUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12413,6 +14253,16 @@
           "extension"
         ],
         "description": "Updates system LDAP SSL certificate.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.certificateUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CertificateUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12426,6 +14276,16 @@
           "admin"
         ],
         "description": "Updates organization LDAP SSL certificate.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.certificateUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_CertificateUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12450,6 +14310,16 @@
           "extension"
         ],
         "description": "Initiates localization bundle upload.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.bundleUploadParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_BundleUploadParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12463,6 +14333,16 @@
           "user"
         ],
         "description": "Upload a media image",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.media+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MediaType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12487,6 +14367,16 @@
           "extension"
         ],
         "description": "Updates system LDAP SSPI key tab.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.sspiKeytabUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SspiKeytabUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12500,6 +14390,16 @@
           "admin"
         ],
         "description": "Updates organization LDAP SSPI keytab.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.sspiKeytabUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_SspiKeytabUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12524,6 +14424,16 @@
           "user"
         ],
         "description": "Upload a vApp template to a catalog",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.uploadVAppTemplateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_UploadVAppTemplateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12548,6 +14458,16 @@
           "user"
         ],
         "description": "Upload an OVF package to create a vApp template",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.uploadVAppTemplateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_UploadVAppTemplateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12572,6 +14492,16 @@
           "extension"
         ],
         "description": "Updates vCenter trust store.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vcTrustStoreUpdateParams+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VcTrustStoreUpdateParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12585,6 +14515,16 @@
           "extension"
         ],
         "description": "Update access control information for a VDC template.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.controlAccess+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12609,6 +14549,16 @@
           "user"
         ],
         "description": "Update access control information for a VDC. Provided access control information should only use ReadOnly access level or else {@link BadRequestException} is thrown",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.controlAccess+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -12633,6 +14583,16 @@
           "admin"
         ],
         "description": "Endpoint for just updating gateway properties by themselves.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.edgeGateway+json": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_GatewayType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"

@@ -1,12 +1,16 @@
 use crate::parsers::doc::operation::{Method, Operation};
 use openapiv3::Paths;
+use std::collections::BTreeMap;
 use std::{
     convert::TryFrom,
     io::{Read, Seek},
 };
 use zip::read::ZipArchive;
 
-pub fn paths<R: Read + Seek>(zip: &mut ZipArchive<R>) -> Result<Paths, Box<dyn std::error::Error>> {
+pub fn paths<R: Read + Seek>(
+    zip: &mut ZipArchive<R>,
+    content_type_mapping: BTreeMap<String, String>,
+) -> Result<Paths, Box<dyn std::error::Error>> {
     let path_param_regex = regex::Regex::new(r"\{([^}]+)}")?;
     let mut path_file_names = zip
         .file_names()
@@ -23,7 +27,7 @@ pub fn paths<R: Read + Seek>(zip: &mut ZipArchive<R>) -> Result<Paths, Box<dyn s
         let mut html = String::new();
         zip.by_name(&file_name)?.read_to_string(&mut html)?;
 
-        let operation = Operation::try_from(html.as_str())?;
+        let operation = Operation::try_from((html.as_str(), &content_type_mapping))?;
         if let openapiv3::ReferenceOr::Item(path_item) =
             paths.entry(operation.path.clone()).or_insert_with(|| {
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {

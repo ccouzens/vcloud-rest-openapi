@@ -12,6 +12,23 @@ pub(super) enum Type {
     SimpleType(SimpleType),
 }
 
+impl Type {
+    pub fn content_type(&self) -> Option<&str> {
+        match self {
+            Type::ObjectType(o) => o.annotation.as_ref(),
+            Type::SimpleType(s) => s.annotation.as_ref(),
+        }
+        .and_then(|a| a.content_type.as_deref())
+    }
+
+    pub fn name(&self) -> Option<&str> {
+        match self {
+            Type::ObjectType(o) => Some(o.name.as_str()),
+            Type::SimpleType(s) => s.name.as_deref(),
+        }
+    }
+}
+
 #[derive(Error, Debug, PartialEq)]
 pub enum TypeParseError {
     #[error("not a complex or simple type node")]

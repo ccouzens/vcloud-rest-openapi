@@ -1,6 +1,7 @@
 use super::detail_page::{DefinitionListValue, DetailPage, DetailPageFromStrError};
 #[cfg(test)]
 use serde_json::json;
+use std::collections::BTreeMap;
 use std::{convert::TryFrom, str::FromStr};
 use thiserror::Error;
 
@@ -38,6 +39,7 @@ pub struct Operation {
     pub path: String,
     pub description: String,
     pub tag: &'static str,
+    pub request_content: Option<(String, String)>,
 }
 
 #[derive(Error, Debug)]
@@ -56,18 +58,25 @@ pub enum OperationParseError {
     DescriptionWrongType,
 }
 
-impl TryFrom<&str> for Operation {
+impl TryFrom<(&str, &BTreeMap<String, String>)> for Operation {
     type Error = OperationParseError;
 
-    fn try_from(html: &str) -> Result<Self, Self::Error> {
-        Ok(Self::try_from(DetailPage::try_from(html)?)?)
+    fn try_from(
+        (html, content_type_mapping): (&str, &BTreeMap<String, String>),
+    ) -> Result<Self, Self::Error> {
+        Ok(Self::try_from((
+            DetailPage::try_from(html)?,
+            content_type_mapping,
+        ))?)
     }
 }
 
-impl TryFrom<DetailPage> for Operation {
+impl TryFrom<(DetailPage, &BTreeMap<String, String>)> for Operation {
     type Error = OperationParseError;
 
-    fn try_from(p: DetailPage) -> Result<Self, Self::Error> {
+    fn try_from(
+        (p, content_type_mapping): (DetailPage, &BTreeMap<String, String>),
+    ) -> Result<Self, Self::Error> {
         let method =
             p.h1.split_ascii_whitespace()
                 .next()
@@ -91,11 +100,31 @@ impl TryFrom<DetailPage> for Operation {
         } else {
             "user"
         };
+        let request_content_type = match p.definition_list.0.get("Input parameters") {
+            Some(DefinitionListValue::SubList(b)) => match b.0.get("Consume media type(s):") {
+                Some(DefinitionListValue::Text(t)) => t.split("+xml<br>").next(),
+                _ => None,
+            },
+            _ => None,
+        }
+        .map(str::to_string);
+
+        let request_content_ref = request_content_type
+            .as_ref()
+            .and_then(|c| content_type_mapping.get(c))
+            .cloned();
+
+        let request_content = match (request_content_type, request_content_ref) {
+            (Some(t), Some(r)) => Some((t, r)),
+            _ => None,
+        };
+
         Ok(Self {
             method,
             path,
             description,
             tag,
+            request_content,
         })
     }
 }
@@ -118,6 +147,24 @@ impl From<Operation> for openapiv3::Operation {
                 ..Default::default()
             },
             tags: vec![o.tag.into()],
+            request_body: o.request_content.map(|(t, r)| {
+                openapiv3::ReferenceOr::Item(openapiv3::RequestBody {
+                    content: [(
+                        format!("{}+json", t),
+                        openapiv3::MediaType {
+                            schema: Some(openapiv3::ReferenceOr::Reference {
+                                reference: format!("#/components/schemas/{}", r),
+                            }),
+                            ..Default::default()
+                        },
+                    )]
+                    .iter()
+                    .cloned()
+                    .collect(),
+                    required: true,
+                    ..Default::default()
+                })
+            }),
             ..Default::default()
         }
     }
@@ -125,21 +172,42 @@ impl From<Operation> for openapiv3::Operation {
 
 #[test]
 fn parse_operation_test() {
-    let actual = Operation::try_from(include_str!("operations/PUT-Test.html")).unwrap();
+    let actual = Operation::try_from((
+        include_str!("operations/PUT-Test.html"),
+        &[(
+            "application/vnd.vmware.admin.test".to_string(),
+            "MyType".to_string(),
+        )]
+        .iter()
+        .cloned()
+        .collect(),
+    ))
+    .unwrap();
     assert_eq!(
         actual,
         Operation {
             method: Method::Put,
             path: "/admin/test/{id}".into(),
             description: "Update a test.".into(),
-            tag: "admin"
+            tag: "admin",
+            request_content: Some(("application/vnd.vmware.admin.test".into(), "MyType".into()))
         }
     )
 }
 
 #[test]
 fn generate_schema_test() {
-    let op = Operation::try_from(include_str!("operations/PUT-Test.html")).unwrap();
+    let op = Operation::try_from((
+        include_str!("operations/PUT-Test.html"),
+        &[(
+            "application/vnd.vmware.admin.test".to_string(),
+            "MyType".to_string(),
+        )]
+        .iter()
+        .cloned()
+        .collect(),
+    ))
+    .unwrap();
     let value = openapiv3::Operation::from(op);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -150,7 +218,17 @@ fn generate_schema_test() {
                 "2XX": {
                     "description": "success"
                 }
-            }
+            },
+            "requestBody": {
+                "content": {
+                  "application/vnd.vmware.admin.test+json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/MyType"
+                    }
+                  }
+                },
+                "required": true
+              },
         })
     )
 }
