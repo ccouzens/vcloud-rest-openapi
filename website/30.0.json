@@ -180,7 +180,7 @@
         "description": "Update an organization association",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationAssociation+json": {
+            "application/vnd.vmware.admin.organizationAssociation+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgAssociationType"
               }
@@ -254,7 +254,7 @@
         "description": "Update the name or description of a catalog.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.catalog+json": {
+            "application/vnd.vmware.admin.catalog+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_AdminCatalogType"
               }
@@ -310,7 +310,7 @@
         "description": "Modify a catalog item.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.catalogItem+json": {
+            "application/vnd.vmware.vcloud.catalogItem+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CatalogItemType"
               }
@@ -476,7 +476,7 @@
         "description": "Update the name, description, and storage class of a disk.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.disk+json": {
+            "application/vnd.vmware.vcloud.disk+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_DiskType"
               }
@@ -587,7 +587,7 @@
         "description": "Update an edge gateway",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.edgeGateway+json": {
+            "application/vnd.vmware.admin.edgeGateway+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_GatewayType"
               }
@@ -643,7 +643,7 @@
         "description": "Update an external network.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwexternalnet+json": {
+            "application/vnd.vmware.admin.vmwexternalnet+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
               }
@@ -734,7 +734,7 @@
         "description": "Update the name or description of a group.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.group+json": {
+            "application/vnd.vmware.admin.group+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_GroupType"
               }
@@ -849,7 +849,7 @@
         "description": "Update the name and description of a media object.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.media+json": {
+            "application/vnd.vmware.vcloud.media+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_MediaType"
               }
@@ -960,7 +960,7 @@
         "description": "Update an organization network.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.orgVdcNetwork+json": {
+            "application/vnd.vmware.vcloud.orgVdcNetwork+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
               }
@@ -1117,7 +1117,7 @@
         "description": "Updates a registered object extension.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.extensibility.object+json": {
+            "application/vnd.vmware.admin.extensibility.object+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ObjectExtensionType"
               }
@@ -1173,7 +1173,7 @@
         "description": "Update an organization.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organization+json": {
+            "application/vnd.vmware.admin.organization+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_AdminOrgType"
               }
@@ -1284,7 +1284,7 @@
         "description": "Update a provider vDC.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwprovidervdc+json": {
+            "application/vnd.vmware.admin.vmwprovidervdc+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcType"
               }
@@ -1520,7 +1520,7 @@
         "description": "Updates a right.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.right+json": {
+            "application/vnd.vmware.admin.right+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RightType"
               }
@@ -1620,7 +1620,7 @@
         "description": "Modify rights for an organization",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.org.rights+json": {
+            "application/vnd.vmware.admin.org.rights+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrganizationRolesType"
               }
@@ -1641,7 +1641,7 @@
         "description": "Add rights to an organization",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.org.rights+json": {
+            "application/vnd.vmware.admin.org.rights+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrganizationRolesType"
               }
@@ -1697,7 +1697,7 @@
         "description": "Update a role.\n\n This request changes the name or description of the role, and adds or removes rights.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.role+json": {
+            "application/vnd.vmware.admin.role+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RoleType"
               }
@@ -1753,7 +1753,7 @@
         "description": "Updates a Selector Extension.\n\n The association can be the default policy, or an overridden instance of the default policy.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.extensibility.selector+json": {
+            "application/vnd.vmware.admin.extensibility.selector+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
               }
@@ -1809,7 +1809,7 @@
         "description": "Updates already registered service.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.service+json": {
+            "application/vnd.vmware.admin.service+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AdminServiceType"
               }
@@ -1935,7 +1935,7 @@
         "description": "Adds an association for the specified site. PUT /api/site/associations/{siteId}",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.siteAssociation+json": {
+            "application/vnd.vmware.admin.siteAssociation+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SiteAssociationType"
               }
@@ -2026,7 +2026,7 @@
         "description": "Update a vDC template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwVdcTemplate+json": {
+            "application/vnd.vmware.admin.vmwVdcTemplate+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateType"
               }
@@ -2082,7 +2082,7 @@
         "description": "Update a user.\n\n Use this request to update any property of a local user, or to update the name or description of an imported user. A locked user cannot be updated.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.user+json": {
+            "application/vnd.vmware.admin.user+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_UserType"
               }
@@ -2138,7 +2138,7 @@
         "description": "Modify the name or description of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vm+json": {
+            "application/vnd.vmware.vcloud.vm+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmType"
               }
@@ -2249,7 +2249,7 @@
         "description": "Update the name, description and gold master of a vApp template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vAppTemplate+json": {
+            "application/vnd.vmware.vcloud.vAppTemplate+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VAppTemplateType"
               }
@@ -2360,7 +2360,7 @@
         "description": "Modify an organization vDC.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vdc+json": {
+            "application/vnd.vmware.admin.vdc+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_AdminVdcType"
               }
@@ -2416,7 +2416,7 @@
         "description": "Modify the name and/or description of an organization vDC.\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vdc+json": {
+            "application/vnd.vmware.vcloud.vdc+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VdcType"
               }
@@ -2582,7 +2582,7 @@
         "description": "Updates the specified VM affinity/anti\\-affinity rule. This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vmaffinityrule+json": {
+            "application/vnd.vmware.vcloud.vmaffinityrule+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmAffinityRuleType"
               }
@@ -2682,7 +2682,7 @@
         "description": "Registers resource class ACL rule for extension service.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.aclRule+json": {
+            "application/vnd.vmware.admin.aclRule+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AclRuleType"
               }
@@ -2801,7 +2801,7 @@
         "description": "Update system AMQP settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.amqpSettings+json": {
+            "application/vnd.vmware.admin.amqpSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsType"
               }
@@ -2859,7 +2859,7 @@
         "description": "Creates API definition.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.apiDefinition+json": {
+            "application/vnd.vmware.admin.apiDefinition+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AdminApiDefinitionType"
               }
@@ -2967,7 +2967,7 @@
         "description": "Creates API filter.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.apiFilter+json": {
+            "application/vnd.vmware.admin.apiFilter+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ApiFilterType"
               }
@@ -3036,7 +3036,7 @@
         "description": "Replaces the organization's current list of association members with the specified list of members\n\n If the list is empty, all existing members will be deleted.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationAssociations+json": {
+            "application/vnd.vmware.admin.organizationAssociations+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgAssociationsType"
               }
@@ -3057,7 +3057,7 @@
         "description": "Adds a new member to this organization's associations",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationAssociation+json": {
+            "application/vnd.vmware.admin.organizationAssociation+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgAssociationType"
               }
@@ -3294,7 +3294,7 @@
         "description": "Update system branding settings.\n\n You can use system branding settings to customize the vCloud Director Web console and some of the links that appear on the vCloud Director Home login screen.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.brandingSettings+json": {
+            "application/vnd.vmware.admin.brandingSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_BrandingSettingsType"
               }
@@ -3488,7 +3488,7 @@
         "description": "Update the owner of a catalog.\n\n The request body specifies the new owner",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.owner+json": {
+            "application/vnd.vmware.vcloud.owner+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OwnerType"
               }
@@ -3546,7 +3546,7 @@
         "description": "Modify the PostGC Status check of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vm.checkPostGuestCustomizationSection+json": {
+            "application/vnd.vmware.vcloud.vm.checkPostGuestCustomizationSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmCheckPGCType"
               }
@@ -3919,7 +3919,7 @@
         "description": "Change the owner of a disk.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.owner+json": {
+            "application/vnd.vmware.vcloud.owner+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OwnerType"
               }
@@ -3977,7 +3977,7 @@
         "description": "Update all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RasdItemsListType"
               }
@@ -4022,7 +4022,7 @@
         "description": "Update all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RasdItemsListType"
               }
@@ -4067,7 +4067,7 @@
         "description": "Update system email settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.emailSettings+json": {
+            "application/vnd.vmware.admin.emailSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_EmailSettingsType"
               }
@@ -4175,7 +4175,7 @@
         "description": "Creates service.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.service+json": {
+            "application/vnd.vmware.admin.service+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AdminServiceType"
               }
@@ -4235,7 +4235,7 @@
         "description": "Update other organization settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationFederationSettings+json": {
+            "application/vnd.vmware.admin.organizationFederationSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgFederationSettingsType"
               }
@@ -4280,7 +4280,7 @@
         "description": "Creates file descriptor.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.fileDescriptor+json": {
+            "application/vnd.vmware.admin.fileDescriptor+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AdminFileDescriptorType"
               }
@@ -4349,7 +4349,7 @@
         "description": "Update other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system\\-wide configuration defaults.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.generalSettings+json": {
+            "application/vnd.vmware.admin.generalSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_GeneralSettingsType"
               }
@@ -4383,7 +4383,7 @@
         "description": "Update other organization settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationGeneralSettings+json": {
+            "application/vnd.vmware.admin.organizationGeneralSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgGeneralSettingsType"
               }
@@ -4465,7 +4465,7 @@
         "description": "Updates the guest customization section of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.guestCustomizationSection+json": {
+            "application/vnd.vmware.vcloud.guestCustomizationSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_GuestCustomizationSectionType"
               }
@@ -4510,7 +4510,7 @@
         "description": "Updates the guest customization section of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.guestCustomizationSection+json": {
+            "application/vnd.vmware.vcloud.guestCustomizationSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_GuestCustomizationSectionType"
               }
@@ -4677,7 +4677,7 @@
         "description": "Update system Kerberos settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.kerberosSettings+json": {
+            "application/vnd.vmware.admin.kerberosSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_KerberosSettingsType"
               }
@@ -4711,7 +4711,7 @@
         "description": "Update system LDAP settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.ldapSettings+json": {
+            "application/vnd.vmware.admin.ldapSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_LdapSettingsType"
               }
@@ -4745,7 +4745,7 @@
         "description": "Updates the lease settings section of a vApp or vApp template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.leaseSettingsSection+json": {
+            "application/vnd.vmware.vcloud.leaseSettingsSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_LeaseSettingsSectionType"
               }
@@ -4790,7 +4790,7 @@
         "description": "Updates the lease settings section of a vApp or vApp template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.leaseSettingsSection+json": {
+            "application/vnd.vmware.vcloud.leaseSettingsSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_LeaseSettingsSectionType"
               }
@@ -4835,7 +4835,7 @@
         "description": "Update catalog settings details.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.catalogSettings+json": {
+            "application/vnd.vmware.admin.catalogSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_CatalogSettingsType"
               }
@@ -4869,7 +4869,7 @@
         "description": "Update vCloud Director software license details.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.licenseSettings+json": {
+            "application/vnd.vmware.admin.licenseSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_LicenseType"
               }
@@ -4903,7 +4903,7 @@
         "description": "Create service link.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.serviceLink+json": {
+            "application/vnd.vmware.admin.serviceLink+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AdminServiceLinkType"
               }
@@ -4948,7 +4948,7 @@
         "description": "Sets the local site to match what is specified in the {@link SiteType}. It can contain a list of associated sites in addition to info specific to the local site PUT /api/site",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.site+json": {
+            "application/vnd.vmware.vcloud.site+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SiteType"
               }
@@ -5006,7 +5006,7 @@
         "description": "Register / unregister Lookup Service to / from vCD. In `LookupServiceParamsType` 1. If LookupServiceUrl is set and not empty, the action is for register lookup service. 2. If LookupServiceUrl is unset or empty, the action is for unregister lookup service.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.lookupServiceParams+json": {
+            "application/vnd.vmware.admin.lookupServiceParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_LookupServiceParamsType"
               }
@@ -5291,7 +5291,7 @@
         "description": "Update all RASD items that specify network card properties of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RasdItemsListType"
               }
@@ -5336,7 +5336,7 @@
         "description": "Update all RASD items that specify network card properties of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RasdItemsListType"
               }
@@ -5381,7 +5381,7 @@
         "description": "Update the network config section of a vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.networkConfigSection+json": {
+            "application/vnd.vmware.vcloud.networkConfigSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_NetworkConfigSectionType"
               }
@@ -5426,7 +5426,7 @@
         "description": "Update the network config section of a vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.networkConfigSection+json": {
+            "application/vnd.vmware.vcloud.networkConfigSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_NetworkConfigSectionType"
               }
@@ -5471,7 +5471,7 @@
         "description": "Update the network connection section of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.networkConnectionSection+json": {
+            "application/vnd.vmware.vcloud.networkConnectionSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_NetworkConnectionSectionType"
               }
@@ -5516,7 +5516,7 @@
         "description": "Update the network connection section of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.networkConnectionSection+json": {
+            "application/vnd.vmware.vcloud.networkConnectionSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_NetworkConnectionSectionType"
               }
@@ -5736,7 +5736,7 @@
         "description": "Update system AMQP notifications settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.notificationsSettings+json": {
+            "application/vnd.vmware.admin.notificationsSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_NotificationsSettingsType"
               }
@@ -5770,7 +5770,7 @@
         "description": "Update organization OAuth settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationOAuthSettings+json": {
+            "application/vnd.vmware.admin.organizationOAuthSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgOAuthSettingsType"
               }
@@ -5815,7 +5815,7 @@
         "description": "Registers a new object extension",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.extensibility.object+json": {
+            "application/vnd.vmware.admin.extensibility.object+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ObjectExtensionType"
               }
@@ -5884,7 +5884,7 @@
         "description": "Update catalog settings details.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.operationLimitsSettings+json": {
+            "application/vnd.vmware.admin.operationLimitsSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
               }
@@ -5918,7 +5918,7 @@
         "description": "Update organization email settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationEmailSettings+json": {
+            "application/vnd.vmware.admin.organizationEmailSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgEmailSettingsType"
               }
@@ -5963,7 +5963,7 @@
         "description": "Update organization defaults for guest personalization settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.guestPersonalizationSettings+json": {
+            "application/vnd.vmware.admin.guestPersonalizationSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgGuestPersonalizationSettingsType"
               }
@@ -6008,7 +6008,7 @@
         "description": "Update organization LDAP settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationLdapSettings+json": {
+            "application/vnd.vmware.admin.organizationLdapSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgLdapSettingsType"
               }
@@ -6066,7 +6066,7 @@
         "description": "Update organization operation limits settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.operationLimitsSettings+json": {
+            "application/vnd.vmware.admin.operationLimitsSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
               }
@@ -6111,7 +6111,7 @@
         "description": "Update organization password policy settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organizationPasswordPolicySettings+json": {
+            "application/vnd.vmware.admin.organizationPasswordPolicySettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgPasswordPolicySettingsType"
               }
@@ -6156,7 +6156,7 @@
         "description": "Updates settings for this organization.\n\n Organization settings are divided into categories. This request updates all categories of organization settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.orgSettings+json": {
+            "application/vnd.vmware.admin.orgSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgSettingsType"
               }
@@ -6201,7 +6201,7 @@
         "description": "Create an edge gateway.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.edgeGateway+json": {
+            "application/vnd.vmware.admin.edgeGateway+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_GatewayType"
               }
@@ -6246,7 +6246,7 @@
         "description": "Create an Org vDC network.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.orgVdcNetwork+json": {
+            "application/vnd.vmware.vcloud.orgVdcNetwork+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
               }
@@ -6503,7 +6503,7 @@
         "description": "Update all ProductSection elements in a vApp template, vApp, or VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.productSections+json": {
+            "application/vnd.vmware.vcloud.productSections+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_ProductSectionListType"
               }
@@ -6644,7 +6644,7 @@
         "description": "Update a provider vDC storage profile\n\n You can update a storage profile to enable or disable it.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwPvdcStorageProfile+json": {
+            "application/vnd.vmware.admin.vmwPvdcStorageProfile+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcStorageProfileType"
               }
@@ -6822,7 +6822,7 @@
         "description": "Registers resource class action for extension service. The resource class action will be added only if a resource class with the same name does not exist.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.resourceClassAction+json": {
+            "application/vnd.vmware.admin.resourceClassAction+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ResourceClassActionType"
               }
@@ -6867,7 +6867,7 @@
         "description": "Registers resource class for extension service. The resource class will be added only if a resource class with the same name does not exist.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.resourceClass+json": {
+            "application/vnd.vmware.admin.resourceClass+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ResourceClassType"
               }
@@ -6912,7 +6912,7 @@
         "description": "Registers right to the rights managed by this extension service. The right will be added only if a right with the same name does not already exists.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.right+json": {
+            "application/vnd.vmware.admin.right+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RightType"
               }
@@ -7103,7 +7103,7 @@
         "description": "Creates a Selector Extension.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.extensibility.selector+json": {
+            "application/vnd.vmware.admin.extensibility.selector+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
               }
@@ -7148,7 +7148,7 @@
         "description": "Creates a Selector Extension.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.extensibility.selector+json": {
+            "application/vnd.vmware.admin.extensibility.selector+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
               }
@@ -7182,7 +7182,7 @@
         "description": "Creates a Selector Extension.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.extensibility.selector+json": {
+            "application/vnd.vmware.admin.extensibility.selector+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
               }
@@ -7227,7 +7227,7 @@
         "description": "Creates a Selector Extension.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.extensibility.selector+json": {
+            "application/vnd.vmware.admin.extensibility.selector+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
               }
@@ -7272,7 +7272,7 @@
         "description": "Creates a Selector Extension.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.extensibility.selector+json": {
+            "application/vnd.vmware.admin.extensibility.selector+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
               }
@@ -7341,7 +7341,7 @@
         "description": "Modifies all RASD items that specify serial port properties of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RasdItemsListType"
               }
@@ -7386,7 +7386,7 @@
         "description": "Modifies all RASD items that specify serial port properties of a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.rasdItemsList+json": {
+            "application/vnd.vmware.vcloud.rasdItemsList+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RasdItemsListType"
               }
@@ -7468,7 +7468,7 @@
         "description": "Registers service resource for extension service.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.serviceResource+json": {
+            "application/vnd.vmware.admin.serviceResource+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ServiceResourceType"
               }
@@ -7563,7 +7563,7 @@
         "description": "Update the site's list of associated sites PUT /api/site/associations",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.siteAssociations+json": {
+            "application/vnd.vmware.admin.siteAssociations+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SiteAssociationsType"
               }
@@ -7584,7 +7584,7 @@
         "description": "Add a new {@link SiteAssociationType} for this site. POST /api/site/associations",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.siteAssociation+json": {
+            "application/vnd.vmware.admin.siteAssociation+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SiteAssociationType"
               }
@@ -7740,7 +7740,7 @@
         "description": "Update system password policy settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.systemPasswordPolicySettings+json": {
+            "application/vnd.vmware.admin.systemPasswordPolicySettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_SystemPasswordPolicySettingsType"
               }
@@ -7774,7 +7774,7 @@
         "description": "Update system settings.\n\n System settings specify default values and behaviors for the cloud and all of the organizations in it. System settings are divided into categories. This request updates all categories of system settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.systemSettings+json": {
+            "application/vnd.vmware.admin.systemSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_SystemSettingsType"
               }
@@ -7808,7 +7808,7 @@
         "description": "Update a task.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.task+json": {
+            "application/vnd.vmware.vcloud.task+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_TaskType"
               }
@@ -7853,7 +7853,7 @@
         "description": "Post an external task to this organization.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.task+json": {
+            "application/vnd.vmware.vcloud.task+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_TaskType"
               }
@@ -7935,7 +7935,7 @@
         "description": "Update organization vApp lease settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vAppLeaseSettings+json": {
+            "application/vnd.vmware.admin.vAppLeaseSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgLeaseSettingsType"
               }
@@ -8039,7 +8039,7 @@
         "description": "Change the owner of a vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.owner+json": {
+            "application/vnd.vmware.vcloud.owner+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OwnerType"
               }
@@ -8108,7 +8108,7 @@
         "description": "Update organization vApp template lease settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vAppTemplateLeaseSettings+json": {
+            "application/vnd.vmware.admin.vAppTemplateLeaseSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_OrgVAppTemplateLeaseSettingsType"
               }
@@ -8288,7 +8288,7 @@
         "description": "Update vShield Manager configuration details, including administrator credentials.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vshieldmanager+json": {
+            "application/vnd.vmware.admin.vshieldmanager+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ShieldManagerType"
               }
@@ -8388,7 +8388,7 @@
         "description": "Retrieve the metrics for a given org based on the filters provided by the spec",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json": {
+            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_HistoricUsageSpecType"
               }
@@ -8433,7 +8433,7 @@
         "description": "Retrieves rolled up metrics for a VDC according to the spec",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json": {
+            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_HistoricUsageSpecType"
               }
@@ -8704,7 +8704,7 @@
         "description": "Updates a single storage profile with user supplied data",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vdcStorageProfile+json": {
+            "application/vnd.vmware.admin.vdcStorageProfile+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_AdminVdcStorageProfileType"
               }
@@ -8860,7 +8860,7 @@
         "description": "Update the representation of a registered vCenter server.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwvirtualcenter+json": {
+            "application/vnd.vmware.admin.vmwvirtualcenter+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VimServerType"
               }
@@ -8975,7 +8975,7 @@
         "description": "Creates a new VM affinity rule.This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vmaffinityrule+json": {
+            "application/vnd.vmware.vcloud.vmaffinityrule+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmAffinityRuleType"
               }
@@ -9020,7 +9020,7 @@
         "description": "Updates VM's {@link VmCapabilities}",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vmCapabilitiesSection+json": {
+            "application/vnd.vmware.vcloud.vmCapabilitiesSection+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
               }
@@ -9089,7 +9089,7 @@
         "description": "Gets the current usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard\\-style metric name patterns to fine\\-tune the list of returned metrics.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.metrics.currentUsageSpec+json": {
+            "application/vnd.vmware.vcloud.metrics.currentUsageSpec+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CurrentUsageSpecType"
               }
@@ -9250,7 +9250,7 @@
         "description": "",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwVmGroupType+json": {
+            "application/vnd.vmware.admin.vmwVmGroupType+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWVmGroupType"
               }
@@ -9284,7 +9284,7 @@
         "description": "Gets the historic usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard\\-style metric name patterns to fine\\-tune the list of returned metrics, as well as a start and end time (either relative or absolute) to refine the set of sample points to a specific date range.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json": {
+            "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_HistoricUsageSpecType"
               }
@@ -9534,7 +9534,7 @@
         "description": "Adds virtual machines to the specified VM group.\n\n This asynchronous call returns a task. The process of adding virtual machines to a VM group can result in the virtual machine being processed and redeployed by the placement engine. All virtual machines provided to this call will be marked busy until the add to group process is complete.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vms+json": {
+            "application/vnd.vmware.vcloud.vms+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmsType"
               }
@@ -9568,7 +9568,7 @@
         "description": "Answer a question being asked by a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vmPendingAnswer+json": {
+            "application/vnd.vmware.vcloud.vmPendingAnswer+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmQuestionAnswerType"
               }
@@ -9602,7 +9602,7 @@
         "description": "Attach a disk to a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.diskAttachOrDetachParams+json": {
+            "application/vnd.vmware.vcloud.diskAttachOrDetachParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_DiskAttachOrDetachParamsType"
               }
@@ -9660,7 +9660,7 @@
         "description": "Create a vApp template in this catalog from a vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.captureVAppParams+json": {
+            "application/vnd.vmware.vcloud.captureVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CaptureVAppParamsType"
               }
@@ -9694,7 +9694,7 @@
         "description": "Create a vApp template from a vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.captureVAppParams+json": {
+            "application/vnd.vmware.vcloud.captureVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CaptureVAppParamsType"
               }
@@ -9728,7 +9728,7 @@
         "description": "Checks user authorization for service, URL and request verb.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.authorizationCheckParams+json": {
+            "application/vnd.vmware.admin.authorizationCheckParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AuthorizationCheckParamsType"
               }
@@ -9762,7 +9762,7 @@
         "description": "Checks user authorization for all services with enabled authorization, URL and request verb.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.authorizationCheckParams+json": {
+            "application/vnd.vmware.admin.authorizationCheckParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AuthorizationCheckParamsType"
               }
@@ -9835,7 +9835,7 @@
         "description": "Create a copy of a media object.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.cloneMediaParams+json": {
+            "application/vnd.vmware.vcloud.cloneMediaParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CloneMediaParamsType"
               }
@@ -9869,7 +9869,7 @@
         "description": "Create a copy of a vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.cloneVAppParams+json": {
+            "application/vnd.vmware.vcloud.cloneVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CloneVAppParamsType"
               }
@@ -9903,7 +9903,7 @@
         "description": "Create a copy of a vApp template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.cloneVAppTemplateParams+json": {
+            "application/vnd.vmware.vcloud.cloneVAppTemplateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CloneVAppTemplateParamsType"
               }
@@ -9937,7 +9937,7 @@
         "description": "Compose a vApp from existing virtual machines.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.composeVAppParams+json": {
+            "application/vnd.vmware.vcloud.composeVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_ComposeVAppParamsType"
               }
@@ -9971,7 +9971,7 @@
         "description": "Update edgeGateway configuration.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.edgeGatewayServiceConfiguration+json": {
+            "application/vnd.vmware.admin.edgeGatewayServiceConfiguration+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_GatewayFeaturesType"
               }
@@ -10005,7 +10005,7 @@
         "description": "Configure Syslog server settings for the org vdc edge gateway",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.SyslogSettings+json": {
+            "application/vnd.vmware.vcloud.SyslogSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SyslogServerType"
               }
@@ -10087,7 +10087,7 @@
         "description": "Update access control information for a catalog.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.controlAccess+json": {
+            "application/vnd.vmware.vcloud.controlAccess+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
               }
@@ -10130,7 +10130,7 @@
         "description": "Update access control information for a vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.controlAccess+json": {
+            "application/vnd.vmware.vcloud.controlAccess+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
               }
@@ -10284,7 +10284,7 @@
         "description": "Copy a catalog item from one catalog to another.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.copyOrMoveCatalogItemParams+json": {
+            "application/vnd.vmware.vcloud.copyOrMoveCatalogItemParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CopyOrMoveCatalogItemParamsType"
               }
@@ -10318,7 +10318,7 @@
         "description": "Create a catalog.\n\n The catalog is created in the unpublished state.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.catalog+json": {
+            "application/vnd.vmware.admin.catalog+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_AdminCatalogType"
               }
@@ -10352,7 +10352,7 @@
         "description": "Add an item to a catalog.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.catalogItem+json": {
+            "application/vnd.vmware.vcloud.catalogItem+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CatalogItemType"
               }
@@ -10386,7 +10386,7 @@
         "description": "Create a disk.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.diskCreateParams+json": {
+            "application/vnd.vmware.vcloud.diskCreateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_DiskCreateParamsType"
               }
@@ -10457,7 +10457,7 @@
         "description": "Create an organization.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.organization+json": {
+            "application/vnd.vmware.admin.organization+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_AdminOrgType"
               }
@@ -10480,7 +10480,7 @@
         "description": "Create an external network.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwexternalnet+json": {
+            "application/vnd.vmware.admin.vmwexternalnet+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
               }
@@ -10503,7 +10503,7 @@
         "description": "Create a provider vDC.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwprovidervdc+json": {
+            "application/vnd.vmware.admin.vmwprovidervdc+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcType"
               }
@@ -10526,7 +10526,7 @@
         "description": "Create a provider vDC.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.createProviderVdcParams+json": {
+            "application/vnd.vmware.admin.createProviderVdcParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcParamsType"
               }
@@ -10549,7 +10549,7 @@
         "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys\\-admin client at API version < 27",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.role+json": {
+            "application/vnd.vmware.admin.role+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RoleType"
               }
@@ -10583,7 +10583,7 @@
         "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys\\-admin client at API version < 27",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.role+json": {
+            "application/vnd.vmware.admin.role+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RoleType"
               }
@@ -10606,7 +10606,7 @@
         "description": "Creates new snapshot of a virtual machine or of all the virtual machines in a vApp. Prior to creation of the new snapshots, any existing user created snapshots associated with the virtual machines are removed.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.createSnapshotParams+json": {
+            "application/vnd.vmware.vcloud.createSnapshotParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CreateSnapshotParamsType"
               }
@@ -10640,7 +10640,7 @@
         "description": "Create a VDC template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vmwVdcTemplate+json": {
+            "application/vnd.vmware.admin.vmwVdcTemplate+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateType"
               }
@@ -10663,7 +10663,7 @@
         "description": "Create or import a user.\n\n Users can be created locally or imported from the organization's LDAP service.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.user+json": {
+            "application/vnd.vmware.admin.user+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_UserType"
               }
@@ -10697,7 +10697,7 @@
         "description": "Create an organization VDC.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vdc+json": {
+            "application/vnd.vmware.admin.vdc+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_AdminVdcType"
               }
@@ -10731,7 +10731,7 @@
         "description": "Creates an organization vDC.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.createVdcParams+json": {
+            "application/vnd.vmware.admin.createVdcParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CreateVdcParamsType"
               }
@@ -10765,7 +10765,7 @@
         "description": "Deploy a vApp or VM.\n\n Deployment allocates all resources for the vApp and the virtual machines it contains.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.deployVAppParams+json": {
+            "application/vnd.vmware.vcloud.deployVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_DeployVAppParamsType"
               }
@@ -10799,7 +10799,7 @@
         "description": "Detach a disk from a VM.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.diskAttachOrDetachParams+json": {
+            "application/vnd.vmware.vcloud.diskAttachOrDetachParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_DiskAttachOrDetachParamsType"
               }
@@ -11121,7 +11121,7 @@
         "description": "Eject virtual media.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.mediaInsertOrEjectParams+json": {
+            "application/vnd.vmware.vcloud.mediaInsertOrEjectParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_MediaInsertOrEjectParamsType"
               }
@@ -11659,7 +11659,7 @@
         "description": "Import a group from the LDAP directory service.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.group+json": {
+            "application/vnd.vmware.admin.group+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_GroupType"
               }
@@ -11693,7 +11693,7 @@
         "description": "Import media from vCenter.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.importMediaParams+json": {
+            "application/vnd.vmware.admin.importMediaParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ImportMediaParamsType"
               }
@@ -11727,7 +11727,7 @@
         "description": "Import a virtual machine from vCenter.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.importVmParams+json": {
+            "application/vnd.vmware.admin.importVmParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ImportVmParamsType"
               }
@@ -11761,7 +11761,7 @@
         "description": "Import a virtual machine from vCenter as a vCloud Director vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.importVmAsVAppParams+json": {
+            "application/vnd.vmware.admin.importVmAsVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ImportVmAsVAppParamsType"
               }
@@ -11795,7 +11795,7 @@
         "description": "Import a virtual machine from vCenter as a vCloud Director vApp template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.importVmAsVAppTemplateParams+json": {
+            "application/vnd.vmware.admin.importVmAsVAppTemplateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ImportVmAsVAppTemplateParamsType"
               }
@@ -11829,7 +11829,7 @@
         "description": "Import a virtual machine from vCenter into an existing vCloud Director vApp.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.importVmIntoExistingVAppParams+json": {
+            "application/vnd.vmware.admin.importVmIntoExistingVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ImportVmIntoExistingVAppParamsType"
               }
@@ -11863,7 +11863,7 @@
         "description": "Insert virtual media.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.mediaInsertOrEjectParams+json": {
+            "application/vnd.vmware.vcloud.mediaInsertOrEjectParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_MediaInsertOrEjectParamsType"
               }
@@ -11921,7 +11921,7 @@
         "description": "Instantiate a vApp or VM from an OVF",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.instantiateOvfParams+json": {
+            "application/vnd.vmware.vcloud.instantiateOvfParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_InstantiateOvfParamsType"
               }
@@ -11955,7 +11955,7 @@
         "description": "Create a vApp from a vApp template",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.instantiateVAppTemplateParams+json": {
+            "application/vnd.vmware.vcloud.instantiateVAppTemplateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_InstantiateVAppTemplateParamsType"
               }
@@ -11989,7 +11989,7 @@
         "description": "Instantiates a VDC template. The caller supplies the VDC template and the name and description (as a ParamsType), which are the only two things the tenant can override in the template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.instantiateVdcTemplateParams+json": {
+            "application/vnd.vmware.vcloud.instantiateVdcTemplateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_InstantiateVdcTemplateParamsType"
               }
@@ -12084,7 +12084,7 @@
         "description": "Merge provider vDCs.\n\n This operation merges the provider vDC specified in the request URL with one or more provider vDCs specified in the request parameters, and returns a representation of the merged provider vDC.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.providerVdcMergeParams+json": {
+            "application/vnd.vmware.admin.providerVdcMergeParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_ProviderVdcMergeParamsType"
               }
@@ -12118,7 +12118,7 @@
         "description": "Initiate relocation of all entities for a given org (tenant).",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.cloud.tenantMigrationParams+json": {
+            "application/vnd.vmware.cloud.tenantMigrationParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_TenantMigrationParamsType"
               }
@@ -12165,7 +12165,7 @@
         "description": "Migrate one or more virtual machines to a different resource pool.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.migrateVmParams+json": {
+            "application/vnd.vmware.admin.migrateVmParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_MigrateParamsType"
               }
@@ -12199,7 +12199,7 @@
         "description": "Modify edgeGateway form factor.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.edgeGatewayFormFactor+json": {
+            "application/vnd.vmware.vcloud.edgeGatewayFormFactor+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_EdgeGatewayFormFactorType"
               }
@@ -12233,7 +12233,7 @@
         "description": "Move a catalog item from one catalog to another.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.copyOrMoveCatalogItemParams+json": {
+            "application/vnd.vmware.vcloud.copyOrMoveCatalogItemParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CopyOrMoveCatalogItemParamsType"
               }
@@ -12267,7 +12267,7 @@
         "description": "Post an external event to the system.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.event+json": {
+            "application/vnd.vmware.admin.event+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_EventType"
               }
@@ -12349,7 +12349,7 @@
         "description": "Prepare a host.\n\n When you add a host to a cluster, you must prepare the host before vCloud Director can use the host's resources.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.prepareHostParams+json": {
+            "application/vnd.vmware.admin.prepareHostParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_PrepareHostParamsType"
               }
@@ -12383,7 +12383,7 @@
         "description": "Queries user privileges on a set of entities",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.entityReferences+json": {
+            "application/vnd.vmware.admin.entityReferences+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_EntityReferencesType"
               }
@@ -12489,7 +12489,7 @@
         "description": "Recompose a vApp to add or remove VMs.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.recomposeVAppParams+json": {
+            "application/vnd.vmware.vcloud.recomposeVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RecomposeVAppParamsType"
               }
@@ -12523,7 +12523,7 @@
         "description": "Updates Vm name, Description, and any or all of the following sections.  \n\n* VirtualHardwareSection\n* OperatingSystemSection\n* NetworkConnectionSection\n* GuestCustomizationSection\n\n Sections not included in the request body will not be updated. In API requests that specify version 29.0 or higher, this operation allows to also update:\n* the boot\\-options of the VM (boot\\-delay and enter\\-bios).\n* the storage profile\n* the VM capabilities (ability to add CPU or MEM while the VM is powered\\-on)\n* the hardware\\-assisted CPU virtualization capability",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vm+json": {
+            "application/vnd.vmware.vcloud.vm+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmType"
               }
@@ -12690,7 +12690,7 @@
         "description": "Create a vApp based on a set of .vmx files and resource mappings",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.registerVAppParams+json": {
+            "application/vnd.vmware.admin.registerVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RegisterVAppParamsType"
               }
@@ -12724,7 +12724,7 @@
         "description": "Register a vCenter server and vShield manager.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.registerVimServerParams+json": {
+            "application/vnd.vmware.admin.registerVimServerParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_RegisterVimServerParamsType"
               }
@@ -12771,7 +12771,7 @@
         "description": "Relocate a VM to a different datastore.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.relocateVmParams+json": {
+            "application/vnd.vmware.vcloud.relocateVmParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RelocateParamsType"
               }
@@ -12805,7 +12805,7 @@
         "description": "Relocate a VM to a different datastore.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.relocateVmParams+json": {
+            "application/vnd.vmware.vcloud.relocateVmParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_RelocateParamsType"
               }
@@ -12863,7 +12863,7 @@
         "description": "Removes virtual machines from the specified VM group.\n\n This asynchronous call returns a task. The process of removing virtual machines from a VM group can result in the virtual machine being processed and redeployed by the placement engine. All virtual machines provided to this call will be marked busy until the remove from group process is complete.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.vms+json": {
+            "application/vnd.vmware.vcloud.vms+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_VmsType"
               }
@@ -13335,7 +13335,7 @@
         "description": "Validate provisional AMQP settings.\n\n This request attempts to contact an AMQP broker using the values in the request body (an AmqpSettings element). If the attempt succeeds, the AmqpSettings are considered valid and can be used to update the system's AMQP settings.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.amqpSettings+json": {
+            "application/vnd.vmware.admin.amqpSettings+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsType"
               }
@@ -13358,7 +13358,7 @@
         "description": "Undeploy a vApp/VM.\n\n Undeployment deallocates all resources used by the vApp and the VMs it contains.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.undeployVAppParams+json": {
+            "application/vnd.vmware.vcloud.undeployVAppParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_UndeployVAppParamsType"
               }
@@ -13512,7 +13512,7 @@
         "description": "Publish a catalog.\n\n Publishing a catalog sets the value of its IsPublished element to true and makes the catalog visible to organization administrators of all organizations in a cloud.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.publishCatalogParams+json": {
+            "application/vnd.vmware.admin.publishCatalogParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_PublishCatalogParamsType"
               }
@@ -13546,7 +13546,7 @@
         "description": "Publish a catalog to external orgs.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.publishExternalCatalogParams+json": {
+            "application/vnd.vmware.admin.publishExternalCatalogParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_PublishExternalCatalogParamsType"
               }
@@ -13604,7 +13604,7 @@
         "description": "Update storage classes of a provider vDC.\n\n The request parameters specify storage classes to add or remove.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.updateProviderVdcStorageProfiles+json": {
+            "application/vnd.vmware.admin.updateProviderVdcStorageProfiles+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_UpdateProviderVdcStorageProfilesParamsType"
               }
@@ -13638,7 +13638,7 @@
         "description": "Add or remove provider vDC resource pools.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.resourcePoolSetUpdateParams+json": {
+            "application/vnd.vmware.admin.resourcePoolSetUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_UpdateResourcePoolSetParamsType"
               }
@@ -13672,7 +13672,7 @@
         "description": "Subscribe to an external catalog.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.externalCatalogSubscriptionParams+json": {
+            "application/vnd.vmware.admin.externalCatalogSubscriptionParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_ExternalCatalogSubscriptionParamsType"
               }
@@ -13706,7 +13706,7 @@
         "description": "Add or remove virtual datacenter storage classes.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.updateVdcStorageProfiles+json": {
+            "application/vnd.vmware.admin.updateVdcStorageProfiles+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_UpdateVdcStorageProfilesType"
               }
@@ -13812,7 +13812,7 @@
         "description": "Updates AMQP certificate. AMQP certificate and trust store are mutually exclusive. Overrides AMQP trust store, if update is successful.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.certificateUpdateParams+json": {
+            "application/vnd.vmware.admin.certificateUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CertificateUpdateParamsType"
               }
@@ -13835,7 +13835,7 @@
         "description": "Updates AMQP trust store. AMQP certificate and trust store are mutually exclusive. Overrides AMQP certificate, if update is successful.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.trustStoreUpdateParams+json": {
+            "application/vnd.vmware.admin.trustStoreUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_TrustStoreUpdateParamsType"
               }
@@ -13858,7 +13858,7 @@
         "description": "Updates system LDAP keystore.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.keystoreUpdateParams+json": {
+            "application/vnd.vmware.admin.keystoreUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_KeystoreUpdateParamsType"
               }
@@ -13881,7 +13881,7 @@
         "description": "Updates organization LDAP keystore.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.keystoreUpdateParams+json": {
+            "application/vnd.vmware.admin.keystoreUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_KeystoreUpdateParamsType"
               }
@@ -13915,7 +13915,7 @@
         "description": "Updates system LDAP SSL certificate.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.certificateUpdateParams+json": {
+            "application/vnd.vmware.admin.certificateUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CertificateUpdateParamsType"
               }
@@ -13938,7 +13938,7 @@
         "description": "Updates organization LDAP SSL certificate.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.certificateUpdateParams+json": {
+            "application/vnd.vmware.admin.certificateUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_CertificateUpdateParamsType"
               }
@@ -13972,7 +13972,7 @@
         "description": "Initiates localization bundle upload.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.bundleUploadParams+json": {
+            "application/vnd.vmware.admin.bundleUploadParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_BundleUploadParamsType"
               }
@@ -13995,7 +13995,7 @@
         "description": "Upload a media image",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.media+json": {
+            "application/vnd.vmware.vcloud.media+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_MediaType"
               }
@@ -14029,7 +14029,7 @@
         "description": "Updates system LDAP SSPI key tab.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.sspiKeytabUpdateParams+json": {
+            "application/vnd.vmware.admin.sspiKeytabUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SspiKeytabUpdateParamsType"
               }
@@ -14052,7 +14052,7 @@
         "description": "Updates organization LDAP SSPI keytab.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.sspiKeytabUpdateParams+json": {
+            "application/vnd.vmware.admin.sspiKeytabUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_SspiKeytabUpdateParamsType"
               }
@@ -14086,7 +14086,7 @@
         "description": "Upload a vApp template to a catalog",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.uploadVAppTemplateParams+json": {
+            "application/vnd.vmware.vcloud.uploadVAppTemplateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_UploadVAppTemplateParamsType"
               }
@@ -14120,7 +14120,7 @@
         "description": "Upload an OVF package to create a vApp template",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.uploadVAppTemplateParams+json": {
+            "application/vnd.vmware.vcloud.uploadVAppTemplateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_UploadVAppTemplateParamsType"
               }
@@ -14154,7 +14154,7 @@
         "description": "Updates vCenter trust store.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.vcTrustStoreUpdateParams+json": {
+            "application/vnd.vmware.admin.vcTrustStoreUpdateParams+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud-ext_VcTrustStoreUpdateParamsType"
               }
@@ -14177,7 +14177,7 @@
         "description": "Update access control information for a VDC template.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.controlAccess+json": {
+            "application/vnd.vmware.vcloud.controlAccess+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
               }
@@ -14211,7 +14211,7 @@
         "description": "Update access control information for a VDC. Provided access control information should only use ReadOnly access level or else {@link BadRequestException} is thrown",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.vcloud.controlAccess+json": {
+            "application/vnd.vmware.vcloud.controlAccess+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
               }
@@ -14245,7 +14245,7 @@
         "description": "Endpoint for just updating gateway properties by themselves.",
         "requestBody": {
           "content": {
-            "application/vnd.vmware.admin.edgeGateway+json": {
+            "application/vnd.vmware.admin.edgeGateway+json;version=30.0": {
               "schema": {
                 "$ref": "#/components/schemas/vcloud_GatewayType"
               }

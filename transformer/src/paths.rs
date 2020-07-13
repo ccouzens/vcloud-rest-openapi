@@ -10,6 +10,7 @@ use zip::read::ZipArchive;
 pub fn paths<R: Read + Seek>(
     zip: &mut ZipArchive<R>,
     content_type_mapping: BTreeMap<String, String>,
+    api_version: String,
 ) -> Result<Paths, Box<dyn std::error::Error>> {
     let path_param_regex = regex::Regex::new(r"\{([^}]+)}")?;
     let mut path_file_names = zip
@@ -27,7 +28,8 @@ pub fn paths<R: Read + Seek>(
         let mut html = String::new();
         zip.by_name(&file_name)?.read_to_string(&mut html)?;
 
-        let operation = Operation::try_from((html.as_str(), &content_type_mapping))?;
+        let operation =
+            Operation::try_from((html.as_str(), &content_type_mapping, api_version.clone()))?;
         if let openapiv3::ReferenceOr::Item(path_item) =
             paths.entry(operation.path.clone()).or_insert_with(|| {
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {

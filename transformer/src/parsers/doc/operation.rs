@@ -40,6 +40,7 @@ pub struct Operation {
     pub description: String,
     pub tag: &'static str,
     pub request_content: Option<(String, String)>,
+    pub api_version: String,
 }
 
 #[derive(Error, Debug)]
@@ -58,24 +59,25 @@ pub enum OperationParseError {
     DescriptionWrongType,
 }
 
-impl TryFrom<(&str, &BTreeMap<String, String>)> for Operation {
+impl TryFrom<(&str, &BTreeMap<String, String>, String)> for Operation {
     type Error = OperationParseError;
 
     fn try_from(
-        (html, content_type_mapping): (&str, &BTreeMap<String, String>),
+        (html, content_type_mapping, api_version): (&str, &BTreeMap<String, String>, String),
     ) -> Result<Self, Self::Error> {
         Ok(Self::try_from((
             DetailPage::try_from(html)?,
             content_type_mapping,
+            api_version,
         ))?)
     }
 }
 
-impl TryFrom<(DetailPage, &BTreeMap<String, String>)> for Operation {
+impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation {
     type Error = OperationParseError;
 
     fn try_from(
-        (p, content_type_mapping): (DetailPage, &BTreeMap<String, String>),
+        (p, content_type_mapping, api_version): (DetailPage, &BTreeMap<String, String>, String),
     ) -> Result<Self, Self::Error> {
         let method =
             p.h1.split_ascii_whitespace()
@@ -125,12 +127,14 @@ impl TryFrom<(DetailPage, &BTreeMap<String, String>)> for Operation {
             description,
             tag,
             request_content,
+            api_version: api_version,
         })
     }
 }
 
 impl From<Operation> for openapiv3::Operation {
     fn from(o: Operation) -> Self {
+        let api_version = o.api_version;
         openapiv3::Operation {
             description: Some(o.description),
             responses: openapiv3::Responses {
@@ -150,7 +154,7 @@ impl From<Operation> for openapiv3::Operation {
             request_body: o.request_content.map(|(t, r)| {
                 openapiv3::ReferenceOr::Item(openapiv3::RequestBody {
                     content: [(
-                        format!("{}+json", t),
+                        format!("{}+json;version={}", t, api_version),
                         openapiv3::MediaType {
                             schema: Some(openapiv3::ReferenceOr::Reference {
                                 reference: format!("#/components/schemas/{}", r),
@@ -181,6 +185,7 @@ fn parse_operation_test() {
         .iter()
         .cloned()
         .collect(),
+        "32.0".into(),
     ))
     .unwrap();
     assert_eq!(
@@ -190,7 +195,8 @@ fn parse_operation_test() {
             path: "/admin/test/{id}".into(),
             description: "Update a test.".into(),
             tag: "admin",
-            request_content: Some(("application/vnd.vmware.admin.test".into(), "MyType".into()))
+            request_content: Some(("application/vnd.vmware.admin.test".into(), "MyType".into())),
+            api_version: "32.0".into()
         }
     )
 }
@@ -206,6 +212,7 @@ fn generate_schema_test() {
         .iter()
         .cloned()
         .collect(),
+        "32.0".into(),
     ))
     .unwrap();
     let value = openapiv3::Operation::from(op);
@@ -221,7 +228,7 @@ fn generate_schema_test() {
             },
             "requestBody": {
                 "content": {
-                  "application/vnd.vmware.admin.test+json": {
+                  "application/vnd.vmware.admin.test+json;version=32.0": {
                     "schema": {
                       "$ref": "#/components/schemas/MyType"
                     }
