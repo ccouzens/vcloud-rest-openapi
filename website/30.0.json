@@ -43066,5 +43066,19 @@
         "type": "object"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "user",
+      "description": "These operations and queries are accessible to all users who have permission to log into an organization. User elements and user types represent the objects that these operations manipulate."
+    },
+    {
+      "name": "admin",
+      "description": "These operations and queries are accessible to organization administrators or system administrators. Administrator elements and types represent the objects that these operations manipulate."
+    },
+    {
+      "name": "extension",
+      "description": "These operations and queries are accessible to system administrators who need access to vSphere platform objects from the vCloud API. Extension elements and types represent the objects that these operations manipulate."
+    }
+  ]
 }
