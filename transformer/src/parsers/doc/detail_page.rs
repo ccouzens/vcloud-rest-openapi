@@ -189,13 +189,13 @@ fn parse_operation_test() {
                                 (
                                     "Produce media type(s):".into(),
                                     DefinitionListValue::Text(
-                                        "application/vnd.vmware.admin.test+xml<br>application/vnd.vmware.admin.test+json<br>"
+                                        "application/vnd.vmware.admin.testo+xml<br>application/vnd.vmware.admin.testo+json<br>"
                                             .into()
                                     )
                                 ),
                                 (
                                     "Output type:".into(),
-                                    DefinitionListValue::Text("<a href=\"..//types/AdminTestType.html\">AdminTestType</a>".into())
+                                    DefinitionListValue::Text("<a href=\"..//types/AdminTestTypeO.html\">AdminTestTypeO</a>".into())
                                 )
                             ]
                             .iter()

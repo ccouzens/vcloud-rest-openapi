@@ -22,7 +22,7 @@ but it contains little of the functionality of the
 2. Add routes ✓
 3. Add types ⚠ - Types should work for the most part, but there are corner
    cases.
-4. Wire routes to types ❌
+4. Wire routes to types ✓
 5. Add security schemes ❌
 
 > Types should work for the most part, but there are corner cases

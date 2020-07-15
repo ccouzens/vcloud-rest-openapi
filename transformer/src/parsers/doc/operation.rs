@@ -40,6 +40,7 @@ pub struct Operation {
     pub description: String,
     pub tag: &'static str,
     pub request_content: Option<(String, String)>,
+    pub response_content: Option<(String, String)>,
     pub api_version: String,
 }
 
@@ -121,12 +122,33 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             _ => None,
         };
 
+        let response_content_type = match p.definition_list.0.get("Output parameters") {
+            Some(DefinitionListValue::SubList(b)) => match b.0.get("Produce media type(s):") {
+                Some(DefinitionListValue::Text(t)) => t.split("+xml<br>").next(),
+                _ => None,
+            },
+            _ => None,
+        }
+        .map(str::to_string);
+
+        let response_content_ref = response_content_type
+            .as_ref()
+            .and_then(|c| content_type_mapping.get(c))
+            .cloned();
+
+        let response_content = match (response_content_type, response_content_ref) {
+            (Some(t), Some(r)) => Some((t, r)),
+            _ => None,
+        };
+
+
         Ok(Self {
             method,
             path,
             description,
             tag,
             request_content,
+            response_content,
             api_version: api_version,
         })
     }
@@ -142,6 +164,14 @@ impl From<Operation> for openapiv3::Operation {
                     openapiv3::StatusCode::Range(2),
                     openapiv3::ReferenceOr::Item(openapiv3::Response {
                         description: "success".into(),
+                        content: [o.response_content.map(|(t, r)| {
+                            (format!("{}+json;version={}", t, api_version), openapiv3::MediaType {
+                                schema: Some(openapiv3::ReferenceOr::Reference {
+                                reference: format!("#/components/schemas/{}", r)
+                                }),
+                                ..Default::default()
+                            })
+                        })].iter().cloned().flat_map(|e| e).collect(),
                         ..Default::default()
                     }),
                 )]
@@ -181,6 +211,9 @@ fn parse_operation_test() {
         &[(
             "application/vnd.vmware.admin.test".to_string(),
             "MyType".to_string(),
+        ),(
+            "application/vnd.vmware.admin.testo".to_string(),
+            "MyTypeO".to_string(),
         )]
         .iter()
         .cloned()
@@ -196,6 +229,7 @@ fn parse_operation_test() {
             description: "Update a test.".into(),
             tag: "admin",
             request_content: Some(("application/vnd.vmware.admin.test".into(), "MyType".into())),
+            response_content: Some(("application/vnd.vmware.admin.testo".into(), "MyTypeO".into())),
             api_version: "32.0".into()
         }
     )
@@ -208,6 +242,9 @@ fn generate_schema_test() {
         &[(
             "application/vnd.vmware.admin.test".to_string(),
             "MyType".to_string(),
+        ),(
+            "application/vnd.vmware.admin.testo".to_string(),
+            "MyTypeO".to_string(),
         )]
         .iter()
         .cloned()
@@ -219,23 +256,33 @@ fn generate_schema_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "tags": [ "admin" ],
+            "tags": [
+              "admin"
+            ],
             "description": "Update a test.",
-            "responses": {
-                "2XX": {
-                    "description": "success"
-                }
-            },
             "requestBody": {
+              "content": {
+                "application/vnd.vmware.admin.test+json;version=32.0": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MyType"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "2XX": {
+                "description": "success",
                 "content": {
-                  "application/vnd.vmware.admin.test+json;version=32.0": {
+                  "application/vnd.vmware.admin.testo+json;version=32.0": {
                     "schema": {
-                      "$ref": "#/components/schemas/MyType"
+                      "$ref": "#/components/schemas/MyTypeO"
                     }
                   }
-                },
-                "required": true
-              },
-        })
+                }
+              }
+            }
+          }
+          )
     )
 }

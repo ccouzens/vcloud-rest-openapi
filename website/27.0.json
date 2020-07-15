@@ -16,7 +16,14 @@
         "description": "Retrieve (GET) ACL rule",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.aclRule+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AclRuleType"
+                }
+              }
+            }
           }
         }
       },
@@ -62,7 +69,14 @@
         "description": "Deletes the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -86,7 +100,14 @@
         "description": "Removes all stranded items.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       }
@@ -99,7 +120,14 @@
         "description": "Retrieve API definition.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.apiDefinition+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminApiDefinitionType"
+                }
+              }
+            }
           }
         }
       },
@@ -134,7 +162,14 @@
         "description": "Retrieves API filter.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.apiFilter+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ApiFilterType"
+                }
+              }
+            }
           }
         }
       },
@@ -169,7 +204,14 @@
         "description": "Retrieve a catalog.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.catalog+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminCatalogType"
+                }
+              }
+            }
           }
         }
       },
@@ -190,7 +232,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.catalog+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminCatalogType"
+                }
+              }
+            }
           }
         }
       },
@@ -225,7 +274,14 @@
         "description": "Retrieve a catalog item.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.catalogItem+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CatalogItemType"
+                }
+              }
+            }
           }
         }
       },
@@ -246,7 +302,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.catalogItem+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CatalogItemType"
+                }
+              }
+            }
           }
         }
       },
@@ -292,7 +355,14 @@
         "description": "Set the metadata value for the specified key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -303,7 +373,14 @@
         "description": "Delete the specified key and its value from catalog item metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -347,7 +424,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -358,7 +442,14 @@
         "description": "Delete the specified key and its value from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -391,7 +482,14 @@
         "description": "Retrieve a disk.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.disk+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_DiskType"
+                }
+              }
+            }
           }
         }
       },
@@ -412,7 +510,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -423,7 +528,14 @@
         "description": "Delete a disk.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -458,7 +570,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -469,7 +588,14 @@
         "description": "Delete the specified key and its value from disk metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -502,7 +628,14 @@
         "description": "Retrieve an edge gateway",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.edgeGateway+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_GatewayType"
+                }
+              }
+            }
           }
         }
       },
@@ -523,7 +656,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -534,7 +674,14 @@
         "description": "Delete an edge gateway.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -579,7 +726,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwexternalnet+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
+                }
+              }
+            }
           }
         }
       },
@@ -590,7 +744,14 @@
         "description": "Delete an external network.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -614,7 +775,14 @@
         "description": "Retrieve a file descriptor",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.fileDescriptor+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminFileDescriptorType"
+                }
+              }
+            }
           }
         }
       },
@@ -649,7 +817,14 @@
         "description": "Retrieve a group.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.group+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_GroupType"
+                }
+              }
+            }
           }
         }
       },
@@ -670,7 +845,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.group+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_GroupType"
+                }
+              }
+            }
           }
         }
       },
@@ -705,7 +887,14 @@
         "description": "Retrieves service link.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.serviceLink+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminServiceLinkType"
+                }
+              }
+            }
           }
         }
       },
@@ -740,7 +929,14 @@
         "description": "Retrieve a representation of the current session.\n\n A Session object contains one or more URLs from which you can begin browsing, as well as links to the query service and entity resolver. The list of URLs in the Session object is based on the role and privileges of the authenticated user.\n\n A Session object expires after a configurable interval of client inactivity. To change the length of this client inactivity timeout, a system administrator can change the value of SessionTimeoutMinutes in the system's GeneralSettings",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.session+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SessionType"
+                }
+              }
+            }
           }
         }
       },
@@ -764,7 +960,14 @@
         "description": "Retrieve a media object.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.media+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MediaType"
+                }
+              }
+            }
           }
         }
       },
@@ -785,7 +988,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -796,7 +1006,14 @@
         "description": "Delete a media object.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -831,7 +1048,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -842,7 +1066,14 @@
         "description": "Delete the specified key and its value from media object metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -896,7 +1127,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -907,7 +1145,14 @@
         "description": "Delete a network.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -942,7 +1187,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -953,7 +1205,14 @@
         "description": "Delete the specified key and its value from network metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -986,7 +1245,14 @@
         "description": "Retrieve a network pool.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwNetworkPool+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWNetworkPoolType"
+                }
+              }
+            }
           }
         }
       },
@@ -1008,7 +1274,14 @@
         "description": "Delete a network pool.\n\n The pool must not be in use.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1032,7 +1305,14 @@
         "description": "Retrieves a registered object extension.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.object+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ObjectExtensionType"
+                }
+              }
+            }
           }
         }
       },
@@ -1053,7 +1333,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.object+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ObjectExtensionType"
+                }
+              }
+            }
           }
         }
       },
@@ -1088,7 +1375,14 @@
         "description": "Retrieve an administrative view of an organization.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.organization+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminOrgType"
+                }
+              }
+            }
           }
         }
       },
@@ -1109,7 +1403,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.organization+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminOrgType"
+                }
+              }
+            }
           }
         }
       },
@@ -1120,7 +1421,14 @@
         "description": "Delete an organization.\n\n Before you can delete an organization, you must disable it and then delete or change ownership of all objects that the organization's users own.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1155,7 +1463,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1166,7 +1481,14 @@
         "description": "Delete the specified key and its value from organization metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1199,7 +1521,14 @@
         "description": "Retrieve a system administrator view of a provider vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwprovidervdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcType"
+                }
+              }
+            }
           }
         }
       },
@@ -1220,7 +1549,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwprovidervdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcType"
+                }
+              }
+            }
           }
         }
       },
@@ -1231,7 +1567,14 @@
         "description": "Delete a provider vDC.\n\n Before you can delete a provider vDC, you must disable it.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1266,7 +1609,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1277,7 +1627,14 @@
         "description": "Delete the specified key and its value from provider vDC metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1321,7 +1678,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1332,7 +1696,14 @@
         "description": "Delete the specified key and its value from Provider VDC Storage Profile metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1365,7 +1736,14 @@
         "description": "Retrieve (GET) resource class info",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.resourceClass+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ResourceClassType"
+                }
+              }
+            }
           }
         }
       },
@@ -1400,7 +1778,14 @@
         "description": "Retrieve (GET) resource class action info",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.resourceClassAction+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ResourceClassActionType"
+                }
+              }
+            }
           }
         }
       },
@@ -1435,7 +1820,14 @@
         "description": "Retrieves a right.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.right+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RightType"
+                }
+              }
+            }
           }
         }
       },
@@ -1456,7 +1848,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.right+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RightType"
+                }
+              }
+            }
           }
         }
       },
@@ -1491,7 +1890,14 @@
         "description": "Retrieve a role.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.role+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RoleType"
+                }
+              }
+            }
           }
         }
       },
@@ -1512,7 +1918,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.role+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RoleType"
+                }
+              }
+            }
           }
         }
       },
@@ -1547,7 +1960,14 @@
         "description": "Retrieves a Selector Extension.\n\n The association can be the default policy, or an overridden instance of the default policy.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.selector+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
+                }
+              }
+            }
           }
         }
       },
@@ -1568,7 +1988,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.selector+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SelectorExtensionType"
+                }
+              }
+            }
           }
         }
       },
@@ -1603,7 +2030,14 @@
         "description": "Gives information about a concrete extension service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.service+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminServiceType"
+                }
+              }
+            }
           }
         }
       },
@@ -1624,7 +2058,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.service+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminServiceType"
+                }
+              }
+            }
           }
         }
       },
@@ -1659,7 +2100,14 @@
         "description": "Retrieve (GET) service resource",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.serviceResource+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ServiceResourceType"
+                }
+              }
+            }
           }
         }
       },
@@ -1705,7 +2153,14 @@
         "description": "Deletes shadow VM.\n\n This API for deletion of shadow VMs has changed URL signature to better reflect the API object model.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1729,7 +2184,14 @@
         "description": "Gets the representation of a strandedItem.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.strandedItem+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_StrandedItemType"
+                }
+              }
+            }
           }
         }
       },
@@ -1740,7 +2202,14 @@
         "description": "Removes stranded item.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1764,7 +2233,14 @@
         "description": "Retrieve a vDC template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwVdcTemplate+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateType"
+                }
+              }
+            }
           }
         }
       },
@@ -1785,7 +2261,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwVdcTemplate+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateType"
+                }
+              }
+            }
           }
         }
       },
@@ -1820,7 +2303,14 @@
         "description": "Retrieve a user.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.user+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_UserType"
+                }
+              }
+            }
           }
         }
       },
@@ -1841,7 +2331,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.user+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_UserType"
+                }
+              }
+            }
           }
         }
       },
@@ -1897,7 +2394,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1908,7 +2412,14 @@
         "description": "Delete a vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1943,7 +2454,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -1954,7 +2472,14 @@
         "description": "Delete the specified key and its value from vApp or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2008,7 +2533,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2019,7 +2551,14 @@
         "description": "Delete a vApp template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2054,7 +2593,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2065,7 +2611,14 @@
         "description": "Delete the specified key and its value from vApp template or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2098,7 +2651,14 @@
         "description": "Retrieve the admin view of an organization vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminVdcType"
+                }
+              }
+            }
           }
         }
       },
@@ -2119,7 +2679,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2130,7 +2697,14 @@
         "description": "Delete an organization vDC.\n\n You must disable the virtual datacenter before you can delete it.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2154,7 +2728,14 @@
         "description": "Retrieve a vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VdcType"
+                }
+              }
+            }
           }
         }
       },
@@ -2175,7 +2756,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2186,7 +2774,14 @@
         "description": "Delete an organization vDC.\n\n You must disable the virtual datacenter before you can delete it, unless {@code RestConstants.DeleteParameters.FORCE} is asserted",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2221,7 +2816,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2232,7 +2834,14 @@
         "description": "Delete the specified key and its value from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2276,7 +2885,14 @@
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2287,7 +2903,14 @@
         "description": "Delete the specified key and its value from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2320,7 +2943,14 @@
         "description": "Retrieves the specified VM affinity rule",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vmaffinityrule+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmAffinityRuleType"
+                }
+              }
+            }
           }
         }
       },
@@ -2341,7 +2971,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2396,7 +3033,14 @@
         "description": "Delete the specified VM group",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2441,7 +3085,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.aclRule+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AclRuleType"
+                }
+              }
+            }
           }
         }
       },
@@ -2478,7 +3129,14 @@
         "description": "Retrieve a list of all VDC templates.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwVdcTemplateReferences+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateListType"
+                }
+              }
+            }
           }
         }
       }
@@ -2573,7 +3231,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.apidefinition+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ApiDefinitionType"
+                }
+              }
+            }
           }
         }
       },
@@ -2618,7 +3283,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.apiDefinition+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminApiDefinitionType"
+                }
+              }
+            }
           }
         }
       },
@@ -2692,7 +3364,14 @@
         "description": "Retrieve a list of links to API extensibility operations and entities.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.apiextensibility+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ApiExtensibilityType"
+                }
+              }
+            }
           }
         }
       }
@@ -2726,7 +3405,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.apiFilter+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ApiFilterType"
+                }
+              }
+            }
           }
         }
       },
@@ -2798,7 +3484,14 @@
         "description": "Retrieve a list of storage classes that can be added to the specified provider vDC. Storage classes that have already been added to the provider vDC are not included in the list.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwStorageProfiles+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWStorageProfilesType"
+                }
+              }
+            }
           }
         }
       },
@@ -2822,7 +3515,14 @@
         "description": "Retrieve a list of unused resource pools from a vCenter server.\n\n Resource pools that are already in use by a provider vDC are not listed.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.resourcePoolList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ResourcePoolListType"
+                }
+              }
+            }
           }
         }
       },
@@ -2846,7 +3546,14 @@
         "description": "Retrieve the representation of a blocking task.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.blockingTask+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_BlockingTaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -2918,7 +3625,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.bootOptionsSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_BootOptionsType"
+                }
+              }
+            }
           }
         }
       },
@@ -2976,7 +3690,14 @@
         "description": "Retrieve a catalog.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.catalog+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CatalogType"
+                }
+              }
+            }
           }
         }
       },
@@ -3011,7 +3732,14 @@
         "description": "Merge the metadata provided in the request with existing catalog item metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -3046,7 +3774,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -3194,7 +3929,14 @@
         "description": "Retrieve the flag value check\\_post\\_guest\\_customization. This flag decides if property collector would wait for post guest customization script to complete",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vm.checkPostGuestCustomizationSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmCheckPGCType"
+                }
+              }
+            }
           }
         }
       },
@@ -3215,7 +3957,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vm.checkPostGuestCustomizationSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmCheckPGCType"
+                }
+              }
+            }
           }
         }
       },
@@ -3239,7 +3988,14 @@
         "description": "Retrieve access control information for a catalog.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.controlAccess+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+                }
+              }
+            }
           }
         }
       },
@@ -3272,7 +4028,14 @@
         "description": "Retrieve access control information for a vApp.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.controlAccess+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+                }
+              }
+            }
           }
         }
       },
@@ -3296,7 +4059,14 @@
         "description": "Retrieve access control information for a VDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.controlAccess+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+                }
+              }
+            }
           }
         }
       },
@@ -3320,7 +4090,14 @@
         "description": "Retrieve access control information for a VDC template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.controlAccess+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+                }
+              }
+            }
           }
         }
       },
@@ -3355,7 +4132,14 @@
         "description": "Update the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -3390,7 +4174,14 @@
         "description": "Update the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -3414,7 +4205,14 @@
         "description": "Retrieve a datastore.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.datastore+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_DatastoreType"
+                }
+              }
+            }
           }
         }
       },
@@ -3425,7 +4223,14 @@
         "description": "Update datastore properties, including name, description, and low disk space thresholds.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.datastore+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_DatastoreType"
+                }
+              }
+            }
           }
         }
       },
@@ -3475,7 +4280,14 @@
         "description": "Get direct children resource pools of Provider VDC that are valid candidates for creating a new VDC",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwDiscoveredResourcePools+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWDiscoveredResourcePoolsType"
+                }
+              }
+            }
           }
         }
       },
@@ -3499,7 +4311,14 @@
         "description": "Get direct children resource pools of {parent\\_rp\\_moref} nested under the Provider VDC which are valid candidates for creating a new VDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwDiscoveredResourcePools+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWDiscoveredResourcePoolsType"
+                }
+              }
+            }
           }
         }
       },
@@ -3543,7 +4362,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -3625,7 +4451,14 @@
         "description": "Retrieve all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItemsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -3646,7 +4479,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -3670,7 +4510,14 @@
         "description": "Retrieve all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItemsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -3691,7 +4538,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -3749,7 +4603,14 @@
         "description": "Redirects to the URL of an entity with the given VCD ID.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.entity+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_EntityType"
+                }
+              }
+            }
           }
         }
       },
@@ -3773,7 +4634,14 @@
         "description": "Returns event with specified ID.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.event+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_EventType"
+                }
+              }
+            }
           }
         }
       },
@@ -3810,7 +4678,14 @@
         "description": "Retrieve a list of extension objects and operations.\n\n The VMWExtension element provides access to a cloud\\-wide namespace of vSphere platform objects that are registered for use by the system, and links that allow you to add vSphere servers and related resources such as networks and resource pools to the cloud. It also provides access to system level configuration settings for Kerberos and LDAP services.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwExtension+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWExtensionType"
+                }
+              }
+            }
           }
         }
       }
@@ -3823,7 +4698,14 @@
         "description": "Retrieves a list of extension service operations.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensionServices+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ExtensionServicesType"
+                }
+              }
+            }
           }
         }
       },
@@ -3844,7 +4726,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.service+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminServiceType"
+                }
+              }
+            }
           }
         }
       }
@@ -3857,7 +4746,14 @@
         "description": "Retrieve a list of references to exernal networks in the system.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwExternalNetworkReferences+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkReferencesType"
+                }
+              }
+            }
           }
         }
       }
@@ -3949,7 +4845,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.fileDescriptor+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminFileDescriptorType"
+                }
+              }
+            }
           }
         }
       },
@@ -4089,7 +4992,14 @@
         "description": "Retrieve status of guest customization for that VM Following are the possible status 0 \\- PENDING\\_GC : Guest Customization is either not started or in progress. This is set whenever a VM need customization. 1 \\- PENDING\\_REBOOT : GC is successful, but reboot is pending. This is set when vCloud receives \"guestinfo.gc.status\" as successful 2 \\- PENDING\\_POST\\_GC : Reboot has happened, waiting for post gc script to complete. This is set when tools running status comes as \"Running\" based on conditions 1 & 2 3 \\- COMPLETE : GC is complete.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.guestCustomizationStatusSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_GuestCustomizationStatusSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -4113,7 +5023,14 @@
         "description": "Retrieves the guest customization section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.guestCustomizationSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_GuestCustomizationSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -4134,7 +5051,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4158,7 +5082,14 @@
         "description": "Retrieves the guest customization section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.guestCustomizationSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_GuestCustomizationSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -4179,7 +5110,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4203,7 +5141,14 @@
         "description": "Retrieve a host.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.host+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_HostType"
+                }
+              }
+            }
           }
         }
       },
@@ -4275,7 +5220,14 @@
         "description": "Retrieve a list of references to ESX/ESXi hosts attached to the system.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwHostReferences+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWHostReferencesType"
+                }
+              }
+            }
           }
         }
       }
@@ -4369,7 +5321,14 @@
         "description": "Retrieves the lease settings section of a vApp or vApp template",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.leaseSettingsSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_LeaseSettingsSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -4390,7 +5349,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4414,7 +5380,14 @@
         "description": "Retrieves the lease settings section of a vApp or vApp template",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.leaseSettingsSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_LeaseSettingsSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -4435,7 +5408,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4548,7 +5528,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.serviceLink+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AdminServiceLinkType"
+                }
+              }
+            }
           }
         }
       },
@@ -4572,7 +5559,14 @@
         "description": "Login with HTTP GET request. (Same as POST, implemented for convenience.)",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.orgList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgListType"
+                }
+              }
+            }
           }
         }
       },
@@ -4583,7 +5577,14 @@
         "description": "Login with HTTP POST request.\n\n The response includes an authorization token in this format:\n\n x\\-vcloud\\-authorization: *token*\n\n Include this header in all subsequent requests.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.orgList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgListType"
+                }
+              }
+            }
           }
         }
       }
@@ -4596,7 +5597,14 @@
         "description": "Retrieve settings that describe how vCloud Director connects to a vSphere lookup service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.lookupServiceSettings+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_LookupServiceSettingsType"
+                }
+              }
+            }
           }
         }
       },
@@ -4630,7 +5638,14 @@
         "description": "Retrieve all RASD items that specify CD\\-ROM, DVD, and floppy disk device and controller properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItemsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -4654,7 +5669,14 @@
         "description": "Retrieve all RASD items that specify CD\\-ROM, DVD, and floppy disk device and controller properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItemsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -4689,7 +5711,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4761,7 +5790,14 @@
         "description": "Update the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4796,7 +5832,14 @@
         "description": "Update the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4881,7 +5924,14 @@
         "description": "Retrieve all RASD items that specify network card properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItemsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -4902,7 +5952,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4926,7 +5983,14 @@
         "description": "Retrieve all RASD items that specify network card properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItemsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -4947,7 +6011,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -4971,7 +6042,14 @@
         "description": "Retrieve the network config section of a vApp or vApp template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.networkConfigSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_NetworkConfigSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -4992,7 +6070,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -5016,7 +6101,14 @@
         "description": "Retrieve the network config section of a vApp or vApp template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.networkConfigSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_NetworkConfigSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -5037,7 +6129,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -5061,7 +6160,14 @@
         "description": "Retrieve the network connection section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.networkConnectionSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_NetworkConnectionSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -5082,7 +6188,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -5106,7 +6219,14 @@
         "description": "Retrieve the network connection section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.networkConnectionSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_NetworkConnectionSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -5127,7 +6247,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -5162,7 +6289,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -5252,7 +6386,14 @@
         "description": "Retrieve a list of references to network pools in the system.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwNetworkPoolReferences+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWNetworkPoolReferencesType"
+                }
+              }
+            }
           }
         }
       }
@@ -5405,7 +6546,14 @@
         "description": "Displays the list of currently registered object extensions",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.objects+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ObjectExtensionsType"
+                }
+              }
+            }
           }
         }
       },
@@ -5426,7 +6574,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.object+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ObjectExtensionType"
+                }
+              }
+            }
           }
         }
       }
@@ -5450,7 +6605,14 @@
         "description": "Update the operating system section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -5812,7 +6974,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.edgeGateway+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_GatewayType"
+                }
+              }
+            }
           }
         }
       },
@@ -5857,7 +7026,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.orgVdcNetwork+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
+                }
+              }
+            }
           }
         }
       },
@@ -5894,7 +7070,14 @@
         "description": "Retrieve an organization.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.org+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgType"
+                }
+              }
+            }
           }
         }
       },
@@ -5929,7 +7112,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -6019,7 +7209,14 @@
         "description": "Retrieve rights for an organization",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.org.rights+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrganizationRolesType"
+                }
+              }
+            }
           }
         }
       },
@@ -6040,7 +7237,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.org.rights+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrganizationRolesType"
+                }
+              }
+            }
           }
         }
       },
@@ -6064,7 +7268,14 @@
         "description": "Retrieve resource pools associated with an organization VDC",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.OrganizationVdcResourcePoolSet+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_OrganizationResourcePoolSetType"
+                }
+              }
+            }
           }
         }
       },
@@ -6088,7 +7299,14 @@
         "description": "Retrieve a list of organizations accessible to you.\n\n The system administrator has access to all organizations.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.orgList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgListType"
+                }
+              }
+            }
           }
         }
       }
@@ -6135,7 +7353,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -6183,7 +7408,14 @@
         "description": "Retrieve a provider vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.providervdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ProviderVdcType"
+                }
+              }
+            }
           }
         }
       },
@@ -6218,7 +7450,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -6242,7 +7481,14 @@
         "description": "Retrieve a list of references to provider vDCs in the system.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwProviderVdcReferences+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcReferencesType"
+                }
+              }
+            }
           }
         }
       }
@@ -6255,7 +7501,14 @@
         "description": "Retrieve provider vDC storage profile details.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwPvdcStorageProfile+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcStorageProfileType"
+                }
+              }
+            }
           }
         }
       },
@@ -6276,7 +7529,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwPvdcStorageProfile+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcStorageProfileType"
+                }
+              }
+            }
           }
         }
       },
@@ -6300,7 +7560,14 @@
         "description": "Retrieve provider vDC storage profile details.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.pvdcStorageProfile+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ProviderVdcStorageProfileType"
+                }
+              }
+            }
           }
         }
       },
@@ -6335,7 +7602,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -6372,7 +7646,14 @@
         "description": "Retrieve a provider vDC resource pool set.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwProviderVdcResourcePoolSet+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcResourcePoolSetType"
+                }
+              }
+            }
           }
         }
       },
@@ -6409,7 +7690,14 @@
         "description": "Queries user granted privileges",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         }
       },
@@ -6454,7 +7742,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.resourceClassAction+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ResourceClassActionType"
+                }
+              }
+            }
           }
         }
       },
@@ -6499,7 +7794,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.resourceClass+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ResourceClassType"
+                }
+              }
+            }
           }
         }
       },
@@ -6523,7 +7825,14 @@
         "description": "Gives the rights registered by this extension service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.rights+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_RightRefsType"
+                }
+              }
+            }
           }
         }
       },
@@ -6544,7 +7853,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.right+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RightType"
+                }
+              }
+            }
           }
         }
       },
@@ -6629,7 +7945,14 @@
         "description": "Create VM Affinity Rules within this resource pool.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -6653,7 +7976,14 @@
         "description": "Retrieve the runtime info section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.runtimeInfoSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RuntimeInfoSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -6714,7 +8044,14 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.selectors+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SelectorExtensionsType"
+                }
+              }
+            }
           }
         }
       },
@@ -6759,7 +8096,14 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.selectors+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SelectorExtensionsType"
+                }
+              }
+            }
           }
         }
       },
@@ -6793,7 +8137,14 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.selectors+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SelectorExtensionsType"
+                }
+              }
+            }
           }
         }
       },
@@ -6838,7 +8189,14 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.selectors+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SelectorExtensionsType"
+                }
+              }
+            }
           }
         }
       },
@@ -6883,7 +8241,14 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.selectors+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SelectorExtensionsType"
+                }
+              }
+            }
           }
         }
       },
@@ -6928,7 +8293,14 @@
         "description": "Displays a list of all selector extensions of a registered object extension.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.extensibility.selectors+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SelectorExtensionsType"
+                }
+              }
+            }
           }
         }
       },
@@ -6952,7 +8324,14 @@
         "description": "Retrieve all RASD items that specify serial port properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItemsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -6973,7 +8352,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -6997,7 +8383,14 @@
         "description": "Retrieve all RASD items that specify serial port properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItemsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RasdItemsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -7018,7 +8411,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -7055,7 +8455,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.service+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ServiceType"
+                }
+              }
+            }
           }
         }
       },
@@ -7100,7 +8507,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.serviceResource+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ServiceResourceType"
+                }
+              }
+            }
           }
         }
       },
@@ -7137,7 +8551,14 @@
         "description": "Retrieve a list of shadow VMs associated with the specified vApp template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         }
       },
@@ -7196,7 +8617,14 @@
         "description": "Update the startup section of a vApp.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -7257,7 +8685,14 @@
         "description": "List operating systems available for use on virtual machines owned by this organization.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.supportedSystemsInfo+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SupportedOperatingSystemsInfoType"
+                }
+              }
+            }
           }
         }
       }
@@ -7351,7 +8786,14 @@
         "description": "Retrieve a task.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -7372,7 +8814,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -7396,7 +8845,14 @@
         "description": "Retrieve a list of this organization's queued, running, or recently completed tasks.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.tasksList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TasksListType"
+                }
+              }
+            }
           }
         }
       },
@@ -7417,7 +8873,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -7534,7 +8997,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -7627,7 +9097,14 @@
         "description": "Retrieve the customization section of a vApp template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.customizationSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CustomizationSectionType"
+                }
+              }
+            }
           }
         }
       },
@@ -7707,7 +9184,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -7831,7 +9315,14 @@
         "description": "Retrieve vShield Manager configuration details, including administrator credentials.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vshieldmanager+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_ShieldManagerType"
+                }
+              }
+            }
           }
         }
       },
@@ -7852,7 +9343,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -7918,7 +9416,14 @@
         "description": "Retrieve an administrative view of a cloud.\n\n The VCloud element provides access to cloud\\-wide namespace of objects that an administrator can view and, in most cases, modify.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vcloud+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VCloudType"
+                }
+              }
+            }
           }
         }
       }
@@ -7942,7 +9447,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -8032,7 +9544,14 @@
         "description": "Returns storage class referred by the Id. All properties of the storage classes are visible to vcloud user, except for VDC Storage Class reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vdcStorageProfile+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VdcStorageProfileType"
+                }
+              }
+            }
           }
         }
       },
@@ -8067,7 +9586,14 @@
         "description": "Merge the metadata provided in the request with existing metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -8157,7 +9683,14 @@
         "description": "Returns the representation of a vDC storage profile",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vdcStorageProfile+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminVdcStorageProfileType"
+                }
+              }
+            }
           }
         }
       },
@@ -8178,7 +9711,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vdcStorageProfile+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminVdcStorageProfileType"
+                }
+              }
+            }
           }
         }
       },
@@ -8202,7 +9742,14 @@
         "description": "List Public/External IPs on specific Edge Gateway.\n\n Rights required for the operation: Gateway: View External IP Addresses.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vchs.edgeGatewayIp.list+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_EdgeGatewayExternalConnectionListType"
+                }
+              }
+            }
           }
         }
       },
@@ -8226,7 +9773,14 @@
         "description": "Retrieve a vDC template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vdcTemplate+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VdcTemplateType"
+                }
+              }
+            }
           }
         }
       },
@@ -8250,7 +9804,14 @@
         "description": "Retrieve a list of vDC templates accessible to you.\n\n The system administrator has access to all templates.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vdcTemplates+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VdcTemplatesType"
+                }
+              }
+            }
           }
         }
       }
@@ -8263,7 +9824,14 @@
         "description": "Retrieve a list of organization vDCs supported by a given provider vDC.\n\n Resources from the provider vDC are allocated across all organization vDCs in the list.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vdcReferences+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VdcReferencesType"
+                }
+              }
+            }
           }
         }
       },
@@ -8311,7 +9879,14 @@
         "description": "Retrieve a list of references to vCenter servers attached to the system.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwVimServerReferences+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWVimServerReferencesType"
+                }
+              }
+            }
           }
         }
       }
@@ -8337,7 +9912,14 @@
         "description": "Retrieve the representation of a registered vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwvirtualcenter+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VimServerType"
+                }
+              }
+            }
           }
         }
       },
@@ -8358,7 +9940,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -8393,7 +9982,14 @@
         "description": "Update the virtual hardware section of a VM.\n\n This operation updates the entire VirtualHardwareSection of a VM. You can also update many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -8428,7 +10024,14 @@
         "description": "Update the virtual hardware section of a VM.\n\n This operation updates the entire VirtualHardwareSection of a VM. You can also update many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -8452,7 +10055,14 @@
         "description": "Retrieves a list of all VM Affinity rules within a given vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vmaffinityrules+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmAffinityRulesType"
+                }
+              }
+            }
           }
         }
       },
@@ -8473,7 +10083,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -8497,7 +10114,14 @@
         "description": "Gets {@link VmCapabilitiesType} for the VM identified by id.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vmCapabilitiesSection+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
+                }
+              }
+            }
           }
         }
       },
@@ -8542,7 +10166,14 @@
         "description": "Return the results of the most recent POST /vApp/vm\\-{id}/action/checkCompliance request to the specified VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vm.complianceResult+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ComplianceResultType"
+                }
+              }
+            }
           }
         }
       },
@@ -8566,7 +10197,14 @@
         "description": "Gets the current usage for all available VM metrics.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metrics.currentUsage+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CurrentUsageType"
+                }
+              }
+            }
           }
         }
       },
@@ -8587,7 +10225,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metrics.currentUsage+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CurrentUsageType"
+                }
+              }
+            }
           }
         }
       },
@@ -8703,7 +10348,14 @@
         "description": "Create VM group within this resource pool.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -8748,7 +10400,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       }
@@ -8761,7 +10420,14 @@
         "description": "Gets the past 24 hours worth of samples for all available VM metrics.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metrics.historicUsage+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_HistoricUsageType"
+                }
+              }
+            }
           }
         }
       },
@@ -8782,7 +10448,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metrics.historicUsage+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_HistoricUsageType"
+                }
+              }
+            }
           }
         }
       },
@@ -8806,7 +10479,14 @@
         "description": "Retrieve a question being asked by a VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vmPendingQuestion+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmPendingQuestionType"
+                }
+              }
+            }
           }
         }
       },
@@ -8878,7 +10558,14 @@
         "description": "Retrieve a list of virtual machines that can be imported from a registered vCenter server.\n\n This request supports optional query parameters:\n\n* page \\- The page to return. The first page is page 1.\n* pageSize \\- The number of virtual machines to list on a page. An integer value between 1 and 100. The default value is 1.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmsObjectRefsList+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VmObjectRefsListType"
+                }
+              }
+            }
           }
         }
       },
@@ -8974,7 +10661,14 @@
         "description": "Retrieve a mks ticket that you can use to gain access to the console of a running VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.mksTicket+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MksTicketType"
+                }
+              }
+            }
           }
         }
       },
@@ -8998,7 +10692,14 @@
         "description": "Retrieve a screen ticket that you can use with the VMRC browser plug\\-in to gain access to the console of a running VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.screenTicket+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ScreenTicketType"
+                }
+              }
+            }
           }
         }
       },
@@ -9032,7 +10733,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9100,7 +10808,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9158,7 +10873,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9192,7 +10914,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vAppTemplate+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppTemplateType"
+                }
+              }
+            }
           }
         }
       },
@@ -9226,7 +10955,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.authorizationCheckResponse+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AuthorizationCheckResponseType"
+                }
+              }
+            }
           }
         }
       },
@@ -9260,7 +10996,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.authorizationCheckResponse+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AuthorizationCheckResponseType"
+                }
+              }
+            }
           }
         }
       }
@@ -9273,7 +11016,14 @@
         "description": "Check storage profile compliance for the specified VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9333,7 +11083,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.media+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MediaType"
+                }
+              }
+            }
           }
         }
       },
@@ -9367,7 +11124,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vApp+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppType"
+                }
+              }
+            }
           }
         }
       },
@@ -9401,7 +11165,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vAppTemplate+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppTemplateType"
+                }
+              }
+            }
           }
         }
       },
@@ -9435,7 +11206,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vApp+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppType"
+                }
+              }
+            }
           }
         }
       },
@@ -9469,7 +11247,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9503,7 +11288,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9527,7 +11319,14 @@
         "description": "Consolidate VM snapshots.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9551,7 +11350,14 @@
         "description": "Consolidate VM snapshots.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9585,7 +11391,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.controlAccess+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+                }
+              }
+            }
           }
         }
       },
@@ -9628,7 +11441,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.controlAccess+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+                }
+              }
+            }
           }
         }
       },
@@ -9652,7 +11472,14 @@
         "description": "Mark a gateway as an advanced gateway.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9676,7 +11503,14 @@
         "description": "Upgrade to advanced networking for a gateway",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9700,7 +11534,14 @@
         "description": "Convert org vdc network to an sub interface\n\n This operation is valid for internal org vdc routed networks",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9734,7 +11575,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9768,7 +11616,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.catalog+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminCatalogType"
+                }
+              }
+            }
           }
         }
       },
@@ -9802,7 +11657,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.catalogItem+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CatalogItemType"
+                }
+              }
+            }
           }
         }
       },
@@ -9836,7 +11698,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.disk+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_DiskType"
+                }
+              }
+            }
           }
         }
       },
@@ -9907,7 +11776,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.organization+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminOrgType"
+                }
+              }
+            }
           }
         }
       }
@@ -9930,7 +11806,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwexternalnet+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
+                }
+              }
+            }
           }
         }
       }
@@ -9953,7 +11836,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwprovidervdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcType"
+                }
+              }
+            }
           }
         }
       }
@@ -9976,7 +11866,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwprovidervdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWProviderVdcType"
+                }
+              }
+            }
           }
         }
       }
@@ -9999,7 +11896,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.role+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RoleType"
+                }
+              }
+            }
           }
         }
       },
@@ -10033,7 +11937,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.role+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_RoleType"
+                }
+              }
+            }
           }
         }
       }
@@ -10056,7 +11967,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10113,7 +12031,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.user+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_UserType"
+                }
+              }
+            }
           }
         }
       },
@@ -10147,7 +12072,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminVdcType"
+                }
+              }
+            }
           }
         }
       },
@@ -10181,7 +12113,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vdc+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AdminVdcType"
+                }
+              }
+            }
           }
         }
       },
@@ -10215,7 +12154,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10249,7 +12195,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10273,7 +12226,14 @@
         "description": "Disables the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10297,7 +12257,14 @@
         "description": "Disable a datastore.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.datastore+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_DatastoreType"
+                }
+              }
+            }
           }
         }
       },
@@ -10321,7 +12288,14 @@
         "description": "Disable a host.\n\n Disabling a host prevents vApps from stratin gon it. vApps that are running on the host continue to run.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10345,7 +12319,14 @@
         "description": "Hide hardware\\-assisted CPU virtualization from guest OS.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10513,7 +12494,14 @@
         "description": "Discard suspended state of a vApp or VM.\n\n Discarding the suspended state of a vApp discards the suspended state of all VMs it contains.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10547,7 +12535,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10571,7 +12566,14 @@
         "description": "Enables the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10595,7 +12597,14 @@
         "description": "Enable a datastore.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.datastore+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_DatastoreType"
+                }
+              }
+            }
           }
         }
       },
@@ -10619,7 +12628,14 @@
         "description": "Enable download for the media",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10643,7 +12659,14 @@
         "description": "Enable a host.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10739,7 +12762,14 @@
         "description": "Enable a vApp for download.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10763,7 +12793,14 @@
         "description": "Enable a vApp template for download",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10811,7 +12848,14 @@
         "description": "Expose hardware\\-assisted CPU virtualization to guest OS.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10883,7 +12927,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10907,7 +12958,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -10931,7 +12989,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11003,7 +13068,14 @@
         "description": "Removes stranded item and its children",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11027,7 +13099,14 @@
         "description": "Force vCloud Director to reconnect to a registered vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11061,7 +13140,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.group+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_GroupType"
+                }
+              }
+            }
           }
         }
       },
@@ -11095,7 +13181,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.media+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MediaType"
+                }
+              }
+            }
           }
         }
       },
@@ -11129,7 +13222,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vApp+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppType"
+                }
+              }
+            }
           }
         }
       },
@@ -11163,7 +13263,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vAppTemplate+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppTemplateType"
+                }
+              }
+            }
           }
         }
       },
@@ -11197,7 +13304,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11231,7 +13345,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11255,7 +13376,14 @@
         "description": "Install VMware Tools on a running VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11289,7 +13417,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vApp+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppType"
+                }
+              }
+            }
           }
         }
       },
@@ -11323,7 +13458,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vApp+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppType"
+                }
+              }
+            }
           }
         }
       },
@@ -11357,7 +13499,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11381,7 +13530,14 @@
         "description": "Log in and create a Session object.\n\n To authenticate to the API service, POST a request to its login URL. The request body must contain a MIME Base64 encoding of your credentials in the form:\n\n*user*@*organization*:*password*\n\n To obtain the login URL, make an unauthenticated GET request to the vCloud Director api/versions URL. The response to this request lists the API versions that the server supports, and provides a login URL for each version.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.session+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SessionType"
+                }
+              }
+            }
           }
         }
       }
@@ -11394,7 +13550,14 @@
         "description": "Make specified VM Host affinity rule mandatory.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11418,7 +13581,14 @@
         "description": "Make the specified VM Host affinity optional.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11452,7 +13622,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11476,7 +13653,14 @@
         "description": "Migrate vcdni networks to vxlan networks Since 27.0",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11510,7 +13694,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11544,7 +13735,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11578,7 +13776,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11636,7 +13841,14 @@
         "description": "Power off a vApp or VM.\n\n If used on a vApp, powers off all VMs in the vApp. If used on a VM, powers off the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11660,7 +13872,14 @@
         "description": "Power on a vApp or VM.\n\n If used on a vApp, powers on all VMs in the vApp. If used on a VM, powers on the VM. This operation is available only for a vApp or VM that is powered off.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11694,7 +13913,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11728,7 +13954,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.userEntityRights+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_UserEntityRightsType"
+                }
+              }
+            }
           }
         }
       },
@@ -11752,7 +13985,14 @@
         "description": "Reapply services on an edgeGateway.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11776,7 +14016,14 @@
         "description": "Reboot a vApp or VM.\n\n If used on a vApp, reboots all VMs in the vApp. If used on a VM, reboots the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11810,7 +14057,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11844,7 +14098,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11868,7 +14129,14 @@
         "description": "Redeploy edgeGateway.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11892,7 +14160,14 @@
         "description": "Refresh Storage Classes data from a registered vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11916,7 +14191,14 @@
         "description": "Refresh vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -11974,7 +14256,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12008,7 +14297,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.registerVimServerParams+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_RegisterVimServerParamsType"
+                }
+              }
+            }
           }
         }
       }
@@ -12055,7 +14351,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12089,7 +14392,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12113,7 +14423,14 @@
         "description": "Removes all user created snapshots for a vApp or virtual machine.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12147,7 +14464,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12171,7 +14495,14 @@
         "description": "Repair a host.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12295,7 +14626,14 @@
         "description": "Reset networking services on a network.\n\n This operation is valid for all networks except vApp networks in undeployed vApps.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12356,7 +14694,14 @@
         "description": "Reset a vApp or VM.\n\n If used on a vApp, resets all VMs in the vApp. If used on a VM, resets the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12417,7 +14762,14 @@
         "description": "Reverts a vApp or virtual machine to the current snapshot, if any.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12441,7 +14793,14 @@
         "description": "Shut down a vApp or VM.\n\n If used on a vApp, shuts down all VMs in the vApp. If used on a VM, shuts down the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12465,7 +14824,14 @@
         "description": "Suspend a vApp or VM.\n\n If used on a vApp, suspends all VMs in the vApp. If used on a VM, suspends the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12489,7 +14855,14 @@
         "description": "Force sync the catalog to the remote subscribed catalog.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12513,7 +14886,14 @@
         "description": "Synchronize a catalog item with its source object.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12537,7 +14917,14 @@
         "description": "Synchronize syslog server settings for a network.\n\n When you change the IP addresses of the primary or secondary syslog server for a cloud, you must also synchronize the syslog server settings for organization and vApp networks that include a firewall service for which logging has been enabled.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12561,7 +14948,14 @@
         "description": "Synchronize syslog server settings on an edgeGateway.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12619,7 +15013,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.amqpSettingsTest+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsTestType"
+                }
+              }
+            }
           }
         }
       }
@@ -12642,7 +15043,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12690,7 +15098,14 @@
         "description": "Unprepare a host.\n\n Unpreparing host makes its resources inaccessible to vCloud Director.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12714,7 +15129,14 @@
         "description": "Unregister a vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12738,7 +15160,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12830,7 +15259,14 @@
         "description": "Extend the expiration timeout of an active task.\n\n This request resets the timeout value and timeout action for an active task. Use this request to keep the task alive when it might become subject to a timeout action.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.blockingTask+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_BlockingTaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12864,7 +15300,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12898,7 +15341,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12966,7 +15416,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -12990,7 +15447,14 @@
         "description": "Upgrades the edge gateway appliance size.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -13014,7 +15478,14 @@
         "description": "Upgrade the vCloud Director host agent on a host after you have upgraded vCloud Director software.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -13038,7 +15509,14 @@
         "description": "Upgrade the virtual hardware version of a VM to the highest supported virtual hardware version of the vDC that contains it.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -13232,7 +15710,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.bundleUploadSocket+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_BundleUploadSocketType"
+                }
+              }
+            }
           }
         }
       }
@@ -13255,7 +15740,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.media+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MediaType"
+                }
+              }
+            }
           }
         }
       },
@@ -13346,7 +15838,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.catalogItem+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CatalogItemType"
+                }
+              }
+            }
           }
         }
       },
@@ -13380,7 +15879,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.vAppTemplate+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppTemplateType"
+                }
+              }
+            }
           }
         }
       },
@@ -13437,7 +15943,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.controlAccess+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+                }
+              }
+            }
           }
         }
       },
@@ -13471,7 +15984,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.controlAccess+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ControlAccessParamsType"
+                }
+              }
+            }
           }
         }
       },
@@ -13505,7 +16025,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -13539,7 +16066,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
@@ -13573,7 +16107,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         }
       },
