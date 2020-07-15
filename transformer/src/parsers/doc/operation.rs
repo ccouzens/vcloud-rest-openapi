@@ -43,6 +43,7 @@ pub struct Operation {
     pub response_content: Option<(String, String)>,
     pub api_version: String,
     pub basic_auth: bool,
+    pub deprecated: bool,
 }
 
 #[derive(Error, Debug)]
@@ -152,6 +153,8 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             .map(|t| t.contains("Authorization:&nbsp;Basic"))
             .unwrap_or(false);
 
+        let deprecated = p.definition_list.0.contains_key("Deprecated:");
+
         Ok(Self {
             method,
             path,
@@ -161,6 +164,7 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             response_content,
             api_version,
             basic_auth,
+            deprecated,
         })
     }
 }
@@ -220,6 +224,7 @@ impl From<Operation> for openapiv3::Operation {
             security: vec![indexmap! {
                 if o.basic_auth { "basicAuth" } else { "bearerAuth" }.to_string() => vec![]
             }],
+            deprecated: o.deprecated,
             ..Default::default()
         }
     }
@@ -258,7 +263,8 @@ fn parse_operation_test() {
                 "MyTypeO".into()
             )),
             api_version: "32.0".into(),
-            basic_auth: false
+            basic_auth: false,
+            deprecated: false
         }
     )
 }
@@ -344,6 +350,7 @@ fn generate_schema_test_for_basic_auth() {
               "description": "success"
             }
           },
+          "deprecated": true,
           "security": [
             {
               "basicAuth": []

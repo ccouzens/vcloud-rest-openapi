@@ -1263,6 +1263,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -1279,6 +1280,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -2536,6 +2538,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -2569,6 +2572,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -2585,6 +2589,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -2800,6 +2805,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -2833,6 +2839,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -2849,6 +2856,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -5808,6 +5816,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -7489,6 +7498,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -7515,6 +7525,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -7930,6 +7941,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "basicAuth": []
@@ -7953,6 +7965,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "basicAuth": []
@@ -7978,6 +7991,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -8004,6 +8018,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -9411,6 +9426,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -9437,6 +9453,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -10783,6 +10800,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -10812,6 +10830,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -14353,6 +14372,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -14764,6 +14784,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -15183,6 +15204,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -15347,6 +15369,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -15794,6 +15817,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -15945,6 +15969,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -15991,6 +16016,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -17933,6 +17959,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "basicAuth": []
@@ -18516,6 +18543,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -18934,6 +18962,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19005,6 +19034,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19051,6 +19081,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19234,6 +19265,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19252,6 +19284,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19281,6 +19314,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19299,6 +19333,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19364,6 +19399,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19382,6 +19418,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19892,6 +19929,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -19928,6 +19966,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -20432,6 +20471,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -20460,6 +20500,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -20499,6 +20540,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -20527,6 +20569,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -20601,6 +20644,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
@@ -20629,6 +20673,7 @@
             "description": "success"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "bearerAuth": []
