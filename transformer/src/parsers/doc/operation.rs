@@ -141,7 +141,6 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             _ => None,
         };
 
-
         Ok(Self {
             method,
             path,
@@ -165,13 +164,20 @@ impl From<Operation> for openapiv3::Operation {
                     openapiv3::ReferenceOr::Item(openapiv3::Response {
                         description: "success".into(),
                         content: [o.response_content.map(|(t, r)| {
-                            (format!("{}+json;version={}", t, api_version), openapiv3::MediaType {
-                                schema: Some(openapiv3::ReferenceOr::Reference {
-                                reference: format!("#/components/schemas/{}", r)
-                                }),
-                                ..Default::default()
-                            })
-                        })].iter().cloned().flat_map(|e| e).collect(),
+                            (
+                                format!("{}+json;version={}", t, api_version),
+                                openapiv3::MediaType {
+                                    schema: Some(openapiv3::ReferenceOr::Reference {
+                                        reference: format!("#/components/schemas/{}", r),
+                                    }),
+                                    ..Default::default()
+                                },
+                            )
+                        })]
+                        .iter()
+                        .cloned()
+                        .flat_map(|e| e)
+                        .collect(),
                         ..Default::default()
                     }),
                 )]
@@ -208,13 +214,16 @@ impl From<Operation> for openapiv3::Operation {
 fn parse_operation_test() {
     let actual = Operation::try_from((
         include_str!("operations/PUT-Test.html"),
-        &[(
-            "application/vnd.vmware.admin.test".to_string(),
-            "MyType".to_string(),
-        ),(
-            "application/vnd.vmware.admin.testo".to_string(),
-            "MyTypeO".to_string(),
-        )]
+        &[
+            (
+                "application/vnd.vmware.admin.test".to_string(),
+                "MyType".to_string(),
+            ),
+            (
+                "application/vnd.vmware.admin.testo".to_string(),
+                "MyTypeO".to_string(),
+            ),
+        ]
         .iter()
         .cloned()
         .collect(),
@@ -229,7 +238,10 @@ fn parse_operation_test() {
             description: "Update a test.".into(),
             tag: "admin",
             request_content: Some(("application/vnd.vmware.admin.test".into(), "MyType".into())),
-            response_content: Some(("application/vnd.vmware.admin.testo".into(), "MyTypeO".into())),
+            response_content: Some((
+                "application/vnd.vmware.admin.testo".into(),
+                "MyTypeO".into()
+            )),
             api_version: "32.0".into()
         }
     )
@@ -239,13 +251,16 @@ fn parse_operation_test() {
 fn generate_schema_test() {
     let op = Operation::try_from((
         include_str!("operations/PUT-Test.html"),
-        &[(
-            "application/vnd.vmware.admin.test".to_string(),
-            "MyType".to_string(),
-        ),(
-            "application/vnd.vmware.admin.testo".to_string(),
-            "MyTypeO".to_string(),
-        )]
+        &[
+            (
+                "application/vnd.vmware.admin.test".to_string(),
+                "MyType".to_string(),
+            ),
+            (
+                "application/vnd.vmware.admin.testo".to_string(),
+                "MyTypeO".to_string(),
+            ),
+        ]
         .iter()
         .cloned()
         .collect(),
@@ -256,33 +271,33 @@ fn generate_schema_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "tags": [
-              "admin"
-            ],
-            "description": "Update a test.",
-            "requestBody": {
-              "content": {
-                "application/vnd.vmware.admin.test+json;version=32.0": {
-                  "schema": {
-                    "$ref": "#/components/schemas/MyType"
-                  }
+          "tags": [
+            "admin"
+          ],
+          "description": "Update a test.",
+          "requestBody": {
+            "content": {
+              "application/vnd.vmware.admin.test+json;version=32.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyType"
                 }
-              },
-              "required": true
+              }
             },
-            "responses": {
-              "2XX": {
-                "description": "success",
-                "content": {
-                  "application/vnd.vmware.admin.testo+json;version=32.0": {
-                    "schema": {
-                      "$ref": "#/components/schemas/MyTypeO"
-                    }
+            "required": true
+          },
+          "responses": {
+            "2XX": {
+              "description": "success",
+              "content": {
+                "application/vnd.vmware.admin.testo+json;version=32.0": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MyTypeO"
                   }
                 }
               }
             }
           }
-          )
+        }
+        )
     )
 }
