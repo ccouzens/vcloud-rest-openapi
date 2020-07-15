@@ -25,7 +25,7 @@ impl TryFrom<&xmltree::XMLNode> for GroupRef {
                 name,
                 attributes,
                 ..
-            }) if namespace == XML_SCHEMA_NS && name == "group" => {
+            }) if namespace == XML_SCHEMA_NS && (name == "group" || name == "attributeGroup") => {
                 let reference = attributes
                     .get("ref")
                     .ok_or(GroupRefParseError::MissingRefAttribute)?

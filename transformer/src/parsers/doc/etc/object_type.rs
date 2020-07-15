@@ -1,8 +1,12 @@
+#[cfg(test)]
+use super::r#type::Type;
 use crate::parsers::doc::etc::annotation::Annotation;
 use crate::parsers::doc::etc::field::Field;
 use crate::parsers::doc::etc::group_ref::GroupRef;
 use crate::parsers::doc::etc::r#type::TypeParseError;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
+#[cfg(test)]
+use serde_json::json;
 use std::convert::TryFrom;
 
 #[derive(Debug, PartialEq)]
@@ -24,7 +28,9 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                 attributes,
                 children,
                 ..
-            }) if namespace == XML_SCHEMA_NS && (name == "complexType" || name == "group") => {
+            }) if namespace == XML_SCHEMA_NS
+                && (name == "complexType" || name == "group" || name == "attributeGroup") =>
+            {
                 let name = attributes
                     .get("name")
                     .map(|n| format!("{}_{}", schema_namespace, n))
@@ -202,4 +208,117 @@ impl From<&ObjectType> for openapiv3::Schema {
             }
         }
     }
+}
+
+#[test]
+fn parse_attribute_group_test() {
+    let xml: &[u8] = br#"
+<xs:attributeGroup name="CommonAttributes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
+    <xs:attribute name="name" type="xs:string" use="required">
+        <xs:annotation>
+            <xs:documentation source="modifiable">
+                always
+            </xs:documentation>
+            <xs:documentation xml:lang="en">
+                The name that people should call you.
+            </xs:documentation>
+            <xs:documentation source="required">
+                true
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="age" type="xs:int" use="required">
+        <xs:annotation>
+            <xs:documentation source="modifiable">
+                none
+            </xs:documentation>
+            <xs:documentation xml:lang="en">
+                Your age in years.
+            </xs:documentation>
+            <xs:documentation source="required">
+                true
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+</xs:attributeGroup>
+"#;
+
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!(
+            {
+              "title": "test_CommonAttributes",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name that people should call you.",
+                  "type": "string"
+                },
+                "age": {
+                  "description": "Your age in years.",
+                  "format": "int32",
+                  "type": "integer",
+                  "readOnly": true
+                }
+              },
+              "required": [
+                "name",
+                "age"
+              ],
+              "additionalProperties": false
+            }
+        )
+    );
+}
+
+#[test]
+fn parse_attribute_group_ref_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta" name="TestType">
+        <xs:complexContent>
+            <xs:extension base="BaseType">
+                <xs:attributeGroup ref="GroupReference"/>
+                <xs:attribute name="optionalAttribute" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation>
+                            A field that comes from an attribute.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+          "title": "test_TestType",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/test_BaseType"
+            },
+            {
+              "$ref": "#/components/schemas/test_GroupReference"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "optionalAttribute": {
+                  "readOnly": true,
+                  "description": "A field that comes from an attribute.",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        })
+    );
 }

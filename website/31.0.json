@@ -29621,12 +29621,48 @@
         },
         "additionalProperties": false
       },
+      "vcloud_CommonErrorAttributes": {
+        "title": "vcloud_CommonErrorAttributes",
+        "type": "object",
+        "properties": {
+          "message": {
+            "readOnly": true,
+            "description": "An one line, human\\-readable message describing the error that occurred.",
+            "type": "string"
+          },
+          "majorErrorCode": {
+            "readOnly": true,
+            "description": "The class of the error. Matches the HTTP status code.",
+            "type": "integer",
+            "format": "int32"
+          },
+          "minorErrorCode": {
+            "readOnly": true,
+            "description": "Resource\\-specific error code.",
+            "type": "string"
+          },
+          "vendorSpecificErrorCode": {
+            "readOnly": true,
+            "description": "A vendor\\- or implementation\\-specific error code that can reference specific modules or source lines for diagnostic purposes.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "message",
+          "majorErrorCode",
+          "minorErrorCode"
+        ],
+        "additionalProperties": false
+      },
       "vcloud_ErrorType": {
         "title": "vcloud_ErrorType",
         "description": "The standard error message type used in the vCloud REST API.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
+          },
+          {
+            "$ref": "#/components/schemas/vcloud_CommonErrorAttributes"
           },
           {
             "type": "object",
@@ -29656,6 +29692,9 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
+          },
+          {
+            "$ref": "#/components/schemas/vcloud_CommonErrorAttributes"
           },
           {
             "type": "object",
