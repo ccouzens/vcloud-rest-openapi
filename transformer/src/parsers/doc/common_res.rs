@@ -45,10 +45,10 @@ pub fn parse(file_contents: &[u8]) -> Result<CommonRes, Box<dyn std::error::Erro
         .ok_or("Error getting copyright value")?;
 
     if !version_value.is_string() {
-        Err("Expected version to be a string")?;
+        return Err("Expected version to be a string".into());
     }
     if !copyright_value.is_string() {
-        Err("Expected copyright to be a string")?;
+        return Err("Expected copyright to be a string".into());
     }
 
     let version_information = html2md::parse_html(

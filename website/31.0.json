@@ -25,7 +25,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -36,7 +41,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -60,7 +70,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -78,7 +93,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -109,7 +129,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/service/apidefinition/{id}": {
@@ -129,7 +154,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -140,7 +170,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -171,7 +206,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -182,7 +222,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -213,7 +258,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -241,7 +291,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -259,7 +314,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -308,7 +368,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -336,7 +401,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -347,7 +417,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -378,7 +453,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -406,7 +486,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -417,7 +502,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -441,7 +531,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -459,7 +554,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -477,7 +577,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -510,7 +615,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -528,7 +638,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -546,7 +661,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -586,7 +706,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -614,7 +739,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -632,7 +762,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -656,7 +791,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -674,7 +814,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -692,7 +837,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -732,7 +882,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -760,7 +915,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -778,7 +938,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -802,7 +967,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -830,7 +1000,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -848,7 +1023,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -879,7 +1059,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -890,7 +1075,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -921,7 +1111,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -949,7 +1144,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -960,7 +1160,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -991,7 +1196,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1002,7 +1212,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1033,7 +1248,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1044,7 +1264,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/media/{id}": {
@@ -1064,7 +1289,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1092,7 +1322,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1110,7 +1345,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1134,7 +1374,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1152,7 +1397,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1170,7 +1420,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1203,7 +1458,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1231,7 +1491,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1249,7 +1514,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1273,7 +1543,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1301,7 +1576,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1319,7 +1599,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1343,7 +1628,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1361,7 +1651,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1379,7 +1674,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1419,7 +1719,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1430,7 +1735,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1448,7 +1758,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1479,7 +1794,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1507,7 +1827,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1518,7 +1843,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1549,7 +1879,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1577,7 +1912,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1595,7 +1935,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1619,7 +1964,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1637,7 +1987,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1655,7 +2010,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1695,7 +2055,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1723,7 +2088,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1741,7 +2111,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1765,7 +2140,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1783,7 +2163,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1801,7 +2186,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1834,7 +2224,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1852,7 +2247,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1870,7 +2270,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1910,7 +2315,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1921,7 +2331,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1952,7 +2367,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1963,7 +2383,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -1994,7 +2419,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2022,7 +2452,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2033,7 +2468,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2064,7 +2504,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2075,7 +2520,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2115,7 +2565,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2143,7 +2598,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -2171,7 +2631,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2182,7 +2647,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2213,7 +2683,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2241,7 +2716,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2252,7 +2732,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2283,7 +2768,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2311,7 +2801,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2322,7 +2817,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2353,7 +2853,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2381,7 +2886,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2392,7 +2902,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2423,7 +2938,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2434,7 +2954,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2458,7 +2983,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2476,7 +3006,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2507,7 +3042,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2535,7 +3075,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2553,7 +3098,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2584,7 +3134,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2602,7 +3157,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2633,7 +3193,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2661,7 +3226,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2672,7 +3242,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2703,7 +3278,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2731,7 +3311,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2742,7 +3327,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2773,7 +3363,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2801,7 +3396,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2812,7 +3412,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2843,7 +3448,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2871,7 +3481,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2882,7 +3497,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2913,7 +3533,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2941,7 +3566,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2959,7 +3589,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -2983,7 +3618,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3001,7 +3641,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3019,7 +3664,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3059,7 +3709,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3087,7 +3742,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3105,7 +3765,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3129,7 +3794,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3147,7 +3817,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3165,7 +3840,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3205,7 +3885,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3233,7 +3918,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3251,7 +3941,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3282,7 +3977,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3310,7 +4010,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3328,7 +4033,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3352,7 +4062,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3370,7 +4085,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3388,7 +4108,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3421,7 +4146,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3439,7 +4169,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3457,7 +4192,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3497,7 +4237,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3525,7 +4270,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3536,7 +4286,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3569,7 +4324,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3587,7 +4347,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3611,7 +4376,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -3639,7 +4409,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3663,7 +4438,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/vdcTemplateReferences": {
@@ -3683,7 +4463,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/network/{id}/allocatedAddresses": {
@@ -3696,7 +4481,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3720,7 +4510,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3744,7 +4539,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3765,7 +4565,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/apidefinition/{id}": {
@@ -3785,7 +4590,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3809,7 +4619,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -3837,7 +4652,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3861,7 +4681,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/files": {
@@ -3874,7 +4699,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/service/{id}/apidefinitions": {
@@ -3887,7 +4717,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3918,7 +4753,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/service/{id}/apifilters": {
@@ -3931,7 +4771,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -3959,7 +4804,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3990,7 +4840,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4021,7 +4876,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4049,7 +4909,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -4077,7 +4942,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4101,7 +4971,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4125,7 +5000,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4156,7 +5036,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4187,7 +5072,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4218,7 +5108,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4242,7 +5137,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4253,7 +5153,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/blockingTask": {
@@ -4266,7 +5171,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4277,7 +5187,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/bootOptions": {
@@ -4297,7 +5212,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4321,7 +5241,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4342,7 +5267,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/catalog/{id}": {
@@ -4362,7 +5292,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4386,7 +5321,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -4404,7 +5344,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4428,7 +5373,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -4446,7 +5396,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4470,7 +5425,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4494,7 +5454,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4536,7 +5501,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4557,7 +5527,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4581,7 +5556,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/checkpostcustomizationscript": {
@@ -4601,7 +5581,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4629,7 +5614,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4660,7 +5650,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4700,7 +5695,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4731,7 +5731,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4762,7 +5767,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4786,7 +5796,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4804,7 +5819,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4828,7 +5848,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4846,7 +5871,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4877,7 +5907,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4895,7 +5930,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4919,7 +5959,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/datastores/query": {
@@ -4932,7 +5977,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/providervdc/{id}/discoverResourcePools": {
@@ -4952,7 +6002,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4983,7 +6038,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5016,7 +6076,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -5034,7 +6099,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5058,7 +6128,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5079,7 +6154,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5103,7 +6183,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/virtualHardwareSection/disks": {
@@ -5123,7 +6208,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5151,7 +6241,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5182,7 +6277,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5210,7 +6310,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5234,7 +6339,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5255,7 +6365,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/entity/{id}": {
@@ -5275,7 +6390,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5306,7 +6426,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5330,7 +6455,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension": {
@@ -5350,7 +6480,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/service": {
@@ -5370,7 +6505,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -5398,7 +6538,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/externalNetworkReferences": {
@@ -5418,7 +6563,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/externalNetworkReferences/query": {
@@ -5431,7 +6581,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/federation": {
@@ -5444,7 +6599,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5465,7 +6625,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5489,7 +6654,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -5517,7 +6687,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5541,7 +6716,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5565,7 +6745,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5586,7 +6771,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/general": {
@@ -5599,7 +6789,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5620,7 +6815,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5644,7 +6844,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/guestcustomizationstatus": {
@@ -5664,7 +6869,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5695,7 +6905,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5723,7 +6938,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5754,7 +6974,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5782,7 +7007,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5813,7 +7043,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5853,7 +7088,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5893,7 +7133,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5917,7 +7162,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5941,7 +7191,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -5972,7 +7227,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/hostReferences/query": {
@@ -5985,7 +7245,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/kerberosSettings": {
@@ -5998,7 +7263,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6019,7 +7289,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/ldapSettings": {
@@ -6032,7 +7307,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6053,7 +7333,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/leaseSettingsSection": {
@@ -6073,7 +7358,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6101,7 +7391,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6132,7 +7427,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6160,7 +7460,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6184,7 +7489,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6205,7 +7515,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/license": {
@@ -6218,7 +7533,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6239,7 +7559,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/service/{id}/links": {
@@ -6252,7 +7577,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -6280,7 +7610,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6311,7 +7646,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6339,7 +7679,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/login": {
@@ -6359,7 +7704,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -6377,7 +7727,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/lookupService": {
@@ -6397,7 +7752,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6418,7 +7778,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/virtualHardwareSection/media": {
@@ -6438,7 +7803,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6469,7 +7839,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6493,7 +7868,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -6511,7 +7891,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6535,7 +7920,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6559,7 +7949,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/virtualHardwareSection/memory": {
@@ -6572,7 +7967,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6590,7 +7990,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6614,7 +8019,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6632,7 +8042,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6656,7 +8071,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6680,7 +8100,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/virtualHardwareSection/networkCards": {
@@ -6700,7 +8125,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6728,7 +8158,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6759,7 +8194,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6787,7 +8227,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6818,7 +8263,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6846,7 +8296,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6877,7 +8332,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6905,7 +8365,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6936,7 +8401,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6964,7 +8434,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -6995,7 +8470,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7023,7 +8503,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7047,7 +8532,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -7065,7 +8555,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7089,7 +8584,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7113,7 +8613,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7162,7 +8667,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/networkPoolReferences/query": {
@@ -7175,7 +8685,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/networkSection": {
@@ -7188,7 +8703,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7212,7 +8732,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7236,7 +8761,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7257,7 +8787,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/nsxtManagers": {
@@ -7277,7 +8812,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -7305,7 +8845,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/nsxtManagers": {
@@ -7325,7 +8870,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -7353,7 +8903,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/oauth": {
@@ -7366,7 +8921,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7387,7 +8947,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7418,7 +8983,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -7446,7 +9016,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/operatingSystemSection": {
@@ -7459,7 +9034,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7477,7 +9057,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7501,7 +9086,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7522,7 +9112,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/email": {
@@ -7535,7 +9130,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7556,7 +9156,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7580,7 +9185,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7601,7 +9211,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7625,7 +9240,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7646,7 +9266,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7670,7 +9295,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/operationLimitsSettings": {
@@ -7683,7 +9313,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7704,7 +9339,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7728,7 +9368,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7749,7 +9394,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7773,7 +9423,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -7794,7 +9449,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7818,7 +9478,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -7846,7 +9511,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7870,7 +9540,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -7898,7 +9573,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7929,7 +9609,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7953,7 +9638,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/org/{id}": {
@@ -7973,7 +9663,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -7997,7 +9692,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8015,7 +9715,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8039,7 +9744,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8063,7 +9773,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8112,7 +9827,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8143,7 +9863,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/orgs/query": {
@@ -8156,7 +9881,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/productSections": {
@@ -8169,7 +9899,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -8197,7 +9932,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8221,7 +9961,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -8249,7 +9994,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8280,7 +10030,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8304,7 +10059,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8322,7 +10082,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8353,7 +10118,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/pvdcStorageProfile/{id}": {
@@ -8373,7 +10143,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -8401,7 +10176,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8432,7 +10212,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8456,7 +10241,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8474,7 +10264,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8498,7 +10293,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/providervdc/{id}/resourcePools": {
@@ -8518,7 +10318,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8542,7 +10347,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/user/{id}/grantedRights": {
@@ -8562,7 +10372,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8586,7 +10401,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8614,7 +10434,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8638,7 +10463,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8666,7 +10496,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8697,7 +10532,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8725,7 +10565,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8749,7 +10594,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{orgId}/roles/query": {
@@ -8762,7 +10612,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8786,7 +10641,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/resourcePool/{rpId}/rules": {
@@ -8799,7 +10659,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8817,7 +10682,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8848,7 +10718,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8872,7 +10747,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8896,7 +10776,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/catalog/{id}/extension": {
@@ -8916,7 +10801,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8937,7 +10827,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -8968,7 +10863,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8989,7 +10889,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/extension": {
@@ -9009,7 +10914,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -9030,7 +10940,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9061,7 +10976,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -9082,7 +11002,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9113,7 +11038,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -9134,7 +11064,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9165,7 +11100,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9196,7 +11136,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9224,7 +11169,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9255,7 +11205,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9283,7 +11238,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9307,7 +11267,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/service/{id}": {
@@ -9327,7 +11292,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9351,7 +11321,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -9379,7 +11354,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9403,7 +11383,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vAppTemplate/{id}/shadowVms": {
@@ -9423,7 +11408,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9454,7 +11444,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/site/associations": {
@@ -9474,7 +11469,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9502,7 +11502,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -9523,7 +11528,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/snapshotSection": {
@@ -9536,7 +11546,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9560,7 +11575,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9578,7 +11598,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9602,7 +11627,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9626,7 +11656,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/supportedSystemsInfo": {
@@ -9646,7 +11681,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/versions": {
@@ -9659,7 +11699,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/passwordPolicy": {
@@ -9672,7 +11717,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9693,7 +11743,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings": {
@@ -9706,7 +11761,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9727,7 +11787,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/task/{id}": {
@@ -9747,7 +11812,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9775,7 +11845,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9806,7 +11881,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -9834,7 +11914,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9858,7 +11943,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9882,7 +11972,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/vAppLeaseSettings": {
@@ -9895,7 +11990,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9916,7 +12016,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9940,7 +12045,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -9958,7 +12068,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -9982,7 +12097,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10006,7 +12126,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -10027,7 +12152,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10058,7 +12188,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10082,7 +12217,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -10103,7 +12243,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10127,7 +12272,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -10145,7 +12295,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10169,7 +12324,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10193,7 +12353,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -10214,7 +12379,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10238,7 +12408,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/vapps/query": {
@@ -10251,7 +12426,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApps/query": {
@@ -10264,7 +12444,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vms/query": {
@@ -10277,7 +12462,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/vsm/{id}": {
@@ -10297,7 +12487,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -10325,7 +12520,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10349,7 +12549,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10398,7 +12603,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/vdc/{vdcId}/computePolicies": {
@@ -10411,7 +12621,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -10432,7 +12647,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10456,7 +12676,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10487,7 +12712,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -10515,7 +12745,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10546,7 +12781,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -10574,7 +12814,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10598,7 +12843,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -10616,7 +12866,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10640,7 +12895,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10664,7 +12924,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10713,7 +12978,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10737,7 +13007,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -10755,7 +13030,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10779,7 +13059,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10803,7 +13088,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10852,7 +13142,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -10880,7 +13175,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10911,7 +13211,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10942,7 +13247,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/providervdc/{id}/vdcReferences": {
@@ -10962,7 +13272,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -10986,7 +13301,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11017,7 +13337,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/vimServerReferences/query": {
@@ -11030,7 +13355,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/vimServer/{id}": {
@@ -11050,7 +13380,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -11078,7 +13413,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11102,7 +13442,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -11120,7 +13465,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11144,7 +13494,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -11162,7 +13517,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11193,7 +13553,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -11221,7 +13586,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11252,7 +13622,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -11273,7 +13648,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11304,7 +13684,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11335,7 +13720,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -11363,7 +13753,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11387,7 +13782,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11420,7 +13820,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11444,7 +13849,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11468,7 +13878,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -11486,7 +13901,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11510,7 +13930,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -11538,7 +13963,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/metrics/historic": {
@@ -11558,7 +13988,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -11586,7 +14021,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11617,7 +14057,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11641,7 +14086,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11665,7 +14115,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11696,7 +14151,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11720,7 +14180,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11744,7 +14209,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11768,7 +14238,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11799,7 +14274,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11830,7 +14310,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11871,7 +14356,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11905,7 +14395,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11946,7 +14441,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -11970,7 +14470,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12011,7 +14516,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12052,7 +14562,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12093,7 +14608,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12134,7 +14654,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/action/checkCompliance": {
@@ -12154,7 +14679,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12178,7 +14708,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/service/action/clearunusedrights": {
@@ -12191,7 +14726,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vdc/{id}/action/cloneMedia": {
@@ -12221,7 +14761,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12262,7 +14807,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12303,7 +14853,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12344,7 +14899,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12385,7 +14945,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12426,7 +14991,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12457,7 +15027,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12488,7 +15063,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12529,7 +15109,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12579,7 +15164,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12610,7 +15200,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12641,7 +15236,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12672,7 +15272,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12703,7 +15308,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12744,7 +15354,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12785,7 +15400,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12826,7 +15446,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12867,7 +15492,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12891,7 +15521,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/networks": {
@@ -12904,7 +15539,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -12945,7 +15585,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/externalnets": {
@@ -12975,7 +15620,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/providervdcs": {
@@ -13005,7 +15655,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/providervdcsparams": {
@@ -13035,7 +15690,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{orgId}/roles": {
@@ -13065,7 +15725,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13106,7 +15771,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/action/createSnapshot": {
@@ -13136,7 +15806,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13170,7 +15845,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/users": {
@@ -13200,7 +15880,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13241,7 +15926,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13282,7 +15972,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13323,7 +16018,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13364,7 +16064,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13395,7 +16100,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13426,7 +16136,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13457,7 +16172,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13488,7 +16208,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13519,7 +16244,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13543,7 +16273,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13567,7 +16302,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13591,7 +16331,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13615,7 +16360,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13639,7 +16389,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13663,7 +16418,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13694,7 +16454,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13735,7 +16500,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13766,7 +16536,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13797,7 +16572,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13828,7 +16608,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13859,7 +16644,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13890,7 +16680,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13914,7 +16709,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13938,7 +16738,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13962,7 +16767,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -13993,7 +16803,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14024,7 +16839,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14048,7 +16868,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14079,7 +16904,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14103,7 +16933,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14127,7 +16962,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14158,7 +16998,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14189,7 +17034,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14220,7 +17070,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14244,7 +17099,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14268,7 +17128,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14299,7 +17164,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14330,7 +17200,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14371,7 +17246,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14412,7 +17292,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14453,7 +17338,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14494,7 +17384,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14535,7 +17430,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14576,7 +17476,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14617,7 +17522,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14648,7 +17558,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14689,7 +17604,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14730,7 +17650,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14771,7 +17696,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14802,7 +17732,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/rule/{ruleId}/action/makeMandatory": {
@@ -14822,7 +17757,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14853,7 +17793,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14894,7 +17839,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14928,7 +17878,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/resourcePool/{id}/action/migrateVms": {
@@ -14958,7 +17913,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -14999,7 +17959,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15040,7 +18005,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15074,7 +18044,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15105,7 +18080,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15136,7 +18116,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15177,7 +18162,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15218,7 +18208,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/user/{id}/entityRights": {
@@ -15248,7 +18243,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15272,7 +18272,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15303,7 +18308,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15334,7 +18344,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15375,7 +18390,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15416,7 +18436,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15447,7 +18472,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15478,7 +18508,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15509,7 +18544,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15533,7 +18573,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15564,7 +18609,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15595,7 +18645,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/vdc/{id}/action/registerVApp": {
@@ -15625,7 +18680,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15666,7 +18726,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/action/reloadFromVc": {
@@ -15679,7 +18744,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15720,7 +18790,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15761,7 +18836,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15792,7 +18872,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15833,7 +18918,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15864,7 +18954,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15888,7 +18983,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/amqp/action/resetAmqpTruststore": {
@@ -15901,7 +19001,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/ldapSettings/action/resetLdapKeyStore": {
@@ -15914,7 +19019,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/ldap/action/resetLdapKeyStore": {
@@ -15927,7 +19037,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15951,7 +19066,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/ldap/action/resetLdapCertificate": {
@@ -15964,7 +19084,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -15995,7 +19120,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16019,7 +19149,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/ldap/action/resetLdapSspiKeytab": {
@@ -16032,7 +19167,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16063,7 +19203,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16087,7 +19232,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/blockingTask/{id}/action/resume": {
@@ -16100,7 +19250,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16131,7 +19286,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16162,7 +19322,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16193,7 +19358,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16224,7 +19394,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16255,7 +19430,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16286,7 +19466,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16317,7 +19502,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16341,7 +19531,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16382,7 +19577,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vApp/{id}/action/undeploy": {
@@ -16412,7 +19612,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16436,7 +19641,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16460,7 +19670,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16491,7 +19706,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16522,7 +19742,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16553,7 +19778,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16587,7 +19817,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16621,7 +19856,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16652,7 +19892,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16693,7 +19938,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16734,7 +19984,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16768,7 +20023,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16809,7 +20069,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16840,7 +20105,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16871,7 +20141,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16902,7 +20177,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -16936,7 +20216,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/amqp/action/updateAmqpTruststore": {
@@ -16959,7 +20244,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/settings/ldapSettings/action/updateLdapKeyStore": {
@@ -16982,7 +20272,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/ldap/action/updateLdapKeyStore": {
@@ -17005,7 +20300,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17039,7 +20339,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/ldap/action/updateLdapCertificate": {
@@ -17062,7 +20367,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17103,7 +20413,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/vdc/{id}/media": {
@@ -17133,7 +20448,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17167,7 +20487,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/org/{id}/settings/ldap/action/updateLdapSspiKeytab": {
@@ -17190,7 +20515,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17231,7 +20561,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17272,7 +20607,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17306,7 +20646,12 @@
           "2XX": {
             "description": "success"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/admin/extension/vdcTemplate/{id}/action/controlAccess": {
@@ -17336,7 +20681,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17377,7 +20727,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17418,7 +20773,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -17434,6 +20794,18 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "bearerFormat": null
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": null
+      }
+    },
     "schemas": {
       "vcloud_AmqpConfigurationType": {
         "title": "vcloud_AmqpConfigurationType",

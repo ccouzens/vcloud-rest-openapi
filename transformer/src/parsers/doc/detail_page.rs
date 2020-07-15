@@ -78,6 +78,20 @@ impl DefinitionListValue {
             DefinitionListValue::SubList(_) => None,
         }
     }
+
+    pub fn as_text(&self) -> Option<&str> {
+        match self {
+            DefinitionListValue::Text(html) => Some(html.as_str()),
+            DefinitionListValue::SubList(_) => None,
+        }
+    }
+
+    pub fn as_sublist(&self) -> Option<&DefinitionList> {
+        match self {
+            DefinitionListValue::Text(_) => None,
+            DefinitionListValue::SubList(b) => Some(b),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq)]

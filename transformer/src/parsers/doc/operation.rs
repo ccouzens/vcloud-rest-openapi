@@ -42,6 +42,7 @@ pub struct Operation {
     pub request_content: Option<(String, String)>,
     pub response_content: Option<(String, String)>,
     pub api_version: String,
+    pub basic_auth: bool,
 }
 
 #[derive(Error, Debug)]
@@ -141,6 +142,16 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             _ => None,
         };
 
+        let basic_auth = p
+            .definition_list
+            .0
+            .get("Examples")
+            .and_then(DefinitionListValue::as_sublist)
+            .and_then(|d| d.0.get("Request"))
+            .and_then(DefinitionListValue::as_text)
+            .map(|t| t.contains("Authorization:&nbsp;Basic"))
+            .unwrap_or(false);
+
         Ok(Self {
             method,
             path,
@@ -148,7 +159,8 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             tag,
             request_content,
             response_content,
-            api_version: api_version,
+            api_version,
+            basic_auth,
         })
     }
 }
@@ -176,7 +188,7 @@ impl From<Operation> for openapiv3::Operation {
                         })]
                         .iter()
                         .cloned()
-                        .flat_map(|e| e)
+                        .flatten()
                         .collect(),
                         ..Default::default()
                     }),
@@ -205,6 +217,9 @@ impl From<Operation> for openapiv3::Operation {
                     ..Default::default()
                 })
             }),
+            security: vec![indexmap! {
+                if o.basic_auth { "basicAuth" } else { "bearerAuth" }.to_string() => vec![]
+            }],
             ..Default::default()
         }
     }
@@ -242,7 +257,8 @@ fn parse_operation_test() {
                 "application/vnd.vmware.admin.testo".into(),
                 "MyTypeO".into()
             )),
-            api_version: "32.0".into()
+            api_version: "32.0".into(),
+            basic_auth: false
         }
     )
 }
@@ -296,8 +312,43 @@ fn generate_schema_test() {
                 }
               }
             }
-          }
-        }
-        )
+          },
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ]
+        })
+    )
+}
+
+#[test]
+fn generate_schema_test_for_basic_auth() {
+    let op = Operation::try_from((
+        include_str!("operations/POST-Login.html"),
+        &BTreeMap::new(),
+        "32.0".into(),
+    ))
+    .unwrap();
+    let value = openapiv3::Operation::from(op);
+
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+          "tags": [
+            "user"
+          ],
+          "description": "Log in.",
+          "responses": {
+            "2XX": {
+              "description": "success"
+            }
+          },
+          "security": [
+            {
+              "basicAuth": []
+            }
+          ]
+        })
     )
 }

@@ -1,12 +1,15 @@
 #[macro_use]
 extern crate unhtml_derive;
 
-use openapiv3::{Components, OpenAPI};
+use openapiv3::{Components, OpenAPI, ReferenceOr, SecurityScheme};
 use std::io::Read;
 mod info;
 mod parsers;
 mod paths;
 mod schemas;
+
+#[macro_use]
+extern crate indexmap;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut zip_buffer = Vec::new();
@@ -30,6 +33,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         info,
         components: Some(Components {
             schemas,
+            security_schemes: indexmap! {
+                "basicAuth".into() => ReferenceOr::Item(
+                    SecurityScheme::HTTP { scheme: "basic".into(), bearer_format: None}),
+                "bearerAuth".into() => ReferenceOr::Item(
+                    SecurityScheme::HTTP { scheme: "bearer".into(), bearer_format: None})
+            },
             ..Default::default()
         }),
         paths: paths::paths(&mut zip, content_type_mapping, api_version)?,
