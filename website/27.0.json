@@ -419,7 +419,14 @@
         "description": "Retrieve the value of the specified key from catalog item metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -513,7 +520,14 @@
         "description": "Retrieve the value of the specified key from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1292,7 +1306,14 @@
         "description": "Retrieve the value of the specified key from media object metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1471,7 +1492,14 @@
         "description": "Retrieve the value of the specified key from network metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1817,7 +1845,14 @@
         "description": "Retrieve the value of the specified key from organization metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2003,7 +2038,14 @@
         "description": "Retrieve the value of the specified key from provider vDC metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2097,7 +2139,14 @@
         "description": "Retrieve the value of the specified key from Provider VDC Storage Profile metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3054,7 +3103,14 @@
         "description": "Retrieve the value of the specified key from vApp or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3233,7 +3289,14 @@
         "description": "Retrieve the value of the specified key from vApp template or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3511,7 +3574,14 @@
         "description": "Retrieve the value of the specified key from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3605,7 +3675,14 @@
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4652,7 +4729,14 @@
         "description": "Retrieve all metadata associated with a catalog item.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4714,7 +4798,14 @@
         "description": "Retrieve metadata associated with the catalog.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4776,7 +4867,14 @@
         "description": "Retrieve all catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4805,7 +4903,14 @@
         "description": "Retrieve the value of the specified key in the specified domain from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5428,7 +5533,14 @@
         "description": "Retrieve metadata associated with the disk.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7086,7 +7198,14 @@
         "description": "Retrieve metadata associated with a media object.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7789,7 +7908,14 @@
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7851,7 +7977,14 @@
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7880,7 +8013,14 @@
         "description": "Retrieve the value of the specified key in the specified domain from network metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8809,7 +8949,14 @@
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8871,7 +9018,14 @@
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8900,7 +9054,14 @@
         "description": "Retrieve the value of the specified key in the specified domain from organization metadata .",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9222,7 +9383,14 @@
         "description": "Retrieve metadata associated with the provider vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9414,7 +9582,14 @@
         "description": "Retrieve metadata associated with the Provider VDC Storage Profile.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11119,7 +11294,14 @@
         "description": "Retrieve metadata associated with the vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11356,7 +11538,14 @@
         "description": "Retrieve metadata associated with the vApp template or VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11689,7 +11878,14 @@
         "description": "Retrieve metadata associated with the virtual datacenter.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11751,7 +11947,14 @@
         "description": "Retrieve metadata associated with a vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11780,7 +11983,14 @@
         "description": "Retrieve the value of the specified key in the specified domain from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11863,7 +12073,14 @@
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11925,7 +12142,14 @@
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11954,7 +12178,14 @@
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [

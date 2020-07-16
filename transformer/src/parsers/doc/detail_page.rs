@@ -59,7 +59,7 @@ impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionListValue {
     type Error = DefinitionListValueFromElError;
 
     fn try_from(el: &scraper::ElementRef) -> Result<Self, Self::Error> {
-        let top_selector = scraper::Selector::parse(":scope > dl, :scope > a")
+        let top_selector = scraper::Selector::parse(":scope > dl, :scope > MetadataType > dl")
             .map_err(|e| Self::Error::SelectorParseError(format!("{:?}", e)))?;
         let child = el.select(&top_selector).next();
         match (child, child.map(|c| c.value().name())) {

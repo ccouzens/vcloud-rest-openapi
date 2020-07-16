@@ -468,16 +468,16 @@ fn removed_field_test() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "title": "test_BaseType",
-            "description": "A base abstract type for all the types.",
-            "type": "object",
-            "properties": {
-              "fieldB": {
-                "description": "A field that has not been removed",
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
-          })
+          "title": "test_BaseType",
+          "description": "A base abstract type for all the types.",
+          "type": "object",
+          "properties": {
+            "fieldB": {
+              "description": "A field that has not been removed",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        })
     );
 }
