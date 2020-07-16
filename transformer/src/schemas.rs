@@ -63,7 +63,37 @@ pub fn schemas<R: Read + Seek>(
         "ovf_Section_Type".to_owned(),
         ReferenceOr::Item(openapiv3::Schema {
             schema_data: Default::default(),
-            schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Object(Default::default())),
+            schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Object(
+                openapiv3::ObjectType {
+                    properties: [(
+                        "info".to_string(),
+                        openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                            schema_data: Default::default(),
+                            schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Object(
+                                openapiv3::ObjectType {
+                                    properties: [(
+                                        "value".to_string(),
+                                        openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                                            schema_data: Default::default(),
+                                            schema_kind: openapiv3::SchemaKind::Type(
+                                                openapiv3::Type::String(Default::default()),
+                                            ),
+                                        }),
+                                    )]
+                                    .iter()
+                                    .cloned()
+                                    .collect(),
+                                    ..Default::default()
+                                },
+                            )),
+                        }),
+                    )]
+                    .iter()
+                    .cloned()
+                    .collect(),
+                    ..Default::default()
+                },
+            )),
         }),
     );
 

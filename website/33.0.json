@@ -46481,7 +46481,17 @@
         "additionalProperties": false
       },
       "ovf_Section_Type": {
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "info": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
       }
     }
   },
