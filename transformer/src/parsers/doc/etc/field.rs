@@ -32,6 +32,8 @@ pub enum FieldParseError {
     MissingType,
     #[error("not a sequence element node")]
     NotFieldNode,
+    #[error("this field is marked as removed")]
+    Removed,
 }
 
 impl TryFrom<(&xmltree::XMLNode, &str)> for Field {
@@ -83,6 +85,9 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for Field {
                     _ => Occurrences::One,
                 };
                 let annotation = children.iter().flat_map(Annotation::try_from).next();
+                if annotation.as_ref().map(|a| a.removed) == Some(true) {
+                    return Err(FieldParseError::Removed);
+                }
                 Ok(Field {
                     annotation,
                     name,

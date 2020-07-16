@@ -17,6 +17,7 @@ pub(super) struct Annotation {
     pub(super) deprecated: bool,
     pub(super) modifiable: Option<Modifiable>,
     pub(super) content_type: Option<String>,
+    pub(super) removed: bool,
 }
 
 #[derive(Error, Debug, PartialEq)]
@@ -33,6 +34,7 @@ impl Annotation {
             deprecated: self.deprecated || b.deprecated,
             modifiable: self.modifiable.or(b.modifiable),
             required: self.required.or(b.required),
+            removed: self.removed || b.removed,
         }
     }
 }
@@ -95,14 +97,30 @@ impl TryFrom<&Vec<xmltree::XMLNode>> for Annotation {
                 name,
                 attributes,
                 ..
-            }) if namespace == XML_SCHEMA_NS
-                && name == "documentation"
-                && attributes.get("source").map(String::as_str) == Some("deprecated") =>
-            {
-                true
+            }) => {
+                namespace == XML_SCHEMA_NS
+                    && name == "documentation"
+                    && attributes.get("source").map(String::as_str) == Some("deprecated")
             }
             _ => false,
         });
+        let removed = children.iter().any(|child| match child {
+            xmltree::XMLNode::Element(xmltree::Element {
+                namespace: Some(namespace),
+                name,
+                attributes,
+                ..
+            }) => {
+                (namespace == XML_SCHEMA_NS
+                    && name == "documentation"
+                    && attributes.get("source").map(String::as_str) == Some("removed-in"))
+                    || (namespace == "http://www.vmware.com/vcloud/meta"
+                        && name == "version"
+                        && attributes.contains_key("removed-in"))
+            }
+            _ => false,
+        });
+
         let modifiable = children
             .iter()
             .filter_map(|child| match child {
@@ -166,6 +184,7 @@ impl TryFrom<&Vec<xmltree::XMLNode>> for Annotation {
             deprecated,
             modifiable,
             content_type,
+            removed,
         })
     }
 }
@@ -227,7 +246,8 @@ fn test_parse_annotation() {
             required: None,
             deprecated: false,
             modifiable: None,
-            content_type: None
+            content_type: None,
+            removed: false
         })
     );
 }
@@ -251,7 +271,8 @@ fn test_parse_annotation_required() {
             required: Some(true),
             deprecated: false,
             modifiable: None,
-            content_type: None
+            content_type: None,
+            removed: false
         })
     );
 }
@@ -277,7 +298,8 @@ fn test_parse_annotation_not_required() {
             required: Some(false),
             deprecated: false,
             modifiable: None,
-            content_type: None
+            content_type: None,
+            removed: false
         })
     );
 }
@@ -300,7 +322,8 @@ fn test_parse_annotation_deprecated() {
             required: None,
             deprecated: true,
             modifiable: None,
-            content_type: None
+            content_type: None,
+            removed: false
         })
     );
 }
@@ -325,7 +348,8 @@ fn test_parse_annotation_modifiable_create() {
             required: None,
             deprecated: false,
             modifiable: Some(Modifiable::Create),
-            content_type: None
+            content_type: None,
+            removed: false
         })
     );
 }
@@ -348,7 +372,8 @@ fn test_parse_annotation_modifiable_update() {
             required: None,
             deprecated: false,
             modifiable: Some(Modifiable::Update),
-            content_type: None
+            content_type: None,
+            removed: false
         })
     );
 }
@@ -371,7 +396,8 @@ fn test_parse_annotation_modifiable_always() {
             required: None,
             deprecated: false,
             modifiable: Some(Modifiable::Always),
-            content_type: None
+            content_type: None,
+            removed: false
         })
     );
 }
@@ -394,7 +420,8 @@ fn test_parse_annotation_modifiable_none() {
             required: None,
             deprecated: false,
             modifiable: Some(Modifiable::None),
-            content_type: None
+            content_type: None,
+            removed: false
         })
     );
 }
@@ -421,7 +448,8 @@ fn test_parse_content_type() {
             required: None,
             deprecated: false,
             modifiable: None,
-            content_type: Some("application/vnd.ccouzens.test".to_owned())
+            content_type: Some("application/vnd.ccouzens.test".to_owned()),
+            removed: false
         })
     );
 }
@@ -447,7 +475,61 @@ fn test_parse_annotation_inside_app_info() {
             required: None,
             deprecated: false,
             modifiable: None,
-            content_type: None
+            content_type: None,
+            removed: false
+        })
+    );
+}
+
+#[test]
+fn test_annotation_indicating_removal() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
+        <xs:appinfo><meta:version removed-in="API_VERSION_POST9_1_UPDATE"/></xs:appinfo>
+        <xs:documentation source="modifiable">always</xs:documentation>
+        <xs:documentation xml:lang="en">
+            This field has been removed
+        </xs:documentation>
+        <xs:documentation source="required">false</xs:documentation>
+        <xs:documentation source="deprecated">6.0</xs:documentation>
+        <xs:documentation source="removed-in">API_VERSION_POST9_1_UPDATE</xs:documentation>
+    </xs:annotation>"#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
+            description: Some("This field has been removed".to_owned()),
+            required: Some(false),
+            deprecated: true,
+            modifiable: Some(Modifiable::Always),
+            content_type: None,
+            removed: true
+        })
+    );
+}
+
+#[test]
+fn test_alternative_removal_syntax() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
+        <xs:appinfo><meta:version removed-in="API_VERSION_POST9_1_UPDATE"/></xs:appinfo>
+        <xs:documentation source="modifiable">always</xs:documentation>
+        <xs:documentation xml:lang="en">
+            This field has been removed
+        </xs:documentation>
+        <xs:documentation source="required">false</xs:documentation>
+        <xs:documentation source="deprecated">6.0</xs:documentation>
+    </xs:annotation>"#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
+            description: Some("This field has been removed".to_owned()),
+            required: Some(false),
+            deprecated: true,
+            modifiable: Some(Modifiable::Always),
+            content_type: None,
+            removed: true
         })
     );
 }

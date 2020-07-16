@@ -21945,15 +21945,6 @@
                   }
                 ]
               },
-              "storageCapacity": {
-                "readOnly": true,
-                "description": "Read\\-only indicator of datastore capacity.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
-                  }
-                ]
-              },
               "availableNetworks": {
                 "readOnly": true,
                 "description": "Read\\-only list of available networks.",
@@ -22880,21 +22871,6 @@
                 "description": "User name as retrieved from, and in the encoding used by, the specified identity provider.",
                 "type": "string"
               },
-              "isAlertEnabled": {
-                "deprecated": true,
-                "description": "This field is unused and is deprecated. (True if alerts are enabled for the user.)",
-                "type": "boolean"
-              },
-              "alertEmailPrefix": {
-                "deprecated": true,
-                "description": "This field is unused and is deprecated. (String to prepend to alert message Subject line.)",
-                "type": "string"
-              },
-              "alertEmail": {
-                "deprecated": true,
-                "description": "This field is unused and is deprecated. (True if this user should get alert email.)",
-                "type": "string"
-              },
               "isExternal": {
                 "description": "On creation, specifies whether this user should be imported from the organization's LDAP service or created locally. Ignored if ProviderType is SAML or OAUTH. On retrieval, indicates whether the user is local or imported.",
                 "type": "boolean"
@@ -22902,11 +22878,6 @@
               "providerType": {
                 "description": "Identity provider type for this this user. One of:  \n**INTEGRATED** (The user is created locally or imported from LDAP.)  \n**SAML** (The user is imported from a SAML identity provider.)  \n**OAUTH** (The user is imported from an OAUTH identity provider.)  \n If missing or empty the default value is **INTEGRATED**.",
                 "type": "string"
-              },
-              "isDefaultCached": {
-                "deprecated": true,
-                "description": "This field is unused and is deprecated. (True if this user is cached by default.)",
-                "type": "boolean"
               },
               "isGroupRole": {
                 "description": "True if this user has a group role.",
@@ -24020,10 +23991,6 @@
                 "description": "Service Provider Entity ID to be used when generating SP Metadata",
                 "type": "string",
                 "format": "uri"
-              },
-              "roleAttributeName": {
-                "description": "The name of the SAML attribute that returns the identifiers of all roles of the user.",
-                "type": "string"
               },
               "samlAttributeMapping": {
                 "readOnly": true,
@@ -26041,16 +26008,6 @@
                 "description": "True to allow creation of multiple external networks on the same LAN segment.",
                 "type": "boolean"
               },
-              "chargebackEventsKeepDays": {
-                "description": "Days for which events are to be kept in Chargeback Tables.",
-                "type": "integer",
-                "format": "int32"
-              },
-              "chargebackTablesCleanupJobTimeInSeconds": {
-                "description": "Time of the day at which the chargeback tables cleanup job should run.",
-                "type": "integer",
-                "format": "int32"
-              },
               "consoleProxyExternalAddress": {
                 "description": "Use this address to access the console proxy from the public side of a firewall or load\\-balancer.  \n Leave empty to clear the address.",
                 "type": "string"
@@ -26234,8 +26191,6 @@
               "activityLogDisplayDays",
               "activityLogKeepDays",
               "allowOverlappingExtNets",
-              "chargebackEventsKeepDays",
-              "chargebackTablesCleanupJobTimeInSeconds",
               "hostCheckDelayInSeconds",
               "hostCheckTimeoutSeconds",
               "ipReservationTimeoutSeconds",
@@ -26698,10 +26653,6 @@
                 "description": "Allows setting a login page custom theme. See the online help for more information.",
                 "type": "string"
               },
-              "theme": {
-                "description": "Deprecated. Use PreviewCustomTheme and FinalCustomTheme instead.",
-                "type": "string"
-              },
               "previewCustomTheme": {
                 "description": "Allows setting a custom theme. See the online help for more information.",
                 "type": "string"
@@ -26934,11 +26885,6 @@
                 "type": "integer",
                 "format": "int32"
               },
-              "ssl": {
-                "deprecated": true,
-                "description": "True if the SMTP server requires an SSL connection.",
-                "type": "boolean"
-              },
               "smtpSecureMode": {
                 "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls \\-\\- Use the STARTTLS protocol  \n ssl \\-\\- \\-Use the SSL/TLS protocol  \n none \\-\\- Do not use any security protocol",
                 "allOf": [
@@ -27065,11 +27011,6 @@
               },
               "password": {
                 "description": "The vSphere SSO service password for the user named in userName.",
-                "type": "string"
-              },
-              "vCDUrl": {
-                "deprecated": true,
-                "description": "The vCloud Director public login URL. This element is deprecated and should be left empty when using API version 5.6 and later, which obtain this address from SystemSettings:GeneralSettings:SystemExternalAddress.",
                 "type": "string"
               }
             },
@@ -30364,13 +30305,6 @@
                   }
                 ]
               },
-              "property": {
-                "description": "User\\-specified key/value pair. This element has been superseded by the Metadata element, which is the preferred way to specify key/value pairs for objects.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/vcloud_PropertyType"
-                }
-              },
               "dateCreated": {
                 "readOnly": true,
                 "description": "Creation date and time of the catalog item.",
@@ -30805,12 +30739,6 @@
                 "description": "Capacity used. If the VDC AllocationModel is ReservationPool, this number represents the percentage of the reservation that is in use. For all other allocation models, it represents the percentage of the allocation that is in use.",
                 "type": "integer",
                 "format": "int64"
-              },
-              "overhead": {
-                "readOnly": true,
-                "description": "Number of Units allocated to system resources such as vShield Manager virtual machines and shadow virtual machines provisioned from this Provider vDC.",
-                "type": "integer",
-                "format": "int64"
               }
             },
             "additionalProperties": false
@@ -31023,9 +30951,6 @@
                 "description": "An arbitrary key name. Length cannot exceed 256 UTF\\-8 characters.",
                 "type": "string"
               },
-              "value": {
-                "type": "string"
-              },
               "typedValue": {
                 "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
                 "allOf": [
@@ -31174,9 +31099,6 @@
                     "$ref": "#/components/schemas/vcloud_MetadataDomainTagType"
                   }
                 ]
-              },
-              "value": {
-                "type": "string"
               },
               "typedValue": {
                 "allOf": [
@@ -33267,10 +33189,6 @@
                 "description": "Used to enable or disable the firewall rule. Default value is true.",
                 "type": "boolean"
               },
-              "matchOnTranslate": {
-                "description": "For DNATed traffic, match the firewall rules only after the destination IP is translated.",
-                "type": "boolean"
-              },
               "description": {
                 "description": "A description of the rule.",
                 "type": "string"
@@ -33283,26 +33201,12 @@
                 "description": "ICMP subtype. One of: address\\-mask\\-request, address\\-mask\\-reply, destination\\-unreachable, echo\\-request, echo\\-reply, parameter\\-problem, redirect, router\\-advertisement, router\\-solicitation, source\\-quench, time\\-exceeded, timestamp\\-request, timestamp\\-reply, any.",
                 "type": "string"
               },
-              "port": {
-                "description": "The port to which this rule applies. A value of \\-1 matches any port.",
-                "type": "integer",
-                "format": "int32"
-              },
               "destinationPortRange": {
                 "description": "Destination port range to which this rule applies.",
                 "type": "string"
               },
-              "sourcePort": {
-                "description": "Destination port to which this rule applies. A value of \\-1 matches any port.",
-                "type": "integer",
-                "format": "int32"
-              },
               "sourcePortRange": {
                 "description": "Source port range to which this rule applies.",
-                "type": "string"
-              },
-              "direction": {
-                "description": "Direction of traffic to which rule applies. One of: in (rule applies to incoming traffic. This is the default value), out (rule applies to outgoing traffic).",
                 "type": "string"
               },
               "enableLogging": {
@@ -34290,14 +34194,6 @@
                 "description": "Compatibility mode. Default is false. If set to true, will allow users to write firewall rules in the old 1.5 format. The new format does not require to use direction in firewall rules. Also, for firewall rules to allow NAT traffic the filter is applied on the original IP addresses. Once set to true cannot be reverted back to false.",
                 "type": "boolean"
               },
-              "ipScope": {
-                "description": "Includes IP level configuration items such as gateway, dns, subnet, IP address pool to be used for allocation. Note that the pool of IP addresses needs to fall within the subnet/mask of the IpScope.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpScopeType"
-                  }
-                ]
-              },
               "ipScopes": {
                 "description": "A list of IP scopes for the network.",
                 "allOf": [
@@ -34347,10 +34243,6 @@
                     "$ref": "#/components/schemas/vcloud_RouterInfoType"
                   }
                 ]
-              },
-              "advancedNetworkingEnabled": {
-                "description": "True if Advanced Networking has been enabled.",
-                "type": "boolean"
               },
               "subInterface": {
                 "description": "True if Network is connected to an Edge Gateway subinterface.",
@@ -43313,14 +43205,6 @@
                 "description": "Set to true to delete the source object after the operation completes.",
                 "type": "boolean"
               },
-              "sourcedVmInstantiationParams": {
-                "deprecated": true,
-                "description": "Represents virtual machine instantiation parameters.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/vcloud_SourcedVmInstantiationParamsType"
-                }
-              },
               "sourcedItem": {
                 "description": "Represents VM instantiation parameters. If this section is present, then SourcedVmInstantiationParamsType section (if present) will be ignored.",
                 "type": "array",
@@ -43601,15 +43485,6 @@
                 "items": {
                   "$ref": "#/components/schemas/vcloud_CaptureVmParamsType"
                 }
-              },
-              "vdcStorageProfile": {
-                "deprecated": true,
-                "description": "A reference to the storage profile to be specified in the vApp template created by this capture. Ignored by vCloud Director 5.5 and later.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
               },
               "targetCatalogItem": {
                 "description": "To overwrite an existing vApp template with the one created by this capture, place a reference to the existing template here. Otherwise, the operation creates a new vApp template.",
@@ -44144,14 +44019,6 @@
               "allocationModel": {
                 "description": "The allocation model used by this vDC. One of:  \n**AllocationVApp** (Pay as you go. Resources are committed to a vDC only when vApps are created in it. When you use this allocation model, any Limit values you specify for Memory and CPU are ignored on create and returned as 0 on retrieve.)  \n**AllocationPool** (Only a percentage of the resources you allocate are committed to the organization vDC.)  \n**ReservationPool** (All the resources you allocate are committed as a pool to the organization vDC. vApps in vDCs that support this allocation model can specify values for resource and limit.)  \n**Flex** (Only a percentage of the resources you allocate are committed to the organization vDC. You can allocate zero resources also and make it behave like a Pay\\-As\\-You\\-Go type. Based on the values chosen for allocated resources and limits, this vDC can be made to behave as any of the existing three types.)",
                 "type": "string"
-              },
-              "storageCapacity": {
-                "description": "The storage capacity allocated to this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CapacityWithUsageType"
-                  }
-                ]
               },
               "computeCapacity": {
                 "description": "The compute capacity allocated to this vDC.",

@@ -21013,15 +21013,6 @@
                   }
                 ]
               },
-              "storageCapacity": {
-                "readOnly": true,
-                "description": "Read\\-only indicator of datastore capacity.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
-                  }
-                ]
-              },
               "availableNetworks": {
                 "readOnly": true,
                 "description": "Read\\-only list of available networks.",
@@ -24790,16 +24781,6 @@
                 "description": "True to allow creation of multiple external networks on the same LAN segment.",
                 "type": "boolean"
               },
-              "chargebackEventsKeepDays": {
-                "description": "Days for which events are to be kept in Chargeback Tables.",
-                "type": "integer",
-                "format": "int32"
-              },
-              "chargebackTablesCleanupJobTimeInSeconds": {
-                "description": "Time of the day at which the chargeback tables cleanup job should run.",
-                "type": "integer",
-                "format": "int32"
-              },
               "consoleProxyExternalAddress": {
                 "description": "Use this address to access the console proxy from the public side of a firewall or load\\-balancer.  \n Leave empty to clear the address.",
                 "type": "string"
@@ -24983,8 +24964,6 @@
               "activityLogDisplayDays",
               "activityLogKeepDays",
               "allowOverlappingExtNets",
-              "chargebackEventsKeepDays",
-              "chargebackTablesCleanupJobTimeInSeconds",
               "hostCheckDelayInSeconds",
               "hostCheckTimeoutSeconds",
               "ipReservationTimeoutSeconds",
@@ -25441,10 +25420,6 @@
               },
               "loginPageCustomizationTheme": {
                 "description": "Allows setting a login page custom theme. See the online help for more information.",
-                "type": "string"
-              },
-              "theme": {
-                "description": "Deprecated. Use PreviewCustomTheme and FinalCustomTheme instead.",
                 "type": "string"
               },
               "previewCustomTheme": {
@@ -28922,13 +28897,6 @@
                   }
                 ]
               },
-              "property": {
-                "description": "User\\-specified key/value pair. This element has been superseded by the Metadata element, which is the preferred way to specify key/value pairs for objects.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/vcloud_PropertyType"
-                }
-              },
               "dateCreated": {
                 "readOnly": true,
                 "description": "Creation date and time of the catalog item.",
@@ -29363,12 +29331,6 @@
                 "description": "Capacity used. If the VDC AllocationModel is ReservationPool, this number represents the percentage of the reservation that is in use. For all other allocation models, it represents the percentage of the allocation that is in use.",
                 "type": "integer",
                 "format": "int64"
-              },
-              "overhead": {
-                "readOnly": true,
-                "description": "Number of Units allocated to system resources such as vShield Manager virtual machines and shadow virtual machines provisioned from this Provider vDC.",
-                "type": "integer",
-                "format": "int64"
               }
             },
             "additionalProperties": false
@@ -29581,9 +29543,6 @@
                 "description": "An arbitrary key name. Length cannot exceed 256 UTF\\-8 characters.",
                 "type": "string"
               },
-              "value": {
-                "type": "string"
-              },
               "typedValue": {
                 "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
                 "allOf": [
@@ -29732,9 +29691,6 @@
                     "$ref": "#/components/schemas/vcloud_MetadataDomainTagType"
                   }
                 ]
-              },
-              "value": {
-                "type": "string"
               },
               "typedValue": {
                 "allOf": [
@@ -31825,10 +31781,6 @@
                 "description": "Used to enable or disable the firewall rule. Default value is true.",
                 "type": "boolean"
               },
-              "matchOnTranslate": {
-                "description": "For DNATed traffic, match the firewall rules only after the destination IP is translated.",
-                "type": "boolean"
-              },
               "description": {
                 "description": "A description of the rule.",
                 "type": "string"
@@ -31841,26 +31793,12 @@
                 "description": "ICMP subtype. One of: address\\-mask\\-request, address\\-mask\\-reply, destination\\-unreachable, echo\\-request, echo\\-reply, parameter\\-problem, redirect, router\\-advertisement, router\\-solicitation, source\\-quench, time\\-exceeded, timestamp\\-request, timestamp\\-reply, any.",
                 "type": "string"
               },
-              "port": {
-                "description": "The port to which this rule applies. A value of \\-1 matches any port.",
-                "type": "integer",
-                "format": "int32"
-              },
               "destinationPortRange": {
                 "description": "Destination port range to which this rule applies.",
                 "type": "string"
               },
-              "sourcePort": {
-                "description": "Destination port to which this rule applies. A value of \\-1 matches any port.",
-                "type": "integer",
-                "format": "int32"
-              },
               "sourcePortRange": {
                 "description": "Source port range to which this rule applies.",
-                "type": "string"
-              },
-              "direction": {
-                "description": "Direction of traffic to which rule applies. One of: in (rule applies to incoming traffic. This is the default value), out (rule applies to outgoing traffic).",
                 "type": "string"
               },
               "enableLogging": {
@@ -32847,14 +32785,6 @@
               "backwardCompatibilityMode": {
                 "description": "Compatibility mode. Default is false. If set to true, will allow users to write firewall rules in the old 1.5 format. The new format does not require to use direction in firewall rules. Also, for firewall rules to allow NAT traffic the filter is applied on the original IP addresses. Once set to true cannot be reverted back to false.",
                 "type": "boolean"
-              },
-              "ipScope": {
-                "description": "Includes IP level configuration items such as gateway, dns, subnet, IP address pool to be used for allocation. Note that the pool of IP addresses needs to fall within the subnet/mask of the IpScope.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpScopeType"
-                  }
-                ]
               },
               "ipScopes": {
                 "description": "A list of IP scopes for the network.",
@@ -42096,14 +42026,6 @@
               "allocationModel": {
                 "description": "The allocation model used by this vDC. One of:  \n**AllocationVApp** (Pay as you go. Resources are committed to a vDC only when vApps are created in it. When you use this allocation model, any Limit values you specify for Memory and CPU are ignored on create and returned as 0 on retrieve.)  \n**AllocationPool** (Only a percentage of the resources you allocate are committed to the organization vDC.)  \n**ReservationPool** (All the resources you allocate are committed as a pool to the organization vDC. vApps in vDCs that support this allocation model can specify values for resource and limit.)",
                 "type": "string"
-              },
-              "storageCapacity": {
-                "description": "The storage capacity allocated to this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CapacityWithUsageType"
-                  }
-                ]
               },
               "computeCapacity": {
                 "description": "The compute capacity allocated to this vDC.",

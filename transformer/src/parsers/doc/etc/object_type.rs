@@ -151,6 +151,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                             description: None,
                             modifiable: None,
                             required: Some(true),
+                            removed: false,
                         }),
                         name: "value".into(),
                         occurrences: Occurrences::One,
@@ -423,5 +424,60 @@ fn parse_annotation_inside_complex_content_test() {
             }
           ]
         })
+    );
+}
+
+#[test]
+fn removed_field_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta" abstract="true" name="BaseType">
+        <xs:annotation>
+            <xs:documentation source="since">0.9</xs:documentation>
+            <xs:documentation xml:lang="en">
+                A base abstract type for all the types.
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="FieldA" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:appinfo><meta:version added-in="1.0" removed-in="5.1"/></xs:appinfo>
+                    <xs:documentation source="modifiable">always</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        A field that has been removed
+                    </xs:documentation>
+                    <xs:documentation source="required">false</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="FieldB" type="xs:string" minOccurs="0">
+            <xs:annotation>
+                <xs:documentation source="modifiable">always</xs:documentation>
+                <xs:documentation xml:lang="en">
+                    A field that has not been removed
+                </xs:documentation>
+                <xs:documentation source="required">false</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+
+        </xs:sequence>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+            "title": "test_BaseType",
+            "description": "A base abstract type for all the types.",
+            "type": "object",
+            "properties": {
+              "fieldB": {
+                "description": "A field that has not been removed",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          })
     );
 }

@@ -19972,15 +19972,6 @@
                   }
                 ]
               },
-              "storageCapacity": {
-                "readOnly": true,
-                "description": "Read\\-only indicator of datastore capacity.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
-                  }
-                ]
-              },
               "availableNetworks": {
                 "readOnly": true,
                 "description": "Read\\-only list of available networks.",
@@ -28872,9 +28863,6 @@
                 "description": "An arbitrary key name. Length cannot exceed 256 UTF\\-8 characters.",
                 "type": "string"
               },
-              "value": {
-                "type": "string"
-              },
               "typedValue": {
                 "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
                 "allOf": [
@@ -29023,9 +29011,6 @@
                     "$ref": "#/components/schemas/vcloud_MetadataDomainTagType"
                   }
                 ]
-              },
-              "value": {
-                "type": "string"
               },
               "typedValue": {
                 "allOf": [
@@ -31742,15 +31727,6 @@
               "backwardCompatibilityMode": {
                 "description": "Compatibility mode. Default is false. If set to true, will allow users to write firewall rules in the old 1.5 format. The new format does not require to use direction in firewall rules. Also, for firewall rules to allow NAT traffic the filter is applied on the original IP addresses. Once set to true cannot be reverted back to false.",
                 "type": "boolean"
-              },
-              "ipScope": {
-                "deprecated": true,
-                "description": "Includes IP level configuration items such as gateway, dns, subnet, IP address pool to be used for allocation. Note that the pool of IP addresses needs to fall within the subnet/mask of the IpScope.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpScopeType"
-                  }
-                ]
               },
               "ipScopes": {
                 "description": "A list of IP scopes for the network.",
@@ -40327,14 +40303,6 @@
               "allocationModel": {
                 "description": "The allocation model used by this vDC. One of:  \n**AllocationVApp** (Pay as you go. Resources are committed to a vDC only when vApps are created in it. When you use this allocation model, any Limit values you specify for Memory and CPU are ignored on create and returned as 0 on retrieve.)  \n**AllocationPool** (Only a percentage of the resources you allocate are committed to the organization vDC.)  \n**ReservationPool** (All the resources you allocate are committed as a pool to the organization vDC. vApps in vDCs that support this allocation model can specify values for resource and limit.)",
                 "type": "string"
-              },
-              "storageCapacity": {
-                "description": "The storage capacity allocated to this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CapacityWithUsageType"
-                  }
-                ]
               },
               "computeCapacity": {
                 "description": "The compute capacity allocated to this vDC.",
