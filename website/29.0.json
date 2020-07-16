@@ -20332,6 +20332,19 @@
         "title": "vcloud_AmqpConfigEntryType",
         "description": "AMQP Component config entry.",
         "type": "object",
+        "properties": {
+          "key": {
+            "description": "A key value pair in a config entry. This element contains the value for the named key.",
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "value"
+        ],
         "additionalProperties": false
       },
       "vcloud_AmqpBrokersType": {
@@ -25382,6 +25395,9 @@
                 }
               }
             },
+            "required": [
+              "realm"
+            ],
             "additionalProperties": false
           }
         ]
@@ -28973,6 +28989,19 @@
         "title": "vcloud_PropertyType",
         "description": "Contains key/value pair as property.",
         "type": "object",
+        "properties": {
+          "key": {
+            "description": "The key of the property.",
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "value"
+        ],
         "additionalProperties": false
       },
       "vcloud_VCloudExtensionType": {
@@ -29530,6 +29559,19 @@
         "title": "vcloud_MetadataDomainTagType",
         "description": "A value of SYSTEM places this MetadataEntry in the SYSTEM domain. Omit or leave empty to place this MetadataEntry in the GENERAL domain.",
         "type": "object",
+        "properties": {
+          "visibility": {
+            "description": "One of:  \n PRIVATE  \n READONLY",
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "visibility",
+          "value"
+        ],
         "additionalProperties": false
       },
       "vcloud_MetadataEntryType": {
@@ -29594,6 +29636,9 @@
                 "type": "string"
               }
             },
+            "required": [
+              "value"
+            ],
             "additionalProperties": false
           }
         ]
@@ -29613,6 +29658,9 @@
                 "format": "int64"
               }
             },
+            "required": [
+              "value"
+            ],
             "additionalProperties": false
           }
         ]
@@ -29631,6 +29679,9 @@
                 "type": "boolean"
               }
             },
+            "required": [
+              "value"
+            ],
             "additionalProperties": false
           }
         ]
@@ -29650,6 +29701,9 @@
                 "format": "date-time"
               }
             },
+            "required": [
+              "value"
+            ],
             "additionalProperties": false
           }
         ]
@@ -29703,6 +29757,9 @@
                 ]
               }
             },
+            "required": [
+              "typedValue"
+            ],
             "additionalProperties": false
           }
         ]
@@ -30326,6 +30383,14 @@
         "title": "vcloud_HybridTicketType",
         "description": "Ticket for establishing a connection to Cloud Proxy.",
         "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value"
+        ],
         "additionalProperties": false
       },
       "vcloud_TunnelingApplicationRegisterParamsType": {
@@ -33748,6 +33813,7 @@
                 "type": "string"
               },
               "description": {
+                "readOnly": true,
                 "type": "string"
               },
               "isEnabled": {
@@ -34265,6 +34331,7 @@
                 "format": "int32"
               },
               "vmToolsStatus": {
+                "readOnly": true,
                 "type": "string"
               },
               "isInMaintenanceMode": {
@@ -34300,9 +34367,11 @@
                 "format": "date-time"
               },
               "isAutoUndeployNotified": {
+                "readOnly": true,
                 "type": "boolean"
               },
               "isAutoDeleteNotified": {
+                "readOnly": true,
                 "type": "boolean"
               }
             },
@@ -34610,6 +34679,7 @@
                 "type": "string"
               },
               "description": {
+                "readOnly": true,
                 "type": "string"
               },
               "isEnabled": {
@@ -37346,6 +37416,7 @@
             "type": "object",
             "properties": {
               "name": {
+                "readOnly": true,
                 "type": "string"
               },
               "vdc": {
@@ -37952,14 +38023,17 @@
                 "format": "int64"
               },
               "storageUsedMB": {
+                "readOnly": true,
                 "type": "integer",
                 "format": "int64"
               },
               "storageRequestedMB": {
+                "readOnly": true,
                 "type": "integer",
                 "format": "int64"
               },
               "storageProvisionedMB": {
+                "readOnly": true,
                 "type": "integer",
                 "format": "int64"
               },
@@ -38489,6 +38563,7 @@
                 "type": "boolean"
               },
               "orgVdcName": {
+                "readOnly": true,
                 "type": "string"
               },
               "availableNetCount": {
@@ -38498,6 +38573,7 @@
                 "format": "int32"
               },
               "gatewayStatus": {
+                "readOnly": true,
                 "type": "string"
               },
               "haStatus": {
@@ -38976,15 +39052,19 @@
             "type": "object",
             "properties": {
               "name": {
+                "readOnly": true,
                 "type": "string"
               },
               "isReadOnly": {
+                "readOnly": true,
                 "type": "boolean"
               },
               "org": {
+                "readOnly": true,
                 "type": "string"
               },
               "orgName": {
+                "readOnly": true,
                 "type": "string"
               }
             },
@@ -39052,6 +39132,14 @@
         "title": "vcloud_ScreenTicketType",
         "description": "The ticket for accessing the console of a VM.",
         "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value"
+        ],
         "additionalProperties": false
       },
       "vcloud_ApiExtensibilityType": {
@@ -42577,6 +42665,21 @@
         "title": "vcloud_DefaultHardDiskAdapterTypeType",
         "description": "Represents a virtual hard disk adapter type.",
         "type": "object",
+        "properties": {
+          "ref": {
+            "readOnly": true,
+            "description": "Reference to the 'id' value of a HardDiskAdapter element in this document.",
+            "type": "string"
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "ref",
+          "value"
+        ],
         "additionalProperties": false
       },
       "vcloud_HardDiskAdapterType": {

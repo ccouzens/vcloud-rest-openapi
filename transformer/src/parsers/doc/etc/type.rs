@@ -696,3 +696,56 @@ fn parse_group_ref_one_parent_test() {
         })
     );
 }
+
+#[test]
+fn parse_complex_simple_extension_type() {
+    let xml: &[u8] = br###"
+    <xs:complexType name="ExtendedString" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta">
+      <xs:annotation>
+        <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
+        <xs:documentation xml:lang="en">
+           Base shows up as value
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+            <xs:attribute name="field" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:appinfo><meta:version added-in="5.1"/></xs:appinfo>
+                    <xs:documentation source="required">true</xs:documentation>
+                    <xs:documentation xml:lang="en">
+                        field shows up as itself
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+        "###;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+          "title": "test_ExtendedString",
+          "description": "Base shows up as value",
+          "type": "object",
+          "properties": {
+            "field": {
+              "description": "field shows up as itself",
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+        )
+    );
+}

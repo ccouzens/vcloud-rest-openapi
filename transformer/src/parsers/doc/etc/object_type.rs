@@ -1,5 +1,9 @@
 #[cfg(test)]
 use super::r#type::Type;
+use super::{
+    field::Occurrences,
+    simple_type::{str_to_simple_type_or_reference, SimpleType},
+};
 use crate::parsers::doc::etc::annotation::Annotation;
 use crate::parsers::doc::etc::field::Field;
 use crate::parsers::doc::etc::group_ref::GroupRef;
@@ -14,7 +18,7 @@ pub(super) struct ObjectType {
     pub(super) annotation: Option<Annotation>,
     pub(super) name: String,
     pub(super) fields: Vec<Field>,
-    pub(super) parents: Vec<String>,
+    pub(super) parents: Vec<openapiv3::ReferenceOr<SimpleType>>,
 }
 
 impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
@@ -59,19 +63,18 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                                     .iter()
                                     .flat_map(|xml| Field::try_from((xml, schema_namespace))),
                             );
-                            parents.extend(
-                                children
-                                    .iter()
-                                    .flat_map(GroupRef::try_from)
-                                    .map(|g| g.reference),
-                            );
+                            parents.extend(children.iter().flat_map(GroupRef::try_from).map(|g| {
+                                str_to_simple_type_or_reference(schema_namespace, &g.reference)
+                            }));
                         }
                         xmltree::XMLNode::Element(xmltree::Element {
                             namespace: Some(namespace),
                             name,
                             children,
                             ..
-                        }) if namespace == XML_SCHEMA_NS && name == "complexContent" => {
+                        }) if namespace == XML_SCHEMA_NS
+                            && (name == "complexContent" || name == "simpleContent") =>
+                        {
                             for child in children {
                                 match child {
                                     xmltree::XMLNode::Element(xmltree::Element {
@@ -81,15 +84,22 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                                         children,
                                         ..
                                     }) if namespace == XML_SCHEMA_NS && name == "extension" => {
-                                        parents.extend(attributes.get("base").cloned());
+                                        if let Some(type_name) = attributes.get("base") {
+                                            parents.push(str_to_simple_type_or_reference(
+                                                schema_namespace,
+                                                type_name,
+                                            ));
+                                        }
                                         fields.extend(children.iter().flat_map(|xml| {
                                             Field::try_from((xml, schema_namespace))
                                         }));
                                         parents.extend(
-                                            children
-                                                .iter()
-                                                .flat_map(GroupRef::try_from)
-                                                .map(|g| g.reference),
+                                            children.iter().flat_map(GroupRef::try_from).map(|g| {
+                                                str_to_simple_type_or_reference(
+                                                    schema_namespace,
+                                                    &g.reference,
+                                                )
+                                            }),
                                         );
                                         for child in children {
                                             match child {
@@ -110,7 +120,12 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                                                         children
                                                             .iter()
                                                             .flat_map(GroupRef::try_from)
-                                                            .map(|g| g.reference),
+                                                            .map(|g| {
+                                                                str_to_simple_type_or_reference(
+                                                                    schema_namespace,
+                                                                    &g.reference,
+                                                                )
+                                                            }),
                                                     );
                                                 }
                                                 _ => {}
@@ -124,20 +139,33 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                         _ => {}
                     }
                 }
+
+                fields.extend(parents.iter().filter_map(|p| match p {
+                    openapiv3::ReferenceOr::Reference { .. } => None,
+                    openapiv3::ReferenceOr::Item(i) => Some(Field {
+                        annotation: Some(Annotation {
+                            content_type: None,
+                            deprecated: false,
+                            description: None,
+                            modifiable: None,
+                            required: Some(true),
+                        }),
+                        name: "value".into(),
+                        occurrences: Occurrences::One,
+                        r#type: openapiv3::ReferenceOr::Item(i.clone()),
+                    }),
+                }));
+
+                parents.retain(|p| match p {
+                    openapiv3::ReferenceOr::Reference { .. } => true,
+                    openapiv3::ReferenceOr::Item(_) => false,
+                });
+
                 Ok(ObjectType {
                     name,
                     annotation,
                     fields,
-                    parents: parents
-                        .into_iter()
-                        .map(|p| {
-                            if p.contains(':') {
-                                p.replacen(':', "_", 1)
-                            } else {
-                                format!("{}_{}", schema_namespace, p)
-                            }
-                        })
-                        .collect(),
+                    parents,
                 })
             }
             _ => Err(TypeParseError::NotTypeNode),
@@ -180,7 +208,7 @@ impl From<&ObjectType> for openapiv3::Schema {
         let schema_data = openapiv3::SchemaData {
             deprecated: c.annotation.as_ref().map(|a| a.deprecated).unwrap_or(false),
             title: Some(c.name.clone()),
-            description: c.annotation.as_ref().map(|a| &a.description).cloned(),
+            description: c.annotation.as_ref().and_then(|a| a.description.clone()),
             ..Default::default()
         };
         match &c.parents.is_empty() {
@@ -190,9 +218,14 @@ impl From<&ObjectType> for openapiv3::Schema {
             },
             false => {
                 let mut all_of = Vec::new();
-                all_of.extend(c.parents.iter().map(|reference| {
-                    openapiv3::ReferenceOr::Reference {
-                        reference: format!("#/components/schemas/{}", reference),
+                all_of.extend(c.parents.iter().map(|reference| match reference {
+                    openapiv3::ReferenceOr::Reference { reference } => {
+                        openapiv3::ReferenceOr::Reference {
+                            reference: format!("#/components/schemas/{}", reference),
+                        }
+                    }
+                    openapiv3::ReferenceOr::Item(simple_type) => {
+                        openapiv3::ReferenceOr::Item(simple_type.into())
                     }
                 }));
 

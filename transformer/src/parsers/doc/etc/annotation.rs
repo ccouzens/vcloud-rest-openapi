@@ -10,9 +10,9 @@ pub(super) enum Modifiable {
     None,
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub(super) struct Annotation {
-    pub(super) description: String,
+    pub(super) description: Option<String>,
     pub(super) required: Option<bool>,
     pub(super) deprecated: bool,
     pub(super) modifiable: Option<Modifiable>,
@@ -21,8 +21,6 @@ pub(super) struct Annotation {
 
 #[derive(Error, Debug, PartialEq)]
 pub enum AnnotationParseError {
-    #[error("missing description")]
-    NoDescription,
     #[error("not an annotation node")]
     NotAnnotationNode,
 }
@@ -38,31 +36,29 @@ impl TryFrom<&xmltree::XMLNode> for Annotation {
                 children,
                 ..
             }) if namespace == XML_SCHEMA_NS && name == "annotation" => {
-                let description = html2md::parse_html(
-                    children
-                        .iter()
-                        .filter_map(|child| match child {
-                            xmltree::XMLNode::Element(xmltree::Element {
-                                namespace: Some(namespace),
-                                name,
-                                children,
-                                attributes,
-                                ..
-                            }) if namespace == XML_SCHEMA_NS
-                                && name == "documentation"
-                                && (attributes.get("lang").map(String::as_str) == Some("en")
-                                    || attributes.is_empty()) =>
-                            {
-                                match children.get(0) {
-                                    Some(xmltree::XMLNode::Text(doc)) => Some(doc),
-                                    _ => None,
-                                }
+                let description = children
+                    .iter()
+                    .filter_map(|child| match child {
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name,
+                            children,
+                            attributes,
+                            ..
+                        }) if namespace == XML_SCHEMA_NS
+                            && name == "documentation"
+                            && (attributes.get("lang").map(String::as_str) == Some("en")
+                                || attributes.is_empty()) =>
+                        {
+                            match children.get(0) {
+                                Some(xmltree::XMLNode::Text(doc)) => Some(doc),
+                                _ => None,
                             }
-                            _ => None,
-                        })
-                        .next()
-                        .ok_or(AnnotationParseError::NoDescription)?,
-                );
+                        }
+                        _ => None,
+                    })
+                    .next()
+                    .map(|d| html2md::parse_html(d));
                 let required = children
                     .iter()
                     .filter_map(|child| match child {
@@ -190,7 +186,7 @@ fn test_parse_annotation() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A base abstract **type** for all the  \ntypes.".to_owned(),
+            description: Some("A base abstract **type** for all the  \ntypes.".to_owned()),
             required: None,
             deprecated: false,
             modifiable: None,
@@ -214,7 +210,7 @@ fn test_parse_annotation_required() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A field that is *required*.".to_owned(),
+            description: Some("A field that is *required*.".to_owned()),
             required: Some(true),
             deprecated: false,
             modifiable: None,
@@ -240,7 +236,7 @@ fn test_parse_annotation_not_required() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A field that is *not required*.".to_owned(),
+            description: Some("A field that is *not required*.".to_owned()),
             required: Some(false),
             deprecated: false,
             modifiable: None,
@@ -263,7 +259,7 @@ fn test_parse_annotation_deprecated() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A field that is *deprecated*.".to_owned(),
+            description: Some("A field that is *deprecated*.".to_owned()),
             required: None,
             deprecated: true,
             modifiable: None,
@@ -288,7 +284,7 @@ fn test_parse_annotation_modifiable_create() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A field that is only settable on *create*.".to_owned(),
+            description: Some("A field that is only settable on *create*.".to_owned()),
             required: None,
             deprecated: false,
             modifiable: Some(Modifiable::Create),
@@ -311,7 +307,7 @@ fn test_parse_annotation_modifiable_update() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A field that is only settable on *update*.".to_owned(),
+            description: Some("A field that is only settable on *update*.".to_owned()),
             required: None,
             deprecated: false,
             modifiable: Some(Modifiable::Update),
@@ -334,7 +330,7 @@ fn test_parse_annotation_modifiable_always() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A field that is *always* settable.".to_owned(),
+            description: Some("A field that is *always* settable.".to_owned()),
             required: None,
             deprecated: false,
             modifiable: Some(Modifiable::Always),
@@ -357,7 +353,7 @@ fn test_parse_annotation_modifiable_none() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A field that is *read only*.".to_owned(),
+            description: Some("A field that is *read only*.".to_owned()),
             required: None,
             deprecated: false,
             modifiable: Some(Modifiable::None),
@@ -384,7 +380,7 @@ fn test_parse_content_type() {
     assert_eq!(
         Annotation::try_from(&xmltree::XMLNode::Element(tree)),
         Ok(Annotation {
-            description: "A type with a content type.".to_owned(),
+            description: Some("A type with a content type.".to_owned()),
             required: None,
             deprecated: false,
             modifiable: None,

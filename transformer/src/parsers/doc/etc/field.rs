@@ -152,7 +152,7 @@ impl From<&Field> for openapiv3::Schema {
                 read_only: s.annotation.as_ref().and_then(|a| a.modifiable)
                     == Some(Modifiable::None),
                 deprecated: s.annotation.as_ref().map(|a| a.deprecated) == Some(true),
-                description: s.annotation.as_ref().map(|a| a.description.clone()),
+                description: s.annotation.as_ref().and_then(|a| a.description.clone()),
                 ..Default::default()
             },
             schema_kind: match (s.occurrences, reference_or_schema_type) {

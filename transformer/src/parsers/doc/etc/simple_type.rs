@@ -5,7 +5,7 @@ use crate::parsers::doc::etc::r#type::TypeParseError;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
 use std::convert::TryFrom;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub(super) struct SimpleType {
     pub(super) annotation: Option<Annotation>,
     pub(super) name: Option<String>,
@@ -157,7 +157,7 @@ impl From<&SimpleType> for openapiv3::Schema {
         let schema_data = openapiv3::SchemaData {
             deprecated: t.annotation.as_ref().map(|a| a.deprecated).unwrap_or(false),
             title: t.name.clone(),
-            description: t.annotation.as_ref().map(|a| a.description.clone()),
+            description: t.annotation.as_ref().and_then(|a| a.description.clone()),
             ..Default::default()
         };
 
