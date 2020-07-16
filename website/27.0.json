@@ -433,6 +433,16 @@
           "user"
         ],
         "description": "Set the metadata value for the specified key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -517,6 +527,16 @@
           "admin"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -693,6 +713,16 @@
           "user"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -1276,6 +1306,16 @@
           "user"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -1445,6 +1485,16 @@
           "admin"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -1781,6 +1831,16 @@
           "admin"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -1957,6 +2017,16 @@
           "admin"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -2041,6 +2111,16 @@
           "admin"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -2988,6 +3068,16 @@
           "user"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -3157,6 +3247,16 @@
           "user"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -3425,6 +3525,16 @@
           "admin"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -3509,6 +3619,16 @@
           "admin"
         ],
         "description": "Set the value for the specified metadata key to the value provided, overwriting any existing value.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata.value+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataValueType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -4546,6 +4666,16 @@
           "user"
         ],
         "description": "Merge the metadata provided in the request with existing catalog item metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -4598,6 +4728,16 @@
           "admin"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -5302,6 +5442,16 @@
           "user"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -6950,6 +7100,16 @@
           "user"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -7643,6 +7803,16 @@
           "admin"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -8653,6 +8823,16 @@
           "admin"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -9056,6 +9236,16 @@
           "admin"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -9238,6 +9428,16 @@
           "admin"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -10933,6 +11133,16 @@
           "user"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -11160,6 +11370,16 @@
           "user"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -11483,6 +11703,16 @@
           "admin"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -11647,6 +11877,16 @@
           "admin"
         ],
         "description": "Merge the metadata provided in the request with existing metadata.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.vcloud.metadata+json;version=27.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud_MetadataType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -28747,6 +28987,7 @@
       },
       "vcloud_MetadataType": {
         "title": "vcloud_MetadataType",
+        "description": "User\\-defined metadata associated with with an object.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"

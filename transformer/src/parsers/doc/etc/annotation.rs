@@ -25,6 +25,151 @@ pub enum AnnotationParseError {
     NotAnnotationNode,
 }
 
+impl Annotation {
+    pub(super) fn merge(self, b: Annotation) -> Self {
+        Self {
+            description: self.description.or(b.description),
+            content_type: self.content_type.or(b.content_type),
+            deprecated: self.deprecated || b.deprecated,
+            modifiable: self.modifiable.or(b.modifiable),
+            required: self.required.or(b.required),
+        }
+    }
+}
+
+impl TryFrom<&Vec<xmltree::XMLNode>> for Annotation {
+    type Error = AnnotationParseError;
+
+    fn try_from(children: &Vec<xmltree::XMLNode>) -> Result<Self, Self::Error> {
+        let description = children
+            .iter()
+            .filter_map(|child| match child {
+                xmltree::XMLNode::Element(xmltree::Element {
+                    namespace: Some(namespace),
+                    name,
+                    children,
+                    attributes,
+                    ..
+                }) if namespace == XML_SCHEMA_NS
+                    && name == "documentation"
+                    && (attributes.get("lang").map(String::as_str) == Some("en")
+                        || attributes.is_empty()) =>
+                {
+                    match children.get(0) {
+                        Some(xmltree::XMLNode::Text(doc)) => Some(doc),
+                        _ => None,
+                    }
+                }
+                _ => None,
+            })
+            .next()
+            .map(|d| html2md::parse_html(d));
+        let required = children
+            .iter()
+            .filter_map(|child| match child {
+                xmltree::XMLNode::Element(xmltree::Element {
+                    namespace: Some(namespace),
+                    name,
+                    children,
+                    attributes,
+                    ..
+                }) if namespace == XML_SCHEMA_NS
+                    && name == "documentation"
+                    && attributes.get("source").map(String::as_str) == Some("required") =>
+                {
+                    match children.get(0) {
+                        Some(xmltree::XMLNode::Text(r)) => match r.trim() {
+                            "true" => Some(true),
+                            "false" => Some(false),
+                            _ => None,
+                        },
+                        _ => None,
+                    }
+                }
+                _ => None,
+            })
+            .next();
+        let deprecated = children.iter().any(|child| match child {
+            xmltree::XMLNode::Element(xmltree::Element {
+                namespace: Some(namespace),
+                name,
+                attributes,
+                ..
+            }) if namespace == XML_SCHEMA_NS
+                && name == "documentation"
+                && attributes.get("source").map(String::as_str) == Some("deprecated") =>
+            {
+                true
+            }
+            _ => false,
+        });
+        let modifiable = children
+            .iter()
+            .filter_map(|child| match child {
+                xmltree::XMLNode::Element(xmltree::Element {
+                    namespace: Some(namespace),
+                    name,
+                    children,
+                    attributes,
+                    ..
+                }) if namespace == XML_SCHEMA_NS
+                    && name == "documentation"
+                    && attributes.get("source").map(String::as_str) == Some("modifiable") =>
+                {
+                    match children.get(0) {
+                        Some(xmltree::XMLNode::Text(r)) => match r.trim() {
+                            "create" => Some(Modifiable::Create),
+                            "update" => Some(Modifiable::Update),
+                            "always" => Some(Modifiable::Always),
+                            "none" => Some(Modifiable::None),
+                            _ => None,
+                        },
+                        _ => None,
+                    }
+                }
+                _ => None,
+            })
+            .next();
+        let content_type = children
+            .iter()
+            .filter_map(|child| match child {
+                xmltree::XMLNode::Element(xmltree::Element {
+                    namespace: Some(namespace),
+                    name,
+                    children,
+                    ..
+                }) if namespace == XML_SCHEMA_NS && name == "appinfo" => children
+                    .iter()
+                    .filter_map(|child| match child {
+                        xmltree::XMLNode::Element(xmltree::Element {
+                            namespace: Some(namespace),
+                            name,
+                            children,
+                            ..
+                        }) if namespace == "http://www.vmware.com/vcloud/meta"
+                            && name == "content-type" =>
+                        {
+                            match children.get(0) {
+                                Some(xmltree::XMLNode::Text(ct)) => Some(ct.trim().to_owned()),
+                                _ => None,
+                            }
+                        }
+                        _ => None,
+                    })
+                    .next(),
+                _ => None,
+            })
+            .next();
+        Ok(Annotation {
+            description,
+            required,
+            deprecated,
+            modifiable,
+            content_type,
+        })
+    }
+}
+
 impl TryFrom<&xmltree::XMLNode> for Annotation {
     type Error = AnnotationParseError;
 
@@ -36,135 +181,27 @@ impl TryFrom<&xmltree::XMLNode> for Annotation {
                 children,
                 ..
             }) if namespace == XML_SCHEMA_NS && name == "annotation" => {
-                let description = children
+                let annotation_a = children
                     .iter()
-                    .filter_map(|child| match child {
+                    .filter_map(|n| match n {
                         xmltree::XMLNode::Element(xmltree::Element {
                             namespace: Some(namespace),
                             name,
                             children,
-                            attributes,
                             ..
-                        }) if namespace == XML_SCHEMA_NS
-                            && name == "documentation"
-                            && (attributes.get("lang").map(String::as_str) == Some("en")
-                                || attributes.is_empty()) =>
-                        {
-                            match children.get(0) {
-                                Some(xmltree::XMLNode::Text(doc)) => Some(doc),
-                                _ => None,
-                            }
-                        }
-                        _ => None,
-                    })
-                    .next()
-                    .map(|d| html2md::parse_html(d));
-                let required = children
-                    .iter()
-                    .filter_map(|child| match child {
-                        xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
-                            name,
-                            children,
-                            attributes,
-                            ..
-                        }) if namespace == XML_SCHEMA_NS
-                            && name == "documentation"
-                            && attributes.get("source").map(String::as_str) == Some("required") =>
-                        {
-                            match children.get(0) {
-                                Some(xmltree::XMLNode::Text(r)) => match r.trim() {
-                                    "true" => Some(true),
-                                    "false" => Some(false),
-                                    _ => None,
-                                },
-                                _ => None,
-                            }
+                        }) if namespace == XML_SCHEMA_NS && name == "appinfo" => {
+                            Annotation::try_from(children).ok()
                         }
                         _ => None,
                     })
                     .next();
-                let deprecated = children.iter().any(|child| match child {
-                    xmltree::XMLNode::Element(xmltree::Element {
-                        namespace: Some(namespace),
-                        name,
-                        attributes,
-                        ..
-                    }) if namespace == XML_SCHEMA_NS
-                        && name == "documentation"
-                        && attributes.get("source").map(String::as_str) == Some("deprecated") =>
-                    {
-                        true
-                    }
-                    _ => false,
-                });
-                let modifiable = children
-                    .iter()
-                    .filter_map(|child| match child {
-                        xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
-                            name,
-                            children,
-                            attributes,
-                            ..
-                        }) if namespace == XML_SCHEMA_NS
-                            && name == "documentation"
-                            && attributes.get("source").map(String::as_str)
-                                == Some("modifiable") =>
-                        {
-                            match children.get(0) {
-                                Some(xmltree::XMLNode::Text(r)) => match r.trim() {
-                                    "create" => Some(Modifiable::Create),
-                                    "update" => Some(Modifiable::Update),
-                                    "always" => Some(Modifiable::Always),
-                                    "none" => Some(Modifiable::None),
-                                    _ => None,
-                                },
-                                _ => None,
-                            }
-                        }
-                        _ => None,
-                    })
-                    .next();
-                let content_type = children
-                    .iter()
-                    .filter_map(|child| match child {
-                        xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
-                            name,
-                            children,
-                            ..
-                        }) if namespace == XML_SCHEMA_NS && name == "appinfo" => children
-                            .iter()
-                            .filter_map(|child| match child {
-                                xmltree::XMLNode::Element(xmltree::Element {
-                                    namespace: Some(namespace),
-                                    name,
-                                    children,
-                                    ..
-                                }) if namespace == "http://www.vmware.com/vcloud/meta"
-                                    && name == "content-type" =>
-                                {
-                                    match children.get(0) {
-                                        Some(xmltree::XMLNode::Text(ct)) => {
-                                            Some(ct.trim().to_owned())
-                                        }
-                                        _ => None,
-                                    }
-                                }
-                                _ => None,
-                            })
-                            .next(),
-                        _ => None,
-                    })
-                    .next();
-                Ok(Annotation {
-                    description,
-                    required,
-                    deprecated,
-                    modifiable,
-                    content_type,
-                })
+                let annotation_b = Annotation::try_from(children);
+                match (annotation_a, annotation_b) {
+                    (None, Ok(b)) => Ok(b),
+                    (None, Err(e)) => Err(e),
+                    (Some(a), Ok(b)) => Ok(a.merge(b)),
+                    (Some(a), Err(_)) => Ok(a),
+                }
             }
             _ => Err(AnnotationParseError::NotAnnotationNode),
         }
@@ -385,6 +422,32 @@ fn test_parse_content_type() {
             deprecated: false,
             modifiable: None,
             content_type: Some("application/vnd.ccouzens.test".to_owned())
+        })
+    );
+}
+
+#[test]
+fn test_parse_annotation_inside_app_info() {
+    let xml: &[u8] = br#"
+    <xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:appinfo>
+        <xs:documentation source="since">0.9</xs:documentation>
+        <xs:documentation xml:lang="en">
+            A base abstract &lt;b&gt;type&lt;/b&gt; for
+            all the&lt;br/&gt;types.
+        </xs:documentation>
+      </xs:appinfo>
+    </xs:annotation>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    assert_eq!(
+        Annotation::try_from(&xmltree::XMLNode::Element(tree)),
+        Ok(Annotation {
+            description: Some("A base abstract **type** for all the  \ntypes.".to_owned()),
+            required: None,
+            deprecated: false,
+            modifiable: None,
+            content_type: None
         })
     );
 }

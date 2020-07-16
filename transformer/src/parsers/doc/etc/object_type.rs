@@ -35,14 +35,12 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
             }) if namespace == XML_SCHEMA_NS
                 && (name == "complexType" || name == "group" || name == "attributeGroup") =>
             {
+                let mut annotations = Vec::new();
                 let name = attributes
                     .get("name")
                     .map(|n| format!("{}_{}", schema_namespace, n))
                     .ok_or(TypeParseError::MissingName)?;
-                let annotation = children
-                    .iter()
-                    .filter_map(|c| Annotation::try_from(c).ok())
-                    .next();
+                annotations.extend(children.iter().filter_map(|c| Annotation::try_from(c).ok()));
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();
                 fields.extend(
@@ -75,6 +73,10 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                         }) if namespace == XML_SCHEMA_NS
                             && (name == "complexContent" || name == "simpleContent") =>
                         {
+                            annotations.extend(
+                                children.iter().filter_map(|c| Annotation::try_from(c).ok()),
+                            );
+
                             for child in children {
                                 match child {
                                     xmltree::XMLNode::Element(xmltree::Element {
@@ -160,6 +162,14 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                     openapiv3::ReferenceOr::Reference { .. } => true,
                     openapiv3::ReferenceOr::Item(_) => false,
                 });
+
+                let annotation: Option<Annotation> = annotations.into_iter().fold(
+                    None,
+                    |acc: Option<Annotation>, ann: Annotation| match acc {
+                        None => Some(ann),
+                        Some(acc) => Some(acc.merge(ann)),
+                    },
+                );
 
                 Ok(ObjectType {
                     name,
@@ -349,6 +359,66 @@ fn parse_attribute_group_ref_test() {
                   "type": "string"
                 }
               },
+              "additionalProperties": false
+            }
+          ]
+        })
+    );
+}
+
+#[test]
+fn parse_annotation_inside_complex_content_test() {
+    let xml: &[u8] = br#"
+    <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.vmware.com/vcloud/meta" name="TestType">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:appinfo>
+                    <meta:content-type>application/vnd.ccouzens.test</meta:content-type>
+                </xs:appinfo>
+                <xs:documentation source="since">0.9</xs:documentation>
+                <xs:documentation xml:lang="en">
+                    A simple type to test the parser
+                </xs:documentation>
+            </xs:annotation>
+
+            <xs:extension base="BaseType">
+                <xs:attribute name="requiredAttribute" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation source="modifiable">none</xs:documentation>
+                        <xs:documentation>
+                            A field that comes from an attribute.
+                        </xs:documentation>
+                        <xs:documentation source="required">true</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    "#;
+    let tree = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let value = openapiv3::Schema::from(&c);
+    assert_eq!(
+        serde_json::to_value(value).unwrap(),
+        json!({
+          "title": "test_TestType",
+          "description": "A simple type to test the parser",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/test_BaseType"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "requiredAttribute": {
+                  "readOnly": true,
+                  "description": "A field that comes from an attribute.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "requiredAttribute"
+              ],
               "additionalProperties": false
             }
           ]
