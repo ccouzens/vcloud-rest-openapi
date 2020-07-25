@@ -105,14 +105,15 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
         } else {
             "user"
         };
-        let request_content_type = match p.definition_list.0.get("Input parameters") {
-            Some(DefinitionListValue::SubList(b)) => match b.0.get("Consume media type(s):") {
-                Some(DefinitionListValue::Text(t)) => t.split("+xml<br>").next(),
-                _ => None,
-            },
-            _ => None,
-        }
-        .map(str::to_string);
+        let request_content_type = p
+            .definition_list
+            .0
+            .get("Input parameters")
+            .and_then(DefinitionListValue::as_sublist)
+            .and_then(|l| l.0.get("Consume media type(s):"))
+            .and_then(DefinitionListValue::as_text)
+            .and_then(|t| t.split("+xml<br>").next())
+            .map(str::to_string);
 
         let request_content_ref = request_content_type
             .as_ref()
@@ -124,14 +125,15 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             _ => None,
         };
 
-        let response_content_type = match p.definition_list.0.get("Output parameters") {
-            Some(DefinitionListValue::SubList(b)) => match b.0.get("Produce media type(s):") {
-                Some(DefinitionListValue::Text(t)) => t.split("+xml<br>").next(),
-                _ => None,
-            },
-            _ => None,
-        }
-        .map(str::to_string);
+        let response_content_type = p
+            .definition_list
+            .0
+            .get("Output parameters")
+            .and_then(DefinitionListValue::as_sublist)
+            .and_then(|l| l.0.get("Produce media type(s):"))
+            .and_then(DefinitionListValue::as_text)
+            .and_then(|t| t.split("+xml<br>").next())
+            .map(str::to_string);
 
         let response_content_ref = response_content_type
             .as_ref()

@@ -73,10 +73,7 @@ impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionListValue {
 
 impl DefinitionListValue {
     pub fn text_to_markdown(&self) -> Option<String> {
-        match self {
-            DefinitionListValue::Text(html) => Some(html2md::parse_html(html).trim().into()),
-            DefinitionListValue::SubList(_) => None,
-        }
+        self.as_text().map(|h| html2md::parse_html(h).trim().into())
     }
 
     pub fn as_text(&self) -> Option<&str> {
