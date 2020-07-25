@@ -420,6 +420,24 @@
           "admin"
         ],
         "description": "Delete a catalog.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -978,6 +996,24 @@
           "admin"
         ],
         "description": "Delete an edge gateway.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -1394,6 +1430,24 @@
           "user"
         ],
         "description": "Delete a media object.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -1587,6 +1641,24 @@
           "admin"
         ],
         "description": "Delete a network.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -2120,6 +2192,26 @@
           "admin"
         ],
         "description": "Delete an organization.\n\n Before you can delete an organization, you must disable it and then delete or change ownership of all objects that the organization's users own.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "force",
+            "description": "pass force=true as query parameter along with recursive=true to remove an organization or VDC and any objects it contains, regardless of their state.",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "description": "pass recursive=true as query parameter to remove an organization or VDC and any objects it contains that are in a state that normally allows removal.",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -3838,6 +3930,24 @@
           "user"
         ],
         "description": "Delete a vApp or VM.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4224,6 +4334,24 @@
           "admin"
         ],
         "description": "Delete an organization vDC.\n\n You must disable the virtual datacenter before you can delete it.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4316,6 +4444,24 @@
           "user"
         ],
         "description": "Delete an organization vDC.\n\n You must disable the virtual datacenter before you can delete it, unless {@code RestConstants.DeleteParameters.FORCE} is asserted",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -5988,6 +6134,88 @@
           "user"
         ],
         "description": "Retrieves a list of Catalogs by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -6464,6 +6692,88 @@
           "extension"
         ],
         "description": "Get a list of all datastores by using REST API General QueryHandler. This is read only list of datastores. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -6687,6 +6997,88 @@
           "user"
         ],
         "description": "Retrieves a disk list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -6959,6 +7351,96 @@
           "user"
         ],
         "description": "REST API General queries handler",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "type",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -7085,6 +7567,88 @@
           "extension"
         ],
         "description": "Get list of external networks by using REST API general QueryHandler. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -7348,6 +7912,88 @@
           "admin"
         ],
         "description": "Retrieves a list of groups for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -7763,6 +8409,88 @@
           "extension"
         ],
         "description": "Get list of hosts by using REST API general QueryHAndler; This is read only list of host references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -8486,6 +9214,88 @@
           "user"
         ],
         "description": "Retrieves a media list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -9253,6 +10063,88 @@
           "extension"
         ],
         "description": "Get list of network pools by using REST API general QueryHandler. This is read only list of network pool references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -9810,6 +10702,88 @@
           "extension"
         ],
         "description": "Get list of Organization Networks for the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -10153,6 +11127,88 @@
           "extension"
         ],
         "description": "Get list of all Organization Vdcs in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -10427,6 +11483,88 @@
           "admin"
         ],
         "description": "Retrieves a list of organizations by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -10873,6 +12011,88 @@
           "extension"
         ],
         "description": "Get list of provider vDCs by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references, records or idrecords. Default format is records.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -11174,6 +12394,88 @@
           "admin"
         ],
         "description": "Retrieves a list of vdcs in the organization; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -11192,6 +12494,88 @@
           "admin"
         ],
         "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -11222,6 +12606,88 @@
           "admin"
         ],
         "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -12025,6 +13491,88 @@
           "extension"
         ],
         "description": "Return the System Administrator representation of all extension services registered with the system.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -12298,6 +13846,88 @@
           "extension"
         ],
         "description": "Get list of all stranded items in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references, records or idrecords. Default format is records.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -12615,6 +14245,88 @@
           "admin"
         ],
         "description": "Retrieves a list of users for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -13085,6 +14797,88 @@
           "user"
         ],
         "description": "Retrieves a list of vAppTemplates using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -13103,6 +14897,88 @@
           "extension"
         ],
         "description": "Get list of all vApps in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -13139,6 +15015,88 @@
           "user"
         ],
         "description": "Retrieves a list of VMs in lease by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -14095,6 +16053,88 @@
           "extension"
         ],
         "description": "Get list of vSphere servers by using REST API general QueryHandler; This is read only list of vim servers and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortAsc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "filterEncoded",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "links",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -14905,6 +16945,24 @@
           "extension"
         ],
         "description": "Retrieve a list of virtual machines that can be imported from a registered vCenter server.\n\n This request supports optional query parameters:\n\n* page \\- The page to return. The first page is page 1.\n* pageSize \\- The number of virtual machines to list on a page. An integer value between 1 and 100. The default value is 1.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",

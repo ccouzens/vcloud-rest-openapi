@@ -34,6 +34,12 @@ impl FromStr for Method {
 }
 
 #[derive(Debug, PartialEq)]
+pub struct QueryParameter {
+    pub name: String,
+    pub description: Option<String>,
+}
+
+#[derive(Debug, PartialEq)]
 pub struct Operation {
     pub method: Method,
     pub path: String,
@@ -44,6 +50,7 @@ pub struct Operation {
     pub api_version: String,
     pub basic_auth: bool,
     pub deprecated: bool,
+    pub query_parameters: Vec<QueryParameter>,
 }
 
 #[derive(Error, Debug)]
@@ -94,8 +101,7 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
                 .into();
         let description = p
             .definition_list
-            .0
-            .get("Description:")
+            .find("Description:")
             .and_then(DefinitionListValue::text_to_markdown)
             .ok_or(Self::Error::CannotFindDescriptionError)?;
         let tag = if path.starts_with("/admin/extension") {
@@ -107,10 +113,9 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
         };
         let request_content_type = p
             .definition_list
-            .0
-            .get("Input parameters")
+            .find("Input parameters")
             .and_then(DefinitionListValue::as_sublist)
-            .and_then(|l| l.0.get("Consume media type(s):"))
+            .and_then(|l| l.find("Consume media type(s):"))
             .and_then(DefinitionListValue::as_text)
             .and_then(|t| t.split("+xml<br>").next())
             .map(str::to_string);
@@ -127,10 +132,9 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
 
         let response_content_type = p
             .definition_list
-            .0
-            .get("Output parameters")
+            .find("Output parameters")
             .and_then(DefinitionListValue::as_sublist)
-            .and_then(|l| l.0.get("Produce media type(s):"))
+            .and_then(|l| l.find("Produce media type(s):"))
             .and_then(DefinitionListValue::as_text)
             .and_then(|t| t.split("+xml<br>").next())
             .map(str::to_string);
@@ -147,15 +151,45 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
 
         let basic_auth = p
             .definition_list
-            .0
-            .get("Examples")
+            .find("Examples")
             .and_then(DefinitionListValue::as_sublist)
-            .and_then(|d| d.0.get("Request"))
+            .and_then(|d| d.find("Request"))
             .and_then(DefinitionListValue::as_text)
             .map(|t| t.contains("Authorization:&nbsp;Basic"))
             .unwrap_or(false);
 
-        let deprecated = p.definition_list.0.contains_key("Deprecated:");
+        let deprecated = p.definition_list.filter("Deprecated:").any(|_| true);
+
+        let query_parameters = match p
+            .definition_list
+            .find("Query parameters")
+            .and_then(DefinitionListValue::as_sublist)
+        {
+            Some(s) => {
+                s.0.iter()
+                    .filter_map(|(key, value)| value.as_text().map(|v| (key, v)))
+                    .fold((None, Vec::new()), |(name, mut acc), (key, value)| {
+                        match (key.as_str(), name) {
+                            ("Parameter", _) => (Some(value.to_string()), acc),
+                            ("Documentation", Some(name)) => {
+                                let description = html2md::parse_html(value).trim().to_string();
+                                acc.push(QueryParameter {
+                                    name,
+                                    description: if description.is_empty() {
+                                        None
+                                    } else {
+                                        Some(description)
+                                    },
+                                });
+                                (None, acc)
+                            }
+                            (_, name) => (name, acc),
+                        }
+                    })
+                    .1
+            }
+            None => Vec::new(),
+        };
 
         Ok(Self {
             method,
@@ -167,6 +201,7 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             api_version,
             basic_auth,
             deprecated,
+            query_parameters,
         })
     }
 }
@@ -227,6 +262,33 @@ impl From<Operation> for openapiv3::Operation {
                 if o.basic_auth { "basicAuth" } else { "bearerAuth" }.to_string() => vec![]
             }],
             deprecated: o.deprecated,
+            parameters: o
+                .query_parameters
+                .into_iter()
+                .map(|qp| {
+                    openapiv3::ReferenceOr::Item(openapiv3::Parameter::Query {
+                        parameter_data: openapiv3::ParameterData {
+                            name: qp.name,
+                            description: qp.description,
+                            required: false,
+                            deprecated: None,
+                            format: openapiv3::ParameterSchemaOrContent::Schema(
+                                openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                                    schema_kind: openapiv3::SchemaKind::Type(
+                                        openapiv3::Type::String(Default::default()),
+                                    ),
+                                    schema_data: Default::default(),
+                                }),
+                            ),
+                            example: None,
+                            examples: Default::default(),
+                        },
+                        allow_reserved: false,
+                        style: openapiv3::QueryStyle::Form,
+                        allow_empty_value: None,
+                    })
+                })
+                .collect(),
             ..Default::default()
         }
     }
@@ -266,7 +328,17 @@ fn parse_operation_test() {
             )),
             api_version: "32.0".into(),
             basic_auth: false,
-            deprecated: false
+            deprecated: false,
+            query_parameters: vec![
+                QueryParameter {
+                    name: "force".into(),
+                    description: Some("Documentation for force".into())
+                },
+                QueryParameter {
+                    name: "recursive".into(),
+                    description: None
+                }
+            ]
         }
     )
 }
@@ -299,6 +371,25 @@ fn generate_schema_test() {
             "admin"
           ],
           "description": "Update a test.",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "force",
+              "description": "Documentation for force",
+              "schema": {
+                "type": "string"
+              },
+              "style": "form"
+            },
+            {
+              "in": "query",
+              "name": "recursive",
+              "schema": {
+                "type": "string"
+              },
+              "style": "form"
+            }
+          ],
           "requestBody": {
             "content": {
               "application/vnd.vmware.admin.test+json;version=32.0": {

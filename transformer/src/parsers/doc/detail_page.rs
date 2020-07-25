@@ -1,8 +1,8 @@
-use std::{collections::BTreeMap, convert::TryFrom};
+use std::convert::TryFrom;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Clone)]
-pub struct DefinitionList(pub BTreeMap<String, DefinitionListValue>);
+pub struct DefinitionList(pub Vec<(String, DefinitionListValue)>);
 
 #[derive(Error, Debug)]
 pub enum DefinitionListFromElError {
@@ -12,6 +12,24 @@ pub enum DefinitionListFromElError {
     UnexpectedEntry,
     #[error("Failed to parse entry `{0}`")]
     DefinitionListValueError(#[from] DefinitionListValueFromElError),
+}
+
+impl DefinitionList {
+    pub fn find<'a>(&'a self, search_key: &'a str) -> Option<&DefinitionListValue> {
+        self.filter(search_key).next()
+    }
+
+    pub fn filter<'a>(&'a self, search_key: &'a str) -> impl Iterator<Item = &DefinitionListValue> {
+        self.0.iter().filter_map(
+            move |(key, value)| {
+                if search_key == key {
+                    Some(value)
+                } else {
+                    None
+                }
+            },
+        )
+    }
 }
 
 impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionList {
@@ -27,7 +45,7 @@ impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionList {
                 |(title, mut acc), el| match (title, el.value().name()) {
                     (_, "dt") => Ok((Some(el.text().collect()), acc)),
                     (Some(title), "dd") => {
-                        acc.0.insert(title, DefinitionListValue::try_from(&el)?);
+                        acc.0.push((title, DefinitionListValue::try_from(&el)?));
                         Ok((None, acc))
                     }
                     _ => Err(Self::Error::UnexpectedEntry),
@@ -186,6 +204,36 @@ fn parse_operation_test() {
                                 (
                                     "Input type:".into(),
                                     DefinitionListValue::Text ("<a href=\"..//types/AdminTestType.html\">AdminTestType</a>".into())
+                                )
+                            ]
+                            .iter()
+                            .cloned()
+                            .collect()
+                        )))
+                    ),
+                    (
+                        "Query parameters".into(),
+                        DefinitionListValue::SubList(Box::new(DefinitionList(
+                            [
+                                (
+                                    "Parameter".into(),
+                                    DefinitionListValue::Text(
+                                        "force".into()
+                                    )
+                                ),
+                                (
+                                    "Documentation".into(),
+                                    DefinitionListValue::Text("Documentation for force".into())
+                                ),
+                                (
+                                    "Parameter".into(),
+                                    DefinitionListValue::Text(
+                                        "recursive".into()
+                                    )
+                                ),
+                                (
+                                    "Documentation".into(),
+                                    DefinitionListValue::Text("".into())
                                 )
                             ]
                             .iter()
