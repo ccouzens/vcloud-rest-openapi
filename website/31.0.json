@@ -1883,7 +1883,14 @@
         "description": "Update a network pool.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.admin.vmwNetworkPool+json;version=31.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWNetworkPoolType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3260,6 +3267,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_SiteType"
                 }
+              },
+              "application/vnd.vmware.admin.siteAssociation+json;version=31.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SiteAssociationType"
+                }
               }
             }
           }
@@ -3750,6 +3762,11 @@
               "application/vnd.vmware.vcloud.vApp+json;version=31.0": {
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_VAppType"
+                }
+              },
+              "application/vnd.vmware.vcloud.vm+json;version=31.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmType"
                 }
               }
             }
@@ -7198,7 +7215,14 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=31.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [

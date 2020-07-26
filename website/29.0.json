@@ -3176,6 +3176,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_SiteType"
                 }
+              },
+              "application/vnd.vmware.admin.siteAssociation+json;version=29.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SiteAssociationType"
+                }
               }
             }
           }

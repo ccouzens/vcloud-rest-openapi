@@ -46,7 +46,7 @@ pub struct Operation {
     pub description: String,
     pub tag: &'static str,
     pub request_content: Option<(String, String)>,
-    pub response_content: Option<(String, String)>,
+    pub response_contents: Vec<(String, String)>,
     pub api_version: String,
     pub basic_auth: bool,
     pub deprecated: bool,
@@ -130,23 +130,23 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             _ => None,
         };
 
-        let response_content_type = p
+        let response_contents = match p
             .definition_list
             .find("Output parameters")
             .and_then(DefinitionListValue::as_sublist)
             .and_then(|l| l.find("Produce media type(s):"))
             .and_then(DefinitionListValue::as_text)
-            .and_then(|t| t.split("+xml<br>").next())
-            .map(str::to_string);
-
-        let response_content_ref = response_content_type
-            .as_ref()
-            .and_then(|c| content_type_mapping.get(c))
-            .cloned();
-
-        let response_content = match (response_content_type, response_content_ref) {
-            (Some(t), Some(r)) => Some((t, r)),
-            _ => None,
+        {
+            Some(t) => t
+                .split("<br>")
+                .map(|t| {
+                    t.trim_end_matches("+xml")
+                        .trim_end_matches("+json")
+                        .to_string()
+                })
+                .filter_map(|t| content_type_mapping.get(&t).map(|c| (t, c.clone())))
+                .collect(),
+            None => Vec::new(),
         };
 
         let basic_auth = p
@@ -197,7 +197,7 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             description,
             tag,
             request_content,
-            response_content,
+            response_contents,
             api_version,
             basic_auth,
             deprecated,
@@ -216,21 +216,21 @@ impl From<Operation> for openapiv3::Operation {
                     openapiv3::StatusCode::Range(2),
                     openapiv3::ReferenceOr::Item(openapiv3::Response {
                         description: "success".into(),
-                        content: [o.response_content.map(|(t, r)| {
-                            (
-                                format!("{}+json;version={}", t, api_version),
-                                openapiv3::MediaType {
-                                    schema: Some(openapiv3::ReferenceOr::Reference {
-                                        reference: format!("#/components/schemas/{}", r),
-                                    }),
-                                    ..Default::default()
-                                },
-                            )
-                        })]
-                        .iter()
-                        .cloned()
-                        .flatten()
-                        .collect(),
+                        content: o
+                            .response_contents
+                            .iter()
+                            .map(|(t, r)| {
+                                (
+                                    format!("{}+json;version={}", t, api_version),
+                                    openapiv3::MediaType {
+                                        schema: Some(openapiv3::ReferenceOr::Reference {
+                                            reference: format!("#/components/schemas/{}", r),
+                                        }),
+                                        ..Default::default()
+                                    },
+                                )
+                            })
+                            .collect(),
                         ..Default::default()
                     }),
                 )]
@@ -322,10 +322,16 @@ fn parse_operation_test() {
             description: "Update a test.".into(),
             tag: "admin",
             request_content: Some(("application/vnd.vmware.admin.test".into(), "MyType".into())),
-            response_content: Some((
-                "application/vnd.vmware.admin.testo".into(),
-                "MyTypeO".into()
-            )),
+            response_contents: vec![
+                (
+                    "application/vnd.vmware.admin.testo".into(),
+                    "MyTypeO".into()
+                ),
+                (
+                    "application/vnd.vmware.admin.testo".into(),
+                    "MyTypeO".into()
+                )
+            ],
             api_version: "32.0".into(),
             basic_auth: false,
             deprecated: false,

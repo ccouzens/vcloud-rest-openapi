@@ -1593,6 +1593,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
                 }
+              },
+              "application/vnd.vmware.admin.vmwexternalnet+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
+                }
               }
             }
           }
@@ -1702,6 +1707,21 @@
               "application/vnd.vmware.vcloud.orgVdcNetwork+json;version=33.0": {
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
+                }
+              },
+              "application/vnd.vmware.vcloud.vAppNetwork+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VAppNetworkType"
+                }
+              },
+              "application/vnd.vmware.vcloud.network+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_NetworkType"
+                }
+              },
+              "application/vnd.vmware.admin.vmwexternalnet+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
                 }
               }
             }
@@ -1928,6 +1948,11 @@
               "application/vnd.vmware.admin.networkPool+json;version=33.0": {
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_NetworkPoolType"
+                }
+              },
+              "application/vnd.vmware.admin.vmwNetworkPool+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWNetworkPoolType"
                 }
               }
             }
@@ -3391,6 +3416,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_SiteType"
                 }
+              },
+              "application/vnd.vmware.admin.siteAssociation+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SiteAssociationType"
+                }
               }
             }
           }
@@ -3881,6 +3911,11 @@
               "application/vnd.vmware.vcloud.vApp+json;version=33.0": {
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_VAppType"
+                }
+              },
+              "application/vnd.vmware.vcloud.vm+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmType"
                 }
               }
             }
@@ -4862,7 +4897,14 @@
         "description": "List registered resource class ACL rule for extension service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5131,7 +5173,14 @@
         "description": "Returns the API definitions registered by this service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5193,7 +5242,14 @@
         "description": "Return all API definitions.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5211,7 +5267,14 @@
         "description": "Return all API definition file descriptors.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5229,7 +5292,14 @@
         "description": "Return all Extension Service API Definitions.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5283,7 +5353,14 @@
         "description": "Returns the API filters registered by this service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7323,6 +7400,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_EventType"
                 }
+              },
+              "application/vnd.vmware.vcloud.admin.auditEvent+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AuditEventType"
+                }
               }
             }
           }
@@ -7443,7 +7525,14 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7724,7 +7813,14 @@
         "description": "Returns all file descriptors for the API definition.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7786,7 +7882,14 @@
         "description": "Returns all file descriptors for the API definition.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8825,7 +8928,14 @@
         "description": "Returns the links registered by this service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10969,7 +11079,14 @@
         "description": "List all gateways for this Org vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11031,7 +11148,14 @@
         "description": "List all networks for this Org vDC.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -12149,7 +12273,14 @@
         "description": "Return all extension services registered with the system.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -12203,7 +12334,14 @@
         "description": "List registered resource class actions for extension service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -12265,7 +12403,14 @@
         "description": "List registered resource classes for extension service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -13431,7 +13576,14 @@
         "description": "List registered service resources for extension service.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -13575,7 +13727,14 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -16918,7 +17077,14 @@
         "description": "List all VMs using this resource pool.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -17001,7 +17167,14 @@
         "description": "Enumerate the properties of the specified VM group",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -17030,7 +17203,14 @@
         "description": "Get all VMs from all clusters in given VM group.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
