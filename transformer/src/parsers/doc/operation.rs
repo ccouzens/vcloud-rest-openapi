@@ -151,36 +151,31 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
 
         let deprecated = p.definition_list.filter("Deprecated:").any(|_| true);
 
-        let query_parameters = match p
+        let query_parameters = p
             .definition_list
             .find("Query parameters")
             .and_then(DefinitionListValue::as_sublist)
-        {
-            Some(s) => {
+            .map(|s| {
                 s.0.iter()
                     .filter_map(|(key, value)| value.as_text().map(|v| (key, v)))
                     .fold((None, Vec::new()), |(name, mut acc), (key, value)| {
                         match (key.as_str(), name) {
                             ("Parameter", _) => (Some(value.to_string()), acc),
                             ("Documentation", Some(name)) => {
-                                let description = html2md::parse_html(value).trim().to_string();
-                                acc.push(QueryParameter {
-                                    name,
-                                    description: if description.is_empty() {
-                                        None
-                                    } else {
-                                        Some(description)
-                                    },
-                                });
+                                let description = if value.is_empty() {
+                                    None
+                                } else {
+                                    Some(html2md::parse_html(value))
+                                };
+                                acc.push(QueryParameter { name, description });
                                 (None, acc)
                             }
                             (_, name) => (name, acc),
                         }
                     })
                     .1
-            }
-            None => Vec::new(),
-        };
+            })
+            .unwrap_or_else(Vec::new);
 
         Ok(Self {
             method,
