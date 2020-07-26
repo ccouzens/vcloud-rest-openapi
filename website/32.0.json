@@ -1929,6 +1929,16 @@
           "extension"
         ],
         "description": "Update a network pool.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwNetworkPool+json;version=32.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWNetworkPoolType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",

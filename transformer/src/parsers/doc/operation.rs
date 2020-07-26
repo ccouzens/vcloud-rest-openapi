@@ -39,14 +39,16 @@ pub struct QueryParameter {
     pub description: Option<String>,
 }
 
+type MimeAndRef = (String, String);
+
 #[derive(Debug, PartialEq)]
 pub struct Operation {
     pub method: Method,
     pub path: String,
     pub description: String,
     pub tag: &'static str,
-    pub request_content: Option<(String, String)>,
-    pub response_contents: Vec<(String, String)>,
+    pub request_content: Option<MimeAndRef>,
+    pub response_contents: Vec<MimeAndRef>,
     pub api_version: String,
     pub basic_auth: bool,
     pub deprecated: bool,
@@ -83,6 +85,16 @@ impl TryFrom<(&str, &BTreeMap<String, String>, String)> for Operation {
     }
 }
 
+fn html_to_mime_and_ref<'a>(
+    html: &'a str,
+    content_type_mapping: &'a BTreeMap<String, String>,
+) -> impl Iterator<Item = MimeAndRef> + 'a {
+    html.split("<br>")
+        .map(|t| t.trim_end_matches("+xml").trim_end_matches("+json"))
+        .map(String::from)
+        .filter_map(move |mime| content_type_mapping.get(&mime).map(|c| (mime, c.clone())))
+}
+
 impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation {
     type Error = OperationParseError;
 
@@ -111,43 +123,22 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
         } else {
             "user"
         };
-        let request_content_type = p
+        let request_content = p
             .definition_list
             .find("Input parameters")
             .and_then(DefinitionListValue::as_sublist)
             .and_then(|l| l.find("Consume media type(s):"))
             .and_then(DefinitionListValue::as_text)
-            .and_then(|t| t.split("+xml<br>").next())
-            .map(str::to_string);
+            .and_then(|t| html_to_mime_and_ref(t, content_type_mapping).next());
 
-        let request_content_ref = request_content_type
-            .as_ref()
-            .and_then(|c| content_type_mapping.get(c))
-            .cloned();
-
-        let request_content = match (request_content_type, request_content_ref) {
-            (Some(t), Some(r)) => Some((t, r)),
-            _ => None,
-        };
-
-        let response_contents = match p
+        let response_contents = p
             .definition_list
             .find("Output parameters")
             .and_then(DefinitionListValue::as_sublist)
             .and_then(|l| l.find("Produce media type(s):"))
             .and_then(DefinitionListValue::as_text)
-        {
-            Some(t) => t
-                .split("<br>")
-                .map(|t| {
-                    t.trim_end_matches("+xml")
-                        .trim_end_matches("+json")
-                        .to_string()
-                })
-                .filter_map(|t| content_type_mapping.get(&t).map(|c| (t, c.clone())))
-                .collect(),
-            None => Vec::new(),
-        };
+            .map(|t| html_to_mime_and_ref(t, content_type_mapping).collect())
+            .unwrap_or_else(Vec::new);
 
         let basic_auth = p
             .definition_list
@@ -219,9 +210,9 @@ impl From<Operation> for openapiv3::Operation {
                         content: o
                             .response_contents
                             .iter()
-                            .map(|(t, r)| {
+                            .map(|(mime, r)| {
                                 (
-                                    format!("{}+json;version={}", t, api_version),
+                                    format!("{}+json;version={}", mime, api_version),
                                     openapiv3::MediaType {
                                         schema: Some(openapiv3::ReferenceOr::Reference {
                                             reference: format!("#/components/schemas/{}", r),
@@ -240,10 +231,10 @@ impl From<Operation> for openapiv3::Operation {
                 ..Default::default()
             },
             tags: vec![o.tag.into()],
-            request_body: o.request_content.map(|(t, r)| {
+            request_body: o.request_content.map(|(mime, r)| {
                 openapiv3::ReferenceOr::Item(openapiv3::RequestBody {
                     content: [(
-                        format!("{}+json;version={}", t, api_version),
+                        format!("{}+json;version={}", mime, api_version),
                         openapiv3::MediaType {
                             schema: Some(openapiv3::ReferenceOr::Reference {
                                 reference: format!("#/components/schemas/{}", r),
