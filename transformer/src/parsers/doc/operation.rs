@@ -268,18 +268,18 @@ impl From<Operation> for openapiv3::Operation {
                 .map(|qp| {
                     openapiv3::ReferenceOr::Item(openapiv3::Parameter::Query {
                         parameter_data: openapiv3::ParameterData {
-                            name: qp.name,
                             description: qp.description,
                             required: false,
                             deprecated: None,
                             format: openapiv3::ParameterSchemaOrContent::Schema(
-                                openapiv3::ReferenceOr::Item(openapiv3::Schema {
-                                    schema_kind: openapiv3::SchemaKind::Type(
-                                        openapiv3::Type::String(Default::default()),
+                                openapiv3::ReferenceOr::Reference {
+                                    reference: format!(
+                                        "#/components/schemas/query-parameter_{}",
+                                        qp.name
                                     ),
-                                    schema_data: Default::default(),
-                                }),
+                                },
                             ),
+                            name: qp.name,
                             example: None,
                             examples: Default::default(),
                         },
@@ -377,7 +377,7 @@ fn generate_schema_test() {
               "name": "force",
               "description": "Documentation for force",
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/query-parameter_force"
               },
               "style": "form"
             },
@@ -385,7 +385,7 @@ fn generate_schema_test() {
               "in": "query",
               "name": "recursive",
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/query-parameter_recursive"
               },
               "style": "form"
             }

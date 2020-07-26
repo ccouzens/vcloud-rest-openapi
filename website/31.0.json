@@ -418,7 +418,7 @@
             "in": "query",
             "name": "force",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_force"
             },
             "style": "form"
           },
@@ -426,7 +426,7 @@
             "in": "query",
             "name": "recursive",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_recursive"
             },
             "style": "form"
           }
@@ -994,7 +994,7 @@
             "in": "query",
             "name": "force",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_force"
             },
             "style": "form"
           },
@@ -1002,7 +1002,7 @@
             "in": "query",
             "name": "recursive",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_recursive"
             },
             "style": "form"
           }
@@ -1419,7 +1419,7 @@
             "in": "query",
             "name": "force",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_force"
             },
             "style": "form"
           },
@@ -1427,7 +1427,7 @@
             "in": "query",
             "name": "recursive",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_recursive"
             },
             "style": "form"
           }
@@ -1623,7 +1623,7 @@
             "in": "query",
             "name": "force",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_force"
             },
             "style": "form"
           },
@@ -1631,7 +1631,7 @@
             "in": "query",
             "name": "recursive",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_recursive"
             },
             "style": "form"
           }
@@ -2080,7 +2080,7 @@
             "name": "force",
             "description": "pass force=true as query parameter along with recursive=true to remove an organization or VDC and any objects it contains, regardless of their state.",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_force"
             },
             "style": "form"
           },
@@ -2089,7 +2089,7 @@
             "name": "recursive",
             "description": "pass recursive=true as query parameter to remove an organization or VDC and any objects it contains that are in a state that normally allows removal.",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_recursive"
             },
             "style": "form"
           }
@@ -3804,7 +3804,7 @@
             "in": "query",
             "name": "force",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_force"
             },
             "style": "form"
           },
@@ -3812,7 +3812,7 @@
             "in": "query",
             "name": "recursive",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_recursive"
             },
             "style": "form"
           }
@@ -4208,7 +4208,7 @@
             "in": "query",
             "name": "force",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_force"
             },
             "style": "form"
           },
@@ -4216,7 +4216,7 @@
             "in": "query",
             "name": "recursive",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_recursive"
             },
             "style": "form"
           }
@@ -4318,7 +4318,7 @@
             "in": "query",
             "name": "force",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_force"
             },
             "style": "form"
           },
@@ -4326,7 +4326,7 @@
             "in": "query",
             "name": "recursive",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_recursive"
             },
             "style": "form"
           }
@@ -5948,7 +5948,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -5956,7 +5956,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -5964,7 +5964,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -5972,7 +5972,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -5980,7 +5980,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -5988,7 +5988,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -5996,7 +5996,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -6004,7 +6004,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -6012,7 +6012,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -6020,7 +6020,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -6452,7 +6452,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -6460,7 +6460,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -6468,7 +6468,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -6476,7 +6476,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -6484,7 +6484,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -6492,7 +6492,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -6500,7 +6500,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -6508,7 +6508,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -6516,7 +6516,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -6524,7 +6524,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -6757,7 +6757,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -6765,7 +6765,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -6773,7 +6773,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -6781,7 +6781,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -6789,7 +6789,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -6797,7 +6797,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -6805,7 +6805,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -6813,7 +6813,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -6821,7 +6821,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -6829,7 +6829,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -7111,7 +7111,7 @@
             "in": "query",
             "name": "type",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_type"
             },
             "style": "form"
           },
@@ -7119,7 +7119,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -7127,7 +7127,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -7135,7 +7135,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -7143,7 +7143,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -7151,7 +7151,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -7159,7 +7159,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -7167,7 +7167,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -7175,7 +7175,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -7183,7 +7183,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -7191,7 +7191,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -7327,7 +7327,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -7335,7 +7335,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -7343,7 +7343,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -7351,7 +7351,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -7359,7 +7359,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -7367,7 +7367,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -7375,7 +7375,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -7383,7 +7383,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -7391,7 +7391,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -7399,7 +7399,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -7672,7 +7672,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -7680,7 +7680,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -7688,7 +7688,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -7696,7 +7696,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -7704,7 +7704,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -7712,7 +7712,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -7720,7 +7720,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -7728,7 +7728,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -7736,7 +7736,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -7744,7 +7744,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -8155,7 +8155,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -8163,7 +8163,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -8171,7 +8171,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -8179,7 +8179,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -8187,7 +8187,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -8195,7 +8195,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -8203,7 +8203,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -8211,7 +8211,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -8219,7 +8219,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -8227,7 +8227,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -8960,7 +8960,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -8968,7 +8968,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -8976,7 +8976,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -8984,7 +8984,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -8992,7 +8992,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -9000,7 +9000,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -9008,7 +9008,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -9016,7 +9016,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -9024,7 +9024,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -9032,7 +9032,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -9809,7 +9809,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -9817,7 +9817,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -9825,7 +9825,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -9833,7 +9833,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -9841,7 +9841,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -9849,7 +9849,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -9857,7 +9857,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -9865,7 +9865,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -9873,7 +9873,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -9881,7 +9881,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -10503,7 +10503,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -10511,7 +10511,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -10519,7 +10519,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -10527,7 +10527,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -10535,7 +10535,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -10543,7 +10543,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -10551,7 +10551,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -10559,7 +10559,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -10567,7 +10567,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -10575,7 +10575,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -10928,7 +10928,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -10936,7 +10936,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -10944,7 +10944,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -10952,7 +10952,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -10960,7 +10960,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -10968,7 +10968,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -10976,7 +10976,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -10984,7 +10984,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -10992,7 +10992,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -11000,7 +11000,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -11284,7 +11284,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -11292,7 +11292,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -11300,7 +11300,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -11308,7 +11308,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -11316,7 +11316,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -11324,7 +11324,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -11332,7 +11332,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -11340,7 +11340,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -11348,7 +11348,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -11356,7 +11356,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -11812,7 +11812,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -11820,7 +11820,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -11828,7 +11828,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -11836,7 +11836,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -11844,7 +11844,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -11852,7 +11852,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -11860,7 +11860,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -11868,7 +11868,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -11876,7 +11876,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -11884,7 +11884,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -12195,7 +12195,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -12203,7 +12203,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -12211,7 +12211,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -12219,7 +12219,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -12227,7 +12227,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -12235,7 +12235,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -12243,7 +12243,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -12251,7 +12251,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -12259,7 +12259,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -12267,7 +12267,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -12295,7 +12295,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -12303,7 +12303,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -12311,7 +12311,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -12319,7 +12319,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -12327,7 +12327,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -12335,7 +12335,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -12343,7 +12343,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -12351,7 +12351,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -12359,7 +12359,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -12367,7 +12367,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -12406,7 +12406,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -12414,7 +12414,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -12422,7 +12422,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -12430,7 +12430,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -12438,7 +12438,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -12446,7 +12446,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -12454,7 +12454,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -12462,7 +12462,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -12470,7 +12470,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -12478,7 +12478,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -13230,7 +13230,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -13238,7 +13238,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -13246,7 +13246,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -13254,7 +13254,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -13262,7 +13262,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -13270,7 +13270,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -13278,7 +13278,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -13286,7 +13286,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -13294,7 +13294,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -13302,7 +13302,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -13585,7 +13585,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -13593,7 +13593,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -13601,7 +13601,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -13609,7 +13609,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -13617,7 +13617,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -13625,7 +13625,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -13633,7 +13633,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -13641,7 +13641,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -13649,7 +13649,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -13657,7 +13657,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -13984,7 +13984,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -13992,7 +13992,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -14000,7 +14000,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -14008,7 +14008,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -14016,7 +14016,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -14024,7 +14024,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -14032,7 +14032,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -14040,7 +14040,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -14048,7 +14048,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -14056,7 +14056,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -14536,7 +14536,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -14544,7 +14544,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -14552,7 +14552,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -14560,7 +14560,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -14568,7 +14568,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -14576,7 +14576,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -14584,7 +14584,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -14592,7 +14592,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -14600,7 +14600,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -14608,7 +14608,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -14636,7 +14636,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -14644,7 +14644,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -14652,7 +14652,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -14660,7 +14660,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -14668,7 +14668,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -14676,7 +14676,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -14684,7 +14684,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -14692,7 +14692,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -14700,7 +14700,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -14708,7 +14708,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -14754,7 +14754,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -14762,7 +14762,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -14770,7 +14770,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -14778,7 +14778,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -14786,7 +14786,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -14794,7 +14794,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -14802,7 +14802,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -14810,7 +14810,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -14818,7 +14818,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -14826,7 +14826,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -15792,7 +15792,7 @@
             "in": "query",
             "name": "filter",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filter"
             },
             "style": "form"
           },
@@ -15800,7 +15800,7 @@
             "in": "query",
             "name": "sortAsc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortAsc"
             },
             "style": "form"
           },
@@ -15808,7 +15808,7 @@
             "in": "query",
             "name": "sortDesc",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_sortDesc"
             },
             "style": "form"
           },
@@ -15816,7 +15816,7 @@
             "in": "query",
             "name": "format",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_format"
             },
             "style": "form"
           },
@@ -15824,7 +15824,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -15832,7 +15832,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           },
@@ -15840,7 +15840,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_offset"
             },
             "style": "form"
           },
@@ -15848,7 +15848,7 @@
             "in": "query",
             "name": "fields",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_fields"
             },
             "style": "form"
           },
@@ -15856,7 +15856,7 @@
             "in": "query",
             "name": "filterEncoded",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_filterEncoded"
             },
             "style": "form"
           },
@@ -15864,7 +15864,7 @@
             "in": "query",
             "name": "links",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_links"
             },
             "style": "form"
           }
@@ -16663,7 +16663,7 @@
             "in": "query",
             "name": "page",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_page"
             },
             "style": "form"
           },
@@ -16671,7 +16671,7 @@
             "in": "query",
             "name": "pageSize",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/query-parameter_pageSize"
             },
             "style": "form"
           }
@@ -23369,6 +23369,54 @@
       }
     },
     "schemas": {
+      "query-parameter_force": {
+        "type": "boolean"
+      },
+      "query-parameter_recursive": {
+        "type": "boolean"
+      },
+      "query-parameter_fields": {
+        "type": "string"
+      },
+      "query-parameter_filter": {
+        "type": "string"
+      },
+      "query-parameter_filterEncoded": {
+        "type": "boolean"
+      },
+      "query-parameter_format": {
+        "type": "string",
+        "enum": [
+          "references",
+          "records",
+          "idrecords"
+        ]
+      },
+      "query-parameter_links": {
+        "type": "boolean"
+      },
+      "query-parameter_offset": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "query-parameter_page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "query-parameter_pageSize": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 128
+      },
+      "query-parameter_sortAsc": {
+        "type": "string"
+      },
+      "query-parameter_sortDesc": {
+        "type": "string"
+      },
+      "query-parameter_type": {
+        "type": "string"
+      },
       "vcloud_AmqpConfigurationType": {
         "title": "vcloud_AmqpConfigurationType",
         "description": "Represents a list of AMQP Configuration items",

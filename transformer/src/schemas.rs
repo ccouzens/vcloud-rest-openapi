@@ -14,7 +14,7 @@ pub fn schemas<R: Read + Seek>(
     ),
     Box<dyn std::error::Error>,
 > {
-    let mut output = IndexMap::new();
+    let mut output = query_parameters();
     let mut type_file_names = zip
         .file_names()
         .filter(|n| n.starts_with("doc/etc/"))
@@ -98,4 +98,137 @@ pub fn schemas<R: Read + Seek>(
     );
 
     Ok((output, content_type_mapping))
+}
+
+fn query_parameters() -> IndexMap<String, ReferenceOr<Schema>> {
+    [
+        (
+            "force",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Boolean {}),
+            }),
+        ),
+        (
+            "recursive",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Boolean {}),
+            }),
+        ),
+        (
+            "fields",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                    Default::default(),
+                )),
+            }),
+        ),
+        (
+            "filter",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                    Default::default(),
+                )),
+            }),
+        ),
+        (
+            "filterEncoded",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Boolean {}),
+            }),
+        ),
+        (
+            "format",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                    openapiv3::StringType {
+                        enumeration: ["references", "records", "idrecords"]
+                            .iter()
+                            .map(|e| e.to_string())
+                            .collect(),
+                        ..Default::default()
+                    },
+                )),
+            }),
+        ),
+        (
+            "links",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Boolean {}),
+            }),
+        ),
+        (
+            "offset",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Integer(
+                    openapiv3::IntegerType {
+                        minimum: Some(0),
+                        ..Default::default()
+                    },
+                )),
+            }),
+        ),
+        (
+            "page",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Integer(
+                    openapiv3::IntegerType {
+                        minimum: Some(1),
+                        ..Default::default()
+                    },
+                )),
+            }),
+        ),
+        (
+            "pageSize",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Integer(
+                    openapiv3::IntegerType {
+                        minimum: Some(1),
+                        maximum: Some(128),
+                        ..Default::default()
+                    },
+                )),
+            }),
+        ),
+        (
+            "sortAsc",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                    Default::default(),
+                )),
+            }),
+        ),
+        (
+            "sortDesc",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                    Default::default(),
+                )),
+            }),
+        ),
+        (
+            "type",
+            ReferenceOr::Item(Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                    Default::default(),
+                )),
+            }),
+        ),
+    ]
+    .iter()
+    .map(|(name, schema)| (format!("query-parameter_{}", name), schema.clone()))
+    .collect()
 }

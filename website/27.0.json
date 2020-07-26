@@ -19744,6 +19744,54 @@
       }
     },
     "schemas": {
+      "query-parameter_force": {
+        "type": "boolean"
+      },
+      "query-parameter_recursive": {
+        "type": "boolean"
+      },
+      "query-parameter_fields": {
+        "type": "string"
+      },
+      "query-parameter_filter": {
+        "type": "string"
+      },
+      "query-parameter_filterEncoded": {
+        "type": "boolean"
+      },
+      "query-parameter_format": {
+        "type": "string",
+        "enum": [
+          "references",
+          "records",
+          "idrecords"
+        ]
+      },
+      "query-parameter_links": {
+        "type": "boolean"
+      },
+      "query-parameter_offset": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "query-parameter_page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "query-parameter_pageSize": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 128
+      },
+      "query-parameter_sortAsc": {
+        "type": "string"
+      },
+      "query-parameter_sortDesc": {
+        "type": "string"
+      },
+      "query-parameter_type": {
+        "type": "string"
+      },
       "vcloud_AmqpConfigurationType": {
         "title": "vcloud_AmqpConfigurationType",
         "description": "Represents a list of AMQP Configuration items",
