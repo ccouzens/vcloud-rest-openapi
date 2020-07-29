@@ -6315,7 +6315,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6894,7 +6903,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7199,7 +7217,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7785,7 +7812,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8148,7 +8184,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8645,7 +8690,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9459,7 +9513,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10326,7 +10389,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10980,7 +11052,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11423,7 +11504,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11779,7 +11869,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -12307,7 +12406,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -12717,7 +12825,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -12817,7 +12934,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "deprecated": true,
@@ -12929,7 +13055,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "deprecated": true,
@@ -14213,7 +14348,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14619,7 +14763,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15181,7 +15334,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15281,7 +15443,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15299,7 +15470,16 @@
         "description": "Retrieves a list of vApps by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15399,7 +15579,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -16437,7 +16626,16 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse;"
+            "description": "Returns OkResponse<ContainerType\\>;",
+            "content": {
+              "application/vnd.vmware.vcloud.query.records+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=33.0": {},
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [

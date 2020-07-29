@@ -5024,7 +5024,7 @@
         "description": "Retrieves a list of Catalogs by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -5467,7 +5467,7 @@
         "description": "Get a list of all datastores by using REST API General QueryHandler. This is read only list of datastores. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -5690,7 +5690,7 @@
         "description": "Retrieves a disk list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -6088,7 +6088,7 @@
         "description": "Get list of external networks by using REST API general QueryHandler. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -6351,7 +6351,7 @@
         "description": "Retrieves a list of groups for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -6662,7 +6662,7 @@
         "description": "Get list of hosts by using REST API general QueryHAndler; This is read only list of host references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -7329,7 +7329,7 @@
         "description": "Retrieves a media list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -8143,7 +8143,7 @@
         "description": "Get list of network pools by using REST API general QueryHandler. This is read only list of network pool references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -8654,7 +8654,7 @@
         "description": "Get list of Organization Networks for the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -8961,7 +8961,7 @@
         "description": "Get list of all Organization Vdcs in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -9304,7 +9304,7 @@
         "description": "Retrieves a list of organizations by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -9717,7 +9717,7 @@
         "description": "Get list of provider vDCs by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references, records or idrecords. Default format is records.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -10018,7 +10018,7 @@
         "description": "Retrieves a list of vdcs in the organization; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -10036,7 +10036,7 @@
         "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -10065,7 +10065,7 @@
         "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -10992,7 +10992,7 @@
         "description": "Get list of all stranded items in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references, records or idrecords. Default format is records.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -11312,7 +11312,7 @@
         "description": "Retrieves a list of users for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -11764,7 +11764,7 @@
         "description": "Retrieves a list of vAppTemplates using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -11782,7 +11782,7 @@
         "description": "Get list of all vApps in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -11800,7 +11800,7 @@
         "description": "Retrieves a list of vApps by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -11818,7 +11818,7 @@
         "description": "Retrieves a list of VMs in lease by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -12587,7 +12587,7 @@
         "description": "Get list of vSphere servers by using REST API general QueryHandler; This is read only list of vim servers and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse;"
+            "description": "Returns OkResponse<ContainerType\\>;"
           }
         },
         "security": [

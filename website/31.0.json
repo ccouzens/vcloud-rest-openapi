@@ -6059,7 +6059,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -6584,7 +6584,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -6889,7 +6889,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -7469,7 +7469,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -7814,7 +7814,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -8297,7 +8297,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -9102,7 +9102,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -9969,7 +9969,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -10678,7 +10678,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -11103,7 +11103,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -11459,7 +11459,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -11987,7 +11987,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -12370,7 +12370,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -12470,7 +12470,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -12581,7 +12581,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -13781,7 +13781,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -14184,7 +14184,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -14746,7 +14746,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -14846,7 +14846,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -14864,7 +14864,7 @@
         "description": "Retrieves a list of vApps by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -14964,7 +14964,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse"
+            "description": "Returns OkResponse<ContainerType\\>"
           }
         },
         "security": [
@@ -16002,7 +16002,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse;"
+            "description": "Returns OkResponse<ContainerType\\>;"
           }
         },
         "security": [
