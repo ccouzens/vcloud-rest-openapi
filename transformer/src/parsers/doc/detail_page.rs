@@ -68,9 +68,6 @@ pub enum DefinitionListValueFromElError {
 
     #[error("Failed to parse definition list `{0}`")]
     DefinitionListParseError(#[from] Box<DefinitionListFromElError>),
-
-    #[error("Missing Href attribute")]
-    MissingHrefError,
 }
 
 impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionListValue {

@@ -1,11 +1,13 @@
 use super::detail_page::{DefinitionListValue, DetailPage, DetailPageFromStrError};
+use indexmap::map::IndexMap;
+use indexmap::set::IndexSet;
 #[cfg(test)]
 use serde_json::json;
 use std::collections::BTreeMap;
 use std::{convert::TryFrom, str::FromStr};
 use thiserror::Error;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Copy, Clone)]
 pub enum Method {
     Get,
     Post,
@@ -39,17 +41,14 @@ pub struct QueryParameter {
     pub description: Option<String>,
 }
 
-type MimeAndRef = (String, String);
-
 #[derive(Debug, PartialEq)]
 pub struct Operation {
     pub method: Method,
     pub path: String,
     pub description: String,
     pub tag: &'static str,
-    pub request_content: Option<MimeAndRef>,
-    pub response_contents: Vec<MimeAndRef>,
-    pub api_version: String,
+    pub request_contents: IndexSet<String>,
+    pub response_contents: IndexSet<String>,
     pub basic_auth: bool,
     pub deprecated: bool,
     pub query_parameters: Vec<QueryParameter>,
@@ -67,40 +66,26 @@ pub enum OperationParseError {
     CannotFindPathError,
     #[error("Cannot find description")]
     CannotFindDescriptionError,
-    #[error("Description had unexpected type")]
-    DescriptionWrongType,
 }
 
-impl TryFrom<(&str, &BTreeMap<String, String>, String)> for Operation {
+impl TryFrom<&str> for Operation {
     type Error = OperationParseError;
 
-    fn try_from(
-        (html, content_type_mapping, api_version): (&str, &BTreeMap<String, String>, String),
-    ) -> Result<Self, Self::Error> {
-        Ok(Self::try_from((
-            DetailPage::try_from(html)?,
-            content_type_mapping,
-            api_version,
-        ))?)
+    fn try_from(html: &str) -> Result<Self, Self::Error> {
+        Ok(Self::try_from(DetailPage::try_from(html)?)?)
     }
 }
 
-fn html_to_mime_and_ref<'a>(
-    html: &'a str,
-    content_type_mapping: &'a BTreeMap<String, String>,
-) -> impl Iterator<Item = MimeAndRef> + 'a {
+fn html_to_mimes<'a>(html: &'a str) -> impl Iterator<Item = String> + 'a {
     html.split("<br>")
-        .map(|t| t.trim_end_matches("+xml").trim_end_matches("+json"))
+        .filter(|&t| !(t.is_empty() || t == "None"))
         .map(String::from)
-        .filter_map(move |mime| content_type_mapping.get(&mime).map(|c| (mime, c.clone())))
 }
 
-impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation {
+impl<'a> TryFrom<DetailPage> for Operation {
     type Error = OperationParseError;
 
-    fn try_from(
-        (p, content_type_mapping, api_version): (DetailPage, &BTreeMap<String, String>, String),
-    ) -> Result<Self, Self::Error> {
+    fn try_from(p: DetailPage) -> Result<Self, Self::Error> {
         let method =
             p.h1.split_ascii_whitespace()
                 .next()
@@ -123,13 +108,14 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
         } else {
             "user"
         };
-        let request_content = p
+        let request_contents = p
             .definition_list
             .find("Input parameters")
             .and_then(DefinitionListValue::as_sublist)
             .and_then(|l| l.find("Consume media type(s):"))
             .and_then(DefinitionListValue::as_text)
-            .and_then(|t| html_to_mime_and_ref(t, content_type_mapping).next());
+            .map(|t| html_to_mimes(t).collect())
+            .unwrap_or_default();
 
         let response_contents = p
             .definition_list
@@ -137,8 +123,8 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             .and_then(DefinitionListValue::as_sublist)
             .and_then(|l| l.find("Produce media type(s):"))
             .and_then(DefinitionListValue::as_text)
-            .map(|t| html_to_mime_and_ref(t, content_type_mapping).collect())
-            .unwrap_or_else(Vec::new);
+            .map(|t| html_to_mimes(t).collect())
+            .unwrap_or_default();
 
         let basic_auth = p
             .definition_list
@@ -182,9 +168,8 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
             path,
             description,
             tag,
-            request_content,
+            request_contents,
             response_contents,
-            api_version,
             basic_auth,
             deprecated,
             query_parameters,
@@ -192,31 +177,56 @@ impl<'a> TryFrom<(DetailPage, &BTreeMap<String, String>, String)> for Operation 
     }
 }
 
-impl From<Operation> for openapiv3::Operation {
-    fn from(o: Operation) -> Self {
-        let api_version = o.api_version;
+fn mimes_to_content(
+    mimes: &IndexSet<String>,
+    api_version: &str,
+    type_mapping: &BTreeMap<String, String>,
+) -> IndexMap<String, openapiv3::MediaType> {
+    mimes
+        .iter()
+        .map(|mime| {
+            let mime_without_format = mime.trim_end_matches("+json").trim_end_matches("+xml");
+            match (
+                type_mapping.get(mime_without_format),
+                mime_without_format == mime,
+            ) {
+                (Some(type_name), _) => (
+                    format!("{}+json;version={}", mime_without_format, api_version),
+                    openapiv3::MediaType {
+                        schema: Some(openapiv3::ReferenceOr::Reference {
+                            reference: format!("#/components/schemas/{}", type_name),
+                        }),
+                        ..Default::default()
+                    },
+                ),
+                (None, true) => (mime.clone(), Default::default()),
+                (None, false) => (
+                    format!("{}+json;version={}", mime_without_format, api_version),
+                    Default::default(),
+                ),
+            }
+        })
+        .collect()
+}
+
+impl Operation {
+    pub fn to_openapi(
+        self,
+        api_version: &str,
+        type_mapping: &BTreeMap<String, String>,
+    ) -> openapiv3::Operation {
         openapiv3::Operation {
-            description: Some(o.description),
+            description: Some(self.description),
             responses: openapiv3::Responses {
                 responses: [(
                     openapiv3::StatusCode::Range(2),
                     openapiv3::ReferenceOr::Item(openapiv3::Response {
                         description: "success".into(),
-                        content: o
-                            .response_contents
-                            .iter()
-                            .map(|(mime, r)| {
-                                (
-                                    format!("{}+json;version={}", mime, api_version),
-                                    openapiv3::MediaType {
-                                        schema: Some(openapiv3::ReferenceOr::Reference {
-                                            reference: format!("#/components/schemas/{}", r),
-                                        }),
-                                        ..Default::default()
-                                    },
-                                )
-                            })
-                            .collect(),
+                        content: mimes_to_content(
+                            &self.response_contents,
+                            api_version,
+                            type_mapping,
+                        ),
                         ..Default::default()
                     }),
                 )]
@@ -225,30 +235,21 @@ impl From<Operation> for openapiv3::Operation {
                 .collect(),
                 ..Default::default()
             },
-            tags: vec![o.tag.into()],
-            request_body: o.request_content.map(|(mime, r)| {
-                openapiv3::ReferenceOr::Item(openapiv3::RequestBody {
-                    content: [(
-                        format!("{}+json;version={}", mime, api_version),
-                        openapiv3::MediaType {
-                            schema: Some(openapiv3::ReferenceOr::Reference {
-                                reference: format!("#/components/schemas/{}", r),
-                            }),
-                            ..Default::default()
-                        },
-                    )]
-                    .iter()
-                    .cloned()
-                    .collect(),
+            tags: vec![self.tag.into()],
+            request_body: if self.request_contents.len() > 0 {
+                Some(openapiv3::ReferenceOr::Item(openapiv3::RequestBody {
+                    content: mimes_to_content(&self.request_contents, api_version, type_mapping),
                     required: true,
                     ..Default::default()
-                })
-            }),
+                }))
+            } else {
+                None
+            },
             security: vec![indexmap! {
-                if o.basic_auth { "basicAuth" } else { "bearerAuth" }.to_string() => vec![]
+                if self.basic_auth { "basicAuth" } else { "bearerAuth" }.to_string() => vec![]
             }],
-            deprecated: o.deprecated,
-            parameters: o
+            deprecated: self.deprecated,
+            parameters: self
                 .query_parameters
                 .into_iter()
                 .map(|qp| {
@@ -282,24 +283,7 @@ impl From<Operation> for openapiv3::Operation {
 
 #[test]
 fn parse_operation_test() {
-    let actual = Operation::try_from((
-        include_str!("operations/PUT-Test.html"),
-        &[
-            (
-                "application/vnd.vmware.admin.test".to_string(),
-                "MyType".to_string(),
-            ),
-            (
-                "application/vnd.vmware.admin.testo".to_string(),
-                "MyTypeO".to_string(),
-            ),
-        ]
-        .iter()
-        .cloned()
-        .collect(),
-        "32.0".into(),
-    ))
-    .unwrap();
+    let actual = Operation::try_from(include_str!("operations/PUT-Test.html")).unwrap();
     assert_eq!(
         actual,
         Operation {
@@ -307,18 +291,14 @@ fn parse_operation_test() {
             path: "/admin/test/{id}".into(),
             description: "Update a test.".into(),
             tag: "admin",
-            request_content: Some(("application/vnd.vmware.admin.test".into(), "MyType".into())),
-            response_contents: vec![
-                (
-                    "application/vnd.vmware.admin.testo".into(),
-                    "MyTypeO".into()
-                ),
-                (
-                    "application/vnd.vmware.admin.testo".into(),
-                    "MyTypeO".into()
-                )
+            request_contents: indexset![
+                "application/vnd.vmware.admin.test+xml".into(),
+                "application/vnd.vmware.admin.test+json".into()
             ],
-            api_version: "32.0".into(),
+            response_contents: indexset![
+                "application/vnd.vmware.admin.testo+xml".into(),
+                "application/vnd.vmware.admin.testo+json".into()
+            ],
             basic_auth: false,
             deprecated: false,
             query_parameters: vec![
@@ -337,8 +317,9 @@ fn parse_operation_test() {
 
 #[test]
 fn generate_schema_test() {
-    let op = Operation::try_from((
-        include_str!("operations/PUT-Test.html"),
+    let op = Operation::try_from(include_str!("operations/PUT-Test.html")).unwrap();
+    let value = op.to_openapi(
+        "32.0",
         &[
             (
                 "application/vnd.vmware.admin.test".to_string(),
@@ -352,10 +333,7 @@ fn generate_schema_test() {
         .iter()
         .cloned()
         .collect(),
-        "32.0".into(),
-    ))
-    .unwrap();
-    let value = openapiv3::Operation::from(op);
+    );
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -415,13 +393,8 @@ fn generate_schema_test() {
 
 #[test]
 fn generate_schema_test_for_basic_auth() {
-    let op = Operation::try_from((
-        include_str!("operations/POST-Login.html"),
-        &BTreeMap::new(),
-        "32.0".into(),
-    ))
-    .unwrap();
-    let value = openapiv3::Operation::from(op);
+    let op = Operation::try_from(include_str!("operations/POST-Login.html")).unwrap();
+    let value = op.to_openapi("32.0", &BTreeMap::new());
 
     assert_eq!(
         serde_json::to_value(value).unwrap(),

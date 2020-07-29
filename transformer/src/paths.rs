@@ -28,8 +28,7 @@ pub fn paths<R: Read + Seek>(
         let mut html = String::new();
         zip.by_name(&file_name)?.read_to_string(&mut html)?;
 
-        let operation =
-            Operation::try_from((html.as_str(), &content_type_mapping, api_version.clone()))?;
+        let operation = Operation::try_from(html.as_str())?;
         if let openapiv3::ReferenceOr::Item(path_item) =
             paths.entry(operation.path.clone()).or_insert_with(|| {
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {
@@ -63,11 +62,13 @@ pub fn paths<R: Read + Seek>(
                 })
             })
         {
-            match operation.method {
-                Method::Get => path_item.get = Some(operation.into()),
-                Method::Post => path_item.post = Some(operation.into()),
-                Method::Put => path_item.put = Some(operation.into()),
-                Method::Delete => path_item.delete = Some(operation.into()),
+            let method = operation.method;
+            let openapi_op = Some(operation.to_openapi(&api_version, &content_type_mapping));
+            match method {
+                Method::Get => path_item.get = openapi_op,
+                Method::Post => path_item.post = openapi_op,
+                Method::Put => path_item.put = openapi_op,
+                Method::Delete => path_item.delete = openapi_op,
             }
         };
     }
