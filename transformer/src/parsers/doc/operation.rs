@@ -48,6 +48,7 @@ pub struct Operation {
     pub description: String,
     pub tag: &'static str,
     pub request_contents: IndexSet<String>,
+    pub response_description: Option<String>,
     pub response_contents: IndexSet<String>,
     pub basic_auth: bool,
     pub deprecated: bool,
@@ -117,6 +118,13 @@ impl<'a> TryFrom<DetailPage> for Operation {
             .map(|t| html_to_mimes(t).collect())
             .unwrap_or_default();
 
+        let response_description = p
+            .definition_list
+            .find("Output parameters")
+            .and_then(DefinitionListValue::as_text)
+            .map(html2md::parse_html)
+            .map(|s| s.trim().to_string());
+
         let response_contents = p
             .definition_list
             .find("Output parameters")
@@ -169,6 +177,7 @@ impl<'a> TryFrom<DetailPage> for Operation {
             description,
             tag,
             request_contents,
+            response_description,
             response_contents,
             basic_auth,
             deprecated,
@@ -221,7 +230,9 @@ impl Operation {
                 responses: [(
                     openapiv3::StatusCode::Range(2),
                     openapiv3::ReferenceOr::Item(openapiv3::Response {
-                        description: "success".into(),
+                        description: self
+                            .response_description
+                            .unwrap_or_else(|| "success".into()),
                         content: mimes_to_content(
                             &self.response_contents,
                             api_version,
@@ -295,6 +306,7 @@ fn parse_operation_test() {
                 "application/vnd.vmware.admin.test+xml".into(),
                 "application/vnd.vmware.admin.test+json".into()
             ],
+            response_description: Some("AdminTestType  \n\nExtended description".into()),
             response_contents: indexset![
                 "application/vnd.vmware.admin.testo+xml".into(),
                 "application/vnd.vmware.admin.testo+json".into()
@@ -372,7 +384,7 @@ fn generate_schema_test() {
           },
           "responses": {
             "2XX": {
-              "description": "success",
+              "description": "AdminTestType  \n\nExtended description",
               "content": {
                 "application/vnd.vmware.admin.testo+json;version=32.0": {
                   "schema": {

@@ -68,7 +68,7 @@
         "description": "Retrieves the specified VM Host affinity rule",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "representation of a VM affinity rule {@link VmAffinityRuleInfo}",
             "content": {
               "application/vnd.vmware.admin.vmwVmHostAffinityRules+json;version=32.0": {
                 "schema": {
@@ -91,7 +91,7 @@
         "description": "Deletes the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a task to monitor the deletion of the rule",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -127,7 +127,7 @@
         "description": "Removes all stranded items.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Task created to remove all the stranded items",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -152,7 +152,7 @@
         "description": "Retrieve API definition.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link AdminApiDefinitionType}",
             "content": {
               "application/vnd.vmware.admin.apiDefinition+json;version=32.0": {
                 "schema": {
@@ -204,7 +204,7 @@
         "description": "Retrieves API filter.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link ApiFilterType}",
             "content": {
               "application/vnd.vmware.admin.apiFilter+json;version=32.0": {
                 "schema": {
@@ -256,7 +256,7 @@
         "description": "Retrieves a specific member from the organization's associations as identified by identifier included in the request",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "the {@link OrgAssociationType} representing the particular organization association record. `null` if no member found.",
             "content": {
               "application/vnd.vmware.admin.organizationAssociation+json;version=32.0": {
                 "schema": {
@@ -289,7 +289,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Reference to the task updating the org's association",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -366,7 +366,7 @@
         "description": "Retrieve a catalog.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "CatalogType",
             "content": {
               "application/vnd.vmware.admin.catalog+json;version=32.0": {
                 "schema": {
@@ -399,7 +399,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "UserType",
             "content": {
               "application/vnd.vmware.admin.catalog+json;version=32.0": {
                 "schema": {
@@ -440,7 +440,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "JAXBElement for API version 30.0 or greater, 204 no\\_content for older API versions"
           }
         },
         "security": [
@@ -469,7 +469,7 @@
         "description": "Retrieve a catalog item.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "CatalogItemType",
             "content": {
               "application/vnd.vmware.vcloud.catalogItem+json;version=32.0": {
                 "schema": {
@@ -502,7 +502,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "CatalogItemType",
             "content": {
               "application/vnd.vmware.vcloud.catalogItem+json;version=32.0": {
                 "schema": {
@@ -554,7 +554,7 @@
         "description": "Retrieve the value of the specified key from catalog item metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -655,7 +655,7 @@
         "description": "Retrieve the value of the specified key from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -756,7 +756,7 @@
         "description": "Retrieve a disk.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "DiskType",
             "content": {
               "application/vnd.vmware.vcloud.disk+json;version=32.0": {
                 "schema": {
@@ -789,7 +789,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -812,7 +812,7 @@
         "description": "Delete a disk.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -848,7 +848,7 @@
         "description": "Retrieve the value of the specified key from disk metadata.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -942,7 +942,7 @@
         "description": "Retrieve an edge gateway",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "GATEWAYM",
             "content": {
               "application/vnd.vmware.admin.edgeGateway+json;version=32.0": {
                 "schema": {
@@ -975,7 +975,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -1016,7 +1016,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -1052,7 +1052,7 @@
         "description": "Retrieve a system administrator view of an external network.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWExternalNetworkType",
             "content": {
               "application/vnd.vmware.admin.vmwexternalnet+json;version=32.0": {
                 "schema": {
@@ -1085,7 +1085,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWExternalNetworkType",
             "content": {
               "application/vnd.vmware.admin.vmwexternalnet+json;version=32.0": {
                 "schema": {
@@ -1108,7 +1108,7 @@
         "description": "Delete an external network.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -1144,7 +1144,7 @@
         "description": "Retrieve a file descriptor",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link AdminFileDescriptorType}",
             "content": {
               "application/vnd.vmware.admin.fileDescriptor+json;version=32.0": {
                 "schema": {
@@ -1196,7 +1196,7 @@
         "description": "Retrieve a group.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "GroupType",
             "content": {
               "application/vnd.vmware.admin.group+json;version=32.0": {
                 "schema": {
@@ -1229,7 +1229,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "GroupType",
             "content": {
               "application/vnd.vmware.admin.group+json;version=32.0": {
                 "schema": {
@@ -1281,7 +1281,7 @@
         "description": "Retrieves service link.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link ServiceConfigType}",
             "content": {
               "application/vnd.vmware.admin.serviceLink+json;version=32.0": {
                 "schema": {
@@ -1333,7 +1333,7 @@
         "description": "Retrieve a representation of the current session.\n\n A Session object contains one or more URLs from which you can begin browsing, as well as links to the query service and entity resolver. The list of URLs in the Session object is based on the role and privileges of the authenticated user.\n\n A Session object expires after a configurable interval of client inactivity. To change the length of this client inactivity timeout, a system administrator can change the value of SessionTimeoutMinutes in the system's GeneralSettings",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "The current session",
             "content": {
               "application/vnd.vmware.vcloud.session+json;version=32.0": {
                 "schema": {
@@ -1374,7 +1374,7 @@
         "description": "Retrieve a media object.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "MediaType",
             "content": {
               "application/vnd.vmware.vcloud.media+json;version=32.0": {
                 "schema": {
@@ -1407,7 +1407,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -1448,7 +1448,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -1484,7 +1484,7 @@
         "description": "Retrieve the value of the specified key from media object metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -1585,7 +1585,7 @@
         "description": "Retrieve an administrative view of a network.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ExternalNetworkType",
             "content": {
               "application/vnd.vmware.vcloud.orgVdcNetwork+json;version=32.0": {
                 "schema": {
@@ -1623,7 +1623,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType This operation is asynchronous and the user should monitor the returned task status in order to check when it is completed.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -1664,7 +1664,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -1700,7 +1700,7 @@
         "description": "Retrieve an organization network.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "OrgNetworkType",
             "content": {
               "application/vnd.vmware.vcloud.orgVdcNetwork+json;version=32.0": {
                 "schema": {
@@ -1807,7 +1807,7 @@
         "description": "Retrieve the value of the specified key from network metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -1908,7 +1908,7 @@
         "description": "Retrieve a network pool.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWNetworkPool",
             "content": {
               "application/vnd.vmware.admin.vmwNetworkPool+json;version=32.0": {
                 "schema": {
@@ -1942,7 +1942,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWNetworkPool",
             "content": {
               "application/vnd.vmware.admin.networkPool+json;version=32.0": {},
               "application/vnd.vmware.admin.vmwNetworkPool+json;version=32.0": {
@@ -1966,7 +1966,7 @@
         "description": "Delete a network pool.\n\n The pool must not be in use.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -2002,7 +2002,7 @@
         "description": "Retrieve organization OAuth settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -2028,7 +2028,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -2073,7 +2073,7 @@
         "description": "Retrieves a registered object extension.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "representation of an object extension {@link ObjectExtensionType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.object+json;version=32.0": {
                 "schema": {
@@ -2106,7 +2106,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "representation of an object extension {@link ObjectExtension}",
             "content": {
               "application/vnd.vmware.admin.extensibility.object+json;version=32.0": {
                 "schema": {
@@ -2158,7 +2158,7 @@
         "description": "Retrieve an administrative view of an organization.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AdminOrgType",
             "content": {
               "application/vnd.vmware.admin.organization+json;version=32.0": {
                 "schema": {
@@ -2191,7 +2191,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AdminOrgType",
             "content": {
               "application/vnd.vmware.admin.organization+json;version=32.0": {
                 "schema": {
@@ -2270,7 +2270,7 @@
         "description": "Retrieve the value of the specified key from organization metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -2371,7 +2371,7 @@
         "description": "Retrieve a system administrator view of a provider vDC.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWProviderVdc",
             "content": {
               "application/vnd.vmware.admin.vmwprovidervdc+json;version=32.0": {
                 "schema": {
@@ -2404,7 +2404,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWProviderVdc",
             "content": {
               "application/vnd.vmware.admin.vmwprovidervdc+json;version=32.0": {
                 "schema": {
@@ -2427,7 +2427,7 @@
         "description": "Delete a provider vDC.\n\n Before you can delete a provider vDC, you must disable it.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Task\n\n This operation is asynchronous and returns a Task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -2463,7 +2463,7 @@
         "description": "Retrieve the value of the specified key from provider vDC metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -2564,7 +2564,7 @@
         "description": "Retrieve the value of the specified key from Provider VDC Storage Profile metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -2769,7 +2769,7 @@
         "description": "Retrieves a right.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RightType",
             "content": {
               "application/vnd.vmware.admin.right+json;version=32.0": {
                 "schema": {
@@ -2802,7 +2802,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RightType",
             "content": {
               "application/vnd.vmware.admin.right+json;version=32.0": {
                 "schema": {
@@ -3033,7 +3033,7 @@
         "description": "Retrieve a role.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RoleType",
             "content": {
               "application/vnd.vmware.admin.role+json;version=32.0": {
                 "schema": {
@@ -3066,7 +3066,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RoleType",
             "content": {
               "application/vnd.vmware.admin.role+json;version=32.0": {
                 "schema": {
@@ -3118,7 +3118,7 @@
         "description": "Retrieves a Selector Extension.\n\n The association can be the default policy, or an overridden instance of the default policy.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "representation of a Selector Extension {@link SelectorExtensionType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selector+json;version=32.0": {
                 "schema": {
@@ -3236,7 +3236,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link AdminServiceType}",
             "content": {
               "application/vnd.vmware.admin.service+json;version=32.0": {
                 "schema": {
@@ -3340,7 +3340,7 @@
         "description": "Retrieve a shadow VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link VAppTemplateType}",
             "content": {
               "application/vnd.vmware.vcloud.vAppTemplate+json;version=32.0": {
                 "schema": {
@@ -3363,7 +3363,7 @@
         "description": "Deletes shadow VM.\n\n This API for deletion of shadow VMs has changed URL signature to better reflect the API object model.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -3496,7 +3496,7 @@
         "description": "Gets the representation of a strandedItem.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Returns the requested stranded item.",
             "content": {
               "application/vnd.vmware.admin.strandedItem+json;version=32.0": {
                 "schema": {
@@ -3519,7 +3519,7 @@
         "description": "Removes stranded item.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Task created to remove the stranded item",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -3555,7 +3555,7 @@
         "description": "Retrieve a vDC template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "vdcTemplate the VDC Template whose id was given as input.",
             "content": {
               "application/vnd.vmware.admin.vmwVdcTemplate+json;version=32.0": {
                 "schema": {
@@ -3588,7 +3588,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "vdcTemplate the new contents of the VDC Template.",
             "content": {
               "application/vnd.vmware.admin.vmwVdcTemplate+json;version=32.0": {
                 "schema": {
@@ -3640,7 +3640,7 @@
         "description": "Retrieve the representation of a registered NSX\\-T manager.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "NsxTManagerType",
             "content": {
               "application/vnd.vmware.admin.nsxTmanager+json;version=32.0": {
                 "schema": {
@@ -3673,7 +3673,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "updated NSX\\-T Manager",
             "content": {
               "application/vnd.vmware.admin.networkManagers+json;version=32.0": {
                 "schema": {
@@ -3810,7 +3810,7 @@
         "description": "Retrieve a user.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "UserType",
             "content": {
               "application/vnd.vmware.admin.user+json;version=32.0": {
                 "schema": {
@@ -3843,7 +3843,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "UserType",
             "content": {
               "application/vnd.vmware.admin.user+json;version=32.0": {
                 "schema": {
@@ -3895,7 +3895,7 @@
         "description": "Retrieve a vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppType",
             "content": {
               "application/vnd.vmware.vcloud.vApp+json;version=32.0": {
                 "schema": {
@@ -3933,7 +3933,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -3974,7 +3974,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -4010,7 +4010,7 @@
         "description": "Retrieve the value of the specified key from vApp or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -4111,7 +4111,7 @@
         "description": "Retrieve a vApp template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppTemplateType",
             "content": {
               "application/vnd.vmware.vcloud.vAppTemplate+json;version=32.0": {
                 "schema": {
@@ -4144,7 +4144,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -4167,7 +4167,7 @@
         "description": "Delete a vApp template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -4203,7 +4203,7 @@
         "description": "Retrieve the value of the specified key from vApp template or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -4304,7 +4304,7 @@
         "description": "Retrieve the admin view of an organization vDC.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AdminVdcType",
             "content": {
               "application/vnd.vmware.admin.vdc+json;version=32.0": {
                 "schema": {
@@ -4337,7 +4337,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -4378,7 +4378,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -4414,7 +4414,7 @@
         "description": "Retrieve a vDC.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VdcType",
             "content": {
               "application/vnd.vmware.vcloud.vdc+json;version=32.0": {
                 "schema": {
@@ -4447,7 +4447,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -4488,7 +4488,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -4524,7 +4524,7 @@
         "description": "Retrieve the value of the specified key from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -4625,7 +4625,7 @@
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -4726,7 +4726,7 @@
         "description": "Retrieves the specified VM affinity rule",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "representation of a VM affinity rule {@link VmAffinityRuleInfo}",
             "content": {
               "application/vnd.vmware.vcloud.vmaffinityrule+json;version=32.0": {
                 "schema": {
@@ -4759,7 +4759,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "representation of a Task {@link TaskSpec}",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -4957,7 +4957,7 @@
         "description": "Retrieve a list of active or recently completed blocking task requests.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link ReferencesType}",
             "content": {
               "application/vnd.vmware.admin.blockingTaskList+json;version=32.0": {}
             }
@@ -4978,7 +4978,7 @@
         "description": "Retrieve a list of all VDC templates.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ReferencesType",
             "content": {
               "application/vnd.vmware.admin.vmwVdcTemplateReferences+json;version=32.0": {
                 "schema": {
@@ -5004,7 +5004,7 @@
         "description": "Retrieve the list of IP addresses allocated to the network.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5033,7 +5033,7 @@
         "description": "Retrieve a list of IP addresses allocated to the network.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5062,7 +5062,7 @@
         "description": "Retrieve system AMQP settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5088,7 +5088,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5106,7 +5106,7 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link ApiDefinitionType}",
             "content": {
               "application/vnd.vmware.vcloud.apidefinition+json;version=32.0": {
                 "schema": {
@@ -5142,7 +5142,7 @@
         "description": "Returns the API definitions registered by this service.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "List of {@link QueryResultApiDefinitionRecordType}",
             "content": {
               "application/vnd.vmware.vcloud.query.records+json;version=32.0": {},
               "application/vnd.vmware.vcloud.query.idrecords+json;version=32.0": {},
@@ -5177,7 +5177,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link AdminApiDefinitionType}",
             "content": {
               "application/vnd.vmware.admin.apiDefinition+json;version=32.0": {
                 "schema": {
@@ -5330,7 +5330,7 @@
         "description": "Returns the API filters registered by this service.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "List of {@link QueryResultApiFilterRecordType}",
             "content": {
               "application/vnd.vmware.vcloud.query.records+json;version=32.0": {},
               "application/vnd.vmware.vcloud.query.idrecords+json;version=32.0": {},
@@ -5365,7 +5365,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link ApiFilterType}",
             "content": {
               "application/vnd.vmware.admin.apiFilter+json;version=32.0": {
                 "schema": {
@@ -5401,7 +5401,7 @@
         "description": "Gets the associaiton data for a given local org. This can be pasted into the body of a request to add an associated org on a remote site",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link OrgAssociationType} containing the local org's info",
             "content": {
               "application/vnd.vmware.admin.organizationAssociation+json;version=32.0": {
                 "schema": {
@@ -5437,7 +5437,7 @@
         "description": "Retrieves the complete list of Organizations associated with this organization",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "non\\-null, possibly empty {@link List} of {@link OrgAssociationsType} representing this organization's associations",
             "content": {
               "application/vnd.vmware.admin.organizationAssociations+json;version=32.0": {
                 "schema": {
@@ -5470,7 +5470,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Reference to the task updating the org's associations",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -5503,7 +5503,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Reference to the task performing the association",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -5539,7 +5539,7 @@
         "description": "Retrieve the list of ESX/ESXi hosts in the cloud.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5568,7 +5568,7 @@
         "description": "Retrieve a list of available vCenter networks and portgroups.\n\n Networks and portgroups that are already in use by a vCloud Director network are not listed.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5597,7 +5597,7 @@
         "description": "Retrieve a list of storage classes that can be added to the specified provider vDC. Storage classes that have already been added to the provider vDC are not included in the list.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link VMWStorageProfilesType}",
             "content": {
               "application/vnd.vmware.admin.vmwStorageProfiles+json;version=32.0": {
                 "schema": {
@@ -5633,7 +5633,7 @@
         "description": "Retrieve a list of unused resource pools from a vCenter server.\n\n Resource pools that are already in use by a provider vDC are not listed.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ResourcePoolListType",
             "content": {
               "application/vnd.vmware.admin.resourcePoolList+json;version=32.0": {
                 "schema": {
@@ -5669,7 +5669,7 @@
         "description": "Retrieve the representation of a blocking task.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "BlockingTask",
             "content": {
               "application/vnd.vmware.admin.blockingTask+json;version=32.0": {
                 "schema": {
@@ -5705,7 +5705,7 @@
         "description": "Retrieve a list of operations that are configured as blocking tasks.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5731,7 +5731,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5749,7 +5749,7 @@
         "description": "Retrieve system blocking task settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5775,7 +5775,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5829,7 +5829,7 @@
         "description": "Retrieve system branding settings.\n\n You can use system branding settings to customize the vCloud Director Web console and some of the links that appear on the vCloud Director Home login screen.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5855,7 +5855,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -5873,7 +5873,7 @@
         "description": "Retrieve a catalog.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "CatalogType",
             "content": {
               "application/vnd.vmware.vcloud.catalog+json;version=32.0": {
                 "schema": {
@@ -5909,7 +5909,7 @@
         "description": "Retrieve all metadata associated with a catalog item.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -5978,7 +5978,7 @@
         "description": "Retrieve metadata associated with the catalog.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -6047,7 +6047,7 @@
         "description": "Retrieve all catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -6083,7 +6083,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -6137,7 +6137,7 @@
         "description": "Retrieve the owner of a catalog.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -6274,7 +6274,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -6292,7 +6292,7 @@
         "description": "Retrieve the flag value check\\_post\\_guest\\_customization. This flag decides if property collector would wait for post guest customization script to complete",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VmCheckPGCType",
             "content": {
               "application/vnd.vmware.vcloud.vm.checkPostGuestCustomizationSection+json;version=32.0": {
                 "schema": {
@@ -6325,7 +6325,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation sets the flag check\\_post\\_guest\\_customization",
             "content": {
               "application/vnd.vmware.vcloud.vm.checkPostGuestCustomizationSection+json;version=32.0": {
                 "schema": {
@@ -6407,7 +6407,7 @@
         "description": "Retrieve access control information for a vApp.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ControlAccessParamsType",
             "content": {
               "application/vnd.vmware.vcloud.controlAccess+json;version=32.0": {
                 "schema": {
@@ -6479,7 +6479,7 @@
         "description": "Retrieve access control information for a VDC template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "the ACL for that VDC Template.",
             "content": {
               "application/vnd.vmware.vcloud.controlAccess+json;version=32.0": {
                 "schema": {
@@ -6515,7 +6515,7 @@
         "description": "Retrieve the system\\-level settings for CPoM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -6541,7 +6541,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -6559,7 +6559,7 @@
         "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:RASD\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.rasdItem+json;version=32.0": {}
             }
@@ -6584,7 +6584,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -6620,7 +6620,7 @@
         "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:RASD\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.rasdItem+json;version=32.0": {}
             }
@@ -6645,7 +6645,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -6681,7 +6681,7 @@
         "description": "Retrieve a datastore.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Datastore",
             "content": {
               "application/vnd.vmware.admin.datastore+json;version=32.0": {
                 "schema": {
@@ -6714,7 +6714,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Datastore",
             "content": {
               "application/vnd.vmware.admin.datastore+json;version=32.0": {
                 "schema": {
@@ -6750,7 +6750,7 @@
         "description": "Retrieve a list of references to datastores in the system.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "DatastoreReferences",
             "content": {
               "application/vnd.vmware.admin.datastoreList+json;version=32.0": {}
             }
@@ -6853,7 +6853,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -6871,7 +6871,7 @@
         "description": "Get direct children resource pools of Provider VDC that are valid candidates for creating a new VDC",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link VMWDiscoveredResourcePoolsType}",
             "content": {
               "application/vnd.vmware.admin.vmwDiscoveredResourcePools+json;version=32.0": {
                 "schema": {
@@ -6907,7 +6907,7 @@
         "description": "Get direct children resource pools of {parent\\_rp\\_moref} nested under the Provider VDC which are valid candidates for creating a new VDC.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link VMWDiscoveredResourcePoolsType}",
             "content": {
               "application/vnd.vmware.admin.vmwDiscoveredResourcePools+json;version=32.0": {
                 "schema": {
@@ -6952,7 +6952,7 @@
         "description": "Retrieve metadata associated with the disk.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -7021,7 +7021,7 @@
         "description": "Retrieve the owner of a disk.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -7158,7 +7158,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -7176,7 +7176,7 @@
         "description": "Retrieve all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RasdItemsListType",
             "content": {
               "application/vnd.vmware.vcloud.rasdItemsList+json;version=32.0": {
                 "schema": {
@@ -7209,7 +7209,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -7245,7 +7245,7 @@
         "description": "Retrieve all RASD items that specify hard disk and hard disk controller properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RasdItemsListType",
             "content": {
               "application/vnd.vmware.vcloud.rasdItemsList+json;version=32.0": {
                 "schema": {
@@ -7278,7 +7278,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -7314,7 +7314,7 @@
         "description": "Retrieve system email settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -7340,7 +7340,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -7358,7 +7358,7 @@
         "description": "Redirects to the URL of an entity with the given VCD ID.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Response",
             "content": {
               "application/vnd.vmware.vcloud.entity+json;version=32.0": {
                 "schema": {
@@ -7394,7 +7394,7 @@
         "description": "Returns event with specified ID.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "event details",
             "content": {
               "application/vnd.vmware.admin.event+json;version=32.0": {
                 "schema": {
@@ -7520,7 +7520,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Returns result of the query executed with provided filter in xml format.",
             "content": {
               "application/vnd.vmware.vcloud.query.records+json;version=32.0": {},
               "application/vnd.vmware.vcloud.query.idrecords+json;version=32.0": {},
@@ -7548,7 +7548,7 @@
         "description": "Retrieve a list of extension objects and operations.\n\n The VMWExtension element provides access to a cloud\\-wide namespace of vSphere platform objects that are registered for use by the system, and links that allow you to add vSphere servers and related resources such as networks and resource pools to the cloud. It also provides access to system level configuration settings for Kerberos and LDAP services.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWExtensionType",
             "content": {
               "application/vnd.vmware.admin.vmwExtension+json;version=32.0": {
                 "schema": {
@@ -7573,7 +7573,7 @@
         "description": "Retrieves a list of extension service operations.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of extension service operations.",
             "content": {
               "application/vnd.vmware.admin.extensionServices+json;version=32.0": {
                 "schema": {
@@ -7606,7 +7606,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "the newly created {@link AdminServiceType}",
             "content": {
               "application/vnd.vmware.admin.service+json;version=32.0": {
                 "schema": {
@@ -7631,7 +7631,7 @@
         "description": "Retrieve a list of references to exernal networks in the system.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWExternalNetworkReferences",
             "content": {
               "application/vnd.vmware.admin.vmwExternalNetworkReferences+json;version=32.0": {
                 "schema": {
@@ -7738,7 +7738,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -7756,7 +7756,7 @@
         "description": "Retrieve other organization settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -7782,7 +7782,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -7811,7 +7811,7 @@
         "description": "Returns all file descriptors for the API definition.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "List of {@link QueryResultFileDescriptorRecordType}",
             "content": {
               "application/vnd.vmware.vcloud.query.records+json;version=32.0": {},
               "application/vnd.vmware.vcloud.query.idrecords+json;version=32.0": {},
@@ -7846,7 +7846,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link AdminFileDescriptorType}",
             "content": {
               "application/vnd.vmware.admin.fileDescriptor+json;version=32.0": {
                 "schema": {
@@ -7882,7 +7882,7 @@
         "description": "Returns all file descriptors for the API definition.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "List of {@link QueryResultFileDescriptorRecordType}",
             "content": {
               "application/vnd.vmware.vcloud.query.records+json;version=32.0": {},
               "application/vnd.vmware.vcloud.query.idrecords+json;version=32.0": {},
@@ -7920,7 +7920,7 @@
         "description": "Retrieve other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system\\-wide configuration defaults.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -7946,7 +7946,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -7964,7 +7964,7 @@
         "description": "Retrieve other organization settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -7990,7 +7990,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8101,7 +8101,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -8119,7 +8119,7 @@
         "description": "Retrieve status of guest customization for that VM Following are the possible status 0 \\- PENDING\\_GC : Guest Customization is either not started or in progress. This is set whenever a VM need customization. 1 \\- PENDING\\_REBOOT : GC is successful, but reboot is pending. This is set when vCloud receives \"guestinfo.gc.status\" as successful 2 \\- PENDING\\_POST\\_GC : Reboot has happened, waiting for post gc script to complete. This is set when tools running status comes as \"Running\" based on conditions 1 & 2 3 \\- COMPLETE : GC is complete.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VmCheckPGCType",
             "content": {
               "application/vnd.vmware.vcloud.guestCustomizationStatusSection+json;version=32.0": {
                 "schema": {
@@ -8155,7 +8155,7 @@
         "description": "Retrieves the guest customization section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "GuestCustomizationSectionType",
             "content": {
               "application/vnd.vmware.vcloud.guestCustomizationSection+json;version=32.0": {
                 "schema": {
@@ -8188,7 +8188,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -8224,7 +8224,7 @@
         "description": "Retrieves the guest customization section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "GuestCustomizationSectionType",
             "content": {
               "application/vnd.vmware.vcloud.guestCustomizationSection+json;version=32.0": {
                 "schema": {
@@ -8257,7 +8257,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -8293,7 +8293,7 @@
         "description": "Retrieve a Virtual Hardware Version.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VirtualHardwareVersionType",
             "content": {
               "application/vnd.vmware.vcloud.virtualHardwareVersion+json;version=32.0": {
                 "schema": {
@@ -8338,7 +8338,7 @@
         "description": "Retrieve a Virtual Hardware Version.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VirtualHardwareVersionType",
             "content": {
               "application/vnd.vmware.vcloud.virtualHardwareVersion+json;version=32.0": {
                 "schema": {
@@ -8383,7 +8383,7 @@
         "description": "Retrieve a host.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "HostType",
             "content": {
               "application/vnd.vmware.admin.host+json;version=32.0": {
                 "schema": {
@@ -8491,7 +8491,7 @@
         "description": "Retrieve a list of references to ESX/ESXi hosts attached to the system.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWHostReferences",
             "content": {
               "application/vnd.vmware.admin.vmwHostReferences+json;version=32.0": {
                 "schema": {
@@ -8598,7 +8598,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -8616,7 +8616,7 @@
         "description": "Retrieve system Kerberos settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8642,7 +8642,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8660,7 +8660,7 @@
         "description": "Retrieve system LDAP settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8686,7 +8686,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8704,7 +8704,7 @@
         "description": "Retrieves the lease settings section of a vApp or vApp template",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "LeaseSettingsSectionType",
             "content": {
               "application/vnd.vmware.vcloud.leaseSettingsSection+json;version=32.0": {
                 "schema": {
@@ -8737,7 +8737,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -8773,7 +8773,7 @@
         "description": "Retrieves the lease settings section of a vApp or vApp template",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "LeaseSettingsSectionType",
             "content": {
               "application/vnd.vmware.vcloud.leaseSettingsSection+json;version=32.0": {
                 "schema": {
@@ -8806,7 +8806,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -8842,7 +8842,7 @@
         "description": "Retrieve vCloud Director catalog setting details.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8868,7 +8868,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8886,7 +8886,7 @@
         "description": "Retrieve vCloud Director software license details.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8912,7 +8912,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -8930,7 +8930,7 @@
         "description": "Returns the links registered by this service.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "List of {@link QueryResultServiceLinkRecordType}",
             "content": {
               "application/vnd.vmware.vcloud.query.records+json;version=32.0": {},
               "application/vnd.vmware.vcloud.query.idrecords+json;version=32.0": {},
@@ -8965,7 +8965,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link AdminServiceLinkType}",
             "content": {
               "application/vnd.vmware.admin.serviceLink+json;version=32.0": {
                 "schema": {
@@ -9001,7 +9001,7 @@
         "description": "Get the {@link SiteType} that represents this local site. GET /api/site",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "The information about this site.",
             "content": {
               "application/vnd.vmware.vcloud.site+json;version=32.0": {
                 "schema": {
@@ -9142,7 +9142,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "AcceptedResponse"
           }
         },
         "security": [
@@ -9160,7 +9160,7 @@
         "description": "Retrieve all RASD items that specify CD\\-ROM, DVD, and floppy disk device and controller properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RasdItemsListType",
             "content": {
               "application/vnd.vmware.vcloud.rasdItemsList+json;version=32.0": {
                 "schema": {
@@ -9196,7 +9196,7 @@
         "description": "Retrieve all RASD items that specify CD\\-ROM, DVD, and floppy disk device and controller properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RasdItemsListType",
             "content": {
               "application/vnd.vmware.vcloud.rasdItemsList+json;version=32.0": {
                 "schema": {
@@ -9232,7 +9232,7 @@
         "description": "Retrieve metadata associated with a media object.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -9301,7 +9301,7 @@
         "description": "Retrieve the owner of a media object.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -9412,7 +9412,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -9430,7 +9430,7 @@
         "description": "Retrieve the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:RASD\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.rasdItem+json;version=32.0": {}
             }
@@ -9455,7 +9455,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -9491,7 +9491,7 @@
         "description": "Retrieve the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:RASD\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.rasdItem+json;version=32.0": {}
             }
@@ -9516,7 +9516,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -9552,7 +9552,7 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement} with given VM group name"
           }
         },
         "security": [
@@ -9581,7 +9581,7 @@
         "description": "Gets all references to named VM groups.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement} with given VM group name"
           }
         },
         "security": [
@@ -9599,7 +9599,7 @@
         "description": "Retrieve all RASD items that specify network card properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RasdItemsListType",
             "content": {
               "application/vnd.vmware.vcloud.rasdItemsList+json;version=32.0": {
                 "schema": {
@@ -9632,7 +9632,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -9668,7 +9668,7 @@
         "description": "Retrieve all RASD items that specify network card properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RasdItemsListType",
             "content": {
               "application/vnd.vmware.vcloud.rasdItemsList+json;version=32.0": {
                 "schema": {
@@ -9701,7 +9701,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -9737,7 +9737,7 @@
         "description": "Retrieve the network config section of a vApp or vApp template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "NetworkConfigSectionType",
             "content": {
               "application/vnd.vmware.vcloud.networkConfigSection+json;version=32.0": {
                 "schema": {
@@ -9770,7 +9770,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -9806,7 +9806,7 @@
         "description": "Retrieve the network config section of a vApp or vApp template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "NetworkConfigSectionType",
             "content": {
               "application/vnd.vmware.vcloud.networkConfigSection+json;version=32.0": {
                 "schema": {
@@ -9839,7 +9839,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -9875,7 +9875,7 @@
         "description": "Retrieve the network connection section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "NetworkConnectionSectionType",
             "content": {
               "application/vnd.vmware.vcloud.networkConnectionSection+json;version=32.0": {
                 "schema": {
@@ -9908,7 +9908,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -9944,7 +9944,7 @@
         "description": "Retrieve the network connection section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "NetworkConnectionSectionType",
             "content": {
               "application/vnd.vmware.vcloud.networkConnectionSection+json;version=32.0": {
                 "schema": {
@@ -9977,7 +9977,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -10013,7 +10013,7 @@
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -10082,7 +10082,7 @@
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -10118,7 +10118,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from network metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -10172,7 +10172,7 @@
         "description": "Retrieve a list of references to network pools in the system.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWNetworkPoolReferences",
             "content": {
               "application/vnd.vmware.admin.vmwNetworkPoolReferences+json;version=32.0": {
                 "schema": {
@@ -10279,7 +10279,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -10297,7 +10297,7 @@
         "description": "Retrieve the network section of a vApp or vApp template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:NetworkSection\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.networkSection+json;version=32.0": {}
             }
@@ -10329,7 +10329,7 @@
         "description": "Retrieve the network section of a vApp or vApp template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:NetworkSection\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.networkSection+json;version=32.0": {}
             }
@@ -10361,7 +10361,7 @@
         "description": "Retrieve system AMQP notifications settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -10387,7 +10387,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -10438,7 +10438,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "A newly created NSX\\-T Manager",
             "content": {
               "application/vnd.vmware.admin.networkManagers+json;version=32.0": {
                 "schema": {
@@ -10521,7 +10521,7 @@
         "description": "Displays the list of currently registered object extensions",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a collection of registered object extensions {@link ObjectExtensionsType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.objects+json;version=32.0": {
                 "schema": {
@@ -10554,7 +10554,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "representation of an object extension {@link ObjectExtensionType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.object+json;version=32.0": {
                 "schema": {
@@ -10579,7 +10579,7 @@
         "description": "Retrieve the operating system section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:OperatingSystemSection\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.operatingSystemSection+json;version=32.0": {}
             }
@@ -10604,7 +10604,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -10640,7 +10640,7 @@
         "description": "Retrieves the system wide defaults for tenant throttling",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -10666,7 +10666,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -10684,7 +10684,7 @@
         "description": "Retrieve organization email settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -10710,7 +10710,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "JAXBElement"
           }
         },
         "security": [
@@ -10739,7 +10739,7 @@
         "description": "Retrieve organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -10765,7 +10765,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -10794,7 +10794,7 @@
         "description": "Retrieve organization LDAP settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "deprecated": true,
@@ -10821,7 +10821,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "deprecated": true,
@@ -10933,7 +10933,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -10951,7 +10951,7 @@
         "description": "Retrieve organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -10977,7 +10977,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "JAXBElement"
           }
         },
         "security": [
@@ -11006,7 +11006,7 @@
         "description": "Retrieve organization password policy settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -11032,7 +11032,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "JAXBElement"
           }
         },
         "security": [
@@ -11061,7 +11061,7 @@
         "description": "Retrieve settings for this organization.\n\n Organization settings are divided into categories. This request retrieves all categories of organization settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -11087,7 +11087,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -11151,7 +11151,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.admin.edgeGateway+json;version=32.0": {
                 "schema": {
@@ -11222,7 +11222,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.orgVdcNetwork+json;version=32.0": {
                 "schema": {
@@ -11258,7 +11258,7 @@
         "description": "Retrieve the summary of usage and reserve capacity of all OrgVDCs in this org, and, if specified, any associated orgs.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "The {@link JAXBElement} of the {@link OrgVdcRollupType}.",
             "content": {
               "application/vnd.vmware.vcloud.orgVdcRollup+json;version=32.0": {
                 "schema": {
@@ -11376,7 +11376,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -11430,7 +11430,7 @@
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -11499,7 +11499,7 @@
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -11535,7 +11535,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from organization metadata .",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -11625,7 +11625,7 @@
         "description": "Retrieve a list of organizations accessible to you.\n\n The system administrator has access to all organizations.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "OrgListType",
             "content": {
               "application/vnd.vmware.vcloud.orgList+json;version=32.0": {
                 "schema": {
@@ -11732,7 +11732,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -11750,7 +11750,7 @@
         "description": "Retrieve a list of ProductSection elements from a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -11776,7 +11776,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -11812,7 +11812,7 @@
         "description": "Retrieve a list of ProductSection elements from a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -11838,7 +11838,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -11874,7 +11874,7 @@
         "description": "Retrieve a provider vDC.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ProviderVdcType",
             "content": {
               "application/vnd.vmware.admin.providervdc+json;version=32.0": {
                 "schema": {
@@ -11910,7 +11910,7 @@
         "description": "Retrieve metadata associated with the provider vDC.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -11979,7 +11979,7 @@
         "description": "Retrieve a list of references to provider vDCs in the system.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWProviderVdcReferences",
             "content": {
               "application/vnd.vmware.admin.vmwProviderVdcReferences+json;version=32.0": {
                 "schema": {
@@ -12004,7 +12004,7 @@
         "description": "Retrieve provider vDC storage profile details.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ProviderVdcStorageClassType representation of storage profile referred by storageClassId",
             "content": {
               "application/vnd.vmware.admin.vmwPvdcStorageProfile+json;version=32.0": {
                 "schema": {
@@ -12037,7 +12037,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Updated representation of the storage profile",
             "content": {
               "application/vnd.vmware.admin.vmwPvdcStorageProfile+json;version=32.0": {
                 "schema": {
@@ -12073,7 +12073,7 @@
         "description": "Retrieve provider vDC storage profile details.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ProviderVdcStorageClassType representation of storage profile referred by storageClassId",
             "content": {
               "application/vnd.vmware.admin.pvdcStorageProfile+json;version=32.0": {
                 "schema": {
@@ -12109,7 +12109,7 @@
         "description": "Retrieve metadata associated with the Provider VDC Storage Profile.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -12260,7 +12260,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -12278,7 +12278,7 @@
         "description": "Retrieve a provider vDC resource pool set.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link PvdcResourcePoolSetType}",
             "content": {
               "application/vnd.vmware.admin.vmwProviderVdcResourcePoolSet+json;version=32.0": {
                 "schema": {
@@ -12412,7 +12412,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Newly registered or already existing resource class action.",
             "content": {
               "application/vnd.vmware.admin.resourceClassAction+json;version=32.0": {
                 "schema": {
@@ -12448,7 +12448,7 @@
         "description": "List registered resource classes for extension service.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "JAXB resource class",
             "content": {
               "application/vnd.vmware.vcloud.query.records+json;version=32.0": {},
               "application/vnd.vmware.vcloud.query.idrecords+json;version=32.0": {},
@@ -12483,7 +12483,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Newly registered or already existing resource class.",
             "content": {
               "application/vnd.vmware.admin.resourceClass+json;version=32.0": {
                 "schema": {
@@ -12670,7 +12670,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -12770,7 +12770,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -12881,7 +12881,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -12922,7 +12922,7 @@
         "description": "Create VM Affinity Rules within this resource pool.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "the task to create VM Host Affinity Rule",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -12958,7 +12958,7 @@
         "description": "Retrieve the runtime info section of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RuntimeInfoSectionType The runtime info section",
             "content": {
               "application/vnd.vmware.vcloud.runtimeInfoSection+json;version=32.0": {
                 "schema": {
@@ -12994,7 +12994,7 @@
         "description": "Retrieve the specified schema definition file from the server.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "xml schema represented as String",
             "content": {
               "text/xml": {},
               "application/*+json;version=32.0": {},
@@ -13028,7 +13028,7 @@
         "description": "Unauthenticated GET of versions.xsd schema definition file.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "versions.xsd encoded as UTF\\-8",
             "content": {
               "text/xml": {},
               "application/*+json;version=32.0": {}
@@ -13050,7 +13050,7 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a collection of selector extension {@link SelectorExtensionsType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selectors+json;version=32.0": {
                 "schema": {
@@ -13083,7 +13083,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a Selector Extension {@link SelectorExtensionType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selector+json;version=32.0": {
                 "schema": {
@@ -13119,7 +13119,7 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a collection of selector extension {@link SelectorExtensionsType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selectors+json;version=32.0": {
                 "schema": {
@@ -13152,7 +13152,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a Selector Extension {@link SelectorExtensionType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selector+json;version=32.0": {
                 "schema": {
@@ -13177,7 +13177,7 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a collection of selector extension {@link SelectorExtensionsType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selectors+json;version=32.0": {
                 "schema": {
@@ -13210,7 +13210,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a Selector Extension {@link SelectorExtensionType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selector+json;version=32.0": {
                 "schema": {
@@ -13246,7 +13246,7 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a collection of selector extension {@link SelectorExtensionsType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selectors+json;version=32.0": {
                 "schema": {
@@ -13279,7 +13279,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a Selector Extension {@link SelectorExtensionType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selector+json;version=32.0": {
                 "schema": {
@@ -13315,7 +13315,7 @@
         "description": "Displays a list of Selector Extensions that are associated with a selector.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a collection of selector extension {@link SelectorExtensionsType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selectors+json;version=32.0": {
                 "schema": {
@@ -13348,7 +13348,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a Selector Extension {@link SelectorExtensionType}",
             "content": {
               "application/vnd.vmware.admin.extensibility.selector+json;version=32.0": {
                 "schema": {
@@ -13384,7 +13384,7 @@
         "description": "Displays a list of all selector extensions of a registered object extension.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Representation of a collection of {@link SelectorExtensionType} associated with a. object extension",
             "content": {
               "application/vnd.vmware.admin.extensibility.selectors+json;version=32.0": {
                 "schema": {
@@ -13420,7 +13420,7 @@
         "description": "Retrieve all RASD items that specify serial port properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RasdItemsListType",
             "content": {
               "application/vnd.vmware.vcloud.rasdItemsList+json;version=32.0": {
                 "schema": {
@@ -13453,7 +13453,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -13489,7 +13489,7 @@
         "description": "Retrieve all RASD items that specify serial port properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RasdItemsListType",
             "content": {
               "application/vnd.vmware.vcloud.rasdItemsList+json;version=32.0": {
                 "schema": {
@@ -13522,7 +13522,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -13831,7 +13831,7 @@
         "description": "Get the {@link SiteAssociationsType} for this site. GET /api/site/associations/localAssociationData",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "The site association for this site that could be used with a remote site",
             "content": {
               "application/vnd.vmware.admin.siteAssociation+json;version=32.0": {
                 "schema": {
@@ -13856,7 +13856,7 @@
         "description": "Get the {@link SiteAssociationsType} for this site. GET /api/site/associations",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "The site associations for the site",
             "content": {
               "application/vnd.vmware.admin.siteAssociations+json;version=32.0": {
                 "schema": {
@@ -13922,7 +13922,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "JAXBElement"
           }
         },
         "security": [
@@ -13940,7 +13940,7 @@
         "description": "Retrieve SnapshotSection element for a vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -13969,7 +13969,7 @@
         "description": "Retrieve the startup section of a vApp.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:StartupSection\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.startupSection+json;version=32.0": {}
             }
@@ -13994,7 +13994,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -14030,7 +14030,7 @@
         "description": "Retrieve all storage profiles in the VIM server",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -14141,7 +14141,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -14185,7 +14185,7 @@
         "description": "Retrieve a list of vCloud API versions supported by this system. This request does not require an authentication token.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "The list of supported vCloud API versions and their login URLs.",
             "content": {
               "text/xml": {},
               "application/*+json;version=32.0": {}
@@ -14207,7 +14207,7 @@
         "description": "Retrieve system password policy settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -14233,7 +14233,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -14251,7 +14251,7 @@
         "description": "Retrieve system settings.\n\n System settings specify default values and behaviors for the cloud and all of the organizations in it. System settings are divided into categories. This request retrieves all categories of system settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -14277,7 +14277,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -14295,7 +14295,7 @@
         "description": "Retrieve a task.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -14328,7 +14328,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link TaskType}",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -14364,7 +14364,7 @@
         "description": "Retrieve a list of this organization's queued, running, or recently completed tasks.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TasksListType",
             "content": {
               "application/vnd.vmware.vcloud.tasksList+json;version=32.0": {
                 "schema": {
@@ -14397,7 +14397,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link TaskType} since 2.0",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -14433,7 +14433,7 @@
         "description": "Retrieves a thumbnail image of a VM console. The content type of the response can be any of {@code image/png}, {@code image/gif}.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "byte data",
             "content": {
               "image/png": {}
             }
@@ -14547,7 +14547,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -14565,7 +14565,7 @@
         "description": "Retrieve organization vApp lease settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -14591,7 +14591,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "JAXBElement"
           }
         },
         "security": [
@@ -14620,7 +14620,7 @@
         "description": "Retrieve metadata associated with the vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -14689,7 +14689,7 @@
         "description": "Retrieve the OVF descriptor of a vApp directly.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:EnvelopType",
             "content": {
               "text/xml": {},
               "application/*+json;version=32.0": {},
@@ -14723,7 +14723,7 @@
         "description": "Retrieve the owner of a vApp.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -14778,7 +14778,7 @@
         "description": "Retrieve the customization section of a vApp template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "CustomizationSectionType",
             "content": {
               "application/vnd.vmware.vcloud.customizationSection+json;version=32.0": {
                 "schema": {
@@ -14814,7 +14814,7 @@
         "description": "Retrieve organization vApp template lease settings.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -14840,7 +14840,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "JAXBElement"
           }
         },
         "security": [
@@ -14869,7 +14869,7 @@
         "description": "Retrieve metadata associated with the vApp template or VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -14938,7 +14938,7 @@
         "description": "Retrieve the OVF descriptor of a vApp template.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:EnvelopType",
             "content": {
               "text/xml": {},
               "application/*+json;version=32.0": {},
@@ -14972,7 +14972,7 @@
         "description": "Retrieve the owner of a vApp template.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -15109,7 +15109,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -15209,7 +15209,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -15227,7 +15227,7 @@
         "description": "Retrieves a list of vApps by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -15327,7 +15327,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse"
           }
         },
         "security": [
@@ -15345,7 +15345,7 @@
         "description": "Retrieve vShield Manager configuration details, including administrator credentials.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "JAXB representation of vShieldManager.",
             "content": {
               "application/vnd.vmware.admin.vshieldmanager+json;version=32.0": {
                 "schema": {
@@ -15378,7 +15378,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Reference to the started update VSM task.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -15414,7 +15414,7 @@
         "description": "Retrieve the vSphere URL of an object.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -15461,7 +15461,7 @@
         "description": "Retrieve an administrative view of a cloud.\n\n The VCloud element provides access to cloud\\-wide namespace of objects that an administrator can view and, in most cases, modify.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VCloudType",
             "content": {
               "application/vnd.vmware.admin.vcloud+json;version=32.0": {
                 "schema": {
@@ -15486,7 +15486,7 @@
         "description": "Get all vDC compute policies references in given vDC",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -15512,7 +15512,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -15541,7 +15541,7 @@
         "description": "Get all vDC compute policies references in given vDC",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -15570,7 +15570,7 @@
         "description": "Retrieve the all the metrics for a given org for the past 24 hours",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "rolled up metrics for the organization",
             "content": {
               "application/vnd.vmware.vcloud.metrics.historicUsage+json;version=32.0": {
                 "schema": {
@@ -15603,7 +15603,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "rolled up metrics for the organization",
             "content": {
               "application/vnd.vmware.vcloud.metrics.historicUsage+json;version=32.0": {
                 "schema": {
@@ -15639,7 +15639,7 @@
         "description": "Retrieves the past 24h rolled up metrics for a VDC",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "rolled up metrics for the vdc",
             "content": {
               "application/vnd.vmware.vcloud.metrics.historicUsage+json;version=32.0": {
                 "schema": {
@@ -15672,7 +15672,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Rolled up metrics for the VDC",
             "content": {
               "application/vnd.vmware.vcloud.metrics.historicUsage+json;version=32.0": {
                 "schema": {
@@ -15708,7 +15708,7 @@
         "description": "Retrieve metadata associated with the virtual datacenter.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -15777,7 +15777,7 @@
         "description": "Retrieve metadata associated with a vDC.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -15813,7 +15813,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -15867,7 +15867,7 @@
         "description": "Returns storage class referred by the Id. All properties of the storage classes are visible to vcloud user, except for VDC Storage Class reference",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VdcStorageClassType representation of storage class referred by storageClassId",
             "content": {
               "application/vnd.vmware.vcloud.vdcStorageProfile+json;version=32.0": {
                 "schema": {
@@ -15903,7 +15903,7 @@
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -15972,7 +15972,7 @@
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=32.0": {
                 "schema": {
@@ -16008,7 +16008,7 @@
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link JAXBElement<metadatatype\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=32.0": {
                 "schema": {
@@ -16062,7 +16062,7 @@
         "description": "Returns the representation of a vDC storage profile",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AdminVdcStorageProfileType representation of storage profile referred by storageProfileId",
             "content": {
               "application/vnd.vmware.admin.vdcStorageProfile+json;version=32.0": {
                 "schema": {
@@ -16095,7 +16095,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Updated representation of the storage profile",
             "content": {
               "application/vnd.vmware.admin.vdcStorageProfile+json;version=32.0": {
                 "schema": {
@@ -16193,7 +16193,7 @@
         "description": "Retrieve a list of organization vDCs supported by a given provider vDC.\n\n Resources from the provider vDC are allocated across all organization vDCs in the list.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VdcReferencesType",
             "content": {
               "application/vnd.vmware.admin.vdcReferences+json;version=32.0": {
                 "schema": {
@@ -16229,7 +16229,7 @@
         "description": "Retrieve services associated with this network pool",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -16258,7 +16258,7 @@
         "description": "Retrieve a list of references to vCenter servers attached to the system.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWVimServerReferences",
             "content": {
               "application/vnd.vmware.admin.vmwVimServerReferences+json;version=32.0": {
                 "schema": {
@@ -16365,7 +16365,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "Returns OkResponse;"
           }
         },
         "security": [
@@ -16383,7 +16383,7 @@
         "description": "Retrieve the representation of a registered vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VimServerType",
             "content": {
               "application/vnd.vmware.admin.vmwvirtualcenter+json;version=32.0": {
                 "schema": {
@@ -16416,7 +16416,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType This operation is asynchronous and the user should monitor the returned task status in order to check when it is completed.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -16452,7 +16452,7 @@
         "description": "Retrieve the virtual hardware section of a VM.\n\n This operation retrieves the entire VirtualHardwareSection of a VM. You can also retrieve many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:VirtualHardwareSection\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.virtualHardwareSection+json;version=32.0": {}
             }
@@ -16477,7 +16477,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -16513,7 +16513,7 @@
         "description": "Retrieve the virtual hardware section of a VM.\n\n This operation retrieves the entire VirtualHardwareSection of a VM. You can also retrieve many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ovf:VirtualHardwareSection\\_Type",
             "content": {
               "application/vnd.vmware.vcloud.virtualHardwareSection+json;version=32.0": {}
             }
@@ -16538,7 +16538,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -16574,7 +16574,7 @@
         "description": "Retrieves a list of all VM Affinity rules within a given vDC.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a list of all VM Affinity rules( both affinity and anti\\-affinity) for the given vDC",
             "content": {
               "application/vnd.vmware.vcloud.vmaffinityrules+json;version=32.0": {
                 "schema": {
@@ -16607,7 +16607,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "representation of a Task {@link TaskSpec}",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -16643,7 +16643,7 @@
         "description": "Gets {@link VmCapabilitiesType} for the VM identified by id.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link VmCapabilitiesType}",
             "content": {
               "application/vnd.vmware.vcloud.vmCapabilitiesSection+json;version=32.0": {
                 "schema": {
@@ -16676,7 +16676,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link AcceptedResponse}"
           }
         },
         "security": [
@@ -16741,7 +16741,7 @@
         "description": "Gets the current usage for all available VM metrics.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a {@link CurrentUsageType} instance of metrics for the specified VM",
             "content": {
               "application/vnd.vmware.vcloud.metrics.currentUsage+json;version=32.0": {
                 "schema": {
@@ -16774,7 +16774,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a {@link CurrentUsageType} instance of metrics for the specified VM",
             "content": {
               "application/vnd.vmware.vcloud.metrics.currentUsage+json;version=32.0": {
                 "schema": {
@@ -16810,7 +16810,7 @@
         "description": "Gets {@link JAXBElement} with given VM group name.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement} with given VM group name"
           }
         },
         "security": [
@@ -16884,7 +16884,7 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement} with given VM group name"
           }
         },
         "security": [
@@ -16913,7 +16913,7 @@
         "description": "List all VmGroups within this resource pool.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "list of VM groups in given resource pool.",
             "content": {
               "application/vnd.vmware.admin.vmwVmGroupType+json;version=32.0": {
                 "schema": {
@@ -16936,7 +16936,7 @@
         "description": "Create VM group within this resource pool.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VM group task",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -17030,7 +17030,7 @@
         "description": "Gets the past 24 hours worth of samples for all available VM metrics.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a {@link HistoricUsageType} instance of metrics for the specified VM",
             "content": {
               "application/vnd.vmware.vcloud.metrics.historicUsage+json;version=32.0": {
                 "schema": {
@@ -17063,7 +17063,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a {@link HistoricUsageType} instance of metrics for the specified VM",
             "content": {
               "application/vnd.vmware.vcloud.metrics.historicUsage+json;version=32.0": {
                 "schema": {
@@ -17099,7 +17099,7 @@
         "description": "Retrieve a question being asked by a VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VmPendingQuestionType",
             "content": {
               "application/vnd.vmware.vcloud.vmPendingQuestion+json;version=32.0": {
                 "schema": {
@@ -17135,7 +17135,7 @@
         "description": "Retrieve a list of all VMs attached to a disk.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -17220,7 +17220,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VmObjectRefsListType",
             "content": {
               "application/vnd.vmware.admin.vmsObjectRefsList+json;version=32.0": {
                 "schema": {
@@ -17294,7 +17294,7 @@
         "description": "Get all VMs from all clusters in given VM group.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "list of VM records.",
             "content": {
               "application/vnd.vmware.vcloud.query.records+json;version=32.0": {},
               "application/vnd.vmware.vcloud.query.idrecords+json;version=32.0": {},
@@ -17361,7 +17361,7 @@
         "description": "Retrieve a mks ticket that you can use to gain access to the console of a running VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link MksTicketType}",
             "content": {
               "application/vnd.vmware.vcloud.mksTicket+json;version=32.0": {
                 "schema": {
@@ -17397,7 +17397,7 @@
         "description": "Retrieve a screen ticket that you can use with the VMRC browser plug\\-in to gain access to the console of a running VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ScreenTicketType",
             "content": {
               "application/vnd.vmware.vcloud.screenTicket+json;version=32.0": {
                 "schema": {
@@ -17443,7 +17443,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a task to monitor the progress of adding virtual machines to a VM group",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -17528,7 +17528,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -17603,7 +17603,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n The response includes a Task element. You can monitor the task to to track the creation of the vApp template.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -17649,7 +17649,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppTemplateType\n\n The response includes a Task element. You can monitor the task to to track the creation of the vApp template.",
             "content": {
               "application/vnd.vmware.vcloud.vAppTemplate+json;version=32.0": {
                 "schema": {
@@ -17696,7 +17696,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AuthorizationCheckResponseType",
             "content": {
               "application/vnd.vmware.admin.authorizationCheckResponse+json;version=32.0": {
                 "schema": {
@@ -17742,7 +17742,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AuthorizationCheckResponseType",
             "content": {
               "application/vnd.vmware.admin.authorizationCheckResponse+json;version=32.0": {
                 "schema": {
@@ -17767,7 +17767,7 @@
         "description": "Check storage profile compliance for the specified VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task. When the task completes, you can retrieve the results by making a GET /vApp/vm\\-{id}/complianceResult request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -17849,7 +17849,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "MediaType\n\n The response includes a Task element. You can monitor the task to to track the creation of the copy.",
             "content": {
               "application/vnd.vmware.vcloud.media+json;version=32.0": {
                 "schema": {
@@ -17895,7 +17895,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppType\n\n The response includes a Task element. You can monitor the task to to track the creation of the copy.",
             "content": {
               "application/vnd.vmware.vcloud.vApp+json;version=32.0": {
                 "schema": {
@@ -17941,7 +17941,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppTemplateType\n\n The response includes a Task element. You can monitor the task to to track the creation of the copy.",
             "content": {
               "application/vnd.vmware.vcloud.vAppTemplate+json;version=32.0": {
                 "schema": {
@@ -17987,7 +17987,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppType\n\n The response includes a Task element. You can monitor the task to to track the creation of the vApp.",
             "content": {
               "application/vnd.vmware.vcloud.vApp+json;version=32.0": {
                 "schema": {
@@ -18033,7 +18033,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18079,7 +18079,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18115,7 +18115,7 @@
         "description": "Consolidate VM snapshots.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18151,7 +18151,7 @@
         "description": "Consolidate VM snapshots.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18253,7 +18253,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "ControlAccessParamsType",
             "content": {
               "application/vnd.vmware.vcloud.controlAccess+json;version=32.0": {
                 "schema": {
@@ -18289,7 +18289,7 @@
         "description": "Mark a gateway as an advanced gateway.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18325,7 +18325,7 @@
         "description": "Convert org vdc network to a distributed interface\n\n This operation is valid for internal org vdc routed networks that are subinterfaces or internal.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18361,7 +18361,7 @@
         "description": "Convert org vdc network to an interface\n\n This operation is valid for internal org vdc routed networks that are subinterfaces",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18397,7 +18397,7 @@
         "description": "Convert org vdc network to an sub interface\n\n This operation is valid for internal org vdc routed networks",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18443,7 +18443,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n The response includes a Task element. You can monitor the task to track the copy of the catalog item.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18489,7 +18489,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "CatalogType\n\n This operation is asynchronous. The response body includes a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.admin.catalog+json;version=32.0": {
                 "schema": {
@@ -18535,7 +18535,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "CatalogItemType",
             "content": {
               "application/vnd.vmware.vcloud.catalogItem+json;version=32.0": {
                 "schema": {
@@ -18581,7 +18581,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "DiskType",
             "content": {
               "application/vnd.vmware.vcloud.disk+json;version=32.0": {
                 "schema": {
@@ -18623,7 +18623,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWNetworkPool",
             "content": {
               "application/vnd.vmware.admin.networkPool+json;version=32.0": {}
             }
@@ -18650,7 +18650,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "OrgNetworkType",
             "content": {
               "application/vnd.vmware.admin.orgNetwork+json;version=32.0": {}
             }
@@ -18693,7 +18693,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AdminOrgType",
             "content": {
               "application/vnd.vmware.admin.organization+json;version=32.0": {
                 "schema": {
@@ -18728,7 +18728,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWExternalNetworkType",
             "content": {
               "application/vnd.vmware.admin.vmwexternalnet+json;version=32.0": {
                 "schema": {
@@ -18763,7 +18763,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWProviderVdcType\n\n This operation is asynchronous. The response includes a Task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.admin.vmwprovidervdc+json;version=32.0": {
                 "schema": {
@@ -18799,7 +18799,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWProviderVdcType\n\n This operation is asynchronous. The response includes a Task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.admin.vmwprovidervdc+json;version=32.0": {
                 "schema": {
@@ -18834,7 +18834,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RoleType",
             "content": {
               "application/vnd.vmware.admin.role+json;version=32.0": {
                 "schema": {
@@ -18880,7 +18880,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RoleType",
             "content": {
               "application/vnd.vmware.admin.role+json;version=32.0": {
                 "schema": {
@@ -18915,7 +18915,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -18961,7 +18961,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "vdcTemplate the new VDC Template.",
             "content": {
               "application/vnd.vmware.admin.vmwVdcTemplate+json;version=32.0": {
                 "schema": {
@@ -18996,7 +18996,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "UserType",
             "content": {
               "application/vnd.vmware.admin.user+json;version=32.0": {
                 "schema": {
@@ -19042,7 +19042,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AdminVdcType",
             "content": {
               "application/vnd.vmware.admin.vdc+json;version=32.0": {
                 "schema": {
@@ -19089,7 +19089,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "AdminVdcType\n\n This operation is asynchronous. The response includes a Task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.admin.vdc+json;version=32.0": {
                 "schema": {
@@ -19135,7 +19135,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.\n\n The response includes a Task element. You can monitor the task to track the creation of the vApp. The owner of the task is the new vApp entity.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19181,7 +19181,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19227,7 +19227,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19263,7 +19263,7 @@
         "description": "Disables the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a task to monitor disabling of the rule",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19299,7 +19299,7 @@
         "description": "Disable a datastore.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Datastore",
             "content": {
               "application/vnd.vmware.admin.datastore+json;version=32.0": {
                 "schema": {
@@ -19335,7 +19335,7 @@
         "description": "Disable distributed routing for a gateway",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19408,7 +19408,7 @@
         "description": "Hide hardware\\-assisted CPU virtualization from guest OS.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19618,7 +19618,7 @@
         "description": "Discard suspended state of a vApp or VM.\n\n Discarding the suspended state of a vApp discards the suspended state of all VMs it contains.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19664,7 +19664,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19700,7 +19700,7 @@
         "description": "Enables the specified VM Host affinity rule.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a task to monitor enabling of the rule",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19736,7 +19736,7 @@
         "description": "Enable a datastore.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Datastore",
             "content": {
               "application/vnd.vmware.admin.datastore+json;version=32.0": {
                 "schema": {
@@ -19772,7 +19772,7 @@
         "description": "Enable distributed routing for a gateway",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -19968,7 +19968,7 @@
         "description": "Enable a vApp for download.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20004,7 +20004,7 @@
         "description": "Enable a vApp template for download",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20069,7 +20069,7 @@
         "description": "Expose hardware\\-assisted CPU virtualization to guest OS.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20329,7 +20329,7 @@
         "description": "Removes stranded item and its children",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Task created to remove the stranded item",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20365,7 +20365,7 @@
         "description": "Force vCloud Director to reconnect to a registered vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType This operation is asynchronous and the user should monitor the returned task status in order to check when it is completed.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20411,7 +20411,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "GroupType",
             "content": {
               "application/vnd.vmware.admin.group+json;version=32.0": {
                 "schema": {
@@ -20457,7 +20457,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "MediaType\n\n This operation is asynchronous. The response contains an embedded task object that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.media+json;version=32.0": {
                 "schema": {
@@ -20503,7 +20503,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VmType\n\n This operation is asynchronous. The `status` of `VmType` can be used to monitor the import process.",
             "content": {
               "application/vnd.vmware.vcloud.vm+json;version=32.0": {
                 "schema": {
@@ -20549,7 +20549,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppType\n\n This operation is asynchronous. The response contains an embedded task object that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.vApp+json;version=32.0": {
                 "schema": {
@@ -20595,7 +20595,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppTemplateType\n\n This operation is asynchronous. The response contains an embedded task object that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.vAppTemplate+json;version=32.0": {
                 "schema": {
@@ -20641,7 +20641,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20687,7 +20687,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20723,7 +20723,7 @@
         "description": "Install VMware Tools on a running VM.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20769,7 +20769,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppType\n\n The response includes an upload link for the OVF descriptor",
             "content": {
               "application/vnd.vmware.vcloud.vApp+json;version=32.0": {
                 "schema": {
@@ -20815,7 +20815,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppType\n\n The response includes a Task element. You can monitor the task to to track the creation of the vApp.",
             "content": {
               "application/vnd.vmware.vcloud.vApp+json;version=32.0": {
                 "schema": {
@@ -20861,7 +20861,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "vdcTemplate",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20907,7 +20907,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link TaskType} task to track the creation of the vApp.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -20943,7 +20943,7 @@
         "description": "Log in and create a Session object.\n\n To authenticate to the API service, POST a request to its login URL. The request body must contain a MIME Base64 encoding of your credentials in the form:\n\n*user*@*organization*:*password*\n\n To obtain the login URL, make an unauthenticated GET request to the vCloud Director api/versions URL. The response to this request lists the API versions that the server supports, and provides a login URL for each version.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "SessionType\n\n The response includes an authorization token in this format:\n\n x\\-vcloud\\-authorization: *token*\n\n Include this header in all subsequent requests.",
             "content": {
               "application/vnd.vmware.vcloud.session+json;version=32.0": {
                 "schema": {
@@ -20968,7 +20968,7 @@
         "description": "Make specified VM Host affinity rule mandatory.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a task to monitor enabling of the rule",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21004,7 +21004,7 @@
         "description": "Make the specified VM Host affinity optional.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a task to monitor enabling of the rule",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21050,7 +21050,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VMWProviderVdc",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21096,7 +21096,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -21124,7 +21124,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task. When the task completes, the virtual machines on the list have been migrated.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21170,7 +21170,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21216,7 +21216,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n The response includes a Task element. You can monitor the task to track the move of the catalog item.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21291,7 +21291,7 @@
         "description": "Power off a vApp or VM.\n\n If used on a vApp, powers off all VMs in the vApp. If used on a VM, powers off the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21327,7 +21327,7 @@
         "description": "Power on a vApp or VM.\n\n If used on a vApp, powers on all VMs in the vApp. If used on a VM, powers on the VM. This operation is available only for a vApp or VM that is powered off.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21373,7 +21373,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21420,7 +21420,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "probe result",
             "content": {
               "application/vnd.vmware.admin.remoteProbeResult+json;version=32.0": {
                 "schema": {
@@ -21521,7 +21521,7 @@
         "description": "Reapply services on an edgeGateway.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21558,7 +21558,7 @@
         "description": "Reboot a vApp or VM.\n\n If used on a vApp, reboots all VMs in the vApp. If used on a VM, reboots the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21604,7 +21604,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21650,7 +21650,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21686,7 +21686,7 @@
         "description": "Redeploy edgeGateway.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21722,7 +21722,7 @@
         "description": "Refresh Storage Classes data from a registered vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType This operation is asynchronous and the user should monitor the returned task status in order to check when it is completed.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21758,7 +21758,7 @@
         "description": "Refresh vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType Asynchronous task representing refresh operation.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21823,7 +21823,7 @@
         "description": "Regenerates an org's key pair for associations",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "Task reference",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21894,7 +21894,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppType\n\n The response includes a Task element. You can monitor the task to to track the creation of the vApp.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -21940,7 +21940,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "RegisterVimServerParamsType",
             "content": {
               "application/vnd.vmware.admin.registerVimServerParams+json;version=32.0": {
                 "schema": {
@@ -22011,7 +22011,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and return a task. When the task completes, the VM has been relocated.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22058,7 +22058,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and return a task. When the task completes, the VM has been relocated.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22095,7 +22095,7 @@
         "description": "Removes all user created snapshots for a vApp or virtual machine.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22141,7 +22141,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "a task to monitor the progress of removing virtual machines from a VM group",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22177,7 +22177,7 @@
         "description": "Repair a host.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22214,7 +22214,7 @@
         "description": "Repair a network pool. This command ensures that the defined scope of the network pool is reflected in the scope of its corresponding transport zone.\n\n The pool must not be in use.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22384,7 +22384,7 @@
         "description": "Reset networking services on a network.\n\n This operation is valid for all networks except vApp networks in undeployed vApps.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22467,7 +22467,7 @@
         "description": "Reset a vApp or VM.\n\n If used on a vApp, resets all VMs in the vApp. If used on a VM, resets the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22550,7 +22550,7 @@
         "description": "Reverts a vApp or virtual machine to the current snapshot, if any.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22586,7 +22586,7 @@
         "description": "Shut down a vApp or VM.\n\n If used on a vApp, shuts down all VMs in the vApp. If used on a VM, shuts down the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22622,7 +22622,7 @@
         "description": "Suspend a vApp or VM.\n\n If used on a vApp, suspends all VMs in the vApp. If used on a VM, suspends the VM. This operation is available only for a vApp or VM that is powered on.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22658,7 +22658,7 @@
         "description": "Force sync the catalog to the remote subscribed catalog.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n The response includes a Task element. You can monitor the task to to track the sync of the catalog.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22694,7 +22694,7 @@
         "description": "Synchronize a catalog item with its source object.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link TaskType}\n\n The response is a Task element. You can monitor the task to track the progress of this operation.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22730,7 +22730,7 @@
         "description": "Sync a network pool. The command updates the networking pool to match the defined scope of its corresponding transport zone.\n\n The pool must not be in use.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22766,7 +22766,7 @@
         "description": "Synchronize syslog server settings for a network.\n\n When you change the IP addresses of the primary or secondary syslog server for a cloud, you must also synchronize the syslog server settings for organization and vApp networks that include a firewall service for which logging has been enabled.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22802,7 +22802,7 @@
         "description": "Synchronize syslog server settings on an edgeGateway.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -22912,7 +22912,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23008,7 +23008,7 @@
         "description": "Unprepare a host.\n\n Unpreparing host makes its resources inaccessible to vCloud Director.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23045,7 +23045,7 @@
         "description": "Unregister a vCenter server.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23251,7 +23251,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23297,7 +23297,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "{@link TaskType}\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23382,7 +23382,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23418,7 +23418,7 @@
         "description": "Upgrades the edge gateway appliance size.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23454,7 +23454,7 @@
         "description": "Upgrade the vCloud Director host agent on a host after you have upgraded vCloud Director software.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23491,7 +23491,7 @@
         "description": "Upgrade the virtual hardware version of a VM to the highest supported virtual hardware version of the vDC that contains it.",
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=32.0": {
                 "schema": {
@@ -23537,7 +23537,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -23565,7 +23565,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -23593,7 +23593,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "deprecated": true,
@@ -23622,7 +23622,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "deprecated": true,
@@ -23662,7 +23662,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "deprecated": true,
@@ -23691,7 +23691,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "deprecated": true,
@@ -23731,7 +23731,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "BundleUploadSocketType containing URL where bundle must be uploaded.",
             "content": {
               "application/vnd.vmware.admin.bundleUploadSocket+json;version=32.0": {
                 "schema": {
@@ -23766,7 +23766,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "MediaType\n\n The response includes an upload link for the media image.",
             "content": {
               "application/vnd.vmware.vcloud.media+json;version=32.0": {
                 "schema": {
@@ -23813,7 +23813,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -23841,7 +23841,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [
@@ -23880,7 +23880,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "CatalogItemType\n\n The response is the CatalogItemType. The API client then need to make another call to the referenced media entity in order to get the upload URI.",
             "content": {
               "application/vnd.vmware.vcloud.catalogItem+json;version=32.0": {
                 "schema": {
@@ -23926,7 +23926,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success",
+            "description": "VAppTemplateType\n\n The response includes an upload link for the OVF descriptor",
             "content": {
               "application/vnd.vmware.vcloud.vAppTemplate+json;version=32.0": {
                 "schema": {
@@ -23973,7 +23973,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "{@link JAXBElement}"
           }
         },
         "security": [

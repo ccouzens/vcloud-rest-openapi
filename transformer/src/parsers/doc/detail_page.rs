@@ -58,7 +58,10 @@ impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionList {
 #[derive(Debug, PartialEq, Clone)]
 pub enum DefinitionListValue {
     Text(String),
-    SubList(Box<DefinitionList>),
+    TextAndSublist {
+        preamble: Option<String>,
+        sublist: Box<DefinitionList>,
+    },
 }
 
 #[derive(Error, Debug)]
@@ -74,14 +77,23 @@ impl<'a> TryFrom<&scraper::ElementRef<'a>> for DefinitionListValue {
     type Error = DefinitionListValueFromElError;
 
     fn try_from(el: &scraper::ElementRef) -> Result<Self, Self::Error> {
-        let top_selector = scraper::Selector::parse(":scope > dl, :scope > MetadataType > dl")
+        let top_selector = scraper::Selector::parse(":scope > dl")
             .map_err(|e| Self::Error::SelectorParseError(format!("{:?}", e)))?;
+        let text = el.inner_html().split("<dl>").next().and_then(|t| {
+            let trim = t.trim();
+            if trim.is_empty() {
+                None
+            } else {
+                Some(trim.to_string())
+            }
+        });
         let child = el.select(&top_selector).next();
         match (child, child.map(|c| c.value().name())) {
-            (Some(child), Some("dl")) => Ok(Self::SubList(Box::new(
-                DefinitionList::try_from(&child).map_err(Box::new)?,
-            ))),
-            _ => Ok(Self::Text(el.inner_html())),
+            (Some(child), Some("dl")) => Ok(Self::TextAndSublist {
+                preamble: text,
+                sublist: Box::new(DefinitionList::try_from(&child).map_err(Box::new)?),
+            }),
+            _ => Ok(Self::Text(text.unwrap_or_default())),
         }
     }
 }
@@ -94,14 +106,14 @@ impl DefinitionListValue {
     pub fn as_text(&self) -> Option<&str> {
         match self {
             DefinitionListValue::Text(html) => Some(html.as_str()),
-            DefinitionListValue::SubList(_) => None,
+            DefinitionListValue::TextAndSublist { preamble, .. } => preamble.as_deref(),
         }
     }
 
     pub fn as_sublist(&self) -> Option<&DefinitionList> {
         match self {
             DefinitionListValue::Text(_) => None,
-            DefinitionListValue::SubList(b) => Some(b),
+            DefinitionListValue::TextAndSublist { sublist, .. } => Some(sublist),
         }
     }
 }
@@ -131,7 +143,8 @@ impl TryFrom<&str> for DetailPage {
     type Error = DetailPageFromStrError;
 
     fn try_from(html: &str) -> Result<Self, Self::Error> {
-        let document = scraper::Html::parse_document(html);
+        let document =
+            scraper::Html::parse_document(&html.replace("<MetadataType>", "&lt;metadatatype&gt;"));
         let title_selector = scraper::Selector::parse("title")
             .map_err(|e| Self::Error::SelectorParseError(format!("{:?}", e)))?;
         let h1_selector = scraper::Selector::parse("h1")
@@ -189,7 +202,7 @@ fn parse_operation_test() {
                     ("Since:".into(), DefinitionListValue::Text("0.9".into())),
                     (
                         "Input parameters".into(),
-                        DefinitionListValue::SubList(Box::new(DefinitionList(
+                        DefinitionListValue::TextAndSublist{preamble: None, sublist: Box::new(DefinitionList(
                             [
                                 (
                                     "Consume media type(s):".into(),
@@ -206,11 +219,11 @@ fn parse_operation_test() {
                             .iter()
                             .cloned()
                             .collect()
-                        )))
+                        ))}
                     ),
                     (
                         "Query parameters".into(),
-                        DefinitionListValue::SubList(Box::new(DefinitionList(
+                        DefinitionListValue::TextAndSublist{preamble: None, sublist: Box::new(DefinitionList(
                             [
                                 (
                                     "Parameter".into(),
@@ -236,11 +249,11 @@ fn parse_operation_test() {
                             .iter()
                             .cloned()
                             .collect()
-                        )))
+                        ))}
                     ),
                     (
                         "Output parameters".into(),
-                        DefinitionListValue::SubList(Box::new(DefinitionList(
+                        DefinitionListValue::TextAndSublist{preamble: Some("AdminTestType<br><br>\n            <p>Extended description<br><br>\n            </p>".into()), sublist: Box::new(DefinitionList(
                             [
                                 (
                                     "Produce media type(s):".into(),
@@ -257,11 +270,11 @@ fn parse_operation_test() {
                             .iter()
                             .cloned()
                             .collect()
-                        )))
+                        ))}
                     ),
                     (
                         "Examples".into(),
-                        DefinitionListValue::SubList(Box::new(DefinitionList(Default::default())))
+                        DefinitionListValue::TextAndSublist{preamble: None, sublist: Box::new(DefinitionList(Default::default()))}
                     )
                 ]
                 .iter()
