@@ -1,5 +1,7 @@
 #[macro_use]
 extern crate unhtml_derive;
+#[macro_use]
+extern crate lazy_static;
 
 use openapiv3::{Components, OpenAPI, ReferenceOr, SecurityScheme, Tag};
 use std::io::Read;

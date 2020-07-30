@@ -440,7 +440,14 @@
         ],
         "responses": {
           "2XX": {
-            "description": "JAXBElement for API version 30.0 or greater, 204 no\\_content for older API versions"
+            "description": "JAXBElement<TaskType\\> for API version 30.0 or greater, 204 no\\_content for older API versions",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -554,7 +561,7 @@
         "description": "Retrieve the value of the specified key from catalog item metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -655,7 +662,7 @@
         "description": "Retrieve the value of the specified key from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -848,7 +855,14 @@
         "description": "Retrieve the value of the specified key from disk metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<MetadataValueType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_MetadataValueType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1486,7 +1500,7 @@
         "description": "Retrieve the value of the specified key from media object metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -1809,7 +1823,7 @@
         "description": "Retrieve the value of the specified key from network metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -2012,7 +2026,14 @@
         "description": "Retrieve organization OAuth settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgOAuthSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationOAuthSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgOAuthSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2038,7 +2059,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgOAuthSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationOAuthSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgOAuthSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2280,7 +2308,7 @@
         "description": "Retrieve the value of the specified key from organization metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -2473,7 +2501,7 @@
         "description": "Retrieve the value of the specified key from provider vDC metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -2574,7 +2602,7 @@
         "description": "Retrieve the value of the specified key from Provider VDC Storage Profile metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -4026,7 +4054,7 @@
         "description": "Retrieve the value of the specified key from vApp or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -4219,7 +4247,7 @@
         "description": "Retrieve the value of the specified key from vApp template or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -4540,7 +4568,7 @@
         "description": "Retrieve the value of the specified key from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -4641,7 +4669,7 @@
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -5045,7 +5073,14 @@
         "description": "Retrieve the list of IP addresses allocated to the network.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<AllocatedIpAddressesType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.allocatedNetworkAddress+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AllocatedIpAddressesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5074,7 +5109,14 @@
         "description": "Retrieve a list of IP addresses allocated to the network.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<AllocatedIpAddressesType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.allocatedNetworkAddress+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_AllocatedIpAddressesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5103,7 +5145,14 @@
         "description": "Retrieve system AMQP settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<AmqpSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.amqpSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5129,7 +5178,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<AmqpSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.amqpSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5580,7 +5636,14 @@
         "description": "Retrieve the list of ESX/ESXi hosts in the cloud.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<VMWHostReferencesType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.vmwHostReferences+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWHostReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5609,7 +5672,10 @@
         "description": "Retrieve a list of available vCenter networks and portgroups.\n\n Networks and portgroups that are already in use by a vCloud Director network are not listed.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<NetworksReferencesType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.vimServerNetworks+json;version=33.0": {}
+            }
           }
         },
         "security": [
@@ -5746,7 +5812,14 @@
         "description": "Retrieve a list of operations that are configured as blocking tasks.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<TaskExtensionSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.taskOperationList+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskOperationListType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5772,7 +5845,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<TaskOperationListType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.taskOperationList+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskOperationListType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5790,7 +5870,14 @@
         "description": "Retrieve system blocking task settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<TaskExtensionSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.blockingTaskSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_BlockingTaskSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5816,7 +5903,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<TaskExtensionSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.blockingTaskSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_BlockingTaskSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5870,7 +5964,14 @@
         "description": "Retrieve system branding settings.\n\n You can use system branding settings to customize the vCloud Director Web console and some of the links that appear on the vCloud Director Home login screen.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<BrandingSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.brandingSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_BrandingSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5896,7 +5997,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<BrandingSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.brandingSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_BrandingSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5950,7 +6058,7 @@
         "description": "Retrieve all metadata associated with a catalog item.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -6019,7 +6127,7 @@
         "description": "Retrieve metadata associated with the catalog.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -6088,7 +6196,7 @@
         "description": "Retrieve all catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -6124,7 +6232,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -6178,7 +6286,14 @@
         "description": "Retrieve the owner of a catalog.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OwnerType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.owner+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OwnerType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6565,7 +6680,14 @@
         "description": "Retrieve the system\\-level settings for CPoM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<CpomSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.cpomSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_CpomSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6591,7 +6713,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<CpomSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.cpomSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_CpomSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7011,7 +7140,7 @@
         "description": "Retrieve metadata associated with the disk.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -7080,7 +7209,14 @@
         "description": "Retrieve the owner of a disk.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OwnerType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.owner+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OwnerType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7382,7 +7518,14 @@
         "description": "Retrieve system email settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<EmailSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.emailSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_EmailSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7408,7 +7551,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<EmailSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.emailSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_EmailSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7839,7 +7989,14 @@
         "description": "Retrieve other organization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<GeneralOrgSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationFederationSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgFederationSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7865,7 +8022,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<GeneralOrgSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationFederationSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgFederationSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8003,7 +8167,14 @@
         "description": "Retrieve other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system\\-wide configuration defaults.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<GeneralSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.generalSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_GeneralSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8029,7 +8200,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<GeneralSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.generalSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_GeneralSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8047,7 +8225,14 @@
         "description": "Retrieve other organization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<GeneralOrgSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationGeneralSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgGeneralSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8073,7 +8258,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<GeneralOrgSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationGeneralSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgGeneralSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8717,7 +8909,14 @@
         "description": "Retrieve system Kerberos settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<KerberosSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.kerberosSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_KerberosSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8743,7 +8942,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<KerberosSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.kerberosSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_KerberosSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8761,7 +8967,14 @@
         "description": "Retrieve system LDAP settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<LdapSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.ldapSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_LdapSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8787,7 +9000,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<LdapSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.ldapSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_LdapSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8943,7 +9163,14 @@
         "description": "Retrieve vCloud Director catalog setting details.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<CatalogSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.catalogSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_CatalogSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8969,7 +9196,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<CatalogSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.catalogSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_CatalogSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8987,7 +9221,14 @@
         "description": "Retrieve vCloud Director software license details.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<LicenseType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.licenseSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_LicenseType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9013,7 +9254,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<LicenseType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.licenseSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_LicenseType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9243,7 +9491,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "AcceptedResponse"
+            "description": "AcceptedResponse<TaskType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9333,7 +9588,7 @@
         "description": "Retrieve metadata associated with a media object.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -9402,7 +9657,14 @@
         "description": "Retrieve the owner of a media object.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OwnerType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.owner+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OwnerType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9662,7 +9924,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement} with given VM group name"
+            "description": "{@link JAXBElement<VMWVmGroupType\\>} with given VM group name",
+            "content": {
+              "application/vnd.vmware.admin.vmwNamedVmGroupType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWNamedVmGroupType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9691,7 +9960,14 @@
         "description": "Gets all references to named VM groups.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement} with given VM group name"
+            "description": "{@link JAXBElement<VMWVmGroupType\\>} with given VM group name",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10123,7 +10399,7 @@
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -10192,7 +10468,7 @@
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -10228,7 +10504,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from network metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -10480,7 +10756,14 @@
         "description": "Retrieve system AMQP notifications settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<NotificationsSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.notificationsSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_NotificationsSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10506,7 +10789,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<NotificationsSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.notificationsSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_NotificationsSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10759,7 +11049,14 @@
         "description": "Retrieves the system wide defaults for tenant throttling",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OperationLimitsSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.operationLimitsSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10785,7 +11082,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OperationLimitsSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.operationLimitsSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10803,7 +11107,14 @@
         "description": "Retrieve organization email settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgEmailSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationEmailSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgEmailSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10829,7 +11140,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement"
+            "description": "JAXBElement<OrgEmailSettingsType\\>",
+            "content": {
+              "application/vnd.vmware.admin.organizationEmailSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgEmailSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10858,7 +11176,14 @@
         "description": "Retrieve organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgGuestPersonalizationSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.guestPersonalizationSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgGuestPersonalizationSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10884,7 +11209,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgGuestPersonalizationSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.guestPersonalizationSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgGuestPersonalizationSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10913,7 +11245,14 @@
         "description": "Retrieve organization LDAP settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgEmailSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationLdapSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgLdapSettingsType"
+                }
+              }
+            }
           }
         },
         "deprecated": true,
@@ -10940,7 +11279,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgEmailSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationLdapSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgLdapSettingsType"
+                }
+              }
+            }
           }
         },
         "deprecated": true,
@@ -11079,7 +11425,14 @@
         "description": "Retrieve organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgGuestPersonalizationSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.orgOperationLimitsSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgOperationLimitsSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11105,7 +11458,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement"
+            "description": "JAXBElement<OrgGuestPersonalizationSettingsType\\>",
+            "content": {
+              "application/vnd.vmware.admin.orgOperationLimitsSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgOperationLimitsSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11134,7 +11494,14 @@
         "description": "Retrieve organization password policy settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgPasswordPolicySettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.organizationPasswordPolicySettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgPasswordPolicySettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11160,7 +11527,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement"
+            "description": "JAXBElement<OrgPasswordPolicyLeaseSettingsType\\>",
+            "content": {
+              "application/vnd.vmware.admin.organizationPasswordPolicySettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgPasswordPolicySettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11189,7 +11563,14 @@
         "description": "Retrieve settings for this organization.\n\n Organization settings are divided into categories. This request retrieves all categories of organization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.orgSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11215,7 +11596,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.orgSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11567,7 +11955,7 @@
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -11636,7 +12024,7 @@
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -11672,7 +12060,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from organization metadata .",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -11896,7 +12284,14 @@
         "description": "Retrieve a list of ProductSection elements from a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<ProductSectionListType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.productSections+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ProductSectionListType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11958,7 +12353,14 @@
         "description": "Retrieve a list of ProductSection elements from a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<ProductSectionListType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.productSections+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ProductSectionListType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -12056,7 +12458,7 @@
         "description": "Retrieve metadata associated with the provider vDC.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -12255,7 +12657,7 @@
         "description": "Retrieve metadata associated with the Provider VDC Storage Profile.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -13104,6 +13506,16 @@
           "extension"
         ],
         "description": "Create VM Affinity Rules within this resource pool.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwVmHostAffinityRule+json;version=33.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWVmHostAffinityRuleType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "the task to create VM Host Affinity Rule",
@@ -14129,7 +14541,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement"
+            "description": "JAXBElement<TaskType\\>",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14147,7 +14566,14 @@
         "description": "Retrieve SnapshotSection element for a vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<SnapshotSectionType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.snapshotSection+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SnapshotSectionType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14237,7 +14663,14 @@
         "description": "Retrieve all storage profiles in the VIM server",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<VMWStorageProfilesType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.vmwStorageProfiles+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWStorageProfilesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14423,7 +14856,14 @@
         "description": "Retrieve system password policy settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<SystemPasswordPolicySettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.systemPasswordPolicySettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_SystemPasswordPolicySettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14449,7 +14889,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<SystemPasswordPolicySettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.systemPasswordPolicySettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_SystemPasswordPolicySettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14467,7 +14914,14 @@
         "description": "Retrieve system settings.\n\n System settings specify default values and behaviors for the cloud and all of the organizations in it. System settings are divided into categories. This request retrieves all categories of system settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<SystemSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.systemSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_SystemSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14493,7 +14947,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<SystemSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.systemSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_SystemSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14790,7 +15251,14 @@
         "description": "Retrieve organization vApp lease settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgLeaseSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.vAppLeaseSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgLeaseSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14816,7 +15284,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement"
+            "description": "JAXBElement<OrgVAppTemplateLeaseSettingsType\\>",
+            "content": {
+              "application/vnd.vmware.admin.vAppLeaseSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgLeaseSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -14845,7 +15320,7 @@
         "description": "Retrieve metadata associated with the vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -14948,7 +15423,14 @@
         "description": "Retrieve the owner of a vApp.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OwnerType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.owner+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OwnerType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15039,7 +15521,14 @@
         "description": "Retrieve organization vApp template lease settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OrgVAppTemplateLeaseSettingsType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.vAppTemplateLeaseSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgVAppTemplateLeaseSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15065,7 +15554,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement"
+            "description": "JAXBElement<OrgVAppTemplateLeaseSettingsType\\>",
+            "content": {
+              "application/vnd.vmware.admin.vAppTemplateLeaseSettings+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OrgVAppTemplateLeaseSettingsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15094,7 +15590,7 @@
         "description": "Retrieve metadata associated with the vApp template or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -15197,7 +15693,14 @@
         "description": "Retrieve the owner of a vApp template.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<OwnerType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.owner+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_OwnerType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15675,7 +16178,14 @@
         "description": "Retrieve the vSphere URL of an object.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<VSphereWebClientUrlType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.vSphereWebClientUrl+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VSphereWebClientUrlType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15747,7 +16257,14 @@
         "description": "Get all vDC compute policies references in given vDC",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<VdcComputePolicyReferencesType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15773,7 +16290,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<VdcComputePolicyReferencesType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.vdcComputePolicyReferences+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VdcComputePolicyReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15802,7 +16326,14 @@
         "description": "Get all vDC compute policies references in given vDC",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<VdcComputePolicyReferencesType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.query.references+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -15969,7 +16500,7 @@
         "description": "Retrieve metadata associated with the virtual datacenter.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -16038,7 +16569,7 @@
         "description": "Retrieve metadata associated with a vDC.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -16074,7 +16605,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -16164,7 +16695,7 @@
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -16233,7 +16764,7 @@
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=33.0": {
                 "schema": {
@@ -16269,7 +16800,7 @@
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<metadatatype\\>}",
+            "description": "{@link JAXBElement<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=33.0": {
                 "schema": {
@@ -16490,7 +17021,14 @@
         "description": "Retrieve services associated with this network pool",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<ServicesType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.vmwNetworkPool.services+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VendorServicesType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -16946,7 +17484,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link AcceptedResponse}"
+            "description": "{@link AcceptedResponse<TaskType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -17077,10 +17622,17 @@
         "tags": [
           "extension"
         ],
-        "description": "Gets {@link JAXBElement} with given VM group name.",
+        "description": "Gets {@link JAXBElement<VMWVmGroupType\\>} with given VM group name.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement} with given VM group name"
+            "description": "{@link JAXBElement<VMWVmGroupType\\>} with given VM group name",
+            "content": {
+              "application/vnd.vmware.admin.vmwVmGroupType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWVmGroupType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -17154,7 +17706,14 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement} with given VM group name"
+            "description": "{@link JAXBElement<VMWVmGroupType\\>} with given VM group name",
+            "content": {
+              "application/vnd.vmware.admin.vmwVmGroupsType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VMWVmGroupsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -17204,6 +17763,16 @@
           "extension"
         ],
         "description": "Create VM group within this resource pool.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.vmwVmGroupType+json;version=33.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_VMWVmGroupType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "VM group task",
@@ -17405,7 +17974,14 @@
         "description": "Retrieve a list of all VMs attached to a disk.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<VmsType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.vms+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_VmsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -17600,6 +18176,16 @@
           "extension"
         ],
         "description": "Abort a blocking task.\n\n This request ends the task, cleaning up any transient objects that it created. Task status is set to ABORTED.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.blockingTaskOperationParams+json;version=33.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_BlockingTaskOperationParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -20585,6 +21171,16 @@
           "extension"
         ],
         "description": "Fail a blocking task.\n\n This request ends the task, setting the status of any transient objects that it created to ERROR. Task status is set to ERROR.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.blockingTaskOperationParams+json;version=33.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_BlockingTaskOperationParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -21413,7 +22009,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<TaskType\\>}",
+            "content": {
+              "application/vnd.vmware.vcloud.task+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TaskType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -22872,6 +23475,16 @@
           "extension"
         ],
         "description": "Resume a blocking task.\n\n This request unblocks the task and allows it to continue.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.blockingTaskOperationParams+json;version=33.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_BlockingTaskOperationParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -23556,6 +24169,16 @@
           "extension"
         ],
         "description": "Extend the expiration timeout of an active task.\n\n This request resets the timeout value and timeout action for an active task. Use this request to keep the task alive when it might become subject to a timeout action.",
+        "requestBody": {
+          "content": {
+            "application/vnd.vmware.admin.blockingTaskUpdateProgressOperationParams+json;version=33.0": {
+              "schema": {
+                "$ref": "#/components/schemas/vcloud-ext_BlockingTaskUpdateProgressParamsType"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -23890,7 +24513,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<CertificateUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.certificateUploadSocketType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CertificateUploadSocketType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -23918,7 +24548,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<TrustStoreUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.trustStoreUploadSocketType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_TrustStoreUploadSocketType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -23946,7 +24583,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<KeystoreUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.keystoreUploadSocketType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_KeystoreUploadSocketType"
+                }
+              }
+            }
           }
         },
         "deprecated": true,
@@ -23975,7 +24619,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<KeystoreUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.keystoreUploadSocketType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_KeystoreUploadSocketType"
+                }
+              }
+            }
           }
         },
         "deprecated": true,
@@ -24015,7 +24666,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<CertificateUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.certificateUploadSocketType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CertificateUploadSocketType"
+                }
+              }
+            }
           }
         },
         "deprecated": true,
@@ -24044,7 +24702,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<FileUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.certificateUploadSocketType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_CertificateUploadSocketType"
+                }
+              }
+            }
           }
         },
         "deprecated": true,
@@ -24166,7 +24831,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<SspiKeytabUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.sspiKeytabUploadSocketType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SspiKeytabUploadSocketType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -24194,7 +24866,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<SspiKeytabUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.sspiKeytabUploadSocketType+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_SspiKeytabUploadSocketType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -24326,7 +25005,14 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement}"
+            "description": "{@link JAXBElement<VcTrustStoreUploadSocketType\\>}",
+            "content": {
+              "application/vnd.vmware.admin.vcTrustStoreUploadSocket+json;version=33.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud-ext_VcTrustStoreUploadSocketType"
+                }
+              }
+            }
           }
         },
         "security": [

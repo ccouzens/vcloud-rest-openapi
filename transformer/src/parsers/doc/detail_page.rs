@@ -1,3 +1,4 @@
+use regex::{Captures, Regex};
 use std::convert::TryFrom;
 use thiserror::Error;
 
@@ -143,11 +144,13 @@ impl TryFrom<&str> for DetailPage {
     type Error = DetailPageFromStrError;
 
     fn try_from(html: &str) -> Result<Self, Self::Error> {
-        let document = scraper::Html::parse_document(
-            &html
-                .replace("<MetadataType>", "&lt;metadatatype&gt;")
-                .replace("<ContainerType>", "&lt;ContainerType&gt;"),
-        );
+        lazy_static! {
+            static ref UNINTENDED_XML: Regex = Regex::new(r"<([A-Z][a-zA-Z]+)>").unwrap();
+        }
+        let html =
+            UNINTENDED_XML.replace_all(html, |caps: &Captures| format!("&lt;{}&gt;", &caps[1]));
+
+        let document = scraper::Html::parse_document(&html);
         let title_selector = scraper::Selector::parse("title")
             .map_err(|e| Self::Error::SelectorParseError(format!("{:?}", e)))?;
         let h1_selector = scraper::Selector::parse("h1")

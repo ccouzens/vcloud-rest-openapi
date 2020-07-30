@@ -1191,6 +1191,7 @@ version = "0.1.0"
 dependencies = [
  "html2md",
  "indexmap",
+ "lazy_static",
  "openapiv3",
  "regex",
  "rusty_v8",
