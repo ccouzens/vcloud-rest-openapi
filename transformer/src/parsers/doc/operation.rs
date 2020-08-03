@@ -193,13 +193,10 @@ fn mimes_to_content(
 ) -> IndexMap<String, openapiv3::MediaType> {
     mimes
         .iter()
-        .map(|mime| {
+        .filter_map(|mime| {
             let mime_without_format = mime.trim_end_matches("+json").trim_end_matches("+xml");
-            match (
-                type_mapping.get(mime_without_format),
-                mime_without_format == mime,
-            ) {
-                (Some(type_name), _) => (
+            type_mapping.get(mime_without_format).map(|type_name| {
+                (
                     format!("{}+json;version={}", mime_without_format, api_version),
                     openapiv3::MediaType {
                         schema: Some(openapiv3::ReferenceOr::Reference {
@@ -207,13 +204,8 @@ fn mimes_to_content(
                         }),
                         ..Default::default()
                     },
-                ),
-                (None, true) => (mime.clone(), Default::default()),
-                (None, false) => (
-                    format!("{}+json;version={}", mime_without_format, api_version),
-                    Default::default(),
-                ),
-            }
+                )
+            })
         })
         .collect()
 }

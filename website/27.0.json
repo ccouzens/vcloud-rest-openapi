@@ -1622,17 +1622,11 @@
         ],
         "description": "Update a network pool.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.admin.networkPool+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
           "2XX": {
-            "description": "VMWNetworkPool",
-            "content": {
-              "application/vnd.vmware.admin.networkPool+json;version=27.0": {}
-            }
+            "description": "VMWNetworkPool"
           }
         },
         "security": [
@@ -4000,10 +3994,7 @@
         "description": "Retrieve a list of active or recently completed blocking task requests.",
         "responses": {
           "2XX": {
-            "description": "{@link ReferencesType}",
-            "content": {
-              "application/vnd.vmware.admin.blockingTaskList+json;version=27.0": {}
-            }
+            "description": "{@link ReferencesType}"
           }
         },
         "security": [
@@ -4462,10 +4453,7 @@
         "description": "Retrieve a list of available vCenter networks and portgroups.\n\n Networks and portgroups that are already in use by a vCloud Director network are not listed.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<NetworksReferencesType\\>}",
-            "content": {
-              "application/vnd.vmware.admin.vimServerNetworks+json;version=27.0": {}
-            }
+            "description": "{@link JAXBElement<NetworksReferencesType\\>}"
           }
         },
         "security": [
@@ -5359,10 +5347,7 @@
         "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:RASD\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {}
-            }
+            "description": "ovf:RASD\\_Type"
           }
         },
         "security": [
@@ -5377,9 +5362,6 @@
         ],
         "description": "Update the RASD item that specifies CPU properties of a VM.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
@@ -5420,10 +5402,7 @@
         "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:RASD\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {}
-            }
+            "description": "ovf:RASD\\_Type"
           }
         },
         "security": [
@@ -5438,9 +5417,6 @@
         ],
         "description": "Update the RASD item that specifies CPU properties of a VM.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
@@ -5540,10 +5516,7 @@
         "description": "Retrieve a list of references to datastores in the system.",
         "responses": {
           "2XX": {
-            "description": "DatastoreReferences",
-            "content": {
-              "application/vnd.vmware.admin.datastoreList+json;version=27.0": {}
-            }
+            "description": "DatastoreReferences"
           }
         },
         "security": [
@@ -7574,10 +7547,7 @@
         "description": "Retrieve the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:RASD\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {}
-            }
+            "description": "ovf:RASD\\_Type"
           }
         },
         "security": [
@@ -7592,9 +7562,6 @@
         ],
         "description": "Update the RASD item that specifies memory properties of a VM.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
@@ -7635,10 +7602,7 @@
         "description": "Retrieve the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:RASD\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {}
-            }
+            "description": "ovf:RASD\\_Type"
           }
         },
         "security": [
@@ -7653,9 +7617,6 @@
         ],
         "description": "Update the RASD item that specifies memory properties of a VM.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
@@ -8395,10 +8356,7 @@
         "description": "Retrieve the network section of a vApp or vApp template.",
         "responses": {
           "2XX": {
-            "description": "ovf:NetworkSection\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.networkSection+json;version=27.0": {}
-            }
+            "description": "ovf:NetworkSection\\_Type"
           }
         },
         "security": [
@@ -8427,10 +8385,7 @@
         "description": "Retrieve the network section of a vApp or vApp template.",
         "responses": {
           "2XX": {
-            "description": "ovf:NetworkSection\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.networkSection+json;version=27.0": {}
-            }
+            "description": "ovf:NetworkSection\\_Type"
           }
         },
         "security": [
@@ -8644,10 +8599,7 @@
         "description": "Retrieve the operating system section of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:OperatingSystemSection\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.operatingSystemSection+json;version=27.0": {}
-            }
+            "description": "ovf:OperatingSystemSection\\_Type"
           }
         },
         "security": [
@@ -8662,9 +8614,6 @@
         ],
         "description": "Update the operating system section of a VM.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.vcloud.operatingSystemSection+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
@@ -10555,12 +10504,7 @@
         "description": "Retrieve the specified schema definition file from the server.",
         "responses": {
           "2XX": {
-            "description": "xml schema represented as String",
-            "content": {
-              "text/xml": {},
-              "application/*+json;version=27.0": {},
-              "*/*": {}
-            }
+            "description": "xml schema represented as String"
           }
         },
         "security": [
@@ -10589,11 +10533,7 @@
         "description": "Unauthenticated GET of versions.xsd schema definition file.",
         "responses": {
           "2XX": {
-            "description": "versions.xsd encoded as UTF\\-8",
-            "content": {
-              "text/xml": {},
-              "application/*+json;version=27.0": {}
-            }
+            "description": "versions.xsd encoded as UTF\\-8"
           }
         },
         "security": [
@@ -11084,10 +11024,7 @@
         "description": "Always returns HTTP 200",
         "responses": {
           "2XX": {
-            "description": "success",
-            "content": {
-              "text/plain": {}
-            }
+            "description": "success"
           }
         },
         "security": [
@@ -11293,10 +11230,7 @@
         "description": "Retrieve the startup section of a vApp.",
         "responses": {
           "2XX": {
-            "description": "ovf:StartupSection\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.startupSection+json;version=27.0": {}
-            }
+            "description": "ovf:StartupSection\\_Type"
           }
         },
         "security": [
@@ -11311,9 +11245,6 @@
         ],
         "description": "Update the startup section of a vApp.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.vcloud.startupSection+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
@@ -11433,11 +11364,7 @@
         "description": "Retrieve a list of vCloud API versions supported by this system. This request does not require an authentication token.",
         "responses": {
           "2XX": {
-            "description": "The list of supported vCloud API versions and their login URLs.",
-            "content": {
-              "text/xml": {},
-              "application/*+json;version=27.0": {}
-            }
+            "description": "The list of supported vCloud API versions and their login URLs."
           }
         },
         "security": [
@@ -11894,11 +11821,7 @@
         "description": "Retrieve the OVF descriptor of a vApp directly.",
         "responses": {
           "2XX": {
-            "description": "ovf:EnvelopType",
-            "content": {
-              "text/xml": {},
-              "application/*+json;version=27.0": {}
-            }
+            "description": "ovf:EnvelopType"
           }
         },
         "security": [
@@ -12163,11 +12086,7 @@
         "description": "Retrieve the OVF descriptor of a vApp template.",
         "responses": {
           "2XX": {
-            "description": "ovf:EnvelopType",
-            "content": {
-              "text/xml": {},
-              "application/*+json;version=27.0": {}
-            }
+            "description": "ovf:EnvelopType"
           }
         },
         "security": [
@@ -13156,10 +13075,7 @@
         "description": "Retrieve the virtual hardware section of a VM.\n\n This operation retrieves the entire VirtualHardwareSection of a VM. You can also retrieve many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
-            "description": "ovf:VirtualHardwareSection\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.virtualHardwareSection+json;version=27.0": {}
-            }
+            "description": "ovf:VirtualHardwareSection\\_Type"
           }
         },
         "security": [
@@ -13174,9 +13090,6 @@
         ],
         "description": "Update the virtual hardware section of a VM.\n\n This operation updates the entire VirtualHardwareSection of a VM. You can also update many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.vcloud.virtualHardwareSection+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
@@ -13217,10 +13130,7 @@
         "description": "Retrieve the virtual hardware section of a VM.\n\n This operation retrieves the entire VirtualHardwareSection of a VM. You can also retrieve many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "responses": {
           "2XX": {
-            "description": "ovf:VirtualHardwareSection\\_Type",
-            "content": {
-              "application/vnd.vmware.vcloud.virtualHardwareSection+json;version=27.0": {}
-            }
+            "description": "ovf:VirtualHardwareSection\\_Type"
           }
         },
         "security": [
@@ -13235,9 +13145,6 @@
         ],
         "description": "Update the virtual hardware section of a VM.\n\n This operation updates the entire VirtualHardwareSection of a VM. You can also update many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.vcloud.virtualHardwareSection+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
@@ -15259,17 +15166,11 @@
         ],
         "description": "Create a network pool.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.admin.networkPool+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
           "2XX": {
-            "description": "VMWNetworkPool",
-            "content": {
-              "application/vnd.vmware.admin.networkPool+json;version=27.0": {}
-            }
+            "description": "VMWNetworkPool"
           }
         },
         "security": [
@@ -15286,17 +15187,11 @@
         ],
         "description": "Create an organization network.",
         "requestBody": {
-          "content": {
-            "application/vnd.vmware.admin.orgNetwork+json;version=27.0": {}
-          },
           "required": true
         },
         "responses": {
           "2XX": {
-            "description": "OrgNetworkType",
-            "content": {
-              "application/vnd.vmware.admin.orgNetwork+json;version=27.0": {}
-            }
+            "description": "OrgNetworkType"
           }
         },
         "deprecated": true,
