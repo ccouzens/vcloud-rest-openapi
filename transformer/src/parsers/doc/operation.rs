@@ -216,6 +216,8 @@ impl Operation {
         api_version: &str,
         type_mapping: &BTreeMap<String, String>,
     ) -> openapiv3::Operation {
+        let request_content = mimes_to_content(&self.request_contents, api_version, type_mapping);
+
         openapiv3::Operation {
             description: Some(self.description),
             responses: openapiv3::Responses {
@@ -239,9 +241,9 @@ impl Operation {
                 ..Default::default()
             },
             tags: vec![self.tag.into()],
-            request_body: if self.request_contents.len() > 0 {
+            request_body: if !request_content.is_empty() {
                 Some(openapiv3::ReferenceOr::Item(openapiv3::RequestBody {
-                    content: mimes_to_content(&self.request_contents, api_version, type_mapping),
+                    content: request_content,
                     required: true,
                     ..Default::default()
                 }))

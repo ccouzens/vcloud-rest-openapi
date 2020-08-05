@@ -6689,9 +6689,6 @@
           "user"
         ],
         "description": "Update the RASD item that specifies CPU properties of a VM.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -6744,9 +6741,6 @@
           "user"
         ],
         "description": "Update the RASD item that specifies CPU properties of a VM.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -9711,9 +9705,6 @@
           "user"
         ],
         "description": "Update the RASD item that specifies memory properties of a VM.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -9766,9 +9757,6 @@
           "user"
         ],
         "description": "Update the RASD item that specifies memory properties of a VM.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -10877,9 +10865,6 @@
           "user"
         ],
         "description": "Update the operating system section of a VM.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -14420,9 +14405,6 @@
           "user"
         ],
         "description": "Update the startup section of a vApp.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -17041,9 +17023,6 @@
           "user"
         ],
         "description": "Update the virtual hardware section of a VM.\n\n This operation updates the entire VirtualHardwareSection of a VM. You can also update many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -17096,9 +17075,6 @@
           "user"
         ],
         "description": "Update the virtual hardware section of a VM.\n\n This operation updates the entire VirtualHardwareSection of a VM. You can also update many RASD item elements of a VirtualHardwareSection individually, or as groups of related items.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -19220,9 +19196,6 @@
           "extension"
         ],
         "description": "Create a network pool.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "VMWNetworkPool"
@@ -19241,9 +19214,6 @@
           "admin"
         ],
         "description": "Create an organization network.",
-        "requestBody": {
-          "required": true
-        },
         "responses": {
           "2XX": {
             "description": "OrgNetworkType"
