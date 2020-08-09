@@ -14,7 +14,7 @@ but it contains little of the functionality of the
 
 [API definition for VMware Cloud Director 10.1](./34.0.json)
 
-[All versions](./)
+Other versions can be found at the top level directory of this repository.
 
 ## Work in Progress Milestones
 
