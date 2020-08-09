@@ -12,9 +12,9 @@ vCloud Director has an
 but it contains little of the functionality of the
 [Rest API](https://code.vmware.com/apis/912/vmware-cloud-director).
 
-[API definition for VMware Cloud Director 10.1](website/34.0.json)
+[API definition for VMware Cloud Director 10.1](./34.0.json)
 
-[All versions](website/)
+[All versions](./)
 
 ## Work in Progress Milestones
 
