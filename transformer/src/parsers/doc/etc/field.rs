@@ -1,5 +1,4 @@
 use crate::parsers::doc::etc::annotation::Annotation;
-use crate::parsers::doc::etc::annotation::Modifiable;
 use crate::parsers::doc::etc::primitive_type::RestrictedPrimitiveType;
 use crate::parsers::doc::etc::simple_type::str_to_simple_type_or_reference;
 use crate::parsers::doc::etc::simple_type::SimpleType;
@@ -154,8 +153,7 @@ impl From<&Field> for openapiv3::Schema {
         openapiv3::Schema {
             schema_data: openapiv3::SchemaData {
                 nullable: false,
-                read_only: s.annotation.as_ref().and_then(|a| a.modifiable)
-                    == Some(Modifiable::None),
+                read_only: false,
                 deprecated: s.annotation.as_ref().map(|a| a.deprecated) == Some(true),
                 description: s.annotation.as_ref().and_then(|a| a.description.clone()),
                 ..Default::default()
@@ -215,7 +213,6 @@ fn test_parse_field_from_required_attribute() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "readOnly": true,
             "description": "A field that comes from an attribute.",
             "type": "string"
         })
@@ -241,7 +238,6 @@ fn test_parse_field_from_optional_attribute() {
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
-            "readOnly": true,
             "description": "A field that comes from an optional attribute.",
             "type": "string"
         })
@@ -294,7 +290,6 @@ fn test_field_array_into_schema() {
         json!({
             "description": "A field that could be repeated many times in the `XML`.",
             "type": "array",
-            "readOnly": true,
             "items": {
                 "format": "int32",
                 "type": "integer"
@@ -323,8 +318,7 @@ fn test_field_exactly_one_into_schema() {
         serde_json::to_value(value).unwrap(),
         json!({
             "description": "A field that appears precisely once in the `XML`.",
-            "type": "boolean",
-            "readOnly": true,
+            "type": "boolean"
         })
     );
 }
@@ -350,8 +344,7 @@ fn test_anyuri_into_schema() {
         json!({
             "description": "A field that is meant to represent a URL.",
             "format": "uri",
-            "type": "string",
-            "readOnly": true,
+            "type": "string"
         })
     );
 }
@@ -377,8 +370,7 @@ fn test_double_into_schema() {
         json!({
             "description": "A field that represents a double precision float",
             "format": "double",
-            "type": "number",
-            "readOnly": true,
+            "type": "number"
         })
     );
 }
@@ -404,8 +396,7 @@ fn test_long_into_schema() {
         json!({
             "description": "A field that represents 64 bit signed integer",
             "format": "int64",
-            "type": "integer",
-            "readOnly": true,
+            "type": "integer"
         })
     );
 }
@@ -431,8 +422,7 @@ fn test_datetime_into_schema() {
         json!({
             "description": "A field that represents date time in ISO 8601 which is basically RFC 3339.",
             "format": "date-time",
-            "type": "string",
-            "readOnly": true,
+            "type": "string"
         })
     );
 }
@@ -458,8 +448,7 @@ fn test_base64_binary_into_schema() {
         json!({
             "description": "Base64 binary data",
             "format": "byte",
-            "type": "string",
-            "readOnly": true,
+            "type": "string"
         })
     );
 }
@@ -484,8 +473,7 @@ fn test_normalized_string_into_schema() {
         serde_json::to_value(value).unwrap(),
         json!({
             "description": "Field that cannot contain new lines",
-            "type": "string",
-            "readOnly": true,
+            "type": "string"
         })
     );
 }
@@ -510,8 +498,7 @@ fn test_short_into_schema() {
         serde_json::to_value(value).unwrap(),
         json!({
             "description": "Field that is a 16 bit signed integer",
-            "type": "integer",
-            "readOnly": true,
+            "type": "integer"
         })
     );
 }
@@ -537,7 +524,6 @@ fn test_decimal_into_schema() {
         json!({
             "description": "Field that is a precise decimal number",
             "type": "string", // verify this!
-            "readOnly": true,
         })
     );
 }
@@ -563,8 +549,7 @@ fn test_float_into_schema() {
         json!({
             "description": "Field that is a 32 bit signed floating point type",
             "type": "number",
-            "format": "float",
-            "readOnly": true,
+            "format": "float"
         })
     );
 }
@@ -589,8 +574,7 @@ fn test_hex_binary_into_schema() {
         serde_json::to_value(value).unwrap(),
         json!({
             "description": "Hexadecimal binary data",
-            "type": "string",
-            "readOnly": true,
+            "type": "string"
         })
     );
 }
@@ -615,8 +599,7 @@ fn test_integer_into_schema() {
         serde_json::to_value(value).unwrap(),
         json!({
             "description": "Unbounded signed integer",
-            "type": "integer",
-            "readOnly": true,
+            "type": "integer"
         })
     );
 }
@@ -641,8 +624,7 @@ fn test_any_type_into_schema() {
         serde_json::to_value(value).unwrap(),
         json!({
             "description": "A field that could be anything",
-            "type": "string",
-            "readOnly": true,
+            "type": "string"
         })
     );
 }
@@ -673,7 +655,6 @@ fn test_element_with_simple_type() {
         json!({
             "description": "String with pattern",
             "type": "string",
-            "readOnly": true,
             "pattern": "pattern"
         })
     );

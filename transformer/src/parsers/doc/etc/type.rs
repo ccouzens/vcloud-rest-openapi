@@ -184,7 +184,6 @@ fn parse_type_that_is_attribute_test() {
               "type": "object",
               "properties": {
                 "requiredAttribute": {
-                  "readOnly": true,
                   "description": "A field that comes from an attribute.",
                   "type": "string"
                 }
@@ -232,7 +231,6 @@ fn parse_type_that_is_attribute_but_not_required_test() {
               "type": "object",
               "properties": {
                 "optionalAttribute": {
-                  "readOnly": true,
                   "description": "A field that comes from an attribute.",
                   "type": "string"
                 }
@@ -279,7 +277,6 @@ fn parse_type_that_is_attribute_but_not_extension_test() {
           "type": "object",
           "properties": {
             "requiredAttribute": {
-              "readOnly": true,
               "description": "A field that comes from an attribute.",
               "type": "string"
             }

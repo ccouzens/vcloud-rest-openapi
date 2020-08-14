@@ -149,7 +149,6 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                             content_type: None,
                             deprecated: false,
                             description: None,
-                            modifiable: None,
                             required: Some(true),
                             removed: false,
                         }),
@@ -304,8 +303,7 @@ fn parse_attribute_group_test() {
                 "age": {
                   "description": "Your age in years.",
                   "format": "int32",
-                  "type": "integer",
-                  "readOnly": true
+                  "type": "integer"
                 }
               },
               "required": [
@@ -355,7 +353,6 @@ fn parse_attribute_group_ref_test() {
               "type": "object",
               "properties": {
                 "optionalAttribute": {
-                  "readOnly": true,
                   "description": "A field that comes from an attribute.",
                   "type": "string"
                 }
@@ -412,7 +409,6 @@ fn parse_annotation_inside_complex_content_test() {
               "type": "object",
               "properties": {
                 "requiredAttribute": {
-                  "readOnly": true,
                   "description": "A field that comes from an attribute.",
                   "type": "string"
                 }

@@ -116,7 +116,6 @@ fn schema_into_schemas_test() {
                 "type": "object",
                 "properties": {
                   "requiredAttribute": {
-                    "readOnly": true,
                     "description": "A field that comes from an attribute.",
                     "type": "string"
                   },
@@ -129,7 +128,6 @@ fn schema_into_schemas_test() {
                     "type": "string"
                   },
                   "readOnlyString": {
-                    "readOnly": true,
                     "description": "String that can not be modified",
                     "type": "string"
                   },
@@ -168,7 +166,6 @@ fn schema_into_schemas_test() {
                     ]
                   },
                   "unboundedCustom2": {
-                    "readOnly": true,
                     "description": "A reference to many of another type",
                     "type": "array",
                     "items": {
@@ -214,7 +211,6 @@ fn schema_into_schemas_test() {
                 "type": "object",
                 "properties": {
                   "someField2": {
-                    "readOnly": true,
                     "description": "Bar",
                     "type": "string"
                   }
