@@ -103,7 +103,7 @@ pub fn schemas<R: Read + Seek>(
             k.strip_prefix("vcloud_").and_then(|t| {
                 if t.starts_with("QueryResult")
                     && t.ends_with("RecordType")
-                    && !(t == "QueryResultRecordType")
+                    && t != "QueryResultRecordType"
                 {
                     Some((String::from(k), String::from(t)))
                 } else {
@@ -111,7 +111,7 @@ pub fn schemas<R: Read + Seek>(
                 }
             })
         })
-        .collect::<Vec<_>>();
+        .collect();
     output.insert(
         String::from("QueryResultRecordType"),
         ReferenceOr::Item(Schema {
@@ -119,7 +119,7 @@ pub fn schemas<R: Read + Seek>(
                 one_of: query_record_types
                     .iter()
                     .map(|qrt| openapiv3::ReferenceOr::Reference {
-                        reference: String::from(&qrt.0),
+                        reference: qrt.0.clone(),
                     })
                     .collect(),
             },
