@@ -32539,7 +32539,7 @@
                 "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
+                    "$ref": "#/components/schemas/MetadataTypedValue"
                   }
                 ]
               }
@@ -32557,6 +32557,20 @@
         "title": "vcloud_MetadataTypedValue",
         "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
         "type": "object",
+        "properties": {
+          "_type": {
+            "type": "string",
+            "enum": [
+              "MetadataStringValue",
+              "MetadataNumberValue",
+              "MetadataBooleanValue",
+              "MetadataDateTimeValue"
+            ]
+          }
+        },
+        "required": [
+          "_type"
+        ],
         "additionalProperties": false
       },
       "vcloud_MetadataStringValue": {
@@ -32687,7 +32701,7 @@
               "typedValue": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
+                    "$ref": "#/components/schemas/MetadataTypedValue"
                   }
                 ]
               }
@@ -45079,6 +45093,31 @@
             }
           }
         }
+      },
+      "MetadataTypedValue": {
+        "discriminator": {
+          "propertyName": "_type",
+          "mapping": {
+            "MetadataStringValue": "#/components/schemas/vcloud_MetadataStringValue",
+            "MetadataNumberValue": "#/components/schemas/vcloud_MetadataNumberValue",
+            "MetadataBooleanValue": "#/components/schemas/vcloud_MetadataBooleanValue",
+            "MetadataDateTimeValue": "#/components/schemas/vcloud_MetadataDateTimeValue"
+          }
+        },
+        "oneOf": [
+          {
+            "$ref": "vcloud_MetadataStringValue"
+          },
+          {
+            "$ref": "vcloud_MetadataNumberValue"
+          },
+          {
+            "$ref": "vcloud_MetadataBooleanValue"
+          },
+          {
+            "$ref": "vcloud_MetadataDateTimeValue"
+          }
+        ]
       },
       "QueryResultRecordType": {
         "discriminator": {
