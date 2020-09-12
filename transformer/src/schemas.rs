@@ -97,6 +97,61 @@ pub fn schemas<R: Read + Seek>(
         }),
     );
 
+    if let Some(openapiv3::ReferenceOr::Item(openapiv3::Schema {
+        schema_kind: openapiv3::SchemaKind::AllOf { all_of },
+        ..
+    })) = output.get_mut("vcloud_ContainerType")
+    {
+        if let Some(properties) = all_of.iter_mut().find_map(|ref_schema| match ref_schema {
+            ReferenceOr::Item(openapiv3::Schema {
+                schema_kind:
+                    openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
+                        properties,
+                        ..
+                    })),
+                ..
+            }) => Some(properties),
+            _ => None,
+        }) {
+            properties.entry(String::from("record")).or_insert_with(|| {
+                openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                    schema_data: Default::default(),
+                    schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Array(
+                        openapiv3::ArrayType {
+                            items: openapiv3::ReferenceOr::Reference {
+                                reference: String::from(
+                                    "#/components/schemas/vcloud_QueryResultRecordType",
+                                ),
+                            },
+                            min_items: None,
+                            max_items: None,
+                            unique_items: false,
+                        },
+                    )),
+                })
+            });
+            properties
+                .entry(String::from("reference"))
+                .or_insert_with(|| {
+                    openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                        schema_data: Default::default(),
+                        schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Array(
+                            openapiv3::ArrayType {
+                                items: openapiv3::ReferenceOr::Reference {
+                                    reference: String::from(
+                                        "#/components/schemas/vcloud_ReferenceType",
+                                    ),
+                                },
+                                min_items: None,
+                                max_items: None,
+                                unique_items: false,
+                            },
+                        )),
+                    })
+                });
+        };
+    }
+
     Ok((output, content_type_mapping))
 }
 

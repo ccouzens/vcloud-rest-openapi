@@ -29207,6 +29207,18 @@
                 "description": "Total number of records or references in the container.",
                 "type": "integer",
                 "format": "int64"
+              },
+              "record": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordType"
+                }
+              },
+              "reference": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/vcloud_ReferenceType"
+                }
               }
             },
             "additionalProperties": false
