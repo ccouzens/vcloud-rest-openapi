@@ -1,7 +1,5 @@
 # VMware Cloud Director Rest OpenAPI definitions
 
-This is a work in progress.
-
 This is a repository of OpenAPI definitions for vCloud's Rest API. They are
 automatically generated from the public documentation to reduce human error,
 reduce human effort and to make it easy to stay up-to date.
@@ -16,16 +14,7 @@ but it contains little of the functionality of the
 
 Other versions can be found at the top level directory of this repository.
 
-## Work in Progress Milestones
-
-1. Create minimal OpenAPI definitions ✓
-2. Add routes ✓
-3. Add types ⚠ - Types should work for the most part, but there are corner
-   cases.
-4. Wire routes to types ✓
-5. Add security schemes ✓
-
-> Types should work for the most part, but there are corner cases
+## Problem Description
 
 VMware Cloud Director Rest API supports responses and requests as both JSON and
 XML. But only XML is officially documented by VMWare. JSON is better suited for
@@ -35,10 +24,6 @@ Types are documented by VMware in XSD (XML Schema Definition). XSD is a
 complicated format. It supports lots of concepts and it has multiple ways of
 expressing a single concept. There are edge cases where I've not yet
 incorporated an XSD concept.
-
-From what I've seen, the edge cases lead to some types having missing fields.
-I've not seen edge cases leading to types having extra fields or incorrectly
-typed fields.
 
 If you find an issue, tell me about it using
 [Github](https://github.com/ccouzens/vcloud-rest-openapi/issues) and I shall try

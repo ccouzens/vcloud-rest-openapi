@@ -97,6 +97,67 @@ pub fn schemas<R: Read + Seek>(
         }),
     );
 
+    let query_record_types: Vec<(String, String)> = output
+        .keys()
+        .filter_map(|k| {
+            k.strip_prefix("vcloud_").and_then(|t| {
+                if t.starts_with("QueryResult")
+                    && t.ends_with("RecordType")
+                    && !(t == "QueryResultRecordType")
+                {
+                    Some((String::from(k), String::from(t)))
+                } else {
+                    None
+                }
+            })
+        })
+        .collect::<Vec<_>>();
+    output.insert(
+        String::from("QueryResultRecordType"),
+        ReferenceOr::Item(Schema {
+            schema_kind: openapiv3::SchemaKind::OneOf {
+                one_of: query_record_types
+                    .iter()
+                    .map(|qrt| openapiv3::ReferenceOr::Reference {
+                        reference: String::from(&qrt.0),
+                    })
+                    .collect(),
+            },
+            schema_data: openapiv3::SchemaData {
+                discriminator: Some(openapiv3::Discriminator {
+                    property_name: String::from("_type"),
+                    mapping: query_record_types
+                        .iter()
+                        .map(|qrt| (qrt.1.clone(), format!("#/components/schemas/{}", qrt.0)))
+                        .collect(),
+                }),
+                ..Default::default()
+            },
+        }),
+    );
+
+    if let Some(openapiv3::ReferenceOr::Item(openapiv3::Schema {
+        schema_kind:
+            openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
+                properties,
+                ..
+            })),
+        ..
+    })) = output.get_mut("vcloud_QueryResultRecordType")
+    {
+        properties.entry(String::from("_type")).or_insert_with(|| {
+            openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                schema_data: Default::default(),
+                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                    openapiv3::StringType {
+                        enumeration: query_record_types.into_iter().map(|qrt| qrt.1).collect(),
+                        ..Default::default()
+                    },
+                )),
+            })
+        });
+    }
+
     if let Some(openapiv3::ReferenceOr::Item(openapiv3::Schema {
         schema_kind: openapiv3::SchemaKind::AllOf { all_of },
         ..
@@ -120,7 +181,7 @@ pub fn schemas<R: Read + Seek>(
                         openapiv3::ArrayType {
                             items: openapiv3::ReferenceOr::Reference {
                                 reference: String::from(
-                                    "#/components/schemas/vcloud_QueryResultRecordType",
+                                    "#/components/schemas/QueryResultRecordType",
                                 ),
                             },
                             min_items: None,
