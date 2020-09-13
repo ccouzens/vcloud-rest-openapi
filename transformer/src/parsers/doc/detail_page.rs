@@ -147,8 +147,14 @@ impl TryFrom<&str> for DetailPage {
         lazy_static! {
             static ref UNINTENDED_XML: Regex = Regex::new(r"<([A-Z][a-zA-Z]+)>").unwrap();
         }
-        let html =
-            UNINTENDED_XML.replace_all(html, |caps: &Captures| format!("&lt;{}&gt;", &caps[1]));
+        let html = UNINTENDED_XML
+            .replace_all(html, |caps: &Captures| format!("&lt;{}&gt;", &caps[1]))
+            .to_string();
+
+        lazy_static! {
+            static ref UNINTENDED_DD: Regex = Regex::new(r"(\S)<dd>").unwrap();
+        }
+        let html = UNINTENDED_DD.replace_all(&html, |caps: &Captures| format!("{}</dd>", &caps[1]));
 
         let document = scraper::Html::parse_document(&html);
         let title_selector = scraper::Selector::parse("title")

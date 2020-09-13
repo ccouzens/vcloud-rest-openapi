@@ -3,11 +3,18 @@ extern crate unhtml_derive;
 #[macro_use]
 extern crate lazy_static;
 
+use indexmap::IndexMap;
 use openapiv3::{Components, OpenAPI, ReferenceOr, SecurityScheme, Tag};
+use schema_tweaks::{
+    metadata_superclass::metadata_superclass, query_parameters::query_parameters,
+    query_superclass::query_superclass, stub_ovf::stub_ovf,
+};
 use std::io::Read;
 mod info;
 mod parsers;
 mod paths;
+mod queries;
+mod schema_tweaks;
 mod schemas;
 
 #[macro_use]
@@ -19,7 +26,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut zip = zip::ZipArchive::new(std::io::Cursor::new(zip_buffer))?;
 
-    let (schemas, content_type_mapping) = schemas::schemas(&mut zip)?;
+    let mut schemas = IndexMap::new();
+    query_parameters(&mut schemas, &queries::queries(&mut zip)?);
+    let content_type_mapping = schemas::schemas(&mut schemas, &mut zip)?;
+    stub_ovf(&mut schemas);
+    metadata_superclass(&mut schemas);
+    query_superclass(&mut schemas);
 
     let about_info = crate::parsers::about::parse(&{
         let mut html = String::new();
