@@ -1,5 +1,8 @@
 use indexmap::IndexMap;
-use openapiv3::{ReferenceOr, Schema};
+use openapiv3::{
+    ArrayType, Discriminator, IntegerType, ObjectType, ReferenceOr, Schema, SchemaData, SchemaKind,
+    StringType, Type,
+};
 use std::collections::BTreeMap;
 use std::convert::TryFrom;
 use std::io::{Read, Seek};
@@ -61,39 +64,33 @@ pub fn schemas<R: Read + Seek>(
 
     output.insert(
         "ovf_Section_Type".to_owned(),
-        ReferenceOr::Item(openapiv3::Schema {
+        ReferenceOr::Item(Schema {
             schema_data: Default::default(),
-            schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Object(
-                openapiv3::ObjectType {
-                    properties: [(
-                        "info".to_string(),
-                        openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
-                            schema_data: Default::default(),
-                            schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Object(
-                                openapiv3::ObjectType {
-                                    properties: [(
-                                        "value".to_string(),
-                                        openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
-                                            schema_data: Default::default(),
-                                            schema_kind: openapiv3::SchemaKind::Type(
-                                                openapiv3::Type::String(Default::default()),
-                                            ),
-                                        }),
-                                    )]
-                                    .iter()
-                                    .cloned()
-                                    .collect(),
-                                    ..Default::default()
-                                },
-                            )),
-                        }),
-                    )]
-                    .iter()
-                    .cloned()
-                    .collect(),
-                    ..Default::default()
-                },
-            )),
+            schema_kind: SchemaKind::Type(Type::Object(ObjectType {
+                properties: [(
+                    "info".to_string(),
+                    ReferenceOr::boxed_item(Schema {
+                        schema_data: Default::default(),
+                        schema_kind: SchemaKind::Type(Type::Object(ObjectType {
+                            properties: [(
+                                "value".to_string(),
+                                ReferenceOr::boxed_item(Schema {
+                                    schema_data: Default::default(),
+                                    schema_kind: SchemaKind::Type(Type::String(Default::default())),
+                                }),
+                            )]
+                            .iter()
+                            .cloned()
+                            .collect(),
+                            ..Default::default()
+                        })),
+                    }),
+                )]
+                .iter()
+                .cloned()
+                .collect(),
+                ..Default::default()
+            })),
         }),
     );
 
@@ -113,16 +110,16 @@ pub fn schemas<R: Read + Seek>(
     output.insert(
         String::from("MetadataTypedValue"),
         ReferenceOr::Item(Schema {
-            schema_kind: openapiv3::SchemaKind::OneOf {
+            schema_kind: SchemaKind::OneOf {
                 one_of: metadata_types
                     .iter()
-                    .map(|qrt| openapiv3::ReferenceOr::Reference {
+                    .map(|qrt| ReferenceOr::Reference {
                         reference: qrt.0.clone(),
                     })
                     .collect(),
             },
-            schema_data: openapiv3::SchemaData {
-                discriminator: Some(openapiv3::Discriminator {
+            schema_data: SchemaData {
+                discriminator: Some(Discriminator {
                     property_name: String::from("_type"),
                     mapping: metadata_types
                         .iter()
@@ -135,27 +132,21 @@ pub fn schemas<R: Read + Seek>(
     );
 
     for schema in output.values_mut() {
-        if let openapiv3::ReferenceOr::Item(openapiv3::Schema {
-            schema_kind: openapiv3::SchemaKind::AllOf { all_of },
+        if let ReferenceOr::Item(Schema {
+            schema_kind: SchemaKind::AllOf { all_of },
             ..
         }) = schema
         {
             if let Some(properties) = all_of.iter_mut().find_map(|ref_schema| match ref_schema {
-                ReferenceOr::Item(openapiv3::Schema {
-                    schema_kind:
-                        openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
-                            properties,
-                            ..
-                        })),
+                ReferenceOr::Item(Schema {
+                    schema_kind: SchemaKind::Type(Type::Object(ObjectType { properties, .. })),
                     ..
                 }) => Some(properties),
                 _ => None,
             }) {
-                if let Some(openapiv3::ReferenceOr::Item(typed_value)) =
-                    properties.get_mut("typedValue")
-                {
-                    typed_value.schema_kind = openapiv3::SchemaKind::AllOf {
-                        all_of: vec![openapiv3::ReferenceOr::Reference {
+                if let Some(ReferenceOr::Item(typed_value)) = properties.get_mut("typedValue") {
+                    typed_value.schema_kind = SchemaKind::AllOf {
+                        all_of: vec![ReferenceOr::Reference {
                             reference: String::from("#/components/schemas/MetadataTypedValue"),
                         }],
                     }
@@ -164,9 +155,9 @@ pub fn schemas<R: Read + Seek>(
         };
     }
 
-    if let Some(openapiv3::ReferenceOr::Item(openapiv3::Schema {
+    if let Some(ReferenceOr::Item(Schema {
         schema_kind:
-            openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
+            SchemaKind::Type(Type::Object(ObjectType {
                 properties,
                 required,
                 ..
@@ -175,14 +166,12 @@ pub fn schemas<R: Read + Seek>(
     })) = output.get_mut("vcloud_MetadataTypedValue")
     {
         properties.entry(String::from("_type")).or_insert_with(|| {
-            openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+            ReferenceOr::boxed_item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                    openapiv3::StringType {
-                        enumeration: metadata_types.into_iter().map(|qrt| qrt.1).collect(),
-                        ..Default::default()
-                    },
-                )),
+                schema_kind: SchemaKind::Type(Type::String(StringType {
+                    enumeration: metadata_types.into_iter().map(|qrt| qrt.1).collect(),
+                    ..Default::default()
+                })),
             })
         });
         if required.iter().find(|&r| r == "_type") == None {
@@ -209,16 +198,16 @@ pub fn schemas<R: Read + Seek>(
     output.insert(
         String::from("QueryResultRecordType"),
         ReferenceOr::Item(Schema {
-            schema_kind: openapiv3::SchemaKind::OneOf {
+            schema_kind: SchemaKind::OneOf {
                 one_of: query_record_types
                     .iter()
-                    .map(|qrt| openapiv3::ReferenceOr::Reference {
+                    .map(|qrt| ReferenceOr::Reference {
                         reference: qrt.0.clone(),
                     })
                     .collect(),
             },
-            schema_data: openapiv3::SchemaData {
-                discriminator: Some(openapiv3::Discriminator {
+            schema_data: SchemaData {
+                discriminator: Some(Discriminator {
                     property_name: String::from("_type"),
                     mapping: query_record_types
                         .iter()
@@ -230,78 +219,62 @@ pub fn schemas<R: Read + Seek>(
         }),
     );
 
-    if let Some(openapiv3::ReferenceOr::Item(openapiv3::Schema {
-        schema_kind:
-            openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
-                properties,
-                ..
-            })),
+    if let Some(ReferenceOr::Item(Schema {
+        schema_kind: SchemaKind::Type(Type::Object(ObjectType { properties, .. })),
         ..
     })) = output.get_mut("vcloud_QueryResultRecordType")
     {
         properties.entry(String::from("_type")).or_insert_with(|| {
-            openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+            ReferenceOr::boxed_item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                    openapiv3::StringType {
-                        enumeration: query_record_types.into_iter().map(|qrt| qrt.1).collect(),
-                        ..Default::default()
-                    },
-                )),
+                schema_kind: SchemaKind::Type(Type::String(StringType {
+                    enumeration: query_record_types.into_iter().map(|qrt| qrt.1).collect(),
+                    ..Default::default()
+                })),
             })
         });
     }
 
-    if let Some(openapiv3::ReferenceOr::Item(openapiv3::Schema {
-        schema_kind: openapiv3::SchemaKind::AllOf { all_of },
+    if let Some(ReferenceOr::Item(Schema {
+        schema_kind: SchemaKind::AllOf { all_of },
         ..
     })) = output.get_mut("vcloud_ContainerType")
     {
         if let Some(properties) = all_of.iter_mut().find_map(|ref_schema| match ref_schema {
-            ReferenceOr::Item(openapiv3::Schema {
-                schema_kind:
-                    openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
-                        properties,
-                        ..
-                    })),
+            ReferenceOr::Item(Schema {
+                schema_kind: SchemaKind::Type(Type::Object(ObjectType { properties, .. })),
                 ..
             }) => Some(properties),
             _ => None,
         }) {
             properties.entry(String::from("record")).or_insert_with(|| {
-                openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                ReferenceOr::boxed_item(Schema {
                     schema_data: Default::default(),
-                    schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Array(
-                        openapiv3::ArrayType {
-                            items: openapiv3::ReferenceOr::Reference {
-                                reference: String::from(
-                                    "#/components/schemas/QueryResultRecordType",
-                                ),
-                            },
-                            min_items: None,
-                            max_items: None,
-                            unique_items: false,
+                    schema_kind: SchemaKind::Type(Type::Array(ArrayType {
+                        items: ReferenceOr::Reference {
+                            reference: String::from("#/components/schemas/QueryResultRecordType"),
                         },
-                    )),
+                        min_items: None,
+                        max_items: None,
+                        unique_items: false,
+                    })),
                 })
             });
             properties
                 .entry(String::from("reference"))
                 .or_insert_with(|| {
-                    openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                    ReferenceOr::boxed_item(Schema {
                         schema_data: Default::default(),
-                        schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Array(
-                            openapiv3::ArrayType {
-                                items: openapiv3::ReferenceOr::Reference {
-                                    reference: String::from(
-                                        "#/components/schemas/vcloud_ReferenceType",
-                                    ),
-                                },
-                                min_items: None,
-                                max_items: None,
-                                unique_items: false,
+                        schema_kind: SchemaKind::Type(Type::Array(ArrayType {
+                            items: ReferenceOr::Reference {
+                                reference: String::from(
+                                    "#/components/schemas/vcloud_ReferenceType",
+                                ),
                             },
-                        )),
+                            min_items: None,
+                            max_items: None,
+                            unique_items: false,
+                        })),
                     })
                 });
         };
@@ -316,125 +289,107 @@ fn query_parameters() -> IndexMap<String, ReferenceOr<Schema>> {
             "force",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Boolean {}),
+                schema_kind: SchemaKind::Type(Type::Boolean {}),
             }),
         ),
         (
             "recursive",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Boolean {}),
+                schema_kind: SchemaKind::Type(Type::Boolean {}),
             }),
         ),
         (
             "fields",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                    Default::default(),
-                )),
+                schema_kind: SchemaKind::Type(Type::String(Default::default())),
             }),
         ),
         (
             "filter",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                    Default::default(),
-                )),
+                schema_kind: SchemaKind::Type(Type::String(Default::default())),
             }),
         ),
         (
             "filterEncoded",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Boolean {}),
+                schema_kind: SchemaKind::Type(Type::Boolean {}),
             }),
         ),
         (
             "format",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                    openapiv3::StringType {
-                        enumeration: ["references", "records", "idrecords"]
-                            .iter()
-                            .map(|e| e.to_string())
-                            .collect(),
-                        ..Default::default()
-                    },
-                )),
+                schema_kind: SchemaKind::Type(Type::String(StringType {
+                    enumeration: ["references", "records", "idrecords"]
+                        .iter()
+                        .map(|e| e.to_string())
+                        .collect(),
+                    ..Default::default()
+                })),
             }),
         ),
         (
             "links",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Boolean {}),
+                schema_kind: SchemaKind::Type(Type::Boolean {}),
             }),
         ),
         (
             "offset",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Integer(
-                    openapiv3::IntegerType {
-                        minimum: Some(0),
-                        ..Default::default()
-                    },
-                )),
+                schema_kind: SchemaKind::Type(Type::Integer(IntegerType {
+                    minimum: Some(0),
+                    ..Default::default()
+                })),
             }),
         ),
         (
             "page",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Integer(
-                    openapiv3::IntegerType {
-                        minimum: Some(1),
-                        ..Default::default()
-                    },
-                )),
+                schema_kind: SchemaKind::Type(Type::Integer(IntegerType {
+                    minimum: Some(1),
+                    ..Default::default()
+                })),
             }),
         ),
         (
             "pageSize",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Integer(
-                    openapiv3::IntegerType {
-                        minimum: Some(1),
-                        maximum: Some(128),
-                        ..Default::default()
-                    },
-                )),
+                schema_kind: SchemaKind::Type(Type::Integer(IntegerType {
+                    minimum: Some(1),
+                    maximum: Some(128),
+                    ..Default::default()
+                })),
             }),
         ),
         (
             "sortAsc",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                    Default::default(),
-                )),
+                schema_kind: SchemaKind::Type(Type::String(Default::default())),
             }),
         ),
         (
             "sortDesc",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                    Default::default(),
-                )),
+                schema_kind: SchemaKind::Type(Type::String(Default::default())),
             }),
         ),
         (
             "type",
             ReferenceOr::Item(Schema {
                 schema_data: Default::default(),
-                schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                    Default::default(),
-                )),
+                schema_kind: SchemaKind::Type(Type::String(Default::default())),
             }),
         ),
     ]
