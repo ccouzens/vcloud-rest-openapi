@@ -45106,16 +45106,16 @@
         },
         "oneOf": [
           {
-            "$ref": "vcloud_MetadataStringValue"
+            "$ref": "#/components/schemas/vcloud_MetadataStringValue"
           },
           {
-            "$ref": "vcloud_MetadataNumberValue"
+            "$ref": "#/components/schemas/vcloud_MetadataNumberValue"
           },
           {
-            "$ref": "vcloud_MetadataBooleanValue"
+            "$ref": "#/components/schemas/vcloud_MetadataBooleanValue"
           },
           {
-            "$ref": "vcloud_MetadataDateTimeValue"
+            "$ref": "#/components/schemas/vcloud_MetadataDateTimeValue"
           }
         ]
       },
@@ -45206,241 +45206,241 @@
         },
         "oneOf": [
           {
-            "$ref": "vcloud_QueryResultOrgRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultOrgRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultOrgVdcRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultOrgVdcRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultMediaRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultMediaRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVAppTemplateRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVAppTemplateRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVAppRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVAppRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVMRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVMRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultOrgNetworkRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultOrgNetworkRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminOrgNetworkRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminOrgNetworkRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVAppNetworkRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVAppNetworkRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultCatalogRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultCatalogRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminVdcRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminVdcRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVMWProviderVdcRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVMWProviderVdcRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultNetworkRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultNetworkRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultGroupRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultGroupRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultUserRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultUserRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultStrandedUserRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultStrandedUserRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultRoleRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultRoleRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAllocatedExternalAddressRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAllocatedExternalAddressRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultEventRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultEventRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultResourcePoolRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultResourcePoolRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultDatastoreRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultDatastoreRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultNetworkPoolRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultNetworkPoolRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultPortgroupRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultPortgroupRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultDvSwitchRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultDvSwitchRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultCellRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultCellRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVirtualCenterRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVirtualCenterRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultHostRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultHostRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminVAppRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminVAppRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultRightRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultRightRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminVMRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminVMRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminAllocatedExternalAddressRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminAllocatedExternalAddressRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVAppOrgNetworkRelationRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVAppOrgNetworkRelationRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultOrgVdcResourcePoolRelationRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultOrgVdcResourcePoolRelationRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultProviderVdcResourcePoolRelationRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultProviderVdcResourcePoolRelationRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultDatastoreProviderVdcRelationRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultDatastoreProviderVdcRelationRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminUserRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminUserRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminGroupRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminGroupRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminVAppNetworkRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminVAppNetworkRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminCatalogRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminCatalogRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminCatalogItemRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminCatalogItemRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultCatalogItemRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultCatalogItemRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminMediaRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminMediaRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminVAppTemplateRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminVAppTemplateRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminShadowVMRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminShadowVMRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultTaskRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultTaskRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminTaskRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminTaskRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultBlockingTaskRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultBlockingTaskRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultDiskRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultDiskRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVmDiskRelationRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVmDiskRelationRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminDiskRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminDiskRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminVmDiskRelationRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminVmDiskRelationRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultConditionRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultConditionRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminEventRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminEventRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultStrandedItemRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultStrandedItemRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminServiceRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminServiceRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultServiceRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultServiceRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultServiceLinkRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultServiceLinkRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultOrgVdcStorageProfileRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultOrgVdcStorageProfileRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminOrgVdcStorageProfileRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminOrgVdcStorageProfileRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultProviderVdcStorageProfileRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultProviderVdcStorageProfileRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultApiFilterRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultApiFilterRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminApiDefinitionRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminApiDefinitionRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultApiDefinitionRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultApiDefinitionRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminFileDescriptorRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminFileDescriptorRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultFileDescriptorRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultFileDescriptorRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultResourceClassActionRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultResourceClassActionRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAclRuleRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAclRuleRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultResourceClassRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultResourceClassRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultServiceResourceRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultServiceResourceRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultEdgeGatewayRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultEdgeGatewayRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultOrgVdcNetworkRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultOrgVdcNetworkRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVAppOrgVdcNetworkRelationRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVAppOrgVdcNetworkRelationRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultExternalLocalizationRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultExternalLocalizationRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultResourcePoolVMRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultResourcePoolVMRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVchsEdgeGatewayRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVchsEdgeGatewayRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVchsOrgVdcNetworkRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVchsOrgVdcNetworkRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVmGroupVmsRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVmGroupVmsRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultVmGroupsRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultVmGroupsRecordType"
           },
           {
-            "$ref": "vcloud_QueryResultAdminRoleRecordType"
+            "$ref": "#/components/schemas/vcloud_QueryResultAdminRoleRecordType"
           }
         ]
       }

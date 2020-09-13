@@ -236,7 +236,7 @@ fn insert_metadata_superclass(output: &mut IndexMap<String, ReferenceOr<Schema>>
                 one_of: metadata_types
                     .iter()
                     .map(|qrt| ReferenceOr::Reference {
-                        reference: qrt.0.clone(),
+                        reference: format!("#/components/schemas/{}", qrt.0),
                     })
                     .collect(),
             },
@@ -326,7 +326,7 @@ fn add_query_result_types(output: &mut IndexMap<String, ReferenceOr<Schema>>) {
                 one_of: query_record_types
                     .iter()
                     .map(|qrt| ReferenceOr::Reference {
-                        reference: qrt.0.clone(),
+                        reference: format!("#/components/schemas/{}", qrt.0),
                     })
                     .collect(),
             },
