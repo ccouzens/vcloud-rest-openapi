@@ -40381,6 +40381,10 @@
                 "description": "The name of this vApp.",
                 "type": "string"
               },
+              "description": {
+                "description": "The description of this vApp.",
+                "type": "string"
+              },
               "org": {
                 "description": "Organization reference or id",
                 "type": "string"
