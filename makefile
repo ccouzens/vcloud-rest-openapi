@@ -6,7 +6,15 @@ specs = \
 32.0.json \
 33.0.json \
 34.0.json \
-35.0.json
+35.0.json \
+27.0.yml \
+29.0.yml \
+30.0.yml \
+31.0.yml \
+32.0.yml \
+33.0.yml \
+34.0.yml \
+35.0.yml
 
 .PHONY : all
 all : $(specs)
@@ -45,3 +53,6 @@ website/35.0.zip:
 
 ./%.json: website/%.zip
 	(cd transformer; cargo run --release) < $< > $@
+
+./%.yml: ./%.json
+	yq --yaml-output < $< > $@
