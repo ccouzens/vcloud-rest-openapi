@@ -7,6 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0"
 html2md = "0.2.9"
 indexmap = "1.4.0"
 lazy_static = "1.4.0"

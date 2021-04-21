@@ -1,4 +1,5 @@
 use crate::parsers::doc::operation::{Method, Operation};
+use anyhow::{Context, Result};
 use openapiv3::Paths;
 use std::collections::BTreeMap;
 use std::{
@@ -11,8 +12,9 @@ pub fn paths<R: Read + Seek>(
     zip: &mut ZipArchive<R>,
     content_type_mapping: BTreeMap<String, String>,
     api_version: String,
-) -> Result<Paths, Box<dyn std::error::Error>> {
-    let path_param_regex = regex::Regex::new(r"\{([^}]+)}")?;
+) -> Result<Paths> {
+    let path_param_regex =
+        regex::Regex::new(r"\{([^}]+)}").context("Unable to create path param regex")?;
     let mut path_file_names = zip
         .file_names()
         .filter(|n| n.starts_with("doc/operations/"))
@@ -26,9 +28,13 @@ pub fn paths<R: Read + Seek>(
 
     for file_name in path_file_names {
         let mut html = String::new();
-        zip.by_name(&file_name)?.read_to_string(&mut html)?;
+        zip.by_name(&file_name)
+            .with_context(|| format!("Unable to get file {}", file_name))?
+            .read_to_string(&mut html)
+            .with_context(|| format!("Unable to read file {}", file_name))?;
 
-        let operation = Operation::try_from(html.as_str())?;
+        let operation = Operation::try_from(html.as_str())
+            .with_context(|| format!("Unable to convert file to operation {}", file_name))?;
         if let openapiv3::ReferenceOr::Item(path_item) =
             paths.entry(operation.path.clone()).or_insert_with(|| {
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {

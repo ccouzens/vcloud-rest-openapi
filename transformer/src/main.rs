@@ -16,36 +16,46 @@ mod paths;
 mod queries;
 mod schema_tweaks;
 mod schemas;
+use anyhow::{Context, Result};
 
 #[macro_use]
 extern crate indexmap;
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<()> {
     let mut zip_buffer = Vec::new();
-    std::io::stdin().read_to_end(&mut zip_buffer)?;
+    std::io::stdin()
+        .read_to_end(&mut zip_buffer)
+        .context("Unable to read zip file")?;
 
-    let mut zip = zip::ZipArchive::new(std::io::Cursor::new(zip_buffer))?;
+    let mut zip = zip::ZipArchive::new(std::io::Cursor::new(zip_buffer))
+        .context("Unable to parse zip file")?;
 
     let mut schemas = IndexMap::new();
-    query_parameters(&mut schemas, &queries::queries(&mut zip)?);
-    let content_type_mapping = schemas::schemas(&mut schemas, &mut zip)?;
+    query_parameters(
+        &mut schemas,
+        &queries::queries(&mut zip).context("unable to collect queries")?,
+    );
+    let content_type_mapping =
+        schemas::schemas(&mut schemas, &mut zip).context("Unable to make content type mappings")?;
     stub_ovf(&mut schemas);
     metadata_superclass(&mut schemas);
     query_superclass(&mut schemas);
 
     let about_info = crate::parsers::about::parse(&{
         let mut html = String::new();
-        zip.by_name("about.html")?.read_to_string(&mut html)?;
+        zip.by_name("about.html")?
+            .read_to_string(&mut html)
+            .context("Unable to read about info file")?;
         html
     })?;
 
-    let info = info::info(&mut zip, about_info.prodname)?;
+    let info = info::info(&mut zip, about_info.prodname).context("Unable to parse about info")?;
     let api_version = info
         .version
         .split_ascii_whitespace()
         .rev()
         .next()
-        .ok_or("Couldn't determine version")?
+        .context("Couldn't determine version")?
         .to_string();
 
     let spec = OpenAPI {
@@ -61,7 +71,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             },
             ..Default::default()
         }),
-        paths: paths::paths(&mut zip, content_type_mapping, api_version)?,
+        paths: paths::paths(&mut zip, content_type_mapping, api_version)
+            .context("Unable to collect paths")?,
         tags: vec![
             Tag {
                 name: "user".into(),
@@ -81,6 +92,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         ],
         ..Default::default()
     };
-    println!("{}", serde_json::to_string_pretty(&spec)?);
+    serde_json::to_writer_pretty(std::io::stdout(), &spec).context("Unable to write JSON")?;
+    println!();
     Ok(())
 }
