@@ -35,6 +35,9 @@ pub fn paths<R: Read + Seek>(
 
         let operation = Operation::try_from(html.as_str())
             .with_context(|| format!("Unable to convert file to operation {}", file_name))?;
+        if !operation.path.starts_with('/') {
+            continue;
+        }
         if let openapiv3::ReferenceOr::Item(path_item) =
             paths.entry(operation.path.clone()).or_insert_with(|| {
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {

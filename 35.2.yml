@@ -7874,20 +7874,6 @@ paths:
         schema:
           type: string
         style: simple
-  ? ''
-  : get:
-      tags:
-        - user
-      description: ''
-      responses:
-        2XX:
-          description: success
-          content:
-            application/vnd.vmware.admin.vmwProviderVdcResourcePool+json;version=35.2:
-              schema:
-                $ref: '#/components/schemas/vcloud-ext_VMWProviderVdcResourcePoolType'
-      security:
-        - bearerAuth: []
   /admin/extension/service/{id}/rights:
     get:
       tags:
