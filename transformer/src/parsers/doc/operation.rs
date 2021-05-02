@@ -73,11 +73,11 @@ impl TryFrom<&str> for Operation {
     type Error = OperationParseError;
 
     fn try_from(html: &str) -> Result<Self, Self::Error> {
-        Ok(Self::try_from(DetailPage::try_from(html)?)?)
+        Self::try_from(DetailPage::try_from(html)?)
     }
 }
 
-fn html_to_mimes<'a>(html: &'a str) -> impl Iterator<Item = String> + 'a {
+fn html_to_mimes(html: &str) -> impl Iterator<Item = String> + '_ {
     html.split("<br>")
         .filter(|&t| !(t.is_empty() || t == "None"))
         .map(String::from)

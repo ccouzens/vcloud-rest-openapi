@@ -25,7 +25,7 @@ impl TryFrom<&str> for Query {
     type Error = QueryParseError;
 
     fn try_from(html: &str) -> Result<Self, Self::Error> {
-        Ok(Self::try_from(DetailPage::try_from(html)?)?)
+        Self::try_from(DetailPage::try_from(html)?)
     }
 }
 
@@ -49,7 +49,7 @@ impl<'a> TryFrom<DetailPage> for Query {
             .find("Record Result:")
             .and_then(DefinitionListValue::as_text)
             .and_then(|t| t.strip_suffix("</a>)"))
-            .and_then(|t| t.split(">").nth(1))
+            .and_then(|t| t.split('>').nth(1))
             .ok_or(Self::Error::CannotFindRecordResult)?
             .to_string();
         Ok(Query {

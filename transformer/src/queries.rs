@@ -25,8 +25,8 @@ pub fn queries<R: Read + Seek>(zip: &mut ZipArchive<R>) -> Result<Vec<Query>> {
                 .read_to_string(&mut html)
                 .with_context(|| format!("Unable to read file {} from zip", file_name))?;
 
-            Ok(Query::try_from(html.as_str())
-                .with_context(|| format!("Unable to parse file {} into query", file_name))?)
+            Query::try_from(html.as_str())
+                .with_context(|| format!("Unable to parse file {} into query", file_name))
         })
         .collect()
 }
