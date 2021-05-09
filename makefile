@@ -1,22 +1,22 @@
 specs = \
-27.0.json \
-29.0.json \
-30.0.json \
-31.0.json \
-32.0.json \
-33.0.json \
-34.0.json \
-35.0.json \
-35.2.json \
-27.0.yml \
-29.0.yml \
-30.0.yml \
-31.0.yml \
-32.0.yml \
-33.0.yml \
-34.0.yml \
-35.0.yml \
-35.2.yml
+27.0-rest-api.json \
+29.0-rest-api.json \
+30.0-rest-api.json \
+31.0-rest-api.json \
+32.0-rest-api.json \
+33.0-rest-api.json \
+34.0-rest-api.json \
+35.0-rest-api.json \
+35.2-rest-api.json \
+27.0-rest-api.yml \
+29.0-rest-api.yml \
+30.0-rest-api.yml \
+31.0-rest-api.yml \
+32.0-rest-api.yml \
+33.0-rest-api.yml \
+34.0-rest-api.yml \
+35.0-rest-api.yml \
+35.2-rest-api.yml
 
 .PHONY : all
 all : $(specs)
@@ -57,8 +57,8 @@ website/35.2.zip:
 	mkdir -p $(dir $@)
 	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/ad96a8e3-043d-4e88-a0ba-87db0965b492/029c9ce7-e5fc-47c7-8003-f4bfa046e6db/doc/029c9ce7-e5fc-47c7-8003-f4bfa046e6db.zip > $@
 
-./%.json: website/%.zip
-	(cd transformer; cargo run --release) < $< > $@
+./%-rest-api.json: website/%.zip
+	(cd transformer-rest-api; cargo run --release) < $< > $@
 
 ./%.yml: ./%.json
 	yq --yaml-output < $< > $@
