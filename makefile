@@ -4,8 +4,11 @@ specs = \
 30.0-rest-api.json \
 31.0-rest-api.json \
 32.0-rest-api.json \
+32.0-cloudapi.json \
 33.0-rest-api.json \
+33.0-cloudapi.json \
 34.0-rest-api.json \
+34.0-cloudapi.json \
 35.0-rest-api.json \
 35.2-rest-api.json \
 27.0-rest-api.yml \
@@ -13,8 +16,11 @@ specs = \
 30.0-rest-api.yml \
 31.0-rest-api.yml \
 32.0-rest-api.yml \
+32.0-cloudapi.yml \
 33.0-rest-api.yml \
+33.0-cloudapi.yml \
 34.0-rest-api.yml \
+34.0-cloudapi.yml \
 35.0-rest-api.yml \
 35.2-rest-api.yml
 
@@ -57,8 +63,26 @@ website/35.2.zip:
 	mkdir -p $(dir $@)
 	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/ad96a8e3-043d-4e88-a0ba-87db0965b492/029c9ce7-e5fc-47c7-8003-f4bfa046e6db/doc/029c9ce7-e5fc-47c7-8003-f4bfa046e6db.zip > $@
 
+website/32.0.html:
+	mkdir -p $(dir $@)
+	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/5f403ebf-b14c-4a1c-be10-1539c02415d6/0101cd7b-ae5f-4db8-bda1-23318a5e7a48/vcd-openapi-docs.html > $@
+
+website/33.0.html:
+	mkdir -p $(dir $@)
+	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/772aa4c5-7e61-4d80-8432-b8e0d821c969/2747ec83-6aef-4560-b1d1-55ed9adc4e73/vcd-openapi-docs.html > $@
+
+website/34.0.html:
+	mkdir -p $(dir $@)
+	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/a36f68c4-9f5a-4a63-894c-eb3840773fe7/b37fc25f-f5f3-442b-b3a6-d93d38132e06/vcd-openapi-docs.html > $@
+
 ./%-rest-api.json: website/%.zip
 	(cd transformer-rest-api; cargo run --release) < $< > $@
 
+./%-cloudapi.json: website/%.html transformer-cloudapi/transformer.js
+	input=$< node transformer-cloudapi/transformer.js > $@
+
 ./%.yml: ./%.json
 	yq --yaml-output < $< > $@
+
+transformercloud-api/transformer.js: transformercloud-api/transformer.ts
+	cd transformer-cloudapi; npm ci && npm run compile

@@ -1,0 +1,16 @@
+{
+  "name": "transformer-cloudapi",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc transformer.ts",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.0",
+    "prettier": "^2.3.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "puppeteer": "^9.1.1"
+  }
+}
