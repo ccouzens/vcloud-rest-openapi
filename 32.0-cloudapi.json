@@ -3,5 +3,4446 @@
   "info": {
     "title": "vCloud Director OpenAPI",
     "version": "2019-03-25T19:48:54.360-07:00"
+  },
+  "components": {
+    "schemas": {
+      "AllocatedIpAddress": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for record. This is to support UI operations."
+          },
+          "entityId": {
+            "type": "string",
+            "description": "Id of the entity to which the IP address is allocated such as a VM."
+          },
+          "entityName": {
+            "type": "string",
+            "description": "Name of the entity to which the IP address is allocated."
+          },
+          "vAppName": {
+            "type": "string",
+            "description": "Name of the vApp whose VM is using allocated IP address."
+          },
+          "ipAddress": {
+            "type": "string",
+            "description": "The allocated IP address."
+          },
+          "deployed": {
+            "type": "boolean",
+            "description": "Whether the entity using this IP address is currently deployed."
+          },
+          "allocationType": {
+            "description": "The possible allocation types for allocated network address like VSM allocated, VM allocated or NAT routed.",
+            "$ref": "#/definitions/AllocatedIpAddressAllocationType"
+          }
+        },
+        "description": "Describes an allocated IP address\n",
+        "x-vcloud-added-in": 32
+      },
+      "AllocatedIpAddressAllocationType": {
+        "type": "object",
+        "description": "The possible allocation types for allocated network address.\n",
+        "enum": [
+          "VM_ALLOCATED",
+          "NAT_ROUTED",
+          "VSM_ALLOCATED"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "BackingNetworkType": {
+        "type": "object",
+        "description": "The backing network type.\n",
+        "enum": [
+          "DV_PORTGROUP",
+          "VIRTUAL_WIRE",
+          "IMPORTED_T_LOGICAL_SWITCH",
+          "OPAQUE_NETWORK",
+          "NSXT_FIXED_SEGMENT",
+          "NSXT_FLEXIBLE_SEGMENT"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "Capability": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the capability.",
+            "readOnly": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the capability as it relates to the entity.",
+            "readOnly": true
+          },
+          "value": {
+            "type": "object",
+            "description": "The value of the capability.",
+            "properties": {}
+          },
+          "type": {
+            "description": "The type of the value.",
+            "$ref": "#/definitions/CapabilityValueType"
+          },
+          "category": {
+            "description": "The category of the capabilities listed.",
+            "$ref": "#/definitions/CapabilityCategory"
+          }
+        },
+        "description": "Describes a capability of an entity.\n",
+        "x-vcloud-added-in": 32
+      },
+      "CapabilityCategory": {
+        "type": "string",
+        "description": "Describes the category of the capbilitiy\n",
+        "enum": [
+          "EdgeGateway",
+          "VAppNetwork",
+          "OrgVdcNetwork",
+          "Infra"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "CapabilityValueType": {
+        "type": "string",
+        "description": "Describes the object type of the capability value.\n",
+        "enum": [
+          "Boolean",
+          "String"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "CommonNsxTRouterFields": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique id of the router. Field is sortable."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the router."
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Name used in NSX-T's logs or GUI. Field is sortable."
+          }
+        },
+        "description": "Common fields that all Tier-0 or Tier-1 routers have."
+      },
+      "Constraint": {
+        "type": "object",
+        "required": [
+          "constraintType"
+        ],
+        "discriminator": "constraintType",
+        "properties": {
+          "constraintType": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateCustomEntityTypeAction": {
+        "type": "object",
+        "required": [
+          "workflowId",
+          "workflowInputParameter"
+        ],
+        "properties": {
+          "workflowId": {
+            "type": "string",
+            "description": "uuid of workflow.\n"
+          },
+          "workflowInputParameter": {
+            "type": "string",
+            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
+          }
+        }
+      },
+      "CustomEntities": {
+        "type": "object",
+        "properties": {
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CustomEntity"
+            }
+          }
+        }
+      },
+      "CustomEntity": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID of custom entity\n"
+          },
+          "name": {
+            "type": "string"
+          },
+          "customEntityTypeId": {
+            "type": "string",
+            "description": "This refers to UUID of custom entity type\n"
+          }
+        }
+      },
+      "CustomEntityType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID for custom entity type. This is immutable.\n"
+          },
+          "vroId": {
+            "type": "string"
+          },
+          "vroDynamicType": {
+            "type": "string",
+            "description": "This refers to VRO's dynamic type.\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name.\n"
+          },
+          "nss": {
+            "type": "string",
+            "description": "This refers to a unique namespace specific string.\n"
+          },
+          "description": {
+            "type": "string",
+            "default": ""
+          },
+          "tenantScoped": {
+            "type": "boolean",
+            "default": true
+          },
+          "providerScoped": {
+            "type": "boolean",
+            "default": true
+          },
+          "publishAll": {
+            "type": "boolean",
+            "description": "Read-only value indicating publishAll state\n",
+            "default": false
+          }
+        }
+      },
+      "CustomEntityTypeAction": {
+        "type": "object",
+        "required": [
+          "name",
+          "workflowId"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of workflow\n"
+          },
+          "workflowId": {
+            "type": "string",
+            "description": "UUID of workflow.\n"
+          },
+          "workflowInputParameter": {
+            "type": "string",
+            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
+          }
+        }
+      },
+      "CustomEntityTypeActions": {
+        "type": "object",
+        "properties": {
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CustomEntityTypeAction"
+            }
+          }
+        }
+      },
+      "Decorator": {
+        "type": "object",
+        "required": [
+          "decoratorType"
+        ],
+        "discriminator": "decoratorType",
+        "properties": {
+          "decoratorType": {
+            "type": "string"
+          }
+        }
+      },
+      "EdgeCluster": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The id of the Edge Cluster in URN format."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the Edge Cluster. Names for Edge Clusters must be unique across the system."
+          },
+          "description": {
+            "type": "string"
+          },
+          "resourcePool": {
+            "description": "The Resource Pool in vCenter where the Edge VM will be deployed.",
+            "$ref": "#/definitions/ResourcePool"
+          },
+          "storageProfileName": {
+            "type": "string",
+            "description": "Name of the Storage Profile. This will define the set of datastores where the edge vm will be deployed."
+          }
+        },
+        "description": "An Edge Cluster object.\n",
+        "x-vcloud-added-in": 32
+      },
+      "EdgeGateway": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the edge gateway."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the edge gateway."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the edge gateway(optional)."
+          },
+          "edgeGatewayUplinks": {
+            "type": "array",
+            "description": "The uplink connections for the edge gateway.",
+            "items": {
+              "$ref": "#/definitions/EdgeGatewayUplink"
+            }
+          },
+          "gatewayBacking": {
+            "description": "The backing details of the edge gateway; only required if importing an NSX-T router.",
+            "$ref": "#/definitions/EdgeGatewayBacking"
+          },
+          "orgVdc": {
+            "description": "The organization vDC which the gateway belongs to.",
+            "$ref": "#/definitions/EntityReference"
+          }
+        },
+        "description": "An edge gateway object\n",
+        "x-vcloud-added-in": 32
+      },
+      "EdgeGatewayBacking": {
+        "type": "object",
+        "properties": {
+          "backingId": {
+            "type": "string",
+            "description": "The identifier of the edge gateways backing router."
+          },
+          "gatewayType": {
+            "description": "The type of the gateway. Describes if this is an NSX-T edge gateway or an NSX-V edge gateway.",
+            "$ref": "#/definitions/EdgeGatewayType"
+          },
+          "networkProvider": {
+            "description": "The backing network provider, either NSX-T or NSX-V.",
+            "$ref": "#/definitions/EntityReference"
+          }
+        },
+        "description": "The backing details of the edge gateway\n",
+        "x-vcloud-added-in": 32
+      },
+      "EdgeGatewayType": {
+        "type": "object",
+        "description": "The type of the edge gateway.\n",
+        "enum": [
+          "NSXV_BACKED",
+          "NSXT_BACKED",
+          "NSXT_IMPORTED"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "EdgeGatewayUplink": {
+        "type": "object",
+        "properties": {
+          "uplinkId": {
+            "type": "string",
+            "description": "The identifier of the uplink this edge gateway is connected to."
+          },
+          "subnets": {
+            "description": "Set of subnets this edge will have access to. Gateway can either be provided or left blank for each subnet, and if left blank will be assigned.\n",
+            "$ref": "#/definitions/Subnets"
+          }
+        },
+        "description": "The uplink for the edge gateway along with ip suballocations",
+        "x-vcloud-added-in": 32
+      },
+      "EgressPoint": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID for the Universal Egress Point (read-only)."
+          },
+          "vdcRef": {
+            "description": "The Org vDC the Universal Egress Point belongs to.",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "gatewayRef": {
+            "description": "The Edge Gateway the Egress Point is referring to.",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "networkProviderScope": {
+            "type": "string",
+            "description": "Read-only field that specifies the network provider scope of the Universal Egress Point (inherited from the Org vDC)."
+          },
+          "isUsedForRouting": {
+            "type": "boolean",
+            "description": "Specifies whether the egress point is being used for Universal Routing. This is a read-only field."
+          },
+          "status": {
+            "description": "The status of the Universal Egress Point.",
+            "$ref": "#/definitions/VdcGroupEntityStatus"
+          },
+          "errorMessage": {
+            "type": "string"
+          }
+        },
+        "description": "An Egress Point.\n"
+      },
+      "EgressPointReference": {
+        "type": "object",
+        "properties": {
+          "egressPointId": {
+            "type": "string",
+            "description": "The id of the Universal Egress Point reference."
+          },
+          "vdcRef": {
+            "description": "The Org vDC of the Universal Egress Point reference.",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "gatewayRef": {
+            "description": "The Edge Gateway of the Universal Egress Point reference.",
+            "$ref": "#/definitions/EntityReference"
+          }
+        },
+        "description": "An EgressPoint reference object for use in universal routing.\n"
+      },
+      "EgressPoints": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "description": "The list of Universal Egress Points.",
+            "items": {
+              "$ref": "#/definitions/EgressPoint"
+            }
+          }
+        },
+        "description": "List of Egress Points.\n"
+      },
+      "EmailSettings": {
+        "type": "object",
+        "properties": {
+          "defaultSmtpServer": {
+            "type": "boolean",
+            "description": "Flag indicating if the smtp server settings are system default (true) or a particular organization (false)\n"
+          },
+          "defaultOrgEmail": {
+            "type": "boolean",
+            "description": "Flag indicating if the email settings are system default (true) or for a particular organization (false)\n"
+          },
+          "smtpServer": {
+            "$ref": "#/definitions/SmtpServerSpec"
+          },
+          "senderEmailAddress": {
+            "type": "string",
+            "description": "Sender email address in an email notification or alert\n"
+          },
+          "defaultEmailSubjectPrefix": {
+            "type": "string",
+            "description": "The prefix used in the email subject line for all email notifications and alerts from the system\n"
+          },
+          "alertEmailToAllAdmins": {
+            "type": "boolean",
+            "description": "A flag to indicate the choice between sending alert emails to all system\nadministrators in the system and designated list of email recipients\n"
+          },
+          "alertEmailTo": {
+            "type": "string",
+            "description": "A comma separated email addresses to send all alert messages to\n"
+          }
+        },
+        "description": "Email related settings for a system\n"
+      },
+      "EntityReference": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": "Entity reference used to describe VCD entities\n"
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "message",
+          "minorErrorCode"
+        ],
+        "properties": {
+          "minorErrorCode": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "stackTrace": {
+            "type": "string"
+          }
+        },
+        "description": "Error type format displayed to users for exceptions emerging from openapi endpoints.\n"
+      },
+      "ExecutionContext": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WsParameter"
+            }
+          }
+        }
+      },
+      "ExecutionState": {
+        "type": "string",
+        "enum": [
+          "canceled",
+          "completed",
+          "running",
+          "suspended",
+          "waiting",
+          "waiting-signal",
+          "failed",
+          "initializing"
+        ]
+      },
+      "ExecutionSummary": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          },
+          "startedBy": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/definitions/ExecutionState"
+          }
+        }
+      },
+      "ExtensionPoint": {
+        "type": "object",
+        "required": [
+          "enabled",
+          "extensionPointId",
+          "pluginId"
+        ],
+        "properties": {
+          "extensionPointId": {
+            "type": "string"
+          },
+          "pluginId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "description": "Extension Point of a UI Plugin",
+        "x-vcloud-added-in": 32
+      },
+      "ExtensionPointSummary": {
+        "properties": {
+          "extensionPointRegistrations": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExtensionPoint"
+              }
+            }
+          }
+        },
+        "description": "A map of extension Points and an ordered list of items registered with that extension point",
+        "x-vcloud-added-in": 32
+      },
+      "ExternalNetworkBacking": {
+        "type": "object",
+        "properties": {
+          "backingId": {
+            "type": "string",
+            "description": "Unique identifier for the network backing in NSX/vCenter."
+          },
+          "backingType": {
+            "description": "Type of network backing.",
+            "$ref": "#/definitions/ExternalNetworkBackingType"
+          },
+          "networkProvider": {
+            "description": "The Network Provider for the backing, either a vCenter Server or NSX-T Manager.",
+            "$ref": "#/definitions/EntityReference"
+          }
+        },
+        "description": "Information about an external network backing.\n",
+        "x-vcloud-added-in": 32
+      },
+      "ExternalNetworkBackingType": {
+        "type": "object",
+        "description": "The type of the external network backing.\n",
+        "enum": [
+          "PORTGROUP",
+          "DV_PORTGROUP",
+          "NSXT_TIER0",
+          "UNKNOWN"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "ExternalNetworkBackings": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ExternalNetworkBacking"
+            }
+          }
+        },
+        "description": "List of External Network backings.\n",
+        "x-vcloud-added-in": 32
+      },
+      "IpRange": {
+        "type": "object",
+        "properties": {
+          "startAddress": {
+            "type": "string",
+            "description": "Starting IP address in the range."
+          },
+          "endAddress": {
+            "type": "string",
+            "description": "Ending IP address in the range."
+          }
+        },
+        "description": "An IpRange\n"
+      },
+      "IpRanges": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/IpRange"
+            }
+          }
+        },
+        "description": "List of IpRange\n"
+      },
+      "LdapConnectionTestResult": {
+        "type": "object",
+        "required": [
+          "successful"
+        ],
+        "properties": {
+          "successful": {
+            "type": "boolean",
+            "description": "Flag for whether connection test was successful"
+          },
+          "error": {
+            "$ref": "#/definitions/Error"
+          }
+        },
+        "description": "Provides LDAP connection test results\n"
+      },
+      "LdapGroupAttributesType": {
+        "type": "object",
+        "properties": {
+          "objectClass": {
+            "type": "string"
+          },
+          "objectIdentifier": {
+            "type": "string"
+          },
+          "groupName": {
+            "type": "string"
+          },
+          "membership": {
+            "type": "string"
+          },
+          "membershipIdentifier": {
+            "type": "string"
+          },
+          "backLinkIdentifier": {
+            "type": "string"
+          }
+        },
+        "description": "Defines how a group is imported from LDAP.\n"
+      },
+      "LdapSettings": {
+        "type": "object",
+        "properties": {
+          "hostName": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer"
+          },
+          "isSsl": {
+            "type": "boolean"
+          },
+          "isSslAcceptAll": {
+            "type": "boolean"
+          },
+          "realm": {
+            "type": "string"
+          },
+          "pagedSearchDisabled": {
+            "type": "boolean"
+          },
+          "pageSize": {
+            "type": "integer"
+          },
+          "maxResults": {
+            "type": "integer"
+          },
+          "maxUserGroups": {
+            "type": "integer"
+          },
+          "searchBase": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "authenticationMechanism": {
+            "type": "string",
+            "enum": [
+              "SIMPLE",
+              "KERBEROS",
+              "M5DIGEST",
+              "NTLM"
+            ]
+          },
+          "groupSearchBase": {
+            "type": "string"
+          },
+          "isGroupSearchBaseEnabled": {
+            "type": "boolean"
+          },
+          "connectorType": {
+            "type": "string",
+            "enum": [
+              "ACTIVE_DIRECTORY",
+              "OPEN_LDAP"
+            ]
+          },
+          "userAttributes": {
+            "$ref": "#/definitions/LdapUserAttributesType"
+          },
+          "groupAttributes": {
+            "$ref": "#/definitions/LdapGroupAttributesType"
+          },
+          "useExternalKerberos": {
+            "type": "boolean"
+          }
+        },
+        "description": "LDAP Settings Specification\n"
+      },
+      "LdapSettingsTestResult": {
+        "type": "object",
+        "required": [
+          "successful"
+        ],
+        "properties": {
+          "attribute": {
+            "type": "string",
+            "description": "LDAP attribute being tested",
+            "enum": [
+              "USER_OBJECT_IDENTIFIER",
+              "USERNAME",
+              "USER_EMAIL",
+              "USER_DISPLAY_NAME",
+              "USER_GIVEN_NAME",
+              "USER_SURNAME",
+              "USER_TELEPHONE",
+              "GROUP_NAME",
+              "GROUP_OBJECT_IDENTIFIER"
+            ]
+          },
+          "attributeValue": {
+            "type": "string",
+            "description": "Value of LDAP user attribute being tested"
+          },
+          "result": {
+            "type": "string",
+            "description": "Result of LADP user attribute being tested (what LDAP server returned)"
+          },
+          "successful": {
+            "type": "boolean",
+            "description": "Flag to indicate if the attribute is successful or not"
+          }
+        },
+        "description": "Provides test attribute, result, and success boolean\n"
+      },
+      "LdapTestResult": {
+        "type": "object",
+        "properties": {
+          "connectionTest": {
+            "$ref": "#/definitions/LdapConnectionTestResult"
+          },
+          "settingsTest": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/LdapSettingsTestResult"
+            }
+          }
+        },
+        "description": "Provides LDAP connection and settings test results\n"
+      },
+      "LdapUserAttributesType": {
+        "type": "object",
+        "properties": {
+          "objectClass": {
+            "type": "string"
+          },
+          "objectIdentifier": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "givenName": {
+            "type": "string"
+          },
+          "surname": {
+            "type": "string"
+          },
+          "telephone": {
+            "type": "string"
+          },
+          "groupMembershipIdentifier": {
+            "type": "string"
+          },
+          "groupBackLinkIdentifier": {
+            "type": "string"
+          }
+        },
+        "description": "Defines how LDAP attributes are used when importing a user.\n"
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WsAttribute"
+            }
+          },
+          "href": {
+            "type": "string"
+          },
+          "rel": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "LogicalVmGroup": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID for LogicalVmGroup. This is immutable.\n"
+          },
+          "description": {
+            "type": "string",
+            "default": ""
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name.\n"
+          },
+          "namedVmGroupReferences": {
+            "type": "array",
+            "description": "List of named vm groups associated with logical vm group.\n",
+            "items": {
+              "$ref": "#/definitions/EntityReference"
+            }
+          }
+        },
+        "x-vcloud-added-in": 32
+      },
+      "Network": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID for the network. This field is read-only."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the network."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the network."
+          },
+          "subnets": {
+            "description": "List of subnets configured for the network.",
+            "$ref": "#/definitions/Subnets"
+          }
+        },
+        "description": "A network Object.\n"
+      },
+      "OrgVdcNetworkStatus": {
+        "type": "object",
+        "description": "Represents status of a Org Vdc network. This value will be PENDING if the network has been recorded by VCD but has not been fully configured,\nCONFIGURING if the network is in transition, REALIZED if the existing state of the network has been fully realized, or REALIZED_FAILED if there\nwas an error creating the network.\n",
+        "enum": [
+          "PENDING",
+          "CONFIGURING",
+          "REALIZED",
+          "REALIZATION_FAILED"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "OverallStatus": {
+        "type": "string",
+        "description": "Overall status of the entity",
+        "enum": [
+          "GRAY",
+          "RED",
+          "YELLOW",
+          "GREEN"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "Page": {
+        "type": "object",
+        "properties": {
+          "resultTotal": {
+            "type": "integer",
+            "description": "How many results there are in total (i.e., considering all pages)."
+          },
+          "pageCount": {
+            "type": "integer",
+            "description": "How many pages there are in total."
+          },
+          "page": {
+            "type": "integer",
+            "description": "The page that was fetched, 1-indexed."
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Result count for page that was fetched."
+          }
+        },
+        "description": "Collection of paging-related metadata to be included by composition via allOf. This type\nshould be included in pageable responses to avoid duplicating these common properties. It\nis intended to be included by composition rather than inheritance. Because of this, it has\nno discriminator and should be embedded via allOf. See QueryResults for a reference usage.\n"
+      },
+      "Parameter": {
+        "type": "object",
+        "required": [
+          "inputType"
+        ],
+        "discriminator": "inputType",
+        "properties": {
+          "inputType": {
+            "type": "string"
+          }
+        }
+      },
+      "ParameterTypes": {
+        "type": "object",
+        "properties": {
+          "sdkObject": {
+            "$ref": "#/definitions/SdkObject"
+          },
+          "string": {
+            "$ref": "#/definitions/StringParam"
+          },
+          "secureString": {
+            "$ref": "#/definitions/SecureString"
+          },
+          "number": {
+            "$ref": "#/definitions/NumberParam"
+          },
+          "mimeAttachment": {
+            "$ref": "#/definitions/MimeAttachment"
+          },
+          "properties": {
+            "$ref": "#/definitions/Properties"
+          },
+          "date": {
+            "$ref": "#/definitions/DateParam"
+          },
+          "boolean": {
+            "$ref": "#/definitions/BooleanParam"
+          },
+          "composite": {
+            "$ref": "#/definitions/CompositeType"
+          },
+          "regex": {
+            "$ref": "#/definitions/Regex"
+          },
+          "encryptedString": {
+            "$ref": "#/definitions/EncryptedString"
+          },
+          "keyValuePair": {
+            "$ref": "#/definitions/KeyValuePair"
+          },
+          "compositeValue": {
+            "$ref": "#/definitions/CompositeValue"
+          },
+          "array": {
+            "$ref": "#/definitions/ArrayParam"
+          }
+        }
+      },
+      "ParticipatingVdcReference": {
+        "type": "object",
+        "required": [
+          "siteRef",
+          "vdcRef"
+        ],
+        "properties": {
+          "vdcRef": {
+            "description": "The reference to the vDC that is part of this a vDC group.",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "orgRef": {
+            "description": "Read-only field that specifies what organization this vDC is in.",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "siteRef": {
+            "description": "The site ID that this vDC belongs to.",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "networkProviderScope": {
+            "type": "string",
+            "description": "Read-only field that specifies the network provider scope of the vDC."
+          },
+          "remoteOrg": {
+            "type": "boolean",
+            "description": "Read-only field that specifies whether the vDC is local to this VCD cell cluster."
+          },
+          "status": {
+            "description": "The status that the vDC can be in. An example is if the vDC has been deleted from the system but is still part of the group.",
+            "$ref": "#/definitions/VdcGroupEntityStatus"
+          }
+        },
+        "description": "A participating vDC\n"
+      },
+      "Preference": {
+        "type": "object",
+        "required": [
+          "classifier",
+          "name",
+          "value"
+        ],
+        "properties": {
+          "classifier": {
+            "type": "string",
+            "description": "unique indetifier for this preference definition. It will be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name. This is same as preference definition name and is immutable.\n"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "x-vcloud-added-in": 32
+      },
+      "PreferenceDefinition": {
+        "type": "object",
+        "required": [
+          "classifier",
+          "constrained",
+          "dataType",
+          "defaultValue",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID for preference definition. This is immutable.\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name.\n"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description for user preference\n",
+            "default": ""
+          },
+          "classifier": {
+            "type": "string",
+            "description": "unique indetifier for this preference definition. It should be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable.\n"
+          },
+          "dataType": {
+            "type": "string",
+            "description": "user preference value data type. This is immutable.\n",
+            "enum": [
+              "BOOLEAN",
+              "INTEGER",
+              "STRING"
+            ]
+          },
+          "constrained": {
+            "type": "boolean",
+            "description": "true if user preference is selected from list of values (dataType should be number or string), false otherwise. This is immutable.\n"
+          },
+          "minValue": {
+            "type": "number",
+            "description": "minimum value for user preference. Only valid if user preference type is number. This is immutable.\n"
+          },
+          "maxValue": {
+            "type": "number",
+            "description": "maximum value for user preference. Only valid if user preference type is number. This is immutable.\n"
+          },
+          "defaultValue": {
+            "type": "string"
+          },
+          "allowedValues": {
+            "type": "array",
+            "description": "array of allowed values to select from when constrained is true.. This is immutable after creation.",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "The Preference Definition is immutable.\n",
+        "x-vcloud-added-in": 32
+      },
+      "Presentation": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "vroId": {
+            "type": "string"
+          },
+          "inputParameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WsParameter"
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "outputParameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WsParameter"
+            }
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/StepInfo"
+            }
+          }
+        }
+      },
+      "PresentationElement": {
+        "type": "object",
+        "required": [
+          "elementType"
+        ],
+        "discriminator": "elementType",
+        "properties": {
+          "elementType": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "hidden": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/PresentationMessageInfo"
+            }
+          }
+        }
+      },
+      "PresentationExecution": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WsParameter"
+            }
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startedBy": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/StepInfo"
+            }
+          },
+          "valid": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PresentationExecutionsList": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "executions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ExecutionSummary"
+            }
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PresentationMessageInfo": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      },
+      "PvdcComputePolicy": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID for pVDC compute policy. This is immutable.\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name.\n"
+          },
+          "description": {
+            "type": "string",
+            "default": ""
+          },
+          "pvdcId": {
+            "type": "string",
+            "description": "URN for Provider VDC.\n"
+          },
+          "namedVmGroupReferences": {
+            "type": "array",
+            "description": "This field cannot be updated and is a read-only field in the client after creation.\n",
+            "items": {
+              "$ref": "#/definitions/EntityReference"
+            }
+          },
+          "logicalVmGroupReferences": {
+            "type": "array",
+            "description": "This field cannot be updated and is a read-only field after creation.\n",
+            "items": {
+              "$ref": "#/definitions/EntityReference"
+            },
+            "x-vcloud-added-in": 32
+          }
+        }
+      },
+      "Relations": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "link": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Link"
+            }
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ResourcePool": {
+        "type": "object",
+        "properties": {
+          "moref": {
+            "type": "string",
+            "description": "The vCenter Id of the Resource Pool. It must be in the format (resgroup-#)."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the Resource Pool."
+          },
+          "vcId": {
+            "type": "string",
+            "description": "The vCenter the Resource Pool belongs to."
+          }
+        },
+        "description": "A vCenter Resource Pool.\n"
+      },
+      "Right": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "x-vcloud-constraints": [
+              {
+                "constraint": "Urn"
+              },
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 256
+          },
+          "bundleKey": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "x-vcloud-constraints": [
+              {
+                "constraint": "Urn"
+              }
+            ]
+          },
+          "serviceNamespace": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "x-vcloud-constraints": [
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          },
+          "rightType": {
+            "type": "string",
+            "enum": [
+              "VIEW",
+              "MODIFY"
+            ]
+          },
+          "impliedRights": {
+            "type": "array",
+            "description": "The set of implied rights.",
+            "items": {
+              "$ref": "#/definitions/EntityReference"
+            },
+            "x-vcloud-added-in": 32,
+            "x-vcloud-constraints": [
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          }
+        },
+        "description": "Right\n"
+      },
+      "RightsCategoryNode": {
+        "type": "object",
+        "required": [
+          "bundleKey",
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "id": {
+            "type": "string",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "Urn"
+              },
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          },
+          "bundleKey": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "parent": {
+            "type": "string",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "Urn"
+              }
+            ]
+          },
+          "rightsCount": {
+            "$ref": "#/definitions/RightsCount"
+          },
+          "subCategories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-vcloud-constraints": [
+                {
+                  "constraint": "Urn"
+                }
+              ]
+            }
+          }
+        },
+        "description": "RightsCategoryNode\n"
+      },
+      "RightsCount": {
+        "type": "object",
+        "properties": {
+          "view": {
+            "type": "integer",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          },
+          "modify": {
+            "type": "integer",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          }
+        },
+        "description": "RightsCount - A count of rights in a given category by type\n"
+      },
+      "RightsMapping": {
+        "type": "object",
+        "required": [
+          "description",
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "x-vcloud-constraints": [
+              {
+                "constraint": "Urn"
+              },
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "bundleKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "x-vcloud-constraints": [
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          },
+          "readOnly": {
+            "type": "boolean",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          }
+        },
+        "description": "RightsMapping\n"
+      },
+      "RouterComponentHealth": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/definitions/RouterComponentStatus"
+          },
+          "message": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "code": {
+            "type": "integer"
+          }
+        },
+        "description": "A ComponentHealth object\n"
+      },
+      "RouterComponentStatus": {
+        "type": "object",
+        "description": "Status of a router component.\n",
+        "enum": [
+          "UP",
+          "DOWN"
+        ]
+      },
+      "RouterConnection": {
+        "type": "object",
+        "properties": {
+          "routerRef": {
+            "description": "The edge gateway that this network is attached to.",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "connectionType": {
+            "description": "How the network is connected to the edge gateway. This field is updatable to allow conversions between different types.",
+            "$ref": "#/definitions/VdcNetworkConnectionType"
+          }
+        },
+        "description": "Describes the connection between a routed network and an edge gateway. This must be set if converting from an isolated to a routed network.\n",
+        "x-vcloud-added-in": 31
+      },
+      "RouterDnsConfig": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "nameServers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "A RouterDnsConfig object\n"
+      },
+      "RouterHealthReport": {
+        "type": "object",
+        "properties": {
+          "nsxManagersHealth": {
+            "type": "array",
+            "description": "Status of all the nsx managers spanned by the universal router.\n",
+            "items": {
+              "$ref": "#/definitions/RouterComponentHealth"
+            }
+          },
+          "controlVmHealth": {
+            "type": "array",
+            "description": "Status of all the universal router control VMs within each network provider scope.\nThis also includes status of egress points and routes configured for the universal router.\n",
+            "items": {
+              "$ref": "#/definitions/RouterComponentHealth"
+            }
+          },
+          "controlPlaneHealth": {
+            "description": "Status of the nsx controller cluster associated with the nsx managers.\n",
+            "$ref": "#/definitions/RouterComponentHealth"
+          },
+          "vdcReachabilityStatus": {
+            "type": "array",
+            "description": "Reachability status for local and remote participating vDC's of referenced vDC group.\nStates whether a vDC is reachable from this local site.\n",
+            "items": {
+              "$ref": "#/definitions/RouterComponentHealth"
+            }
+          }
+        },
+        "description": "Health Report of a Router\n"
+      },
+      "Sddc": {
+        "type": "object",
+        "required": [
+          "name",
+          "vcId"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "SDDC Sample Name"
+          },
+          "id": {
+            "type": "string",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "NonSortable"
+              },
+              {
+                "constraint": "ReadOnly"
+              },
+              {
+                "constraint": "Urn"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "example": "SDDC Sample Description",
+            "default": "",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "NonSearchable"
+              },
+              {
+                "constraint": "NonSortable"
+              }
+            ]
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": false
+          },
+          "vcId": {
+            "type": "string",
+            "example": "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "description": "URN of the associated vCenter. This is not editable once the SDDC has been created.",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "NonSortable"
+              }
+            ]
+          },
+          "version": {
+            "type": "string",
+            "example": "6.7.0",
+            "description": "Version of the associated vCenter. This is not editable.",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "NonSortable"
+              },
+              {
+                "constraint": "NonSearchable"
+              },
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          },
+          "overallStatus": {
+            "description": "Overall status of the associated vCenter. This is not editable.",
+            "$ref": "#/definitions/OverallStatus"
+          },
+          "stats": {
+            "description": "Associated read-only statistics.",
+            "$ref": "#/definitions/SddcStats"
+          },
+          "defaultProxy": {
+            "description": "Default proxy for the SDDC. This field is read-only. To set a new default, edit the proxy\nyou wish to make the new default by modifying its defaultProxy flag.\n",
+            "$ref": "#/definitions/SddcProxy"
+          }
+        },
+        "description": "Software-defined data center\n",
+        "x-vcloud-added-in": 32
+      },
+      "SddcProxy": {
+        "type": "object",
+        "required": [
+          "name",
+          "sddcId",
+          "targetHost"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "SDDC Proxy Sample Name"
+          },
+          "id": {
+            "type": "string",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "NonSortable"
+              },
+              {
+                "constraint": "ReadOnly"
+              },
+              {
+                "constraint": "Urn"
+              }
+            ]
+          },
+          "sddcId": {
+            "type": "string",
+            "example": "urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "description": "URN of the parent SDDC. This is not editable once the proxy has been created.",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "Urn"
+              }
+            ]
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "True if the proxy is enabled. Proxy can only be enabled/disabled by privileged users.\nA disabled proxy cannot be activated and thus, cannot be used.\nWhen a proxy is disabled, all active sessions are terminated.\n",
+            "default": true
+          },
+          "tenantVisible": {
+            "type": "boolean",
+            "description": "Whether this proxy has been published to tenants.",
+            "default": false
+          },
+          "targetHost": {
+            "type": "string",
+            "example": "sampleVc.vmware.com",
+            "description": "IP address or FQDN of the host being proxied. This is not editable once the proxy has been created."
+          },
+          "active": {
+            "type": "boolean",
+            "description": "True if the proxy is currently active for the user session associated with the\nrequest made to get the proxy. An inactive proxy cannot be used.\n",
+            "default": false,
+            "x-vcloud-constraints": [
+              {
+                "constraint": "NonSearchable"
+              },
+              {
+                "constraint": "NonSortable"
+              }
+            ]
+          },
+          "token": {
+            "type": "string",
+            "description": "The generated read-only token that should be used as the password when using this proxy.\nTo generate a new token, activate the proxy. The token is tied to the user session that activated the proxy.\nIf the proxy is inactive, this value will be null.\n",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "NonSearchable"
+              },
+              {
+                "constraint": "NonSortable"
+              },
+              {
+                "constraint": "ReadOnly"
+              }
+            ]
+          },
+          "defaultProxy": {
+            "type": "boolean",
+            "description": "True if this is the default proxy for the parent SDDC. A proxy being the default for the\nSDDC means that this proxy's UI will be launched when the SDDC tile is clicked in the\nH5 Tenant UI of VCD. If no default proxy is set, clicking the SDDC tile will be a no-op.\n",
+            "default": false
+          },
+          "parentProxyId": {
+            "type": "string",
+            "example": "urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "description": "The URN of the parent proxy. If a proxy has a parent, the proxy is activated along with\nits parent and shares the token with its parent. Each proxy may only have one parent.\nA parent proxy cannot have a parent of its own.\n",
+            "x-vcloud-constraints": [
+              {
+                "constraint": "NonSortable"
+              },
+              {
+                "constraint": "Urn"
+              }
+            ]
+          },
+          "uiUrl": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://sampleVc.vmware.com",
+            "description": "The URL of the proxied component's UI endpoint. This is the URL that the browser tab\n will be pointed to when the proxy is launched via the H5 UI of VCD.\n",
+            "default": ""
+          }
+        },
+        "description": "SDDC proxy configuration\n",
+        "x-vcloud-added-in": 32
+      },
+      "SddcStat": {
+        "type": "object",
+        "properties": {
+          "numTotal": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Total resource allocation.",
+            "minimum": 0
+          },
+          "numUsed": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Used resource allocation.",
+            "minimum": 0
+          },
+          "numReserved": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Reserved resource allocation.",
+            "minimum": 0
+          }
+        },
+        "description": "A collection of measurements for the SDDC resource\n",
+        "x-vcloud-added-in": 32
+      },
+      "SddcStats": {
+        "type": "object",
+        "properties": {
+          "cpu": {
+            "description": "CPUs statistics of the SDDC (values in MHz).",
+            "$ref": "#/definitions/SddcStat"
+          },
+          "memory": {
+            "description": "Memory statistics of the SDDC (values in MB).",
+            "$ref": "#/definitions/SddcStat"
+          },
+          "storage": {
+            "description": "Storage statistics of the SDDC (values in MB).",
+            "$ref": "#/definitions/SddcStat"
+          }
+        },
+        "description": "A read-only list of resource allocations for the associated SDDC\n",
+        "x-vcloud-added-in": 32
+      },
+      "Service": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "default": ""
+          },
+          "iconMimeType": {
+            "type": "string"
+          },
+          "iconData": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ServiceApp": {
+        "type": "object",
+        "required": [
+          "clientId",
+          "clientSecret",
+          "name",
+          "serviceScope"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID for the service application. This field is read-only."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the service application"
+          },
+          "clientId": {
+            "type": "string",
+            "description": "The client ID"
+          },
+          "clientSecret": {
+            "type": "string",
+            "description": "The client secret"
+          },
+          "orgId": {
+            "type": "string",
+            "description": "The external organization id of the service application"
+          },
+          "serviceScope": {
+            "description": "The scope of the service application",
+            "$ref": "#/definitions/ServiceAppScope"
+          },
+          "accessTokenTTL": {
+            "type": "integer",
+            "description": "The time to live of the access token in seconds."
+          },
+          "accessTokenExpiration": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The read-only expiration date of the access token"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the application is currently enabled"
+          }
+        },
+        "description": "A VMware service application\n",
+        "x-vcloud-added-in": 32
+      },
+      "ServiceAppScope": {
+        "type": "object",
+        "description": "Describes the type of service application\n",
+        "enum": [
+          "VMC"
+        ],
+        "x-vcloud-added-in": 32
+      },
+      "ServiceItem": {
+        "type": "object",
+        "required": [
+          "serviceItemType"
+        ],
+        "discriminator": "serviceItemType",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "serviceItemType": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "canExecute": {
+            "type": "boolean"
+          },
+          "serviceName": {
+            "type": "string"
+          },
+          "serviceId": {
+            "type": "string"
+          },
+          "iconMimeType": {
+            "type": "string"
+          },
+          "iconData": {
+            "type": "string"
+          },
+          "tenantScoped": {
+            "type": "boolean",
+            "default": true
+          },
+          "providerScoped": {
+            "type": "boolean",
+            "default": true
+          },
+          "publishAll": {
+            "type": "boolean",
+            "description": "Read-only value indicating publishAll state\n",
+            "default": false
+          }
+        }
+      },
+      "SmtpServerSpec": {
+        "type": "object",
+        "properties": {
+          "useAuthentication": {
+            "type": "boolean",
+            "description": "A flag to indicate if the SMTP requires login authentication. If this\nflag is set to true, caller must provide user name and password\n"
+          },
+          "secureMode": {
+            "type": "string",
+            "description": "Security mode used to connect to the SMTP server\n",
+            "enum": [
+              "NONE",
+              "START_TLS",
+              "SSL"
+            ]
+          },
+          "url": {
+            "$ref": "#/definitions/Url"
+          },
+          "sslTrustStore": {
+            "type": "string",
+            "description": "The custom ssl trust certs if ssl is enabled\n"
+          },
+          "userName": {
+            "type": "string",
+            "description": "Username to login to server\n"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password to login to the server\n"
+          },
+          "description": {
+            "type": "string",
+            "description": "A human readable description of the entity\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "A human readable name of the entity"
+          }
+        },
+        "description": "Represent the settings of an SMTP Server which the system uses to send email notifications and alerts\n"
+      },
+      "Subnet": {
+        "type": "object",
+        "properties": {
+          "gateway": {
+            "type": "string",
+            "description": "The gateway for the subnet."
+          },
+          "prefixLength": {
+            "type": "integer",
+            "description": "The netmask prefix length of the subnet."
+          },
+          "dnsSuffix": {
+            "type": "string",
+            "description": "The DNS suffix that VMs attached to this network will use."
+          },
+          "dnsServer1": {
+            "type": "string",
+            "description": "The first DNS server that VMs attached to this network will use."
+          },
+          "dnsServer2": {
+            "type": "string",
+            "description": "The second DNS server that VMs attached to this network will use."
+          },
+          "ipRanges": {
+            "description": "Range of IPs within the subnet that can be used in this network. A VM attached to this network is assigned one of these IPs.",
+            "$ref": "#/definitions/IpRanges"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Indicates whether the external network subnet is currently enabled."
+          }
+        },
+        "description": "A network subnet defined by its gateway,\n"
+      },
+      "Subnets": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Subnet"
+            }
+          }
+        },
+        "description": "List of Subnets of a network\n"
+      },
+      "SupportedConstraints": {
+        "type": "object",
+        "properties": {
+          "constraint": {
+            "$ref": "#/definitions/Constraint"
+          },
+          "mandatory": {
+            "$ref": "#/definitions/Mandatory"
+          },
+          "restrictDuplicates": {
+            "$ref": "#/definitions/RestrictDuplicates"
+          },
+          "customValidator": {
+            "$ref": "#/definitions/CustomValidator"
+          },
+          "numberRange": {
+            "$ref": "#/definitions/NumberRange"
+          },
+          "regexp": {
+            "$ref": "#/definitions/Regexp"
+          },
+          "numberFormat": {
+            "$ref": "#/definitions/NumberFormat"
+          }
+        }
+      },
+      "SupportedDecorators": {
+        "type": "object",
+        "properties": {
+          "decorator": {
+            "$ref": "#/definitions/Decorator"
+          },
+          "refreshOnChange": {
+            "$ref": "#/definitions/RefreshOnChange"
+          },
+          "multiLine": {
+            "$ref": "#/definitions/MultiLine"
+          },
+          "chooser": {
+            "$ref": "#/definitions/Chooser"
+          },
+          "dropDown": {
+            "$ref": "#/definitions/DropDown"
+          }
+        }
+      },
+      "SupportedPresentationElements": {
+        "type": "object",
+        "properties": {
+          "presentationElement": {
+            "$ref": "#/definitions/PresentationElement"
+          },
+          "stepInfo": {
+            "$ref": "#/definitions/StepInfo"
+          },
+          "group": {
+            "$ref": "#/definitions/Group"
+          },
+          "field": {
+            "$ref": "#/definitions/Field"
+          },
+          "primaryField": {
+            "$ref": "#/definitions/PrimaryField"
+          }
+        }
+      },
+      "TestEmailRequest": {
+        "type": "object",
+        "properties": {
+          "emailSettings": {
+            "$ref": "#/definitions/EmailSettings"
+          },
+          "destination": {
+            "type": "string"
+          }
+        }
+      },
+      "Tier0Routers": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Tier0Router"
+            }
+          }
+        },
+        "description": "List of NSX-T's Tier-0 routers.\n",
+        "x-vcloud-added-in": 32
+      },
+      "Tier1Routers": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Tier1Router"
+            }
+          }
+        },
+        "description": "List of NSX-T's Tier-1 routers.\n",
+        "x-vcloud-added-in": 32
+      },
+      "UiBranding": {
+        "type": "object",
+        "required": [
+          "customLinks",
+          "portalName"
+        ],
+        "properties": {
+          "portalName": {
+            "type": "string"
+          },
+          "portalColor": {
+            "type": "string",
+            "description": "A custom color defined by the administrator and used to theme the site.\nThe color should be in rgb hex color format such as \"FFFFFF\" all capitalized.\nCan be set to an empty string to use the selected theme's default colors.\n"
+          },
+          "selectedTheme": {
+            "$ref": "#/definitions/UiTheme"
+          },
+          "customLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/UiBrandingMenuItem"
+            }
+          }
+        },
+        "description": "A branding object with the portal name, portal color, selected theme and custom URLs.\n"
+      },
+      "UiBrandingMenuItem": {
+        "type": "object",
+        "required": [
+          "menuItemType"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "menuItemType": {
+            "type": "string",
+            "enum": [
+              "link",
+              "section",
+              "override",
+              "separator"
+            ]
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "description": "An ordered list of menu items which can be customized and used in the application. Can be defined as a\nlink,\noverride (well known links that can be overridden, Default values are About, Help, VMRC),\nsection,\nseparator(section without a name) of the drop down menu.\n",
+        "x-vcloud-added-in": 32
+      },
+      "UiPluginMetadata": {
+        "type": "object",
+        "required": [
+          "license",
+          "link",
+          "pluginName",
+          "vendor",
+          "version"
+        ],
+        "properties": {
+          "pluginName": {
+            "type": "string"
+          },
+          "vendor": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          },
+          "tenant_scoped": {
+            "type": "boolean"
+          },
+          "provider_scoped": {
+            "type": "boolean"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "description": "Meta information about a UI Plugin\n"
+      },
+      "UiTheme": {
+        "type": "object",
+        "required": [
+          "name",
+          "themeType"
+        ],
+        "properties": {
+          "themeType": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "description": "A theme supported by vCloud Director.\n"
+      },
+      "UniversalEgressRoutes": {
+        "type": "object",
+        "properties": {
+          "egressPoints": {
+            "description": "The list of Egress Points for routing configuration. This is read-only.",
+            "$ref": "#/definitions/EgressPoints"
+          },
+          "universalRoutes": {
+            "description": "The list of Universal Routes for routing configuration.\n",
+            "$ref": "#/definitions/UniversalRoutes"
+          }
+        },
+        "description": "Object consisting of Egress Points and Universal Routes for a Universal Router.\n"
+      },
+      "UniversalRoute": {
+        "type": "object",
+        "required": [
+          "networkProviderScope"
+        ],
+        "properties": {
+          "defaultEgress": {
+            "description": "For a given route, routing by default will go through the default egress point. Every valid/configured route will have a default egress point.",
+            "$ref": "#/definitions/EgressPointReference"
+          },
+          "standbyEgress": {
+            "description": "A standby egress point can be configured for failover of routes in case there is an issue routign to the default egress point.",
+            "$ref": "#/definitions/EgressPointReference"
+          },
+          "networkProviderScope": {
+            "type": "string",
+            "description": "The network provider scope for the given route. There can only be one route per fault domain for a Universal Route."
+          },
+          "status": {
+            "description": "The status of the route (whether it's realized, failed, etc.).",
+            "$ref": "#/definitions/UniversalRoutingStatus"
+          },
+          "errorMessage": {
+            "type": "string"
+          }
+        },
+        "description": "A Route for a Universal Router.\n"
+      },
+      "UniversalRouter": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "vdcGroupRef": {
+            "$ref": "#/definitions/EntityReference"
+          },
+          "localEgress": {
+            "type": "boolean"
+          },
+          "status": {
+            "$ref": "#/definitions/VdcGroupEntityStatus"
+          },
+          "errorMessage": {
+            "type": "string"
+          }
+        },
+        "description": "A UniversalRouter object\n"
+      },
+      "UniversalRouterDhcpConfig": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "servers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/UniversalRouterDhcpServer"
+            }
+          }
+        },
+        "description": "A UniversalRouterDhcpConfig object.\n"
+      },
+      "UniversalRouterDhcpServer": {
+        "type": "object",
+        "properties": {
+          "egressRef": {
+            "$ref": "#/definitions/EntityReference"
+          },
+          "serverAddress": {
+            "type": "string"
+          }
+        },
+        "description": "List of Dhcp servers for universal router.\nEither egressRef or serverAddress is required to identify Dhcp server.\n"
+      },
+      "UniversalRouters": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/UniversalRouter"
+            }
+          }
+        },
+        "description": "List of Universal Routers\n"
+      },
+      "UniversalRoutes": {
+        "type": "object",
+        "properties": {
+          "keepAliveTimer": {
+            "type": "integer",
+            "description": "The Keep Alive Timer is the frequency (in seconds) at which the Universal Router seeds Keep Alive messages to its egress peers."
+          },
+          "values": {
+            "type": "array",
+            "description": "The list of Universal Routes.",
+            "items": {
+              "$ref": "#/definitions/UniversalRoute"
+            }
+          },
+          "providerScopesToForceUnconfigure": {
+            "type": "array",
+            "description": "The list network provider scopes whose route will be unconfigure forcefully. This means that a route that is in state that normally shouldn't be\nunconfigurable (i.e. NSX or remote vCD site is down) will still be unconfigured. Errors may be ignored. Note that this force option also affects any route\nupdate where a network provider's egress point is modified/changed. vCD will first unconfigure any existing egress point before configuring the new egress\npoint.\n",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "List of routes associated with a Universal Router.\n"
+      },
+      "UniversalRoutingStatus": {
+        "type": "object",
+        "description": "Represents status of given routing configuration, such as realized, universal router routing configuration failed, egress routing configuration failed, etc.\n",
+        "enum": [
+          "SAVING",
+          "SAVED",
+          "CONFIGURING",
+          "REALIZED",
+          "REALIZATION_FAILED",
+          "CONFIGURATION_FAILED_UNIVERSAL_ROUTER",
+          "CONFIGURATION_FAILED_UNIVERSAL_EGRESS_POINT",
+          "UNCONFIGURED",
+          "DELETING",
+          "DELETION_FAILED_UNIVERSAL_ROUTER",
+          "DELETION_FAILED_UNIVERSAL_EGRESS_POINT"
+        ]
+      },
+      "UploadMetadataResponse": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "plugin_status": {
+                "type": "string",
+                "enum": [
+                  "unavailable",
+                  "ready"
+                ]
+              },
+              "resourcePath": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "description": "Description of an upload (in progress or complete)\n"
+      },
+      "UploadSpec": {
+        "type": "object",
+        "required": [
+          "fileName",
+          "size"
+        ],
+        "properties": {
+          "fileName": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "checksumAlgo": {
+            "type": "string",
+            "default": "sha1",
+            "enum": [
+              "sha1",
+              "sha256"
+            ]
+          }
+        },
+        "description": "Information about upload\n"
+      },
+      "Url": {
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "ssl": {
+            "type": "boolean"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "orgEntityRef": {
+            "$ref": "#/definitions/EntityReference"
+          },
+          "fullname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "im": {
+            "type": "string"
+          },
+          "external": {
+            "type": "boolean"
+          },
+          "nameInSource": {
+            "type": "string"
+          },
+          "sourceEntityRef": {
+            "$ref": "#/definitions/EntityReference"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "alertEmailPrefix": {
+            "type": "string"
+          },
+          "alertEmail": {
+            "type": "string"
+          },
+          "roleEntityRef": {
+            "$ref": "#/definitions/EntityReference"
+          },
+          "roleInherited": {
+            "type": "boolean"
+          },
+          "delayAfterPowerOnSeconds": {
+            "type": "integer"
+          },
+          "storedVMQuota": {
+            "type": "integer"
+          },
+          "deployedVMQuota": {
+            "type": "integer"
+          },
+          "inSync": {
+            "type": "boolean"
+          }
+        },
+        "description": "User Spec object\n"
+      },
+      "UserGroup": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "orgEntityRef": {
+            "$ref": "#/definitions/EntityReference"
+          },
+          "sourceEntityRef": {
+            "$ref": "#/definitions/EntityReference"
+          },
+          "roleEntityRef": {
+            "$ref": "#/definitions/EntityReference"
+          },
+          "nameInSource": {
+            "type": "string"
+          },
+          "providerType": {
+            "type": "string",
+            "enum": [
+              "UNKNOWN",
+              "INTEGRATED",
+              "SAML",
+              "OAUTH"
+            ]
+          }
+        },
+        "description": "Group Spec object\n"
+      },
+      "VROServiceInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "This is a read-only field in the client. Values set on this field will be ignored by the server.\n"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "vroEndpoint": {
+            "type": "string",
+            "format": "uri"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "description": "The password is hidden using a Password Mask represented by a series of 6 asterisks (\"******\") in the response.\nThe Password Mask is not an acceptable password during VRO Server registration.\nDuring an update, the Password Mask set for the 'password' field is interpreted as no change to the field and is ignored.\n"
+          },
+          "version": {
+            "type": "string"
+          },
+          "trustAnchor": {
+            "type": "string",
+            "description": "SSL Certificate chain for the VRO endpoint\n"
+          }
+        },
+        "description": "Response type with meta information about a vRealize Orchestrator Service\n"
+      },
+      "VdcComputePolicy": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "UUID for vDC compute policy. This is immutable.\n"
+          },
+          "description": {
+            "type": "string",
+            "default": "A vDC compute policy."
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name.\n"
+          },
+          "cpuSpeed": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The CPU speed in MHz of this VM. This is optional. When provided,\nVMs with this policy cannot have more than CPU speed defined by this field.\n",
+            "x-vcloud-added-in": 32
+          },
+          "memory": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The maximum memory in MB allowed for a VM. This is optional. When provided, VMs with\nthis policy cannot have configured memory more than defined by this field.\n",
+            "x-vcloud-added-in": 32
+          },
+          "cpuCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of CPUs allowed for a VM. This is optional. When provided,\nVMs with this policy cannot have more than number of CPUs defined by this field.\n",
+            "x-vcloud-added-in": 32
+          },
+          "coresPerSocket": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The cores per socket to be configured for the VM where this policy is applied.\n",
+            "x-vcloud-added-in": 32
+          },
+          "memoryReservationGuarantee": {
+            "type": "number",
+            "format": "double",
+            "description": "The factor of the configured memory reserved for the VM on which this policy is applied.\n",
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          },
+          "cpuReservationGuarantee": {
+            "type": "number",
+            "format": "double",
+            "description": "The factor of the configured CPU reserved for the VM on which this policy is applied.\n",
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          },
+          "cpuLimit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The limit of CPU in MHz for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the vCPUSpeed multiplied by numCPU.\n",
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          },
+          "memoryLimit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The limit of memory in MB for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the configured memory of the VM.\n",
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          },
+          "cpuShares": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of CPU shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM.\n",
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          },
+          "memoryShares": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of memory shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM.\n",
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          },
+          "extraConfigs": {
+            "type": "object",
+            "description": "Map of extra configs to be set on the VM with this policy.\n",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          },
+          "pvdcComputePolicyRef": {
+            "description": "Deprecated in Api 32.0, this property will be removed in future release.\n",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "pvdcComputePolicy": {
+            "description": "This field cannot be updated and is a read-only field in the client after creation.\n",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "compatibleVdcTypes": {
+            "type": "array",
+            "description": "A list of read-only compatible vDC types for this policy.",
+            "items": {
+              "type": "string"
+            },
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          }
+        },
+        "x-vcloud-property-annotations": {
+          "pvdcComputePolicyRef": {
+            "x-vcloud-added-in": 31,
+            "x-vcloud-deprecated-in": 32,
+            "x-vcloud-deprecated-alternative": "pvdcComputePolicy",
+            "x-vcloud-removed-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          },
+          "pvdcComputePolicy": {
+            "x-vcloud-added-in": 32,
+            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+          }
+        }
+      },
+      "VdcGroup": {
+        "type": "object",
+        "required": [
+          "name",
+          "orgId",
+          "participatingOrgVdcs"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID for the vDC Group (read-only)."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "The organization that this group belongs to."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this group. The name must be unique."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this group."
+          },
+          "participatingOrgVdcs": {
+            "type": "array",
+            "description": "The list of organization vDCs that are participating in this group.",
+            "items": {
+              "$ref": "#/definitions/ParticipatingVdcReference"
+            }
+          },
+          "universalNetworkingEnabled": {
+            "type": "boolean",
+            "description": "True means that universal routers can be created. This field cannot be updated."
+          },
+          "networkPoolUniversalId": {
+            "type": "string",
+            "description": "The universal network pool that is common to all the participating vDCs. This field is read-only and\nis derived from the list of participating vDCs.\n"
+          },
+          "status": {
+            "description": "The status that the group can be in.",
+            "$ref": "#/definitions/VdcGroupEntityStatus"
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "If the group has an error status, a more detailed error message is set here."
+          }
+        },
+        "description": "A vCD Group.\n"
+      },
+      "VdcGroupEntityStatus": {
+        "type": "object",
+        "description": "Represents status of vDC group components such as participating vdc's\nconfigured routing, egress points, etc.\n",
+        "enum": [
+          "SAVING",
+          "SAVED",
+          "CONFIGURING",
+          "REALIZED",
+          "REALIZATION_FAILED",
+          "DELETING",
+          "DELETE_FAILED",
+          "OBJECT_NOT_FOUND",
+          "UNCONFIGURED"
+        ]
+      },
+      "VdcNetworkConnectionType": {
+        "type": "object",
+        "description": "Describes how a network is connected to a gateway.\n",
+        "enum": [
+          "DISTRIBUTED",
+          "INTERNAL",
+          "SUBINTERFACE"
+        ],
+        "x-vcloud-added-in": 31
+      },
+      "VdcNetworkDhcpConfig": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the DHCP service is currently enabled on network"
+          },
+          "dhcpPools": {
+            "type": "array",
+            "description": "Range of DHCP IP addresses",
+            "items": {
+              "$ref": "#/definitions/VdcNetworkDhcpPool"
+            }
+          }
+        },
+        "description": "Configuration for the DHCP service that runs on the network.\n",
+        "x-vcloud-added-in": 32
+      },
+      "VdcNetworkDhcpPool": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the DHCP address pool is currently enabled"
+          },
+          "ipRange": {
+            "$ref": "#/definitions/IpRange"
+          },
+          "maxLeaseTime": {
+            "type": "integer",
+            "description": "Max lease time in seconds",
+            "minimum": 0
+          },
+          "defaultLeaseTime": {
+            "type": "integer",
+            "description": "Default lease time in seconds",
+            "minimum": 0
+          }
+        },
+        "description": "A range of DHCP ip addresses and its lease time configuration.\n",
+        "x-vcloud-added-in": 32
+      },
+      "VdcNetworkFenceType": {
+        "type": "object",
+        "description": "The network type.\n",
+        "enum": [
+          "DIRECT",
+          "ISOLATED",
+          "OPAQUE",
+          "NAT_ROUTED",
+          "CROSS_VDC"
+        ],
+        "x-vcloud-added-in": 31
+      },
+      "VdcNetworkProfile": {
+        "type": "object",
+        "properties": {
+          "primaryEdgeCluster": {
+            "description": "The Edge Cluster where the primary appliance for an NSX-V Edge Gateway will be deployed.",
+            "$ref": "#/definitions/EntityReference"
+          },
+          "secondaryEdgeCluster": {
+            "description": "The Edge Cluster where the secondary appliance for an NSX-V Edge Gateway will be deployed if HA is enabled on the Edge.",
+            "$ref": "#/definitions/EntityReference"
+          }
+        },
+        "description": "A vDC Network Profile object.\n",
+        "x-vcloud-added-in": 32
+      },
+      "VmcSddc": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID for the VMC SDDC."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the VMC SDDC. This field is read-only."
+          }
+        },
+        "description": "A VMware Cloud on AWS SDDC\n",
+        "x-vcloud-added-in": 32
+      },
+      "VroRemoteInventoryItem": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WsAttribute"
+            }
+          },
+          "relations": {
+            "$ref": "#/definitions/Relations"
+          }
+        },
+        "description": "Meta information about an inventory item on a vRealize Orchestrator server\n"
+      },
+      "VroRemoteItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "vroServerId": {
+            "type": "string"
+          },
+          "dunesId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "selectable": {
+            "type": "boolean"
+          },
+          "canHaveChildren": {
+            "type": "boolean"
+          },
+          "href": {
+            "type": "string"
+          },
+          "rel": {
+            "type": "string"
+          }
+        },
+        "description": "Information about various objects in vRealize Orchestrator server\n"
+      },
+      "VroRemoteItems": {
+        "type": "object",
+        "properties": {
+          "remoteItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/VroRemoteItem"
+            }
+          },
+          "resultTotal": {
+            "type": "integer"
+          },
+          "pageCount": {
+            "type": "integer"
+          }
+        },
+        "description": "A list of objects in vRealize orchestrator server\n"
+      },
+      "VroRemotePluginItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "typeHref": {
+            "type": "string"
+          },
+          "selectable": {
+            "type": "boolean"
+          },
+          "canHaveChildren": {
+            "type": "boolean"
+          }
+        },
+        "description": "A plugin namespaces for whom type information can be retrieved\n"
+      },
+      "VroRemotePluginItems": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/VroRemotePluginItem"
+            }
+          }
+        },
+        "description": "List of plugin namespaces\n"
+      },
+      "VroRemotePluginType": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "selectable": {
+            "type": "boolean"
+          },
+          "canHaveChildren": {
+            "type": "boolean"
+          }
+        },
+        "description": "Type definition for a plugin namespace\n"
+      },
+      "VroRemotePluginTypes": {
+        "type": "object",
+        "properties": {
+          "types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/VroRemotePluginType"
+            }
+          },
+          "namespace": {
+            "type": "string"
+          }
+        },
+        "description": "A list of defined types for a particular plugin namespace\n"
+      },
+      "VroRemoteWorkflowItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "categoryName": {
+            "type": "string"
+          },
+          "canExecute": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "vroServerId": {
+            "type": "string"
+          }
+        },
+        "description": "Meta information about a workflow on a vRealize Orchestrator server\n"
+      },
+      "WsAttribute": {
+        "type": "object",
+        "properties": {
+          "displayValue": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "WsParameter": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "encryptValue": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "local",
+              "token"
+            ]
+          },
+          "type": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "boolean"
+          },
+          "value": {
+            "$ref": "#/definitions/Parameter"
+          }
+        }
+      },
+      "WsWorkflowExecution": {
+        "type": "object",
+        "properties": {
+          "businessState": {
+            "type": "string"
+          },
+          "contentException": {
+            "type": "string"
+          },
+          "currentItemDisplayName": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string"
+          },
+          "inputParameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WsParameter"
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "outputParameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WsParameter"
+            }
+          },
+          "relations": {
+            "$ref": "#/definitions/Relations"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startedBy": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/definitions/ExecutionState"
+          }
+        }
+      },
+      "AllocatedIpAddresses": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/AllocatedIpAddress"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of IP allocated IP addresses\n",
+        "x-vcloud-added-in": 32
+      },
+      "ArrayParam": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Parameter"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BooleanParam": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "Capabilities": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Capability"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of read-only capabilities.\n",
+        "x-vcloud-added-in": 32
+      },
+      "Chooser": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Decorator"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "sdkObject": {
+                "$ref": "#/definitions/SdkObject"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "CompositeType": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "property": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/CompositeValue"
+                }
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "CompositeValue": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "property": {
+                "$ref": "#/definitions/Parameter"
+              }
+            }
+          }
+        ]
+      },
+      "CrossVdcNetwork": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Network"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vdcGroupRef": {
+                "description": "The vDC group that this network belongs to.",
+                "$ref": "#/definitions/EntityReference"
+              },
+              "routerRef": {
+                "description": "The router that this network is attached to.",
+                "$ref": "#/definitions/EntityReference"
+              },
+              "status": {
+                "description": "The status of the network.",
+                "$ref": "#/definitions/VdcGroupEntityStatus"
+              },
+              "errorMessage": {
+                "type": "string",
+                "description": "If the network has an error status, a more detailed error message is set here."
+              }
+            }
+          }
+        ],
+        "description": "A CrossVdcNetwork object\n"
+      },
+      "CrossVdcNetworks": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/CrossVdcNetwork"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of cross vDC networks\n"
+      },
+      "CustomEntityTypes": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of custom entity types.",
+                "items": {
+                  "$ref": "#/definitions/CustomEntityType"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of custom entity types.\n"
+      },
+      "CustomValidator": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Constraint"
+          }
+        ]
+      },
+      "DateParam": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ]
+      },
+      "DropDown": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Decorator"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "array": {
+                "$ref": "#/definitions/ArrayParam"
+              }
+            }
+          }
+        ]
+      },
+      "EdgeClusters": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/EdgeCluster"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of Edge Clusters.\n",
+        "x-vcloud-added-in": 32
+      },
+      "EdgeGateways": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "A list of EdgeGateways.",
+                "items": {
+                  "$ref": "#/definitions/EdgeGateway"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of edge gateways\n",
+        "x-vcloud-added-in": 32
+      },
+      "EncryptedString": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "EntityReferences": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of entity references.",
+                "items": {
+                  "$ref": "#/definitions/EntityReference"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of entity references.\n"
+      },
+      "ExternalNetwork": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Network"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "networkBackings": {
+                "description": "Backings for this external network. Describes if this external network\nis backed by port groups, vCenter standard switch or an NSX-T Tier-0 router.\n",
+                "$ref": "#/definitions/ExternalNetworkBackings"
+              },
+              "totalIpCount": {
+                "type": "integer",
+                "description": "The number of IP addresses defined by the static ip pools. If the network contains any IpV6 subnets, the total ip count will be null.",
+                "readOnly": true
+              },
+              "usedIpCount": {
+                "type": "integer",
+                "description": "The number of IP address used from the static ip pools.",
+                "readOnly": true
+              }
+            }
+          }
+        ],
+        "description": "An external network.\n",
+        "x-vcloud-added-in": 32
+      },
+      "ExternalNetworks": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ExternalNetwork"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of External Networks\n",
+        "x-vcloud-added-in": 32
+      },
+      "Field": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/PresentationElement"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "decorators": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Decorator"
+                }
+              },
+              "constraints": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Constraint"
+                }
+              },
+              "type": {
+                "type": "string"
+              },
+              "affectedFieldsIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "GlobalRoles": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of global roles.",
+                "items": {
+                  "$ref": "#/definitions/GlobalRole"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of global roles.\n"
+      },
+      "Group": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/PresentationElement"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/PrimaryField"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "KeyValuePair": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "$ref": "#/definitions/Parameter"
+              }
+            }
+          }
+        ]
+      },
+      "LogicalVmGroups": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of LogicalVmGroups.",
+                "items": {
+                  "$ref": "#/definitions/LogicalVmGroup"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of LogicalVmGroups.\n",
+        "x-vcloud-added-in": 32
+      },
+      "Mandatory": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Constraint"
+          }
+        ]
+      },
+      "MimeAttachment": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string",
+                "format": "binary"
+              },
+              "name": {
+                "type": "string"
+              },
+              "mimeType": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "MultiLine": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Decorator"
+          }
+        ]
+      },
+      "NumberFormat": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Constraint"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "NumberParam": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          }
+        ]
+      },
+      "NumberRange": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Constraint"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            }
+          }
+        ]
+      },
+      "PreferenceDefinitions": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page for preference definitions.",
+                "items": {
+                  "$ref": "#/definitions/PreferenceDefinition"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of preference definitions\n",
+        "x-vcloud-added-in": 32
+      },
+      "Preferences": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The list of user preferences.",
+                "items": {
+                  "$ref": "#/definitions/Preference"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of user preferences\n",
+        "x-vcloud-added-in": 32
+      },
+      "Properties": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "property": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/KeyValuePair"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "PublishableRightsMapping": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/RightsMapping"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "publishAll": {
+                "type": "boolean",
+                "description": "Read-only value indicating publishAll state\n",
+                "default": false,
+                "x-vcloud-constraints": [
+                  {
+                    "constraint": "ReadOnly"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "description": "RightsMapping that can be published to tenants\n"
+      },
+      "PvdcComputePolicies": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of provider VDC compute policies.",
+                "items": {
+                  "$ref": "#/definitions/PvdcComputePolicy"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of provider VDC compute policies.\n"
+      },
+      "RefreshOnChange": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Decorator"
+          }
+        ]
+      },
+      "Regex": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "Regexp": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Constraint"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "expression": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "RestrictDuplicates": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Constraint"
+          }
+        ]
+      },
+      "Rights": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of rights.",
+                "items": {
+                  "$ref": "#/definitions/Right"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of rights.\n"
+      },
+      "RightsBundles": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of rights bundles.",
+                "items": {
+                  "$ref": "#/definitions/RightsBundle"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "RightsCategoryNodes": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of rights category nodes.",
+                "items": {
+                  "$ref": "#/definitions/RightsCategoryNode"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of rights category nodes.\n"
+      },
+      "Role": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/RightsMapping"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "Roles": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of roles.",
+                "items": {
+                  "$ref": "#/definitions/Role"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of roles.\n"
+      },
+      "SddcProxies": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/SddcProxy"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A paginated list of SDDC proxies\n",
+        "x-vcloud-added-in": 32
+      },
+      "Sddcs": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Sddc"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A paginated list of software-defined data centers\n",
+        "x-vcloud-added-in": 32
+      },
+      "SdkObject": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "displayValue": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "SecureString": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "isPlainText": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "ServiceApps": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ServiceApp"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of VMware service applications\n",
+        "x-vcloud-added-in": 32
+      },
+      "ServiceItems": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of service items.",
+                "items": {
+                  "$ref": "#/definitions/ServiceItem"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of service items.\n"
+      },
+      "Services": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of services.",
+                "items": {
+                  "$ref": "#/definitions/Service"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of services.\n"
+      },
+      "StepInfo": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/PresentationElement"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "readOnly": {
+                "type": "boolean"
+              },
+              "elements": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/PresentationElement"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "StringParam": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Parameter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "Tier0Router": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/CommonNsxTRouterFields"
+          }
+        ],
+        "description": "An NSX-T's Tier-0 router.\n",
+        "x-vcloud-added-in": 32
+      },
+      "Tier1Router": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/CommonNsxTRouterFields"
+          }
+        ],
+        "description": "An NSX-T's Tier-1 router.\n",
+        "x-vcloud-added-in": 32
+      },
+      "UiPluginMetadataResponse": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/UiPluginMetadata"
+          },
+          {
+            "$ref": "#/definitions/UploadMetadataResponse"
+          }
+        ]
+      },
+      "VdcComputePolicies": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of VDC compute policies.",
+                "items": {
+                  "$ref": "#/definitions/VdcComputePolicy"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of VDC compute policies.\n"
+      },
+      "VdcGroups": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/VdcGroup"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of vDC Groups.\n"
+      },
+      "VdcNetwork": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Network"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "backingNetworkId": {
+                "type": "string",
+                "description": "The NSX id of the backing network."
+              },
+              "backingNetworkType": {
+                "description": "The object type of the backing network.",
+                "$ref": "#/definitions/BackingNetworkType"
+              },
+              "parentNetworkId": {
+                "description": "The parent network if the network is a direct network, otherwise it will be null.",
+                "$ref": "#/definitions/EntityReference"
+              },
+              "networkType": {
+                "description": "The type of network. Changing the network type allows converting between an isolated and routed network.\nNote that the \"connection\" field must also be set if converting from isolated to routed network.\n",
+                "$ref": "#/definitions/VdcNetworkFenceType"
+              },
+              "orgVdc": {
+                "description": "The organization vDC the network belongs to.",
+                "$ref": "#/definitions/EntityReference"
+              },
+              "connection": {
+                "description": "The edge gateway that the network is attached to.\n",
+                "$ref": "#/definitions/RouterConnection"
+              },
+              "isDefaultNetwork": {
+                "type": "boolean",
+                "description": "Deprecated unused field, this property will be removed in future release.\n"
+              },
+              "shared": {
+                "type": "boolean",
+                "description": "Whether this network is shared with other organization vDCs."
+              },
+              "status": {
+                "description": "Description of the network's status.\n",
+                "$ref": "#/definitions/OrgVdcNetworkStatus"
+              },
+              "lastTaskFailureMessage": {
+                "type": "string",
+                "description": "Brief failure message if the last configuration task failed.\n",
+                "readOnly": true
+              },
+              "guestVlanTaggingAllowed": {
+                "type": "boolean",
+                "description": "Whether guest VLAN tagging is allowed."
+              },
+              "retainNicResources": {
+                "type": "boolean",
+                "description": "Whether network resources such as IP/MAC Addresses are to be retained."
+              },
+              "crossVdcNetworkId": {
+                "type": "string",
+                "description": "The id of the cross vdc network if this is a stretched network, otherwise it will be null.",
+                "readOnly": true
+              },
+              "crossVdcNetworkLocationId": {
+                "type": "string",
+                "description": "The id of the org from which this network can be managed if this is a stretched network, otherwise it will be null.",
+                "readOnly": true
+              },
+              "totalIpCount": {
+                "type": "integer",
+                "description": "The number of IP addresses defined by the static ip pools. If the network contains any IpV6 subnets, the total ip count will be null.",
+                "readOnly": true
+              },
+              "usedIpCount": {
+                "type": "integer",
+                "description": "The number of IP address used from the static ip pools.",
+                "readOnly": true
+              }
+            }
+          }
+        ],
+        "description": "An organization vDC network.\n",
+        "x-vcloud-added-in": 31
+      },
+      "VdcNetworks": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/VdcNetwork"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of Org vDC networks\n",
+        "x-vcloud-added-in": 31
+      },
+      "VmcSddcs": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/VmcSddc"
+                }
+              }
+            }
+          }
+        ],
+        "description": "List of VMware Cloud on AWS SDDCs\n",
+        "x-vcloud-added-in": 32
+      },
+      "VroRemoteWorkflowItems": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Page"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "The current page of remove VRO workflows.",
+                "items": {
+                  "$ref": "#/definitions/VroRemoteWorkflowItem"
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of remote VRO workflows.\n"
+      },
+      "VroWorkflowServiceItem": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/ServiceItem"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vroWorkflowId": {
+                "type": "string"
+              },
+              "vroServerId": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "GlobalRole": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/PublishableRightsMapping"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "PrimaryField": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Field"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Field"
+                }
+              },
+              "value": {
+                "$ref": "#/definitions/Parameter"
+              }
+            }
+          }
+        ]
+      },
+      "RightsBundle": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/PublishableRightsMapping"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      }
+    }
   }
 }

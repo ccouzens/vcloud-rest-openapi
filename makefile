@@ -84,5 +84,5 @@ website/34.0.html:
 ./%.yml: ./%.json
 	yq --yaml-output < $< > $@
 
-transformercloud-api/transformer.js: transformercloud-api/transformer.ts
-	cd transformer-cloudapi; npm ci && npm run compile
+transformer-cloudapi/transformer.js: transformer-cloudapi/transformer.ts
+	cd transformer-cloudapi; npm install && npm run compile
