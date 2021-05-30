@@ -42,17 +42,16 @@
         "x-vcloud-added-in": 32
       },
       "AllocatedIpAddressAllocationType": {
-        "type": "object",
+        "type": "string",
         "description": "The possible allocation types for allocated network address.\n",
         "enum": [
           "VM_ALLOCATED",
           "NAT_ROUTED",
           "VSM_ALLOCATED"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "BackingNetworkType": {
-        "type": "object",
+        "type": "string",
         "description": "The backing network type.\n",
         "enum": [
           "DV_PORTGROUP",
@@ -61,8 +60,7 @@
           "OPAQUE_NETWORK",
           "NSXT_FIXED_SEGMENT",
           "NSXT_FLEXIBLE_SEGMENT"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "Capability": {
         "type": "object",
@@ -102,8 +100,7 @@
           "VAppNetwork",
           "OrgVdcNetwork",
           "Infra"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "CapabilityValueType": {
         "type": "string",
@@ -111,8 +108,7 @@
         "enum": [
           "Boolean",
           "String"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "CommonNsxTRouterFields": {
         "properties": {
@@ -355,14 +351,13 @@
         "x-vcloud-added-in": 32
       },
       "EdgeGatewayType": {
-        "type": "object",
+        "type": "string",
         "description": "The type of the edge gateway.\n",
         "enum": [
           "NSXV_BACKED",
           "NSXT_BACKED",
           "NSXT_IMPORTED"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "EdgeGatewayUplink": {
         "type": "object",
@@ -613,15 +608,14 @@
         "x-vcloud-added-in": 32
       },
       "ExternalNetworkBackingType": {
-        "type": "object",
+        "type": "string",
         "description": "The type of the external network backing.\n",
         "enum": [
           "PORTGROUP",
           "DV_PORTGROUP",
           "NSXT_TIER0",
           "UNKNOWN"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "ExternalNetworkBackings": {
         "type": "object",
@@ -936,15 +930,14 @@
         "description": "A network Object.\n"
       },
       "OrgVdcNetworkStatus": {
-        "type": "object",
+        "type": "string",
         "description": "Represents status of a Org Vdc network. This value will be PENDING if the network has been recorded by VCD but has not been fully configured,\nCONFIGURING if the network is in transition, REALIZED if the existing state of the network has been fully realized, or REALIZED_FAILED if there\nwas an error creating the network.\n",
         "enum": [
           "PENDING",
           "CONFIGURING",
           "REALIZED",
           "REALIZATION_FAILED"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "OverallStatus": {
         "type": "string",
@@ -954,8 +947,7 @@
           "RED",
           "YELLOW",
           "GREEN"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "Page": {
         "type": "object",
@@ -1593,7 +1585,7 @@
         "description": "A ComponentHealth object\n"
       },
       "RouterComponentStatus": {
-        "type": "object",
+        "type": "string",
         "description": "Status of a router component.\n",
         "enum": [
           "UP",
@@ -1969,12 +1961,11 @@
         "x-vcloud-added-in": 32
       },
       "ServiceAppScope": {
-        "type": "object",
+        "type": "string",
         "description": "Describes the type of service application\n",
         "enum": [
           "VMC"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "ServiceItem": {
         "type": "object",
@@ -2456,7 +2447,7 @@
         "description": "List of routes associated with a Universal Router.\n"
       },
       "UniversalRoutingStatus": {
-        "type": "object",
+        "type": "string",
         "description": "Represents status of given routing configuration, such as realized, universal router routing configuration failed, egress routing configuration failed, etc.\n",
         "enum": [
           "SAVING",
@@ -2849,7 +2840,7 @@
         "description": "A vCD Group.\n"
       },
       "VdcGroupEntityStatus": {
-        "type": "object",
+        "type": "string",
         "description": "Represents status of vDC group components such as participating vdc's\nconfigured routing, egress points, etc.\n",
         "enum": [
           "SAVING",
@@ -2864,14 +2855,13 @@
         ]
       },
       "VdcNetworkConnectionType": {
-        "type": "object",
+        "type": "string",
         "description": "Describes how a network is connected to a gateway.\n",
         "enum": [
           "DISTRIBUTED",
           "INTERNAL",
           "SUBINTERFACE"
-        ],
-        "x-vcloud-added-in": 31
+        ]
       },
       "VdcNetworkDhcpConfig": {
         "type": "object",
@@ -2916,7 +2906,7 @@
         "x-vcloud-added-in": 32
       },
       "VdcNetworkFenceType": {
-        "type": "object",
+        "type": "string",
         "description": "The network type.\n",
         "enum": [
           "DIRECT",
@@ -2924,8 +2914,7 @@
           "OPAQUE",
           "NAT_ROUTED",
           "CROSS_VDC"
-        ],
-        "x-vcloud-added-in": 31
+        ]
       },
       "VdcNetworkProfile": {
         "type": "object",

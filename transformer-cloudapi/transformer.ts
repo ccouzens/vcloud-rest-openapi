@@ -1,6 +1,117 @@
-import { launch } from "puppeteer";
+import { launch, Page } from "puppeteer";
 import { join } from "path";
 import * as vm from "vm";
+
+async function defs(page: Page) {
+  const script = await page.evaluate(
+    () =>
+      document.querySelector("body > script:first-of-type")?.textContent ?? ""
+  );
+  if (script === undefined) {
+    throw new Error("Expected to read javascript to create defs");
+  }
+  type Ref = {
+    $ref: string;
+    description?: string;
+  };
+  type Boolean = {
+    type: "boolean";
+    description?: string;
+    default?: boolean;
+  };
+  type Integer = {
+    type: "integer";
+    description?: string;
+    format?: "int32" | "int64";
+    minimum?: number;
+    maximum?: number;
+  };
+  type Number = {
+    type: "number";
+    description: string;
+    format?: "double";
+  };
+
+  type String = {
+    type: "string";
+    format?: "date-time" | "password" | "uri";
+    description?: string;
+    example?: string;
+    default?: string;
+    minLength?: number;
+    maxLength?: number;
+    readOnly?: true;
+  };
+  type Array = {
+    type: "array";
+    description?: string;
+    items:
+      | {
+          $ref: string;
+        }
+      | {
+          type: "string";
+        };
+  };
+  type DeepObject = {
+    type: "object";
+    description?: string;
+    additionalProperties?:
+      | {
+          type: "string";
+        }
+      | Array;
+  };
+  type Object = {
+    type?: "object";
+    description?: string;
+    properties: Record<
+      string,
+      Ref | Enum | Boolean | Integer | String | Number | Array | DeepObject
+    >;
+    required?: string[];
+  };
+  type Enum = {
+    type: "object" | "string";
+    description: string;
+    default?: string;
+    enum: string[];
+  };
+
+  const enumVisitor = (val: Enum): Enum => ({
+    type: "string",
+    description: val.description,
+    enum: val.enum,
+    ...(val.default !== undefined && { default: val.default }),
+  });
+
+  type AllOf = {
+    allOf: ({ $ref: string } | Object)[];
+    description?: string;
+  };
+
+  const context: { defs?: Record<string, Object | Enum | AllOf> } = {};
+  vm.createContext(context);
+  vm.runInContext(script, context);
+
+  const defs = context.defs;
+
+  if (defs === undefined) {
+    throw new Error("Expected to get `defs` from page");
+  }
+
+  const newDefs: Record<string, Enum | Object | AllOf> = {};
+
+  for (const [key, value] of Object.entries(defs)) {
+    if ("enum" in value) {
+      newDefs[key] = enumVisitor(value);
+    } else {
+      newDefs[key] = value;
+    }
+  }
+
+  return newDefs;
+}
 
 (async () => {
   const fileName = process.env.input;
@@ -11,15 +122,6 @@ import * as vm from "vm";
   const page = await browser.newPage();
   await page.goto(`file://${join(process.cwd(), fileName)}`);
 
-  const context: { defs?: any } = {};
-  vm.createContext(context);
-  vm.runInContext(
-    await page.evaluate(
-      () =>
-        document.querySelector("body > script:first-of-type")?.textContent ?? ""
-    ),
-    context
-  );
   const spec = {
     openapi: "3.1.0",
     info: {
@@ -34,7 +136,7 @@ import * as vm from "vm";
       ),
     },
     components: {
-      schemas: context.defs,
+      schemas: await defs(page),
     },
   };
 

@@ -118,7 +118,7 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     AllocatedIpAddressAllocationType:
-      type: object
+      type: string
       description: 'The possible allocation types for allocated network address.
 
         VM_ALLOCATED means that the IP address is allocated by a VM,
@@ -133,7 +133,6 @@ components:
         - VM_ALLOCATED
         - NAT_ROUTED
         - VSM_ALLOCATED
-      x-vcloud-added-in: 32
     ApplicationPortList:
       type: object
       properties:
@@ -182,7 +181,6 @@ components:
         - SYSTEM
         - PROVIDER
         - TENANT
-      x-vcloud-added-in: 33
     ApplicationPortsProtocolType:
       type: string
       description: 'The supported protocols for an application port profile.
@@ -193,7 +191,6 @@ components:
         - UDP
         - ICMPv4
         - ICMPv6
-      x-vcloud-added-in: 33
     Association:
       type: object
       properties:
@@ -333,7 +330,7 @@ components:
         '
       x-vcloud-added-in: 33
     BackingNetworkType:
-      type: object
+      type: string
       description: 'The backing network type.
 
         '
@@ -344,7 +341,6 @@ components:
         - OPAQUE_NETWORK
         - NSXT_FIXED_SEGMENT
         - NSXT_FLEXIBLE_SEGMENT
-      x-vcloud-added-in: 32
     BackingRef:
       type: object
       properties:
@@ -396,7 +392,6 @@ components:
         - Security
         - StoragePolicy
         - QuotaPolicy
-      x-vcloud-added-in: 32
     CapabilityValueType:
       type: string
       description: 'Describes the object type of the capability value.
@@ -406,7 +401,6 @@ components:
         - Boolean
         - String
         - List
-      x-vcloud-added-in: 32
     Cell:
       type: object
       properties:
@@ -494,14 +488,13 @@ components:
         '
       x-vcloud-added-in: 34
     ConnectorInitiationMode:
-      type: object
+      type: string
       description: This is used by a local endpoint to establish ike connection with
         the remote site.
       enum:
         - INITIATOR
         - RESPOND_ONLY
         - ON_DEMAND
-      x-vcloud-added-in: 33
     Constraint:
       type: object
       required:
@@ -629,7 +622,7 @@ components:
         decoratorType:
           type: string
     DfPolicyType:
-      type: object
+      type: string
       description: 'Defragmentation Policy helps to handle defragmentation bits present
         in the inner packet. COPY copies the defragmentation bit from the inner IP
         packet
@@ -641,9 +634,8 @@ components:
       enum:
         - COPY
         - CLEAR
-      x-vcloud-added-in: 33
     DhGroupType:
-      type: object
+      type: string
       description: 'The type of Diffie-Helman group. Diffie-Helman groups represent
         the algorithm used to derive shared keys between the IPSec VPN initiator and
         responder over
@@ -660,7 +652,6 @@ components:
         - GROUP19
         - GROUP20
         - GROUP21
-      x-vcloud-added-in: 33
     DistributedPortGroup:
       type: object
       properties:
@@ -1242,7 +1233,7 @@ components:
         '
       x-vcloud-added-in: 32
     EdgeGatewayType:
-      type: object
+      type: string
       description: 'The type of the edge gateway.
 
         '
@@ -1250,7 +1241,6 @@ components:
         - NSXV_BACKED
         - NSXT_BACKED
         - NSXT_IMPORTED
-      x-vcloud-added-in: 32
     EdgeGatewayUplink:
       type: object
       properties:
@@ -2141,7 +2131,7 @@ components:
         '
       x-vcloud-added-in: 32
     ExternalNetworkBackingType:
-      type: object
+      type: string
       description: 'The type of the external network backing.
 
         '
@@ -2150,7 +2140,6 @@ components:
         - DV_PORTGROUP
         - NSXT_TIER0
         - UNKNOWN
-      x-vcloud-added-in: 32
     ExternalNetworkBackings:
       type: object
       properties:
@@ -2259,7 +2248,7 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     FirewallGroupType:
-      type: object
+      type: string
       description: "Defines the type of Firewall Group. These groups can be used in\
         \ Firewall Rules to define rules that are scoped to the IP Addresses/Members\n\
         defined in a Firewall Group.\n<ul>\n  <li> <code> IP_SET </code> should be\
@@ -2269,7 +2258,6 @@ components:
       enum:
         - IP_SET
         - SECURITY_GROUP
-      x-vcloud-added-in: 34
     FirewallRule:
       type: object
       required:
@@ -2426,7 +2414,7 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     FirewallRuleAction:
-      type: object
+      type: string
       description: 'Defines the firewall rule action to be applied.
 
         '
@@ -2434,7 +2422,7 @@ components:
         - ALLOW
         - DROP
     FirewallRuleDirection:
-      type: object
+      type: string
       description: 'Defines direction of traffic for firewall rule.
 
         '
@@ -2443,7 +2431,7 @@ components:
         - OUT
         - IN_OUT
     FirewallRuleIpProtocol:
-      type: object
+      type: string
       description: 'Specifies the IP protocol for the network packet that should be
         matched while enforcing the rule.
 
@@ -2568,7 +2556,7 @@ components:
             - constraint: ReadOnly
             - constraint: NonSortable
     GatewayUsedIpAddressCategory:
-      type: object
+      type: string
       description: 'The categories that an IP can be used for.
 
         '
@@ -2580,7 +2568,6 @@ components:
         - SSL_VPN
         - L2_VPN
         - PRIMARY_IP
-      x-vcloud-added-in: 33
     GracefulRestartModeTypes:
       type: string
       description: "Describes Graceful Restart configuration Modes for BGP configuration\
@@ -2595,7 +2582,6 @@ components:
         - DISABLE
         - HELPER_ONLY
         - GRACEFUL_AND_HELPER
-      x-vcloud-added-in: 34
     HardwareVersions:
       type: object
       properties:
@@ -2648,7 +2634,7 @@ components:
         '
       x-vcloud-added-in: 33
     IkeDigestAlgorithmType:
-      type: object
+      type: string
       description: 'Digest Algorithms are used to verify message integrity during
         IKE negotiation.
 
@@ -2658,9 +2644,8 @@ components:
         - SHA2_256
         - SHA2_384
         - SHA2_512
-      x-vcloud-added-in: 33
     IkeEncryptionAlgorithmType:
-      type: object
+      type: string
       description: 'Encryption algorithms are used to ensure confidentiality of messages
         exchanged during IKE negotiations.
 
@@ -2671,15 +2656,13 @@ components:
         - AES_GCM_128
         - AES_GCM_192
         - AES_GCM_256
-      x-vcloud-added-in: 33
     IkeServiceStatus:
-      type: object
+      type: string
       description: The service status for the IKE Session.
       enum:
         - UP
         - DOWN
         - NEGOTIATING
-      x-vcloud-added-in: 33
     IkeStatus:
       type: object
       properties:
@@ -2697,13 +2680,12 @@ components:
         '
       x-vcloud-added-in: 33
     IkeVersionType:
-      type: object
+      type: string
       description: The IKE Protocol version type.
       enum:
         - IKE_V1
         - IKE_V2
         - IKE_FLEX
-      x-vcloud-added-in: 33
     IpRange:
       type: object
       properties:
@@ -2955,7 +2937,7 @@ components:
                 - arg: providervdc
       x-vcloud-added-in: 32
     NatRuleType:
-      type: object
+      type: string
       description: 'The Nat Rule Type for a given NAT rule.
 
         '
@@ -3044,7 +3026,7 @@ components:
         '
       x-vcloud-added-in: 33
     NetworkPoolBackingType:
-      type: object
+      type: string
       description: 'Represents the network pool''s backing type.
 
         '
@@ -3055,7 +3037,6 @@ components:
         - PORTGROUP_BACKED
         - UNIVERSAL_VXLAN
         - UNKNOWN
-      x-vcloud-added-in: 33
     NetworkProviderContext:
       type: object
       properties:
@@ -3127,7 +3108,7 @@ components:
           x-vcloud-constraints:
             - constraint: ReadOnly
     NetworkingObjectStatusType:
-      type: object
+      type: string
       description: "Represents status type of a networking entity.\n<ul>\n  <li> PENDING\
         \ - Desired entity configuration has been received by system and is pending\
         \ realization.\n  <li> CONFIGURING - The system is in process of realizing\
@@ -3141,7 +3122,6 @@ components:
         - REALIZED
         - REALIZATION_FAILED
         - UNKNOWN
-      x-vcloud-added-in: 33
     NsxTEdgeCluster:
       properties:
         id:
@@ -3209,7 +3189,7 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     NsxTEdgeClusterDeploymentType:
-      type: object
+      type: string
       description: 'Represents the deployment type for an edge cluster. This is derived
 
         from the deplyment type of the nodes in an edge cluster. If all the edge
@@ -3224,9 +3204,8 @@ components:
         - PHYSICAL_MACHINE
         - HYBRID
         - UNKNOWN
-      x-vcloud-added-in: 34
     NsxTEdgeClusterNodeType:
-      type: object
+      type: string
       description: 'Represents the type of transport nodes in an edge cluster.
 
         All of the transport nodes in an edge cluster must belong to the same type.
@@ -3236,7 +3215,6 @@ components:
         - EDGE_NODE
         - PUBLIC_CLOUD_GATEWAY_NODE
         - UNKNOWN
-      x-vcloud-added-in: 34
     NsxTEdgeClusters:
       type: object
       properties:
@@ -3278,13 +3256,12 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     NsxTTransportZoneType:
-      type: object
+      type: string
       description: 'Represents an NSX-T transport zone''s traffic type.
 
         '
       enum:
         - GENEVE
-      x-vcloud-added-in: 33
     NsxTTransportZones:
       type: object
       properties:
@@ -3413,14 +3390,13 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     NsxVTransportZoneType:
-      type: object
+      type: string
       description: 'Represents an NSX-V transport zone''s traffic type.
 
         '
       enum:
         - VXLAN
         - UNIVERSAL_VXLAN
-      x-vcloud-added-in: 33
     NsxVTransportZones:
       type: object
       properties:
@@ -3512,7 +3488,7 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     OrgVdcNetworkStatus:
-      type: object
+      type: string
       description: 'Represents status of a Org Vdc network. This value will be PENDING
         if the network has been recorded by VCD but has not been fully configured,
 
@@ -3527,7 +3503,6 @@ components:
         - CONFIGURING
         - REALIZED
         - REALIZATION_FAILED
-      x-vcloud-added-in: 32
     OverallStatus:
       type: string
       description: Overall status of the entity
@@ -3536,7 +3511,6 @@ components:
         - RED
         - YELLOW
         - GREEN
-      x-vcloud-added-in: 32
     Page:
       type: object
       properties:
@@ -4483,7 +4457,7 @@ components:
 
         '
     RouterComponentStatus:
-      type: object
+      type: string
       description: 'Status of a router component.
 
         '
@@ -4907,7 +4881,7 @@ components:
         '
       x-vcloud-added-in: 32
     ServiceAppScope:
-      type: object
+      type: string
       description: 'Describes the type of service application.
 
         VMC_REFRESH_TOKEN: The application authtenticates to VMC via a refresh token
@@ -4921,7 +4895,6 @@ components:
         - VMC
         - VMC_REFRESH_TOKEN
         - VMC_CLIENT_CREDENTIAL
-      x-vcloud-added-in: 32
     ServiceItem:
       type: object
       required:
@@ -5382,7 +5355,7 @@ components:
         '
       x-vcloud-added-in: 33
     TunnelDigestAlgorithmType:
-      type: object
+      type: string
       description: This is the algorithm used to verify message integruty during tunnel
         establishment.
       enum:
@@ -5390,9 +5363,8 @@ components:
         - SHA2_256
         - SHA2_384
         - SHA2_512
-      x-vcloud-added-in: 33
     TunnelEncryptionAlgorithmType:
-      type: object
+      type: string
       description: Encryption algorithm to use in IPSec tunnel establishment.
       enum:
         - AES_128
@@ -5404,9 +5376,8 @@ components:
         - NO_ENCRYPTION_AUTH_AES_GMAC_192
         - NO_ENCRYPTION_AUTH_AES_GMAC_256
         - NO_ENCRYPTION
-      x-vcloud-added-in: 33
     TunnelStatus:
-      type: object
+      type: string
       description: 'The overall tunnel status which is consolidated using the Tunnel
         Status and IKE Status. If the tunnel is up, the status is UP. If the tunnel
 
@@ -5418,7 +5389,6 @@ components:
         - UP
         - DOWN
         - DEGRADED
-      x-vcloud-added-in: 33
     UiBranding:
       type: object
       required:
@@ -5734,7 +5704,7 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     UniversalRoutingStatus:
-      type: object
+      type: string
       description: 'Represents status of given routing configuration, such as realized,
         universal router routing configuration failed, egress routing configuration
         failed, etc.
@@ -5926,7 +5896,7 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     UsedIpAddressAllocationType:
-      type: object
+      type: string
       description: 'The possible allocation types for allocated network IP address.
 
         VM_ALLOCATED means that the IP address is used by a VM,
@@ -5937,7 +5907,6 @@ components:
       enum:
         - VM_ALLOCATED
         - EDGE
-      x-vcloud-added-in: 33
     User:
       type: object
       properties:
@@ -6731,7 +6700,7 @@ components:
             - constraint: NonSearchable
             - constraint: NonSortable
     VdcGroupEntityStatus:
-      type: object
+      type: string
       description: 'Represents status of vDC group components such as participating
         vdc''s
 
@@ -6749,7 +6718,7 @@ components:
         - OBJECT_NOT_FOUND
         - UNCONFIGURED
     VdcNetworkConnectionType:
-      type: object
+      type: string
       description: 'Describes how a network is connected to a gateway.
 
         '
@@ -6757,7 +6726,6 @@ components:
         - DISTRIBUTED
         - INTERNAL
         - SUBINTERFACE
-      x-vcloud-added-in: 31
     VdcNetworkDhcpConfig:
       type: object
       properties:
@@ -6794,7 +6762,7 @@ components:
         '
       x-vcloud-added-in: 32
     VdcNetworkFenceType:
-      type: object
+      type: string
       description: 'The network type.
 
         '
@@ -6805,7 +6773,6 @@ components:
         - OPAQUE
         - NAT_ROUTED
         - CROSS_VDC
-      x-vcloud-added-in: 31
     VdcNetworkProfile:
       type: object
       properties:

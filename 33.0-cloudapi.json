@@ -190,14 +190,13 @@
         }
       },
       "AllocatedIpAddressAllocationType": {
-        "type": "object",
+        "type": "string",
         "description": "The possible allocation types for allocated network address.\nVM_ALLOCATED means that the IP address is allocated by a VM,\nNAT_ROUTED means that the IP address is used in a NAT routed environment and\nVSM_ALLOCATED means that the IP address is allocated to an NSX edge gateway interface.\n",
         "enum": [
           "VM_ALLOCATED",
           "NAT_ROUTED",
           "VSM_ALLOCATED"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "ApplicationPortList": {
         "type": "object",
@@ -251,8 +250,7 @@
           "SYSTEM",
           "PROVIDER",
           "TENANT"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "ApplicationPortsProtocolType": {
         "type": "string",
@@ -262,8 +260,7 @@
           "UDP",
           "ICMPv4",
           "ICMPv6"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "Association": {
         "type": "object",
@@ -510,7 +507,7 @@
         "x-vcloud-added-in": 33
       },
       "BackingNetworkType": {
-        "type": "object",
+        "type": "string",
         "description": "The backing network type.\n",
         "enum": [
           "DV_PORTGROUP",
@@ -519,8 +516,7 @@
           "OPAQUE_NETWORK",
           "NSXT_FIXED_SEGMENT",
           "NSXT_FLEXIBLE_SEGMENT"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "BackingRef": {
         "type": "object",
@@ -575,8 +571,7 @@
           "VAppNetwork",
           "OrgVdcNetwork",
           "Infra"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "CapabilityValueType": {
         "type": "string",
@@ -584,8 +579,7 @@
         "enum": [
           "Boolean",
           "String"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "Cell": {
         "type": "object",
@@ -637,14 +631,13 @@
         "description": "Common fields that all Tier-0 or Tier-1 routers have."
       },
       "ConnectorInitiationMode": {
-        "type": "object",
+        "type": "string",
         "description": "This is used by a local endpoint to establish ike connection with the remote site.",
         "enum": [
           "INITIATOR",
           "RESPOND_ONLY",
           "ON_DEMAND"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "Constraint": {
         "type": "object",
@@ -791,16 +784,15 @@
         }
       },
       "DfPolicyType": {
-        "type": "object",
+        "type": "string",
         "description": "Defragmentation Policy helps to handle defragmentation bits present in the inner packet. COPY copies the defragmentation bit from the inner IP packet\ninto the outer packet. CLEAR ignores the defragmentation bit present in the inner packet.\n",
         "enum": [
           "COPY",
           "CLEAR"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "DhGroupType": {
-        "type": "object",
+        "type": "string",
         "description": "The type of Diffie-Helman group. Diffie-Helman groups represent the algorithm used to derive shared keys between the IPSec VPN initiator and responder over\nan unsecured network.\n",
         "enum": [
           "GROUP2",
@@ -811,8 +803,7 @@
           "GROUP19",
           "GROUP20",
           "GROUP21"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "DistributedPortGroup": {
         "type": "object",
@@ -1271,14 +1262,13 @@
         "x-vcloud-added-in": 32
       },
       "EdgeGatewayType": {
-        "type": "object",
+        "type": "string",
         "description": "The type of the edge gateway.\n",
         "enum": [
           "NSXV_BACKED",
           "NSXT_BACKED",
           "NSXT_IMPORTED"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "EdgeGatewayUplink": {
         "type": "object",
@@ -2234,15 +2224,14 @@
         "x-vcloud-added-in": 32
       },
       "ExternalNetworkBackingType": {
-        "type": "object",
+        "type": "string",
         "description": "The type of the external network backing.\n",
         "enum": [
           "PORTGROUP",
           "DV_PORTGROUP",
           "NSXT_TIER0",
           "UNKNOWN"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "ExternalNetworkBackings": {
         "type": "object",
@@ -2342,7 +2331,7 @@
         }
       },
       "FirewallRuleAction": {
-        "type": "object",
+        "type": "string",
         "description": "Defines the firewall rule action to be applied.\n",
         "enum": [
           "ALLOW",
@@ -2350,7 +2339,7 @@
         ]
       },
       "FirewallRuleDirection": {
-        "type": "object",
+        "type": "string",
         "description": "Defines direction of traffic for firewall rule.\n",
         "enum": [
           "IN",
@@ -2359,7 +2348,7 @@
         ]
       },
       "FirewallRuleIpProtocol": {
-        "type": "object",
+        "type": "string",
         "description": "Specifies the IP protocol for the network packet that should be matched while enforcing the rule.\nIPV4_IPV6 means both IPV4 and IPV6 packet type.\n",
         "enum": [
           "IPV4",
@@ -2416,7 +2405,7 @@
         }
       },
       "GatewayUsedIpAddressCategory": {
-        "type": "object",
+        "type": "string",
         "description": "The categories that an IP can be used for.\n",
         "enum": [
           "SNAT",
@@ -2426,8 +2415,7 @@
           "SSL_VPN",
           "L2_VPN",
           "PRIMARY_IP"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "HardwareVersions": {
         "type": "object",
@@ -2488,18 +2476,17 @@
         "x-vcloud-added-in": 33
       },
       "IkeDigestAlgorithmType": {
-        "type": "object",
+        "type": "string",
         "description": "Digest Algorithms are used to verify message integrity during IKE negotiation.\n",
         "enum": [
           "SHA1",
           "SHA2_256",
           "SHA2_384",
           "SHA2_512"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "IkeEncryptionAlgorithmType": {
-        "type": "object",
+        "type": "string",
         "description": "Encryption algorithms are used to ensure confidentiality of messages exchanged during IKE negotiations.\n",
         "enum": [
           "AES_128",
@@ -2507,18 +2494,16 @@
           "AES_GCM_128",
           "AES_GCM_192",
           "AES_GCM_256"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "IkeServiceStatus": {
-        "type": "object",
+        "type": "string",
         "description": "The service status for the IKE Session.",
         "enum": [
           "UP",
           "DOWN",
           "NEGOTIATING"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "IkeStatus": {
         "type": "object",
@@ -2536,14 +2521,13 @@
         "x-vcloud-added-in": 33
       },
       "IkeVersionType": {
-        "type": "object",
+        "type": "string",
         "description": "The IKE Protocol version type.",
         "enum": [
           "IKE_V1",
           "IKE_V2",
           "IKE_FLEX"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "IpRange": {
         "type": "object",
@@ -2865,7 +2849,7 @@
         "x-vcloud-added-in": 32
       },
       "NatRuleType": {
-        "type": "object",
+        "type": "string",
         "description": "The Nat Rule Type for a given NAT rule.\n",
         "enum": [
           "DNAT",
@@ -2966,7 +2950,7 @@
         "x-vcloud-added-in": 33
       },
       "NetworkPoolBackingType": {
-        "type": "object",
+        "type": "string",
         "description": "Represents the network pool's backing type.\n",
         "enum": [
           "VLAN",
@@ -2975,8 +2959,7 @@
           "PORTGROUP_BACKED",
           "UNIVERSAL_VXLAN",
           "UNKNOWN"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "NetworkProviderContext": {
         "type": "object",
@@ -3080,15 +3063,14 @@
         }
       },
       "NetworkingObjectStatusType": {
-        "type": "object",
+        "type": "string",
         "description": "Represents status type of a networking entity. This value will be PENDING if the entity is waiting to be realized,\nCONFIGURING if the entity realization is currently in-progress, REALIZED if the entity is fully realized successfully,\nor REALIZED_FAILED if the realization has failed such as failure to create the entity.\n",
         "enum": [
           "PENDING",
           "CONFIGURING",
           "REALIZED",
           "REALIZATION_FAILED"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "NsxTTransportZone": {
         "properties": {
@@ -3138,12 +3120,11 @@
         }
       },
       "NsxTTransportZoneType": {
-        "type": "object",
+        "type": "string",
         "description": "Represents an NSX-T transport zone's traffic type.\n",
         "enum": [
           "GENEVE"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "NsxTTransportZones": {
         "type": "object",
@@ -3212,13 +3193,12 @@
         }
       },
       "NsxVTransportZoneType": {
-        "type": "object",
+        "type": "string",
         "description": "Represents an NSX-V transport zone's traffic type.\n",
         "enum": [
           "VXLAN",
           "UNIVERSAL_VXLAN"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "NsxVTransportZones": {
         "type": "object",
@@ -3332,15 +3312,14 @@
         }
       },
       "OrgVdcNetworkStatus": {
-        "type": "object",
+        "type": "string",
         "description": "Represents status of a Org Vdc network. This value will be PENDING if the network has been recorded by VCD but has not been fully configured,\nCONFIGURING if the network is in transition, REALIZED if the existing state of the network has been fully realized, or REALIZED_FAILED if there\nwas an error creating the network.\n",
         "enum": [
           "PENDING",
           "CONFIGURING",
           "REALIZED",
           "REALIZATION_FAILED"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "OverallStatus": {
         "type": "string",
@@ -3350,8 +3329,7 @@
           "RED",
           "YELLOW",
           "GREEN"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "Page": {
         "type": "object",
@@ -4370,7 +4348,7 @@
         "description": "A ComponentHealth object\n"
       },
       "RouterComponentStatus": {
-        "type": "object",
+        "type": "string",
         "description": "Status of a router component.\n",
         "enum": [
           "UP",
@@ -4877,14 +4855,13 @@
         "x-vcloud-added-in": 32
       },
       "ServiceAppScope": {
-        "type": "object",
+        "type": "string",
         "description": "Describes the type of service application.\nVMC_REFRESH_TOKEN: The application authtenticates to VMC via a refresh token\nVMC_CLIENT_CREDENTIAL: The application authenticates to VMC using client credentials\nVMC: Deprecated. Defaults to VMC_REFRESH_TOKEN.\n",
         "enum": [
           "VMC",
           "VMC_REFRESH_TOKEN",
           "VMC_CLIENT_CREDENTIAL"
-        ],
-        "x-vcloud-added-in": 32
+        ]
       },
       "ServiceItem": {
         "type": "object",
@@ -5413,18 +5390,17 @@
         "x-vcloud-added-in": 33
       },
       "TunnelDigestAlgorithmType": {
-        "type": "object",
+        "type": "string",
         "description": "This is the algorithm used to verify message integruty during tunnel establishment.",
         "enum": [
           "SHA1",
           "SHA2_256",
           "SHA2_384",
           "SHA2_512"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "TunnelEncryptionAlgorithmType": {
-        "type": "object",
+        "type": "string",
         "description": "Encryption algorithm to use in IPSec tunnel establishment.",
         "enum": [
           "AES_128",
@@ -5436,27 +5412,24 @@
           "NO_ENCRYPTION_AUTH_AES_GMAC_192",
           "NO_ENCRYPTION_AUTH_AES_GMAC_256",
           "NO_ENCRYPTION"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "TunnelSecurityType": {
-        "type": "object",
+        "type": "string",
         "description": "This indicates the security type used for the IPSec Tunnel. For custom settings, one should use the connectionProperties endpoint.",
         "enum": [
           "DEFAULT",
           "CUSTOM"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "TunnelStatus": {
-        "type": "object",
+        "type": "string",
         "description": "The overall tunnel status which is consolidated using the Tunnel Status and IKE Status. If the tunnel is up, the status is UP. If the tunnel\nis down, the status is DOWN. The tunnel may also be in a DEGRADED state due to other issues.\n",
         "enum": [
           "UP",
           "DOWN",
           "DEGRADED"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "UiBranding": {
         "type": "object",
@@ -5903,7 +5876,7 @@
         }
       },
       "UniversalRoutingStatus": {
-        "type": "object",
+        "type": "string",
         "description": "Represents status of given routing configuration, such as realized, universal router routing configuration failed, egress routing configuration failed, etc.\n",
         "enum": [
           "SAVING",
@@ -6109,13 +6082,12 @@
         }
       },
       "UsedIpAddressAllocationType": {
-        "type": "object",
+        "type": "string",
         "description": "The possible allocation types for allocated network IP address.\nVM_ALLOCATED means that the IP address is used by a VM,\nEDGE means that the IP address is in use by an NSX edge gateway interface.\n",
         "enum": [
           "VM_ALLOCATED",
           "EDGE"
-        ],
-        "x-vcloud-added-in": 33
+        ]
       },
       "User": {
         "type": "object",
@@ -6594,7 +6566,7 @@
         }
       },
       "VdcGroupEntityStatus": {
-        "type": "object",
+        "type": "string",
         "description": "Represents status of vDC group components such as participating vdc's\nconfigured routing, egress points, etc.\n",
         "enum": [
           "SAVING",
@@ -6609,14 +6581,13 @@
         ]
       },
       "VdcNetworkConnectionType": {
-        "type": "object",
+        "type": "string",
         "description": "Describes how a network is connected to a gateway.\n",
         "enum": [
           "DISTRIBUTED",
           "INTERNAL",
           "SUBINTERFACE"
-        ],
-        "x-vcloud-added-in": 31
+        ]
       },
       "VdcNetworkDhcpConfig": {
         "type": "object",
@@ -6661,7 +6632,7 @@
         "x-vcloud-added-in": 32
       },
       "VdcNetworkFenceType": {
-        "type": "object",
+        "type": "string",
         "description": "The network type.\n",
         "enum": [
           "DIRECT",
@@ -6670,8 +6641,7 @@
           "OPAQUE",
           "NAT_ROUTED",
           "CROSS_VDC"
-        ],
-        "x-vcloud-added-in": 31
+        ]
       },
       "VdcNetworkProfile": {
         "type": "object",

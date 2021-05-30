@@ -35,7 +35,7 @@ components:
         '
       x-vcloud-added-in: 32
     AllocatedIpAddressAllocationType:
-      type: object
+      type: string
       description: 'The possible allocation types for allocated network address.
 
         '
@@ -43,9 +43,8 @@ components:
         - VM_ALLOCATED
         - NAT_ROUTED
         - VSM_ALLOCATED
-      x-vcloud-added-in: 32
     BackingNetworkType:
-      type: object
+      type: string
       description: 'The backing network type.
 
         '
@@ -56,7 +55,6 @@ components:
         - OPAQUE_NETWORK
         - NSXT_FIXED_SEGMENT
         - NSXT_FLEXIBLE_SEGMENT
-      x-vcloud-added-in: 32
     Capability:
       type: object
       properties:
@@ -92,7 +90,6 @@ components:
         - VAppNetwork
         - OrgVdcNetwork
         - Infra
-      x-vcloud-added-in: 32
     CapabilityValueType:
       type: string
       description: 'Describes the object type of the capability value.
@@ -101,7 +98,6 @@ components:
       enum:
         - Boolean
         - String
-      x-vcloud-added-in: 32
     CommonNsxTRouterFields:
       properties:
         id:
@@ -309,7 +305,7 @@ components:
         '
       x-vcloud-added-in: 32
     EdgeGatewayType:
-      type: object
+      type: string
       description: 'The type of the edge gateway.
 
         '
@@ -317,7 +313,6 @@ components:
         - NSXV_BACKED
         - NSXT_BACKED
         - NSXT_IMPORTED
-      x-vcloud-added-in: 32
     EdgeGatewayUplink:
       type: object
       properties:
@@ -538,7 +533,7 @@ components:
         '
       x-vcloud-added-in: 32
     ExternalNetworkBackingType:
-      type: object
+      type: string
       description: 'The type of the external network backing.
 
         '
@@ -547,7 +542,6 @@ components:
         - DV_PORTGROUP
         - NSXT_TIER0
         - UNKNOWN
-      x-vcloud-added-in: 32
     ExternalNetworkBackings:
       type: object
       properties:
@@ -793,7 +787,7 @@ components:
 
         '
     OrgVdcNetworkStatus:
-      type: object
+      type: string
       description: 'Represents status of a Org Vdc network. This value will be PENDING
         if the network has been recorded by VCD but has not been fully configured,
 
@@ -808,7 +802,6 @@ components:
         - CONFIGURING
         - REALIZED
         - REALIZATION_FAILED
-      x-vcloud-added-in: 32
     OverallStatus:
       type: string
       description: Overall status of the entity
@@ -817,7 +810,6 @@ components:
         - RED
         - YELLOW
         - GREEN
-      x-vcloud-added-in: 32
     Page:
       type: object
       properties:
@@ -1322,7 +1314,7 @@ components:
 
         '
     RouterComponentStatus:
-      type: object
+      type: string
       description: 'Status of a router component.
 
         '
@@ -1657,13 +1649,12 @@ components:
         '
       x-vcloud-added-in: 32
     ServiceAppScope:
-      type: object
+      type: string
       description: 'Describes the type of service application
 
         '
       enum:
         - VMC
-      x-vcloud-added-in: 32
     ServiceItem:
       type: object
       required:
@@ -2093,7 +2084,7 @@ components:
 
         '
     UniversalRoutingStatus:
-      type: object
+      type: string
       description: 'Represents status of given routing configuration, such as realized,
         universal router routing configuration failed, egress routing configuration
         failed, etc.
@@ -2508,7 +2499,7 @@ components:
 
         '
     VdcGroupEntityStatus:
-      type: object
+      type: string
       description: 'Represents status of vDC group components such as participating
         vdc''s
 
@@ -2526,7 +2517,7 @@ components:
         - OBJECT_NOT_FOUND
         - UNCONFIGURED
     VdcNetworkConnectionType:
-      type: object
+      type: string
       description: 'Describes how a network is connected to a gateway.
 
         '
@@ -2534,7 +2525,6 @@ components:
         - DISTRIBUTED
         - INTERNAL
         - SUBINTERFACE
-      x-vcloud-added-in: 31
     VdcNetworkDhcpConfig:
       type: object
       properties:
@@ -2571,7 +2561,7 @@ components:
         '
       x-vcloud-added-in: 32
     VdcNetworkFenceType:
-      type: object
+      type: string
       description: 'The network type.
 
         '
@@ -2581,7 +2571,6 @@ components:
         - OPAQUE
         - NAT_ROUTED
         - CROSS_VDC
-      x-vcloud-added-in: 31
     VdcNetworkProfile:
       type: object
       properties:
