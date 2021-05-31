@@ -14,6 +14,9 @@ async function defs(page: Page) {
     $ref: string;
     description?: string;
   };
+
+  const refStringCorrector = (val: string): string =>
+    val.replace(/^\#\/definitions\//, "#/components/schemas/");
   type Boolean = {
     type: "boolean";
     description?: string;
@@ -78,7 +81,7 @@ async function defs(page: Page) {
     enum: string[];
   };
 
-  const enumVisitor = (val: Enum): Enum => ({
+  const enumCorrector = (val: Enum): Enum => ({
     type: "string",
     description: val.description,
     enum: val.enum,
@@ -89,6 +92,17 @@ async function defs(page: Page) {
     allOf: ({ $ref: string } | Object)[];
     description?: string;
   };
+
+  const allOfCorrector = (outerVal: AllOf): AllOf => ({
+    allOf: outerVal.allOf.map((innerVal) =>
+      "$ref" in innerVal
+        ? { $ref: refStringCorrector(innerVal.$ref) }
+        : innerVal
+    ),
+    ...(outerVal.description !== undefined && {
+      description: outerVal.description,
+    }),
+  });
 
   const context: { defs?: Record<string, Object | Enum | AllOf> } = {};
   vm.createContext(context);
@@ -104,7 +118,9 @@ async function defs(page: Page) {
 
   for (const [key, value] of Object.entries(defs)) {
     if ("enum" in value) {
-      newDefs[key] = enumVisitor(value);
+      newDefs[key] = enumCorrector(value);
+    } else if ("allOf" in value) {
+      newDefs[key] = allOfCorrector(value);
     } else {
       newDefs[key] = value;
     }

@@ -5426,7 +5426,7 @@ components:
           $ref: '#/definitions/ExecutionState'
     AccessibleLocations:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5439,7 +5439,7 @@ components:
         '
     AllocatedIpAddresses:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5449,11 +5449,10 @@ components:
       description: 'List of allocated IP addresses.
 
         '
-      x-vcloud-added-in: 32
     ApplicationPortProfile:
       allOf:
-        - $ref: '#/definitions/NetworkProviderContext'
-        - $ref: '#/definitions/NetworkingObjectStatus'
+        - $ref: '#/components/schemas/NetworkProviderContext'
+        - $ref: '#/components/schemas/NetworkingObjectStatus'
         - properties:
             id:
               type: string
@@ -5485,28 +5484,9 @@ components:
         service rules.
 
         '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: applicationPortProfile
-            - constraint: ReadOnly
-            - constraint: NonSortable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        scope:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-        usableForNAT:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
     ApplicationPortProfiles:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5516,10 +5496,9 @@ components:
       description: 'List of Application Port Profiles.
 
         '
-      x-vcloud-added-in: 33
     ArrayParam:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             value:
@@ -5528,7 +5507,7 @@ components:
                 $ref: '#/definitions/Parameter'
     AuditTrailEvents:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5541,14 +5520,14 @@ components:
         '
     BooleanParam:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             value:
               type: boolean
     Capabilities:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5558,10 +5537,9 @@ components:
       description: 'List of read-only capabilities.
 
         '
-      x-vcloud-added-in: 32
     Cells:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5571,10 +5549,9 @@ components:
       description: 'A paginated list of vCloud Director cells.
 
         '
-      x-vcloud-added-in: 33
     Chooser:
       allOf:
-        - $ref: '#/definitions/Decorator'
+        - $ref: '#/components/schemas/Decorator'
         - type: object
           properties:
             sdkObject:
@@ -5583,7 +5560,7 @@ components:
               type: string
     CompositeType:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             property:
@@ -5594,7 +5571,7 @@ components:
               type: string
     CompositeValue:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             id:
@@ -5603,7 +5580,7 @@ components:
               $ref: '#/definitions/Parameter'
     CrossVdcNetwork:
       allOf:
-        - $ref: '#/definitions/Network'
+        - $ref: '#/components/schemas/Network'
         - type: object
           properties:
             vdcGroupRef:
@@ -5622,27 +5599,9 @@ components:
       description: 'A CrossVdcNetwork object
 
         '
-      x-vcloud-added-in: 31
-      x-vcloud-property-annotations:
-        vdcGroupRef:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSortable
-        routerRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        status:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        errorMessage:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     CrossVdcNetworks:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5652,10 +5611,9 @@ components:
       description: 'List of cross vDC networks
 
         '
-      x-vcloud-added-in: 31
     CustomEntityTypes:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5668,10 +5626,10 @@ components:
         '
     CustomValidator:
       allOf:
-        - $ref: '#/definitions/Constraint'
+        - $ref: '#/components/schemas/Constraint'
     DateParam:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             value:
@@ -5679,7 +5637,7 @@ components:
               format: date-time
     DistributedPortGroups:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5689,17 +5647,16 @@ components:
       description: 'List of distributed portgroups.
 
         '
-      x-vcloud-added-in: 33
     DropDown:
       allOf:
-        - $ref: '#/definitions/Decorator'
+        - $ref: '#/components/schemas/Decorator'
         - type: object
           properties:
             array:
               $ref: '#/definitions/ArrayParam'
     DvSwitches:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5709,10 +5666,9 @@ components:
       description: 'List of distributed virtual switches.
 
         '
-      x-vcloud-added-in: 33
     EdgeClusters:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5722,10 +5678,9 @@ components:
       description: 'List of Edge Clusters.
 
         '
-      x-vcloud-added-in: 32
     EdgeFirewallRules:
       allOf:
-        - $ref: '#/definitions/NetworkingObjectStatus'
+        - $ref: '#/components/schemas/NetworkingObjectStatus'
         - type: object
           properties:
             systemRules:
@@ -5766,25 +5721,9 @@ components:
         order of type and precedence.
 
         '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        systemRules:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        userDefinedRules:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        defaultRules:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgeGateway:
       allOf:
-        - $ref: '#/definitions/NetworkingObjectStatus'
+        - $ref: '#/components/schemas/NetworkingObjectStatus'
         - type: object
           properties:
             id:
@@ -5838,53 +5777,9 @@ components:
       description: 'An edge gateway object
 
         '
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: gateway
-            - constraint: ReadOnly
-            - constraint: NonSortable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        edgeGatewayUplinks:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        gatewayBacking:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        orgVdc:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        distributedRoutingEnabled:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        orgRef:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        orgVdcNetworkCount:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        serviceNetworkDefinition:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgeGatewaySubnet:
       allOf:
-        - $ref: '#/definitions/Subnet'
+        - $ref: '#/components/schemas/Subnet'
         - type: object
           properties:
             primaryIp:
@@ -5917,10 +5812,9 @@ components:
         network that are allocated to the edge.
 
         '
-      x-vcloud-added-in: 32
     EdgeGateways:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5931,10 +5825,9 @@ components:
       description: 'List of edge gateways
 
         '
-      x-vcloud-added-in: 32
     EdgeIpSecVpnTunnels:
       allOf:
-        - $ref: '#/definitions/NetworkingObjectStatus'
+        - $ref: '#/components/schemas/NetworkingObjectStatus'
         - type: object
           properties:
             values:
@@ -5946,10 +5839,9 @@ components:
       description: 'List of configured IPSec VPN tunnels.
 
         '
-      x-vcloud-added-in: 33
     EdgeNatRules:
       allOf:
-        - $ref: '#/definitions/NetworkingObjectStatus'
+        - $ref: '#/components/schemas/NetworkingObjectStatus'
         - type: object
           properties:
             values:
@@ -5958,17 +5850,16 @@ components:
               items:
                 $ref: '#/definitions/EdgeNatRule'
       description: List of configured NAT Rules.
-      x-vcloud-added-in: 33
     EncryptedString:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             value:
               type: string
     EntityReferences:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -5981,8 +5872,8 @@ components:
         '
     ExternalNetwork:
       allOf:
-        - $ref: '#/definitions/Network'
-        - $ref: '#/definitions/NetworkingObjectStatus'
+        - $ref: '#/components/schemas/Network'
+        - $ref: '#/components/schemas/NetworkingObjectStatus'
         - type: object
           properties:
             networkBackings:
@@ -6019,10 +5910,9 @@ components:
       description: 'An external network.
 
         '
-      x-vcloud-added-in: 32
     ExternalNetworks:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6032,10 +5922,9 @@ components:
       description: 'List of External Networks
 
         '
-      x-vcloud-added-in: 32
     Field:
       allOf:
-        - $ref: '#/definitions/PresentationElement'
+        - $ref: '#/components/schemas/PresentationElement'
         - type: object
           properties:
             decorators:
@@ -6064,27 +5953,14 @@ components:
             description:
               type: string
               description: The description of the firewall group.
-        - $ref: '#/definitions/FirewallGroupScope'
-        - $ref: '#/definitions/NetworkingObjectStatus'
+        - $ref: '#/components/schemas/FirewallGroupScope'
+        - $ref: '#/components/schemas/NetworkingObjectStatus'
       description: 'A Firewall Group object.
 
         '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: firewallGroup
-            - constraint: NonSortable
-            - constraint: ReadOnly
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     FirewallGroups:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6094,10 +5970,9 @@ components:
       description: 'List of Firewall Groups
 
         '
-      x-vcloud-added-in: 33
     GatewayUsedIpAddresses:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6107,10 +5982,9 @@ components:
       description: 'List of IP addresses used by an edge gateway.
 
         '
-      x-vcloud-added-in: 33
     GlobalRoles:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6123,7 +5997,7 @@ components:
         '
     Group:
       allOf:
-        - $ref: '#/definitions/PresentationElement'
+        - $ref: '#/components/schemas/PresentationElement'
         - type: object
           properties:
             fields:
@@ -6132,7 +6006,7 @@ components:
                 $ref: '#/definitions/PrimaryField'
     KeyValuePair:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             key:
@@ -6141,7 +6015,7 @@ components:
               $ref: '#/definitions/Parameter'
     LogicalVmGroups:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6152,13 +6026,12 @@ components:
       description: 'A list of LogicalVmGroups.
 
         '
-      x-vcloud-added-in: 32
     Mandatory:
       allOf:
-        - $ref: '#/definitions/Constraint'
+        - $ref: '#/components/schemas/Constraint'
     MimeAttachment:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             content:
@@ -6170,10 +6043,10 @@ components:
               type: string
     MultiLine:
       allOf:
-        - $ref: '#/definitions/Decorator'
+        - $ref: '#/components/schemas/Decorator'
     NetworkPoolSummary:
       allOf:
-        - $ref: '#/definitions/NetworkingObjectStatus'
+        - $ref: '#/components/schemas/NetworkingObjectStatus'
         - type: object
           properties:
             id:
@@ -6253,10 +6126,9 @@ components:
       description: 'Common fields that NetworkPoolSummary and NetworkPool have.
 
         '
-      x-vcloud-added-in: 33
     NetworkPoolsSummary:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6266,24 +6138,23 @@ components:
       description: 'List of Network Pool Summary Objects.
 
         '
-      x-vcloud-added-in: 33
     NumberFormat:
       allOf:
-        - $ref: '#/definitions/Constraint'
+        - $ref: '#/components/schemas/Constraint'
         - type: object
           properties:
             value:
               type: string
     NumberParam:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             value:
               type: number
     NumberRange:
       allOf:
-        - $ref: '#/definitions/Constraint'
+        - $ref: '#/components/schemas/Constraint'
         - type: object
           properties:
             min:
@@ -6292,7 +6163,7 @@ components:
               type: number
     PortGroups:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6302,10 +6173,9 @@ components:
       description: 'List of standard portgroups.
 
         '
-      x-vcloud-added-in: 33
     PreferenceDefinitions:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6316,10 +6186,9 @@ components:
       description: 'A list of preference definitions
 
         '
-      x-vcloud-added-in: 32
     Preferences:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6330,10 +6199,9 @@ components:
       description: 'A list of user preferences
 
         '
-      x-vcloud-added-in: 32
     Properties:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             property:
@@ -6342,7 +6210,7 @@ components:
                 $ref: '#/definitions/KeyValuePair'
     ProviderVdcs:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6352,10 +6220,9 @@ components:
       description: 'List of Provider VDCs.
 
         '
-      x-vcloud-added-in: 33
     Proxies:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6365,10 +6232,9 @@ components:
       description: 'A paginated list of proxies
 
         '
-      x-vcloud-added-in: 34
     PublishableRightsMapping:
       allOf:
-        - $ref: '#/definitions/RightsMapping'
+        - $ref: '#/components/schemas/RightsMapping'
         - type: object
           properties:
             publishAll:
@@ -6384,7 +6250,7 @@ components:
         '
     PvdcComputePolicies:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6397,24 +6263,24 @@ components:
         '
     RefreshOnChange:
       allOf:
-        - $ref: '#/definitions/Decorator'
+        - $ref: '#/components/schemas/Decorator'
     Regex:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             value:
               type: string
     Regexp:
       allOf:
-        - $ref: '#/definitions/Constraint'
+        - $ref: '#/components/schemas/Constraint'
         - type: object
           properties:
             expression:
               type: string
     ResourcePools:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6426,10 +6292,10 @@ components:
         '
     RestrictDuplicates:
       allOf:
-        - $ref: '#/definitions/Constraint'
+        - $ref: '#/components/schemas/Constraint'
     Rights:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6442,7 +6308,7 @@ components:
         '
     RightsBundles:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6452,7 +6318,7 @@ components:
                 $ref: '#/definitions/RightsBundle'
     RightsCategoryNodes:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6465,7 +6331,7 @@ components:
         '
     Role:
       allOf:
-        - $ref: '#/definitions/RightsMapping'
+        - $ref: '#/components/schemas/RightsMapping'
         - type: object
           properties:
             id:
@@ -6477,7 +6343,7 @@ components:
                     - arg: role
     Roles:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6490,7 +6356,7 @@ components:
         '
     SddcProxies:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6500,10 +6366,9 @@ components:
       description: 'A paginated list of SDDC proxies
 
         '
-      x-vcloud-added-in: 32
     Sddcs:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6513,10 +6378,9 @@ components:
       description: 'A paginated list of software-defined data centers
 
         '
-      x-vcloud-added-in: 32
     SdkObject:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             type:
@@ -6529,7 +6393,7 @@ components:
               type: string
     SecureString:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             value:
@@ -6538,7 +6402,7 @@ components:
               type: boolean
     ServiceApps:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6548,10 +6412,9 @@ components:
       description: 'List of VMware service applications
 
         '
-      x-vcloud-added-in: 32
     ServiceItems:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6564,7 +6427,7 @@ components:
         '
     Services:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6577,7 +6440,7 @@ components:
         '
     Sessions:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6590,7 +6453,7 @@ components:
         '
     StepInfo:
       allOf:
-        - $ref: '#/definitions/PresentationElement'
+        - $ref: '#/components/schemas/PresentationElement'
         - type: object
           properties:
             readOnly:
@@ -6601,7 +6464,7 @@ components:
                 $ref: '#/definitions/PresentationElement'
     StorageProfiles:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6613,21 +6476,20 @@ components:
         '
     StringParam:
       allOf:
-        - $ref: '#/definitions/Parameter'
+        - $ref: '#/components/schemas/Parameter'
         - type: object
           properties:
             value:
               type: string
     Tier0Router:
       allOf:
-        - $ref: '#/definitions/CommonNsxTRouterFields'
+        - $ref: '#/components/schemas/CommonNsxTRouterFields'
       description: 'An NSX-T''s Tier-0 router.
 
         '
-      x-vcloud-added-in: 32
     Tokens:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6637,14 +6499,13 @@ components:
       description: 'A paginated list of user specific tokens used for accessing proxies.
 
         '
-      x-vcloud-added-in: 33
     UiPluginMetadataResponse:
       allOf:
-        - $ref: '#/definitions/UiPluginMetadata'
-        - $ref: '#/definitions/UploadMetadataResponse'
+        - $ref: '#/components/schemas/UiPluginMetadata'
+        - $ref: '#/components/schemas/UploadMetadataResponse'
     UsedIpAddresses:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6654,10 +6515,9 @@ components:
       description: 'List of used IP addresses.
 
         '
-      x-vcloud-added-in: 33
     VdcComputePolicies:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6670,7 +6530,7 @@ components:
         '
     VdcGroups:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6682,7 +6542,7 @@ components:
         '
     VdcNetwork:
       allOf:
-        - $ref: '#/definitions/Network'
+        - $ref: '#/components/schemas/Network'
         - type: object
           properties:
             backingNetworkId:
@@ -6765,68 +6625,9 @@ components:
       description: 'An organization vDC network.
 
         '
-      x-vcloud-added-in: 31
-      x-vcloud-property-annotations:
-        backingNetworkId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        backingNetworkType:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkType:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        orgVdc:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        connection:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        isDefaultNetwork:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        lastTaskFailureMessage:
-          x-vcloud-deprecated-in: 33
-          x-vcloud-deprecated-alternative: 'Please use VCD Task API to monitor status
-            of last task.
-
-            '
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        guestVlanTaggingAllowed:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        retainNicResources:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        crossVdcNetworkId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        crossVdcNetworkLocationId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        totalIpCount:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        usedIpCount:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     VdcNetworks:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6836,10 +6637,9 @@ components:
       description: 'List of Org vDC networks
 
         '
-      x-vcloud-added-in: 31
     VmcSddcs:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6849,10 +6649,9 @@ components:
       description: 'List of VMware Cloud on AWS SDDCs
 
         '
-      x-vcloud-added-in: 32
     VroRemoteWorkflowItems:
       allOf:
-        - $ref: '#/definitions/Page'
+        - $ref: '#/components/schemas/Page'
         - type: object
           properties:
             values:
@@ -6865,7 +6664,7 @@ components:
         '
     VroWorkflowServiceItem:
       allOf:
-        - $ref: '#/definitions/ServiceItem'
+        - $ref: '#/components/schemas/ServiceItem'
         - type: object
           properties:
             vroWorkflowId:
@@ -6874,7 +6673,7 @@ components:
               type: string
     FirewallGroupDetails:
       allOf:
-        - $ref: '#/definitions/FirewallGroupSummary'
+        - $ref: '#/components/schemas/FirewallGroupSummary'
         - type: object
           properties:
             ipAddresses:
@@ -6891,10 +6690,9 @@ components:
       description: 'A Firewall Group object.
 
         '
-      x-vcloud-added-in: 33
     GlobalRole:
       allOf:
-        - $ref: '#/definitions/PublishableRightsMapping'
+        - $ref: '#/components/schemas/PublishableRightsMapping'
         - type: object
           properties:
             id:
@@ -6906,7 +6704,7 @@ components:
                     - arg: globalRole
     NetworkPool:
       allOf:
-        - $ref: '#/definitions/NetworkPoolSummary'
+        - $ref: '#/components/schemas/NetworkPoolSummary'
         - type: object
           properties:
             backing:
@@ -6920,10 +6718,9 @@ components:
         such as Organization vDC and Cross vDC networks.
 
         '
-      x-vcloud-added-in: 33
     PrimaryField:
       allOf:
-        - $ref: '#/definitions/Field'
+        - $ref: '#/components/schemas/Field'
         - type: object
           properties:
             fields:
@@ -6934,7 +6731,7 @@ components:
               $ref: '#/definitions/Parameter'
     RightsBundle:
       allOf:
-        - $ref: '#/definitions/PublishableRightsMapping'
+        - $ref: '#/components/schemas/PublishableRightsMapping'
         - type: object
           properties:
             id:

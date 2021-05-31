@@ -3198,7 +3198,7 @@
       "AllocatedIpAddresses": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3212,13 +3212,12 @@
             }
           }
         ],
-        "description": "List of IP allocated IP addresses\n",
-        "x-vcloud-added-in": 32
+        "description": "List of IP allocated IP addresses\n"
       },
       "ArrayParam": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3236,7 +3235,7 @@
       "BooleanParam": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3251,7 +3250,7 @@
       "Capabilities": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3265,13 +3264,12 @@
             }
           }
         ],
-        "description": "List of read-only capabilities.\n",
-        "x-vcloud-added-in": 32
+        "description": "List of read-only capabilities.\n"
       },
       "Chooser": {
         "allOf": [
           {
-            "$ref": "#/definitions/Decorator"
+            "$ref": "#/components/schemas/Decorator"
           },
           {
             "type": "object",
@@ -3289,7 +3287,7 @@
       "CompositeType": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3310,7 +3308,7 @@
       "CompositeValue": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3328,7 +3326,7 @@
       "CrossVdcNetwork": {
         "allOf": [
           {
-            "$ref": "#/definitions/Network"
+            "$ref": "#/components/schemas/Network"
           },
           {
             "type": "object",
@@ -3357,7 +3355,7 @@
       "CrossVdcNetworks": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3376,7 +3374,7 @@
       "CustomEntityTypes": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3396,14 +3394,14 @@
       "CustomValidator": {
         "allOf": [
           {
-            "$ref": "#/definitions/Constraint"
+            "$ref": "#/components/schemas/Constraint"
           }
         ]
       },
       "DateParam": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3419,7 +3417,7 @@
       "DropDown": {
         "allOf": [
           {
-            "$ref": "#/definitions/Decorator"
+            "$ref": "#/components/schemas/Decorator"
           },
           {
             "type": "object",
@@ -3434,7 +3432,7 @@
       "EdgeClusters": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3448,13 +3446,12 @@
             }
           }
         ],
-        "description": "List of Edge Clusters.\n",
-        "x-vcloud-added-in": 32
+        "description": "List of Edge Clusters.\n"
       },
       "EdgeGateways": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3469,13 +3466,12 @@
             }
           }
         ],
-        "description": "List of edge gateways\n",
-        "x-vcloud-added-in": 32
+        "description": "List of edge gateways\n"
       },
       "EncryptedString": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3490,7 +3486,7 @@
       "EntityReferences": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3510,7 +3506,7 @@
       "ExternalNetwork": {
         "allOf": [
           {
-            "$ref": "#/definitions/Network"
+            "$ref": "#/components/schemas/Network"
           },
           {
             "type": "object",
@@ -3532,13 +3528,12 @@
             }
           }
         ],
-        "description": "An external network.\n",
-        "x-vcloud-added-in": 32
+        "description": "An external network.\n"
       },
       "ExternalNetworks": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3552,13 +3547,12 @@
             }
           }
         ],
-        "description": "List of External Networks\n",
-        "x-vcloud-added-in": 32
+        "description": "List of External Networks\n"
       },
       "Field": {
         "allOf": [
           {
-            "$ref": "#/definitions/PresentationElement"
+            "$ref": "#/components/schemas/PresentationElement"
           },
           {
             "type": "object",
@@ -3591,7 +3585,7 @@
       "GlobalRoles": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3611,7 +3605,7 @@
       "Group": {
         "allOf": [
           {
-            "$ref": "#/definitions/PresentationElement"
+            "$ref": "#/components/schemas/PresentationElement"
           },
           {
             "type": "object",
@@ -3629,7 +3623,7 @@
       "KeyValuePair": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3647,7 +3641,7 @@
       "LogicalVmGroups": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3662,20 +3656,19 @@
             }
           }
         ],
-        "description": "A list of LogicalVmGroups.\n",
-        "x-vcloud-added-in": 32
+        "description": "A list of LogicalVmGroups.\n"
       },
       "Mandatory": {
         "allOf": [
           {
-            "$ref": "#/definitions/Constraint"
+            "$ref": "#/components/schemas/Constraint"
           }
         ]
       },
       "MimeAttachment": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3697,14 +3690,14 @@
       "MultiLine": {
         "allOf": [
           {
-            "$ref": "#/definitions/Decorator"
+            "$ref": "#/components/schemas/Decorator"
           }
         ]
       },
       "NumberFormat": {
         "allOf": [
           {
-            "$ref": "#/definitions/Constraint"
+            "$ref": "#/components/schemas/Constraint"
           },
           {
             "type": "object",
@@ -3719,7 +3712,7 @@
       "NumberParam": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3734,7 +3727,7 @@
       "NumberRange": {
         "allOf": [
           {
-            "$ref": "#/definitions/Constraint"
+            "$ref": "#/components/schemas/Constraint"
           },
           {
             "type": "object",
@@ -3752,7 +3745,7 @@
       "PreferenceDefinitions": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3767,13 +3760,12 @@
             }
           }
         ],
-        "description": "A list of preference definitions\n",
-        "x-vcloud-added-in": 32
+        "description": "A list of preference definitions\n"
       },
       "Preferences": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3788,13 +3780,12 @@
             }
           }
         ],
-        "description": "A list of user preferences\n",
-        "x-vcloud-added-in": 32
+        "description": "A list of user preferences\n"
       },
       "Properties": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3812,7 +3803,7 @@
       "PublishableRightsMapping": {
         "allOf": [
           {
-            "$ref": "#/definitions/RightsMapping"
+            "$ref": "#/components/schemas/RightsMapping"
           },
           {
             "type": "object",
@@ -3835,7 +3826,7 @@
       "PvdcComputePolicies": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3855,14 +3846,14 @@
       "RefreshOnChange": {
         "allOf": [
           {
-            "$ref": "#/definitions/Decorator"
+            "$ref": "#/components/schemas/Decorator"
           }
         ]
       },
       "Regex": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -3877,7 +3868,7 @@
       "Regexp": {
         "allOf": [
           {
-            "$ref": "#/definitions/Constraint"
+            "$ref": "#/components/schemas/Constraint"
           },
           {
             "type": "object",
@@ -3892,14 +3883,14 @@
       "RestrictDuplicates": {
         "allOf": [
           {
-            "$ref": "#/definitions/Constraint"
+            "$ref": "#/components/schemas/Constraint"
           }
         ]
       },
       "Rights": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3919,7 +3910,7 @@
       "RightsBundles": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3938,7 +3929,7 @@
       "RightsCategoryNodes": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3958,7 +3949,7 @@
       "Role": {
         "allOf": [
           {
-            "$ref": "#/definitions/RightsMapping"
+            "$ref": "#/components/schemas/RightsMapping"
           },
           {
             "type": "object"
@@ -3968,7 +3959,7 @@
       "Roles": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -3988,7 +3979,7 @@
       "SddcProxies": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4002,13 +3993,12 @@
             }
           }
         ],
-        "description": "A paginated list of SDDC proxies\n",
-        "x-vcloud-added-in": 32
+        "description": "A paginated list of SDDC proxies\n"
       },
       "Sddcs": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4022,13 +4012,12 @@
             }
           }
         ],
-        "description": "A paginated list of software-defined data centers\n",
-        "x-vcloud-added-in": 32
+        "description": "A paginated list of software-defined data centers\n"
       },
       "SdkObject": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -4052,7 +4041,7 @@
       "SecureString": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -4070,7 +4059,7 @@
       "ServiceApps": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4084,13 +4073,12 @@
             }
           }
         ],
-        "description": "List of VMware service applications\n",
-        "x-vcloud-added-in": 32
+        "description": "List of VMware service applications\n"
       },
       "ServiceItems": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4110,7 +4098,7 @@
       "Services": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4130,7 +4118,7 @@
       "StepInfo": {
         "allOf": [
           {
-            "$ref": "#/definitions/PresentationElement"
+            "$ref": "#/components/schemas/PresentationElement"
           },
           {
             "type": "object",
@@ -4151,7 +4139,7 @@
       "StringParam": {
         "allOf": [
           {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           },
           {
             "type": "object",
@@ -4166,35 +4154,33 @@
       "Tier0Router": {
         "allOf": [
           {
-            "$ref": "#/definitions/CommonNsxTRouterFields"
+            "$ref": "#/components/schemas/CommonNsxTRouterFields"
           }
         ],
-        "description": "An NSX-T's Tier-0 router.\n",
-        "x-vcloud-added-in": 32
+        "description": "An NSX-T's Tier-0 router.\n"
       },
       "Tier1Router": {
         "allOf": [
           {
-            "$ref": "#/definitions/CommonNsxTRouterFields"
+            "$ref": "#/components/schemas/CommonNsxTRouterFields"
           }
         ],
-        "description": "An NSX-T's Tier-1 router.\n",
-        "x-vcloud-added-in": 32
+        "description": "An NSX-T's Tier-1 router.\n"
       },
       "UiPluginMetadataResponse": {
         "allOf": [
           {
-            "$ref": "#/definitions/UiPluginMetadata"
+            "$ref": "#/components/schemas/UiPluginMetadata"
           },
           {
-            "$ref": "#/definitions/UploadMetadataResponse"
+            "$ref": "#/components/schemas/UploadMetadataResponse"
           }
         ]
       },
       "VdcComputePolicies": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4214,7 +4200,7 @@
       "VdcGroups": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4233,7 +4219,7 @@
       "VdcNetwork": {
         "allOf": [
           {
-            "$ref": "#/definitions/Network"
+            "$ref": "#/components/schemas/Network"
           },
           {
             "type": "object",
@@ -4310,13 +4296,12 @@
             }
           }
         ],
-        "description": "An organization vDC network.\n",
-        "x-vcloud-added-in": 31
+        "description": "An organization vDC network.\n"
       },
       "VdcNetworks": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4330,13 +4315,12 @@
             }
           }
         ],
-        "description": "List of Org vDC networks\n",
-        "x-vcloud-added-in": 31
+        "description": "List of Org vDC networks\n"
       },
       "VmcSddcs": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4350,13 +4334,12 @@
             }
           }
         ],
-        "description": "List of VMware Cloud on AWS SDDCs\n",
-        "x-vcloud-added-in": 32
+        "description": "List of VMware Cloud on AWS SDDCs\n"
       },
       "VroRemoteWorkflowItems": {
         "allOf": [
           {
-            "$ref": "#/definitions/Page"
+            "$ref": "#/components/schemas/Page"
           },
           {
             "type": "object",
@@ -4376,7 +4359,7 @@
       "VroWorkflowServiceItem": {
         "allOf": [
           {
-            "$ref": "#/definitions/ServiceItem"
+            "$ref": "#/components/schemas/ServiceItem"
           },
           {
             "type": "object",
@@ -4394,7 +4377,7 @@
       "GlobalRole": {
         "allOf": [
           {
-            "$ref": "#/definitions/PublishableRightsMapping"
+            "$ref": "#/components/schemas/PublishableRightsMapping"
           },
           {
             "type": "object"
@@ -4404,7 +4387,7 @@
       "PrimaryField": {
         "allOf": [
           {
-            "$ref": "#/definitions/Field"
+            "$ref": "#/components/schemas/Field"
           },
           {
             "type": "object",
@@ -4425,7 +4408,7 @@
       "RightsBundle": {
         "allOf": [
           {
-            "$ref": "#/definitions/PublishableRightsMapping"
+            "$ref": "#/components/schemas/PublishableRightsMapping"
           },
           {
             "type": "object"
