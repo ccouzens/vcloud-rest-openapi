@@ -17,6 +17,9 @@ async function defs(page: Page) {
 
   const refStringCorrector = (val: string): string =>
     val.replace(/^\#\/definitions\//, "#/components/schemas/");
+
+  const descriptionCorrector = (val: string): string => val.trim();
+
   type Boolean = {
     type: "boolean";
     description?: string;
@@ -80,7 +83,7 @@ async function defs(page: Page) {
   const objectCorrector = (val: Object): Object => ({
     type: "object",
     ...(val.description !== undefined && {
-      description: val.description,
+      description: descriptionCorrector(val.description),
     }),
     properties: val.properties,
     ...(val.required !== undefined && {
@@ -93,14 +96,16 @@ async function defs(page: Page) {
 
   type Enum = {
     type: "object" | "string";
-    description: string;
+    description?: string;
     default?: string;
     enum: string[];
   };
 
   const enumCorrector = (val: Enum): Enum => ({
     type: "string",
-    description: val.description,
+    ...(val.description !== undefined && {
+      description: descriptionCorrector(val.description),
+    }),
     enum: val.enum,
     ...(val.default !== undefined && { default: val.default }),
   });
@@ -117,7 +122,7 @@ async function defs(page: Page) {
         : objectCorrector(innerVal)
     ),
     ...(outerVal.description !== undefined && {
-      description: outerVal.description,
+      description: descriptionCorrector(outerVal.description),
     }),
   });
 

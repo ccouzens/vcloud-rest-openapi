@@ -8,7 +8,7 @@
     "schemas": {
       "AccessibleLocation": {
         "type": "object",
-        "description": "A location accessible to this session.\n",
+        "description": "A location accessible to this session.",
         "properties": {
           "locationId": {
             "type": "string",
@@ -52,7 +52,7 @@
       },
       "AllocatedIpAddress": {
         "type": "object",
-        "description": "Describes an allocated IP address for a network. IP addresses can be allocated\nto a vApp VM, an edge gateway interface or may be used in a NAT routed environment.\nIf the address is allocated to an edge gateway, the name of the entity will be 'Edge Gateway'.\n",
+        "description": "Describes an allocated IP address for a network. IP addresses can be allocated\nto a vApp VM, an edge gateway interface or may be used in a NAT routed environment.\nIf the address is allocated to an edge gateway, the name of the entity will be 'Edge Gateway'.",
         "properties": {
           "id": {
             "type": "string",
@@ -94,7 +94,7 @@
       },
       "AllocatedIpAddressAllocationType": {
         "type": "string",
-        "description": "The possible allocation types for allocated network address.\nVM_ALLOCATED means that the IP address is allocated by a VM,\nNAT_ROUTED means that the IP address is used in a NAT routed environment and\nVSM_ALLOCATED means that the IP address is allocated to an NSX edge gateway interface.\n",
+        "description": "The possible allocation types for allocated network address.\nVM_ALLOCATED means that the IP address is allocated by a VM,\nNAT_ROUTED means that the IP address is used in a NAT routed environment and\nVSM_ALLOCATED means that the IP address is allocated to an NSX edge gateway interface.",
         "enum": [
           "VM_ALLOCATED",
           "NAT_ROUTED",
@@ -103,7 +103,7 @@
       },
       "ApplicationPortList": {
         "type": "object",
-        "description": "A set of ports and the protocol supported by a application port profile.\n",
+        "description": "A set of ports and the protocol supported by a application port profile.",
         "properties": {
           "name": {
             "type": "string",
@@ -124,7 +124,7 @@
       },
       "ApplicationPortProfileScopeType": {
         "type": "string",
-        "description": "The definition scope of an Application Port Profile.\nSYSTEM profiles are available to all tenants. They are default profiles from the backing networking provider.\nPROVIDER profiles are available to all tenants. They are defined by the provider at a system level.\nTENANT profiles are available only to the specific tenant organization. They are defined by the tenant or by a provider on behalf of a tenant.\n",
+        "description": "The definition scope of an Application Port Profile.\nSYSTEM profiles are available to all tenants. They are default profiles from the backing networking provider.\nPROVIDER profiles are available to all tenants. They are defined by the provider at a system level.\nTENANT profiles are available only to the specific tenant organization. They are defined by the tenant or by a provider on behalf of a tenant.",
         "enum": [
           "SYSTEM",
           "PROVIDER",
@@ -133,7 +133,7 @@
       },
       "ApplicationPortsProtocolType": {
         "type": "string",
-        "description": "The supported protocols for an application port profile.\n",
+        "description": "The supported protocols for an application port profile.",
         "enum": [
           "TCP",
           "UDP",
@@ -143,7 +143,7 @@
       },
       "Association": {
         "type": "object",
-        "description": "Site association information for an entity\n",
+        "description": "Site association information for an entity",
         "properties": {
           "entityId": {
             "type": "string",
@@ -157,7 +157,7 @@
       },
       "AuditTrailEvent": {
         "type": "object",
-        "description": "AuditTrailEvent\n",
+        "description": "AuditTrailEvent",
         "properties": {
           "eventId": {
             "type": "string",
@@ -279,7 +279,7 @@
       },
       "AvailableIpPoolSubnet": {
         "type": "object",
-        "description": "Describes an available IP address.\n",
+        "description": "Describes an available IP address.",
         "properties": {
           "gateway": {
             "type": "string",
@@ -306,7 +306,7 @@
       },
       "AvailableIpPoolSubnets": {
         "type": "object",
-        "description": "List of available IP addresses.\n",
+        "description": "List of available IP addresses.",
         "properties": {
           "values": {
             "type": "array",
@@ -318,7 +318,7 @@
       },
       "BackingNetworkType": {
         "type": "string",
-        "description": "The backing network type.\n",
+        "description": "The backing network type.",
         "enum": [
           "DV_PORTGROUP",
           "VIRTUAL_WIRE",
@@ -330,7 +330,7 @@
       },
       "BackingRef": {
         "type": "object",
-        "description": "Backing Id for an entity not owned by VCD.\n",
+        "description": "Backing Id for an entity not owned by VCD.",
         "properties": {
           "id": {
             "type": "string",
@@ -344,7 +344,7 @@
       },
       "Capability": {
         "type": "object",
-        "description": "Describes a capability of an entity.\n",
+        "description": "Describes a capability of an entity.",
         "properties": {
           "name": {
             "type": "string",
@@ -373,7 +373,7 @@
       },
       "CapabilityCategory": {
         "type": "string",
-        "description": "Describes the category of the capability.\n",
+        "description": "Describes the category of the capability.",
         "enum": [
           "EdgeGateway",
           "VAppNetwork",
@@ -386,7 +386,7 @@
       },
       "CapabilityValueType": {
         "type": "string",
-        "description": "Describes the object type of the capability value.\n",
+        "description": "Describes the object type of the capability value.",
         "enum": [
           "Boolean",
           "String",
@@ -395,7 +395,7 @@
       },
       "Cell": {
         "type": "object",
-        "description": "A vCloud Director cell.\n",
+        "description": "A vCloud Director cell.",
         "properties": {
           "id": {
             "type": "string",
@@ -491,7 +491,7 @@
       },
       "Connection": {
         "type": "object",
-        "description": "Connection to test.\n",
+        "description": "Connection to test.",
         "properties": {
           "host": {
             "type": "string",
@@ -677,7 +677,7 @@
       },
       "DfPolicyType": {
         "type": "string",
-        "description": "Defragmentation Policy helps to handle defragmentation bits present in the inner packet. COPY copies the defragmentation bit from the inner IP packet\ninto the outer packet. CLEAR ignores the defragmentation bit present in the inner packet.\n",
+        "description": "Defragmentation Policy helps to handle defragmentation bits present in the inner packet. COPY copies the defragmentation bit from the inner IP packet\ninto the outer packet. CLEAR ignores the defragmentation bit present in the inner packet.",
         "enum": [
           "COPY",
           "CLEAR"
@@ -685,7 +685,7 @@
       },
       "DhGroupType": {
         "type": "string",
-        "description": "The type of Diffie-Helman group. Diffie-Helman groups represent the algorithm used to derive shared keys between the IPSec VPN initiator and responder over\nan unsecured network.\n",
+        "description": "The type of Diffie-Helman group. Diffie-Helman groups represent the algorithm used to derive shared keys between the IPSec VPN initiator and responder over\nan unsecured network.",
         "enum": [
           "GROUP2",
           "GROUP5",
@@ -699,7 +699,7 @@
       },
       "DistributedPortGroup": {
         "type": "object",
-        "description": "Distributed portgroup.\n",
+        "description": "Distributed portgroup.",
         "properties": {
           "backingRef": {
             "description": "Contains the backing id and name of the distributed portgroup.",
@@ -721,7 +721,7 @@
       },
       "DpdConfig": {
         "type": "object",
-        "description": "Specifies the Dead Peer Detection Profile. This configurations determines the number of seconds to wait in time between probes\nto detect if an IPSec peer is alive or not. The default value for the DPD probe interval is 60 seconds.\n",
+        "description": "Specifies the Dead Peer Detection Profile. This configurations determines the number of seconds to wait in time between probes\nto detect if an IPSec peer is alive or not. The default value for the DPD probe interval is 60 seconds.",
         "properties": {
           "probeInterval": {
             "type": "integer",
@@ -736,7 +736,7 @@
       },
       "DvSwitch": {
         "type": "object",
-        "description": "Distributed virtual switch.\n",
+        "description": "Distributed virtual switch.",
         "properties": {
           "backingRef": {
             "description": "Contains the backing id and name of the distributed virtual switch.",
@@ -763,7 +763,7 @@
       },
       "DvpgProperty": {
         "type": "object",
-        "description": "A set of properties which can be managed on a DVPG\n",
+        "description": "A set of properties which can be managed on a DVPG",
         "properties": {
           "dvpgMoref": {
             "type": "string",
@@ -785,7 +785,7 @@
       },
       "EdgeBgpBfdConfig": {
         "type": "object",
-        "description": "Describes BFD configuration for failure detection.\n",
+        "description": "Describes BFD configuration for failure detection.",
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -844,7 +844,7 @@
       },
       "EdgeBgpGracefulRestartConfig": {
         "type": "object",
-        "description": "Describes current graceful restart configuration mode and timer for BGP configuration on an edge gateway.\n",
+        "description": "Describes current graceful restart configuration mode and timer for BGP configuration on an edge gateway.",
         "properties": {
           "mode": {
             "description": "Currently configured graceful restart mode. Default is HELPER_ONLY.",
@@ -870,7 +870,7 @@
       },
       "EdgeBgpNeighbor": {
         "type": "object",
-        "description": "A BGP neighbor configuration.\n",
+        "description": "A BGP neighbor configuration.",
         "properties": {
           "id": {
             "type": "string",
@@ -949,7 +949,7 @@
       },
       "EdgeBgpNeighbors": {
         "type": "object",
-        "description": "List of all configured BGP neighbors for an edge gateway.\n",
+        "description": "List of all configured BGP neighbors for an edge gateway.",
         "properties": {
           "values": {
             "type": "array",
@@ -962,7 +962,7 @@
       },
       "EdgeCluster": {
         "type": "object",
-        "description": "An Edge Cluster object.\n",
+        "description": "An Edge Cluster object.",
         "properties": {
           "id": {
             "type": "string",
@@ -1026,7 +1026,7 @@
       },
       "EdgeGatewayBacking": {
         "type": "object",
-        "description": "The backing details of the edge gateway\n",
+        "description": "The backing details of the edge gateway",
         "properties": {
           "backingId": {
             "type": "string",
@@ -1044,7 +1044,7 @@
       },
       "EdgeGatewaySubnets": {
         "type": "object",
-        "description": "List of Subnets of an edge gateway\n",
+        "description": "List of Subnets of an edge gateway",
         "properties": {
           "values": {
             "type": "array",
@@ -1056,7 +1056,7 @@
       },
       "EdgeGatewayType": {
         "type": "string",
-        "description": "The type of the edge gateway.\n",
+        "description": "The type of the edge gateway.",
         "enum": [
           "NSXV_BACKED",
           "NSXT_BACKED",
@@ -1065,7 +1065,7 @@
       },
       "EdgeGatewayUplink": {
         "type": "object",
-        "description": "The uplink (i.e. external network) that the edge gateway is connected to. This also contains the external network IPs that are allocated to the edge.\n",
+        "description": "The uplink (i.e. external network) that the edge gateway is connected to. This also contains the external network IPs that are allocated to the edge.",
         "properties": {
           "uplinkId": {
             "type": "string",
@@ -1154,7 +1154,7 @@
       },
       "EdgeIpSecVpnTunnelConnectionProperties": {
         "type": "object",
-        "description": "This specifies the given security profile/connection properties of a given IP Sec VPN Tunnel, such as Dead Probe Interval and IKE settings. If a security type\nis set to 'CUSTOM', then ike, tunnel, and/or dpd configurations can be specified. Otherwise, those fields are read only and are set to the values based on the specific\nsecurity type.\n",
+        "description": "This specifies the given security profile/connection properties of a given IP Sec VPN Tunnel, such as Dead Probe Interval and IKE settings. If a security type\nis set to 'CUSTOM', then ike, tunnel, and/or dpd configurations can be specified. Otherwise, those fields are read only and are set to the values based on the specific\nsecurity type.",
         "properties": {
           "securityType": {
             "type": "string",
@@ -1271,7 +1271,7 @@
       },
       "EdgeIpSecVpnTunnelStatus": {
         "type": "object",
-        "description": "This includes the IPSec Tunnel status such as whether the tunnel is up or down and the IKE Session status.\n",
+        "description": "This includes the IPSec Tunnel status such as whether the tunnel is up or down and the IKE Session status.",
         "properties": {
           "tunnelStatus": {
             "description": "Gives the overall IPSec VPN Tunnel Status. If IKE is properly set and the tunnel is up, the tunnel status will be UP.",
@@ -1350,7 +1350,7 @@
       },
       "EdgePrefixList": {
         "type": "object",
-        "description": "A list of prefixes for routing purposes. Prefix list contains one or more ordered entries\nwhich are processed sequentially.\n",
+        "description": "A list of prefixes for routing purposes. Prefix list contains one or more ordered entries\nwhich are processed sequentially.",
         "properties": {
           "id": {
             "type": "string",
@@ -1383,7 +1383,7 @@
       },
       "EdgePrefixListEntry": {
         "type": "object",
-        "description": "A network prefix entry used for routing purposes.\n",
+        "description": "A network prefix entry used for routing purposes.",
         "properties": {
           "network": {
             "type": "string",
@@ -1417,7 +1417,7 @@
       },
       "EdgePrefixLists": {
         "type": "object",
-        "description": "List of all configured Prefix lists for an edge gateway.\n",
+        "description": "List of all configured Prefix lists for an edge gateway.",
         "properties": {
           "values": {
             "type": "array",
@@ -1430,7 +1430,7 @@
       },
       "EgressPoint": {
         "type": "object",
-        "description": "An Egress Point.\n",
+        "description": "An Egress Point.",
         "properties": {
           "id": {
             "type": "string",
@@ -1463,7 +1463,7 @@
       },
       "EgressPointReference": {
         "type": "object",
-        "description": "An EgressPoint reference object for use in universal routing.\n",
+        "description": "An EgressPoint reference object for use in universal routing.",
         "properties": {
           "egressPointId": {
             "type": "string",
@@ -1481,7 +1481,7 @@
       },
       "EgressPoints": {
         "type": "object",
-        "description": "List of Egress Points.\n",
+        "description": "List of Egress Points.",
         "properties": {
           "values": {
             "type": "array",
@@ -1494,7 +1494,7 @@
       },
       "EmailSettings": {
         "type": "object",
-        "description": "Email related settings for a system\n",
+        "description": "Email related settings for a system",
         "properties": {
           "defaultSmtpServer": {
             "type": "boolean",
@@ -1527,7 +1527,7 @@
       },
       "EntityReference": {
         "type": "object",
-        "description": "Entity reference used to describe VCD entities\n",
+        "description": "Entity reference used to describe VCD entities",
         "properties": {
           "name": {
             "type": "string"
@@ -1539,7 +1539,7 @@
       },
       "Error": {
         "type": "object",
-        "description": "Error type format displayed to users for exceptions emerging from openapi endpoints.\n",
+        "description": "Error type format displayed to users for exceptions emerging from openapi endpoints.",
         "properties": {
           "minorErrorCode": {
             "type": "string"
@@ -1605,7 +1605,7 @@
       },
       "ExtObjectReference": {
         "type": "object",
-        "description": "Reference for entities which are external to VCD and do not have a VCD URN identifier.\n",
+        "description": "Reference for entities which are external to VCD and do not have a VCD URN identifier.",
         "properties": {
           "id": {
             "type": "string",
@@ -1658,7 +1658,7 @@
       },
       "ExternalNetworkBacking": {
         "type": "object",
-        "description": "Information about an external network backing.\n",
+        "description": "Information about an external network backing.",
         "properties": {
           "backingId": {
             "type": "string",
@@ -1681,7 +1681,7 @@
       },
       "ExternalNetworkBackingType": {
         "type": "string",
-        "description": "The type of the external network backing.\n",
+        "description": "The type of the external network backing.",
         "enum": [
           "PORTGROUP",
           "DV_PORTGROUP",
@@ -1691,7 +1691,7 @@
       },
       "ExternalNetworkBackings": {
         "type": "object",
-        "description": "List of External Network backings.\n",
+        "description": "List of External Network backings.",
         "properties": {
           "values": {
             "type": "array",
@@ -1767,7 +1767,7 @@
       },
       "FirewallGroupType": {
         "type": "string",
-        "description": "Defines the type of Firewall Group. These groups can be used in Firewall Rules to define rules that are scoped to the IP Addresses/Members\ndefined in a Firewall Group.\n<ul>\n  <li> <code> IP_SET </code> should be used when using particular IP Addresses of VMs, Networks, etc.\n  <li> <code> SECURITY_GROUP </code> should be used when specifying exact members such as a particular Org vDC Network.\n</ul>\nThe default is IP_SET.\n",
+        "description": "Defines the type of Firewall Group. These groups can be used in Firewall Rules to define rules that are scoped to the IP Addresses/Members\ndefined in a Firewall Group.\n<ul>\n  <li> <code> IP_SET </code> should be used when using particular IP Addresses of VMs, Networks, etc.\n  <li> <code> SECURITY_GROUP </code> should be used when specifying exact members such as a particular Org vDC Network.\n</ul>\nThe default is IP_SET.",
         "enum": [
           "IP_SET",
           "SECURITY_GROUP"
@@ -1912,7 +1912,7 @@
       },
       "FirewallRuleAction": {
         "type": "string",
-        "description": "Defines the firewall rule action to be applied.\n",
+        "description": "Defines the firewall rule action to be applied.",
         "enum": [
           "ALLOW",
           "DROP"
@@ -1920,7 +1920,7 @@
       },
       "FirewallRuleDirection": {
         "type": "string",
-        "description": "Defines direction of traffic for firewall rule.\n",
+        "description": "Defines direction of traffic for firewall rule.",
         "enum": [
           "IN",
           "OUT",
@@ -1929,7 +1929,7 @@
       },
       "FirewallRuleIpProtocol": {
         "type": "string",
-        "description": "Specifies the IP protocol for the network packet that should be matched while enforcing the rule.\nIPV4_IPV6 means both IPV4 and IPV6 packet type.\n",
+        "description": "Specifies the IP protocol for the network packet that should be matched while enforcing the rule.\nIPV4_IPV6 means both IPV4 and IPV6 packet type.",
         "enum": [
           "IPV4",
           "IPV6",
@@ -1938,7 +1938,7 @@
       },
       "GatewayEdgeClusterConfig": {
         "type": "object",
-        "description": "Represents the Edge Cluster Configuration for a given Edge Gateway.\n",
+        "description": "Represents the Edge Cluster Configuration for a given Edge Gateway.",
         "properties": {
           "primaryEdgeCluster": {
             "description": "This represents the Primary Edge Cluster used for the gateway.\nFor NSX-T Edges, this means the Edge Cluster the Tier 1 SR resides on. The user should\nspecify the ID of the NSX-T edge cluster as the value of primaryEdgeCluster's backingId.\nFor NSX-V Edges, this means the primary appliance for the gateway.\n",
@@ -1955,7 +1955,7 @@
       },
       "GatewayEdgeClusterReference": {
         "type": "object",
-        "description": "This represents the reference to an Edge Cluster used for the gateway.\n",
+        "description": "This represents the reference to an Edge Cluster used for the gateway.",
         "properties": {
           "edgeClusterRef": {
             "description": "The reference to VCD Edge Cluster.",
@@ -1969,7 +1969,7 @@
       },
       "GatewayUsedIpAddress": {
         "type": "object",
-        "description": "Describes an IP address currently be used by the edge gateway. The IP belongs to the IPs allocated to the edge.\n",
+        "description": "Describes an IP address currently be used by the edge gateway. The IP belongs to the IPs allocated to the edge.",
         "properties": {
           "networkRef": {
             "description": "The external network that this IP Address belongs to.",
@@ -1987,7 +1987,7 @@
       },
       "GatewayUsedIpAddressCategory": {
         "type": "string",
-        "description": "The categories that an IP can be used for.\n",
+        "description": "The categories that an IP can be used for.",
         "enum": [
           "SNAT",
           "DNAT",
@@ -2000,7 +2000,7 @@
       },
       "GracefulRestartModeTypes": {
         "type": "string",
-        "description": "Describes Graceful Restart configuration Modes for BGP configuration on an edge gateway.\nHELPER_ONLY mode is the ability for a BGP speaker to indicate its ability\nto preserve forwarding state during BGP restart.\nGRACEFUL_RESTART mode is the ability of a BGP speaker to advertise its restart\nto its peers.\n<ul>\n  <li> DISABLE - Both graceful restart and helper modes are disabled.\n  <li> HELPER_ONLY - Only helper mode is enabled.\n  <li> GRACEFUL_AND_HELPER - Both graceful restart and helper modes are enabled.\n</ul>\n",
+        "description": "Describes Graceful Restart configuration Modes for BGP configuration on an edge gateway.\nHELPER_ONLY mode is the ability for a BGP speaker to indicate its ability\nto preserve forwarding state during BGP restart.\nGRACEFUL_RESTART mode is the ability of a BGP speaker to advertise its restart\nto its peers.\n<ul>\n  <li> DISABLE - Both graceful restart and helper modes are disabled.\n  <li> HELPER_ONLY - Only helper mode is enabled.\n  <li> GRACEFUL_AND_HELPER - Both graceful restart and helper modes are enabled.\n</ul>",
         "enum": [
           "DISABLE",
           "HELPER_ONLY",
@@ -2021,7 +2021,7 @@
       },
       "IkeConfig": {
         "type": "object",
-        "description": "This configuration captures the IKE and phase one negotiation parameters. This configuration can be set for peering properly with remote peers.\n",
+        "description": "This configuration captures the IKE and phase one negotiation parameters. This configuration can be set for peering properly with remote peers.",
         "properties": {
           "ikeVersion": {
             "description": "IKE Protocol Version to use. The default is IKE_V2.",
@@ -2065,7 +2065,7 @@
       },
       "IkeDigestAlgorithmType": {
         "type": "string",
-        "description": "Digest Algorithms are used to verify message integrity during IKE negotiation.\n",
+        "description": "Digest Algorithms are used to verify message integrity during IKE negotiation.",
         "enum": [
           "SHA1",
           "SHA2_256",
@@ -2075,7 +2075,7 @@
       },
       "IkeEncryptionAlgorithmType": {
         "type": "string",
-        "description": "Encryption algorithms are used to ensure confidentiality of messages exchanged during IKE negotiations.\n",
+        "description": "Encryption algorithms are used to ensure confidentiality of messages exchanged during IKE negotiations.",
         "enum": [
           "AES_128",
           "AES_256",
@@ -2095,7 +2095,7 @@
       },
       "IkeStatus": {
         "type": "object",
-        "description": "The status for the IPSec VPN IKE Session/Tunnel. The values are UP, DOWN, and NEGOTIATING. A fail reason is also provided if the Service Status is down.\n",
+        "description": "The status for the IPSec VPN IKE Session/Tunnel. The values are UP, DOWN, and NEGOTIATING. A fail reason is also provided if the Service Status is down.",
         "properties": {
           "ikeServiceStatus": {
             "description": "The overall IKE Session service status.",
@@ -2118,7 +2118,7 @@
       },
       "IpRange": {
         "type": "object",
-        "description": "An IpRange\n",
+        "description": "An IpRange",
         "properties": {
           "startAddress": {
             "type": "string",
@@ -2132,7 +2132,7 @@
       },
       "IpRanges": {
         "type": "object",
-        "description": "List of IpRange\n",
+        "description": "List of IpRange",
         "properties": {
           "values": {
             "type": "array",
@@ -2144,7 +2144,7 @@
       },
       "LdapConnectionTestResult": {
         "type": "object",
-        "description": "Provides LDAP connection test results\n",
+        "description": "Provides LDAP connection test results",
         "properties": {
           "successful": {
             "type": "boolean",
@@ -2160,7 +2160,7 @@
       },
       "LdapGroupAttributesType": {
         "type": "object",
-        "description": "Defines how a group is imported from LDAP.\n",
+        "description": "Defines how a group is imported from LDAP.",
         "properties": {
           "objectClass": {
             "type": "string"
@@ -2184,7 +2184,7 @@
       },
       "LdapSettings": {
         "type": "object",
-        "description": "LDAP Settings Specification\n",
+        "description": "LDAP Settings Specification",
         "properties": {
           "hostName": {
             "type": "string"
@@ -2257,7 +2257,7 @@
       },
       "LdapSettingsTestResult": {
         "type": "object",
-        "description": "Provides test attribute, result, and success boolean\n",
+        "description": "Provides test attribute, result, and success boolean",
         "properties": {
           "attribute": {
             "type": "string",
@@ -2293,7 +2293,7 @@
       },
       "LdapTestResult": {
         "type": "object",
-        "description": "Provides LDAP connection and settings test results\n",
+        "description": "Provides LDAP connection and settings test results",
         "properties": {
           "connectionTest": {
             "$ref": "#/definitions/LdapConnectionTestResult"
@@ -2308,7 +2308,7 @@
       },
       "LdapUserAttributesType": {
         "type": "object",
-        "description": "Defines how LDAP attributes are used when importing a user.\n",
+        "description": "Defines how LDAP attributes are used when importing a user.",
         "properties": {
           "objectClass": {
             "type": "string"
@@ -2367,7 +2367,7 @@
       },
       "LocalEndpoint": {
         "type": "object",
-        "description": "This represents the endpoint/IP Address on the Edge Gateway where the tunnel needs to be terminated.\n",
+        "description": "This represents the endpoint/IP Address on the Edge Gateway where the tunnel needs to be terminated.",
         "properties": {
           "localId": {
             "type": "string",
@@ -2436,7 +2436,7 @@
       },
       "NatRuleType": {
         "type": "string",
-        "description": "The Nat Rule Type for a given NAT rule.\n",
+        "description": "The Nat Rule Type for a given NAT rule.",
         "enum": [
           "DNAT",
           "SNAT",
@@ -2446,7 +2446,7 @@
       },
       "Network": {
         "type": "object",
-        "description": "A network Object.\n",
+        "description": "A network Object.",
         "properties": {
           "id": {
             "type": "string",
@@ -2484,7 +2484,7 @@
       },
       "NetworkPoolBacking": {
         "type": "object",
-        "description": "Describes the backing information for a network pool. A network pool is backed by\nvSphere network resources such as VLAN Ids, portgroups, Transport Zones, etc.\n",
+        "description": "Describes the backing information for a network pool. A network pool is backed by\nvSphere network resources such as VLAN Ids, portgroups, Transport Zones, etc.",
         "properties": {
           "vlanIdRanges": {
             "description": "The range of backing VLAN Id's. This information is available\nonly for VLAN backed network pools.\n",
@@ -2516,7 +2516,7 @@
       },
       "NetworkPoolBackingType": {
         "type": "string",
-        "description": "Represents the network pool's backing type.\n",
+        "description": "Represents the network pool's backing type.",
         "enum": [
           "VLAN",
           "VXLAN",
@@ -2570,7 +2570,7 @@
       },
       "NetworkingObjectStatus": {
         "type": "object",
-        "description": "Represents status of a networking entity.\n",
+        "description": "Represents status of a networking entity.",
         "properties": {
           "status": {
             "description": "Represents current status of the networking object.\n",
@@ -2586,7 +2586,7 @@
       },
       "NetworkingObjectStatusType": {
         "type": "string",
-        "description": "Represents status type of a networking entity.\n<ul>\n  <li> PENDING - Desired entity configuration has been received by system and is pending realization.\n  <li> CONFIGURING - The system is in process of realizing the entity.\n  <li> REALIZED - The entity is successfully realized in the system.\n  <li> REALIZATION_FAILED - There are some issues and the system is not able to realize the entity.\n  <li> UNKNOWN - Current state of entity is unknown.\n</ul>\n",
+        "description": "Represents status type of a networking entity.\n<ul>\n  <li> PENDING - Desired entity configuration has been received by system and is pending realization.\n  <li> CONFIGURING - The system is in process of realizing the entity.\n  <li> REALIZED - The entity is successfully realized in the system.\n  <li> REALIZATION_FAILED - There are some issues and the system is not able to realize the entity.\n  <li> UNKNOWN - Current state of entity is unknown.\n</ul>",
         "enum": [
           "PENDING",
           "CONFIGURING",
@@ -2597,7 +2597,7 @@
       },
       "NsxTEdgeCluster": {
         "type": "object",
-        "description": "Information about a configured edge cluster on an NSX-T manager.\nAn Edge cluster is a group of edge transport nodes.\n",
+        "description": "Information about a configured edge cluster on an NSX-T manager.\nAn Edge cluster is a group of edge transport nodes.",
         "properties": {
           "id": {
             "type": "string",
@@ -2627,7 +2627,7 @@
       },
       "NsxTEdgeClusterDeploymentType": {
         "type": "string",
-        "description": "Represents the deployment type for an edge cluster. This is derived\nfrom the deplyment type of the nodes in an edge cluster. If all the edge\nnodes are of same type then that type is returned, otherwise if the cluster\ncontains nodes with different deployment types then HYBRID is returned.\n",
+        "description": "Represents the deployment type for an edge cluster. This is derived\nfrom the deplyment type of the nodes in an edge cluster. If all the edge\nnodes are of same type then that type is returned, otherwise if the cluster\ncontains nodes with different deployment types then HYBRID is returned.",
         "enum": [
           "VIRTUAL_MACHINE",
           "PHYSICAL_MACHINE",
@@ -2637,7 +2637,7 @@
       },
       "NsxTEdgeClusterNodeType": {
         "type": "string",
-        "description": "Represents the type of transport nodes in an edge cluster.\nAll of the transport nodes in an edge cluster must belong to the same type.\n",
+        "description": "Represents the type of transport nodes in an edge cluster.\nAll of the transport nodes in an edge cluster must belong to the same type.",
         "enum": [
           "EDGE_NODE",
           "PUBLIC_CLOUD_GATEWAY_NODE",
@@ -2646,7 +2646,7 @@
       },
       "NsxTEdgeClusters": {
         "type": "object",
-        "description": "List of edge clusters configured on an NSX-T manager.\n",
+        "description": "List of edge clusters configured on an NSX-T manager.",
         "properties": {
           "values": {
             "type": "array",
@@ -2658,7 +2658,7 @@
       },
       "NsxTTransportZone": {
         "type": "object",
-        "description": "Information about a configured transport zone on an NSX-T manager.\nNSX uses transport zones to provide connectivity between hypervisors.\n",
+        "description": "Information about a configured transport zone on an NSX-T manager.\nNSX uses transport zones to provide connectivity between hypervisors.",
         "properties": {
           "id": {
             "type": "string",
@@ -2676,14 +2676,14 @@
       },
       "NsxTTransportZoneType": {
         "type": "string",
-        "description": "Represents an NSX-T transport zone's traffic type.\n",
+        "description": "Represents an NSX-T transport zone's traffic type.",
         "enum": [
           "GENEVE"
         ]
       },
       "NsxTTransportZones": {
         "type": "object",
-        "description": "List of transport zones configured on an NSX-T manager.\n",
+        "description": "List of transport zones configured on an NSX-T manager.",
         "properties": {
           "values": {
             "type": "array",
@@ -2695,7 +2695,7 @@
       },
       "NsxVManager": {
         "type": "object",
-        "description": "An object representing an NSX-V server.\n",
+        "description": "An object representing an NSX-V server.",
         "properties": {
           "username": {
             "type": "string",
@@ -2750,7 +2750,7 @@
       },
       "NsxVManagerSettings": {
         "type": "object",
-        "description": "An object representing networking configuration of a vCenter server.\n",
+        "description": "An object representing networking configuration of a vCenter server.",
         "properties": {
           "vcId": {
             "type": "string",
@@ -2832,7 +2832,7 @@
       },
       "NsxVTransportZone": {
         "type": "object",
-        "description": "Information about a configured transport zone on an NSX-V manager.\nNSX uses transport zones to provide connectivity between hypervisors.\n",
+        "description": "Information about a configured transport zone on an NSX-V manager.\nNSX uses transport zones to provide connectivity between hypervisors.",
         "properties": {
           "id": {
             "type": "string",
@@ -2850,7 +2850,7 @@
       },
       "NsxVTransportZoneType": {
         "type": "string",
-        "description": "Represents an NSX-V transport zone's traffic type.\n",
+        "description": "Represents an NSX-V transport zone's traffic type.",
         "enum": [
           "VXLAN",
           "UNIVERSAL_VXLAN"
@@ -2858,7 +2858,7 @@
       },
       "NsxVTransportZones": {
         "type": "object",
-        "description": "List of transport zones configured on an NSX-V manager.\n",
+        "description": "List of transport zones configured on an NSX-V manager.",
         "properties": {
           "values": {
             "type": "array",
@@ -2900,7 +2900,7 @@
       },
       "ObjectVersion": {
         "type": "object",
-        "description": "This property describes the current version of the entity. To prevent clients from overwriting each other's changes, update operations must include\nthe version which can be obtained by issuing a GET operation. If the version number on an update call is missing, the operation will be rejected. This is only needed\non update calls.\n",
+        "description": "This property describes the current version of the entity. To prevent clients from overwriting each other's changes, update operations must include\nthe version which can be obtained by issuing a GET operation. If the version number on an update call is missing, the operation will be rejected. This is only needed\non update calls.",
         "properties": {
           "version": {
             "type": "integer",
@@ -2913,7 +2913,7 @@
       },
       "OrgVdcNetworkStatus": {
         "type": "string",
-        "description": "Represents status of a Org Vdc network. This value will be PENDING if the network has been recorded by VCD but has not been fully configured,\nCONFIGURING if the network is in transition, REALIZED if the existing state of the network has been fully realized, or REALIZED_FAILED if there\nwas an error creating the network.\n",
+        "description": "Represents status of a Org Vdc network. This value will be PENDING if the network has been recorded by VCD but has not been fully configured,\nCONFIGURING if the network is in transition, REALIZED if the existing state of the network has been fully realized, or REALIZED_FAILED if there\nwas an error creating the network.",
         "enum": [
           "PENDING",
           "CONFIGURING",
@@ -2933,7 +2933,7 @@
       },
       "Page": {
         "type": "object",
-        "description": "Collection of paging-related metadata to be included by composition via allOf. This type\nshould be included in pageable responses to avoid duplicating these common properties. It\nis intended to be included by composition rather than inheritance. Because of this, it has\nno discriminator and should be embedded via allOf. See QueryResults for a reference usage.\n",
+        "description": "Collection of paging-related metadata to be included by composition via allOf. This type\nshould be included in pageable responses to avoid duplicating these common properties. It\nis intended to be included by composition rather than inheritance. Because of this, it has\nno discriminator and should be embedded via allOf. See QueryResults for a reference usage.",
         "properties": {
           "resultTotal": {
             "type": "integer",
@@ -3022,7 +3022,7 @@
       },
       "ParticipatingVdcReference": {
         "type": "object",
-        "description": "A participating vDC\n",
+        "description": "A participating vDC",
         "properties": {
           "vdcRef": {
             "description": "The reference to the vDC that is part of this a vDC group.",
@@ -3055,7 +3055,7 @@
       },
       "PortGroup": {
         "type": "object",
-        "description": "Standard portgroup.\n",
+        "description": "Standard portgroup.",
         "properties": {
           "backingRef": {
             "description": "Contains the backing id and name of the standard portgroup.",
@@ -3090,7 +3090,7 @@
       },
       "PreferenceDefinition": {
         "type": "object",
-        "description": "The Preference Definition is immutable.\n",
+        "description": "The Preference Definition is immutable.",
         "properties": {
           "id": {
             "type": "string",
@@ -3296,7 +3296,7 @@
       },
       "ProbeResult": {
         "type": "object",
-        "description": "Results of a connection test to a specific endpoint.\n",
+        "description": "Results of a connection test to a specific endpoint.",
         "properties": {
           "result": {
             "type": "string",
@@ -3347,7 +3347,7 @@
       },
       "ProviderVdc": {
         "type": "object",
-        "description": "A provider vdc.\n",
+        "description": "A provider vdc.",
         "properties": {
           "id": {
             "type": "string",
@@ -3381,7 +3381,7 @@
       },
       "Proxy": {
         "type": "object",
-        "description": "proxy configuration. This configures the vCD proxying capability for one specific server within the vSphere/NSX/ESX estate known to vCD.\n",
+        "description": "proxy configuration. This configures the vCD proxying capability for one specific server within the vSphere/NSX/ESX estate known to vCD.",
         "properties": {
           "name": {
             "type": "string",
@@ -3482,7 +3482,7 @@
       },
       "ProxyConfiguration": {
         "type": "object",
-        "description": "A Proxy Configuration. This configuration object declares a backend proxy that sits between vCD and the vSphere/NSX/ESX estate.\n",
+        "description": "A Proxy Configuration. This configuration object declares a backend proxy that sits between vCD and the vSphere/NSX/ESX estate.",
         "properties": {
           "name": {
             "type": "string",
@@ -3586,7 +3586,7 @@
       },
       "ProxyConnection": {
         "type": "object",
-        "description": "Proxy connection to use for test. If none is specified, then no proxy is used to test the connection.\n",
+        "description": "Proxy connection to use for test. If none is specified, then no proxy is used to test the connection.",
         "properties": {
           "proxyHost": {
             "type": "string",
@@ -3708,7 +3708,7 @@
       },
       "RemoteEndpoint": {
         "type": "object",
-        "description": "This represents the remote endpoint i.e. the endpoint which the tunnel from the Edge Gateway will connect to.\n",
+        "description": "This represents the remote endpoint i.e. the endpoint which the tunnel from the Edge Gateway will connect to.",
         "properties": {
           "remoteId": {
             "type": "string",
@@ -3734,7 +3734,7 @@
       },
       "ResourcePool": {
         "type": "object",
-        "description": "A vCenter Resource Pool.\n",
+        "description": "A vCenter Resource Pool.",
         "properties": {
           "moref": {
             "type": "string",
@@ -3756,7 +3756,7 @@
       },
       "Right": {
         "type": "object",
-        "description": "Right\n",
+        "description": "Right",
         "properties": {
           "name": {
             "type": "string",
@@ -3842,7 +3842,7 @@
       },
       "RightsCategoryNode": {
         "type": "object",
-        "description": "RightsCategoryNode\n",
+        "description": "RightsCategoryNode",
         "properties": {
           "name": {
             "type": "string",
@@ -3910,7 +3910,7 @@
       },
       "RightsCount": {
         "type": "object",
-        "description": "RightsCount - A count of rights in a given category by type\n",
+        "description": "RightsCount - A count of rights in a given category by type",
         "properties": {
           "view": {
             "type": "integer",
@@ -3932,7 +3932,7 @@
       },
       "RightsMapping": {
         "type": "object",
-        "description": "RightsMapping\n",
+        "description": "RightsMapping",
         "properties": {
           "name": {
             "type": "string",
@@ -3977,7 +3977,7 @@
       },
       "RouteAdvertisement": {
         "type": "object",
-        "description": "List of subnets that will be advertised so that the Edge Gateway can route out to the connected external network.\n",
+        "description": "List of subnets that will be advertised so that the Edge Gateway can route out to the connected external network.",
         "properties": {
           "enable": {
             "type": "boolean",
@@ -4001,7 +4001,7 @@
       },
       "RouterComponentHealth": {
         "type": "object",
-        "description": "A ComponentHealth object\n",
+        "description": "A ComponentHealth object",
         "properties": {
           "component": {
             "type": "string"
@@ -4022,7 +4022,7 @@
       },
       "RouterComponentStatus": {
         "type": "string",
-        "description": "Status of a router component.\n",
+        "description": "Status of a router component.",
         "enum": [
           "UP",
           "DOWN"
@@ -4030,7 +4030,7 @@
       },
       "RouterConnection": {
         "type": "object",
-        "description": "Describes the connection between a routed network and an edge gateway. This must be set if converting from an isolated to a routed network.\n",
+        "description": "Describes the connection between a routed network and an edge gateway. This must be set if converting from an isolated to a routed network.",
         "properties": {
           "routerRef": {
             "description": "The edge gateway that this network is attached to.",
@@ -4049,7 +4049,7 @@
       },
       "RouterDnsConfig": {
         "type": "object",
-        "description": "A RouterDnsConfig object\n",
+        "description": "A RouterDnsConfig object",
         "properties": {
           "enabled": {
             "type": "boolean"
@@ -4064,7 +4064,7 @@
       },
       "RouterHealthReport": {
         "type": "object",
-        "description": "Health Report of a Router\n",
+        "description": "Health Report of a Router",
         "properties": {
           "nsxManagersHealth": {
             "type": "array",
@@ -4095,7 +4095,7 @@
       },
       "Sddc": {
         "type": "object",
-        "description": "Software-defined data center\n",
+        "description": "Software-defined data center",
         "properties": {
           "name": {
             "type": "string",
@@ -4212,7 +4212,7 @@
       },
       "SddcProxy": {
         "type": "object",
-        "description": "SDDC proxy configuration\n",
+        "description": "SDDC proxy configuration",
         "properties": {
           "name": {
             "type": "string",
@@ -4332,7 +4332,7 @@
       },
       "SddcStat": {
         "type": "object",
-        "description": "A collection of measurements for the SDDC resource\n",
+        "description": "A collection of measurements for the SDDC resource",
         "properties": {
           "numTotal": {
             "type": "integer",
@@ -4356,7 +4356,7 @@
       },
       "SddcStats": {
         "type": "object",
-        "description": "A read-only list of resource allocations for the associated SDDC\n",
+        "description": "A read-only list of resource allocations for the associated SDDC",
         "properties": {
           "totalVMs": {
             "type": "integer",
@@ -4403,7 +4403,7 @@
       },
       "ServiceApp": {
         "type": "object",
-        "description": "A VMware service application\n",
+        "description": "A VMware service application",
         "properties": {
           "id": {
             "type": "string",
@@ -4453,7 +4453,7 @@
       },
       "ServiceAppScope": {
         "type": "string",
-        "description": "Describes the type of service application.\nVMC_REFRESH_TOKEN: The application authtenticates to VMC via a refresh token\nVMC_CLIENT_CREDENTIAL: The application authenticates to VMC using client credentials\nVMC: Deprecated. Defaults to VMC_REFRESH_TOKEN.\n",
+        "description": "Describes the type of service application.\nVMC_REFRESH_TOKEN: The application authtenticates to VMC via a refresh token\nVMC_CLIENT_CREDENTIAL: The application authenticates to VMC using client credentials\nVMC: Deprecated. Defaults to VMC_REFRESH_TOKEN.",
         "enum": [
           "VMC",
           "VMC_REFRESH_TOKEN",
@@ -4511,7 +4511,7 @@
       },
       "Session": {
         "type": "object",
-        "description": "Session\n",
+        "description": "Session",
         "properties": {
           "id": {
             "type": "string",
@@ -4549,7 +4549,7 @@
       },
       "SmtpServerSpec": {
         "type": "object",
-        "description": "Represent the settings of an SMTP Server which the system uses to send email notifications and alerts\n",
+        "description": "Represent the settings of an SMTP Server which the system uses to send email notifications and alerts",
         "properties": {
           "useAuthentication": {
             "type": "boolean",
@@ -4623,7 +4623,7 @@
       },
       "StorageProfile": {
         "type": "object",
-        "description": "A Storage Profile.\n",
+        "description": "A Storage Profile.",
         "properties": {
           "moref": {
             "type": "string",
@@ -4637,7 +4637,7 @@
       },
       "Subnet": {
         "type": "object",
-        "description": "A network subnet defined by its gateway,\n",
+        "description": "A network subnet defined by its gateway,",
         "properties": {
           "gateway": {
             "type": "string",
@@ -4684,7 +4684,7 @@
       },
       "Subnets": {
         "type": "object",
-        "description": "List of Subnets of a network\n",
+        "description": "List of Subnets of a network",
         "properties": {
           "values": {
             "type": "array",
@@ -4773,7 +4773,7 @@
       },
       "TestResult": {
         "type": "object",
-        "description": "Results of a connection test.\n",
+        "description": "Results of a connection test.",
         "properties": {
           "targetProbe": {
             "$ref": "#/definitions/ProbeResult"
@@ -4785,7 +4785,7 @@
       },
       "ThumbprintAndAlgorithm": {
         "type": "object",
-        "description": "Specifies a SSL certificate thumbprint and the algorithm used for calculation.\n",
+        "description": "Specifies a SSL certificate thumbprint and the algorithm used for calculation.",
         "properties": {
           "thumbprint": {
             "type": "string",
@@ -4801,7 +4801,7 @@
       },
       "Tier0Routers": {
         "type": "object",
-        "description": "List of NSX-T's Tier-0 routers.\n",
+        "description": "List of NSX-T's Tier-0 routers.",
         "properties": {
           "values": {
             "type": "array",
@@ -4813,7 +4813,7 @@
       },
       "Token": {
         "type": "object",
-        "description": "Specifies a user, the user's organization, and the user assigned token that can be used to\n access proxies as well as the expiration timestamp of the token (in UTC). Parameters cannot\n be edited once a token is created.\n",
+        "description": "Specifies a user, the user's organization, and the user assigned token that can be used to\n access proxies as well as the expiration timestamp of the token (in UTC). Parameters cannot\n be edited once a token is created.",
         "properties": {
           "id": {
             "type": "string",
@@ -4909,7 +4909,7 @@
       },
       "TrustedCertificate": {
         "type": "object",
-        "description": "SSL certificate in PEM format.\n",
+        "description": "SSL certificate in PEM format.",
         "properties": {
           "id": {
             "type": "string",
@@ -4953,7 +4953,7 @@
       },
       "TunnelConfig": {
         "type": "object",
-        "description": "This configuration captures phase two negotiation parameters and tunnel properties.\n",
+        "description": "This configuration captures phase two negotiation parameters and tunnel properties.",
         "properties": {
           "perfectForwardSecrecyEnabled": {
             "type": "boolean",
@@ -5026,7 +5026,7 @@
       },
       "TunnelStatus": {
         "type": "string",
-        "description": "The overall tunnel status which is consolidated using the Tunnel Status and IKE Status. If the tunnel is up, the status is UP. If the tunnel\nis down, the status is DOWN. The tunnel may also be in a DEGRADED state due to other issues.\n",
+        "description": "The overall tunnel status which is consolidated using the Tunnel Status and IKE Status. If the tunnel is up, the status is UP. If the tunnel\nis down, the status is DOWN. The tunnel may also be in a DEGRADED state due to other issues.",
         "enum": [
           "UP",
           "DOWN",
@@ -5035,7 +5035,7 @@
       },
       "UiBranding": {
         "type": "object",
-        "description": "A branding object with the portal name, portal color, selected theme and custom URLs.\n",
+        "description": "A branding object with the portal name, portal color, selected theme and custom URLs.",
         "properties": {
           "portalName": {
             "type": "string"
@@ -5061,7 +5061,7 @@
       },
       "UiBrandingMenuItem": {
         "type": "object",
-        "description": "An ordered list of menu items which can be customized and used in the application. Can be defined as a\nlink,\noverride (well known links that can be overridden, Default values are About, Help, VMRC),\nsection,\nseparator(section without a name) of the drop down menu.\n",
+        "description": "An ordered list of menu items which can be customized and used in the application. Can be defined as a\nlink,\noverride (well known links that can be overridden, Default values are About, Help, VMRC),\nsection,\nseparator(section without a name) of the drop down menu.",
         "properties": {
           "name": {
             "type": "string"
@@ -5085,7 +5085,7 @@
       },
       "UiPluginMetadata": {
         "type": "object",
-        "description": "Meta information about a UI Plugin\n",
+        "description": "Meta information about a UI Plugin",
         "properties": {
           "pluginName": {
             "type": "string"
@@ -5125,7 +5125,7 @@
       },
       "UiTheme": {
         "type": "object",
-        "description": "A theme supported by vCloud Director.\n",
+        "description": "A theme supported by vCloud Director.",
         "properties": {
           "themeType": {
             "type": "string"
@@ -5141,7 +5141,7 @@
       },
       "UniversalEgressRoutes": {
         "type": "object",
-        "description": "Object consisting of Egress Points and Universal Routes for a Universal Router.\n",
+        "description": "Object consisting of Egress Points and Universal Routes for a Universal Router.",
         "properties": {
           "egressPoints": {
             "description": "The list of Egress Points for routing configuration. This is read-only.",
@@ -5155,7 +5155,7 @@
       },
       "UniversalRoute": {
         "type": "object",
-        "description": "A Route for a Universal Router.\n",
+        "description": "A Route for a Universal Router.",
         "properties": {
           "defaultEgress": {
             "description": "For a given route, routing by default will go through the default egress point. Every valid/configured route will have a default egress point.",
@@ -5183,7 +5183,7 @@
       },
       "UniversalRouter": {
         "type": "object",
-        "description": "A UniversalRouter object\n",
+        "description": "A UniversalRouter object",
         "properties": {
           "id": {
             "type": "string"
@@ -5214,7 +5214,7 @@
       },
       "UniversalRouterDhcpConfig": {
         "type": "object",
-        "description": "A UniversalRouterDhcpConfig object.\n",
+        "description": "A UniversalRouterDhcpConfig object.",
         "properties": {
           "enabled": {
             "type": "boolean"
@@ -5229,7 +5229,7 @@
       },
       "UniversalRouterDhcpServer": {
         "type": "object",
-        "description": "List of Dhcp servers for universal router.\nEither egressRef or serverAddress is required to identify Dhcp server.\n",
+        "description": "List of Dhcp servers for universal router.\nEither egressRef or serverAddress is required to identify Dhcp server.",
         "properties": {
           "egressRef": {
             "$ref": "#/definitions/EntityReference"
@@ -5241,7 +5241,7 @@
       },
       "UniversalRouters": {
         "type": "object",
-        "description": "List of Universal Routers\n",
+        "description": "List of Universal Routers",
         "properties": {
           "values": {
             "type": "array",
@@ -5253,7 +5253,7 @@
       },
       "UniversalRoutes": {
         "type": "object",
-        "description": "List of routes associated with a Universal Router.\n",
+        "description": "List of routes associated with a Universal Router.",
         "properties": {
           "keepAliveTimer": {
             "type": "integer",
@@ -5277,7 +5277,7 @@
       },
       "UniversalRoutingStatus": {
         "type": "string",
-        "description": "Represents status of given routing configuration, such as realized, universal router routing configuration failed, egress routing configuration failed, etc.\n",
+        "description": "Represents status of given routing configuration, such as realized, universal router routing configuration failed, egress routing configuration failed, etc.",
         "enum": [
           "SAVING",
           "SAVED",
@@ -5294,7 +5294,7 @@
       },
       "UnmanagedVirtualMachine": {
         "type": "object",
-        "description": "An unmanaged Virtual Machine is a Virtual Machine that is not managed by Cloud Director but is present in vCenter.\n",
+        "description": "An unmanaged Virtual Machine is a Virtual Machine that is not managed by Cloud Director but is present in vCenter.",
         "properties": {
           "name": {
             "type": "string",
@@ -5397,11 +5397,11 @@
             }
           }
         ],
-        "description": "Description of an upload (in progress or complete)\n"
+        "description": "Description of an upload (in progress or complete)"
       },
       "UploadSpec": {
         "type": "object",
-        "description": "Information about upload\n",
+        "description": "Information about upload",
         "properties": {
           "fileName": {
             "type": "string"
@@ -5445,7 +5445,7 @@
       },
       "UsedIpAddress": {
         "type": "object",
-        "description": "Describes a used IP address for a network.\n",
+        "description": "Describes a used IP address for a network.",
         "properties": {
           "entityId": {
             "type": "string",
@@ -5483,7 +5483,7 @@
       },
       "UsedIpAddressAllocationType": {
         "type": "string",
-        "description": "The possible allocation types for allocated network IP address.\nVM_ALLOCATED means that the IP address is used by a VM,\nEDGE means that the IP address is in use by an NSX edge gateway interface.\n",
+        "description": "The possible allocation types for allocated network IP address.\nVM_ALLOCATED means that the IP address is used by a VM,\nEDGE means that the IP address is in use by an NSX edge gateway interface.",
         "enum": [
           "VM_ALLOCATED",
           "EDGE"
@@ -5491,7 +5491,7 @@
       },
       "User": {
         "type": "object",
-        "description": "LDAP User Spec object.\n",
+        "description": "LDAP User Spec object.",
         "properties": {
           "username": {
             "type": "string"
@@ -5557,7 +5557,7 @@
       },
       "UserGroup": {
         "type": "object",
-        "description": "Group Spec object.\n",
+        "description": "Group Spec object.",
         "properties": {
           "name": {
             "type": "string"
@@ -5588,7 +5588,7 @@
       },
       "VCenterServer": {
         "type": "object",
-        "description": "An object representing a vCenter server.\n",
+        "description": "An object representing a vCenter server.",
         "properties": {
           "vcId": {
             "type": "string",
@@ -5810,7 +5810,7 @@
       },
       "VCenterServerMetrics": {
         "type": "object",
-        "description": "An object representing metrics of a vCenter server.\n",
+        "description": "An object representing metrics of a vCenter server.",
         "properties": {
           "vcId": {
             "type": "string",
@@ -6011,7 +6011,7 @@
       },
       "VROServiceInfo": {
         "type": "object",
-        "description": "Response type with meta information about a vRealize Orchestrator Service\n",
+        "description": "Response type with meta information about a vRealize Orchestrator Service",
         "properties": {
           "id": {
             "type": "string",
@@ -6235,7 +6235,7 @@
       },
       "VdcGroup": {
         "type": "object",
-        "description": "A vCD Group.\n",
+        "description": "A vCD Group.",
         "properties": {
           "id": {
             "type": "string",
@@ -6303,7 +6303,7 @@
       },
       "VdcGroupEntityStatus": {
         "type": "string",
-        "description": "Represents status of vDC group components such as participating vdc's\nconfigured routing, egress points, etc.\n",
+        "description": "Represents status of vDC group components such as participating vdc's\nconfigured routing, egress points, etc.",
         "enum": [
           "SAVING",
           "SAVED",
@@ -6318,7 +6318,7 @@
       },
       "VdcNetworkConnectionType": {
         "type": "string",
-        "description": "Describes how a network is connected to a gateway.\n",
+        "description": "Describes how a network is connected to a gateway.",
         "enum": [
           "DISTRIBUTED",
           "INTERNAL",
@@ -6327,7 +6327,7 @@
       },
       "VdcNetworkDhcpConfig": {
         "type": "object",
-        "description": "Configuration for the DHCP service that runs on the network.\n",
+        "description": "Configuration for the DHCP service that runs on the network.",
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -6344,7 +6344,7 @@
       },
       "VdcNetworkDhcpPool": {
         "type": "object",
-        "description": "A range of DHCP ip addresses and its lease time configuration.\n",
+        "description": "A range of DHCP ip addresses and its lease time configuration.",
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -6367,7 +6367,7 @@
       },
       "VdcNetworkFenceType": {
         "type": "string",
-        "description": "The network type.\n",
+        "description": "The network type.",
         "enum": [
           "DIRECT",
           "DIRECT_UPLINK",
@@ -6379,7 +6379,7 @@
       },
       "VdcNetworkProfile": {
         "type": "object",
-        "description": "A vDC Network Profile object.\n",
+        "description": "A vDC Network Profile object.",
         "properties": {
           "primaryEdgeCluster": {
             "description": "The Edge Cluster where the primary appliance for an NSX-V Edge Gateway will be deployed.",
@@ -6393,7 +6393,7 @@
       },
       "VlanIdRange": {
         "type": "object",
-        "description": "An object representing VLAN Id range.\n",
+        "description": "An object representing VLAN Id range.",
         "properties": {
           "startId": {
             "type": "integer",
@@ -6407,7 +6407,7 @@
       },
       "VlanIdRanges": {
         "type": "object",
-        "description": "List of IpRange\n",
+        "description": "List of IpRange",
         "properties": {
           "values": {
             "type": "array",
@@ -6419,7 +6419,7 @@
       },
       "VmcSddc": {
         "type": "object",
-        "description": "A VMware Cloud on AWS SDDC\n",
+        "description": "A VMware Cloud on AWS SDDC",
         "properties": {
           "id": {
             "type": "string",
@@ -6433,7 +6433,7 @@
       },
       "VroRemoteInventoryItem": {
         "type": "object",
-        "description": "Meta information about an inventory item on a vRealize Orchestrator server\n",
+        "description": "Meta information about an inventory item on a vRealize Orchestrator server",
         "properties": {
           "href": {
             "type": "string"
@@ -6451,7 +6451,7 @@
       },
       "VroRemoteItem": {
         "type": "object",
-        "description": "Information about various objects in vRealize Orchestrator server\n",
+        "description": "Information about various objects in vRealize Orchestrator server",
         "properties": {
           "name": {
             "type": "string"
@@ -6487,7 +6487,7 @@
       },
       "VroRemoteItems": {
         "type": "object",
-        "description": "A list of objects in vRealize orchestrator server\n",
+        "description": "A list of objects in vRealize orchestrator server",
         "properties": {
           "remoteItems": {
             "type": "array",
@@ -6505,7 +6505,7 @@
       },
       "VroRemotePluginItem": {
         "type": "object",
-        "description": "A plugin namespaces for whom type information can be retrieved\n",
+        "description": "A plugin namespaces for whom type information can be retrieved",
         "properties": {
           "name": {
             "type": "string"
@@ -6523,7 +6523,7 @@
       },
       "VroRemotePluginItems": {
         "type": "object",
-        "description": "List of plugin namespaces\n",
+        "description": "List of plugin namespaces",
         "properties": {
           "items": {
             "type": "array",
@@ -6535,7 +6535,7 @@
       },
       "VroRemotePluginType": {
         "type": "object",
-        "description": "Type definition for a plugin namespace\n",
+        "description": "Type definition for a plugin namespace",
         "properties": {
           "name": {
             "type": "string"
@@ -6550,7 +6550,7 @@
       },
       "VroRemotePluginTypes": {
         "type": "object",
-        "description": "A list of defined types for a particular plugin namespace\n",
+        "description": "A list of defined types for a particular plugin namespace",
         "properties": {
           "types": {
             "type": "array",
@@ -6565,7 +6565,7 @@
       },
       "VroRemoteWorkflowItem": {
         "type": "object",
-        "description": "Meta information about a workflow on a vRealize Orchestrator server\n",
+        "description": "Meta information about a workflow on a vRealize Orchestrator server",
         "properties": {
           "name": {
             "type": "string"
@@ -6698,7 +6698,7 @@
             }
           }
         ],
-        "description": "A list of locations accessible to this session.\n"
+        "description": "A list of locations accessible to this session."
       },
       "AllocatedIpAddresses": {
         "allOf": [
@@ -6717,7 +6717,7 @@
             }
           }
         ],
-        "description": "List of allocated IP addresses.\n"
+        "description": "List of allocated IP addresses."
       },
       "ApplicationPortProfile": {
         "allOf": [
@@ -6759,7 +6759,7 @@
             }
           }
         ],
-        "description": "An Application Port Profile object. The application port profile represents a set of ports and protocols that can be used when defining network service rules.\n"
+        "description": "An Application Port Profile object. The application port profile represents a set of ports and protocols that can be used when defining network service rules."
       },
       "ApplicationPortProfiles": {
         "allOf": [
@@ -6778,7 +6778,7 @@
             }
           }
         ],
-        "description": "List of Application Port Profiles.\n"
+        "description": "List of Application Port Profiles."
       },
       "ArrayParam": {
         "allOf": [
@@ -6816,7 +6816,7 @@
             }
           }
         ],
-        "description": "A list of audit trail events.\n"
+        "description": "A list of audit trail events."
       },
       "BooleanParam": {
         "allOf": [
@@ -6850,7 +6850,7 @@
             }
           }
         ],
-        "description": "List of read-only capabilities.\n"
+        "description": "List of read-only capabilities."
       },
       "Cells": {
         "allOf": [
@@ -6869,7 +6869,7 @@
             }
           }
         ],
-        "description": "A paginated list of vCloud Director cells.\n"
+        "description": "A paginated list of vCloud Director cells."
       },
       "Certificates": {
         "allOf": [
@@ -6889,7 +6889,7 @@
             }
           }
         ],
-        "description": "A list of certificates.\n"
+        "description": "A list of certificates."
       },
       "Chooser": {
         "allOf": [
@@ -6975,7 +6975,7 @@
             }
           }
         ],
-        "description": "A CrossVdcNetwork object\n"
+        "description": "A CrossVdcNetwork object"
       },
       "CrossVdcNetworks": {
         "allOf": [
@@ -6994,7 +6994,7 @@
             }
           }
         ],
-        "description": "List of cross vDC networks\n"
+        "description": "List of cross vDC networks"
       },
       "CustomEntityTypes": {
         "allOf": [
@@ -7014,7 +7014,7 @@
             }
           }
         ],
-        "description": "A list of custom entity types.\n"
+        "description": "A list of custom entity types."
       },
       "CustomValidator": {
         "allOf": [
@@ -7056,7 +7056,7 @@
             }
           }
         ],
-        "description": "List of distributed portgroups.\n"
+        "description": "List of distributed portgroups."
       },
       "DropDown": {
         "allOf": [
@@ -7090,7 +7090,7 @@
             }
           }
         ],
-        "description": "List of distributed virtual switches.\n"
+        "description": "List of distributed virtual switches."
       },
       "EdgeClusters": {
         "allOf": [
@@ -7109,7 +7109,7 @@
             }
           }
         ],
-        "description": "List of Edge Clusters.\n"
+        "description": "List of Edge Clusters."
       },
       "EdgeFirewallRule": {
         "allOf": [
@@ -7162,7 +7162,7 @@
             }
           }
         ],
-        "description": "Firewall rules for an edge gateway. This contains an ordered list of system,\nuser defined and default firewall rules. All the rules are returned in the order of type and precedence.\n"
+        "description": "Firewall rules for an edge gateway. This contains an ordered list of system,\nuser defined and default firewall rules. All the rules are returned in the order of type and precedence."
       },
       "EdgeGateway": {
         "allOf": [
@@ -7223,7 +7223,7 @@
             }
           }
         ],
-        "description": "An edge gateway object\n"
+        "description": "An edge gateway object"
       },
       "EdgeGatewaySubnet": {
         "allOf": [
@@ -7245,7 +7245,7 @@
             }
           }
         ],
-        "description": "Subnet for edge gateway that contains the IPs from the external network that are allocated to the edge.\n"
+        "description": "Subnet for edge gateway that contains the IPs from the external network that are allocated to the edge."
       },
       "EdgeGateways": {
         "allOf": [
@@ -7265,7 +7265,7 @@
             }
           }
         ],
-        "description": "List of edge gateways\n"
+        "description": "List of edge gateways"
       },
       "EdgeIpSecVpnTunnels": {
         "allOf": [
@@ -7286,7 +7286,7 @@
             }
           }
         ],
-        "description": "List of configured IPSec VPN tunnels.\n"
+        "description": "List of configured IPSec VPN tunnels."
       },
       "EdgeNatRules": {
         "allOf": [
@@ -7341,7 +7341,7 @@
             }
           }
         ],
-        "description": "A list of entity references.\n"
+        "description": "A list of entity references."
       },
       "ExternalNetwork": {
         "allOf": [
@@ -7377,7 +7377,7 @@
             }
           }
         ],
-        "description": "An external network.\n"
+        "description": "An external network."
       },
       "ExternalNetworks": {
         "allOf": [
@@ -7396,7 +7396,7 @@
             }
           }
         ],
-        "description": "List of External Networks\n"
+        "description": "List of External Networks"
       },
       "Field": {
         "allOf": [
@@ -7448,7 +7448,7 @@
             }
           }
         ],
-        "description": "List of associated VMs for firewall group\n"
+        "description": "List of associated VMs for firewall group"
       },
       "FirewallGroupSummary": {
         "allOf": [
@@ -7480,7 +7480,7 @@
             "$ref": "#/components/schemas/NetworkingObjectStatus"
           }
         ],
-        "description": "A Firewall Group object.\n"
+        "description": "A Firewall Group object."
       },
       "FirewallGroups": {
         "allOf": [
@@ -7499,7 +7499,7 @@
             }
           }
         ],
-        "description": "List of Firewall Groups\n"
+        "description": "List of Firewall Groups"
       },
       "GatewayUsedIpAddresses": {
         "allOf": [
@@ -7518,7 +7518,7 @@
             }
           }
         ],
-        "description": "List of IP addresses used by an edge gateway.\n"
+        "description": "List of IP addresses used by an edge gateway."
       },
       "GlobalRoles": {
         "allOf": [
@@ -7538,7 +7538,7 @@
             }
           }
         ],
-        "description": "A list of global roles.\n"
+        "description": "A list of global roles."
       },
       "Group": {
         "allOf": [
@@ -7594,7 +7594,7 @@
             }
           }
         ],
-        "description": "A list of LogicalVmGroups.\n"
+        "description": "A list of LogicalVmGroups."
       },
       "Mandatory": {
         "allOf": [
@@ -7730,7 +7730,7 @@
             }
           }
         ],
-        "description": "Common fields that NetworkPoolSummary and NetworkPool have.\n"
+        "description": "Common fields that NetworkPoolSummary and NetworkPool have."
       },
       "NetworkPoolsSummary": {
         "allOf": [
@@ -7749,7 +7749,7 @@
             }
           }
         ],
-        "description": "List of Network Pool Summary Objects.\n"
+        "description": "List of Network Pool Summary Objects."
       },
       "NumberFormat": {
         "allOf": [
@@ -7816,7 +7816,7 @@
             }
           }
         ],
-        "description": "List of standard portgroups.\n"
+        "description": "List of standard portgroups."
       },
       "PreferenceDefinitions": {
         "allOf": [
@@ -7836,7 +7836,7 @@
             }
           }
         ],
-        "description": "A list of preference definitions\n"
+        "description": "A list of preference definitions"
       },
       "Preferences": {
         "allOf": [
@@ -7856,7 +7856,7 @@
             }
           }
         ],
-        "description": "A list of user preferences\n"
+        "description": "A list of user preferences"
       },
       "Properties": {
         "allOf": [
@@ -7893,7 +7893,7 @@
             }
           }
         ],
-        "description": "List of Provider VDCs.\n"
+        "description": "List of Provider VDCs."
       },
       "Proxies": {
         "allOf": [
@@ -7912,7 +7912,7 @@
             }
           }
         ],
-        "description": "A paginated list of proxies\n"
+        "description": "A paginated list of proxies"
       },
       "ProxyConfigurations": {
         "allOf": [
@@ -7931,7 +7931,7 @@
             }
           }
         ],
-        "description": "A paginated list of proxy configurations\n"
+        "description": "A paginated list of proxy configurations"
       },
       "PublishableRightsMapping": {
         "allOf": [
@@ -7954,7 +7954,7 @@
             }
           }
         ],
-        "description": "RightsMapping that can be published to tenants\n"
+        "description": "RightsMapping that can be published to tenants"
       },
       "PvdcComputePolicies": {
         "allOf": [
@@ -7974,7 +7974,7 @@
             }
           }
         ],
-        "description": "A list of provider VDC compute policies.\n"
+        "description": "A list of provider VDC compute policies."
       },
       "RefreshOnChange": {
         "allOf": [
@@ -8030,7 +8030,7 @@
             }
           }
         ],
-        "description": "A list of Resource Pools\n"
+        "description": "A list of Resource Pools"
       },
       "RestrictDuplicates": {
         "allOf": [
@@ -8057,7 +8057,7 @@
             }
           }
         ],
-        "description": "A list of rights.\n"
+        "description": "A list of rights."
       },
       "RightsBundles": {
         "allOf": [
@@ -8096,7 +8096,7 @@
             }
           }
         ],
-        "description": "A list of rights category nodes.\n"
+        "description": "A list of rights category nodes."
       },
       "Role": {
         "allOf": [
@@ -8142,7 +8142,7 @@
             }
           }
         ],
-        "description": "A list of roles.\n"
+        "description": "A list of roles."
       },
       "SddcProxies": {
         "allOf": [
@@ -8161,7 +8161,7 @@
             }
           }
         ],
-        "description": "A paginated list of SDDC proxies\n"
+        "description": "A paginated list of SDDC proxies"
       },
       "Sddcs": {
         "allOf": [
@@ -8180,7 +8180,7 @@
             }
           }
         ],
-        "description": "A paginated list of software-defined data centers\n"
+        "description": "A paginated list of software-defined data centers"
       },
       "SdkObject": {
         "allOf": [
@@ -8241,7 +8241,7 @@
             }
           }
         ],
-        "description": "List of VMware service applications\n"
+        "description": "List of VMware service applications"
       },
       "ServiceItems": {
         "allOf": [
@@ -8261,7 +8261,7 @@
             }
           }
         ],
-        "description": "A list of service items.\n"
+        "description": "A list of service items."
       },
       "Services": {
         "allOf": [
@@ -8281,7 +8281,7 @@
             }
           }
         ],
-        "description": "A list of services.\n"
+        "description": "A list of services."
       },
       "Sessions": {
         "allOf": [
@@ -8301,7 +8301,7 @@
             }
           }
         ],
-        "description": "A list of sessions.\n"
+        "description": "A list of sessions."
       },
       "StepInfo": {
         "allOf": [
@@ -8341,7 +8341,7 @@
             }
           }
         ],
-        "description": "A list of Storage Profiles\n"
+        "description": "A list of Storage Profiles"
       },
       "StringParam": {
         "allOf": [
@@ -8364,7 +8364,7 @@
             "$ref": "#/components/schemas/CommonNsxTRouterFields"
           }
         ],
-        "description": "An NSX-T's Tier-0 router.\n"
+        "description": "An NSX-T's Tier-0 router."
       },
       "Tokens": {
         "allOf": [
@@ -8383,7 +8383,7 @@
             }
           }
         ],
-        "description": "A paginated list of user specific tokens used for accessing proxies.\n"
+        "description": "A paginated list of user specific tokens used for accessing proxies."
       },
       "UiPluginMetadataResponse": {
         "allOf": [
@@ -8412,7 +8412,7 @@
             }
           }
         ],
-        "description": "A list of unmanaged Virtual Machines\n"
+        "description": "A list of unmanaged Virtual Machines"
       },
       "UsedIpAddresses": {
         "allOf": [
@@ -8431,7 +8431,7 @@
             }
           }
         ],
-        "description": "List of used IP addresses.\n"
+        "description": "List of used IP addresses."
       },
       "VCenterServers": {
         "allOf": [
@@ -8451,7 +8451,7 @@
             }
           }
         ],
-        "description": "A list of vCenter servers.\n"
+        "description": "A list of vCenter servers."
       },
       "VdcComputePolicies": {
         "allOf": [
@@ -8471,7 +8471,7 @@
             }
           }
         ],
-        "description": "A list of VDC compute policies.\n"
+        "description": "A list of VDC compute policies."
       },
       "VdcGroups": {
         "allOf": [
@@ -8490,7 +8490,7 @@
             }
           }
         ],
-        "description": "List of vDC Groups.\n"
+        "description": "List of vDC Groups."
       },
       "VdcNetwork": {
         "allOf": [
@@ -8584,7 +8584,7 @@
             }
           }
         ],
-        "description": "An organization vDC network.\n"
+        "description": "An organization vDC network."
       },
       "VdcNetworks": {
         "allOf": [
@@ -8603,7 +8603,7 @@
             }
           }
         ],
-        "description": "List of Org vDC networks\n"
+        "description": "List of Org vDC networks"
       },
       "VmcSddcs": {
         "allOf": [
@@ -8622,7 +8622,7 @@
             }
           }
         ],
-        "description": "List of VMware Cloud on AWS SDDCs\n"
+        "description": "List of VMware Cloud on AWS SDDCs"
       },
       "VroRemoteWorkflowItems": {
         "allOf": [
@@ -8642,7 +8642,7 @@
             }
           }
         ],
-        "description": "A list of remote VRO workflows.\n"
+        "description": "A list of remote VRO workflows."
       },
       "VroWorkflowServiceItem": {
         "allOf": [
@@ -8696,7 +8696,7 @@
             }
           }
         ],
-        "description": "A Firewall Group object.\n"
+        "description": "A Firewall Group object."
       },
       "GlobalRole": {
         "allOf": [
@@ -8739,7 +8739,7 @@
             }
           }
         ],
-        "description": "A network pool is a group of undifferentiated networks that is available\nfor use within an organization vDC to create certain type of vDC networks\nsuch as Organization vDC and Cross vDC networks.\n"
+        "description": "A network pool is a group of undifferentiated networks that is available\nfor use within an organization vDC to create certain type of vDC networks\nsuch as Organization vDC and Cross vDC networks."
       },
       "PrimaryField": {
         "allOf": [

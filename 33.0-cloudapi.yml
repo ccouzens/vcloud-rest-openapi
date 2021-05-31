@@ -6,9 +6,7 @@ components:
   schemas:
     AccessibleLocation:
       type: object
-      description: 'A location accessible to this session.
-
-        '
+      description: A location accessible to this session.
       properties:
         locationId:
           type: string
@@ -38,9 +36,7 @@ components:
         to a vApp VM, an edge gateway interface or may be used in a NAT routed environment.
 
         If the address is allocated to an edge gateway, the name of the entity will
-        be ''Edge Gateway''.
-
-        '
+        be ''Edge Gateway''.'
       properties:
         id:
           type: string
@@ -85,19 +81,15 @@ components:
         NAT_ROUTED means that the IP address is used in a NAT routed environment and
 
         VSM_ALLOCATED means that the IP address is allocated to an NSX edge gateway
-        interface.
-
-        '
+        interface.'
       enum:
         - VM_ALLOCATED
         - NAT_ROUTED
         - VSM_ALLOCATED
     ApplicationPortList:
       type: object
-      description: 'A set of ports and the protocol supported by a application port
+      description: A set of ports and the protocol supported by a application port
         profile.
-
-        '
       properties:
         name:
           type: string
@@ -122,18 +114,14 @@ components:
         at a system level.
 
         TENANT profiles are available only to the specific tenant organization. They
-        are defined by the tenant or by a provider on behalf of a tenant.
-
-        '
+        are defined by the tenant or by a provider on behalf of a tenant.'
       enum:
         - SYSTEM
         - PROVIDER
         - TENANT
     ApplicationPortsProtocolType:
       type: string
-      description: 'The supported protocols for an application port profile.
-
-        '
+      description: The supported protocols for an application port profile.
       enum:
         - TCP
         - UDP
@@ -141,9 +129,7 @@ components:
         - ICMPv6
     Association:
       type: object
-      description: 'Site association information for an entity
-
-        '
+      description: Site association information for an entity
       properties:
         entityId:
           type: string
@@ -153,9 +139,7 @@ components:
           description: ID of the association.
     AuditTrailEvent:
       type: object
-      description: 'AuditTrailEvent
-
-        '
+      description: AuditTrailEvent
       properties:
         eventId:
           type: string
@@ -219,9 +203,7 @@ components:
             right
     AvailableIpPoolSubnet:
       type: object
-      description: 'Describes an available IP address.
-
-        '
+      description: Describes an available IP address.
       properties:
         gateway:
           type: string
@@ -241,9 +223,7 @@ components:
           description: The total number of available IP addresses.
     AvailableIpPoolSubnets:
       type: object
-      description: 'List of available IP addresses.
-
-        '
+      description: List of available IP addresses.
       properties:
         values:
           type: array
@@ -251,9 +231,7 @@ components:
             $ref: '#/definitions/AvailableIpPoolSubnet'
     BackingNetworkType:
       type: string
-      description: 'The backing network type.
-
-        '
+      description: The backing network type.
       enum:
         - DV_PORTGROUP
         - VIRTUAL_WIRE
@@ -263,9 +241,7 @@ components:
         - NSXT_FLEXIBLE_SEGMENT
     BackingRef:
       type: object
-      description: 'Backing Id for an entity not owned by VCD.
-
-        '
+      description: Backing Id for an entity not owned by VCD.
       properties:
         id:
           type: string
@@ -275,9 +251,7 @@ components:
           description: The name of backing entity.
     Capability:
       type: object
-      description: 'Describes a capability of an entity.
-
-        '
+      description: Describes a capability of an entity.
       properties:
         name:
           type: string
@@ -299,9 +273,7 @@ components:
           $ref: '#/definitions/CapabilityCategory'
     CapabilityCategory:
       type: string
-      description: 'Describes the category of the capbilitiy
-
-        '
+      description: Describes the category of the capbilitiy
       enum:
         - EdgeGateway
         - VAppNetwork
@@ -309,17 +281,13 @@ components:
         - Infra
     CapabilityValueType:
       type: string
-      description: 'Describes the object type of the capability value.
-
-        '
+      description: Describes the object type of the capability value.
       enum:
         - Boolean
         - String
     Cell:
       type: object
-      description: 'A vCloud Director cell.
-
-        '
+      description: A vCloud Director cell.
       properties:
         id:
           type: string
@@ -495,9 +463,7 @@ components:
         packet
 
         into the outer packet. CLEAR ignores the defragmentation bit present in the
-        inner packet.
-
-        '
+        inner packet.'
       enum:
         - COPY
         - CLEAR
@@ -507,9 +473,7 @@ components:
         the algorithm used to derive shared keys between the IPSec VPN initiator and
         responder over
 
-        an unsecured network.
-
-        '
+        an unsecured network.'
       enum:
         - GROUP2
         - GROUP5
@@ -521,9 +485,7 @@ components:
         - GROUP21
     DistributedPortGroup:
       type: object
-      description: 'Distributed portgroup.
-
-        '
+      description: Distributed portgroup.
       properties:
         backingRef:
           description: Contains the backing id and name of the distributed portgroup.
@@ -546,9 +508,7 @@ components:
         determines the number of seconds to wait in time between probes
 
         to detect if an IPSec peer is alive or not. The default value for the DPD
-        probe interval is 60 seconds.
-
-        '
+        probe interval is 60 seconds.'
       properties:
         probeInterval:
           type: integer
@@ -561,9 +521,7 @@ components:
         - probeInterval
     DvSwitch:
       type: object
-      description: 'Distributed virtual switch.
-
-        '
+      description: Distributed virtual switch.
       properties:
         backingRef:
           description: Contains the backing id and name of the distributed virtual
@@ -575,9 +533,7 @@ components:
           $ref: '#/definitions/EntityReference'
     EdgeCluster:
       type: object
-      description: 'An Edge Cluster object.
-
-        '
+      description: An Edge Cluster object.
       properties:
         id:
           type: string
@@ -717,9 +673,7 @@ components:
         - name
     EdgeGatewayBacking:
       type: object
-      description: 'The backing details of the edge gateway
-
-        '
+      description: The backing details of the edge gateway
       properties:
         backingId:
           type: string
@@ -733,9 +687,7 @@ components:
           $ref: '#/definitions/EntityReference'
     EdgeGatewaySubnets:
       type: object
-      description: 'List of Subnets of an edge gateway
-
-        '
+      description: List of Subnets of an edge gateway
       properties:
         values:
           type: array
@@ -743,20 +695,16 @@ components:
             $ref: '#/definitions/EdgeGatewaySubnet'
     EdgeGatewayType:
       type: string
-      description: 'The type of the edge gateway.
-
-        '
+      description: The type of the edge gateway.
       enum:
         - NSXV_BACKED
         - NSXT_BACKED
         - NSXT_IMPORTED
     EdgeGatewayUplink:
       type: object
-      description: 'The uplink (i.e. external network) that the edge gateway is connected
+      description: The uplink (i.e. external network) that the edge gateway is connected
         to. This also contains the external network IPs that are allocated to the
         edge.
-
-        '
       properties:
         uplinkId:
           type: string
@@ -856,9 +804,7 @@ components:
       description: 'This includes the IPSec tunnel configuration, IKE Configuration,
         and other advanced properties that can be set once a tunnel is created. If
 
-        nothing is explictly set by the user, the defaults in NSX-T will be used.
-
-        '
+        nothing is explictly set by the user, the defaults in NSX-T will be used.'
       properties:
         ikeConfiguration:
           description: 'The IKE Configuration to be used for the tunnel. If nothing
@@ -956,10 +902,8 @@ components:
             available.
     EdgeIpSecVpnTunnelStatus:
       type: object
-      description: 'This includes the IPSec Tunnel status such as whether the tunnel
+      description: This includes the IPSec Tunnel status such as whether the tunnel
         is up or down and the IKE Session status.
-
-        '
       properties:
         tunnelStatus:
           description: Gives the overall IPSec VPN Tunnel Status. If IKE is properly
@@ -1055,9 +999,7 @@ components:
         - ruleType
     EgressPoint:
       type: object
-      description: 'An Egress Point.
-
-        '
+      description: An Egress Point.
       properties:
         id:
           type: string
@@ -1083,9 +1025,7 @@ components:
           type: string
     EgressPointReference:
       type: object
-      description: 'An EgressPoint reference object for use in universal routing.
-
-        '
+      description: An EgressPoint reference object for use in universal routing.
       properties:
         egressPointId:
           type: string
@@ -1098,9 +1038,7 @@ components:
           $ref: '#/definitions/EntityReference'
     EgressPoints:
       type: object
-      description: 'List of Egress Points.
-
-        '
+      description: List of Egress Points.
       properties:
         values:
           type: array
@@ -1109,9 +1047,7 @@ components:
             $ref: '#/definitions/EgressPoint'
     EmailSettings:
       type: object
-      description: 'Email related settings for a system
-
-        '
+      description: Email related settings for a system
       properties:
         defaultSmtpServer:
           type: boolean
@@ -1154,9 +1090,7 @@ components:
             '
     EntityReference:
       type: object
-      description: 'Entity reference used to describe VCD entities
-
-        '
+      description: Entity reference used to describe VCD entities
       properties:
         name:
           type: string
@@ -1164,10 +1098,8 @@ components:
           type: string
     Error:
       type: object
-      description: 'Error type format displayed to users for exceptions emerging from
+      description: Error type format displayed to users for exceptions emerging from
         openapi endpoints.
-
-        '
       properties:
         minorErrorCode:
           type: string
@@ -1240,9 +1172,7 @@ components:
               $ref: '#/definitions/ExtensionPoint'
     ExternalNetworkBacking:
       type: object
-      description: 'Information about an external network backing.
-
-        '
+      description: Information about an external network backing.
       properties:
         backingId:
           type: string
@@ -1260,9 +1190,7 @@ components:
           x-vcloud-added-in: 33
     ExternalNetworkBackingType:
       type: string
-      description: 'The type of the external network backing.
-
-        '
+      description: The type of the external network backing.
       enum:
         - PORTGROUP
         - DV_PORTGROUP
@@ -1270,9 +1198,7 @@ components:
         - UNKNOWN
     ExternalNetworkBackings:
       type: object
-      description: 'List of External Network backings.
-
-        '
+      description: List of External Network backings.
       properties:
         values:
           type: array
@@ -1316,17 +1242,13 @@ components:
             - constraint: NonSortable
     FirewallRuleAction:
       type: string
-      description: 'Defines the firewall rule action to be applied.
-
-        '
+      description: Defines the firewall rule action to be applied.
       enum:
         - ALLOW
         - DROP
     FirewallRuleDirection:
       type: string
-      description: 'Defines direction of traffic for firewall rule.
-
-        '
+      description: Defines direction of traffic for firewall rule.
       enum:
         - IN
         - OUT
@@ -1336,19 +1258,15 @@ components:
       description: 'Specifies the IP protocol for the network packet that should be
         matched while enforcing the rule.
 
-        IPV4_IPV6 means both IPV4 and IPV6 packet type.
-
-        '
+        IPV4_IPV6 means both IPV4 and IPV6 packet type.'
       enum:
         - IPV4
         - IPV6
         - IPV4_IPV6
     GatewayUsedIpAddress:
       type: object
-      description: 'Describes an IP address currently be used by the edge gateway.
+      description: Describes an IP address currently be used by the edge gateway.
         The IP belongs to the IPs allocated to the edge.
-
-        '
       properties:
         networkRef:
           description: The external network that this IP Address belongs to.
@@ -1361,9 +1279,7 @@ components:
           $ref: '#/definitions/GatewayUsedIpAddressCategory'
     GatewayUsedIpAddressCategory:
       type: string
-      description: 'The categories that an IP can be used for.
-
-        '
+      description: The categories that an IP can be used for.
       enum:
         - SNAT
         - DNAT
@@ -1382,11 +1298,8 @@ components:
             type: string
     IkeConfig:
       type: object
-      description: 'This configuration captures the IKE and phase one negotiation
-        parameters. This configuration can be set for peering properly with remote
-        peers.
-
-        '
+      description: This configuration captures the IKE and phase one negotiation parameters.
+        This configuration can be set for peering properly with remote peers.
       properties:
         ikeVersion:
           description: IKE Protocol Version to use. The default is IKE_V2.
@@ -1423,10 +1336,8 @@ components:
         - ikeVersion
     IkeDigestAlgorithmType:
       type: string
-      description: 'Digest Algorithms are used to verify message integrity during
-        IKE negotiation.
-
-        '
+      description: Digest Algorithms are used to verify message integrity during IKE
+        negotiation.
       enum:
         - SHA1
         - SHA2_256
@@ -1434,10 +1345,8 @@ components:
         - SHA2_512
     IkeEncryptionAlgorithmType:
       type: string
-      description: 'Encryption algorithms are used to ensure confidentiality of messages
+      description: Encryption algorithms are used to ensure confidentiality of messages
         exchanged during IKE negotiations.
-
-        '
       enum:
         - AES_128
         - AES_256
@@ -1453,11 +1362,9 @@ components:
         - NEGOTIATING
     IkeStatus:
       type: object
-      description: 'The status for the IPSec VPN IKE Session/Tunnel. The values are
+      description: The status for the IPSec VPN IKE Session/Tunnel. The values are
         UP, DOWN, and NEGOTIATING. A fail reason is also provided if the Service Status
         is down.
-
-        '
       properties:
         ikeServiceStatus:
           description: The overall IKE Session service status.
@@ -1475,9 +1382,7 @@ components:
         - IKE_FLEX
     IpRange:
       type: object
-      description: 'An IpRange
-
-        '
+      description: An IpRange
       properties:
         startAddress:
           type: string
@@ -1487,9 +1392,7 @@ components:
           description: Ending IP address in the range.
     IpRanges:
       type: object
-      description: 'List of IpRange
-
-        '
+      description: List of IpRange
       properties:
         values:
           type: array
@@ -1497,9 +1400,7 @@ components:
             $ref: '#/definitions/IpRange'
     LdapConnectionTestResult:
       type: object
-      description: 'Provides LDAP connection test results
-
-        '
+      description: Provides LDAP connection test results
       properties:
         successful:
           type: boolean
@@ -1510,9 +1411,7 @@ components:
         - successful
     LdapGroupAttributesType:
       type: object
-      description: 'Defines how a group is imported from LDAP.
-
-        '
+      description: Defines how a group is imported from LDAP.
       properties:
         objectClass:
           type: string
@@ -1528,9 +1427,7 @@ components:
           type: string
     LdapSettings:
       type: object
-      description: 'LDAP Settings Specification
-
-        '
+      description: LDAP Settings Specification
       properties:
         hostName:
           type: string
@@ -1580,9 +1477,7 @@ components:
           type: boolean
     LdapSettingsTestResult:
       type: object
-      description: 'Provides test attribute, result, and success boolean
-
-        '
+      description: Provides test attribute, result, and success boolean
       properties:
         attribute:
           type: string
@@ -1611,9 +1506,7 @@ components:
         - successful
     LdapTestResult:
       type: object
-      description: 'Provides LDAP connection and settings test results
-
-        '
+      description: Provides LDAP connection and settings test results
       properties:
         connectionTest:
           $ref: '#/definitions/LdapConnectionTestResult'
@@ -1623,9 +1516,7 @@ components:
             $ref: '#/definitions/LdapSettingsTestResult'
     LdapUserAttributesType:
       type: object
-      description: 'Defines how LDAP attributes are used when importing a user.
-
-        '
+      description: Defines how LDAP attributes are used when importing a user.
       properties:
         objectClass:
           type: string
@@ -1664,10 +1555,8 @@ components:
           type: string
     LocalEndpoint:
       type: object
-      description: 'This represents the endpoint/IP Address on the Edge Gateway where
+      description: This represents the endpoint/IP Address on the Edge Gateway where
         the tunnel needs to be terminated.
-
-        '
       properties:
         localId:
           type: string
@@ -1724,17 +1613,13 @@ components:
         - name
     NatRuleType:
       type: string
-      description: 'The Nat Rule Type for a given NAT rule.
-
-        '
+      description: The Nat Rule Type for a given NAT rule.
       enum:
         - DNAT
         - SNAT
     Network:
       type: object
-      description: 'A network Object.
-
-        '
+      description: A network Object.
       properties:
         id:
           type: string
@@ -1759,9 +1644,7 @@ components:
       description: 'Describes the backing information for a network pool. A network
         pool is backed by
 
-        vSphere network resources such as VLAN Ids, portgroups, Transport Zones, etc.
-
-        '
+        vSphere network resources such as VLAN Ids, portgroups, Transport Zones, etc.'
       properties:
         vlanIdRanges:
           description: 'The range of backing VLAN Id''s. This information is available
@@ -1801,9 +1684,7 @@ components:
           $ref: '#/definitions/EntityReference'
     NetworkPoolBackingType:
       type: string
-      description: 'Represents the network pool''s backing type.
-
-        '
+      description: Represents the network pool's backing type.
       enum:
         - VLAN
         - VXLAN
@@ -1850,9 +1731,7 @@ components:
             - constraint: NonSortable
     NetworkingObjectStatus:
       type: object
-      description: 'Represents status of a networking entity.
-
-        '
+      description: Represents status of a networking entity.
       properties:
         status:
           description: 'Represents current status of the networking object.
@@ -1871,9 +1750,7 @@ components:
         the entity is fully realized successfully,
 
         or REALIZED_FAILED if the realization has failed such as failure to create
-        the entity.
-
-        '
+        the entity.'
       enum:
         - PENDING
         - CONFIGURING
@@ -1883,9 +1760,7 @@ components:
       type: object
       description: 'Information about a configured transport zone on an NSX-T manager.
 
-        NSX uses transport zones to provide connectivity between hypervisors.
-
-        '
+        NSX uses transport zones to provide connectivity between hypervisors.'
       properties:
         id:
           type: string
@@ -1898,16 +1773,12 @@ components:
           $ref: '#/definitions/NsxTTransportZoneType'
     NsxTTransportZoneType:
       type: string
-      description: 'Represents an NSX-T transport zone''s traffic type.
-
-        '
+      description: Represents an NSX-T transport zone's traffic type.
       enum:
         - GENEVE
     NsxTTransportZones:
       type: object
-      description: 'List of transport zones configured on an NSX-T manager.
-
-        '
+      description: List of transport zones configured on an NSX-T manager.
       properties:
         values:
           type: array
@@ -1917,9 +1788,7 @@ components:
       type: object
       description: 'Information about a configured transport zone on an NSX-V manager.
 
-        NSX uses transport zones to provide connectivity between hypervisors.
-
-        '
+        NSX uses transport zones to provide connectivity between hypervisors.'
       properties:
         id:
           type: string
@@ -1932,17 +1801,13 @@ components:
           $ref: '#/definitions/NsxVTransportZoneType'
     NsxVTransportZoneType:
       type: string
-      description: 'Represents an NSX-V transport zone''s traffic type.
-
-        '
+      description: Represents an NSX-V transport zone's traffic type.
       enum:
         - VXLAN
         - UNIVERSAL_VXLAN
     NsxVTransportZones:
       type: object
-      description: 'List of transport zones configured on an NSX-V manager.
-
-        '
+      description: List of transport zones configured on an NSX-V manager.
       properties:
         values:
           type: array
@@ -1995,9 +1860,7 @@ components:
         number on an update call is missing, the operation will be rejected. This
         is only needed
 
-        on update calls.
-
-        '
+        on update calls.'
       properties:
         version:
           type: integer
@@ -2012,9 +1875,7 @@ components:
         CONFIGURING if the network is in transition, REALIZED if the existing state
         of the network has been fully realized, or REALIZED_FAILED if there
 
-        was an error creating the network.
-
-        '
+        was an error creating the network.'
       enum:
         - PENDING
         - CONFIGURING
@@ -2040,9 +1901,7 @@ components:
         of this, it has
 
         no discriminator and should be embedded via allOf. See QueryResults for a
-        reference usage.
-
-        '
+        reference usage.'
       properties:
         resultTotal:
           type: integer
@@ -2104,9 +1963,7 @@ components:
           $ref: '#/definitions/ArrayParam'
     ParticipatingVdcReference:
       type: object
-      description: 'A participating vDC
-
-        '
+      description: A participating vDC
       properties:
         vdcRef:
           description: The reference to the vDC that is part of this a vDC group.
@@ -2135,9 +1992,7 @@ components:
         - vdcRef
     PortGroup:
       type: object
-      description: 'Standard portgroup.
-
-        '
+      description: Standard portgroup.
       properties:
         backingRef:
           description: Contains the backing id and name of the standard portgroup.
@@ -2170,9 +2025,7 @@ components:
         - value
     PreferenceDefinition:
       type: object
-      description: 'The Preference Definition is immutable.
-
-        '
+      description: The Preference Definition is immutable.
       properties:
         id:
           type: string
@@ -2338,9 +2191,7 @@ components:
           type: string
     ProviderVdc:
       type: object
-      description: 'A provider vdc.
-
-        '
+      description: A provider vdc.
       properties:
         id:
           type: string
@@ -2365,10 +2216,8 @@ components:
           $ref: '#/definitions/EntityReference'
     Proxy:
       type: object
-      description: 'proxy configuration. This configures the vCD proxying capability
+      description: proxy configuration. This configures the vCD proxying capability
         for one specific server within the vSphere/NSX/ESX estate known to vCD.
-
-        '
       properties:
         name:
           type: string
@@ -2571,10 +2420,8 @@ components:
           format: int32
     RemoteEndpoint:
       type: object
-      description: 'This represents the remote endpoint i.e. the endpoint which the
+      description: This represents the remote endpoint i.e. the endpoint which the
         tunnel from the Edge Gateway will connect to.
-
-        '
       properties:
         remoteId:
           type: string
@@ -2605,9 +2452,7 @@ components:
         - remoteAddress
     ResourcePool:
       type: object
-      description: 'A vCenter Resource Pool.
-
-        '
+      description: A vCenter Resource Pool.
       properties:
         moref:
           type: string
@@ -2628,9 +2473,7 @@ components:
             '
     Right:
       type: object
-      description: 'Right
-
-        '
+      description: Right
       properties:
         name:
           type: string
@@ -2683,9 +2526,7 @@ components:
         - name
     RightsCategoryNode:
       type: object
-      description: 'RightsCategoryNode
-
-        '
+      description: RightsCategoryNode
       properties:
         name:
           type: string
@@ -2723,9 +2564,7 @@ components:
         - name
     RightsCount:
       type: object
-      description: 'RightsCount - A count of rights in a given category by type
-
-        '
+      description: RightsCount - A count of rights in a given category by type
       properties:
         view:
           type: integer
@@ -2737,9 +2576,7 @@ components:
             - constraint: ReadOnly
     RightsMapping:
       type: object
-      description: 'RightsMapping
-
-        '
+      description: RightsMapping
       properties:
         name:
           type: string
@@ -2769,9 +2606,7 @@ components:
         - name
     RouterComponentHealth:
       type: object
-      description: 'A ComponentHealth object
-
-        '
+      description: A ComponentHealth object
       properties:
         component:
           type: string
@@ -2785,18 +2620,14 @@ components:
           type: integer
     RouterComponentStatus:
       type: string
-      description: 'Status of a router component.
-
-        '
+      description: Status of a router component.
       enum:
         - UP
         - DOWN
     RouterConnection:
       type: object
-      description: 'Describes the connection between a routed network and an edge
-        gateway. This must be set if converting from an isolated to a routed network.
-
-        '
+      description: Describes the connection between a routed network and an edge gateway.
+        This must be set if converting from an isolated to a routed network.
       properties:
         routerRef:
           description: The edge gateway that this network is attached to.
@@ -2811,9 +2642,7 @@ components:
           default: true
     RouterDnsConfig:
       type: object
-      description: 'A RouterDnsConfig object
-
-        '
+      description: A RouterDnsConfig object
       properties:
         enabled:
           type: boolean
@@ -2823,9 +2652,7 @@ components:
             type: string
     RouterHealthReport:
       type: object
-      description: 'Health Report of a Router
-
-        '
+      description: Health Report of a Router
       properties:
         nsxManagersHealth:
           type: array
@@ -2863,9 +2690,7 @@ components:
             $ref: '#/definitions/RouterComponentHealth'
     Sddc:
       type: object
-      description: 'Software-defined data center
-
-        '
+      description: Software-defined data center
       properties:
         name:
           type: string
@@ -2952,9 +2777,7 @@ components:
                 - arg: sddcProxy
     SddcProxy:
       type: object
-      description: 'SDDC proxy configuration
-
-        '
+      description: SDDC proxy configuration
       properties:
         name:
           type: string
@@ -3067,9 +2890,7 @@ components:
         - targetHost
     SddcStat:
       type: object
-      description: 'A collection of measurements for the SDDC resource
-
-        '
+      description: A collection of measurements for the SDDC resource
       properties:
         numTotal:
           type: integer
@@ -3088,9 +2909,7 @@ components:
           minimum: 0
     SddcStats:
       type: object
-      description: 'A read-only list of resource allocations for the associated SDDC
-
-        '
+      description: A read-only list of resource allocations for the associated SDDC
       properties:
         totalVMs:
           type: integer
@@ -3123,9 +2942,7 @@ components:
           type: string
     ServiceApp:
       type: object
-      description: 'A VMware service application
-
-        '
+      description: A VMware service application
       properties:
         id:
           type: string
@@ -3169,9 +2986,7 @@ components:
 
         VMC_CLIENT_CREDENTIAL: The application authenticates to VMC using client credentials
 
-        VMC: Deprecated. Defaults to VMC_REFRESH_TOKEN.
-
-        '
+        VMC: Deprecated. Defaults to VMC_REFRESH_TOKEN.'
       enum:
         - VMC
         - VMC_REFRESH_TOKEN
@@ -3214,9 +3029,7 @@ components:
       discriminator: serviceItemType
     Session:
       type: object
-      description: 'Session
-
-        '
+      description: Session
       properties:
         id:
           type: string
@@ -3238,10 +3051,8 @@ components:
             type: string
     SmtpServerSpec:
       type: object
-      description: 'Represent the settings of an SMTP Server which the system uses
+      description: Represent the settings of an SMTP Server which the system uses
         to send email notifications and alerts
-
-        '
       properties:
         useAuthentication:
           type: boolean
@@ -3287,9 +3098,7 @@ components:
           description: A human readable name of the entity
     StorageProfile:
       type: object
-      description: 'A Storage Profile.
-
-        '
+      description: A Storage Profile.
       properties:
         moref:
           type: string
@@ -3299,9 +3108,7 @@ components:
           description: The name of the Storage Profile.
     Subnet:
       type: object
-      description: 'A network subnet defined by its gateway,
-
-        '
+      description: A network subnet defined by its gateway,
       properties:
         gateway:
           type: string
@@ -3340,9 +3147,7 @@ components:
         - prefixLength
     Subnets:
       type: object
-      description: 'List of Subnets of a network
-
-        '
+      description: List of Subnets of a network
       properties:
         values:
           type: array
@@ -3400,9 +3205,7 @@ components:
           type: string
     Tier0Routers:
       type: object
-      description: 'List of NSX-T''s Tier-0 routers.
-
-        '
+      description: List of NSX-T's Tier-0 routers.
       properties:
         values:
           type: array
@@ -3412,7 +3215,7 @@ components:
       type: object
       description: "Specifies a user, the user's organization, and the user assigned\
         \ token that can be used to\n access proxies as well as the expiration timestamp\
-        \ of the token (in UTC). Parameters cannot\n be edited once a token is created.\n"
+        \ of the token (in UTC). Parameters cannot\n be edited once a token is created."
       properties:
         id:
           type: string
@@ -3464,10 +3267,8 @@ components:
         - userId
     TunnelConfig:
       type: object
-      description: 'This configuration captures phase two negotiation parameters and
+      description: This configuration captures phase two negotiation parameters and
         tunnel properties.
-
-        '
       properties:
         perfectForwardSecrecyEnabled:
           type: boolean
@@ -3550,19 +3351,15 @@ components:
         Status and IKE Status. If the tunnel is up, the status is UP. If the tunnel
 
         is down, the status is DOWN. The tunnel may also be in a DEGRADED state due
-        to other issues.
-
-        '
+        to other issues.'
       enum:
         - UP
         - DOWN
         - DEGRADED
     UiBranding:
       type: object
-      description: 'A branding object with the portal name, portal color, selected
+      description: A branding object with the portal name, portal color, selected
         theme and custom URLs.
-
-        '
       properties:
         portalName:
           type: string
@@ -3597,9 +3394,7 @@ components:
 
         section,
 
-        separator(section without a name) of the drop down menu.
-
-        '
+        separator(section without a name) of the drop down menu.'
       properties:
         name:
           type: string
@@ -3616,9 +3411,7 @@ components:
         - menuItemType
     UiPluginMetadata:
       type: object
-      description: 'Meta information about a UI Plugin
-
-        '
+      description: Meta information about a UI Plugin
       properties:
         pluginName:
           type: string
@@ -3646,9 +3439,7 @@ components:
         - version
     UiTheme:
       type: object
-      description: 'A theme supported by vCloud Director.
-
-        '
+      description: A theme supported by vCloud Director.
       properties:
         themeType:
           type: string
@@ -3659,10 +3450,8 @@ components:
         - themeType
     UniversalEgressRoutes:
       type: object
-      description: 'Object consisting of Egress Points and Universal Routes for a
-        Universal Router.
-
-        '
+      description: Object consisting of Egress Points and Universal Routes for a Universal
+        Router.
       properties:
         egressPoints:
           description: The list of Egress Points for routing configuration. This is
@@ -3675,9 +3464,7 @@ components:
           $ref: '#/definitions/UniversalRoutes'
     UniversalRoute:
       type: object
-      description: 'A Route for a Universal Router.
-
-        '
+      description: A Route for a Universal Router.
       properties:
         defaultEgress:
           description: For a given route, routing by default will go through the default
@@ -3701,9 +3488,7 @@ components:
         - networkProviderScope
     UniversalRouter:
       type: object
-      description: 'A UniversalRouter object
-
-        '
+      description: A UniversalRouter object
       properties:
         id:
           type: string
@@ -3724,9 +3509,7 @@ components:
         - vdcGroupRef
     UniversalRouterDhcpConfig:
       type: object
-      description: 'A UniversalRouterDhcpConfig object.
-
-        '
+      description: A UniversalRouterDhcpConfig object.
       properties:
         enabled:
           type: boolean
@@ -3738,9 +3521,7 @@ components:
       type: object
       description: 'List of Dhcp servers for universal router.
 
-        Either egressRef or serverAddress is required to identify Dhcp server.
-
-        '
+        Either egressRef or serverAddress is required to identify Dhcp server.'
       properties:
         egressRef:
           $ref: '#/definitions/EntityReference'
@@ -3748,9 +3529,7 @@ components:
           type: string
     UniversalRouters:
       type: object
-      description: 'List of Universal Routers
-
-        '
+      description: List of Universal Routers
       properties:
         values:
           type: array
@@ -3758,9 +3537,7 @@ components:
             $ref: '#/definitions/UniversalRouter'
     UniversalRoutes:
       type: object
-      description: 'List of routes associated with a Universal Router.
-
-        '
+      description: List of routes associated with a Universal Router.
       properties:
         keepAliveTimer:
           type: integer
@@ -3791,11 +3568,9 @@ components:
             type: string
     UniversalRoutingStatus:
       type: string
-      description: 'Represents status of given routing configuration, such as realized,
+      description: Represents status of given routing configuration, such as realized,
         universal router routing configuration failed, egress routing configuration
         failed, etc.
-
-        '
       enum:
         - SAVING
         - SAVED
@@ -3821,14 +3596,10 @@ components:
                 - ready
             resourcePath:
               type: string
-      description: 'Description of an upload (in progress or complete)
-
-        '
+      description: Description of an upload (in progress or complete)
     UploadSpec:
       type: object
-      description: 'Information about upload
-
-        '
+      description: Information about upload
       properties:
         fileName:
           type: string
@@ -3859,9 +3630,7 @@ components:
           type: boolean
     UsedIpAddress:
       type: object
-      description: 'Describes a used IP address for a network.
-
-        '
+      description: Describes a used IP address for a network.
       properties:
         entityId:
           type: string
@@ -3899,17 +3668,13 @@ components:
 
         VM_ALLOCATED means that the IP address is used by a VM,
 
-        EDGE means that the IP address is in use by an NSX edge gateway interface.
-
-        '
+        EDGE means that the IP address is in use by an NSX edge gateway interface.'
       enum:
         - VM_ALLOCATED
         - EDGE
     User:
       type: object
-      description: 'User Spec object
-
-        '
+      description: User Spec object
       properties:
         username:
           type: string
@@ -3953,9 +3718,7 @@ components:
           type: boolean
     UserGroup:
       type: object
-      description: 'Group Spec object
-
-        '
+      description: Group Spec object
       properties:
         name:
           type: string
@@ -3978,10 +3741,8 @@ components:
             - OAUTH
     VROServiceInfo:
       type: object
-      description: 'Response type with meta information about a vRealize Orchestrator
+      description: Response type with meta information about a vRealize Orchestrator
         Service
-
-        '
       properties:
         id:
           type: string
@@ -4284,9 +4045,7 @@ components:
         - name
     VdcGroup:
       type: object
-      description: 'A vCD Group.
-
-        '
+      description: A vCD Group.
       properties:
         id:
           type: string
@@ -4334,9 +4093,7 @@ components:
       description: 'Represents status of vDC group components such as participating
         vdc''s
 
-        configured routing, egress points, etc.
-
-        '
+        configured routing, egress points, etc.'
       enum:
         - SAVING
         - SAVED
@@ -4349,18 +4106,14 @@ components:
         - UNCONFIGURED
     VdcNetworkConnectionType:
       type: string
-      description: 'Describes how a network is connected to a gateway.
-
-        '
+      description: Describes how a network is connected to a gateway.
       enum:
         - DISTRIBUTED
         - INTERNAL
         - SUBINTERFACE
     VdcNetworkDhcpConfig:
       type: object
-      description: 'Configuration for the DHCP service that runs on the network.
-
-        '
+      description: Configuration for the DHCP service that runs on the network.
       properties:
         enabled:
           type: boolean
@@ -4372,9 +4125,7 @@ components:
             $ref: '#/definitions/VdcNetworkDhcpPool'
     VdcNetworkDhcpPool:
       type: object
-      description: 'A range of DHCP ip addresses and its lease time configuration.
-
-        '
+      description: A range of DHCP ip addresses and its lease time configuration.
       properties:
         enabled:
           type: boolean
@@ -4391,9 +4142,7 @@ components:
           minimum: 0
     VdcNetworkFenceType:
       type: string
-      description: 'The network type.
-
-        '
+      description: The network type.
       enum:
         - DIRECT
         - DIRECT_UPLINK
@@ -4403,9 +4152,7 @@ components:
         - CROSS_VDC
     VdcNetworkProfile:
       type: object
-      description: 'A vDC Network Profile object.
-
-        '
+      description: A vDC Network Profile object.
       properties:
         primaryEdgeCluster:
           description: The Edge Cluster where the primary appliance for an NSX-V Edge
@@ -4417,9 +4164,7 @@ components:
           $ref: '#/definitions/EntityReference'
     VlanIdRange:
       type: object
-      description: 'An object representing VLAN Id range.
-
-        '
+      description: An object representing VLAN Id range.
       properties:
         startId:
           type: integer
@@ -4429,9 +4174,7 @@ components:
           description: Ending VLAN Id in the range.
     VlanIdRanges:
       type: object
-      description: 'List of IpRange
-
-        '
+      description: List of IpRange
       properties:
         values:
           type: array
@@ -4439,9 +4182,7 @@ components:
             $ref: '#/definitions/VlanIdRange'
     VmcSddc:
       type: object
-      description: 'A VMware Cloud on AWS SDDC
-
-        '
+      description: A VMware Cloud on AWS SDDC
       properties:
         id:
           type: string
@@ -4451,10 +4192,8 @@ components:
           description: The name of the VMC SDDC. This field is read-only.
     VroRemoteInventoryItem:
       type: object
-      description: 'Meta information about an inventory item on a vRealize Orchestrator
+      description: Meta information about an inventory item on a vRealize Orchestrator
         server
-
-        '
       properties:
         href:
           type: string
@@ -4466,9 +4205,7 @@ components:
           $ref: '#/definitions/Relations'
     VroRemoteItem:
       type: object
-      description: 'Information about various objects in vRealize Orchestrator server
-
-        '
+      description: Information about various objects in vRealize Orchestrator server
       properties:
         name:
           type: string
@@ -4492,9 +4229,7 @@ components:
           type: string
     VroRemoteItems:
       type: object
-      description: 'A list of objects in vRealize orchestrator server
-
-        '
+      description: A list of objects in vRealize orchestrator server
       properties:
         remoteItems:
           type: array
@@ -4506,9 +4241,7 @@ components:
           type: integer
     VroRemotePluginItem:
       type: object
-      description: 'A plugin namespaces for whom type information can be retrieved
-
-        '
+      description: A plugin namespaces for whom type information can be retrieved
       properties:
         name:
           type: string
@@ -4520,9 +4253,7 @@ components:
           type: boolean
     VroRemotePluginItems:
       type: object
-      description: 'List of plugin namespaces
-
-        '
+      description: List of plugin namespaces
       properties:
         items:
           type: array
@@ -4530,9 +4261,7 @@ components:
             $ref: '#/definitions/VroRemotePluginItem'
     VroRemotePluginType:
       type: object
-      description: 'Type definition for a plugin namespace
-
-        '
+      description: Type definition for a plugin namespace
       properties:
         name:
           type: string
@@ -4542,9 +4271,7 @@ components:
           type: boolean
     VroRemotePluginTypes:
       type: object
-      description: 'A list of defined types for a particular plugin namespace
-
-        '
+      description: A list of defined types for a particular plugin namespace
       properties:
         types:
           type: array
@@ -4554,9 +4281,7 @@ components:
           type: string
     VroRemoteWorkflowItem:
       type: object
-      description: 'Meta information about a workflow on a vRealize Orchestrator server
-
-        '
+      description: Meta information about a workflow on a vRealize Orchestrator server
       properties:
         name:
           type: string
@@ -4642,9 +4367,7 @@ components:
               description: The current page of accessible locations.
               items:
                 $ref: '#/definitions/AccessibleLocation'
-      description: 'A list of locations accessible to this session.
-
-        '
+      description: A list of locations accessible to this session.
     AllocatedIpAddresses:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -4654,9 +4377,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/AllocatedIpAddress'
-      description: 'List of allocated IP addresses.
-
-        '
+      description: List of allocated IP addresses.
     ApplicationPortProfile:
       allOf:
         - $ref: '#/components/schemas/NetworkProviderContext'
@@ -4688,11 +4409,9 @@ components:
                 with at most 1 destination port.
 
                 '
-      description: 'An Application Port Profile object. The application port profile
+      description: An Application Port Profile object. The application port profile
         represents a set of ports and protocols that can be used when defining network
         service rules.
-
-        '
     ApplicationPortProfiles:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -4702,9 +4421,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/ApplicationPortProfile'
-      description: 'List of Application Port Profiles.
-
-        '
+      description: List of Application Port Profiles.
     ArrayParam:
       allOf:
         - $ref: '#/components/schemas/Parameter'
@@ -4724,9 +4441,7 @@ components:
               description: The current page of audit trail events.
               items:
                 $ref: '#/definitions/AuditTrailEvent'
-      description: 'A list of audit trail events.
-
-        '
+      description: A list of audit trail events.
     BooleanParam:
       allOf:
         - $ref: '#/components/schemas/Parameter'
@@ -4743,9 +4458,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/Capability'
-      description: 'List of read-only capabilities.
-
-        '
+      description: List of read-only capabilities.
     Cells:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -4755,9 +4468,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/Cell'
-      description: 'A paginated list of vCloud Director cells.
-
-        '
+      description: A paginated list of vCloud Director cells.
     Chooser:
       allOf:
         - $ref: '#/components/schemas/Decorator'
@@ -4805,9 +4516,7 @@ components:
               type: string
               description: If the network has an error status, a more detailed error
                 message is set here.
-      description: 'A CrossVdcNetwork object
-
-        '
+      description: A CrossVdcNetwork object
     CrossVdcNetworks:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -4817,9 +4526,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/CrossVdcNetwork'
-      description: 'List of cross vDC networks
-
-        '
+      description: List of cross vDC networks
     CustomEntityTypes:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -4830,9 +4537,7 @@ components:
               description: The current page of custom entity types.
               items:
                 $ref: '#/definitions/CustomEntityType'
-      description: 'A list of custom entity types.
-
-        '
+      description: A list of custom entity types.
     CustomValidator:
       allOf:
         - $ref: '#/components/schemas/Constraint'
@@ -4853,9 +4558,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/DistributedPortGroup'
-      description: 'List of distributed portgroups.
-
-        '
+      description: List of distributed portgroups.
     DropDown:
       allOf:
         - $ref: '#/components/schemas/Decorator'
@@ -4872,9 +4575,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/DvSwitch'
-      description: 'List of distributed virtual switches.
-
-        '
+      description: List of distributed virtual switches.
     EdgeClusters:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -4884,9 +4585,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/EdgeCluster'
-      description: 'List of Edge Clusters.
-
-        '
+      description: List of Edge Clusters.
     EdgeFirewallRules:
       allOf:
         - $ref: '#/components/schemas/NetworkingObjectStatus'
@@ -4927,9 +4626,7 @@ components:
         of system,
 
         user defined and default firewall rules. All the rules are returned in the
-        order of type and precedence.
-
-        '
+        order of type and precedence.'
     EdgeGateway:
       allOf:
         - $ref: '#/components/schemas/NetworkingObjectStatus'
@@ -4983,9 +4680,7 @@ components:
                 cannot be updated.
 
                 '
-      description: 'An edge gateway object
-
-        '
+      description: An edge gateway object
     EdgeGatewaySubnet:
       allOf:
         - $ref: '#/components/schemas/Subnet'
@@ -5006,10 +4701,8 @@ components:
               description: Used for create and update api calls. If set to true, IP
                 Ranges are automatically generated based on totalIpCount.
               default: false
-      description: 'Subnet for edge gateway that contains the IPs from the external
+      description: Subnet for edge gateway that contains the IPs from the external
         network that are allocated to the edge.
-
-        '
     EdgeGateways:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5020,9 +4713,7 @@ components:
               description: A list of EdgeGateways.
               items:
                 $ref: '#/definitions/EdgeGateway'
-      description: 'List of edge gateways
-
-        '
+      description: List of edge gateways
     EdgeIpSecVpnTunnels:
       allOf:
         - $ref: '#/components/schemas/NetworkingObjectStatus'
@@ -5034,9 +4725,7 @@ components:
               items:
                 $ref: '#/definitions/EdgeIpSecVpnTunnel'
               maxItems: 1000
-      description: 'List of configured IPSec VPN tunnels.
-
-        '
+      description: List of configured IPSec VPN tunnels.
     EdgeNatRules:
       allOf:
         - $ref: '#/components/schemas/NetworkingObjectStatus'
@@ -5065,9 +4754,7 @@ components:
               description: The current page of entity references.
               items:
                 $ref: '#/definitions/EntityReference'
-      description: 'A list of entity references.
-
-        '
+      description: A list of entity references.
     ExternalNetwork:
       allOf:
         - $ref: '#/components/schemas/Network'
@@ -5091,9 +4778,7 @@ components:
             usedIpCount:
               type: integer
               description: The number of IP address used from the static ip pools.
-      description: 'An external network.
-
-        '
+      description: An external network.
     ExternalNetworks:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5103,9 +4788,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/ExternalNetwork'
-      description: 'List of External Networks
-
-        '
+      description: List of External Networks
     Field:
       allOf:
         - $ref: '#/components/schemas/PresentationElement'
@@ -5140,9 +4823,7 @@ components:
               description: The description of the firewall group.
         - $ref: '#/components/schemas/FirewallGroupScope'
         - $ref: '#/components/schemas/NetworkingObjectStatus'
-      description: 'A Firewall Group object.
-
-        '
+      description: A Firewall Group object.
     FirewallGroups:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5152,9 +4833,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/FirewallGroupSummary'
-      description: 'List of Firewall Groups
-
-        '
+      description: List of Firewall Groups
     GatewayUsedIpAddresses:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5164,9 +4843,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/GatewayUsedIpAddress'
-      description: 'List of IP addresses used by an edge gateway.
-
-        '
+      description: List of IP addresses used by an edge gateway.
     GlobalRoles:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5177,9 +4854,7 @@ components:
               description: The current page of global roles.
               items:
                 $ref: '#/definitions/GlobalRole'
-      description: 'A list of global roles.
-
-        '
+      description: A list of global roles.
     Group:
       allOf:
         - $ref: '#/components/schemas/PresentationElement'
@@ -5208,9 +4883,7 @@ components:
               description: The current page of LogicalVmGroups.
               items:
                 $ref: '#/definitions/LogicalVmGroup'
-      description: 'A list of LogicalVmGroups.
-
-        '
+      description: A list of LogicalVmGroups.
     Mandatory:
       allOf:
         - $ref: '#/components/schemas/Constraint'
@@ -5282,9 +4955,7 @@ components:
               x-vcloud-constraints:
                 - constraint: ReadOnly
                 - constraint: NonSortable
-      description: 'Common fields that NetworkPoolSummary and NetworkPool have.
-
-        '
+      description: Common fields that NetworkPoolSummary and NetworkPool have.
     NetworkPoolsSummary:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5294,9 +4965,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/NetworkPoolSummary'
-      description: 'List of Network Pool Summary Objects.
-
-        '
+      description: List of Network Pool Summary Objects.
     NumberFormat:
       allOf:
         - $ref: '#/components/schemas/Constraint'
@@ -5329,9 +4998,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/PortGroup'
-      description: 'List of standard portgroups.
-
-        '
+      description: List of standard portgroups.
     PreferenceDefinitions:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5342,9 +5009,7 @@ components:
               description: The current page for preference definitions.
               items:
                 $ref: '#/definitions/PreferenceDefinition'
-      description: 'A list of preference definitions
-
-        '
+      description: A list of preference definitions
     Preferences:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5355,9 +5020,7 @@ components:
               description: The list of user preferences.
               items:
                 $ref: '#/definitions/Preference'
-      description: 'A list of user preferences
-
-        '
+      description: A list of user preferences
     Properties:
       allOf:
         - $ref: '#/components/schemas/Parameter'
@@ -5376,9 +5039,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/ProviderVdc'
-      description: 'List of Provider VDCs.
-
-        '
+      description: List of Provider VDCs.
     Proxies:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5388,9 +5049,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/Proxy'
-      description: 'A paginated list of proxies
-
-        '
+      description: A paginated list of proxies
     PublishableRightsMapping:
       allOf:
         - $ref: '#/components/schemas/RightsMapping'
@@ -5404,9 +5063,7 @@ components:
               default: false
               x-vcloud-constraints:
                 - constraint: ReadOnly
-      description: 'RightsMapping that can be published to tenants
-
-        '
+      description: RightsMapping that can be published to tenants
     PvdcComputePolicies:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5417,9 +5074,7 @@ components:
               description: The current page of provider VDC compute policies.
               items:
                 $ref: '#/definitions/PvdcComputePolicy'
-      description: 'A list of provider VDC compute policies.
-
-        '
+      description: A list of provider VDC compute policies.
     RefreshOnChange:
       allOf:
         - $ref: '#/components/schemas/Decorator'
@@ -5446,9 +5101,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/ResourcePool'
-      description: 'A list of Resource Pools
-
-        '
+      description: A list of Resource Pools
     RestrictDuplicates:
       allOf:
         - $ref: '#/components/schemas/Constraint'
@@ -5462,9 +5115,7 @@ components:
               description: The current page of rights.
               items:
                 $ref: '#/definitions/Right'
-      description: 'A list of rights.
-
-        '
+      description: A list of rights.
     RightsBundles:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5485,9 +5136,7 @@ components:
               description: The current page of rights category nodes.
               items:
                 $ref: '#/definitions/RightsCategoryNode'
-      description: 'A list of rights category nodes.
-
-        '
+      description: A list of rights category nodes.
     Role:
       allOf:
         - $ref: '#/components/schemas/RightsMapping'
@@ -5510,9 +5159,7 @@ components:
               description: The current page of roles.
               items:
                 $ref: '#/definitions/Role'
-      description: 'A list of roles.
-
-        '
+      description: A list of roles.
     SddcProxies:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5522,9 +5169,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/SddcProxy'
-      description: 'A paginated list of SDDC proxies
-
-        '
+      description: A paginated list of SDDC proxies
     Sddcs:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5534,9 +5179,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/Sddc'
-      description: 'A paginated list of software-defined data centers
-
-        '
+      description: A paginated list of software-defined data centers
     SdkObject:
       allOf:
         - $ref: '#/components/schemas/Parameter'
@@ -5568,9 +5211,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/ServiceApp'
-      description: 'List of VMware service applications
-
-        '
+      description: List of VMware service applications
     ServiceItems:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5581,9 +5222,7 @@ components:
               description: The current page of service items.
               items:
                 $ref: '#/definitions/ServiceItem'
-      description: 'A list of service items.
-
-        '
+      description: A list of service items.
     Services:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5594,9 +5233,7 @@ components:
               description: The current page of services.
               items:
                 $ref: '#/definitions/Service'
-      description: 'A list of services.
-
-        '
+      description: A list of services.
     Sessions:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5607,9 +5244,7 @@ components:
               description: The current page of sessions.
               items:
                 $ref: '#/definitions/Session'
-      description: 'A list of sessions.
-
-        '
+      description: A list of sessions.
     StepInfo:
       allOf:
         - $ref: '#/components/schemas/PresentationElement'
@@ -5630,9 +5265,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/StorageProfile'
-      description: 'A list of Storage Profiles
-
-        '
+      description: A list of Storage Profiles
     StringParam:
       allOf:
         - $ref: '#/components/schemas/Parameter'
@@ -5643,9 +5276,7 @@ components:
     Tier0Router:
       allOf:
         - $ref: '#/components/schemas/CommonNsxTRouterFields'
-      description: 'An NSX-T''s Tier-0 router.
-
-        '
+      description: An NSX-T's Tier-0 router.
     Tokens:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5655,9 +5286,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/Token'
-      description: 'A paginated list of user specific tokens used for accessing proxies.
-
-        '
+      description: A paginated list of user specific tokens used for accessing proxies.
     UiPluginMetadataResponse:
       allOf:
         - $ref: '#/components/schemas/UiPluginMetadata'
@@ -5671,9 +5300,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/UsedIpAddress'
-      description: 'List of used IP addresses.
-
-        '
+      description: List of used IP addresses.
     VdcComputePolicies:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5684,9 +5311,7 @@ components:
               description: The current page of VDC compute policies.
               items:
                 $ref: '#/definitions/VdcComputePolicy'
-      description: 'A list of VDC compute policies.
-
-        '
+      description: A list of VDC compute policies.
     VdcGroups:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5696,9 +5321,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/VdcGroup'
-      description: 'List of vDC Groups.
-
-        '
+      description: List of vDC Groups.
     VdcNetwork:
       allOf:
         - $ref: '#/components/schemas/Network'
@@ -5781,9 +5404,7 @@ components:
               type: integer
               description: The number of IP address used from the static ip pools.
               readOnly: true
-      description: 'An organization vDC network.
-
-        '
+      description: An organization vDC network.
     VdcNetworks:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5793,9 +5414,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/VdcNetwork'
-      description: 'List of Org vDC networks
-
-        '
+      description: List of Org vDC networks
     VmcSddcs:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5805,9 +5424,7 @@ components:
               type: array
               items:
                 $ref: '#/definitions/VmcSddc'
-      description: 'List of VMware Cloud on AWS SDDCs
-
-        '
+      description: List of VMware Cloud on AWS SDDCs
     VroRemoteWorkflowItems:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -5818,9 +5435,7 @@ components:
               description: The current page of remove VRO workflows.
               items:
                 $ref: '#/definitions/VroRemoteWorkflowItem'
-      description: 'A list of remote VRO workflows.
-
-        '
+      description: A list of remote VRO workflows.
     VroWorkflowServiceItem:
       allOf:
         - $ref: '#/components/schemas/ServiceItem'
@@ -5841,9 +5456,7 @@ components:
                 and IPv6 addresses in single, range, and CIDR formats.
               items:
                 type: string
-      description: 'A Firewall Group object.
-
-        '
+      description: A Firewall Group object.
     GlobalRole:
       allOf:
         - $ref: '#/components/schemas/PublishableRightsMapping'
@@ -5869,9 +5482,7 @@ components:
 
         for use within an organization vDC to create certain type of vDC networks
 
-        such as Organization vDC and Cross vDC networks.
-
-        '
+        such as Organization vDC and Cross vDC networks.'
     PrimaryField:
       allOf:
         - $ref: '#/components/schemas/Field'
