@@ -8,6 +8,7 @@
     "schemas": {
       "AllocatedIpAddress": {
         "type": "object",
+        "description": "Describes an allocated IP address\n",
         "properties": {
           "id": {
             "type": "string",
@@ -37,9 +38,7 @@
             "description": "The possible allocation types for allocated network address like VSM allocated, VM allocated or NAT routed.",
             "$ref": "#/definitions/AllocatedIpAddressAllocationType"
           }
-        },
-        "description": "Describes an allocated IP address\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "AllocatedIpAddressAllocationType": {
         "type": "string",
@@ -64,6 +63,7 @@
       },
       "Capability": {
         "type": "object",
+        "description": "Describes a capability of an entity.\n",
         "properties": {
           "name": {
             "type": "string",
@@ -88,9 +88,7 @@
             "description": "The category of the capabilities listed.",
             "$ref": "#/definitions/CapabilityCategory"
           }
-        },
-        "description": "Describes a capability of an entity.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "CapabilityCategory": {
         "type": "string",
@@ -111,6 +109,8 @@
         ]
       },
       "CommonNsxTRouterFields": {
+        "type": "object",
+        "description": "Common fields that all Tier-0 or Tier-1 routers have.",
         "properties": {
           "id": {
             "type": "string",
@@ -124,27 +124,22 @@
             "type": "string",
             "description": "Name used in NSX-T's logs or GUI. Field is sortable."
           }
-        },
-        "description": "Common fields that all Tier-0 or Tier-1 routers have."
+        }
       },
       "Constraint": {
         "type": "object",
-        "required": [
-          "constraintType"
-        ],
-        "discriminator": "constraintType",
         "properties": {
           "constraintType": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "constraintType"
+        ],
+        "discriminator": "constraintType"
       },
       "CreateCustomEntityTypeAction": {
         "type": "object",
-        "required": [
-          "workflowId",
-          "workflowInputParameter"
-        ],
         "properties": {
           "workflowId": {
             "type": "string",
@@ -154,7 +149,11 @@
             "type": "string",
             "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
           }
-        }
+        },
+        "required": [
+          "workflowId",
+          "workflowInputParameter"
+        ]
       },
       "CustomEntities": {
         "type": "object",
@@ -169,9 +168,6 @@
       },
       "CustomEntity": {
         "type": "object",
-        "required": [
-          "name"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -184,7 +180,10 @@
             "type": "string",
             "description": "This refers to UUID of custom entity type\n"
           }
-        }
+        },
+        "required": [
+          "name"
+        ]
       },
       "CustomEntityType": {
         "type": "object",
@@ -229,10 +228,6 @@
       },
       "CustomEntityTypeAction": {
         "type": "object",
-        "required": [
-          "name",
-          "workflowId"
-        ],
         "properties": {
           "name": {
             "type": "string",
@@ -246,7 +241,11 @@
             "type": "string",
             "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
           }
-        }
+        },
+        "required": [
+          "name",
+          "workflowId"
+        ]
       },
       "CustomEntityTypeActions": {
         "type": "object",
@@ -261,18 +260,19 @@
       },
       "Decorator": {
         "type": "object",
-        "required": [
-          "decoratorType"
-        ],
-        "discriminator": "decoratorType",
         "properties": {
           "decoratorType": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "decoratorType"
+        ],
+        "discriminator": "decoratorType"
       },
       "EdgeCluster": {
         "type": "object",
+        "description": "An Edge Cluster object.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -293,12 +293,11 @@
             "type": "string",
             "description": "Name of the Storage Profile. This will define the set of datastores where the edge vm will be deployed."
           }
-        },
-        "description": "An Edge Cluster object.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "EdgeGateway": {
         "type": "object",
+        "description": "An edge gateway object\n",
         "properties": {
           "id": {
             "type": "string",
@@ -327,12 +326,11 @@
             "description": "The organization vDC which the gateway belongs to.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "An edge gateway object\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "EdgeGatewayBacking": {
         "type": "object",
+        "description": "The backing details of the edge gateway\n",
         "properties": {
           "backingId": {
             "type": "string",
@@ -346,9 +344,7 @@
             "description": "The backing network provider, either NSX-T or NSX-V.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "The backing details of the edge gateway\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "EdgeGatewayType": {
         "type": "string",
@@ -361,6 +357,7 @@
       },
       "EdgeGatewayUplink": {
         "type": "object",
+        "description": "The uplink for the edge gateway along with ip suballocations",
         "properties": {
           "uplinkId": {
             "type": "string",
@@ -370,12 +367,11 @@
             "description": "Set of subnets this edge will have access to. Gateway can either be provided or left blank for each subnet, and if left blank will be assigned.\n",
             "$ref": "#/definitions/Subnets"
           }
-        },
-        "description": "The uplink for the edge gateway along with ip suballocations",
-        "x-vcloud-added-in": 32
+        }
       },
       "EgressPoint": {
         "type": "object",
+        "description": "An Egress Point.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -404,11 +400,11 @@
           "errorMessage": {
             "type": "string"
           }
-        },
-        "description": "An Egress Point.\n"
+        }
       },
       "EgressPointReference": {
         "type": "object",
+        "description": "An EgressPoint reference object for use in universal routing.\n",
         "properties": {
           "egressPointId": {
             "type": "string",
@@ -422,11 +418,11 @@
             "description": "The Edge Gateway of the Universal Egress Point reference.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "An EgressPoint reference object for use in universal routing.\n"
+        }
       },
       "EgressPoints": {
         "type": "object",
+        "description": "List of Egress Points.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -435,11 +431,11 @@
               "$ref": "#/definitions/EgressPoint"
             }
           }
-        },
-        "description": "List of Egress Points.\n"
+        }
       },
       "EmailSettings": {
         "type": "object",
+        "description": "Email related settings for a system\n",
         "properties": {
           "defaultSmtpServer": {
             "type": "boolean",
@@ -468,11 +464,11 @@
             "type": "string",
             "description": "A comma separated email addresses to send all alert messages to\n"
           }
-        },
-        "description": "Email related settings for a system\n"
+        }
       },
       "EntityReference": {
         "type": "object",
+        "description": "Entity reference used to describe VCD entities\n",
         "properties": {
           "name": {
             "type": "string"
@@ -480,15 +476,11 @@
           "id": {
             "type": "string"
           }
-        },
-        "description": "Entity reference used to describe VCD entities\n"
+        }
       },
       "Error": {
         "type": "object",
-        "required": [
-          "message",
-          "minorErrorCode"
-        ],
+        "description": "Error type format displayed to users for exceptions emerging from openapi endpoints.\n",
         "properties": {
           "minorErrorCode": {
             "type": "string"
@@ -500,7 +492,10 @@
             "type": "string"
           }
         },
-        "description": "Error type format displayed to users for exceptions emerging from openapi endpoints.\n"
+        "required": [
+          "message",
+          "minorErrorCode"
+        ]
       },
       "ExecutionContext": {
         "type": "object",
@@ -551,11 +546,7 @@
       },
       "ExtensionPoint": {
         "type": "object",
-        "required": [
-          "enabled",
-          "extensionPointId",
-          "pluginId"
-        ],
+        "description": "Extension Point of a UI Plugin",
         "properties": {
           "extensionPointId": {
             "type": "string"
@@ -570,10 +561,15 @@
             "type": "boolean"
           }
         },
-        "description": "Extension Point of a UI Plugin",
-        "x-vcloud-added-in": 32
+        "required": [
+          "enabled",
+          "extensionPointId",
+          "pluginId"
+        ]
       },
       "ExtensionPointSummary": {
+        "type": "object",
+        "description": "A map of extension Points and an ordered list of items registered with that extension point",
         "properties": {
           "extensionPointRegistrations": {
             "type": "object",
@@ -584,12 +580,11 @@
               }
             }
           }
-        },
-        "description": "A map of extension Points and an ordered list of items registered with that extension point",
-        "x-vcloud-added-in": 32
+        }
       },
       "ExternalNetworkBacking": {
         "type": "object",
+        "description": "Information about an external network backing.\n",
         "properties": {
           "backingId": {
             "type": "string",
@@ -603,9 +598,7 @@
             "description": "The Network Provider for the backing, either a vCenter Server or NSX-T Manager.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "Information about an external network backing.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "ExternalNetworkBackingType": {
         "type": "string",
@@ -619,6 +612,7 @@
       },
       "ExternalNetworkBackings": {
         "type": "object",
+        "description": "List of External Network backings.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -626,12 +620,11 @@
               "$ref": "#/definitions/ExternalNetworkBacking"
             }
           }
-        },
-        "description": "List of External Network backings.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "IpRange": {
         "type": "object",
+        "description": "An IpRange\n",
         "properties": {
           "startAddress": {
             "type": "string",
@@ -641,11 +634,11 @@
             "type": "string",
             "description": "Ending IP address in the range."
           }
-        },
-        "description": "An IpRange\n"
+        }
       },
       "IpRanges": {
         "type": "object",
+        "description": "List of IpRange\n",
         "properties": {
           "values": {
             "type": "array",
@@ -653,14 +646,11 @@
               "$ref": "#/definitions/IpRange"
             }
           }
-        },
-        "description": "List of IpRange\n"
+        }
       },
       "LdapConnectionTestResult": {
         "type": "object",
-        "required": [
-          "successful"
-        ],
+        "description": "Provides LDAP connection test results\n",
         "properties": {
           "successful": {
             "type": "boolean",
@@ -670,10 +660,13 @@
             "$ref": "#/definitions/Error"
           }
         },
-        "description": "Provides LDAP connection test results\n"
+        "required": [
+          "successful"
+        ]
       },
       "LdapGroupAttributesType": {
         "type": "object",
+        "description": "Defines how a group is imported from LDAP.\n",
         "properties": {
           "objectClass": {
             "type": "string"
@@ -693,11 +686,11 @@
           "backLinkIdentifier": {
             "type": "string"
           }
-        },
-        "description": "Defines how a group is imported from LDAP.\n"
+        }
       },
       "LdapSettings": {
         "type": "object",
+        "description": "LDAP Settings Specification\n",
         "properties": {
           "hostName": {
             "type": "string"
@@ -766,14 +759,11 @@
           "useExternalKerberos": {
             "type": "boolean"
           }
-        },
-        "description": "LDAP Settings Specification\n"
+        }
       },
       "LdapSettingsTestResult": {
         "type": "object",
-        "required": [
-          "successful"
-        ],
+        "description": "Provides test attribute, result, and success boolean\n",
         "properties": {
           "attribute": {
             "type": "string",
@@ -803,10 +793,13 @@
             "description": "Flag to indicate if the attribute is successful or not"
           }
         },
-        "description": "Provides test attribute, result, and success boolean\n"
+        "required": [
+          "successful"
+        ]
       },
       "LdapTestResult": {
         "type": "object",
+        "description": "Provides LDAP connection and settings test results\n",
         "properties": {
           "connectionTest": {
             "$ref": "#/definitions/LdapConnectionTestResult"
@@ -817,11 +810,11 @@
               "$ref": "#/definitions/LdapSettingsTestResult"
             }
           }
-        },
-        "description": "Provides LDAP connection and settings test results\n"
+        }
       },
       "LdapUserAttributesType": {
         "type": "object",
+        "description": "Defines how LDAP attributes are used when importing a user.\n",
         "properties": {
           "objectClass": {
             "type": "string"
@@ -853,8 +846,7 @@
           "groupBackLinkIdentifier": {
             "type": "string"
           }
-        },
-        "description": "Defines how LDAP attributes are used when importing a user.\n"
+        }
       },
       "Link": {
         "type": "object",
@@ -881,9 +873,6 @@
       },
       "LogicalVmGroup": {
         "type": "object",
-        "required": [
-          "name"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -905,10 +894,13 @@
             }
           }
         },
-        "x-vcloud-added-in": 32
+        "required": [
+          "name"
+        ]
       },
       "Network": {
         "type": "object",
+        "description": "A network Object.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -926,8 +918,7 @@
             "description": "List of subnets configured for the network.",
             "$ref": "#/definitions/Subnets"
           }
-        },
-        "description": "A network Object.\n"
+        }
       },
       "OrgVdcNetworkStatus": {
         "type": "string",
@@ -951,6 +942,7 @@
       },
       "Page": {
         "type": "object",
+        "description": "Collection of paging-related metadata to be included by composition via allOf. This type\nshould be included in pageable responses to avoid duplicating these common properties. It\nis intended to be included by composition rather than inheritance. Because of this, it has\nno discriminator and should be embedded via allOf. See QueryResults for a reference usage.\n",
         "properties": {
           "resultTotal": {
             "type": "integer",
@@ -968,20 +960,19 @@
             "type": "integer",
             "description": "Result count for page that was fetched."
           }
-        },
-        "description": "Collection of paging-related metadata to be included by composition via allOf. This type\nshould be included in pageable responses to avoid duplicating these common properties. It\nis intended to be included by composition rather than inheritance. Because of this, it has\nno discriminator and should be embedded via allOf. See QueryResults for a reference usage.\n"
+        }
       },
       "Parameter": {
         "type": "object",
-        "required": [
-          "inputType"
-        ],
-        "discriminator": "inputType",
         "properties": {
           "inputType": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "inputType"
+        ],
+        "discriminator": "inputType"
       },
       "ParameterTypes": {
         "type": "object",
@@ -1032,10 +1023,7 @@
       },
       "ParticipatingVdcReference": {
         "type": "object",
-        "required": [
-          "siteRef",
-          "vdcRef"
-        ],
+        "description": "A participating vDC\n",
         "properties": {
           "vdcRef": {
             "description": "The reference to the vDC that is part of this a vDC group.",
@@ -1062,15 +1050,13 @@
             "$ref": "#/definitions/VdcGroupEntityStatus"
           }
         },
-        "description": "A participating vDC\n"
+        "required": [
+          "siteRef",
+          "vdcRef"
+        ]
       },
       "Preference": {
         "type": "object",
-        "required": [
-          "classifier",
-          "name",
-          "value"
-        ],
         "properties": {
           "classifier": {
             "type": "string",
@@ -1084,17 +1070,15 @@
             "type": "string"
           }
         },
-        "x-vcloud-added-in": 32
+        "required": [
+          "classifier",
+          "name",
+          "value"
+        ]
       },
       "PreferenceDefinition": {
         "type": "object",
-        "required": [
-          "classifier",
-          "constrained",
-          "dataType",
-          "defaultValue",
-          "name"
-        ],
+        "description": "The Preference Definition is immutable.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -1145,8 +1129,13 @@
             }
           }
         },
-        "description": "The Preference Definition is immutable.\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "classifier",
+          "constrained",
+          "dataType",
+          "defaultValue",
+          "name"
+        ]
       },
       "Presentation": {
         "type": "object",
@@ -1185,10 +1174,6 @@
       },
       "PresentationElement": {
         "type": "object",
-        "required": [
-          "elementType"
-        ],
-        "discriminator": "elementType",
         "properties": {
           "elementType": {
             "type": "string"
@@ -1211,7 +1196,11 @@
               "$ref": "#/definitions/PresentationMessageInfo"
             }
           }
-        }
+        },
+        "required": [
+          "elementType"
+        ],
+        "discriminator": "elementType"
       },
       "PresentationExecution": {
         "type": "object",
@@ -1350,6 +1339,7 @@
       },
       "ResourcePool": {
         "type": "object",
+        "description": "A vCenter Resource Pool.\n",
         "properties": {
           "moref": {
             "type": "string",
@@ -1363,14 +1353,11 @@
             "type": "string",
             "description": "The vCenter the Resource Pool belongs to."
           }
-        },
-        "description": "A vCenter Resource Pool.\n"
+        }
       },
       "Right": {
         "type": "object",
-        "required": [
-          "name"
-        ],
+        "description": "Right\n",
         "properties": {
           "name": {
             "type": "string",
@@ -1437,14 +1424,13 @@
             ]
           }
         },
-        "description": "Right\n"
+        "required": [
+          "name"
+        ]
       },
       "RightsCategoryNode": {
         "type": "object",
-        "required": [
-          "bundleKey",
-          "name"
-        ],
+        "description": "RightsCategoryNode\n",
         "properties": {
           "name": {
             "type": "string",
@@ -1489,10 +1475,14 @@
             }
           }
         },
-        "description": "RightsCategoryNode\n"
+        "required": [
+          "bundleKey",
+          "name"
+        ]
       },
       "RightsCount": {
         "type": "object",
+        "description": "RightsCount - A count of rights in a given category by type\n",
         "properties": {
           "view": {
             "type": "integer",
@@ -1510,15 +1500,11 @@
               }
             ]
           }
-        },
-        "description": "RightsCount - A count of rights in a given category by type\n"
+        }
       },
       "RightsMapping": {
         "type": "object",
-        "required": [
-          "description",
-          "name"
-        ],
+        "description": "RightsMapping\n",
         "properties": {
           "name": {
             "type": "string",
@@ -1561,10 +1547,14 @@
             ]
           }
         },
-        "description": "RightsMapping\n"
+        "required": [
+          "description",
+          "name"
+        ]
       },
       "RouterComponentHealth": {
         "type": "object",
+        "description": "A ComponentHealth object\n",
         "properties": {
           "component": {
             "type": "string"
@@ -1581,8 +1571,7 @@
           "code": {
             "type": "integer"
           }
-        },
-        "description": "A ComponentHealth object\n"
+        }
       },
       "RouterComponentStatus": {
         "type": "string",
@@ -1594,6 +1583,7 @@
       },
       "RouterConnection": {
         "type": "object",
+        "description": "Describes the connection between a routed network and an edge gateway. This must be set if converting from an isolated to a routed network.\n",
         "properties": {
           "routerRef": {
             "description": "The edge gateway that this network is attached to.",
@@ -1603,12 +1593,11 @@
             "description": "How the network is connected to the edge gateway. This field is updatable to allow conversions between different types.",
             "$ref": "#/definitions/VdcNetworkConnectionType"
           }
-        },
-        "description": "Describes the connection between a routed network and an edge gateway. This must be set if converting from an isolated to a routed network.\n",
-        "x-vcloud-added-in": 31
+        }
       },
       "RouterDnsConfig": {
         "type": "object",
+        "description": "A RouterDnsConfig object\n",
         "properties": {
           "enabled": {
             "type": "boolean"
@@ -1619,11 +1608,11 @@
               "type": "string"
             }
           }
-        },
-        "description": "A RouterDnsConfig object\n"
+        }
       },
       "RouterHealthReport": {
         "type": "object",
+        "description": "Health Report of a Router\n",
         "properties": {
           "nsxManagersHealth": {
             "type": "array",
@@ -1650,15 +1639,11 @@
               "$ref": "#/definitions/RouterComponentHealth"
             }
           }
-        },
-        "description": "Health Report of a Router\n"
+        }
       },
       "Sddc": {
         "type": "object",
-        "required": [
-          "name",
-          "vcId"
-        ],
+        "description": "Software-defined data center\n",
         "properties": {
           "name": {
             "type": "string",
@@ -1734,16 +1719,14 @@
             "$ref": "#/definitions/SddcProxy"
           }
         },
-        "description": "Software-defined data center\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "name",
+          "vcId"
+        ]
       },
       "SddcProxy": {
         "type": "object",
-        "required": [
-          "name",
-          "sddcId",
-          "targetHost"
-        ],
+        "description": "SDDC proxy configuration\n",
         "properties": {
           "name": {
             "type": "string",
@@ -1842,11 +1825,15 @@
             "default": ""
           }
         },
-        "description": "SDDC proxy configuration\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "name",
+          "sddcId",
+          "targetHost"
+        ]
       },
       "SddcStat": {
         "type": "object",
+        "description": "A collection of measurements for the SDDC resource\n",
         "properties": {
           "numTotal": {
             "type": "integer",
@@ -1866,12 +1853,11 @@
             "description": "Reserved resource allocation.",
             "minimum": 0
           }
-        },
-        "description": "A collection of measurements for the SDDC resource\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "SddcStats": {
         "type": "object",
+        "description": "A read-only list of resource allocations for the associated SDDC\n",
         "properties": {
           "cpu": {
             "description": "CPUs statistics of the SDDC (values in MHz).",
@@ -1885,9 +1871,7 @@
             "description": "Storage statistics of the SDDC (values in MB).",
             "$ref": "#/definitions/SddcStat"
           }
-        },
-        "description": "A read-only list of resource allocations for the associated SDDC\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "Service": {
         "type": "object",
@@ -1912,12 +1896,7 @@
       },
       "ServiceApp": {
         "type": "object",
-        "required": [
-          "clientId",
-          "clientSecret",
-          "name",
-          "serviceScope"
-        ],
+        "description": "A VMware service application\n",
         "properties": {
           "id": {
             "type": "string",
@@ -1957,8 +1936,12 @@
             "description": "Whether the application is currently enabled"
           }
         },
-        "description": "A VMware service application\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "clientId",
+          "clientSecret",
+          "name",
+          "serviceScope"
+        ]
       },
       "ServiceAppScope": {
         "type": "string",
@@ -1969,10 +1952,6 @@
       },
       "ServiceItem": {
         "type": "object",
-        "required": [
-          "serviceItemType"
-        ],
-        "discriminator": "serviceItemType",
         "properties": {
           "id": {
             "type": "string"
@@ -2014,10 +1993,15 @@
             "description": "Read-only value indicating publishAll state\n",
             "default": false
           }
-        }
+        },
+        "required": [
+          "serviceItemType"
+        ],
+        "discriminator": "serviceItemType"
       },
       "SmtpServerSpec": {
         "type": "object",
+        "description": "Represent the settings of an SMTP Server which the system uses to send email notifications and alerts\n",
         "properties": {
           "useAuthentication": {
             "type": "boolean",
@@ -2055,11 +2039,11 @@
             "type": "string",
             "description": "A human readable name of the entity"
           }
-        },
-        "description": "Represent the settings of an SMTP Server which the system uses to send email notifications and alerts\n"
+        }
       },
       "Subnet": {
         "type": "object",
+        "description": "A network subnet defined by its gateway,\n",
         "properties": {
           "gateway": {
             "type": "string",
@@ -2089,11 +2073,11 @@
             "type": "boolean",
             "description": "Indicates whether the external network subnet is currently enabled."
           }
-        },
-        "description": "A network subnet defined by its gateway,\n"
+        }
       },
       "Subnets": {
         "type": "object",
+        "description": "List of Subnets of a network\n",
         "properties": {
           "values": {
             "type": "array",
@@ -2101,8 +2085,7 @@
               "$ref": "#/definitions/Subnet"
             }
           }
-        },
-        "description": "List of Subnets of a network\n"
+        }
       },
       "SupportedConstraints": {
         "type": "object",
@@ -2183,6 +2166,7 @@
       },
       "Tier0Routers": {
         "type": "object",
+        "description": "List of NSX-T's Tier-0 routers.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -2190,12 +2174,11 @@
               "$ref": "#/definitions/Tier0Router"
             }
           }
-        },
-        "description": "List of NSX-T's Tier-0 routers.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "Tier1Routers": {
         "type": "object",
+        "description": "List of NSX-T's Tier-1 routers.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -2203,16 +2186,11 @@
               "$ref": "#/definitions/Tier1Router"
             }
           }
-        },
-        "description": "List of NSX-T's Tier-1 routers.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "UiBranding": {
         "type": "object",
-        "required": [
-          "customLinks",
-          "portalName"
-        ],
+        "description": "A branding object with the portal name, portal color, selected theme and custom URLs.\n",
         "properties": {
           "portalName": {
             "type": "string"
@@ -2231,13 +2209,14 @@
             }
           }
         },
-        "description": "A branding object with the portal name, portal color, selected theme and custom URLs.\n"
+        "required": [
+          "customLinks",
+          "portalName"
+        ]
       },
       "UiBrandingMenuItem": {
         "type": "object",
-        "required": [
-          "menuItemType"
-        ],
+        "description": "An ordered list of menu items which can be customized and used in the application. Can be defined as a\nlink,\noverride (well known links that can be overridden, Default values are About, Help, VMRC),\nsection,\nseparator(section without a name) of the drop down menu.\n",
         "properties": {
           "name": {
             "type": "string"
@@ -2255,18 +2234,13 @@
             "type": "string"
           }
         },
-        "description": "An ordered list of menu items which can be customized and used in the application. Can be defined as a\nlink,\noverride (well known links that can be overridden, Default values are About, Help, VMRC),\nsection,\nseparator(section without a name) of the drop down menu.\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "menuItemType"
+        ]
       },
       "UiPluginMetadata": {
         "type": "object",
-        "required": [
-          "license",
-          "link",
-          "pluginName",
-          "vendor",
-          "version"
-        ],
+        "description": "Meta information about a UI Plugin\n",
         "properties": {
           "pluginName": {
             "type": "string"
@@ -2296,14 +2270,17 @@
             "type": "boolean"
           }
         },
-        "description": "Meta information about a UI Plugin\n"
+        "required": [
+          "license",
+          "link",
+          "pluginName",
+          "vendor",
+          "version"
+        ]
       },
       "UiTheme": {
         "type": "object",
-        "required": [
-          "name",
-          "themeType"
-        ],
+        "description": "A theme supported by vCloud Director.\n",
         "properties": {
           "themeType": {
             "type": "string"
@@ -2312,10 +2289,14 @@
             "type": "string"
           }
         },
-        "description": "A theme supported by vCloud Director.\n"
+        "required": [
+          "name",
+          "themeType"
+        ]
       },
       "UniversalEgressRoutes": {
         "type": "object",
+        "description": "Object consisting of Egress Points and Universal Routes for a Universal Router.\n",
         "properties": {
           "egressPoints": {
             "description": "The list of Egress Points for routing configuration. This is read-only.",
@@ -2325,14 +2306,11 @@
             "description": "The list of Universal Routes for routing configuration.\n",
             "$ref": "#/definitions/UniversalRoutes"
           }
-        },
-        "description": "Object consisting of Egress Points and Universal Routes for a Universal Router.\n"
+        }
       },
       "UniversalRoute": {
         "type": "object",
-        "required": [
-          "networkProviderScope"
-        ],
+        "description": "A Route for a Universal Router.\n",
         "properties": {
           "defaultEgress": {
             "description": "For a given route, routing by default will go through the default egress point. Every valid/configured route will have a default egress point.",
@@ -2354,10 +2332,13 @@
             "type": "string"
           }
         },
-        "description": "A Route for a Universal Router.\n"
+        "required": [
+          "networkProviderScope"
+        ]
       },
       "UniversalRouter": {
         "type": "object",
+        "description": "A UniversalRouter object\n",
         "properties": {
           "id": {
             "type": "string"
@@ -2380,11 +2361,11 @@
           "errorMessage": {
             "type": "string"
           }
-        },
-        "description": "A UniversalRouter object\n"
+        }
       },
       "UniversalRouterDhcpConfig": {
         "type": "object",
+        "description": "A UniversalRouterDhcpConfig object.\n",
         "properties": {
           "enabled": {
             "type": "boolean"
@@ -2395,11 +2376,11 @@
               "$ref": "#/definitions/UniversalRouterDhcpServer"
             }
           }
-        },
-        "description": "A UniversalRouterDhcpConfig object.\n"
+        }
       },
       "UniversalRouterDhcpServer": {
         "type": "object",
+        "description": "List of Dhcp servers for universal router.\nEither egressRef or serverAddress is required to identify Dhcp server.\n",
         "properties": {
           "egressRef": {
             "$ref": "#/definitions/EntityReference"
@@ -2407,11 +2388,11 @@
           "serverAddress": {
             "type": "string"
           }
-        },
-        "description": "List of Dhcp servers for universal router.\nEither egressRef or serverAddress is required to identify Dhcp server.\n"
+        }
       },
       "UniversalRouters": {
         "type": "object",
+        "description": "List of Universal Routers\n",
         "properties": {
           "values": {
             "type": "array",
@@ -2419,11 +2400,11 @@
               "$ref": "#/definitions/UniversalRouter"
             }
           }
-        },
-        "description": "List of Universal Routers\n"
+        }
       },
       "UniversalRoutes": {
         "type": "object",
+        "description": "List of routes associated with a Universal Router.\n",
         "properties": {
           "keepAliveTimer": {
             "type": "integer",
@@ -2443,8 +2424,7 @@
               "type": "string"
             }
           }
-        },
-        "description": "List of routes associated with a Universal Router.\n"
+        }
       },
       "UniversalRoutingStatus": {
         "type": "string",
@@ -2488,10 +2468,7 @@
       },
       "UploadSpec": {
         "type": "object",
-        "required": [
-          "fileName",
-          "size"
-        ],
+        "description": "Information about upload\n",
         "properties": {
           "fileName": {
             "type": "string"
@@ -2512,7 +2489,10 @@
             ]
           }
         },
-        "description": "Information about upload\n"
+        "required": [
+          "fileName",
+          "size"
+        ]
       },
       "Url": {
         "type": "object",
@@ -2532,6 +2512,7 @@
       },
       "User": {
         "type": "object",
+        "description": "User Spec object\n",
         "properties": {
           "username": {
             "type": "string"
@@ -2593,11 +2574,11 @@
           "inSync": {
             "type": "boolean"
           }
-        },
-        "description": "User Spec object\n"
+        }
       },
       "UserGroup": {
         "type": "object",
+        "description": "Group Spec object\n",
         "properties": {
           "name": {
             "type": "string"
@@ -2626,11 +2607,11 @@
               "OAUTH"
             ]
           }
-        },
-        "description": "Group Spec object\n"
+        }
       },
       "VROServiceInfo": {
         "type": "object",
+        "description": "Response type with meta information about a vRealize Orchestrator Service\n",
         "properties": {
           "id": {
             "type": "string",
@@ -2661,14 +2642,10 @@
             "type": "string",
             "description": "SSL Certificate chain for the VRO endpoint\n"
           }
-        },
-        "description": "Response type with meta information about a vRealize Orchestrator Service\n"
+        }
       },
       "VdcComputePolicy": {
         "type": "object",
-        "required": [
-          "name"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2775,27 +2752,13 @@
             "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
           }
         },
-        "x-vcloud-property-annotations": {
-          "pvdcComputePolicyRef": {
-            "x-vcloud-added-in": 31,
-            "x-vcloud-deprecated-in": 32,
-            "x-vcloud-deprecated-alternative": "pvdcComputePolicy",
-            "x-vcloud-removed-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
-          },
-          "pvdcComputePolicy": {
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
-          }
-        }
+        "required": [
+          "name"
+        ]
       },
       "VdcGroup": {
         "type": "object",
-        "required": [
-          "name",
-          "orgId",
-          "participatingOrgVdcs"
-        ],
+        "description": "A vCD Group.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -2837,7 +2800,11 @@
             "description": "If the group has an error status, a more detailed error message is set here."
           }
         },
-        "description": "A vCD Group.\n"
+        "required": [
+          "name",
+          "orgId",
+          "participatingOrgVdcs"
+        ]
       },
       "VdcGroupEntityStatus": {
         "type": "string",
@@ -2865,6 +2832,7 @@
       },
       "VdcNetworkDhcpConfig": {
         "type": "object",
+        "description": "Configuration for the DHCP service that runs on the network.\n",
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -2877,12 +2845,11 @@
               "$ref": "#/definitions/VdcNetworkDhcpPool"
             }
           }
-        },
-        "description": "Configuration for the DHCP service that runs on the network.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "VdcNetworkDhcpPool": {
         "type": "object",
+        "description": "A range of DHCP ip addresses and its lease time configuration.\n",
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -2901,9 +2868,7 @@
             "description": "Default lease time in seconds",
             "minimum": 0
           }
-        },
-        "description": "A range of DHCP ip addresses and its lease time configuration.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "VdcNetworkFenceType": {
         "type": "string",
@@ -2918,6 +2883,7 @@
       },
       "VdcNetworkProfile": {
         "type": "object",
+        "description": "A vDC Network Profile object.\n",
         "properties": {
           "primaryEdgeCluster": {
             "description": "The Edge Cluster where the primary appliance for an NSX-V Edge Gateway will be deployed.",
@@ -2927,12 +2893,11 @@
             "description": "The Edge Cluster where the secondary appliance for an NSX-V Edge Gateway will be deployed if HA is enabled on the Edge.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "A vDC Network Profile object.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "VmcSddc": {
         "type": "object",
+        "description": "A VMware Cloud on AWS SDDC\n",
         "properties": {
           "id": {
             "type": "string",
@@ -2942,12 +2907,11 @@
             "type": "string",
             "description": "The name of the VMC SDDC. This field is read-only."
           }
-        },
-        "description": "A VMware Cloud on AWS SDDC\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "VroRemoteInventoryItem": {
         "type": "object",
+        "description": "Meta information about an inventory item on a vRealize Orchestrator server\n",
         "properties": {
           "href": {
             "type": "string"
@@ -2961,11 +2925,11 @@
           "relations": {
             "$ref": "#/definitions/Relations"
           }
-        },
-        "description": "Meta information about an inventory item on a vRealize Orchestrator server\n"
+        }
       },
       "VroRemoteItem": {
         "type": "object",
+        "description": "Information about various objects in vRealize Orchestrator server\n",
         "properties": {
           "name": {
             "type": "string"
@@ -2997,11 +2961,11 @@
           "rel": {
             "type": "string"
           }
-        },
-        "description": "Information about various objects in vRealize Orchestrator server\n"
+        }
       },
       "VroRemoteItems": {
         "type": "object",
+        "description": "A list of objects in vRealize orchestrator server\n",
         "properties": {
           "remoteItems": {
             "type": "array",
@@ -3015,11 +2979,11 @@
           "pageCount": {
             "type": "integer"
           }
-        },
-        "description": "A list of objects in vRealize orchestrator server\n"
+        }
       },
       "VroRemotePluginItem": {
         "type": "object",
+        "description": "A plugin namespaces for whom type information can be retrieved\n",
         "properties": {
           "name": {
             "type": "string"
@@ -3033,11 +2997,11 @@
           "canHaveChildren": {
             "type": "boolean"
           }
-        },
-        "description": "A plugin namespaces for whom type information can be retrieved\n"
+        }
       },
       "VroRemotePluginItems": {
         "type": "object",
+        "description": "List of plugin namespaces\n",
         "properties": {
           "items": {
             "type": "array",
@@ -3045,11 +3009,11 @@
               "$ref": "#/definitions/VroRemotePluginItem"
             }
           }
-        },
-        "description": "List of plugin namespaces\n"
+        }
       },
       "VroRemotePluginType": {
         "type": "object",
+        "description": "Type definition for a plugin namespace\n",
         "properties": {
           "name": {
             "type": "string"
@@ -3060,11 +3024,11 @@
           "canHaveChildren": {
             "type": "boolean"
           }
-        },
-        "description": "Type definition for a plugin namespace\n"
+        }
       },
       "VroRemotePluginTypes": {
         "type": "object",
+        "description": "A list of defined types for a particular plugin namespace\n",
         "properties": {
           "types": {
             "type": "array",
@@ -3075,11 +3039,11 @@
           "namespace": {
             "type": "string"
           }
-        },
-        "description": "A list of defined types for a particular plugin namespace\n"
+        }
       },
       "VroRemoteWorkflowItem": {
         "type": "object",
+        "description": "Meta information about a workflow on a vRealize Orchestrator server\n",
         "properties": {
           "name": {
             "type": "string"
@@ -3099,8 +3063,7 @@
           "vroServerId": {
             "type": "string"
           }
-        },
-        "description": "Meta information about a workflow on a vRealize Orchestrator server\n"
+        }
       },
       "WsAttribute": {
         "type": "object",

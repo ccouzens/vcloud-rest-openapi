@@ -65,6 +65,7 @@ async function defs(page: Page) {
         }
       | Array;
   };
+
   type Object = {
     type?: "object";
     description?: string;
@@ -73,7 +74,23 @@ async function defs(page: Page) {
       Ref | Enum | Boolean | Integer | String | Number | Array | DeepObject
     >;
     required?: string[];
+    discriminator?: string;
   };
+
+  const objectCorrector = (val: Object): Object => ({
+    type: "object",
+    ...(val.description !== undefined && {
+      description: val.description,
+    }),
+    properties: val.properties,
+    ...(val.required !== undefined && {
+      required: val.required,
+    }),
+    ...(val.discriminator !== undefined && {
+      discriminator: val.discriminator,
+    }),
+  });
+
   type Enum = {
     type: "object" | "string";
     description: string;
@@ -97,7 +114,7 @@ async function defs(page: Page) {
     allOf: outerVal.allOf.map((innerVal) =>
       "$ref" in innerVal
         ? { $ref: refStringCorrector(innerVal.$ref) }
-        : innerVal
+        : objectCorrector(innerVal)
     ),
     ...(outerVal.description !== undefined && {
       description: outerVal.description,
@@ -122,7 +139,7 @@ async function defs(page: Page) {
     } else if ("allOf" in value) {
       newDefs[key] = allOfCorrector(value);
     } else {
-      newDefs[key] = value;
+      newDefs[key] = objectCorrector(value);
     }
   }
 

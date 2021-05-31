@@ -8,6 +8,7 @@
     "schemas": {
       "AccessibleLocation": {
         "type": "object",
+        "description": "A location accessible to this session.\n",
         "properties": {
           "locationId": {
             "type": "string",
@@ -47,12 +48,11 @@
               }
             ]
           }
-        },
-        "description": "A location accessible to this session.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "AllocatedIpAddress": {
         "type": "object",
+        "description": "Describes an allocated IP address for a network. IP addresses can be allocated\nto a vApp VM, an edge gateway interface or may be used in a NAT routed environment.\nIf the address is allocated to an edge gateway, the name of the entity will be 'Edge Gateway'.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -90,103 +90,6 @@
             "description": "The organization that this entity belongs to.\n",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "Describes an allocated IP address for a network. IP addresses can be allocated\nto a vApp VM, an edge gateway interface or may be used in a NAT routed environment.\nIf the address is allocated to an edge gateway, the name of the entity will be 'Edge Gateway'.\n",
-        "x-vcloud-added-in": 32,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "entityId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "gateway"
-                  },
-                  {
-                    "arg": "vm"
-                  }
-                ]
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "entityName": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "vAppName": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "deployed": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "allocationType": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "networkRef": {
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "orgRef": {
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "AllocatedIpAddressAllocationType": {
@@ -200,6 +103,7 @@
       },
       "ApplicationPortList": {
         "type": "object",
+        "description": "A set of ports and the protocol supported by a application port profile.\n",
         "properties": {
           "name": {
             "type": "string",
@@ -215,31 +119,6 @@
             "items": {
               "type": "string"
             }
-          }
-        },
-        "description": "A set of ports and the protocol supported by a application port profile.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "name": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "protocol": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "destinationPorts": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
           }
         }
       },
@@ -264,6 +143,7 @@
       },
       "Association": {
         "type": "object",
+        "description": "Site association information for an entity\n",
         "properties": {
           "entityId": {
             "type": "string",
@@ -273,11 +153,11 @@
             "type": "string",
             "description": "ID of the association."
           }
-        },
-        "description": "Site association information for an entity\n"
+        }
       },
       "AuditTrailEvent": {
         "type": "object",
+        "description": "AuditTrailEvent\n",
         "properties": {
           "eventId": {
             "type": "string",
@@ -395,11 +275,11 @@
             ],
             "x-vcloud-restricted": "Visible to users with the 'Perform Administrator Queries' right"
           }
-        },
-        "description": "AuditTrailEvent\n"
+        }
       },
       "AvailableIpPoolSubnet": {
         "type": "object",
+        "description": "Describes an available IP address.\n",
         "properties": {
           "gateway": {
             "type": "string",
@@ -422,79 +302,11 @@
             "type": "integer",
             "description": "The total number of available IP addresses."
           }
-        },
-        "description": "Describes an available IP address.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "gateway": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "prefixLength": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "enabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "ipRanges": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "totalIpCount": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "AvailableIpPoolSubnets": {
         "type": "object",
+        "description": "List of available IP addresses.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -502,9 +314,7 @@
               "$ref": "#/definitions/AvailableIpPoolSubnet"
             }
           }
-        },
-        "description": "List of available IP addresses.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "BackingNetworkType": {
         "type": "string",
@@ -520,6 +330,7 @@
       },
       "BackingRef": {
         "type": "object",
+        "description": "Backing Id for an entity not owned by VCD.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -529,12 +340,11 @@
             "type": "string",
             "description": "The name of backing entity."
           }
-        },
-        "description": "Backing Id for an entity not owned by VCD.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "Capability": {
         "type": "object",
+        "description": "Describes a capability of an entity.\n",
         "properties": {
           "name": {
             "type": "string",
@@ -559,9 +369,7 @@
             "description": "The category of the capabilities listed.",
             "$ref": "#/definitions/CapabilityCategory"
           }
-        },
-        "description": "Describes a capability of an entity.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "CapabilityCategory": {
         "type": "string",
@@ -583,6 +391,7 @@
       },
       "Cell": {
         "type": "object",
+        "description": "A vCloud Director cell.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -609,11 +418,11 @@
             "type": "string",
             "description": "The product version of the cell."
           }
-        },
-        "description": "A vCloud Director cell.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "CommonNsxTRouterFields": {
+        "type": "object",
+        "description": "Common fields that all Tier-0 or Tier-1 routers have.",
         "properties": {
           "id": {
             "type": "string",
@@ -627,8 +436,7 @@
             "type": "string",
             "description": "Name used in NSX-T's logs or GUI. Field is sortable."
           }
-        },
-        "description": "Common fields that all Tier-0 or Tier-1 routers have."
+        }
       },
       "ConnectorInitiationMode": {
         "type": "string",
@@ -641,22 +449,18 @@
       },
       "Constraint": {
         "type": "object",
-        "required": [
-          "constraintType"
-        ],
-        "discriminator": "constraintType",
         "properties": {
           "constraintType": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "constraintType"
+        ],
+        "discriminator": "constraintType"
       },
       "CreateCustomEntityTypeAction": {
         "type": "object",
-        "required": [
-          "workflowId",
-          "workflowInputParameter"
-        ],
         "properties": {
           "workflowId": {
             "type": "string",
@@ -666,7 +470,11 @@
             "type": "string",
             "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
           }
-        }
+        },
+        "required": [
+          "workflowId",
+          "workflowInputParameter"
+        ]
       },
       "CustomEntities": {
         "type": "object",
@@ -681,9 +489,6 @@
       },
       "CustomEntity": {
         "type": "object",
-        "required": [
-          "name"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -696,7 +501,10 @@
             "type": "string",
             "description": "This refers to UUID of custom entity type\n"
           }
-        }
+        },
+        "required": [
+          "name"
+        ]
       },
       "CustomEntityType": {
         "type": "object",
@@ -741,10 +549,6 @@
       },
       "CustomEntityTypeAction": {
         "type": "object",
-        "required": [
-          "name",
-          "workflowId"
-        ],
         "properties": {
           "name": {
             "type": "string",
@@ -758,7 +562,11 @@
             "type": "string",
             "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
           }
-        }
+        },
+        "required": [
+          "name",
+          "workflowId"
+        ]
       },
       "CustomEntityTypeActions": {
         "type": "object",
@@ -773,15 +581,15 @@
       },
       "Decorator": {
         "type": "object",
-        "required": [
-          "decoratorType"
-        ],
-        "discriminator": "decoratorType",
         "properties": {
           "decoratorType": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "decoratorType"
+        ],
+        "discriminator": "decoratorType"
       },
       "DfPolicyType": {
         "type": "string",
@@ -807,6 +615,7 @@
       },
       "DistributedPortGroup": {
         "type": "object",
+        "description": "Distributed portgroup.\n",
         "properties": {
           "backingRef": {
             "description": "Contains the backing id and name of the distributed portgroup.",
@@ -824,15 +633,11 @@
             "description": "The distributed virtual switch on which this distributed virtual portgroup was created.",
             "$ref": "#/definitions/DvSwitch"
           }
-        },
-        "description": "Distributed portgroup.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "DpdConfig": {
         "type": "object",
-        "required": [
-          "probeInterval"
-        ],
+        "description": "Specifies the Dead Peer Detection Profile. This configurations determines the number of seconds to wait in time between probes\nto detect if an IPSec peer is alive or not. The default value for the DPD probe interval is 60 seconds.\n",
         "properties": {
           "probeInterval": {
             "type": "integer",
@@ -841,11 +646,13 @@
             "maximum": 60
           }
         },
-        "description": "Specifies the Dead Peer Detection Profile. This configurations determines the number of seconds to wait in time between probes\nto detect if an IPSec peer is alive or not. The default value for the DPD probe interval is 60 seconds.\n",
-        "x-vcloud-added-in": 33
+        "required": [
+          "probeInterval"
+        ]
       },
       "DvSwitch": {
         "type": "object",
+        "description": "Distributed virtual switch.\n",
         "properties": {
           "backingRef": {
             "description": "Contains the backing id and name of the distributed virtual switch.",
@@ -855,16 +662,11 @@
             "description": "The entity reference for the vCenter that contains this distributed virtual switch.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "Distributed virtual switch.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "EdgeCluster": {
         "type": "object",
-        "required": [
-          "name",
-          "storageProfileName"
-        ],
+        "description": "An Edge Cluster object.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -886,58 +688,14 @@
             "description": "Name of the Storage Profile. This will define the set of datastores where the edge vm will be deployed."
           }
         },
-        "description": "An Edge Cluster object.\n",
-        "x-vcloud-added-in": 32,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "edgeCluster"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "description": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "resourcePool": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "storageProfileName": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "name",
+          "storageProfileName"
+        ]
       },
       "EdgeDnsConfig": {
         "type": "object",
+        "description": "Specifies the DNS forwarder configuration for an edge gateway backed by NSX-T.",
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -965,61 +723,11 @@
           "version": {
             "$ref": "#/definitions/ObjectVersion"
           }
-        },
-        "description": "Specifies the DNS forwarder configuration for an edge gateway backed by NSX-T.",
-        "x-vcloud-added-in": 32,
-        "x-vcloud-property-annotations": {
-          "enabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "listenerIp": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "defaultForwarderZone": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "conditionalForwarderZones": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "EdgeFirewallRule": {
         "type": "object",
-        "required": [
-          "action",
-          "name"
-        ],
+        "description": "Specifies the Firewall rule for an edge gateway backed by NSX-T.",
         "properties": {
           "id": {
             "type": "string",
@@ -1082,123 +790,14 @@
             "$ref": "#/definitions/ObjectVersion"
           }
         },
-        "description": "Specifies the Firewall rule for an edge gateway backed by NSX-T.",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "name": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "description": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "sourceFirewallGroups": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "destinationFirewallGroups": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "services": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "ipProtocol": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "action": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "direction": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "enabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "logging": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "action",
+          "name"
+        ]
       },
       "EdgeGatewayBacking": {
         "type": "object",
+        "description": "The backing details of the edge gateway\n",
         "properties": {
           "backingId": {
             "type": "string",
@@ -1212,44 +811,11 @@
             "description": "The backing network provider, either NSX-T or NSX-V.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "The backing details of the edge gateway\n",
-        "x-vcloud-added-in": 32,
-        "x-vcloud-property-annotations": {
-          "backingId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "NonSearchable"
-              }
-            ]
-          },
-          "gatewayType": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "networkProvider": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "EdgeGatewaySubnets": {
         "type": "object",
+        "description": "List of Subnets of an edge gateway\n",
         "properties": {
           "values": {
             "type": "array",
@@ -1257,9 +823,7 @@
               "$ref": "#/definitions/EdgeGatewaySubnet"
             }
           }
-        },
-        "description": "List of Subnets of an edge gateway\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "EdgeGatewayType": {
         "type": "string",
@@ -1272,6 +836,7 @@
       },
       "EdgeGatewayUplink": {
         "type": "object",
+        "description": "The uplink (i.e. external network) that the edge gateway is connected to. This also contains the external network IPs that are allocated to the edge.\n",
         "properties": {
           "uplinkId": {
             "type": "string",
@@ -1294,70 +859,11 @@
             "type": "integer",
             "description": "If set on create or update api calls, the specified number of IP addresses will be additionally allocated for this uplink. IPs will be allocated from multiple subnets if needed."
           }
-        },
-        "description": "The uplink (i.e. external network) that the edge gateway is connected to. This also contains the external network IPs that are allocated to the edge.\n",
-        "x-vcloud-added-in": 32,
-        "x-vcloud-property-annotations": {
-          "uplinkId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "uplinkName": {
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "subnets": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "connected": {
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "quickAddAllocatedIpCount": {
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "EdgeIpSecVpnTunnel": {
         "type": "object",
-        "required": [
-          "localEndpoint",
-          "name",
-          "preSharedKey",
-          "remoteEndpoint"
-        ],
+        "description": "Specifies the IPSec VPN tunnel configuration.",
         "properties": {
           "id": {
             "type": "string",
@@ -1404,112 +910,16 @@
             "$ref": "#/definitions/ObjectVersion"
           }
         },
-        "description": "Specifies the IPSec VPN tunnel configuration.",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "name": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "description": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "localEndpoint": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "remoteEndpoint": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "preSharedKey": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "connectorInitiationMode": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "enabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "securityType": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "logging": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "localEndpoint",
+          "name",
+          "preSharedKey",
+          "remoteEndpoint"
+        ]
       },
       "EdgeIpSecVpnTunnelConnectionProperties": {
+        "type": "object",
+        "description": "This includes the IPSec tunnel configuration, IKE Configuration, and other advanced properties that can be set once a tunnel is created. If\nnothing is explictly set by the user, the defaults in NSX-T will be used.\n",
         "properties": {
           "ikeConfiguration": {
             "description": "The IKE Configuration to be used for the tunnel. If nothing is explictly set, the system defaults will be used.\n",
@@ -1523,44 +933,11 @@
             "description": "The Dead Peer Detection configuration. If nothing is explictly set, the system defaults will be used.\n",
             "$ref": "#/definitions/DpdConfig"
           }
-        },
-        "description": "This includes the IPSec tunnel configuration, IKE Configuration, and other advanced properties that can be set once a tunnel is created. If\nnothing is explictly set by the user, the defaults in NSX-T will be used.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "ikeConfiguration": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "tunnelConfiguration": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "dpdConfiguration": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "EdgeIpSecVpnTunnelStatistics": {
         "type": "object",
+        "description": "Specifies the statistics for the given IPSec VPN Tunnel.",
         "properties": {
           "localSubnet": {
             "type": "string",
@@ -1650,11 +1027,11 @@
             "format": "int64",
             "description": "Number of packets dropped because of no matching policy is available."
           }
-        },
-        "description": "Specifies the statistics for the given IPSec VPN Tunnel.",
-        "x-vcloud-added-in": 33
+        }
       },
       "EdgeIpSecVpnTunnelStatus": {
+        "type": "object",
+        "description": "This includes the IPSec Tunnel status such as whether the tunnel is up or down and the IKE Session status.\n",
         "properties": {
           "tunnelStatus": {
             "description": "Gives the overall IPSec VPN Tunnel Status. If IKE is properly set and the tunnel is up, the tunnel status will be UP.",
@@ -1664,40 +1041,11 @@
             "description": "Status for the actual IKE Session for the given tunnel.",
             "$ref": "#/definitions/IkeStatus"
           }
-        },
-        "description": "This includes the IPSec Tunnel status such as whether the tunnel is up or down and the IKE Session status.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "tunnelStatus": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "ikeStatus": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "EdgeNatRule": {
         "type": "object",
-        "required": [
-          "externalAddresses",
-          "internalAddresses",
-          "name",
-          "ruleType"
-        ],
+        "description": "The configuration for a given NAT Rule.",
         "properties": {
           "id": {
             "type": "string",
@@ -1749,126 +1097,16 @@
             "$ref": "#/definitions/ObjectVersion"
           }
         },
-        "description": "The configuration for a given NAT Rule.",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "name": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "description": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "enabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "ruleType": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "applicationPortProfile": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "externalAddresses": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "internalAddresses": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "internalPort": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "logging": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "systemRule": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "externalAddresses",
+          "internalAddresses",
+          "name",
+          "ruleType"
+        ]
       },
       "EgressPoint": {
         "type": "object",
+        "description": "An Egress Point.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -1897,97 +1135,11 @@
           "errorMessage": {
             "type": "string"
           }
-        },
-        "description": "An Egress Point.\n",
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "universalEgressPoint"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              }
-            ]
-          },
-          "vdcRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "gatewayRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "networkProviderScope": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "isUsedForRouting": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
-          },
-          "status": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "errorMessage": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "EgressPointReference": {
         "type": "object",
+        "description": "An EgressPoint reference object for use in universal routing.\n",
         "properties": {
           "egressPointId": {
             "type": "string",
@@ -2001,43 +1153,11 @@
             "description": "The Edge Gateway of the Universal Egress Point reference.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "An EgressPoint reference object for use in universal routing.\n",
-        "x-vcloud-property-annotations": {
-          "vdcRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "gatewayRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "egressPointId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "EgressPoints": {
         "type": "object",
+        "description": "List of Egress Points.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -2046,11 +1166,11 @@
               "$ref": "#/definitions/EgressPoint"
             }
           }
-        },
-        "description": "List of Egress Points.\n"
+        }
       },
       "EmailSettings": {
         "type": "object",
+        "description": "Email related settings for a system\n",
         "properties": {
           "defaultSmtpServer": {
             "type": "boolean",
@@ -2079,11 +1199,11 @@
             "type": "string",
             "description": "A comma separated email addresses to send all alert messages to\n"
           }
-        },
-        "description": "Email related settings for a system\n"
+        }
       },
       "EntityReference": {
         "type": "object",
+        "description": "Entity reference used to describe VCD entities\n",
         "properties": {
           "name": {
             "type": "string"
@@ -2091,15 +1211,11 @@
           "id": {
             "type": "string"
           }
-        },
-        "description": "Entity reference used to describe VCD entities\n"
+        }
       },
       "Error": {
         "type": "object",
-        "required": [
-          "message",
-          "minorErrorCode"
-        ],
+        "description": "Error type format displayed to users for exceptions emerging from openapi endpoints.\n",
         "properties": {
           "minorErrorCode": {
             "type": "string"
@@ -2111,7 +1227,10 @@
             "type": "string"
           }
         },
-        "description": "Error type format displayed to users for exceptions emerging from openapi endpoints.\n"
+        "required": [
+          "message",
+          "minorErrorCode"
+        ]
       },
       "ExecutionContext": {
         "type": "object",
@@ -2162,11 +1281,7 @@
       },
       "ExtensionPoint": {
         "type": "object",
-        "required": [
-          "enabled",
-          "extensionPointId",
-          "pluginId"
-        ],
+        "description": "Extension Point of a UI Plugin",
         "properties": {
           "extensionPointId": {
             "type": "string"
@@ -2181,10 +1296,15 @@
             "type": "boolean"
           }
         },
-        "description": "Extension Point of a UI Plugin",
-        "x-vcloud-added-in": 32
+        "required": [
+          "enabled",
+          "extensionPointId",
+          "pluginId"
+        ]
       },
       "ExtensionPointSummary": {
+        "type": "object",
+        "description": "A map of extension Points and an ordered list of items registered with that extension point",
         "properties": {
           "extensionPointRegistrations": {
             "type": "object",
@@ -2195,12 +1315,11 @@
               }
             }
           }
-        },
-        "description": "A map of extension Points and an ordered list of items registered with that extension point",
-        "x-vcloud-added-in": 32
+        }
       },
       "ExternalNetworkBacking": {
         "type": "object",
+        "description": "Information about an external network backing.\n",
         "properties": {
           "backingId": {
             "type": "string",
@@ -2219,9 +1338,7 @@
             "description": "The name of this external network backing, if it exists.",
             "x-vcloud-added-in": 33
           }
-        },
-        "description": "Information about an external network backing.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "ExternalNetworkBackingType": {
         "type": "string",
@@ -2235,6 +1352,7 @@
       },
       "ExternalNetworkBackings": {
         "type": "object",
+        "description": "List of External Network backings.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -2242,12 +1360,11 @@
               "$ref": "#/definitions/ExternalNetworkBacking"
             }
           }
-        },
-        "description": "List of External Network backings.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "FirewallGroupScope": {
         "type": "object",
+        "description": "Describes the scope and relationship that this firewall group has with other VCD entities.",
         "properties": {
           "orgRef": {
             "description": "The organization that this firewall group belongs to. This property is read-only and cannot be updated.\n",
@@ -2276,49 +1393,6 @@
           "networkProviderScope": {
             "type": "string",
             "description": "The network provider scope that this object belongs to. This is a read-only property and is determined by the input context entity ID during object creation.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        },
-        "description": "Describes the scope and relationship that this firewall group has with other VCD entities.",
-        "x-vcloud-property-annotations": {
-          "orgRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "edgeGatewayRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "contextEntityId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "networkProviderScope": {
             "x-vcloud-constraints": [
               {
                 "constraint": "NonSearchable"
@@ -2358,6 +1432,7 @@
       },
       "GatewayUsedIpAddress": {
         "type": "object",
+        "description": "Describes an IP address currently be used by the edge gateway. The IP belongs to the IPs allocated to the edge.\n",
         "properties": {
           "networkRef": {
             "description": "The external network that this IP Address belongs to.",
@@ -2370,37 +1445,6 @@
           "category": {
             "description": "The catagory that an IP can be used for.",
             "$ref": "#/definitions/GatewayUsedIpAddressCategory"
-          }
-        },
-        "description": "Describes an IP address currently be used by the edge gateway. The IP belongs to the IPs allocated to the edge.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "networkRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              }
-            ]
-          },
-          "ipAddress": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
-          },
-          "category": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
           }
         }
       },
@@ -2419,6 +1463,7 @@
       },
       "HardwareVersions": {
         "type": "object",
+        "description": "Set of supported ESXi virtual hardware versions.",
         "properties": {
           "versions": {
             "type": "array",
@@ -2426,17 +1471,11 @@
               "type": "string"
             }
           }
-        },
-        "description": "Set of supported ESXi virtual hardware versions.",
-        "x-vcloud-added-in": 33
+        }
       },
       "IkeConfig": {
         "type": "object",
-        "required": [
-          "dhGroups",
-          "encryptionAlgorithms",
-          "ikeVersion"
-        ],
+        "description": "This configuration captures the IKE and phase one negotiation parameters. This configuration can be set for peering properly with remote peers.\n",
         "properties": {
           "ikeVersion": {
             "description": "IKE Protocol Version to use. The default is IKE_V2.",
@@ -2472,8 +1511,11 @@
             "maximum": 31536000
           }
         },
-        "description": "This configuration captures the IKE and phase one negotiation parameters. This configuration can be set for peering properly with remote peers.\n",
-        "x-vcloud-added-in": 33
+        "required": [
+          "dhGroups",
+          "encryptionAlgorithms",
+          "ikeVersion"
+        ]
       },
       "IkeDigestAlgorithmType": {
         "type": "string",
@@ -2507,6 +1549,7 @@
       },
       "IkeStatus": {
         "type": "object",
+        "description": "The status for the IPSec VPN IKE Session/Tunnel. The values are UP, DOWN, and NEGOTIATING. A fail reason is also provided if the Service Status is down.\n",
         "properties": {
           "ikeServiceStatus": {
             "description": "The overall IKE Session service status.",
@@ -2516,9 +1559,7 @@
             "type": "string",
             "description": "The reason for the IKE Session establishment failure. This will only be set if the status is DOWN."
           }
-        },
-        "description": "The status for the IPSec VPN IKE Session/Tunnel. The values are UP, DOWN, and NEGOTIATING. A fail reason is also provided if the Service Status is down.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "IkeVersionType": {
         "type": "string",
@@ -2531,6 +1572,7 @@
       },
       "IpRange": {
         "type": "object",
+        "description": "An IpRange\n",
         "properties": {
           "startAddress": {
             "type": "string",
@@ -2540,11 +1582,11 @@
             "type": "string",
             "description": "Ending IP address in the range."
           }
-        },
-        "description": "An IpRange\n"
+        }
       },
       "IpRanges": {
         "type": "object",
+        "description": "List of IpRange\n",
         "properties": {
           "values": {
             "type": "array",
@@ -2552,14 +1594,11 @@
               "$ref": "#/definitions/IpRange"
             }
           }
-        },
-        "description": "List of IpRange\n"
+        }
       },
       "LdapConnectionTestResult": {
         "type": "object",
-        "required": [
-          "successful"
-        ],
+        "description": "Provides LDAP connection test results\n",
         "properties": {
           "successful": {
             "type": "boolean",
@@ -2569,10 +1608,13 @@
             "$ref": "#/definitions/Error"
           }
         },
-        "description": "Provides LDAP connection test results\n"
+        "required": [
+          "successful"
+        ]
       },
       "LdapGroupAttributesType": {
         "type": "object",
+        "description": "Defines how a group is imported from LDAP.\n",
         "properties": {
           "objectClass": {
             "type": "string"
@@ -2592,11 +1634,11 @@
           "backLinkIdentifier": {
             "type": "string"
           }
-        },
-        "description": "Defines how a group is imported from LDAP.\n"
+        }
       },
       "LdapSettings": {
         "type": "object",
+        "description": "LDAP Settings Specification\n",
         "properties": {
           "hostName": {
             "type": "string"
@@ -2665,14 +1707,11 @@
           "useExternalKerberos": {
             "type": "boolean"
           }
-        },
-        "description": "LDAP Settings Specification\n"
+        }
       },
       "LdapSettingsTestResult": {
         "type": "object",
-        "required": [
-          "successful"
-        ],
+        "description": "Provides test attribute, result, and success boolean\n",
         "properties": {
           "attribute": {
             "type": "string",
@@ -2702,10 +1741,13 @@
             "description": "Flag to indicate if the attribute is successful or not"
           }
         },
-        "description": "Provides test attribute, result, and success boolean\n"
+        "required": [
+          "successful"
+        ]
       },
       "LdapTestResult": {
         "type": "object",
+        "description": "Provides LDAP connection and settings test results\n",
         "properties": {
           "connectionTest": {
             "$ref": "#/definitions/LdapConnectionTestResult"
@@ -2716,11 +1758,11 @@
               "$ref": "#/definitions/LdapSettingsTestResult"
             }
           }
-        },
-        "description": "Provides LDAP connection and settings test results\n"
+        }
       },
       "LdapUserAttributesType": {
         "type": "object",
+        "description": "Defines how LDAP attributes are used when importing a user.\n",
         "properties": {
           "objectClass": {
             "type": "string"
@@ -2752,8 +1794,7 @@
           "groupBackLinkIdentifier": {
             "type": "string"
           }
-        },
-        "description": "Defines how LDAP attributes are used when importing a user.\n"
+        }
       },
       "Link": {
         "type": "object",
@@ -2779,10 +1820,8 @@
         }
       },
       "LocalEndpoint": {
-        "required": [
-          "localAddress",
-          "localNetworks"
-        ],
+        "type": "object",
+        "description": "This represents the endpoint/IP Address on the Edge Gateway where the tunnel needs to be terminated.\n",
         "properties": {
           "localId": {
             "type": "string",
@@ -2802,14 +1841,13 @@
             "minItems": 1
           }
         },
-        "description": "This represents the endpoint/IP Address on the Edge Gateway where the tunnel needs to be terminated.\n",
-        "x-vcloud-added-in": 33
+        "required": [
+          "localAddress",
+          "localNetworks"
+        ]
       },
       "LogicalVmGroup": {
         "type": "object",
-        "required": [
-          "name"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -2846,7 +1884,9 @@
             ]
           }
         },
-        "x-vcloud-added-in": 32
+        "required": [
+          "name"
+        ]
       },
       "NatRuleType": {
         "type": "string",
@@ -2858,6 +1898,7 @@
       },
       "Network": {
         "type": "object",
+        "description": "A network Object.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -2891,33 +1932,11 @@
             "description": "List of subnets configured for the network.",
             "$ref": "#/definitions/Subnets"
           }
-        },
-        "description": "A network Object.\n",
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "description": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "NetworkPoolBacking": {
         "type": "object",
+        "description": "Describes the backing information for a network pool. A network pool is backed by\nvSphere network resources such as VLAN Ids, portgroups, Transport Zones, etc.\n",
         "properties": {
           "vlanIdRanges": {
             "description": "The range of backing VLAN Id's. This information is available\nonly for VLAN backed network pools.\n",
@@ -2945,9 +1964,7 @@
             "description": "The Id of vCenter server or the NSX-T manager that owns this backing entity.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "Describes the backing information for a network pool. A network pool is backed by\nvSphere network resources such as VLAN Ids, portgroups, Transport Zones, etc.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "NetworkPoolBackingType": {
         "type": "string",
@@ -2963,6 +1980,7 @@
       },
       "NetworkProviderContext": {
         "type": "object",
+        "description": "Describes the network provider context of the network object.",
         "properties": {
           "orgRef": {
             "description": "The organization that this object belongs to. This property is required during creation and cannot be updated.\n",
@@ -3000,59 +2018,15 @@
               }
             ]
           }
-        },
-        "description": "Describes the network provider context of the network object.",
-        "x-vcloud-property-annotations": {
-          "orgRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "contextEntityId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "networkProviderScope": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "NetworkingObjectStatus": {
         "type": "object",
+        "description": "Represents status of a networking entity.\n",
         "properties": {
           "status": {
             "description": "Represents current status of the networking object.\n",
             "$ref": "#/definitions/NetworkingObjectStatusType",
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
-          }
-        },
-        "description": "Represents status of a networking entity.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "status": {
             "x-vcloud-added-in": 33,
             "x-vcloud-constraints": [
               {
@@ -3073,6 +2047,8 @@
         ]
       },
       "NsxTTransportZone": {
+        "type": "object",
+        "description": "Information about a configured transport zone on an NSX-T manager.\nNSX uses transport zones to provide connectivity between hypervisors.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -3086,37 +2062,6 @@
             "description": "Type of a transport zone.",
             "$ref": "#/definitions/NsxTTransportZoneType"
           }
-        },
-        "description": "Information about a configured transport zone on an NSX-T manager.\nNSX uses transport zones to provide connectivity between hypervisors.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              }
-            ]
-          },
-          "name": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              }
-            ]
-          },
-          "type": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "NsxTTransportZoneType": {
@@ -3128,6 +2073,7 @@
       },
       "NsxTTransportZones": {
         "type": "object",
+        "description": "List of transport zones configured on an NSX-T manager.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -3135,11 +2081,11 @@
               "$ref": "#/definitions/NsxTTransportZone"
             }
           }
-        },
-        "description": "List of transport zones configured on an NSX-T manager.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "NsxVTransportZone": {
+        "type": "object",
+        "description": "Information about a configured transport zone on an NSX-V manager.\nNSX uses transport zones to provide connectivity between hypervisors.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -3153,43 +2099,6 @@
             "description": "Type of a transport zone.",
             "$ref": "#/definitions/NsxVTransportZoneType"
           }
-        },
-        "description": "Information about a configured transport zone on an NSX-V manager.\nNSX uses transport zones to provide connectivity between hypervisors.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "name": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "type": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "NsxVTransportZoneType": {
@@ -3202,6 +2111,7 @@
       },
       "NsxVTransportZones": {
         "type": "object",
+        "description": "List of transport zones configured on an NSX-V manager.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -3209,12 +2119,11 @@
               "$ref": "#/definitions/NsxVTransportZone"
             }
           }
-        },
-        "description": "List of transport zones configured on an NSX-V manager.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "NsxtDnsForwarderZoneConfig": {
         "type": "object",
+        "description": "Specifies the list of domains and the DNS servers that handle those domains.",
         "properties": {
           "id": {
             "type": "string",
@@ -3240,76 +2149,20 @@
             "maxItems": 3,
             "minItems": 0
           }
-        },
-        "description": "Specifies the list of domains and the DNS servers that handle those domains.",
-        "x-vcloud-added-in": 32,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "displayName": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "dnsDomainNames": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "upstreamServers": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "ObjectVersion": {
-        "required": [
-          "version"
-        ],
+        "type": "object",
+        "description": "This property describes the current version of the entity. To prevent clients from overwriting each other's changes, update operations must include\nthe version which can be obtained by issuing a GET operation. If the version number on an update call is missing, the operation will be rejected. This is only needed\non update calls.\n",
         "properties": {
           "version": {
             "type": "integer",
             "description": "version number for the given entity."
           }
         },
-        "description": "This property describes the current version of the entity. To prevent clients from overwriting each other's changes, update operations must include\nthe version which can be obtained by issuing a GET operation. If the version number on an update call is missing, the operation will be rejected. This is only needed\non update calls.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "version": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "version"
+        ]
       },
       "OrgVdcNetworkStatus": {
         "type": "string",
@@ -3333,6 +2186,7 @@
       },
       "Page": {
         "type": "object",
+        "description": "Collection of paging-related metadata to be included by composition via allOf. This type\nshould be included in pageable responses to avoid duplicating these common properties. It\nis intended to be included by composition rather than inheritance. Because of this, it has\nno discriminator and should be embedded via allOf. See QueryResults for a reference usage.\n",
         "properties": {
           "resultTotal": {
             "type": "integer",
@@ -3358,20 +2212,19 @@
             },
             "x-vcloud-added-in": 33
           }
-        },
-        "description": "Collection of paging-related metadata to be included by composition via allOf. This type\nshould be included in pageable responses to avoid duplicating these common properties. It\nis intended to be included by composition rather than inheritance. Because of this, it has\nno discriminator and should be embedded via allOf. See QueryResults for a reference usage.\n"
+        }
       },
       "Parameter": {
         "type": "object",
-        "required": [
-          "inputType"
-        ],
-        "discriminator": "inputType",
         "properties": {
           "inputType": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "inputType"
+        ],
+        "discriminator": "inputType"
       },
       "ParameterTypes": {
         "type": "object",
@@ -3422,10 +2275,7 @@
       },
       "ParticipatingVdcReference": {
         "type": "object",
-        "required": [
-          "siteRef",
-          "vdcRef"
-        ],
+        "description": "A participating vDC\n",
         "properties": {
           "vdcRef": {
             "description": "The reference to the vDC that is part of this a vDC group.",
@@ -3452,72 +2302,14 @@
             "$ref": "#/definitions/VdcGroupEntityStatus"
           }
         },
-        "description": "A participating vDC\n",
-        "x-vcloud-property-annotations": {
-          "vdcRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "orgRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "siteRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "networkProviderScope": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "remoteOrg": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "status": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "siteRef",
+          "vdcRef"
+        ]
       },
       "PortGroup": {
         "type": "object",
+        "description": "Standard portgroup.\n",
         "properties": {
           "backingRef": {
             "description": "Contains the backing id and name of the standard portgroup.",
@@ -3527,17 +2319,10 @@
             "description": "The entity reference for the vCenter that contains this portgroup.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "Standard portgroup.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "Preference": {
         "type": "object",
-        "required": [
-          "classifier",
-          "name",
-          "value"
-        ],
         "properties": {
           "classifier": {
             "type": "string",
@@ -3551,17 +2336,15 @@
             "type": "string"
           }
         },
-        "x-vcloud-added-in": 32
+        "required": [
+          "classifier",
+          "name",
+          "value"
+        ]
       },
       "PreferenceDefinition": {
         "type": "object",
-        "required": [
-          "classifier",
-          "constrained",
-          "dataType",
-          "defaultValue",
-          "name"
-        ],
+        "description": "The Preference Definition is immutable.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -3612,8 +2395,13 @@
             }
           }
         },
-        "description": "The Preference Definition is immutable.\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "classifier",
+          "constrained",
+          "dataType",
+          "defaultValue",
+          "name"
+        ]
       },
       "Presentation": {
         "type": "object",
@@ -3652,10 +2440,6 @@
       },
       "PresentationElement": {
         "type": "object",
-        "required": [
-          "elementType"
-        ],
-        "discriminator": "elementType",
         "properties": {
           "elementType": {
             "type": "string"
@@ -3678,7 +2462,11 @@
               "$ref": "#/definitions/PresentationMessageInfo"
             }
           }
-        }
+        },
+        "required": [
+          "elementType"
+        ],
+        "discriminator": "elementType"
       },
       "PresentationExecution": {
         "type": "object",
@@ -3762,6 +2550,7 @@
       },
       "ProviderVdc": {
         "type": "object",
+        "description": "A provider vdc.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -3791,58 +2580,11 @@
             "description": "The vCenter server the pvdc belongs to.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "A provider vdc.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "providervdc"
-                  }
-                ]
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "description": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "nsxTmanager": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "vimServer": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "Proxy": {
         "type": "object",
-        "required": [
-          "name",
-          "parentId",
-          "targetHost"
-        ],
+        "description": "proxy configuration. This configures the vCD proxying capability for one specific server within the vSphere/NSX/ESX estate known to vCD.\n",
         "properties": {
           "name": {
             "type": "string",
@@ -3964,15 +2706,14 @@
             ]
           }
         },
-        "description": "proxy configuration. This configures the vCD proxying capability for one specific server within the vSphere/NSX/ESX estate known to vCD.\n",
-        "x-vcloud-added-in": 34
+        "required": [
+          "name",
+          "parentId",
+          "targetHost"
+        ]
       },
       "PvdcComputePolicy": {
         "type": "object",
-        "required": [
-          "name",
-          "pvdcId"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4034,7 +2775,11 @@
             },
             "x-vcloud-added-in": 32
           }
-        }
+        },
+        "required": [
+          "name",
+          "pvdcId"
+        ]
       },
       "Relations": {
         "type": "object",
@@ -4056,9 +2801,8 @@
         }
       },
       "RemoteEndpoint": {
-        "required": [
-          "remoteAddress"
-        ],
+        "type": "object",
+        "description": "This represents the remote endpoint i.e. the endpoint which the tunnel from the Edge Gateway will connect to.\n",
         "properties": {
           "remoteId": {
             "type": "string",
@@ -4078,11 +2822,13 @@
             "minItems": 0
           }
         },
-        "description": "This represents the remote endpoint i.e. the endpoint which the tunnel from the Edge Gateway will connect to.\n",
-        "x-vcloud-added-in": 33
+        "required": [
+          "remoteAddress"
+        ]
       },
       "ResourcePool": {
         "type": "object",
+        "description": "A vCenter Resource Pool.\n",
         "properties": {
           "moref": {
             "type": "string",
@@ -4100,14 +2846,11 @@
             "type": "boolean",
             "description": "Used in resource pool tree navigation.\nIndicates whether the resource pool is eligible or not.\n"
           }
-        },
-        "description": "A vCenter Resource Pool.\n"
+        }
       },
       "Right": {
         "type": "object",
-        "required": [
-          "name"
-        ],
+        "description": "Right\n",
         "properties": {
           "name": {
             "type": "string",
@@ -4187,14 +2930,13 @@
             ]
           }
         },
-        "description": "Right\n"
+        "required": [
+          "name"
+        ]
       },
       "RightsCategoryNode": {
         "type": "object",
-        "required": [
-          "bundleKey",
-          "name"
-        ],
+        "description": "RightsCategoryNode\n",
         "properties": {
           "name": {
             "type": "string",
@@ -4255,10 +2997,14 @@
             }
           }
         },
-        "description": "RightsCategoryNode\n"
+        "required": [
+          "bundleKey",
+          "name"
+        ]
       },
       "RightsCount": {
         "type": "object",
+        "description": "RightsCount - A count of rights in a given category by type\n",
         "properties": {
           "view": {
             "type": "integer",
@@ -4276,15 +3022,11 @@
               }
             ]
           }
-        },
-        "description": "RightsCount - A count of rights in a given category by type\n"
+        }
       },
       "RightsMapping": {
         "type": "object",
-        "required": [
-          "description",
-          "name"
-        ],
+        "description": "RightsMapping\n",
         "properties": {
           "name": {
             "type": "string",
@@ -4324,10 +3066,14 @@
             ]
           }
         },
-        "description": "RightsMapping\n"
+        "required": [
+          "description",
+          "name"
+        ]
       },
       "RouterComponentHealth": {
         "type": "object",
+        "description": "A ComponentHealth object\n",
         "properties": {
           "component": {
             "type": "string"
@@ -4344,8 +3090,7 @@
           "code": {
             "type": "integer"
           }
-        },
-        "description": "A ComponentHealth object\n"
+        }
       },
       "RouterComponentStatus": {
         "type": "string",
@@ -4357,6 +3102,7 @@
       },
       "RouterConnection": {
         "type": "object",
+        "description": "Describes the connection between a routed network and an edge gateway. This must be set if converting from an isolated to a routed network.\n",
         "properties": {
           "routerRef": {
             "description": "The edge gateway that this network is attached to.",
@@ -4371,17 +3117,11 @@
             "description": "Whether network is marked as connected in NSX.",
             "default": true
           }
-        },
-        "description": "Describes the connection between a routed network and an edge gateway. This must be set if converting from an isolated to a routed network.\n",
-        "x-vcloud-added-in": 31,
-        "x-vcloud-property-annotations": {
-          "connected": {
-            "x-vcloud-added-in": 33
-          }
         }
       },
       "RouterDnsConfig": {
         "type": "object",
+        "description": "A RouterDnsConfig object\n",
         "properties": {
           "enabled": {
             "type": "boolean"
@@ -4392,33 +3132,11 @@
               "type": "string"
             }
           }
-        },
-        "description": "A RouterDnsConfig object\n",
-        "x-vcloud-property-annotations": {
-          "enabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "nameServers": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "RouterHealthReport": {
         "type": "object",
+        "description": "Health Report of a Router\n",
         "properties": {
           "nsxManagersHealth": {
             "type": "array",
@@ -4445,57 +3163,11 @@
               "$ref": "#/definitions/RouterComponentHealth"
             }
           }
-        },
-        "description": "Health Report of a Router\n",
-        "x-vcloud-property-annotations": {
-          "nsxManagersHealth": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "controlVmHealth": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "controlPlaneHealth": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "vdcReachabilityStatus": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "Sddc": {
         "type": "object",
-        "required": [
-          "name",
-          "vcId"
-        ],
+        "description": "Software-defined data center\n",
         "properties": {
           "name": {
             "type": "string",
@@ -4580,11 +3252,14 @@
             "$ref": "#/definitions/SddcEndpoint"
           }
         },
-        "description": "Software-defined data center\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "name",
+          "vcId"
+        ]
       },
       "SddcEndpoint": {
         "type": "object",
+        "description": "An available network connections exposed by the SDDC",
         "properties": {
           "endpoint": {
             "type": "string",
@@ -4605,17 +3280,11 @@
               }
             ]
           }
-        },
-        "description": "An available network connections exposed by the SDDC",
-        "x-vcloud-added-in": 33
+        }
       },
       "SddcProxy": {
         "type": "object",
-        "required": [
-          "name",
-          "sddcId",
-          "targetHost"
-        ],
+        "description": "SDDC proxy configuration\n",
         "properties": {
           "name": {
             "type": "string",
@@ -4727,11 +3396,15 @@
             "default": ""
           }
         },
-        "description": "SDDC proxy configuration\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "name",
+          "sddcId",
+          "targetHost"
+        ]
       },
       "SddcStat": {
         "type": "object",
+        "description": "A collection of measurements for the SDDC resource\n",
         "properties": {
           "numTotal": {
             "type": "integer",
@@ -4751,12 +3424,11 @@
             "description": "Reserved resource allocation.",
             "minimum": 0
           }
-        },
-        "description": "A collection of measurements for the SDDC resource\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "SddcStats": {
         "type": "object",
+        "description": "A read-only list of resource allocations for the associated SDDC\n",
         "properties": {
           "totalVMs": {
             "type": "integer",
@@ -4778,9 +3450,7 @@
             "description": "Storage statistics of the SDDC (values in MB).",
             "$ref": "#/definitions/SddcStat"
           }
-        },
-        "description": "A read-only list of resource allocations for the associated SDDC\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "Service": {
         "type": "object",
@@ -4805,12 +3475,7 @@
       },
       "ServiceApp": {
         "type": "object",
-        "required": [
-          "clientId",
-          "clientSecret",
-          "name",
-          "serviceScope"
-        ],
+        "description": "A VMware service application\n",
         "properties": {
           "id": {
             "type": "string",
@@ -4851,8 +3516,12 @@
             "default": true
           }
         },
-        "description": "A VMware service application\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "clientId",
+          "clientSecret",
+          "name",
+          "serviceScope"
+        ]
       },
       "ServiceAppScope": {
         "type": "string",
@@ -4865,10 +3534,6 @@
       },
       "ServiceItem": {
         "type": "object",
-        "required": [
-          "serviceItemType"
-        ],
-        "discriminator": "serviceItemType",
         "properties": {
           "id": {
             "type": "string"
@@ -4910,10 +3575,15 @@
             "description": "Read-only value indicating publishAll state\n",
             "default": false
           }
-        }
+        },
+        "required": [
+          "serviceItemType"
+        ],
+        "discriminator": "serviceItemType"
       },
       "Session": {
         "type": "object",
+        "description": "Session\n",
         "properties": {
           "id": {
             "type": "string",
@@ -4947,12 +3617,11 @@
               "type": "string"
             }
           }
-        },
-        "description": "Session\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "SmtpServerSpec": {
         "type": "object",
+        "description": "Represent the settings of an SMTP Server which the system uses to send email notifications and alerts\n",
         "properties": {
           "useAuthentication": {
             "type": "boolean",
@@ -4990,11 +3659,11 @@
             "type": "string",
             "description": "A human readable name of the entity"
           }
-        },
-        "description": "Represent the settings of an SMTP Server which the system uses to send email notifications and alerts\n"
+        }
       },
       "StorageProfile": {
         "type": "object",
+        "description": "A Storage Profile.\n",
         "properties": {
           "moref": {
             "type": "string",
@@ -5004,15 +3673,11 @@
             "type": "string",
             "description": "The name of the Storage Profile."
           }
-        },
-        "description": "A Storage Profile.\n"
+        }
       },
       "Subnet": {
         "type": "object",
-        "required": [
-          "gateway",
-          "prefixLength"
-        ],
+        "description": "A network subnet defined by its gateway,\n",
         "properties": {
           "gateway": {
             "type": "string",
@@ -5052,97 +3717,14 @@
             "description": "The number of IP address used from the static IP ranges."
           }
         },
-        "description": "A network subnet defined by its gateway,\n",
-        "x-vcloud-property-annotations": {
-          "prefixLength": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "dnsSuffix": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "dnsServer1": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "dnsServer2": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "ipRanges": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "enabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "totalIpCount": {
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "usedIpCount": {
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "gateway",
+          "prefixLength"
+        ]
       },
       "Subnets": {
         "type": "object",
+        "description": "List of Subnets of a network\n",
         "properties": {
           "values": {
             "type": "array",
@@ -5150,8 +3732,7 @@
               "$ref": "#/definitions/Subnet"
             }
           }
-        },
-        "description": "List of Subnets of a network\n"
+        }
       },
       "SupportedConstraints": {
         "type": "object",
@@ -5232,6 +3813,7 @@
       },
       "Tier0Routers": {
         "type": "object",
+        "description": "List of NSX-T's Tier-0 routers.\n",
         "properties": {
           "values": {
             "type": "array",
@@ -5239,16 +3821,11 @@
               "$ref": "#/definitions/Tier0Router"
             }
           }
-        },
-        "description": "List of NSX-T's Tier-0 routers.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "Token": {
         "type": "object",
-        "required": [
-          "id",
-          "userId"
-        ],
+        "description": "Specifies a user, the user's organization, and the user assigned token that can be used to\n access proxies as well as the expiration timestamp of the token (in UTC). Parameters cannot\n be edited once a token is created.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -5337,15 +3914,14 @@
             ]
           }
         },
-        "description": "Specifies a user, the user's organization, and the user assigned token that can be used to\n access proxies as well as the expiration timestamp of the token (in UTC). Parameters cannot\n be edited once a token is created.\n",
-        "x-vcloud-added-in": 33
+        "required": [
+          "id",
+          "userId"
+        ]
       },
       "TunnelConfig": {
         "type": "object",
-        "required": [
-          "dhGroups",
-          "encryptionAlgorithms"
-        ],
+        "description": "This configuration captures phase two negotiation parameters and tunnel properties.\n",
         "properties": {
           "perfectForwardSecrecyEnabled": {
             "type": "boolean",
@@ -5386,8 +3962,10 @@
             "maximum": 31536000
           }
         },
-        "description": "This configuration captures phase two negotiation parameters and tunnel properties.\n",
-        "x-vcloud-added-in": 33
+        "required": [
+          "dhGroups",
+          "encryptionAlgorithms"
+        ]
       },
       "TunnelDigestAlgorithmType": {
         "type": "string",
@@ -5433,10 +4011,7 @@
       },
       "UiBranding": {
         "type": "object",
-        "required": [
-          "customLinks",
-          "portalName"
-        ],
+        "description": "A branding object with the portal name, portal color, selected theme and custom URLs.\n",
         "properties": {
           "portalName": {
             "type": "string"
@@ -5455,13 +4030,14 @@
             }
           }
         },
-        "description": "A branding object with the portal name, portal color, selected theme and custom URLs.\n"
+        "required": [
+          "customLinks",
+          "portalName"
+        ]
       },
       "UiBrandingMenuItem": {
         "type": "object",
-        "required": [
-          "menuItemType"
-        ],
+        "description": "An ordered list of menu items which can be customized and used in the application. Can be defined as a\nlink,\noverride (well known links that can be overridden, Default values are About, Help, VMRC),\nsection,\nseparator(section without a name) of the drop down menu.\n",
         "properties": {
           "name": {
             "type": "string"
@@ -5479,18 +4055,13 @@
             "type": "string"
           }
         },
-        "description": "An ordered list of menu items which can be customized and used in the application. Can be defined as a\nlink,\noverride (well known links that can be overridden, Default values are About, Help, VMRC),\nsection,\nseparator(section without a name) of the drop down menu.\n",
-        "x-vcloud-added-in": 32
+        "required": [
+          "menuItemType"
+        ]
       },
       "UiPluginMetadata": {
         "type": "object",
-        "required": [
-          "license",
-          "link",
-          "pluginName",
-          "vendor",
-          "version"
-        ],
+        "description": "Meta information about a UI Plugin\n",
         "properties": {
           "pluginName": {
             "type": "string"
@@ -5520,14 +4091,17 @@
             "type": "boolean"
           }
         },
-        "description": "Meta information about a UI Plugin\n"
+        "required": [
+          "license",
+          "link",
+          "pluginName",
+          "vendor",
+          "version"
+        ]
       },
       "UiTheme": {
         "type": "object",
-        "required": [
-          "name",
-          "themeType"
-        ],
+        "description": "A theme supported by vCloud Director.\n",
         "properties": {
           "themeType": {
             "type": "string"
@@ -5536,10 +4110,14 @@
             "type": "string"
           }
         },
-        "description": "A theme supported by vCloud Director.\n"
+        "required": [
+          "name",
+          "themeType"
+        ]
       },
       "UniversalEgressRoutes": {
         "type": "object",
+        "description": "Object consisting of Egress Points and Universal Routes for a Universal Router.\n",
         "properties": {
           "egressPoints": {
             "description": "The list of Egress Points for routing configuration. This is read-only.",
@@ -5549,39 +4127,11 @@
             "description": "The list of Universal Routes for routing configuration.\n",
             "$ref": "#/definitions/UniversalRoutes"
           }
-        },
-        "description": "Object consisting of Egress Points and Universal Routes for a Universal Router.\n",
-        "x-vcloud-property-annotations": {
-          "egressPoints": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "universalRoutes": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "UniversalRoute": {
         "type": "object",
-        "required": [
-          "networkProviderScope"
-        ],
+        "description": "A Route for a Universal Router.\n",
         "properties": {
           "defaultEgress": {
             "description": "For a given route, routing by default will go through the default egress point. Every valid/configured route will have a default egress point.",
@@ -5603,66 +4153,13 @@
             "type": "string"
           }
         },
-        "description": "A Route for a Universal Router.\n",
-        "x-vcloud-property-annotations": {
-          "defaultEgress": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "standbyEgress": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "networkProviderScope": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "status": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "errorMessage": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "networkProviderScope"
+        ]
       },
       "UniversalRouter": {
         "type": "object",
-        "required": [
-          "name",
-          "vdcGroupRef"
-        ],
+        "description": "A UniversalRouter object\n",
         "properties": {
           "id": {
             "type": "string"
@@ -5686,90 +4183,14 @@
             "type": "string"
           }
         },
-        "description": "A UniversalRouter object\n",
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "universalRouter"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              }
-            ]
-          },
-          "name": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "description": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "vdcGroupRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "localEgress": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "status": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "errorMessage": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "name",
+          "vdcGroupRef"
+        ]
       },
       "UniversalRouterDhcpConfig": {
         "type": "object",
+        "description": "A UniversalRouterDhcpConfig object.\n",
         "properties": {
           "enabled": {
             "type": "boolean"
@@ -5780,33 +4201,11 @@
               "$ref": "#/definitions/UniversalRouterDhcpServer"
             }
           }
-        },
-        "description": "A UniversalRouterDhcpConfig object.\n",
-        "x-vcloud-property-annotations": {
-          "enabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "servers": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "UniversalRouterDhcpServer": {
         "type": "object",
+        "description": "List of Dhcp servers for universal router.\nEither egressRef or serverAddress is required to identify Dhcp server.\n",
         "properties": {
           "egressRef": {
             "$ref": "#/definitions/EntityReference"
@@ -5814,11 +4213,11 @@
           "serverAddress": {
             "type": "string"
           }
-        },
-        "description": "List of Dhcp servers for universal router.\nEither egressRef or serverAddress is required to identify Dhcp server.\n"
+        }
       },
       "UniversalRouters": {
         "type": "object",
+        "description": "List of Universal Routers\n",
         "properties": {
           "values": {
             "type": "array",
@@ -5826,11 +4225,11 @@
               "$ref": "#/definitions/UniversalRouter"
             }
           }
-        },
-        "description": "List of Universal Routers\n"
+        }
       },
       "UniversalRoutes": {
         "type": "object",
+        "description": "List of routes associated with a Universal Router.\n",
         "properties": {
           "keepAliveTimer": {
             "type": "integer",
@@ -5849,29 +4248,6 @@
             "items": {
               "type": "string"
             }
-          }
-        },
-        "description": "List of routes associated with a Universal Router.\n",
-        "x-vcloud-property-annotations": {
-          "keepAliveTimer": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "providerScopesToForceUnconfigure": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
           }
         }
       },
@@ -5917,10 +4293,7 @@
       },
       "UploadSpec": {
         "type": "object",
-        "required": [
-          "fileName",
-          "size"
-        ],
+        "description": "Information about upload\n",
         "properties": {
           "fileName": {
             "type": "string"
@@ -5941,7 +4314,10 @@
             ]
           }
         },
-        "description": "Information about upload\n"
+        "required": [
+          "fileName",
+          "size"
+        ]
       },
       "Url": {
         "type": "object",
@@ -5961,6 +4337,7 @@
       },
       "UsedIpAddress": {
         "type": "object",
+        "description": "Describes a used IP address for a network.\n",
         "properties": {
           "entityId": {
             "type": "string",
@@ -5994,91 +4371,6 @@
             "description": "The organization that this entity belongs to.\n",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "Describes a used IP address for a network.\n",
-        "x-vcloud-added-in": 33,
-        "x-vcloud-property-annotations": {
-          "entityId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "gateway"
-                  },
-                  {
-                    "arg": "vm"
-                  }
-                ]
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "entityName": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "vAppName": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "deployed": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "allocationType": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "networkRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "orgRef": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "UsedIpAddressAllocationType": {
@@ -6091,6 +4383,7 @@
       },
       "User": {
         "type": "object",
+        "description": "User Spec object\n",
         "properties": {
           "username": {
             "type": "string"
@@ -6152,11 +4445,11 @@
           "inSync": {
             "type": "boolean"
           }
-        },
-        "description": "User Spec object\n"
+        }
       },
       "UserGroup": {
         "type": "object",
+        "description": "Group Spec object\n",
         "properties": {
           "name": {
             "type": "string"
@@ -6185,11 +4478,11 @@
               "OAUTH"
             ]
           }
-        },
-        "description": "Group Spec object\n"
+        }
       },
       "VROServiceInfo": {
         "type": "object",
+        "description": "Response type with meta information about a vRealize Orchestrator Service\n",
         "properties": {
           "id": {
             "type": "string",
@@ -6220,14 +4513,10 @@
             "type": "string",
             "description": "SSL Certificate chain for the VRO endpoint\n"
           }
-        },
-        "description": "Response type with meta information about a vRealize Orchestrator Service\n"
+        }
       },
       "VdcComputePolicy": {
         "type": "object",
-        "required": [
-          "name"
-        ],
         "properties": {
           "id": {
             "type": "string",
@@ -6411,27 +4700,13 @@
             "x-vcloud-added-in": 33
           }
         },
-        "x-vcloud-property-annotations": {
-          "pvdcComputePolicyRef": {
-            "x-vcloud-added-in": 31,
-            "x-vcloud-deprecated-in": 32,
-            "x-vcloud-deprecated-alternative": "pvdcComputePolicy",
-            "x-vcloud-removed-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
-          },
-          "pvdcComputePolicy": {
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
-          }
-        }
+        "required": [
+          "name"
+        ]
       },
       "VdcGroup": {
         "type": "object",
-        "required": [
-          "name",
-          "orgId",
-          "participatingOrgVdcs"
-        ],
+        "description": "A vCD Group.\n",
         "properties": {
           "id": {
             "type": "string",
@@ -6473,97 +4748,11 @@
             "description": "If the group has an error status, a more detailed error message is set here."
           }
         },
-        "description": "A vCD Group.\n",
-        "x-vcloud-property-annotations": {
-          "id": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "vdcGroup"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "orgId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "description": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "participatingOrgVdcs": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "universalNetworkingEnabled": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
-          },
-          "networkPoolUniversalId": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "status": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "errorMessage": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
-        }
+        "required": [
+          "name",
+          "orgId",
+          "participatingOrgVdcs"
+        ]
       },
       "VdcGroupEntityStatus": {
         "type": "string",
@@ -6591,6 +4780,7 @@
       },
       "VdcNetworkDhcpConfig": {
         "type": "object",
+        "description": "Configuration for the DHCP service that runs on the network.\n",
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -6603,12 +4793,11 @@
               "$ref": "#/definitions/VdcNetworkDhcpPool"
             }
           }
-        },
-        "description": "Configuration for the DHCP service that runs on the network.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "VdcNetworkDhcpPool": {
         "type": "object",
+        "description": "A range of DHCP ip addresses and its lease time configuration.\n",
         "properties": {
           "enabled": {
             "type": "boolean",
@@ -6627,9 +4816,7 @@
             "description": "Default lease time in seconds",
             "minimum": 0
           }
-        },
-        "description": "A range of DHCP ip addresses and its lease time configuration.\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "VdcNetworkFenceType": {
         "type": "string",
@@ -6645,6 +4832,7 @@
       },
       "VdcNetworkProfile": {
         "type": "object",
+        "description": "A vDC Network Profile object.\n",
         "properties": {
           "primaryEdgeCluster": {
             "description": "The Edge Cluster where the primary appliance for an NSX-V Edge Gateway will be deployed.",
@@ -6654,34 +4842,11 @@
             "description": "The Edge Cluster where the secondary appliance for an NSX-V Edge Gateway will be deployed if HA is enabled on the Edge.",
             "$ref": "#/definitions/EntityReference"
           }
-        },
-        "description": "A vDC Network Profile object.\n",
-        "x-vcloud-added-in": 32,
-        "x-vcloud-property-annotations": {
-          "primaryEdgeCluster": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          },
-          "secondaryEdgeCluster": {
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
-          }
         }
       },
       "VlanIdRange": {
         "type": "object",
+        "description": "An object representing VLAN Id range.\n",
         "properties": {
           "startId": {
             "type": "integer",
@@ -6691,12 +4856,11 @@
             "type": "integer",
             "description": "Ending VLAN Id in the range."
           }
-        },
-        "description": "An object representing VLAN Id range.\n",
-        "x-vcloud-added-in": 33
+        }
       },
       "VlanIdRanges": {
         "type": "object",
+        "description": "List of IpRange\n",
         "properties": {
           "values": {
             "type": "array",
@@ -6704,11 +4868,11 @@
               "$ref": "#/definitions/VlanIdRange"
             }
           }
-        },
-        "description": "List of IpRange\n"
+        }
       },
       "VmcSddc": {
         "type": "object",
+        "description": "A VMware Cloud on AWS SDDC\n",
         "properties": {
           "id": {
             "type": "string",
@@ -6718,12 +4882,11 @@
             "type": "string",
             "description": "The name of the VMC SDDC. This field is read-only."
           }
-        },
-        "description": "A VMware Cloud on AWS SDDC\n",
-        "x-vcloud-added-in": 32
+        }
       },
       "VroRemoteInventoryItem": {
         "type": "object",
+        "description": "Meta information about an inventory item on a vRealize Orchestrator server\n",
         "properties": {
           "href": {
             "type": "string"
@@ -6737,11 +4900,11 @@
           "relations": {
             "$ref": "#/definitions/Relations"
           }
-        },
-        "description": "Meta information about an inventory item on a vRealize Orchestrator server\n"
+        }
       },
       "VroRemoteItem": {
         "type": "object",
+        "description": "Information about various objects in vRealize Orchestrator server\n",
         "properties": {
           "name": {
             "type": "string"
@@ -6773,11 +4936,11 @@
           "rel": {
             "type": "string"
           }
-        },
-        "description": "Information about various objects in vRealize Orchestrator server\n"
+        }
       },
       "VroRemoteItems": {
         "type": "object",
+        "description": "A list of objects in vRealize orchestrator server\n",
         "properties": {
           "remoteItems": {
             "type": "array",
@@ -6791,11 +4954,11 @@
           "pageCount": {
             "type": "integer"
           }
-        },
-        "description": "A list of objects in vRealize orchestrator server\n"
+        }
       },
       "VroRemotePluginItem": {
         "type": "object",
+        "description": "A plugin namespaces for whom type information can be retrieved\n",
         "properties": {
           "name": {
             "type": "string"
@@ -6809,11 +4972,11 @@
           "canHaveChildren": {
             "type": "boolean"
           }
-        },
-        "description": "A plugin namespaces for whom type information can be retrieved\n"
+        }
       },
       "VroRemotePluginItems": {
         "type": "object",
+        "description": "List of plugin namespaces\n",
         "properties": {
           "items": {
             "type": "array",
@@ -6821,11 +4984,11 @@
               "$ref": "#/definitions/VroRemotePluginItem"
             }
           }
-        },
-        "description": "List of plugin namespaces\n"
+        }
       },
       "VroRemotePluginType": {
         "type": "object",
+        "description": "Type definition for a plugin namespace\n",
         "properties": {
           "name": {
             "type": "string"
@@ -6836,11 +4999,11 @@
           "canHaveChildren": {
             "type": "boolean"
           }
-        },
-        "description": "Type definition for a plugin namespace\n"
+        }
       },
       "VroRemotePluginTypes": {
         "type": "object",
+        "description": "A list of defined types for a particular plugin namespace\n",
         "properties": {
           "types": {
             "type": "array",
@@ -6851,11 +5014,11 @@
           "namespace": {
             "type": "string"
           }
-        },
-        "description": "A list of defined types for a particular plugin namespace\n"
+        }
       },
       "VroRemoteWorkflowItem": {
         "type": "object",
+        "description": "Meta information about a workflow on a vRealize Orchestrator server\n",
         "properties": {
           "name": {
             "type": "string"
@@ -6875,8 +5038,7 @@
           "vroServerId": {
             "type": "string"
           }
-        },
-        "description": "Meta information about a workflow on a vRealize Orchestrator server\n"
+        }
       },
       "WsAttribute": {
         "type": "object",
@@ -7019,6 +5181,7 @@
             "$ref": "#/components/schemas/NetworkingObjectStatus"
           },
           {
+            "type": "object",
             "properties": {
               "id": {
                 "type": "string",
@@ -7490,30 +5653,6 @@
                 "description": "Used for create and update api calls. If set to true, IP Ranges are automatically generated based on totalIpCount.",
                 "default": false
               }
-            },
-            "x-vcloud-property-annotations": {
-              "primaryIp": {
-                "x-vcloud-added-in": 33,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
-              },
-              "autoAllocateIpRanges": {
-                "x-vcloud-added-in": 33,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
-              }
             }
           }
         ],
@@ -7638,41 +5777,6 @@
                 "type": "integer",
                 "description": "The number of IP address used from the static ip pools."
               }
-            },
-            "x-vcloud-property-annotations": {
-              "networkBackings": {
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
-              },
-              "totalIpCount": {
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "ReadOnly"
-                  },
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
-              },
-              "usedIpCount": {
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "ReadOnly"
-                  },
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
-              }
             }
           }
         ],
@@ -7733,6 +5837,7 @@
       "FirewallGroupSummary": {
         "allOf": [
           {
+            "type": "object",
             "properties": {
               "id": {
                 "type": "string",
@@ -7993,72 +6098,6 @@
               "managingOwnerRef": {
                 "description": "The Id of vCenter server or the NSX-T manager that manages backings for this network pool.",
                 "$ref": "#/definitions/EntityReference",
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "ReadOnly"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
-              }
-            },
-            "x-vcloud-property-annotations": {
-              "id": {
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "Urn",
-                    "args": [
-                      {
-                        "arg": "networkpool"
-                      }
-                    ]
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  },
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
-              },
-              "description": {
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
-              },
-              "totalBackingsCount": {
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  },
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
-              },
-              "usedBackingsCount": {
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  },
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
-              },
-              "managingOwnerRef": {
                 "x-vcloud-constraints": [
                   {
                     "constraint": "ReadOnly"
@@ -8947,18 +6986,6 @@
                 "items": {
                   "type": "string"
                 }
-              }
-            },
-            "x-vcloud-property-annotations": {
-              "ipAddresses": {
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
               }
             }
           }

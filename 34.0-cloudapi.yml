@@ -6,6 +6,9 @@ components:
   schemas:
     AccessibleLocation:
       type: object
+      description: 'A location accessible to this session.
+
+        '
       properties:
         locationId:
           type: string
@@ -27,12 +30,17 @@ components:
           type: string
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'A location accessible to this session.
-
-        '
-      x-vcloud-added-in: 33
     AllocatedIpAddress:
       type: object
+      description: 'Describes an allocated IP address for a network. IP addresses
+        can be allocated
+
+        to a vApp VM, an edge gateway interface or may be used in a NAT routed environment.
+
+        If the address is allocated to an edge gateway, the name of the entity will
+        be ''Edge Gateway''.
+
+        '
       properties:
         id:
           type: string
@@ -68,55 +76,6 @@ components:
 
             '
           $ref: '#/definitions/EntityReference'
-      description: 'Describes an allocated IP address for a network. IP addresses
-        can be allocated
-
-        to a vApp VM, an edge gateway interface or may be used in a NAT routed environment.
-
-        If the address is allocated to an edge gateway, the name of the entity will
-        be ''Edge Gateway''.
-
-        '
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        entityId:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: gateway
-                - arg: vm
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        entityName:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        vAppName:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        deployed:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        allocationType:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkRef:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        orgRef:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     AllocatedIpAddressAllocationType:
       type: string
       description: 'The possible allocation types for allocated network address.
@@ -135,6 +94,10 @@ components:
         - VSM_ALLOCATED
     ApplicationPortList:
       type: object
+      description: 'A set of ports and the protocol supported by a application port
+        profile.
+
+        '
       properties:
         name:
           type: string
@@ -148,21 +111,6 @@ components:
             to. Valid values include single ports and a range of ports.
           items:
             type: string
-      description: 'A set of ports and the protocol supported by a application port
-        profile.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        protocol:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        destinationPorts:
-          x-vcloud-constraints:
-            - constraint: NonSortable
     ApplicationPortProfileScopeType:
       type: string
       description: 'The definition scope of an Application Port Profile.
@@ -193,6 +141,9 @@ components:
         - ICMPv6
     Association:
       type: object
+      description: 'Site association information for an entity
+
+        '
       properties:
         entityId:
           type: string
@@ -200,11 +151,11 @@ components:
         associationId:
           type: string
           description: ID of the association.
-      description: 'Site association information for an entity
-
-        '
     AuditTrailEvent:
       type: object
+      description: 'AuditTrailEvent
+
+        '
       properties:
         eventId:
           type: string
@@ -266,11 +217,11 @@ components:
             - constraint: NonSortable
           x-vcloud-restricted: Visible to users with the 'Perform Administrator Queries'
             right
-      description: 'AuditTrailEvent
-
-        '
     AvailableIpPoolSubnet:
       type: object
+      description: 'Describes an available IP address.
+
+        '
       properties:
         gateway:
           type: string
@@ -288,47 +239,16 @@ components:
         totalIpCount:
           type: integer
           description: The total number of available IP addresses.
-      description: 'Describes an available IP address.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        gateway:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        prefixLength:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        enabled:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        ipRanges:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        totalIpCount:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
     AvailableIpPoolSubnets:
       type: object
+      description: 'List of available IP addresses.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/AvailableIpPoolSubnet'
-      description: 'List of available IP addresses.
-
-        '
-      x-vcloud-added-in: 33
     BackingNetworkType:
       type: string
       description: 'The backing network type.
@@ -343,6 +263,9 @@ components:
         - NSXT_FLEXIBLE_SEGMENT
     BackingRef:
       type: object
+      description: 'Backing Id for an entity not owned by VCD.
+
+        '
       properties:
         id:
           type: string
@@ -350,12 +273,11 @@ components:
         name:
           type: string
           description: The name of backing entity.
-      description: 'Backing Id for an entity not owned by VCD.
-
-        '
-      x-vcloud-added-in: 33
     Capability:
       type: object
+      description: 'Describes a capability of an entity.
+
+        '
       properties:
         name:
           type: string
@@ -375,10 +297,6 @@ components:
         category:
           description: The category of the capabilities listed.
           $ref: '#/definitions/CapabilityCategory'
-      description: 'Describes a capability of an entity.
-
-        '
-      x-vcloud-added-in: 32
     CapabilityCategory:
       type: string
       description: 'Describes the category of the capability.
@@ -403,6 +321,9 @@ components:
         - List
     Cell:
       type: object
+      description: 'A vCloud Director cell.
+
+        '
       properties:
         id:
           type: string
@@ -442,11 +363,9 @@ components:
           description: The product version of the cell.
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'A vCloud Director cell.
-
-        '
-      x-vcloud-added-in: 33
     CommonNsxTRouterFields:
+      type: object
+      description: Common fields that all Tier-0 or Tier-1 routers have.
       properties:
         id:
           type: string
@@ -457,12 +376,11 @@ components:
         displayName:
           type: string
           description: Name used in NSX-T's logs or GUI. Field is sortable.
-      description: Common fields that all Tier-0 or Tier-1 routers have.
     Connection:
       type: object
-      required:
-        - host
-        - port
+      description: 'Connection to test.
+
+        '
       properties:
         host:
           type: string
@@ -483,10 +401,9 @@ components:
           default: 10
         proxyConnection:
           $ref: '#/definitions/ProxyConnection'
-      description: 'Connection to test.
-
-        '
-      x-vcloud-added-in: 34
+      required:
+        - host
+        - port
     ConnectorInitiationMode:
       type: string
       description: This is used by a local endpoint to establish ike connection with
@@ -497,17 +414,14 @@ components:
         - ON_DEMAND
     Constraint:
       type: object
-      required:
-        - constraintType
-      discriminator: constraintType
       properties:
         constraintType:
           type: string
+      required:
+        - constraintType
+      discriminator: constraintType
     CreateCustomEntityTypeAction:
       type: object
-      required:
-        - workflowId
-        - workflowInputParameter
       properties:
         workflowId:
           type: string
@@ -520,6 +434,9 @@ components:
             entity type should be mapped.
 
             '
+      required:
+        - workflowId
+        - workflowInputParameter
     CustomEntities:
       type: object
       properties:
@@ -529,8 +446,6 @@ components:
             $ref: '#/definitions/CustomEntity'
     CustomEntity:
       type: object
-      required:
-        - name
       properties:
         id:
           type: string
@@ -544,6 +459,8 @@ components:
           description: 'This refers to UUID of custom entity type
 
             '
+      required:
+        - name
     CustomEntityType:
       type: object
       properties:
@@ -586,9 +503,6 @@ components:
           default: false
     CustomEntityTypeAction:
       type: object
-      required:
-        - name
-        - workflowId
       properties:
         name:
           type: string
@@ -606,6 +520,9 @@ components:
             entity type should be mapped.
 
             '
+      required:
+        - name
+        - workflowId
     CustomEntityTypeActions:
       type: object
       properties:
@@ -615,12 +532,12 @@ components:
             $ref: '#/definitions/CustomEntityTypeAction'
     Decorator:
       type: object
-      required:
-        - decoratorType
-      discriminator: decoratorType
       properties:
         decoratorType:
           type: string
+      required:
+        - decoratorType
+      discriminator: decoratorType
     DfPolicyType:
       type: string
       description: 'Defragmentation Policy helps to handle defragmentation bits present
@@ -654,6 +571,9 @@ components:
         - GROUP21
     DistributedPortGroup:
       type: object
+      description: 'Distributed portgroup.
+
+        '
       properties:
         backingRef:
           description: Contains the backing id and name of the distributed portgroup.
@@ -670,14 +590,15 @@ components:
           description: The distributed virtual switch on which this distributed virtual
             portgroup was created.
           $ref: '#/definitions/DvSwitch'
-      description: 'Distributed portgroup.
-
-        '
-      x-vcloud-added-in: 33
     DpdConfig:
       type: object
-      required:
-        - probeInterval
+      description: 'Specifies the Dead Peer Detection Profile. This configurations
+        determines the number of seconds to wait in time between probes
+
+        to detect if an IPSec peer is alive or not. The default value for the DPD
+        probe interval is 60 seconds.
+
+        '
       properties:
         probeInterval:
           type: integer
@@ -686,16 +607,13 @@ components:
             is 60 seconds.
           minimum: 3
           maximum: 60
-      description: 'Specifies the Dead Peer Detection Profile. This configurations
-        determines the number of seconds to wait in time between probes
-
-        to detect if an IPSec peer is alive or not. The default value for the DPD
-        probe interval is 60 seconds.
-
-        '
-      x-vcloud-added-in: 33
+      required:
+        - probeInterval
     DvSwitch:
       type: object
+      description: 'Distributed virtual switch.
+
+        '
       properties:
         backingRef:
           description: Contains the backing id and name of the distributed virtual
@@ -705,22 +623,20 @@ components:
           description: The entity reference for the vCenter that contains this distributed
             virtual switch.
           $ref: '#/definitions/EntityReference'
-      description: 'Distributed virtual switch.
-
-        '
-      x-vcloud-added-in: 33
     DvpgProperties:
       type: object
+      description: A list of DvpgProperty for all the DVPG's backing a network
       properties:
         dvpgProperties:
           type: array
           description: List of DvpgProperty for each DVPG backing this network
           items:
             $ref: '#/definitions/DvpgProperty'
-      description: A list of DvpgProperty for all the DVPG's backing a network
-      x-vcloud-added-in: 34
     DvpgProperty:
       type: object
+      description: 'A set of properties which can be managed on a DVPG
+
+        '
       properties:
         dvpgMoref:
           type: string
@@ -734,31 +650,11 @@ components:
         dvSwitch:
           description: The DVSwitch that this DVPG was created on
           $ref: '#/definitions/DvSwitch'
-      description: 'A set of properties which can be managed on a DVPG
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        dvpgMoref:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        promiscuousMode:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        forgedTransmit:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        dvSwitch:
-          x-vcloud-contraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgeBgpBfdConfig:
       type: object
+      description: 'Describes BFD configuration for failure detection.
+
+        '
       properties:
         enabled:
           type: boolean
@@ -780,28 +676,9 @@ components:
           minimum: 2
           maximum: 16
           default: 3
-      description: 'Describes BFD configuration for failure detection.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        bfdInterval:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        declareDeadMultiple:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgeBgpConfig:
       type: object
-      required:
-        - localASNumber
-        - version
+      description: Specifies the Edge Gateway BGP configuration.
       properties:
         enabled:
           type: boolean
@@ -831,27 +708,15 @@ components:
           $ref: '#/definitions/EdgeBgpGracefulRestartConfig'
         version:
           $ref: '#/definitions/ObjectVersion'
-      description: Specifies the Edge Gateway BGP configuration.
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        ecmp:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        localASNumber:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        gracefulRestart:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - localASNumber
+        - version
     EdgeBgpGracefulRestartConfig:
       type: object
+      description: 'Describes current graceful restart configuration mode and timer
+        for BGP configuration on an edge gateway.
+
+        '
       properties:
         mode:
           description: Currently configured graceful restart mode. Default is HELPER_ONLY.
@@ -879,29 +744,11 @@ components:
           minimum: 1
           maximum: 3600
           default: 600
-      description: 'Describes current graceful restart configuration mode and timer
-        for BGP configuration on an edge gateway.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        mode:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        restartTimer:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        staleRouteTimer:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgeBgpNeighbor:
       type: object
-      required:
-        - neighborAddress
-        - remoteASNumber
+      description: 'A BGP neighbor configuration.
+
+        '
       properties:
         id:
           type: string
@@ -1002,82 +849,25 @@ components:
           $ref: '#/definitions/ExtObjectReference'
         version:
           $ref: '#/definitions/ObjectVersion'
-      description: 'A BGP neighbor configuration.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        neighborAddress:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: NetworkAddress
-              args:
-                - arg: IPV4_IP
-                - arg: IPV6_IP
-        remoteASNumber:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        keepAliveTimer:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        holdDownTimer:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        gracefulRestartMode:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        bfd:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        allowASIn:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        neighborPassword:
-          x-vcloud-password: true
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        ipAddressTypeFiltering:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        inRoutesFilterRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        outRoutesFilterRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - neighborAddress
+        - remoteASNumber
     EdgeBgpNeighbors:
       type: object
+      description: 'List of all configured BGP neighbors for an edge gateway.
+
+        '
       properties:
         values:
           type: array
           description: All BGP neighbors for an edge gateway.
           items:
             $ref: '#/definitions/EdgeBgpNeighbor'
-      description: 'List of all configured BGP neighbors for an edge gateway.
-
-        '
-      x-vcloud-added-in: 34
     EdgeCluster:
       type: object
-      required:
-        - name
-        - storageProfileName
+      description: 'An Edge Cluster object.
+
+        '
       properties:
         id:
           type: string
@@ -1095,31 +885,13 @@ components:
           type: string
           description: Name of the Storage Profile. This will define the set of datastores
             where the edge vm will be deployed.
-      description: 'An Edge Cluster object.
-
-        '
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: edgeCluster
-            - constraint: ReadOnly
-            - constraint: NonSortable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        resourcePool:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        storageProfileName:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - name
+        - storageProfileName
     EdgeDnsConfig:
       type: object
+      description: Specifies the DNS forwarder configuration for an edge gateway backed
+        by NSX-T.
       properties:
         enabled:
           type: boolean
@@ -1160,37 +932,11 @@ components:
             exist.
 
             '
-      description: Specifies the DNS forwarder configuration for an edge gateway backed
-        by NSX-T.
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        listenerIp:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: NetworkAddress
-              args:
-                - arg: IPV4_IP
-        defaultForwarderZone:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        conditionalForwarderZones:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        snatRuleEnabled:
-          x-vcloud-added-in: 34
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgeGatewayBacking:
       type: object
+      description: 'The backing details of the edge gateway
+
+        '
       properties:
         backingId:
           type: string
@@ -1202,36 +948,16 @@ components:
         networkProvider:
           description: The backing network provider, either NSX-T or NSX-V.
           $ref: '#/definitions/EntityReference'
-      description: 'The backing details of the edge gateway
-
-        '
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        backingId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-restricted: Visible to provider users only
-        gatewayType:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkProvider:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-restricted: Visible to provider users only
     EdgeGatewaySubnets:
       type: object
+      description: 'List of Subnets of an edge gateway
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/EdgeGatewaySubnet'
-      description: 'List of Subnets of an edge gateway
-
-        '
-      x-vcloud-added-in: 32
     EdgeGatewayType:
       type: string
       description: 'The type of the edge gateway.
@@ -1243,6 +969,11 @@ components:
         - NSXT_IMPORTED
     EdgeGatewayUplink:
       type: object
+      description: 'The uplink (i.e. external network) that the edge gateway is connected
+        to. This also contains the external network IPs that are allocated to the
+        edge.
+
+        '
       properties:
         uplinkId:
           type: string
@@ -1275,47 +1006,9 @@ components:
           description: If set to true, then the associated external network is exclusively
             used by this edge gateway.
           default: false
-      description: 'The uplink (i.e. external network) that the edge gateway is connected
-        to. This also contains the external network IPs that are allocated to the
-        edge.
-
-        '
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        uplinkId:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        uplinkName:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        subnets:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        connected:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        quickAddAllocatedIpCount:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        dedicated:
-          x-vcloud-added-in: 34
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgeIpSecVpnTunnel:
       type: object
-      required:
-        - localEndpoint
-        - name
-        - preSharedKey
-        - remoteEndpoint
+      description: Specifies the IPSec VPN tunnel configuration.
       properties:
         id:
           type: string
@@ -1376,49 +1069,24 @@ components:
           default: false
         version:
           $ref: '#/definitions/ObjectVersion'
-      description: Specifies the IPSec VPN tunnel configuration.
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        localEndpoint:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        remoteEndpoint:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        preSharedKey:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        connectorInitiationMode:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        securityType:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        logging:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - localEndpoint
+        - name
+        - preSharedKey
+        - remoteEndpoint
     EdgeIpSecVpnTunnelConnectionProperties:
+      type: object
+      description: 'This specifies the given security profile/connection properties
+        of a given IP Sec VPN Tunnel, such as Dead Probe Interval and IKE settings.
+        If a security type
+
+        is set to ''CUSTOM'', then ike, tunnel, and/or dpd configurations can be specified.
+        Otherwise, those fields are read only and are set to the values based on the
+        specific
+
+        security type.
+
+        '
       properties:
         securityType:
           type: string
@@ -1450,38 +1118,9 @@ components:
 
             '
           $ref: '#/definitions/DpdConfig'
-      description: 'This specifies the given security profile/connection properties
-        of a given IP Sec VPN Tunnel, such as Dead Probe Interval and IKE settings.
-        If a security type
-
-        is set to ''CUSTOM'', then ike, tunnel, and/or dpd configurations can be specified.
-        Otherwise, those fields are read only and are set to the values based on the
-        specific
-
-        security type.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        ikeConfiguration:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        tunnelConfiguration:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        dpdConfiguration:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        securityType:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-added-in: 34
     EdgeIpSecVpnTunnelStatistics:
       type: object
+      description: Specifies the statistics for the given IPSec VPN Tunnel.
       properties:
         localSubnet:
           type: string
@@ -1554,9 +1193,12 @@ components:
           format: int64
           description: Number of packets dropped because of no matching policy is
             available.
-      description: Specifies the statistics for the given IPSec VPN Tunnel.
-      x-vcloud-added-in: 33
     EdgeIpSecVpnTunnelStatus:
+      type: object
+      description: 'This includes the IPSec Tunnel status such as whether the tunnel
+        is up or down and the IKE Session status.
+
+        '
       properties:
         tunnelStatus:
           description: Gives the overall IPSec VPN Tunnel Status. If IKE is properly
@@ -1565,27 +1207,9 @@ components:
         ikeStatus:
           description: Status for the actual IKE Session for the given tunnel.
           $ref: '#/definitions/IkeStatus'
-      description: 'This includes the IPSec Tunnel status such as whether the tunnel
-        is up or down and the IKE Session status.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        tunnelStatus:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        ikeStatus:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgeNatRule:
       type: object
-      required:
-        - externalAddresses
-        - internalAddresses
-        - name
-        - ruleType
+      description: The configuration for a given NAT Rule.
       properties:
         id:
           type: string
@@ -1674,63 +1298,19 @@ components:
             '
         version:
           $ref: '#/definitions/ObjectVersion'
-      description: The configuration for a given NAT Rule.
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        ruleType:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        applicationPortProfile:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        externalAddresses:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        internalAddresses:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        internalPort:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        logging:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        systemRule:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        snatDestinationAddresses:
-          x-vcloud-added-in: 34
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - externalAddresses
+        - internalAddresses
+        - name
+        - ruleType
     EdgePrefixList:
       type: object
-      required:
-        - name
-        - prefixes
+      description: 'A list of prefixes for routing purposes. Prefix list contains
+        one or more ordered entries
+
+        which are processed sequentially.
+
+        '
       properties:
         id:
           type: string
@@ -1753,32 +1333,14 @@ components:
           minItems: 1
         version:
           $ref: '#/definitions/ObjectVersion'
-      description: 'A list of prefixes for routing purposes. Prefix list contains
-        one or more ordered entries
-
-        which are processed sequentially.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        prefixes:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - name
+        - prefixes
     EdgePrefixListEntry:
       type: object
+      description: 'A network prefix entry used for routing purposes.
+
+        '
       properties:
         network:
           type: string
@@ -1816,44 +1378,22 @@ components:
             to. Must be greater than or equal to 'greaterThanEqualTo'
           minimum: 1
           maximum: 128
-      description: 'A network prefix entry used for routing purposes.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        network:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: NetworkAddress
-              args:
-                - arg: CIDR
-        action:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        greaterThanEqualTo:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        lessThanEqualTo:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EdgePrefixLists:
       type: object
+      description: 'List of all configured Prefix lists for an edge gateway.
+
+        '
       properties:
         values:
           type: array
           description: All Prefix lists.
           items:
             $ref: '#/definitions/EdgePrefixList'
-      description: 'List of all configured Prefix lists for an edge gateway.
-
-        '
-      x-vcloud-added-in: 34
     EgressPoint:
       type: object
+      description: 'An Egress Point.
+
+        '
       properties:
         id:
           type: string
@@ -1877,45 +1417,11 @@ components:
           $ref: '#/definitions/VdcGroupEntityStatus'
         errorMessage:
           type: string
-      description: 'An Egress Point.
-
-        '
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: universalEgressPoint
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-        vdcRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        gatewayRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkProviderScope:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        isUsedForRouting:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: ReadOnly
-        status:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        errorMessage:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EgressPointReference:
       type: object
+      description: 'An EgressPoint reference object for use in universal routing.
+
+        '
       properties:
         egressPointId:
           type: string
@@ -1926,35 +1432,22 @@ components:
         gatewayRef:
           description: The Edge Gateway of the Universal Egress Point reference.
           $ref: '#/definitions/EntityReference'
-      description: 'An EgressPoint reference object for use in universal routing.
-
-        '
-      x-vcloud-property-annotations:
-        vdcRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        gatewayRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        egressPointId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     EgressPoints:
       type: object
+      description: 'List of Egress Points.
+
+        '
       properties:
         values:
           type: array
           description: The list of Universal Egress Points.
           items:
             $ref: '#/definitions/EgressPoint'
-      description: 'List of Egress Points.
-
-        '
     EmailSettings:
       type: object
+      description: 'Email related settings for a system
+
+        '
       properties:
         defaultSmtpServer:
           type: boolean
@@ -1995,24 +1488,22 @@ components:
             to
 
             '
-      description: 'Email related settings for a system
-
-        '
     EntityReference:
       type: object
+      description: 'Entity reference used to describe VCD entities
+
+        '
       properties:
         name:
           type: string
         id:
           type: string
-      description: 'Entity reference used to describe VCD entities
-
-        '
     Error:
       type: object
-      required:
-        - message
-        - minorErrorCode
+      description: 'Error type format displayed to users for exceptions emerging from
+        openapi endpoints.
+
+        '
       properties:
         minorErrorCode:
           type: string
@@ -2020,10 +1511,9 @@ components:
           type: string
         stackTrace:
           type: string
-      description: 'Error type format displayed to users for exceptions emerging from
-        openapi endpoints.
-
-        '
+      required:
+        - message
+        - minorErrorCode
     ExecutionContext:
       type: object
       properties:
@@ -2059,6 +1549,10 @@ components:
           $ref: '#/definitions/ExecutionState'
     ExtObjectReference:
       type: object
+      description: 'Reference for entities which are external to VCD and do not have
+        a VCD URN identifier.
+
+        '
       properties:
         id:
           type: string
@@ -2067,26 +1561,9 @@ components:
         name:
           type: string
           description: The name of entity.
-      description: 'Reference for entities which are external to VCD and do not have
-        a VCD URN identifier.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     ExtensionPoint:
       type: object
-      required:
-        - enabled
-        - extensionPointId
-        - pluginId
+      description: Extension Point of a UI Plugin
       properties:
         extensionPointId:
           type: string
@@ -2096,9 +1573,14 @@ components:
           type: string
         enabled:
           type: boolean
-      description: Extension Point of a UI Plugin
-      x-vcloud-added-in: 32
+      required:
+        - enabled
+        - extensionPointId
+        - pluginId
     ExtensionPointSummary:
+      type: object
+      description: A map of extension Points and an ordered list of items registered
+        with that extension point
       properties:
         extensionPointRegistrations:
           type: object
@@ -2106,11 +1588,11 @@ components:
             type: array
             items:
               $ref: '#/definitions/ExtensionPoint'
-      description: A map of extension Points and an ordered list of items registered
-        with that extension point
-      x-vcloud-added-in: 32
     ExternalNetworkBacking:
       type: object
+      description: 'Information about an external network backing.
+
+        '
       properties:
         backingId:
           type: string
@@ -2126,10 +1608,6 @@ components:
           type: string
           description: The name of this external network backing, if it exists.
           x-vcloud-added-in: 33
-      description: 'Information about an external network backing.
-
-        '
-      x-vcloud-added-in: 32
     ExternalNetworkBackingType:
       type: string
       description: 'The type of the external network backing.
@@ -2142,17 +1620,18 @@ components:
         - UNKNOWN
     ExternalNetworkBackings:
       type: object
+      description: 'List of External Network backings.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/ExternalNetworkBacking'
-      description: 'List of External Network backings.
-
-        '
-      x-vcloud-added-in: 32
     FirewallGroupAssociatedVM:
       type: object
+      description: Represents an associated virtual machine. Contains the VM name
+        and parent vApp name.
       properties:
         vmRef:
           description: 'Reference to the vm associated with this firewall group.
@@ -2174,28 +1653,10 @@ components:
 
             '
           $ref: '#/definitions/EntityReference'
-      description: Represents an associated virtual machine. Contains the VM name
-        and parent vApp name.
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        vmRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        vappRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        vdcRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        orgRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     FirewallGroupScope:
       type: object
+      description: Describes the scope and relationship that this firewall group has
+        with other VCD entities.
       properties:
         orgRef:
           description: 'The organization that this firewall group belongs to. This
@@ -2228,25 +1689,6 @@ components:
           x-vcloud-constraints:
             - constraint: NonSearchable
             - constraint: NonSortable
-      description: Describes the scope and relationship that this firewall group has
-        with other VCD entities.
-      x-vcloud-property-annotations:
-        orgRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        edgeGatewayRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        contextEntityId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkProviderScope:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     FirewallGroupType:
       type: string
       description: "Defines the type of Firewall Group. These groups can be used in\
@@ -2260,9 +1702,7 @@ components:
         - SECURITY_GROUP
     FirewallRule:
       type: object
-      required:
-        - action
-        - name
+      description: Describes a Firewall rule.
       properties:
         id:
           type: string
@@ -2370,49 +1810,9 @@ components:
             - constraint: NonSortable
         version:
           $ref: '#/definitions/ObjectVersion'
-      description: Describes a Firewall rule.
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        sourceFirewallGroups:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        destinationFirewallGroups:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        services:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        ipProtocol:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        action:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        direction:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - action
+        - name
     FirewallRuleAction:
       type: string
       description: 'Defines the firewall rule action to be applied.
@@ -2444,8 +1844,9 @@ components:
         - IPV4_IPV6
     GatewayEdgeClusterConfig:
       type: object
-      required:
-        - primaryEdgeCluster
+      description: 'Represents the Edge Cluster Configuration for a given Edge Gateway.
+
+        '
       properties:
         primaryEdgeCluster:
           description: 'This represents the Primary Edge Cluster used for the gateway.
@@ -2479,22 +1880,14 @@ components:
 
             '
           $ref: '#/definitions/GatewayEdgeClusterReference'
-      description: 'Represents the Edge Cluster Configuration for a given Edge Gateway.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        primaryEdgeCluster:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        secondaryEdgeCluster:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - primaryEdgeCluster
     GatewayEdgeClusterReference:
       type: object
+      description: 'This represents the reference to an Edge Cluster used for the
+        gateway.
+
+        '
       properties:
         edgeClusterRef:
           description: The reference to VCD Edge Cluster.
@@ -2512,22 +1905,12 @@ components:
             For NSX-V Edges, this is set to NULL.
 
             '
-      description: 'This represents the reference to an Edge Cluster used for the
-        gateway.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        edgeClusterRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        backingId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     GatewayUsedIpAddress:
       type: object
+      description: 'Describes an IP address currently be used by the edge gateway.
+        The IP belongs to the IPs allocated to the edge.
+
+        '
       properties:
         networkRef:
           description: The external network that this IP Address belongs to.
@@ -2538,23 +1921,6 @@ components:
         category:
           description: The catagory that an IP can be used for.
           $ref: '#/definitions/GatewayUsedIpAddressCategory'
-      description: 'Describes an IP address currently be used by the edge gateway.
-        The IP belongs to the IPs allocated to the edge.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        networkRef:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-        ipAddress:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-        category:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSortable
     GatewayUsedIpAddressCategory:
       type: string
       description: 'The categories that an IP can be used for.
@@ -2584,19 +1950,19 @@ components:
         - GRACEFUL_AND_HELPER
     HardwareVersions:
       type: object
+      description: Set of supported ESXi virtual hardware versions.
       properties:
         versions:
           type: array
           items:
             type: string
-      description: Set of supported ESXi virtual hardware versions.
-      x-vcloud-added-in: 33
     IkeConfig:
       type: object
-      required:
-        - dhGroups
-        - encryptionAlgorithms
-        - ikeVersion
+      description: 'This configuration captures the IKE and phase one negotiation
+        parameters. This configuration can be set for peering properly with remote
+        peers.
+
+        '
       properties:
         ikeVersion:
           description: IKE Protocol Version to use. The default is IKE_V2.
@@ -2627,12 +1993,10 @@ components:
             seconds (1 day).
           minimum: 21600
           maximum: 31536000
-      description: 'This configuration captures the IKE and phase one negotiation
-        parameters. This configuration can be set for peering properly with remote
-        peers.
-
-        '
-      x-vcloud-added-in: 33
+      required:
+        - dhGroups
+        - encryptionAlgorithms
+        - ikeVersion
     IkeDigestAlgorithmType:
       type: string
       description: 'Digest Algorithms are used to verify message integrity during
@@ -2665,6 +2029,11 @@ components:
         - NEGOTIATING
     IkeStatus:
       type: object
+      description: 'The status for the IPSec VPN IKE Session/Tunnel. The values are
+        UP, DOWN, and NEGOTIATING. A fail reason is also provided if the Service Status
+        is down.
+
+        '
       properties:
         ikeServiceStatus:
           description: The overall IKE Session service status.
@@ -2673,12 +2042,6 @@ components:
           type: string
           description: The reason for the IKE Session establishment failure. This
             will only be set if the status is DOWN.
-      description: 'The status for the IPSec VPN IKE Session/Tunnel. The values are
-        UP, DOWN, and NEGOTIATING. A fail reason is also provided if the Service Status
-        is down.
-
-        '
-      x-vcloud-added-in: 33
     IkeVersionType:
       type: string
       description: The IKE Protocol version type.
@@ -2688,6 +2051,9 @@ components:
         - IKE_FLEX
     IpRange:
       type: object
+      description: 'An IpRange
+
+        '
       properties:
         startAddress:
           type: string
@@ -2695,34 +2061,34 @@ components:
         endAddress:
           type: string
           description: Ending IP address in the range.
-      description: 'An IpRange
-
-        '
     IpRanges:
       type: object
+      description: 'List of IpRange
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/IpRange'
-      description: 'List of IpRange
-
-        '
     LdapConnectionTestResult:
       type: object
-      required:
-        - successful
+      description: 'Provides LDAP connection test results
+
+        '
       properties:
         successful:
           type: boolean
           description: Flag for whether connection test was successful
         error:
           $ref: '#/definitions/Error'
-      description: 'Provides LDAP connection test results
-
-        '
+      required:
+        - successful
     LdapGroupAttributesType:
       type: object
+      description: 'Defines how a group is imported from LDAP.
+
+        '
       properties:
         objectClass:
           type: string
@@ -2736,11 +2102,11 @@ components:
           type: string
         backLinkIdentifier:
           type: string
-      description: 'Defines how a group is imported from LDAP.
-
-        '
     LdapSettings:
       type: object
+      description: 'LDAP Settings Specification
+
+        '
       properties:
         hostName:
           type: string
@@ -2788,13 +2154,11 @@ components:
           $ref: '#/definitions/LdapGroupAttributesType'
         useExternalKerberos:
           type: boolean
-      description: 'LDAP Settings Specification
-
-        '
     LdapSettingsTestResult:
       type: object
-      required:
-        - successful
+      description: 'Provides test attribute, result, and success boolean
+
+        '
       properties:
         attribute:
           type: string
@@ -2819,11 +2183,13 @@ components:
         successful:
           type: boolean
           description: Flag to indicate if the attribute is successful or not
-      description: 'Provides test attribute, result, and success boolean
-
-        '
+      required:
+        - successful
     LdapTestResult:
       type: object
+      description: 'Provides LDAP connection and settings test results
+
+        '
       properties:
         connectionTest:
           $ref: '#/definitions/LdapConnectionTestResult'
@@ -2831,11 +2197,11 @@ components:
           type: array
           items:
             $ref: '#/definitions/LdapSettingsTestResult'
-      description: 'Provides LDAP connection and settings test results
-
-        '
     LdapUserAttributesType:
       type: object
+      description: 'Defines how LDAP attributes are used when importing a user.
+
+        '
       properties:
         objectClass:
           type: string
@@ -2857,9 +2223,6 @@ components:
           type: string
         groupBackLinkIdentifier:
           type: string
-      description: 'Defines how LDAP attributes are used when importing a user.
-
-        '
     Link:
       type: object
       properties:
@@ -2876,9 +2239,11 @@ components:
         name:
           type: string
     LocalEndpoint:
-      required:
-        - localAddress
-        - localNetworks
+      type: object
+      description: 'This represents the endpoint/IP Address on the Edge Gateway where
+        the tunnel needs to be terminated.
+
+        '
       properties:
         localId:
           type: string
@@ -2895,15 +2260,11 @@ components:
             type: string
           maxItems: 128
           minItems: 1
-      description: 'This represents the endpoint/IP Address on the Edge Gateway where
-        the tunnel needs to be terminated.
-
-        '
-      x-vcloud-added-in: 33
+      required:
+        - localAddress
+        - localNetworks
     LogicalVmGroup:
       type: object
-      required:
-        - name
       properties:
         id:
           type: string
@@ -2935,7 +2296,8 @@ components:
             - constraint: Urn
               args:
                 - arg: providervdc
-      x-vcloud-added-in: 32
+      required:
+        - name
     NatRuleType:
       type: string
       description: 'The Nat Rule Type for a given NAT rule.
@@ -2948,6 +2310,9 @@ components:
         - NO_SNAT
     Network:
       type: object
+      description: 'A network Object.
+
+        '
       properties:
         id:
           type: string
@@ -2967,20 +2332,14 @@ components:
         subnets:
           description: List of subnets configured for the network.
           $ref: '#/definitions/Subnets'
-      description: 'A network Object.
-
-        '
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSortable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     NetworkPoolBacking:
       type: object
+      description: 'Describes the backing information for a network pool. A network
+        pool is backed by
+
+        vSphere network resources such as VLAN Ids, portgroups, Transport Zones, etc.
+
+        '
       properties:
         vlanIdRanges:
           description: 'The range of backing VLAN Id''s. This information is available
@@ -3018,13 +2377,6 @@ components:
           description: The Id of vCenter server or the NSX-T manager that owns this
             backing entity.
           $ref: '#/definitions/EntityReference'
-      description: 'Describes the backing information for a network pool. A network
-        pool is backed by
-
-        vSphere network resources such as VLAN Ids, portgroups, Transport Zones, etc.
-
-        '
-      x-vcloud-added-in: 33
     NetworkPoolBackingType:
       type: string
       description: 'Represents the network pool''s backing type.
@@ -3039,6 +2391,7 @@ components:
         - UNKNOWN
     NetworkProviderContext:
       type: object
+      description: Describes the network provider context of the network object.
       properties:
         orgRef:
           description: 'The organization that this object belongs to. This property
@@ -3073,37 +2426,17 @@ components:
           x-vcloud-constraints:
             - constraint: NonSearchable
             - constraint: NonSortable
-      description: Describes the network provider context of the network object.
-      x-vcloud-property-annotations:
-        orgRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        contextEntityId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkProviderScope:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     NetworkingObjectStatus:
       type: object
+      description: 'Represents status of a networking entity.
+
+        '
       properties:
         status:
           description: 'Represents current status of the networking object.
 
             '
           $ref: '#/definitions/NetworkingObjectStatusType'
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-      description: 'Represents status of a networking entity.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        status:
           x-vcloud-added-in: 33
           x-vcloud-constraints:
             - constraint: ReadOnly
@@ -3123,6 +2456,12 @@ components:
         - REALIZATION_FAILED
         - UNKNOWN
     NsxTEdgeCluster:
+      type: object
+      description: 'Information about a configured edge cluster on an NSX-T manager.
+
+        An Edge cluster is a group of edge transport nodes.
+
+        '
       properties:
         id:
           type: string
@@ -3152,42 +2491,6 @@ components:
 
             '
           $ref: '#/definitions/NsxTEdgeClusterDeploymentType'
-      description: 'Information about a configured edge cluster on an NSX-T manager.
-
-        An Edge cluster is a group of edge transport nodes.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        name:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-        description:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        nodeCount:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        nodeType:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        deploymentType:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
     NsxTEdgeClusterDeploymentType:
       type: string
       description: 'Represents the deployment type for an edge cluster. This is derived
@@ -3217,16 +2520,21 @@ components:
         - UNKNOWN
     NsxTEdgeClusters:
       type: object
+      description: 'List of edge clusters configured on an NSX-T manager.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/NsxTEdgeCluster'
-      description: 'List of edge clusters configured on an NSX-T manager.
+    NsxTTransportZone:
+      type: object
+      description: 'Information about a configured transport zone on an NSX-T manager.
+
+        NSX uses transport zones to provide connectivity between hypervisors.
 
         '
-      x-vcloud-added-in: 34
-    NsxTTransportZone:
       properties:
         id:
           type: string
@@ -3237,24 +2545,6 @@ components:
         type:
           description: Type of a transport zone.
           $ref: '#/definitions/NsxTTransportZoneType'
-      description: 'Information about a configured transport zone on an NSX-T manager.
-
-        NSX uses transport zones to provide connectivity between hypervisors.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-        type:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     NsxTTransportZoneType:
       type: string
       description: 'Represents an NSX-T transport zone''s traffic type.
@@ -3264,20 +2554,19 @@ components:
         - GENEVE
     NsxTTransportZones:
       type: object
+      description: 'List of transport zones configured on an NSX-T manager.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/NsxTTransportZone'
-      description: 'List of transport zones configured on an NSX-T manager.
-
-        '
-      x-vcloud-added-in: 33
     NsxVManager:
       type: object
-      required:
-        - url
-        - username
+      description: 'An object representing an NSX-V server.
+
+        '
       properties:
         username:
           type: string
@@ -3304,18 +2593,14 @@ components:
           description: Version of the NSX-V Manager
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'An object representing an NSX-V server.
-
-        '
-      x-vcloud-added-in: 34
+      required:
+        - url
+        - username
     NsxVManagerSettings:
       type: object
-      required:
-        - controlVmDatastoreName
-        - controlVmManagementInterfaceName
-        - controlVmResourcePoolVcPath
-        - networkProviderScope
-        - vcId
+      description: 'An object representing networking configuration of a vCenter server.
+
+        '
       properties:
         vcId:
           type: string
@@ -3354,11 +2639,19 @@ components:
           x-vcloud-constraints:
             - constraint: NonSearchable
             - constraint: NonSortable
-      description: 'An object representing networking configuration of a vCenter server.
+      required:
+        - controlVmDatastoreName
+        - controlVmManagementInterfaceName
+        - controlVmResourcePoolVcPath
+        - networkProviderScope
+        - vcId
+    NsxVTransportZone:
+      type: object
+      description: 'Information about a configured transport zone on an NSX-V manager.
+
+        NSX uses transport zones to provide connectivity between hypervisors.
 
         '
-      x-vcloud-added-in: 34
-    NsxVTransportZone:
       properties:
         id:
           type: string
@@ -3369,26 +2662,6 @@ components:
         type:
           description: Type of a transport zone.
           $ref: '#/definitions/NsxVTransportZoneType'
-      description: 'Information about a configured transport zone on an NSX-V manager.
-
-        NSX uses transport zones to provide connectivity between hypervisors.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        type:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     NsxVTransportZoneType:
       type: string
       description: 'Represents an NSX-V transport zone''s traffic type.
@@ -3399,17 +2672,18 @@ components:
         - UNIVERSAL_VXLAN
     NsxVTransportZones:
       type: object
+      description: 'List of transport zones configured on an NSX-V manager.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/NsxVTransportZone'
-      description: 'List of transport zones configured on an NSX-V manager.
-
-        '
-      x-vcloud-added-in: 33
     NsxtDnsForwarderZoneConfig:
       type: object
+      description: Specifies the list of domains and the DNS servers that handle those
+        domains.
       properties:
         id:
           type: string
@@ -3443,33 +2717,8 @@ components:
             type: string
           maxItems: 3
           minItems: 0
-      description: Specifies the list of domains and the DNS servers that handle those
-        domains.
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSortable
-        displayName:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        dnsDomainNames:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        upstreamServers:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     ObjectVersion:
-      required:
-        - version
-      properties:
-        version:
-          type: integer
-          description: version number for the given entity.
+      type: object
       description: 'This property describes the current version of the entity. To
         prevent clients from overwriting each other''s changes, update operations
         must include
@@ -3481,12 +2730,12 @@ components:
         on update calls.
 
         '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
+      properties:
         version:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+          type: integer
+          description: version number for the given entity.
+      required:
+        - version
     OrgVdcNetworkStatus:
       type: string
       description: 'Represents status of a Org Vdc network. This value will be PENDING
@@ -3513,6 +2762,19 @@ components:
         - GREEN
     Page:
       type: object
+      description: 'Collection of paging-related metadata to be included by composition
+        via allOf. This type
+
+        should be included in pageable responses to avoid duplicating these common
+        properties. It
+
+        is intended to be included by composition rather than inheritance. Because
+        of this, it has
+
+        no discriminator and should be embedded via allOf. See QueryResults for a
+        reference usage.
+
+        '
       properties:
         resultTotal:
           type: integer
@@ -3533,27 +2795,14 @@ components:
           items:
             $ref: '#/definitions/Association'
           x-vcloud-added-in: 33
-      description: 'Collection of paging-related metadata to be included by composition
-        via allOf. This type
-
-        should be included in pageable responses to avoid duplicating these common
-        properties. It
-
-        is intended to be included by composition rather than inheritance. Because
-        of this, it has
-
-        no discriminator and should be embedded via allOf. See QueryResults for a
-        reference usage.
-
-        '
     Parameter:
       type: object
-      required:
-        - inputType
-      discriminator: inputType
       properties:
         inputType:
           type: string
+      required:
+        - inputType
+      discriminator: inputType
     ParameterTypes:
       type: object
       properties:
@@ -3587,8 +2836,9 @@ components:
           $ref: '#/definitions/ArrayParam'
     ParticipatingVdcReference:
       type: object
-      required:
-        - vdcRef
+      description: 'A participating vDC
+
+        '
       properties:
         vdcRef:
           description: The reference to the vDC that is part of this a vDC group.
@@ -3613,36 +2863,13 @@ components:
           description: The status that the vDC can be in. An example is if the vDC
             has been deleted from the system but is still part of the group.
           $ref: '#/definitions/VdcGroupEntityStatus'
-      description: 'A participating vDC
-
-        '
-      x-vcloud-property-annotations:
-        vdcRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        orgRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        siteRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkProviderScope:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        remoteOrg:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        status:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - vdcRef
     PortGroup:
       type: object
+      description: 'Standard portgroup.
+
+        '
       properties:
         backingRef:
           description: Contains the backing id and name of the standard portgroup.
@@ -3650,16 +2877,8 @@ components:
         virtualCenter:
           description: The entity reference for the vCenter that contains this portgroup.
           $ref: '#/definitions/EntityReference'
-      description: 'Standard portgroup.
-
-        '
-      x-vcloud-added-in: 33
     Preference:
       type: object
-      required:
-        - classifier
-        - name
-        - value
       properties:
         classifier:
           type: string
@@ -3677,15 +2896,15 @@ components:
             '
         value:
           type: string
-      x-vcloud-added-in: 32
-    PreferenceDefinition:
-      type: object
       required:
         - classifier
-        - constrained
-        - dataType
-        - defaultValue
         - name
+        - value
+    PreferenceDefinition:
+      type: object
+      description: 'The Preference Definition is immutable.
+
+        '
       properties:
         id:
           type: string
@@ -3746,10 +2965,12 @@ components:
             true.. This is immutable after creation.
           items:
             type: string
-      description: 'The Preference Definition is immutable.
-
-        '
-      x-vcloud-added-in: 32
+      required:
+        - classifier
+        - constrained
+        - dataType
+        - defaultValue
+        - name
     Presentation:
       type: object
       properties:
@@ -3775,9 +2996,6 @@ components:
             $ref: '#/definitions/StepInfo'
     PresentationElement:
       type: object
-      required:
-        - elementType
-      discriminator: elementType
       properties:
         elementType:
           type: string
@@ -3793,6 +3011,9 @@ components:
           type: array
           items:
             $ref: '#/definitions/PresentationMessageInfo'
+      required:
+        - elementType
+      discriminator: elementType
     PresentationExecution:
       type: object
       properties:
@@ -3849,6 +3070,9 @@ components:
           type: string
     ProbeResult:
       type: object
+      description: 'Results of a connection test to a specific endpoint.
+
+        '
       properties:
         result:
           type: string
@@ -3877,12 +3101,11 @@ components:
             connection was made.
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'Results of a connection test to a specific endpoint.
-
-        '
-      x-vcloud-added-in: 34
     ProviderVdc:
       type: object
+      description: 'A provider vdc.
+
+        '
       properties:
         id:
           type: string
@@ -3905,34 +3128,12 @@ components:
         vimServer:
           description: The vCenter server the pvdc belongs to.
           $ref: '#/definitions/EntityReference'
-      description: 'A provider vdc.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: providervdc
-            - constraint: NonSortable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        nsxTmanager:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        vimServer:
-          x-vcloud-constraints:
-            - constraint: NonSortable
     Proxy:
       type: object
-      required:
-        - name
-        - parent
-        - proxyType
-        - targetHost
+      description: 'proxy configuration. This configures the vCD proxying capability
+        for one specific server within the vSphere/NSX/ESX estate known to vCD.
+
+        '
       properties:
         name:
           type: string
@@ -4023,19 +3224,17 @@ components:
             \ URL that the browser tab\n will be pointed to when the proxy is launched\
             \ via the H5 UI of VCD.\n"
           default: ''
-      description: 'proxy configuration. This configures the vCD proxying capability
-        for one specific server within the vSphere/NSX/ESX estate known to vCD.
-
-        '
-      x-vcloud-added-in: 34
+      required:
+        - name
+        - parent
+        - proxyType
+        - targetHost
     ProxyConfiguration:
       type: object
-      required:
-        - authType
-        - host
-        - name
-        - password
-        - port
+      description: 'A Proxy Configuration. This configuration object declares a backend
+        proxy that sits between vCD and the vSphere/NSX/ESX estate.
+
+        '
       properties:
         name:
           type: string
@@ -4090,16 +3289,18 @@ components:
         port:
           type: integer
           description: port of the proxy server.
-      description: 'A Proxy Configuration. This configuration object declares a backend
-        proxy that sits between vCD and the vSphere/NSX/ESX estate.
-
-        '
-      x-vcloud-added-in: 34
+      required:
+        - authType
+        - host
+        - name
+        - password
+        - port
     ProxyConnection:
       type: object
-      required:
-        - proxyHost
-        - proxyPort
+      description: 'Proxy connection to use for test. If none is specified, then no
+        proxy is used to test the connection.
+
+        '
       properties:
         proxyHost:
           type: string
@@ -4120,16 +3321,11 @@ components:
           type: boolean
           description: If the connection to the proxy should use https.
           default: true
-      description: 'Proxy connection to use for test. If none is specified, then no
-        proxy is used to test the connection.
-
-        '
-      x-vcloud-added-in: 34
+      required:
+        - proxyHost
+        - proxyPort
     PvdcComputePolicy:
       type: object
-      required:
-        - name
-        - pvdcId
       properties:
         id:
           type: string
@@ -4194,6 +3390,9 @@ components:
           items:
             $ref: '#/definitions/EntityReference'
           x-vcloud-added-in: 32
+      required:
+        - name
+        - pvdcId
     Relations:
       type: object
       properties:
@@ -4208,8 +3407,11 @@ components:
           type: integer
           format: int32
     RemoteEndpoint:
-      required:
-        - remoteAddress
+      type: object
+      description: 'This represents the remote endpoint i.e. the endpoint which the
+        tunnel from the Edge Gateway will connect to.
+
+        '
       properties:
         remoteId:
           type: string
@@ -4236,13 +3438,13 @@ components:
             type: string
           maxItems: 128
           minItems: 0
-      description: 'This represents the remote endpoint i.e. the endpoint which the
-        tunnel from the Edge Gateway will connect to.
-
-        '
-      x-vcloud-added-in: 33
+      required:
+        - remoteAddress
     ResourcePool:
       type: object
+      description: 'A vCenter Resource Pool.
+
+        '
       properties:
         moref:
           type: string
@@ -4261,13 +3463,11 @@ components:
             Indicates whether the resource pool is eligible or not.
 
             '
-      description: 'A vCenter Resource Pool.
-
-        '
     Right:
       type: object
-      required:
-        - name
+      description: 'Right
+
+        '
       properties:
         name:
           type: string
@@ -4316,14 +3516,13 @@ components:
           x-vcloud-added-in: 32
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'Right
-
-        '
+      required:
+        - name
     RightsCategoryNode:
       type: object
-      required:
-        - bundleKey
-        - name
+      description: 'RightsCategoryNode
+
+        '
       properties:
         name:
           type: string
@@ -4356,11 +3555,14 @@ components:
               - constraint: Urn
                 args:
                   - arg: rightsCategory
-      description: 'RightsCategoryNode
-
-        '
+      required:
+        - bundleKey
+        - name
     RightsCount:
       type: object
+      description: 'RightsCount - A count of rights in a given category by type
+
+        '
       properties:
         view:
           type: integer
@@ -4370,13 +3572,11 @@ components:
           type: integer
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'RightsCount - A count of rights in a given category by type
-
-        '
     RightsMapping:
       type: object
-      required:
-        - name
+      description: 'RightsMapping
+
+        '
       properties:
         name:
           type: string
@@ -4400,11 +3600,14 @@ components:
           type: boolean
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'RightsMapping
-
-        '
+      required:
+        - name
     RouteAdvertisement:
       type: object
+      description: 'List of subnets that will be advertised so that the Edge Gateway
+        can route out to the connected external network.
+
+        '
       properties:
         enable:
           type: boolean
@@ -4427,21 +3630,11 @@ components:
             type: string
           maxItems: 100
           minItems: 0
-      description: 'List of subnets that will be advertised so that the Edge Gateway
-        can route out to the connected external network.
-
-        '
-      x-vcloud-added-in: 34
-      x-vcloud-property-annotations:
-        subnets:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: NetworkAddress
-              args:
-                - arg: CIDR
     RouterComponentHealth:
       type: object
+      description: 'A ComponentHealth object
+
+        '
       properties:
         component:
           type: string
@@ -4453,9 +3646,6 @@ components:
           type: string
         code:
           type: integer
-      description: 'A ComponentHealth object
-
-        '
     RouterComponentStatus:
       type: string
       description: 'Status of a router component.
@@ -4466,6 +3656,10 @@ components:
         - DOWN
     RouterConnection:
       type: object
+      description: 'Describes the connection between a routed network and an edge
+        gateway. This must be set if converting from an isolated to a routed network.
+
+        '
       properties:
         routerRef:
           description: The edge gateway that this network is attached to.
@@ -4478,16 +3672,11 @@ components:
           type: boolean
           description: Whether network is marked as connected in NSX.
           default: true
-      description: 'Describes the connection between a routed network and an edge
-        gateway. This must be set if converting from an isolated to a routed network.
-
-        '
-      x-vcloud-added-in: 31
-      x-vcloud-property-annotations:
-        connected:
-          x-vcloud-added-in: 33
     RouterDnsConfig:
       type: object
+      description: 'A RouterDnsConfig object
+
+        '
       properties:
         enabled:
           type: boolean
@@ -4495,20 +3684,11 @@ components:
           type: array
           items:
             type: string
-      description: 'A RouterDnsConfig object
-
-        '
-      x-vcloud-property-annotations:
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        nameServers:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     RouterHealthReport:
       type: object
+      description: 'Health Report of a Router
+
+        '
       properties:
         nsxManagersHealth:
           type: array
@@ -4544,31 +3724,11 @@ components:
             '
           items:
             $ref: '#/definitions/RouterComponentHealth'
-      description: 'Health Report of a Router
-
-        '
-      x-vcloud-property-annotations:
-        nsxManagersHealth:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        controlVmHealth:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        controlPlaneHealth:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        vdcReachabilityStatus:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     Sddc:
       type: object
-      required:
-        - name
-        - vcId
+      description: 'Software-defined data center
+
+        '
       properties:
         name:
           type: string
@@ -4636,18 +3796,12 @@ components:
 
             '
           $ref: '#/definitions/SddcEndpoint'
-      description: 'Software-defined data center
-
-        '
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        defaultProxy:
-          x-vcloud-deprecated-in: 34
-          x-vcloud-deprecated-alternative: defaultEndpoint
-          x-vcloud-constraints:
-            - constraint: ReadOnly
+      required:
+        - name
+        - vcId
     SddcEndpoint:
       type: object
+      description: An available network connections exposed by the SDDC
       properties:
         endpoint:
           type: string
@@ -4661,14 +3815,11 @@ components:
             - constraint: Urn
               args:
                 - arg: proxy
-      description: An available network connections exposed by the SDDC
-      x-vcloud-added-in: 33
     SddcProxy:
       type: object
-      required:
-        - name
-        - sddcId
-        - targetHost
+      description: 'SDDC proxy configuration
+
+        '
       properties:
         name:
           type: string
@@ -4775,14 +3926,15 @@ components:
             \ URL that the browser tab\n will be pointed to when the proxy is launched\
             \ via the H5 UI of VCD.\n"
           default: ''
-      description: 'SDDC proxy configuration
-
-        '
-      x-vcloud-added-in: 32
-      x-vcloud-deprecated-in: 34
-      x-vcloud-deprecated-alternative: Proxy
+      required:
+        - name
+        - sddcId
+        - targetHost
     SddcStat:
       type: object
+      description: 'A collection of measurements for the SDDC resource
+
+        '
       properties:
         numTotal:
           type: integer
@@ -4799,12 +3951,11 @@ components:
           format: int64
           description: Reserved resource allocation.
           minimum: 0
-      description: 'A collection of measurements for the SDDC resource
-
-        '
-      x-vcloud-added-in: 32
     SddcStats:
       type: object
+      description: 'A read-only list of resource allocations for the associated SDDC
+
+        '
       properties:
         totalVMs:
           type: integer
@@ -4821,10 +3972,6 @@ components:
         storage:
           description: Storage statistics of the SDDC (values in MB).
           $ref: '#/definitions/SddcStat'
-      description: 'A read-only list of resource allocations for the associated SDDC
-
-        '
-      x-vcloud-added-in: 32
     Service:
       type: object
       properties:
@@ -4841,11 +3988,9 @@ components:
           type: string
     ServiceApp:
       type: object
-      required:
-        - clientId
-        - clientSecret
-        - name
-        - serviceScope
+      description: 'A VMware service application
+
+        '
       properties:
         id:
           type: string
@@ -4876,10 +4021,11 @@ components:
           type: boolean
           description: Whether the application is currently enabled.
           default: true
-      description: 'A VMware service application
-
-        '
-      x-vcloud-added-in: 32
+      required:
+        - clientId
+        - clientSecret
+        - name
+        - serviceScope
     ServiceAppScope:
       type: string
       description: 'Describes the type of service application.
@@ -4897,9 +4043,6 @@ components:
         - VMC_CLIENT_CREDENTIAL
     ServiceItem:
       type: object
-      required:
-        - serviceItemType
-      discriminator: serviceItemType
       properties:
         id:
           type: string
@@ -4931,8 +4074,14 @@ components:
 
             '
           default: false
+      required:
+        - serviceItemType
+      discriminator: serviceItemType
     Session:
       type: object
+      description: 'Session
+
+        '
       properties:
         id:
           type: string
@@ -4952,12 +4101,12 @@ components:
           type: array
           items:
             type: string
-      description: 'Session
-
-        '
-      x-vcloud-added-in: 33
     SmtpServerSpec:
       type: object
+      description: 'Represent the settings of an SMTP Server which the system uses
+        to send email notifications and alerts
+
+        '
       properties:
         useAuthentication:
           type: boolean
@@ -5001,12 +4150,9 @@ components:
         name:
           type: string
           description: A human readable name of the entity
-      description: 'Represent the settings of an SMTP Server which the system uses
-        to send email notifications and alerts
-
-        '
     SslSettings:
       type: object
+      description: The VCD SSL settings
       properties:
         enabledSslProtocols:
           type: array
@@ -5027,10 +4173,11 @@ components:
         certificateSignatureAlgorithm:
           type: string
           description: Algorithm used to sign generated certificates
-      description: The VCD SSL settings
-      x-vcloud-added-in: 34
     StorageProfile:
       type: object
+      description: 'A Storage Profile.
+
+        '
       properties:
         moref:
           type: string
@@ -5038,14 +4185,11 @@ components:
         name:
           type: string
           description: The name of the Storage Profile.
-      description: 'A Storage Profile.
-
-        '
     Subnet:
       type: object
-      required:
-        - gateway
-        - prefixLength
+      description: 'A network subnet defined by its gateway,
+
+        '
       properties:
         gateway:
           type: string
@@ -5079,55 +4223,19 @@ components:
         usedIpCount:
           type: integer
           description: The number of IP address used from the static IP ranges.
-      description: 'A network subnet defined by its gateway,
-
-        '
-      x-vcloud-property-annotations:
-        prefixLength:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        dnsSuffix:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        dnsServer1:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        dnsServer2:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        ipRanges:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        totalIpCount:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        usedIpCount:
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - gateway
+        - prefixLength
     Subnets:
       type: object
+      description: 'List of Subnets of a network
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/Subnet'
-      description: 'List of Subnets of a network
-
-        '
     SupportedConstraints:
       type: object
       properties:
@@ -5180,17 +4288,20 @@ components:
           type: string
     TestResult:
       type: object
+      description: 'Results of a connection test.
+
+        '
       properties:
         targetProbe:
           $ref: '#/definitions/ProbeResult'
         proxyProbe:
           $ref: '#/definitions/ProbeResult'
-      description: 'Results of a connection test.
-
-        '
-      x-vcloud-added-in: 34
     ThumbprintAndAlgorithm:
       type: object
+      description: 'Specifies a SSL certificate thumbprint and the algorithm used
+        for calculation.
+
+        '
       properties:
         thumbprint:
           type: string
@@ -5200,27 +4311,21 @@ components:
           type: string
           example: SHA-256
           description: Algorithm used for the thumbprint calculation.
-      description: 'Specifies a SSL certificate thumbprint and the algorithm used
-        for calculation.
-
-        '
-      x-vcloud-added-in: 34
     Tier0Routers:
       type: object
+      description: 'List of NSX-T''s Tier-0 routers.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/Tier0Router'
-      description: 'List of NSX-T''s Tier-0 routers.
-
-        '
-      x-vcloud-added-in: 32
     Token:
       type: object
-      required:
-        - id
-        - userId
+      description: "Specifies a user, the user's organization, and the user assigned\
+        \ token that can be used to\n access proxies as well as the expiration timestamp\
+        \ of the token (in UTC). Parameters cannot\n be edited once a token is created.\n"
       properties:
         id:
           type: string
@@ -5267,15 +4372,14 @@ components:
             - constraint: ReadOnly
             - constraint: NonSortable
             - constraint: NonSearchable
-      description: "Specifies a user, the user's organization, and the user assigned\
-        \ token that can be used to\n access proxies as well as the expiration timestamp\
-        \ of the token (in UTC). Parameters cannot\n be edited once a token is created.\n"
-      x-vcloud-added-in: 33
+      required:
+        - id
+        - userId
     TrustedCertificate:
       type: object
-      required:
-        - alias
-        - certificate
+      description: 'SSL certificate in PEM format.
+
+        '
       properties:
         id:
           type: string
@@ -5296,15 +4400,15 @@ components:
           x-vcloud-constraints:
             - constraint: NonSortable
             - constraint: Certificate
-      description: 'SSL certificate in PEM format.
-
-        '
-      x-vcloud-added-in: 34
+      required:
+        - alias
+        - certificate
     TunnelConfig:
       type: object
-      required:
-        - dhGroups
-        - encryptionAlgorithms
+      description: 'This configuration captures phase two negotiation parameters and
+        tunnel properties.
+
+        '
       properties:
         perfectForwardSecrecyEnabled:
           type: boolean
@@ -5349,11 +4453,9 @@ components:
             seconds.
           minimum: 900
           maximum: 31536000
-      description: 'This configuration captures phase two negotiation parameters and
-        tunnel properties.
-
-        '
-      x-vcloud-added-in: 33
+      required:
+        - dhGroups
+        - encryptionAlgorithms
     TunnelDigestAlgorithmType:
       type: string
       description: This is the algorithm used to verify message integruty during tunnel
@@ -5391,9 +4493,10 @@ components:
         - DEGRADED
     UiBranding:
       type: object
-      required:
-        - customLinks
-        - portalName
+      description: 'A branding object with the portal name, portal color, selected
+        theme and custom URLs.
+
+        '
       properties:
         portalName:
           type: string
@@ -5413,26 +4516,11 @@ components:
           type: array
           items:
             $ref: '#/definitions/UiBrandingMenuItem'
-      description: 'A branding object with the portal name, portal color, selected
-        theme and custom URLs.
-
-        '
+      required:
+        - customLinks
+        - portalName
     UiBrandingMenuItem:
       type: object
-      required:
-        - menuItemType
-      properties:
-        name:
-          type: string
-        menuItemType:
-          type: string
-          enum:
-            - link
-            - section
-            - override
-            - separator
-        url:
-          type: string
       description: 'An ordered list of menu items which can be customized and used
         in the application. Can be defined as a
 
@@ -5446,15 +4534,25 @@ components:
         separator(section without a name) of the drop down menu.
 
         '
-      x-vcloud-added-in: 32
+      properties:
+        name:
+          type: string
+        menuItemType:
+          type: string
+          enum:
+            - link
+            - section
+            - override
+            - separator
+        url:
+          type: string
+      required:
+        - menuItemType
     UiPluginMetadata:
       type: object
-      required:
-        - license
-        - link
-        - pluginName
-        - vendor
-        - version
+      description: 'Meta information about a UI Plugin
+
+        '
       properties:
         pluginName:
           type: string
@@ -5474,24 +4572,31 @@ components:
           type: boolean
         enabled:
           type: boolean
-      description: 'Meta information about a UI Plugin
-
-        '
+      required:
+        - license
+        - link
+        - pluginName
+        - vendor
+        - version
     UiTheme:
       type: object
-      required:
-        - name
-        - themeType
+      description: 'A theme supported by vCloud Director.
+
+        '
       properties:
         themeType:
           type: string
         name:
           type: string
-      description: 'A theme supported by vCloud Director.
-
-        '
+      required:
+        - name
+        - themeType
     UniversalEgressRoutes:
       type: object
+      description: 'Object consisting of Egress Points and Universal Routes for a
+        Universal Router.
+
+        '
       properties:
         egressPoints:
           description: The list of Egress Points for routing configuration. This is
@@ -5502,24 +4607,11 @@ components:
 
             '
           $ref: '#/definitions/UniversalRoutes'
-      description: 'Object consisting of Egress Points and Universal Routes for a
-        Universal Router.
-
-        '
-      x-vcloud-property-annotations:
-        egressPoints:
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        universalRoutes:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     UniversalRoute:
       type: object
-      required:
-        - networkProviderScope
+      description: 'A Route for a Universal Router.
+
+        '
       properties:
         defaultEgress:
           description: For a given route, routing by default will go through the default
@@ -5539,35 +4631,13 @@ components:
           $ref: '#/definitions/UniversalRoutingStatus'
         errorMessage:
           type: string
-      description: 'A Route for a Universal Router.
-
-        '
-      x-vcloud-property-annotations:
-        defaultEgress:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        standbyEgress:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkProviderScope:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        status:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        errorMessage:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - networkProviderScope
     UniversalRouter:
       type: object
-      required:
-        - name
-        - vdcGroupRef
+      description: 'A UniversalRouter object
+
+        '
       properties:
         id:
           type: string
@@ -5583,43 +4653,14 @@ components:
           $ref: '#/definitions/VdcGroupEntityStatus'
         errorMessage:
           type: string
-      description: 'A UniversalRouter object
-
-        '
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: universalRouter
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-        name:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        vdcGroupRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        localEgress:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        status:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        errorMessage:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - name
+        - vdcGroupRef
     UniversalRouterDhcpConfig:
       type: object
+      description: 'A UniversalRouterDhcpConfig object.
+
+        '
       properties:
         enabled:
           type: boolean
@@ -5627,42 +4668,33 @@ components:
           type: array
           items:
             $ref: '#/definitions/UniversalRouterDhcpServer'
-      description: 'A UniversalRouterDhcpConfig object.
-
-        '
-      x-vcloud-property-annotations:
-        enabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        servers:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     UniversalRouterDhcpServer:
       type: object
-      properties:
-        egressRef:
-          $ref: '#/definitions/EntityReference'
-        serverAddress:
-          type: string
       description: 'List of Dhcp servers for universal router.
 
         Either egressRef or serverAddress is required to identify Dhcp server.
 
         '
+      properties:
+        egressRef:
+          $ref: '#/definitions/EntityReference'
+        serverAddress:
+          type: string
     UniversalRouters:
       type: object
+      description: 'List of Universal Routers
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/UniversalRouter'
-      description: 'List of Universal Routers
-
-        '
     UniversalRoutes:
       type: object
+      description: 'List of routes associated with a Universal Router.
+
+        '
       properties:
         keepAliveTimer:
           type: integer
@@ -5691,18 +4723,6 @@ components:
             '
           items:
             type: string
-      description: 'List of routes associated with a Universal Router.
-
-        '
-      x-vcloud-property-annotations:
-        keepAliveTimer:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        providerScopesToForceUnconfigure:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     UniversalRoutingStatus:
       type: string
       description: 'Represents status of given routing configuration, such as realized,
@@ -5724,6 +4744,10 @@ components:
         - DELETION_FAILED_UNIVERSAL_EGRESS_POINT
     UnmanagedVirtualMachine:
       type: object
+      description: 'An unmanaged Virtual Machine is a Virtual Machine that is not
+        managed by Cloud Director but is present in vCenter.
+
+        '
       properties:
         name:
           type: string
@@ -5771,11 +4795,6 @@ components:
           x-vcloud-constraint:
             - constraint: NonSortable
             - constraint: ReadOnly
-      description: 'An unmanaged Virtual Machine is a Virtual Machine that is not
-        managed by Cloud Director but is present in vCenter.
-
-        '
-      x-vcloud-added-in: 34
     UploadMetadataResponse:
       allOf:
         - type: object
@@ -5794,9 +4813,9 @@ components:
         '
     UploadSpec:
       type: object
-      required:
-        - fileName
-        - size
+      description: 'Information about upload
+
+        '
       properties:
         fileName:
           type: string
@@ -5811,9 +4830,9 @@ components:
             - sha1
             - sha256
           default: sha1
-      description: 'Information about upload
-
-        '
+      required:
+        - fileName
+        - size
     Url:
       type: object
       properties:
@@ -5827,6 +4846,9 @@ components:
           type: boolean
     UsedIpAddress:
       type: object
+      description: 'Describes a used IP address for a network.
+
+        '
       properties:
         entityId:
           type: string
@@ -5858,43 +4880,6 @@ components:
 
             '
           $ref: '#/definitions/EntityReference'
-      description: 'Describes a used IP address for a network.
-
-        '
-      x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        entityId:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: gateway
-                - arg: vm
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        entityName:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        vAppName:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        deployed:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        allocationType:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        orgRef:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     UsedIpAddressAllocationType:
       type: string
       description: 'The possible allocation types for allocated network IP address.
@@ -5909,6 +4894,9 @@ components:
         - EDGE
     User:
       type: object
+      description: 'LDAP User Spec object.
+
+        '
       properties:
         username:
           type: string
@@ -5950,11 +4938,11 @@ components:
           type: integer
         inSync:
           type: boolean
-      description: 'LDAP User Spec object.
-
-        '
     UserGroup:
       type: object
+      description: 'Group Spec object.
+
+        '
       properties:
         name:
           type: string
@@ -5973,16 +4961,11 @@ components:
           type: string
         providerType:
           type: string
-      description: 'Group Spec object.
-
-        '
     VCenterServer:
       type: object
-      required:
-        - name
-        - url
-        - username
-        - vsphereWebClientServerUrl
+      description: 'An object representing a vCenter server.
+
+        '
       properties:
         vcId:
           type: string
@@ -6122,12 +5105,16 @@ components:
             - constraint: Urn
               args:
                 - arg: proxyConfiguration
-      description: 'An object representing a vCenter server.
-
-        '
-      x-vcloud-added-in: 34
+      required:
+        - name
+        - url
+        - username
+        - vsphereWebClientServerUrl
     VCenterServerMetrics:
       type: object
+      description: 'An object representing metrics of a vCenter server.
+
+        '
       properties:
         vcId:
           type: string
@@ -6223,12 +5210,12 @@ components:
             - constraint: ReadOnly
             - constraint: NonSearchable
             - constraint: NonSortable
-      description: 'An object representing metrics of a vCenter server.
-
-        '
-      x-vcloud-added-in: 34
     VROServiceInfo:
       type: object
+      description: 'Response type with meta information about a vRealize Orchestrator
+        Service
+
+        '
       properties:
         id:
           type: string
@@ -6264,14 +5251,8 @@ components:
           description: 'SSL Certificate chain for the VRO endpoint
 
             '
-      description: 'Response type with meta information about a vRealize Orchestrator
-        Service
-
-        '
     VdcComputePolicy:
       type: object
-      required:
-        - name
       properties:
         id:
           type: string
@@ -6533,30 +5514,13 @@ components:
           x-vcloud-constraints:
             - constraint: ReadOnly
           x-vcloud-added-in: 33
-      x-vcloud-property-annotations:
-        pvdcComputePolicyRef:
-          x-vcloud-added-in: 31
-          x-vcloud-deprecated-in: 32
-          x-vcloud-deprecated-alternative: pvdcComputePolicy
-          x-vcloud-removed-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
-        pvdcComputePolicy:
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
-    VdcGroup:
-      type: object
       required:
         - name
-        - orgId
-        - participatingOrgVdcs
+    VdcGroup:
+      type: object
+      description: 'A vCD Group.
+
+        '
       properties:
         id:
           type: string
@@ -6643,62 +5607,10 @@ components:
           type: string
           description: If the group has an error status, a more detailed error message
             is set here.
-      description: 'A vCD Group.
-
-        '
-      x-vcloud-property-annotations:
-        id:
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: vdcGroup
-            - constraint: ReadOnly
-            - constraint: NonSortable
-        orgId:
-          x-vcloud-constraints:
-            - constraint: NonSortable
-        description:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        localEgress:
-          x-vcloud-added-in: 34
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        participatingOrgVdcs:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        universalNetworkingEnabled:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkPoolUniversalId:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        networkPoolId:
-          x-vcloud-added-in: 34
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: networkpool
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        status:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        errorMessage:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        type:
-          x-vcloud-added-in: 34
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+      required:
+        - name
+        - orgId
+        - participatingOrgVdcs
     VdcGroupEntityStatus:
       type: string
       description: 'Represents status of vDC group components such as participating
@@ -6728,6 +5640,9 @@ components:
         - SUBINTERFACE
     VdcNetworkDhcpConfig:
       type: object
+      description: 'Configuration for the DHCP service that runs on the network.
+
+        '
       properties:
         enabled:
           type: boolean
@@ -6737,12 +5652,11 @@ components:
           description: Range of DHCP IP addresses
           items:
             $ref: '#/definitions/VdcNetworkDhcpPool'
-      description: 'Configuration for the DHCP service that runs on the network.
-
-        '
-      x-vcloud-added-in: 32
     VdcNetworkDhcpPool:
       type: object
+      description: 'A range of DHCP ip addresses and its lease time configuration.
+
+        '
       properties:
         enabled:
           type: boolean
@@ -6757,10 +5671,6 @@ components:
           type: integer
           description: Default lease time in seconds
           minimum: 0
-      description: 'A range of DHCP ip addresses and its lease time configuration.
-
-        '
-      x-vcloud-added-in: 32
     VdcNetworkFenceType:
       type: string
       description: 'The network type.
@@ -6775,6 +5685,9 @@ components:
         - CROSS_VDC
     VdcNetworkProfile:
       type: object
+      description: 'A vDC Network Profile object.
+
+        '
       properties:
         primaryEdgeCluster:
           description: The Edge Cluster where the primary appliance for an NSX-V Edge
@@ -6784,21 +5697,11 @@ components:
           description: The Edge Cluster where the secondary appliance for an NSX-V
             Edge Gateway will be deployed if HA is enabled on the Edge.
           $ref: '#/definitions/EntityReference'
-      description: 'A vDC Network Profile object.
-
-        '
-      x-vcloud-added-in: 32
-      x-vcloud-property-annotations:
-        primaryEdgeCluster:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-        secondaryEdgeCluster:
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     VlanIdRange:
       type: object
+      description: 'An object representing VLAN Id range.
+
+        '
       properties:
         startId:
           type: integer
@@ -6806,22 +5709,21 @@ components:
         endId:
           type: integer
           description: Ending VLAN Id in the range.
-      description: 'An object representing VLAN Id range.
-
-        '
-      x-vcloud-added-in: 33
     VlanIdRanges:
       type: object
+      description: 'List of IpRange
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/VlanIdRange'
-      description: 'List of IpRange
-
-        '
     VmcSddc:
       type: object
+      description: 'A VMware Cloud on AWS SDDC
+
+        '
       properties:
         id:
           type: string
@@ -6829,12 +5731,12 @@ components:
         name:
           type: string
           description: The name of the VMC SDDC. This field is read-only.
-      description: 'A VMware Cloud on AWS SDDC
-
-        '
-      x-vcloud-added-in: 32
     VroRemoteInventoryItem:
       type: object
+      description: 'Meta information about an inventory item on a vRealize Orchestrator
+        server
+
+        '
       properties:
         href:
           type: string
@@ -6844,12 +5746,11 @@ components:
             $ref: '#/definitions/WsAttribute'
         relations:
           $ref: '#/definitions/Relations'
-      description: 'Meta information about an inventory item on a vRealize Orchestrator
-        server
-
-        '
     VroRemoteItem:
       type: object
+      description: 'Information about various objects in vRealize Orchestrator server
+
+        '
       properties:
         name:
           type: string
@@ -6871,11 +5772,11 @@ components:
           type: string
         rel:
           type: string
-      description: 'Information about various objects in vRealize Orchestrator server
-
-        '
     VroRemoteItems:
       type: object
+      description: 'A list of objects in vRealize orchestrator server
+
+        '
       properties:
         remoteItems:
           type: array
@@ -6885,11 +5786,11 @@ components:
           type: integer
         pageCount:
           type: integer
-      description: 'A list of objects in vRealize orchestrator server
-
-        '
     VroRemotePluginItem:
       type: object
+      description: 'A plugin namespaces for whom type information can be retrieved
+
+        '
       properties:
         name:
           type: string
@@ -6899,21 +5800,21 @@ components:
           type: boolean
         canHaveChildren:
           type: boolean
-      description: 'A plugin namespaces for whom type information can be retrieved
-
-        '
     VroRemotePluginItems:
       type: object
+      description: 'List of plugin namespaces
+
+        '
       properties:
         items:
           type: array
           items:
             $ref: '#/definitions/VroRemotePluginItem'
-      description: 'List of plugin namespaces
-
-        '
     VroRemotePluginType:
       type: object
+      description: 'Type definition for a plugin namespace
+
+        '
       properties:
         name:
           type: string
@@ -6921,11 +5822,11 @@ components:
           type: boolean
         canHaveChildren:
           type: boolean
-      description: 'Type definition for a plugin namespace
-
-        '
     VroRemotePluginTypes:
       type: object
+      description: 'A list of defined types for a particular plugin namespace
+
+        '
       properties:
         types:
           type: array
@@ -6933,11 +5834,11 @@ components:
             $ref: '#/definitions/VroRemotePluginType'
         namespace:
           type: string
-      description: 'A list of defined types for a particular plugin namespace
-
-        '
     VroRemoteWorkflowItem:
       type: object
+      description: 'Meta information about a workflow on a vRealize Orchestrator server
+
+        '
       properties:
         name:
           type: string
@@ -6951,9 +5852,6 @@ components:
           type: string
         vroServerId:
           type: string
-      description: 'Meta information about a workflow on a vRealize Orchestrator server
-
-        '
     WsAttribute:
       type: object
       properties:
@@ -7045,7 +5943,8 @@ components:
       allOf:
         - $ref: '#/components/schemas/NetworkProviderContext'
         - $ref: '#/components/schemas/NetworkingObjectStatus'
-        - properties:
+        - type: object
+          properties:
             id:
               type: string
               description: The id of the Application Port Profile in URN format.
@@ -7430,17 +6329,6 @@ components:
               description: Used for create and update api calls. If set to true, IP
                 Ranges are automatically generated based on totalIpCount.
               default: false
-          x-vcloud-property-annotations:
-            primaryIp:
-              x-vcloud-added-in: 33
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-            autoAllocateIpRanges:
-              x-vcloud-added-in: 33
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
       description: 'Subnet for edge gateway that contains the IPs from the external
         network that are allocated to the edge.
 
@@ -7534,30 +6422,6 @@ components:
               description: The Edge Gateway that this external network is dedicated
                 to. This is null if this is not a dedicated external network.
               $ref: '#/definitions/EntityReference'
-          x-vcloud-property-annotations:
-            networkBackings:
-              x-vcloud-constraints:
-                - constraint: NonSortable
-            totalIpCount:
-              x-vcloud-constraints:
-                - constraint: ReadOnly
-                - constraint: NonSearchable
-                - constraint: NonSortable
-            usedIpCount:
-              x-vcloud-constraints:
-                - constraint: ReadOnly
-                - constraint: NonSearchable
-                - constraint: NonSortable
-            dedicatedOrg:
-              x-vcloud-added-in: 34
-              x-vcloud-constraints:
-                - constraint: ReadOnly
-                - constraint: NonSortable
-            dedicatedEdgeGateway:
-              x-vcloud-added-in: 34
-              x-vcloud-constraints:
-                - constraint: ReadOnly
-                - constraint: NonSortable
       description: 'An external network.
 
         '
@@ -7606,7 +6470,8 @@ components:
         '
     FirewallGroupSummary:
       allOf:
-        - properties:
+        - type: object
+          properties:
             id:
               type: string
               description: The id of the firewall group.
@@ -7766,32 +6631,6 @@ components:
               description: The Id of vCenter server or the NSX-T manager that manages
                 backings for this network pool.
               $ref: '#/definitions/EntityReference'
-              x-vcloud-constraints:
-                - constraint: ReadOnly
-                - constraint: NonSortable
-          x-vcloud-property-annotations:
-            id:
-              x-vcloud-constraints:
-                - constraint: Urn
-                  args:
-                    - arg: networkpool
-                - constraint: NonSortable
-                - constraint: ReadOnly
-            description:
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-            totalBackingsCount:
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-                - constraint: ReadOnly
-            usedBackingsCount:
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-                - constraint: ReadOnly
-            managingOwnerRef:
               x-vcloud-constraints:
                 - constraint: ReadOnly
                 - constraint: NonSortable
@@ -8426,11 +7265,6 @@ components:
               items:
                 $ref: '#/definitions/EntityReference'
               x-vcloud-added-in: 34
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-          x-vcloud-property-annotations:
-            ipAddresses:
               x-vcloud-constraints:
                 - constraint: NonSearchable
                 - constraint: NonSortable

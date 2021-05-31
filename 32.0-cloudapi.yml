@@ -6,6 +6,9 @@ components:
   schemas:
     AllocatedIpAddress:
       type: object
+      description: 'Describes an allocated IP address
+
+        '
       properties:
         id:
           type: string
@@ -30,10 +33,6 @@ components:
           description: The possible allocation types for allocated network address
             like VSM allocated, VM allocated or NAT routed.
           $ref: '#/definitions/AllocatedIpAddressAllocationType'
-      description: 'Describes an allocated IP address
-
-        '
-      x-vcloud-added-in: 32
     AllocatedIpAddressAllocationType:
       type: string
       description: 'The possible allocation types for allocated network address.
@@ -57,6 +56,9 @@ components:
         - NSXT_FLEXIBLE_SEGMENT
     Capability:
       type: object
+      description: 'Describes a capability of an entity.
+
+        '
       properties:
         name:
           type: string
@@ -76,10 +78,6 @@ components:
         category:
           description: The category of the capabilities listed.
           $ref: '#/definitions/CapabilityCategory'
-      description: 'Describes a capability of an entity.
-
-        '
-      x-vcloud-added-in: 32
     CapabilityCategory:
       type: string
       description: 'Describes the category of the capbilitiy
@@ -99,6 +97,8 @@ components:
         - Boolean
         - String
     CommonNsxTRouterFields:
+      type: object
+      description: Common fields that all Tier-0 or Tier-1 routers have.
       properties:
         id:
           type: string
@@ -109,20 +109,16 @@ components:
         displayName:
           type: string
           description: Name used in NSX-T's logs or GUI. Field is sortable.
-      description: Common fields that all Tier-0 or Tier-1 routers have.
     Constraint:
       type: object
-      required:
-        - constraintType
-      discriminator: constraintType
       properties:
         constraintType:
           type: string
+      required:
+        - constraintType
+      discriminator: constraintType
     CreateCustomEntityTypeAction:
       type: object
-      required:
-        - workflowId
-        - workflowInputParameter
       properties:
         workflowId:
           type: string
@@ -135,6 +131,9 @@ components:
             entity type should be mapped.
 
             '
+      required:
+        - workflowId
+        - workflowInputParameter
     CustomEntities:
       type: object
       properties:
@@ -144,8 +143,6 @@ components:
             $ref: '#/definitions/CustomEntity'
     CustomEntity:
       type: object
-      required:
-        - name
       properties:
         id:
           type: string
@@ -159,6 +156,8 @@ components:
           description: 'This refers to UUID of custom entity type
 
             '
+      required:
+        - name
     CustomEntityType:
       type: object
       properties:
@@ -201,9 +200,6 @@ components:
           default: false
     CustomEntityTypeAction:
       type: object
-      required:
-        - name
-        - workflowId
       properties:
         name:
           type: string
@@ -221,6 +217,9 @@ components:
             entity type should be mapped.
 
             '
+      required:
+        - name
+        - workflowId
     CustomEntityTypeActions:
       type: object
       properties:
@@ -230,14 +229,17 @@ components:
             $ref: '#/definitions/CustomEntityTypeAction'
     Decorator:
       type: object
-      required:
-        - decoratorType
-      discriminator: decoratorType
       properties:
         decoratorType:
           type: string
+      required:
+        - decoratorType
+      discriminator: decoratorType
     EdgeCluster:
       type: object
+      description: 'An Edge Cluster object.
+
+        '
       properties:
         id:
           type: string
@@ -255,12 +257,11 @@ components:
           type: string
           description: Name of the Storage Profile. This will define the set of datastores
             where the edge vm will be deployed.
-      description: 'An Edge Cluster object.
-
-        '
-      x-vcloud-added-in: 32
     EdgeGateway:
       type: object
+      description: 'An edge gateway object
+
+        '
       properties:
         id:
           type: string
@@ -283,12 +284,11 @@ components:
         orgVdc:
           description: The organization vDC which the gateway belongs to.
           $ref: '#/definitions/EntityReference'
-      description: 'An edge gateway object
-
-        '
-      x-vcloud-added-in: 32
     EdgeGatewayBacking:
       type: object
+      description: 'The backing details of the edge gateway
+
+        '
       properties:
         backingId:
           type: string
@@ -300,10 +300,6 @@ components:
         networkProvider:
           description: The backing network provider, either NSX-T or NSX-V.
           $ref: '#/definitions/EntityReference'
-      description: 'The backing details of the edge gateway
-
-        '
-      x-vcloud-added-in: 32
     EdgeGatewayType:
       type: string
       description: 'The type of the edge gateway.
@@ -315,6 +311,7 @@ components:
         - NSXT_IMPORTED
     EdgeGatewayUplink:
       type: object
+      description: The uplink for the edge gateway along with ip suballocations
       properties:
         uplinkId:
           type: string
@@ -327,10 +324,11 @@ components:
 
             '
           $ref: '#/definitions/Subnets'
-      description: The uplink for the edge gateway along with ip suballocations
-      x-vcloud-added-in: 32
     EgressPoint:
       type: object
+      description: 'An Egress Point.
+
+        '
       properties:
         id:
           type: string
@@ -354,11 +352,11 @@ components:
           $ref: '#/definitions/VdcGroupEntityStatus'
         errorMessage:
           type: string
-      description: 'An Egress Point.
-
-        '
     EgressPointReference:
       type: object
+      description: 'An EgressPoint reference object for use in universal routing.
+
+        '
       properties:
         egressPointId:
           type: string
@@ -369,22 +367,22 @@ components:
         gatewayRef:
           description: The Edge Gateway of the Universal Egress Point reference.
           $ref: '#/definitions/EntityReference'
-      description: 'An EgressPoint reference object for use in universal routing.
-
-        '
     EgressPoints:
       type: object
+      description: 'List of Egress Points.
+
+        '
       properties:
         values:
           type: array
           description: The list of Universal Egress Points.
           items:
             $ref: '#/definitions/EgressPoint'
-      description: 'List of Egress Points.
-
-        '
     EmailSettings:
       type: object
+      description: 'Email related settings for a system
+
+        '
       properties:
         defaultSmtpServer:
           type: boolean
@@ -425,24 +423,22 @@ components:
             to
 
             '
-      description: 'Email related settings for a system
-
-        '
     EntityReference:
       type: object
+      description: 'Entity reference used to describe VCD entities
+
+        '
       properties:
         name:
           type: string
         id:
           type: string
-      description: 'Entity reference used to describe VCD entities
-
-        '
     Error:
       type: object
-      required:
-        - message
-        - minorErrorCode
+      description: 'Error type format displayed to users for exceptions emerging from
+        openapi endpoints.
+
+        '
       properties:
         minorErrorCode:
           type: string
@@ -450,10 +446,9 @@ components:
           type: string
         stackTrace:
           type: string
-      description: 'Error type format displayed to users for exceptions emerging from
-        openapi endpoints.
-
-        '
+      required:
+        - message
+        - minorErrorCode
     ExecutionContext:
       type: object
       properties:
@@ -489,10 +484,7 @@ components:
           $ref: '#/definitions/ExecutionState'
     ExtensionPoint:
       type: object
-      required:
-        - enabled
-        - extensionPointId
-        - pluginId
+      description: Extension Point of a UI Plugin
       properties:
         extensionPointId:
           type: string
@@ -502,9 +494,14 @@ components:
           type: string
         enabled:
           type: boolean
-      description: Extension Point of a UI Plugin
-      x-vcloud-added-in: 32
+      required:
+        - enabled
+        - extensionPointId
+        - pluginId
     ExtensionPointSummary:
+      type: object
+      description: A map of extension Points and an ordered list of items registered
+        with that extension point
       properties:
         extensionPointRegistrations:
           type: object
@@ -512,11 +509,11 @@ components:
             type: array
             items:
               $ref: '#/definitions/ExtensionPoint'
-      description: A map of extension Points and an ordered list of items registered
-        with that extension point
-      x-vcloud-added-in: 32
     ExternalNetworkBacking:
       type: object
+      description: 'Information about an external network backing.
+
+        '
       properties:
         backingId:
           type: string
@@ -528,10 +525,6 @@ components:
           description: The Network Provider for the backing, either a vCenter Server
             or NSX-T Manager.
           $ref: '#/definitions/EntityReference'
-      description: 'Information about an external network backing.
-
-        '
-      x-vcloud-added-in: 32
     ExternalNetworkBackingType:
       type: string
       description: 'The type of the external network backing.
@@ -544,17 +537,19 @@ components:
         - UNKNOWN
     ExternalNetworkBackings:
       type: object
+      description: 'List of External Network backings.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/ExternalNetworkBacking'
-      description: 'List of External Network backings.
-
-        '
-      x-vcloud-added-in: 32
     IpRange:
       type: object
+      description: 'An IpRange
+
+        '
       properties:
         startAddress:
           type: string
@@ -562,34 +557,34 @@ components:
         endAddress:
           type: string
           description: Ending IP address in the range.
-      description: 'An IpRange
-
-        '
     IpRanges:
       type: object
+      description: 'List of IpRange
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/IpRange'
-      description: 'List of IpRange
-
-        '
     LdapConnectionTestResult:
       type: object
-      required:
-        - successful
+      description: 'Provides LDAP connection test results
+
+        '
       properties:
         successful:
           type: boolean
           description: Flag for whether connection test was successful
         error:
           $ref: '#/definitions/Error'
-      description: 'Provides LDAP connection test results
-
-        '
+      required:
+        - successful
     LdapGroupAttributesType:
       type: object
+      description: 'Defines how a group is imported from LDAP.
+
+        '
       properties:
         objectClass:
           type: string
@@ -603,11 +598,11 @@ components:
           type: string
         backLinkIdentifier:
           type: string
-      description: 'Defines how a group is imported from LDAP.
-
-        '
     LdapSettings:
       type: object
+      description: 'LDAP Settings Specification
+
+        '
       properties:
         hostName:
           type: string
@@ -655,13 +650,11 @@ components:
           $ref: '#/definitions/LdapGroupAttributesType'
         useExternalKerberos:
           type: boolean
-      description: 'LDAP Settings Specification
-
-        '
     LdapSettingsTestResult:
       type: object
-      required:
-        - successful
+      description: 'Provides test attribute, result, and success boolean
+
+        '
       properties:
         attribute:
           type: string
@@ -686,11 +679,13 @@ components:
         successful:
           type: boolean
           description: Flag to indicate if the attribute is successful or not
-      description: 'Provides test attribute, result, and success boolean
-
-        '
+      required:
+        - successful
     LdapTestResult:
       type: object
+      description: 'Provides LDAP connection and settings test results
+
+        '
       properties:
         connectionTest:
           $ref: '#/definitions/LdapConnectionTestResult'
@@ -698,11 +693,11 @@ components:
           type: array
           items:
             $ref: '#/definitions/LdapSettingsTestResult'
-      description: 'Provides LDAP connection and settings test results
-
-        '
     LdapUserAttributesType:
       type: object
+      description: 'Defines how LDAP attributes are used when importing a user.
+
+        '
       properties:
         objectClass:
           type: string
@@ -724,9 +719,6 @@ components:
           type: string
         groupBackLinkIdentifier:
           type: string
-      description: 'Defines how LDAP attributes are used when importing a user.
-
-        '
     Link:
       type: object
       properties:
@@ -744,8 +736,6 @@ components:
           type: string
     LogicalVmGroup:
       type: object
-      required:
-        - name
       properties:
         id:
           type: string
@@ -767,9 +757,13 @@ components:
             '
           items:
             $ref: '#/definitions/EntityReference'
-      x-vcloud-added-in: 32
+      required:
+        - name
     Network:
       type: object
+      description: 'A network Object.
+
+        '
       properties:
         id:
           type: string
@@ -783,9 +777,6 @@ components:
         subnets:
           description: List of subnets configured for the network.
           $ref: '#/definitions/Subnets'
-      description: 'A network Object.
-
-        '
     OrgVdcNetworkStatus:
       type: string
       description: 'Represents status of a Org Vdc network. This value will be PENDING
@@ -812,6 +803,19 @@ components:
         - GREEN
     Page:
       type: object
+      description: 'Collection of paging-related metadata to be included by composition
+        via allOf. This type
+
+        should be included in pageable responses to avoid duplicating these common
+        properties. It
+
+        is intended to be included by composition rather than inheritance. Because
+        of this, it has
+
+        no discriminator and should be embedded via allOf. See QueryResults for a
+        reference usage.
+
+        '
       properties:
         resultTotal:
           type: integer
@@ -826,27 +830,14 @@ components:
         pageSize:
           type: integer
           description: Result count for page that was fetched.
-      description: 'Collection of paging-related metadata to be included by composition
-        via allOf. This type
-
-        should be included in pageable responses to avoid duplicating these common
-        properties. It
-
-        is intended to be included by composition rather than inheritance. Because
-        of this, it has
-
-        no discriminator and should be embedded via allOf. See QueryResults for a
-        reference usage.
-
-        '
     Parameter:
       type: object
-      required:
-        - inputType
-      discriminator: inputType
       properties:
         inputType:
           type: string
+      required:
+        - inputType
+      discriminator: inputType
     ParameterTypes:
       type: object
       properties:
@@ -880,9 +871,9 @@ components:
           $ref: '#/definitions/ArrayParam'
     ParticipatingVdcReference:
       type: object
-      required:
-        - siteRef
-        - vdcRef
+      description: 'A participating vDC
+
+        '
       properties:
         vdcRef:
           description: The reference to the vDC that is part of this a vDC group.
@@ -906,15 +897,11 @@ components:
           description: The status that the vDC can be in. An example is if the vDC
             has been deleted from the system but is still part of the group.
           $ref: '#/definitions/VdcGroupEntityStatus'
-      description: 'A participating vDC
-
-        '
+      required:
+        - siteRef
+        - vdcRef
     Preference:
       type: object
-      required:
-        - classifier
-        - name
-        - value
       properties:
         classifier:
           type: string
@@ -932,15 +919,15 @@ components:
             '
         value:
           type: string
-      x-vcloud-added-in: 32
-    PreferenceDefinition:
-      type: object
       required:
         - classifier
-        - constrained
-        - dataType
-        - defaultValue
         - name
+        - value
+    PreferenceDefinition:
+      type: object
+      description: 'The Preference Definition is immutable.
+
+        '
       properties:
         id:
           type: string
@@ -1001,10 +988,12 @@ components:
             true.. This is immutable after creation.
           items:
             type: string
-      description: 'The Preference Definition is immutable.
-
-        '
-      x-vcloud-added-in: 32
+      required:
+        - classifier
+        - constrained
+        - dataType
+        - defaultValue
+        - name
     Presentation:
       type: object
       properties:
@@ -1030,9 +1019,6 @@ components:
             $ref: '#/definitions/StepInfo'
     PresentationElement:
       type: object
-      required:
-        - elementType
-      discriminator: elementType
       properties:
         elementType:
           type: string
@@ -1048,6 +1034,9 @@ components:
           type: array
           items:
             $ref: '#/definitions/PresentationMessageInfo'
+      required:
+        - elementType
+      discriminator: elementType
     PresentationExecution:
       type: object
       properties:
@@ -1155,6 +1144,9 @@ components:
           format: int32
     ResourcePool:
       type: object
+      description: 'A vCenter Resource Pool.
+
+        '
       properties:
         moref:
           type: string
@@ -1166,13 +1158,11 @@ components:
         vcId:
           type: string
           description: The vCenter the Resource Pool belongs to.
-      description: 'A vCenter Resource Pool.
-
-        '
     Right:
       type: object
-      required:
-        - name
+      description: 'Right
+
+        '
       properties:
         name:
           type: string
@@ -1214,14 +1204,13 @@ components:
           x-vcloud-added-in: 32
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'Right
-
-        '
+      required:
+        - name
     RightsCategoryNode:
       type: object
-      required:
-        - bundleKey
-        - name
+      description: 'RightsCategoryNode
+
+        '
       properties:
         name:
           type: string
@@ -1247,11 +1236,14 @@ components:
             type: string
             x-vcloud-constraints:
               - constraint: Urn
-      description: 'RightsCategoryNode
-
-        '
+      required:
+        - bundleKey
+        - name
     RightsCount:
       type: object
+      description: 'RightsCount - A count of rights in a given category by type
+
+        '
       properties:
         view:
           type: integer
@@ -1261,14 +1253,11 @@ components:
           type: integer
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'RightsCount - A count of rights in a given category by type
-
-        '
     RightsMapping:
       type: object
-      required:
-        - description
-        - name
+      description: 'RightsMapping
+
+        '
       properties:
         name:
           type: string
@@ -1294,11 +1283,14 @@ components:
           type: boolean
           x-vcloud-constraints:
             - constraint: ReadOnly
-      description: 'RightsMapping
-
-        '
+      required:
+        - description
+        - name
     RouterComponentHealth:
       type: object
+      description: 'A ComponentHealth object
+
+        '
       properties:
         component:
           type: string
@@ -1310,9 +1302,6 @@ components:
           type: string
         code:
           type: integer
-      description: 'A ComponentHealth object
-
-        '
     RouterComponentStatus:
       type: string
       description: 'Status of a router component.
@@ -1323,6 +1312,10 @@ components:
         - DOWN
     RouterConnection:
       type: object
+      description: 'Describes the connection between a routed network and an edge
+        gateway. This must be set if converting from an isolated to a routed network.
+
+        '
       properties:
         routerRef:
           description: The edge gateway that this network is attached to.
@@ -1331,13 +1324,11 @@ components:
           description: How the network is connected to the edge gateway. This field
             is updatable to allow conversions between different types.
           $ref: '#/definitions/VdcNetworkConnectionType'
-      description: 'Describes the connection between a routed network and an edge
-        gateway. This must be set if converting from an isolated to a routed network.
-
-        '
-      x-vcloud-added-in: 31
     RouterDnsConfig:
       type: object
+      description: 'A RouterDnsConfig object
+
+        '
       properties:
         enabled:
           type: boolean
@@ -1345,11 +1336,11 @@ components:
           type: array
           items:
             type: string
-      description: 'A RouterDnsConfig object
-
-        '
     RouterHealthReport:
       type: object
+      description: 'Health Report of a Router
+
+        '
       properties:
         nsxManagersHealth:
           type: array
@@ -1385,14 +1376,11 @@ components:
             '
           items:
             $ref: '#/definitions/RouterComponentHealth'
-      description: 'Health Report of a Router
-
-        '
     Sddc:
       type: object
-      required:
-        - name
-        - vcId
+      description: 'Software-defined data center
+
+        '
       properties:
         name:
           type: string
@@ -1442,16 +1430,14 @@ components:
 
             '
           $ref: '#/definitions/SddcProxy'
-      description: 'Software-defined data center
-
-        '
-      x-vcloud-added-in: 32
-    SddcProxy:
-      type: object
       required:
         - name
-        - sddcId
-        - targetHost
+        - vcId
+    SddcProxy:
+      type: object
+      description: 'SDDC proxy configuration
+
+        '
       properties:
         name:
           type: string
@@ -1552,12 +1538,15 @@ components:
             \ URL that the browser tab\n will be pointed to when the proxy is launched\
             \ via the H5 UI of VCD.\n"
           default: ''
-      description: 'SDDC proxy configuration
-
-        '
-      x-vcloud-added-in: 32
+      required:
+        - name
+        - sddcId
+        - targetHost
     SddcStat:
       type: object
+      description: 'A collection of measurements for the SDDC resource
+
+        '
       properties:
         numTotal:
           type: integer
@@ -1574,12 +1563,11 @@ components:
           format: int64
           description: Reserved resource allocation.
           minimum: 0
-      description: 'A collection of measurements for the SDDC resource
-
-        '
-      x-vcloud-added-in: 32
     SddcStats:
       type: object
+      description: 'A read-only list of resource allocations for the associated SDDC
+
+        '
       properties:
         cpu:
           description: CPUs statistics of the SDDC (values in MHz).
@@ -1590,10 +1578,6 @@ components:
         storage:
           description: Storage statistics of the SDDC (values in MB).
           $ref: '#/definitions/SddcStat'
-      description: 'A read-only list of resource allocations for the associated SDDC
-
-        '
-      x-vcloud-added-in: 32
     Service:
       type: object
       properties:
@@ -1610,11 +1594,9 @@ components:
           type: string
     ServiceApp:
       type: object
-      required:
-        - clientId
-        - clientSecret
-        - name
-        - serviceScope
+      description: 'A VMware service application
+
+        '
       properties:
         id:
           type: string
@@ -1644,10 +1626,11 @@ components:
         enabled:
           type: boolean
           description: Whether the application is currently enabled
-      description: 'A VMware service application
-
-        '
-      x-vcloud-added-in: 32
+      required:
+        - clientId
+        - clientSecret
+        - name
+        - serviceScope
     ServiceAppScope:
       type: string
       description: 'Describes the type of service application
@@ -1657,9 +1640,6 @@ components:
         - VMC
     ServiceItem:
       type: object
-      required:
-        - serviceItemType
-      discriminator: serviceItemType
       properties:
         id:
           type: string
@@ -1691,8 +1671,15 @@ components:
 
             '
           default: false
+      required:
+        - serviceItemType
+      discriminator: serviceItemType
     SmtpServerSpec:
       type: object
+      description: 'Represent the settings of an SMTP Server which the system uses
+        to send email notifications and alerts
+
+        '
       properties:
         useAuthentication:
           type: boolean
@@ -1736,12 +1723,11 @@ components:
         name:
           type: string
           description: A human readable name of the entity
-      description: 'Represent the settings of an SMTP Server which the system uses
-        to send email notifications and alerts
-
-        '
     Subnet:
       type: object
+      description: 'A network subnet defined by its gateway,
+
+        '
       properties:
         gateway:
           type: string
@@ -1768,19 +1754,16 @@ components:
           type: boolean
           description: Indicates whether the external network subnet is currently
             enabled.
-      description: 'A network subnet defined by its gateway,
-
-        '
     Subnets:
       type: object
+      description: 'List of Subnets of a network
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/Subnet'
-      description: 'List of Subnets of a network
-
-        '
     SupportedConstraints:
       type: object
       properties:
@@ -1833,31 +1816,30 @@ components:
           type: string
     Tier0Routers:
       type: object
+      description: 'List of NSX-T''s Tier-0 routers.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/Tier0Router'
-      description: 'List of NSX-T''s Tier-0 routers.
-
-        '
-      x-vcloud-added-in: 32
     Tier1Routers:
       type: object
+      description: 'List of NSX-T''s Tier-1 routers.
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/Tier1Router'
-      description: 'List of NSX-T''s Tier-1 routers.
-
-        '
-      x-vcloud-added-in: 32
     UiBranding:
       type: object
-      required:
-        - customLinks
-        - portalName
+      description: 'A branding object with the portal name, portal color, selected
+        theme and custom URLs.
+
+        '
       properties:
         portalName:
           type: string
@@ -1877,26 +1859,11 @@ components:
           type: array
           items:
             $ref: '#/definitions/UiBrandingMenuItem'
-      description: 'A branding object with the portal name, portal color, selected
-        theme and custom URLs.
-
-        '
+      required:
+        - customLinks
+        - portalName
     UiBrandingMenuItem:
       type: object
-      required:
-        - menuItemType
-      properties:
-        name:
-          type: string
-        menuItemType:
-          type: string
-          enum:
-            - link
-            - section
-            - override
-            - separator
-        url:
-          type: string
       description: 'An ordered list of menu items which can be customized and used
         in the application. Can be defined as a
 
@@ -1910,15 +1877,25 @@ components:
         separator(section without a name) of the drop down menu.
 
         '
-      x-vcloud-added-in: 32
+      properties:
+        name:
+          type: string
+        menuItemType:
+          type: string
+          enum:
+            - link
+            - section
+            - override
+            - separator
+        url:
+          type: string
+      required:
+        - menuItemType
     UiPluginMetadata:
       type: object
-      required:
-        - license
-        - link
-        - pluginName
-        - vendor
-        - version
+      description: 'Meta information about a UI Plugin
+
+        '
       properties:
         pluginName:
           type: string
@@ -1938,24 +1915,31 @@ components:
           type: boolean
         enabled:
           type: boolean
-      description: 'Meta information about a UI Plugin
-
-        '
+      required:
+        - license
+        - link
+        - pluginName
+        - vendor
+        - version
     UiTheme:
       type: object
-      required:
-        - name
-        - themeType
+      description: 'A theme supported by vCloud Director.
+
+        '
       properties:
         themeType:
           type: string
         name:
           type: string
-      description: 'A theme supported by vCloud Director.
-
-        '
+      required:
+        - name
+        - themeType
     UniversalEgressRoutes:
       type: object
+      description: 'Object consisting of Egress Points and Universal Routes for a
+        Universal Router.
+
+        '
       properties:
         egressPoints:
           description: The list of Egress Points for routing configuration. This is
@@ -1966,14 +1950,11 @@ components:
 
             '
           $ref: '#/definitions/UniversalRoutes'
-      description: 'Object consisting of Egress Points and Universal Routes for a
-        Universal Router.
-
-        '
     UniversalRoute:
       type: object
-      required:
-        - networkProviderScope
+      description: 'A Route for a Universal Router.
+
+        '
       properties:
         defaultEgress:
           description: For a given route, routing by default will go through the default
@@ -1993,11 +1974,13 @@ components:
           $ref: '#/definitions/UniversalRoutingStatus'
         errorMessage:
           type: string
-      description: 'A Route for a Universal Router.
-
-        '
+      required:
+        - networkProviderScope
     UniversalRouter:
       type: object
+      description: 'A UniversalRouter object
+
+        '
       properties:
         id:
           type: string
@@ -2013,11 +1996,11 @@ components:
           $ref: '#/definitions/VdcGroupEntityStatus'
         errorMessage:
           type: string
-      description: 'A UniversalRouter object
-
-        '
     UniversalRouterDhcpConfig:
       type: object
+      description: 'A UniversalRouterDhcpConfig object.
+
+        '
       properties:
         enabled:
           type: boolean
@@ -2025,33 +2008,33 @@ components:
           type: array
           items:
             $ref: '#/definitions/UniversalRouterDhcpServer'
-      description: 'A UniversalRouterDhcpConfig object.
-
-        '
     UniversalRouterDhcpServer:
       type: object
-      properties:
-        egressRef:
-          $ref: '#/definitions/EntityReference'
-        serverAddress:
-          type: string
       description: 'List of Dhcp servers for universal router.
 
         Either egressRef or serverAddress is required to identify Dhcp server.
 
         '
+      properties:
+        egressRef:
+          $ref: '#/definitions/EntityReference'
+        serverAddress:
+          type: string
     UniversalRouters:
       type: object
+      description: 'List of Universal Routers
+
+        '
       properties:
         values:
           type: array
           items:
             $ref: '#/definitions/UniversalRouter'
-      description: 'List of Universal Routers
-
-        '
     UniversalRoutes:
       type: object
+      description: 'List of routes associated with a Universal Router.
+
+        '
       properties:
         keepAliveTimer:
           type: integer
@@ -2080,9 +2063,6 @@ components:
             '
           items:
             type: string
-      description: 'List of routes associated with a Universal Router.
-
-        '
     UniversalRoutingStatus:
       type: string
       description: 'Represents status of given routing configuration, such as realized,
@@ -2120,9 +2100,9 @@ components:
         '
     UploadSpec:
       type: object
-      required:
-        - fileName
-        - size
+      description: 'Information about upload
+
+        '
       properties:
         fileName:
           type: string
@@ -2137,9 +2117,9 @@ components:
           enum:
             - sha1
             - sha256
-      description: 'Information about upload
-
-        '
+      required:
+        - fileName
+        - size
     Url:
       type: object
       properties:
@@ -2153,6 +2133,9 @@ components:
           type: boolean
     User:
       type: object
+      description: 'User Spec object
+
+        '
       properties:
         username:
           type: string
@@ -2194,11 +2177,11 @@ components:
           type: integer
         inSync:
           type: boolean
-      description: 'User Spec object
-
-        '
     UserGroup:
       type: object
+      description: 'Group Spec object
+
+        '
       properties:
         name:
           type: string
@@ -2219,11 +2202,12 @@ components:
             - INTEGRATED
             - SAML
             - OAUTH
-      description: 'Group Spec object
-
-        '
     VROServiceInfo:
       type: object
+      description: 'Response type with meta information about a vRealize Orchestrator
+        Service
+
+        '
       properties:
         id:
           type: string
@@ -2259,14 +2243,8 @@ components:
           description: 'SSL Certificate chain for the VRO endpoint
 
             '
-      description: 'Response type with meta information about a vRealize Orchestrator
-        Service
-
-        '
     VdcComputePolicy:
       type: object
-      required:
-        - name
       properties:
         id:
           type: string
@@ -2435,28 +2413,13 @@ components:
             of Compute Policies right to access this field.
 
             '
-      x-vcloud-property-annotations:
-        pvdcComputePolicyRef:
-          x-vcloud-added-in: 31
-          x-vcloud-deprecated-in: 32
-          x-vcloud-deprecated-alternative: pvdcComputePolicy
-          x-vcloud-removed-in: 32
-          x-vcloud-restricted: 'Restricted field, requires view alternate admin version
-            of Compute Policies right to access this field.
-
-            '
-        pvdcComputePolicy:
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires view alternate admin version
-            of Compute Policies right to access this field.
-
-            '
-    VdcGroup:
-      type: object
       required:
         - name
-        - orgId
-        - participatingOrgVdcs
+    VdcGroup:
+      type: object
+      description: 'A vCD Group.
+
+        '
       properties:
         id:
           type: string
@@ -2495,9 +2458,10 @@ components:
           type: string
           description: If the group has an error status, a more detailed error message
             is set here.
-      description: 'A vCD Group.
-
-        '
+      required:
+        - name
+        - orgId
+        - participatingOrgVdcs
     VdcGroupEntityStatus:
       type: string
       description: 'Represents status of vDC group components such as participating
@@ -2527,6 +2491,9 @@ components:
         - SUBINTERFACE
     VdcNetworkDhcpConfig:
       type: object
+      description: 'Configuration for the DHCP service that runs on the network.
+
+        '
       properties:
         enabled:
           type: boolean
@@ -2536,12 +2503,11 @@ components:
           description: Range of DHCP IP addresses
           items:
             $ref: '#/definitions/VdcNetworkDhcpPool'
-      description: 'Configuration for the DHCP service that runs on the network.
-
-        '
-      x-vcloud-added-in: 32
     VdcNetworkDhcpPool:
       type: object
+      description: 'A range of DHCP ip addresses and its lease time configuration.
+
+        '
       properties:
         enabled:
           type: boolean
@@ -2556,10 +2522,6 @@ components:
           type: integer
           description: Default lease time in seconds
           minimum: 0
-      description: 'A range of DHCP ip addresses and its lease time configuration.
-
-        '
-      x-vcloud-added-in: 32
     VdcNetworkFenceType:
       type: string
       description: 'The network type.
@@ -2573,6 +2535,9 @@ components:
         - CROSS_VDC
     VdcNetworkProfile:
       type: object
+      description: 'A vDC Network Profile object.
+
+        '
       properties:
         primaryEdgeCluster:
           description: The Edge Cluster where the primary appliance for an NSX-V Edge
@@ -2582,12 +2547,11 @@ components:
           description: The Edge Cluster where the secondary appliance for an NSX-V
             Edge Gateway will be deployed if HA is enabled on the Edge.
           $ref: '#/definitions/EntityReference'
-      description: 'A vDC Network Profile object.
-
-        '
-      x-vcloud-added-in: 32
     VmcSddc:
       type: object
+      description: 'A VMware Cloud on AWS SDDC
+
+        '
       properties:
         id:
           type: string
@@ -2595,12 +2559,12 @@ components:
         name:
           type: string
           description: The name of the VMC SDDC. This field is read-only.
-      description: 'A VMware Cloud on AWS SDDC
-
-        '
-      x-vcloud-added-in: 32
     VroRemoteInventoryItem:
       type: object
+      description: 'Meta information about an inventory item on a vRealize Orchestrator
+        server
+
+        '
       properties:
         href:
           type: string
@@ -2610,12 +2574,11 @@ components:
             $ref: '#/definitions/WsAttribute'
         relations:
           $ref: '#/definitions/Relations'
-      description: 'Meta information about an inventory item on a vRealize Orchestrator
-        server
-
-        '
     VroRemoteItem:
       type: object
+      description: 'Information about various objects in vRealize Orchestrator server
+
+        '
       properties:
         name:
           type: string
@@ -2637,11 +2600,11 @@ components:
           type: string
         rel:
           type: string
-      description: 'Information about various objects in vRealize Orchestrator server
-
-        '
     VroRemoteItems:
       type: object
+      description: 'A list of objects in vRealize orchestrator server
+
+        '
       properties:
         remoteItems:
           type: array
@@ -2651,11 +2614,11 @@ components:
           type: integer
         pageCount:
           type: integer
-      description: 'A list of objects in vRealize orchestrator server
-
-        '
     VroRemotePluginItem:
       type: object
+      description: 'A plugin namespaces for whom type information can be retrieved
+
+        '
       properties:
         name:
           type: string
@@ -2665,21 +2628,21 @@ components:
           type: boolean
         canHaveChildren:
           type: boolean
-      description: 'A plugin namespaces for whom type information can be retrieved
-
-        '
     VroRemotePluginItems:
       type: object
+      description: 'List of plugin namespaces
+
+        '
       properties:
         items:
           type: array
           items:
             $ref: '#/definitions/VroRemotePluginItem'
-      description: 'List of plugin namespaces
-
-        '
     VroRemotePluginType:
       type: object
+      description: 'Type definition for a plugin namespace
+
+        '
       properties:
         name:
           type: string
@@ -2687,11 +2650,11 @@ components:
           type: boolean
         canHaveChildren:
           type: boolean
-      description: 'Type definition for a plugin namespace
-
-        '
     VroRemotePluginTypes:
       type: object
+      description: 'A list of defined types for a particular plugin namespace
+
+        '
       properties:
         types:
           type: array
@@ -2699,11 +2662,11 @@ components:
             $ref: '#/definitions/VroRemotePluginType'
         namespace:
           type: string
-      description: 'A list of defined types for a particular plugin namespace
-
-        '
     VroRemoteWorkflowItem:
       type: object
+      description: 'Meta information about a workflow on a vRealize Orchestrator server
+
+        '
       properties:
         name:
           type: string
@@ -2717,9 +2680,6 @@ components:
           type: string
         vroServerId:
           type: string
-      description: 'Meta information about a workflow on a vRealize Orchestrator server
-
-        '
     WsAttribute:
       type: object
       properties:
