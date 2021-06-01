@@ -252,15 +252,7 @@
             "format": "date-time"
           },
           "external": {
-            "type": "boolean",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "type": "boolean"
           },
           "additionalProperties": {
             "type": "object",
@@ -435,12 +427,7 @@
           },
           "isActive": {
             "type": "boolean",
-            "description": "Cell active state.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "Cell active state."
           },
           "name": {
             "type": "string",
@@ -626,7 +613,7 @@
           },
           "publishAll": {
             "type": "boolean",
-            "description": "Read-only value indicating publishAll state\n",
+            "description": "Read-only value indicating publishAll state",
             "default": false
           }
         }
@@ -912,7 +899,7 @@
           },
           "allowASIn": {
             "type": "boolean",
-            "description": "A flag indicating whether AllowAS-in is enabled or not. This specifies whether BGP neighbors\ncan receive routes with same AS.\n",
+            "description": "A flag indicating whether AllowAS-in is enabled or not. This specifies whether BGP neighbors\ncan receive routes with same AS.",
             "default": false
           },
           "neighborPassword": {
@@ -1020,7 +1007,7 @@
           },
           "snatRuleEnabled": {
             "type": "boolean",
-            "description": "Whether there is an SNAT rule exists for the DNS forwarder or not. In NAT routed environments, an SNAT rule is required for the Edge DNS forwarder to send\ntraffic to an upstream server. In fully routed environments, this is not needed if the listener IP is on an advertised subnet. If the Edge Gateway has a\ndedicated external network and the listener IP has been changed, there will not be an SNAT rule for the DNS forwarder. In all other cases the SNAT rule will\nexist.\n"
+            "description": "Whether there is an SNAT rule exists for the DNS forwarder or not. In NAT routed environments, an SNAT rule is required for the Edge DNS forwarder to send\ntraffic to an upstream server. In fully routed environments, this is not needed if the listener IP is on an advertised subnet. If the Edge Gateway has a\ndedicated external network and the listener IP has been changed, there will not be an SNAT rule for the DNS forwarder. In all other cases the SNAT rule will\nexist."
           }
         }
       },
@@ -1498,11 +1485,11 @@
         "properties": {
           "defaultSmtpServer": {
             "type": "boolean",
-            "description": "Flag indicating if the smtp server settings are system default (true) or a particular organization (false)\n"
+            "description": "Flag indicating if the smtp server settings are system default (true) or a particular organization (false)"
           },
           "defaultOrgEmail": {
             "type": "boolean",
-            "description": "Flag indicating if the email settings are system default (true) or for a particular organization (false)\n"
+            "description": "Flag indicating if the email settings are system default (true) or for a particular organization (false)"
           },
           "smtpServer": {
             "$ref": "#/components/schemas/SmtpServerSpec"
@@ -1517,7 +1504,7 @@
           },
           "alertEmailToAllAdmins": {
             "type": "boolean",
-            "description": "A flag to indicate the choice between sending alert emails to all system\nadministrators in the system and designated list of email recipients\n"
+            "description": "A flag to indicate the choice between sending alert emails to all system\nadministrators in the system and designated list of email recipients"
           },
           "alertEmailTo": {
             "type": "string",
@@ -1851,15 +1838,7 @@
           "enabled": {
             "type": "boolean",
             "description": "Whether the firewall rule is enabled.",
-            "default": true,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "default": true
           },
           "version": {
             "$ref": "#/components/schemas/ObjectVersion"
@@ -3066,7 +3045,7 @@
           },
           "constrained": {
             "type": "boolean",
-            "description": "true if user preference is selected from list of values (dataType should be number or string), false otherwise. This is immutable.\n"
+            "description": "true if user preference is selected from list of values (dataType should be number or string), false otherwise. This is immutable."
           },
           "minValue": {
             "type": "number",
@@ -3264,21 +3243,11 @@
           },
           "canConnect": {
             "type": "boolean",
-            "description": "If vCD can establish a connection on the specified port.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "If vCD can establish a connection on the specified port."
           },
           "sslHandshake": {
             "type": "boolean",
-            "description": "If an SSL Handshake succeeded (secure requests only).",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "If an SSL Handshake succeeded (secure requests only)."
           },
           "certificateChain": {
             "type": "string",
@@ -3369,7 +3338,7 @@
           },
           "enabled": {
             "type": "boolean",
-            "description": "True if the proxy is enabled. Proxy can only be enabled/disabled by privileged users.\nA disabled proxy cannot be activated and thus, cannot be used.\nWhen a proxy is disabled, all active sessions are terminated.\n",
+            "description": "True if the proxy is enabled. Proxy can only be enabled/disabled by privileged users.\nA disabled proxy cannot be activated and thus, cannot be used.\nWhen a proxy is disabled, all active sessions are terminated.",
             "default": true
           },
           "tenantVisible": {
@@ -3379,13 +3348,8 @@
           },
           "active": {
             "type": "boolean",
-            "description": "True if the proxy is currently active for the user session associated with the\nrequest made to get the proxy. An inactive proxy cannot be used.\n",
-            "default": false,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "True if the proxy is currently active for the user session associated with the\nrequest made to get the proxy. An inactive proxy cannot be used.",
+            "default": false
           },
           "token": {
             "type": "string",
@@ -3696,7 +3660,7 @@
           },
           "eligible": {
             "type": "boolean",
-            "description": "Used in resource pool tree navigation.\nIndicates whether the resource pool is eligible or not.\n"
+            "description": "Used in resource pool tree navigation.\nIndicates whether the resource pool is eligible or not."
           }
         }
       },
@@ -3909,12 +3873,7 @@
             ]
           },
           "readOnly": {
-            "type": "boolean",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -4201,7 +4160,7 @@
           },
           "enabled": {
             "type": "boolean",
-            "description": "True if the proxy is enabled. Proxy can only be enabled/disabled by privileged users.\nA disabled proxy cannot be activated and thus, cannot be used.\nWhen a proxy is disabled, all active sessions are terminated.\n",
+            "description": "True if the proxy is enabled. Proxy can only be enabled/disabled by privileged users.\nA disabled proxy cannot be activated and thus, cannot be used.\nWhen a proxy is disabled, all active sessions are terminated.",
             "default": true
           },
           "tenantVisible": {
@@ -4216,13 +4175,8 @@
           },
           "active": {
             "type": "boolean",
-            "description": "True if the proxy is currently active for the user session associated with the\nrequest made to get the proxy. An inactive proxy cannot be used.\n",
-            "default": false,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "True if the proxy is currently active for the user session associated with the\nrequest made to get the proxy. An inactive proxy cannot be used.",
+            "default": false
           },
           "token": {
             "type": "string",
@@ -4241,7 +4195,7 @@
           },
           "defaultProxy": {
             "type": "boolean",
-            "description": "True if this is the default proxy for the parent SDDC. A proxy being the default for the\nSDDC means that this proxy's UI will be launched when the SDDC tile is clicked in the\nH5 Tenant UI of VCD. If no default proxy is set, clicking the SDDC tile will be a no-op.\n",
+            "description": "True if this is the default proxy for the parent SDDC. A proxy being the default for the\nSDDC means that this proxy's UI will be launched when the SDDC tile is clicked in the\nH5 Tenant UI of VCD. If no default proxy is set, clicking the SDDC tile will be a no-op.",
             "default": false
           },
           "parentProxyId": {
@@ -4446,7 +4400,7 @@
           },
           "publishAll": {
             "type": "boolean",
-            "description": "Read-only value indicating publishAll state\n",
+            "description": "Read-only value indicating publishAll state",
             "default": false
           }
         },
@@ -4499,7 +4453,7 @@
         "properties": {
           "useAuthentication": {
             "type": "boolean",
-            "description": "A flag to indicate if the SMTP requires login authentication. If this\nflag is set to true, caller must provide user name and password\n"
+            "description": "A flag to indicate if the SMTP requires login authentication. If this\nflag is set to true, caller must provide user name and password"
           },
           "secureMode": {
             "type": "string",
@@ -5658,12 +5612,7 @@
           "isConnected": {
             "type": "boolean",
             "description": "True if the vCenter server is connected.",
-            "default": false,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "default": false
           },
           "mode": {
             "type": "string",
@@ -6110,9 +6059,7 @@
           },
           "isSizingOnly": {
             "type": "boolean",
-            "description": "This field cannot be updated and is a read-only field in the client after creation. It defines whether\nthe policy is SIZING_ONLY or if it also contains affinity information.\n",
-            "readOnly": true,
-            "x-vcloud-added-in": 33
+            "description": "This field cannot be updated and is a read-only field in the client after creation. It defines whether\nthe policy is SIZING_ONLY or if it also contains affinity information."
           },
           "pvdcId": {
             "type": "string",
@@ -6156,13 +6103,7 @@
           },
           "isAutoGenerated": {
             "type": "boolean",
-            "description": "This field cannot be updated and is a read-only field in the client. It defines if the policy\nis auto-generated.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ],
-            "x-vcloud-added-in": 33
+            "description": "This field cannot be updated and is a read-only field in the client. It defines if the policy\nis auto-generated."
           }
         },
         "required": [
@@ -6191,7 +6132,7 @@
           },
           "localEgress": {
             "type": "boolean",
-            "description": "Determines whether local egress is enabled for a universal router belonging to a universal vDC group.\nThis value is used on create if universalNetworkingEnabled is set to true.\nThis cannot be updated. This value is always false for local vDC groups.\n",
+            "description": "Determines whether local egress is enabled for a universal router belonging to a universal vDC group.\nThis value is used on create if universalNetworkingEnabled is set to true.\nThis cannot be updated. This value is always false for local vDC groups.",
             "default": false
           },
           "participatingOrgVdcs": {
@@ -6690,7 +6631,7 @@
               },
               "usableForNAT": {
                 "type": "boolean",
-                "description": "True means that the port profile can be used for NAT configuration.  A port profile can be used for NAT if there is only 1 application port\nwith at most 1 destination port.\n"
+                "description": "True means that the port profile can be used for NAT configuration.  A port profile can be used for NAT if there is only 1 application port\nwith at most 1 destination port."
               }
             }
           }
@@ -7871,13 +7812,8 @@
             "properties": {
               "publishAll": {
                 "type": "boolean",
-                "description": "Read-only value indicating publishAll state\n",
-                "default": false,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
+                "description": "Read-only value indicating publishAll state",
+                "default": false
               }
             }
           }
@@ -8454,7 +8390,7 @@
               },
               "isDefaultNetwork": {
                 "type": "boolean",
-                "description": "Deprecated unused field, this property will be removed in future release.\n"
+                "description": "Deprecated unused field, this property will be removed in future release."
               },
               "shared": {
                 "type": "boolean",
@@ -8499,8 +8435,7 @@
               },
               "routeAdvertised": {
                 "type": "boolean",
-                "description": "Whether this network is advertised so that it can be routed out to the external networks. This applies only to\nnetwork backed by NSX-T. Value will be unset if route advertisement is not applicable.\n",
-                "readOnly": true
+                "description": "Whether this network is advertised so that it can be routed out to the external networks. This applies only to\nnetwork backed by NSX-T. Value will be unset if route advertisement is not applicable."
               },
               "securityGroups": {
                 "type": "array",

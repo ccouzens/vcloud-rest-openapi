@@ -221,7 +221,7 @@
           },
           "publishAll": {
             "type": "boolean",
-            "description": "Read-only value indicating publishAll state\n",
+            "description": "Read-only value indicating publishAll state",
             "default": false
           }
         }
@@ -439,11 +439,11 @@
         "properties": {
           "defaultSmtpServer": {
             "type": "boolean",
-            "description": "Flag indicating if the smtp server settings are system default (true) or a particular organization (false)\n"
+            "description": "Flag indicating if the smtp server settings are system default (true) or a particular organization (false)"
           },
           "defaultOrgEmail": {
             "type": "boolean",
-            "description": "Flag indicating if the email settings are system default (true) or for a particular organization (false)\n"
+            "description": "Flag indicating if the email settings are system default (true) or for a particular organization (false)"
           },
           "smtpServer": {
             "$ref": "#/components/schemas/SmtpServerSpec"
@@ -458,7 +458,7 @@
           },
           "alertEmailToAllAdmins": {
             "type": "boolean",
-            "description": "A flag to indicate the choice between sending alert emails to all system\nadministrators in the system and designated list of email recipients\n"
+            "description": "A flag to indicate the choice between sending alert emails to all system\nadministrators in the system and designated list of email recipients"
           },
           "alertEmailTo": {
             "type": "string",
@@ -1108,7 +1108,7 @@
           },
           "constrained": {
             "type": "boolean",
-            "description": "true if user preference is selected from list of values (dataType should be number or string), false otherwise. This is immutable.\n"
+            "description": "true if user preference is selected from list of values (dataType should be number or string), false otherwise. This is immutable."
           },
           "minValue": {
             "type": "number",
@@ -1539,12 +1539,7 @@
             ]
           },
           "readOnly": {
-            "type": "boolean",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -1758,7 +1753,7 @@
           },
           "enabled": {
             "type": "boolean",
-            "description": "True if the proxy is enabled. Proxy can only be enabled/disabled by privileged users.\nA disabled proxy cannot be activated and thus, cannot be used.\nWhen a proxy is disabled, all active sessions are terminated.\n",
+            "description": "True if the proxy is enabled. Proxy can only be enabled/disabled by privileged users.\nA disabled proxy cannot be activated and thus, cannot be used.\nWhen a proxy is disabled, all active sessions are terminated.",
             "default": true
           },
           "tenantVisible": {
@@ -1773,16 +1768,8 @@
           },
           "active": {
             "type": "boolean",
-            "description": "True if the proxy is currently active for the user session associated with the\nrequest made to get the proxy. An inactive proxy cannot be used.\n",
-            "default": false,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "True if the proxy is currently active for the user session associated with the\nrequest made to get the proxy. An inactive proxy cannot be used.",
+            "default": false
           },
           "token": {
             "type": "string",
@@ -1801,7 +1788,7 @@
           },
           "defaultProxy": {
             "type": "boolean",
-            "description": "True if this is the default proxy for the parent SDDC. A proxy being the default for the\nSDDC means that this proxy's UI will be launched when the SDDC tile is clicked in the\nH5 Tenant UI of VCD. If no default proxy is set, clicking the SDDC tile will be a no-op.\n",
+            "description": "True if this is the default proxy for the parent SDDC. A proxy being the default for the\nSDDC means that this proxy's UI will be launched when the SDDC tile is clicked in the\nH5 Tenant UI of VCD. If no default proxy is set, clicking the SDDC tile will be a no-op.",
             "default": false
           },
           "parentProxyId": {
@@ -1990,7 +1977,7 @@
           },
           "publishAll": {
             "type": "boolean",
-            "description": "Read-only value indicating publishAll state\n",
+            "description": "Read-only value indicating publishAll state",
             "default": false
           }
         },
@@ -2005,7 +1992,7 @@
         "properties": {
           "useAuthentication": {
             "type": "boolean",
-            "description": "A flag to indicate if the SMTP requires login authentication. If this\nflag is set to true, caller must provide user name and password\n"
+            "description": "A flag to indicate if the SMTP requires login authentication. If this\nflag is set to true, caller must provide user name and password"
           },
           "secureMode": {
             "type": "string",
@@ -3773,13 +3760,8 @@
             "properties": {
               "publishAll": {
                 "type": "boolean",
-                "description": "Read-only value indicating publishAll state\n",
-                "default": false,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
+                "description": "Read-only value indicating publishAll state",
+                "default": false
               }
             }
           }
@@ -4213,7 +4195,7 @@
               },
               "isDefaultNetwork": {
                 "type": "boolean",
-                "description": "Deprecated unused field, this property will be removed in future release.\n"
+                "description": "Deprecated unused field, this property will be removed in future release."
               },
               "shared": {
                 "type": "boolean",

@@ -32,6 +32,15 @@ async function defs(page: Page) {
     description?: string;
     default?: boolean;
   };
+
+  const booleanCorrector = (val: Boolean): Boolean => ({
+    type: "boolean",
+    ...(val.description !== undefined && {
+      description: descriptionCorrector(val.description),
+    }),
+    ...(val.default !== undefined && { default: val.default }),
+  });
+
   type Integer = {
     type: "integer";
     description?: string;
@@ -99,6 +108,8 @@ async function defs(page: Page) {
             return { [key]: refCorrector(value) };
           } else if ("enum" in value) {
             return { [key]: enumCorrector(value) };
+          } else if (value.type === "boolean") {
+            return { [key]: booleanCorrector(value) };
           } else {
             return { [key]: value };
           }

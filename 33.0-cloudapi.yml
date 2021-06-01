@@ -186,9 +186,6 @@ components:
           format: date-time
         external:
           type: boolean
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         additionalProperties:
           type: object
           properties: {}
@@ -411,9 +408,7 @@ components:
           default: true
         publishAll:
           type: boolean
-          description: 'Read-only value indicating publishAll state
-
-            '
+          description: Read-only value indicating publishAll state
           default: false
     CustomEntityTypeAction:
       type: object
@@ -1023,16 +1018,12 @@ components:
       properties:
         defaultSmtpServer:
           type: boolean
-          description: 'Flag indicating if the smtp server settings are system default
+          description: Flag indicating if the smtp server settings are system default
             (true) or a particular organization (false)
-
-            '
         defaultOrgEmail:
           type: boolean
-          description: 'Flag indicating if the email settings are system default (true)
+          description: Flag indicating if the email settings are system default (true)
             or for a particular organization (false)
-
-            '
         smtpServer:
           $ref: '#/components/schemas/SmtpServerSpec'
         senderEmailAddress:
@@ -1051,9 +1042,7 @@ components:
           description: 'A flag to indicate the choice between sending alert emails
             to all system
 
-            administrators in the system and designated list of email recipients
-
-            '
+            administrators in the system and designated list of email recipients'
         alertEmailTo:
           type: string
           description: 'A comma separated email addresses to send all alert messages
@@ -2008,10 +1997,8 @@ components:
             - STRING
         constrained:
           type: boolean
-          description: 'true if user preference is selected from list of values (dataType
+          description: true if user preference is selected from list of values (dataType
             should be number or string), false otherwise. This is immutable.
-
-            '
         minValue:
           type: number
           description: 'minimum value for user preference. Only valid if user preference
@@ -2193,9 +2180,7 @@ components:
 
             A disabled proxy cannot be activated and thus, cannot be used.
 
-            When a proxy is disabled, all active sessions are terminated.
-
-            '
+            When a proxy is disabled, all active sessions are terminated.'
           default: true
         tenantVisible:
           type: boolean
@@ -2211,12 +2196,8 @@ components:
           description: 'True if the proxy is currently active for the user session
             associated with the
 
-            request made to get the proxy. An inactive proxy cannot be used.
-
-            '
+            request made to get the proxy. An inactive proxy cannot be used.'
           default: false
-          x-vcloud-constraints:
-            - constraint: NonSortable
         token:
           type: string
           description: 'The generated read-only token that should be used as the password
@@ -2241,9 +2222,7 @@ components:
             tile is clicked in the
 
             H5 Tenant UI of VCD. If no default proxy is set, clicking the VSPHERE
-            tile will be a no-op.
-
-            '
+            tile will be a no-op.'
           default: false
         parentProxyId:
           type: string
@@ -2414,9 +2393,7 @@ components:
           type: boolean
           description: 'Used in resource pool tree navigation.
 
-            Indicates whether the resource pool is eligible or not.
-
-            '
+            Indicates whether the resource pool is eligible or not.'
     Right:
       type: object
       description: Right
@@ -2545,8 +2522,6 @@ components:
             - constraint: ReadOnly
         readOnly:
           type: boolean
-          x-vcloud-constraints:
-            - constraint: ReadOnly
       required:
         - description
         - name
@@ -2747,9 +2722,7 @@ components:
 
             A disabled proxy cannot be activated and thus, cannot be used.
 
-            When a proxy is disabled, all active sessions are terminated.
-
-            '
+            When a proxy is disabled, all active sessions are terminated.'
           default: true
         tenantVisible:
           type: boolean
@@ -2765,12 +2738,8 @@ components:
           description: 'True if the proxy is currently active for the user session
             associated with the
 
-            request made to get the proxy. An inactive proxy cannot be used.
-
-            '
+            request made to get the proxy. An inactive proxy cannot be used.'
           default: false
-          x-vcloud-constraints:
-            - constraint: NonSortable
         token:
           type: string
           description: 'The generated read-only token that should be used as the password
@@ -2795,9 +2764,7 @@ components:
             clicked in the
 
             H5 Tenant UI of VCD. If no default proxy is set, clicking the SDDC tile
-            will be a no-op.
-
-            '
+            will be a no-op.'
           default: false
         parentProxyId:
           type: string
@@ -2960,9 +2927,7 @@ components:
           default: true
         publishAll:
           type: boolean
-          description: 'Read-only value indicating publishAll state
-
-            '
+          description: Read-only value indicating publishAll state
           default: false
       required:
         - serviceItemType
@@ -2999,9 +2964,7 @@ components:
           description: 'A flag to indicate if the SMTP requires login authentication.
             If this
 
-            flag is set to true, caller must provide user name and password
-
-            '
+            flag is set to true, caller must provide user name and password'
         secureMode:
           type: string
           description: Security mode used to connect to the SMTP server
@@ -3904,11 +3867,7 @@ components:
           description: 'This field cannot be updated and is a read-only field in the
             client after creation. It defines whether
 
-            the policy is SIZING_ONLY or if it also contains affinity information.
-
-            '
-          readOnly: true
-          x-vcloud-added-in: 33
+            the policy is SIZING_ONLY or if it also contains affinity information.'
         pvdcId:
           type: string
           description: 'URN for Provider VDC.
@@ -3963,12 +3922,7 @@ components:
           description: 'This field cannot be updated and is a read-only field in the
             client. It defines if the policy
 
-            is auto-generated.
-
-            '
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-          x-vcloud-added-in: 33
+            is auto-generated.'
       required:
         - name
     VdcGroup:
@@ -4334,9 +4288,7 @@ components:
               description: 'True means that the port profile can be used for NAT configuration.  A
                 port profile can be used for NAT if there is only 1 application port
 
-                with at most 1 destination port.
-
-                '
+                with at most 1 destination port.'
       description: An Application Port Profile object. The application port profile
         represents a set of ports and protocols that can be used when defining network
         service rules.
@@ -4980,12 +4932,8 @@ components:
           properties:
             publishAll:
               type: boolean
-              description: 'Read-only value indicating publishAll state
-
-                '
+              description: Read-only value indicating publishAll state
               default: false
-              x-vcloud-constraints:
-                - constraint: ReadOnly
       description: RightsMapping that can be published to tenants
     PvdcComputePolicies:
       allOf:
@@ -5275,10 +5223,8 @@ components:
               description: The edge gateway that the network is attached to.
             isDefaultNetwork:
               type: boolean
-              description: 'Deprecated unused field, this property will be removed
+              description: Deprecated unused field, this property will be removed
                 in future release.
-
-                '
             shared:
               type: boolean
               description: Whether this network is shared with other organization
