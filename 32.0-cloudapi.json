@@ -35,8 +35,8 @@
             "description": "Whether the entity using this IP address is currently deployed."
           },
           "allocationType": {
-            "description": "The possible allocation types for allocated network address like VSM allocated, VM allocated or NAT routed.",
-            "$ref": "#/definitions/AllocatedIpAddressAllocationType"
+            "$ref": "#/components/schemas/AllocatedIpAddressAllocationType",
+            "description": "The possible allocation types for allocated network address like VSM allocated, VM allocated or NAT routed."
           }
         }
       },
@@ -81,12 +81,12 @@
             "properties": {}
           },
           "type": {
-            "description": "The type of the value.",
-            "$ref": "#/definitions/CapabilityValueType"
+            "$ref": "#/components/schemas/CapabilityValueType",
+            "description": "The type of the value."
           },
           "category": {
-            "description": "The category of the capabilities listed.",
-            "$ref": "#/definitions/CapabilityCategory"
+            "$ref": "#/components/schemas/CapabilityCategory",
+            "description": "The category of the capabilities listed."
           }
         }
       },
@@ -286,8 +286,8 @@
             "type": "string"
           },
           "resourcePool": {
-            "description": "The Resource Pool in vCenter where the Edge VM will be deployed.",
-            "$ref": "#/definitions/ResourcePool"
+            "$ref": "#/components/schemas/ResourcePool",
+            "description": "The Resource Pool in vCenter where the Edge VM will be deployed."
           },
           "storageProfileName": {
             "type": "string",
@@ -319,12 +319,12 @@
             }
           },
           "gatewayBacking": {
-            "description": "The backing details of the edge gateway; only required if importing an NSX-T router.",
-            "$ref": "#/definitions/EdgeGatewayBacking"
+            "$ref": "#/components/schemas/EdgeGatewayBacking",
+            "description": "The backing details of the edge gateway; only required if importing an NSX-T router."
           },
           "orgVdc": {
-            "description": "The organization vDC which the gateway belongs to.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The organization vDC which the gateway belongs to."
           }
         }
       },
@@ -337,12 +337,12 @@
             "description": "The identifier of the edge gateways backing router."
           },
           "gatewayType": {
-            "description": "The type of the gateway. Describes if this is an NSX-T edge gateway or an NSX-V edge gateway.",
-            "$ref": "#/definitions/EdgeGatewayType"
+            "$ref": "#/components/schemas/EdgeGatewayType",
+            "description": "The type of the gateway. Describes if this is an NSX-T edge gateway or an NSX-V edge gateway."
           },
           "networkProvider": {
-            "description": "The backing network provider, either NSX-T or NSX-V.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The backing network provider, either NSX-T or NSX-V."
           }
         }
       },
@@ -364,8 +364,8 @@
             "description": "The identifier of the uplink this edge gateway is connected to."
           },
           "subnets": {
-            "description": "Set of subnets this edge will have access to. Gateway can either be provided or left blank for each subnet, and if left blank will be assigned.\n",
-            "$ref": "#/definitions/Subnets"
+            "$ref": "#/components/schemas/Subnets",
+            "description": "Set of subnets this edge will have access to. Gateway can either be provided or left blank for each subnet, and if left blank will be assigned."
           }
         }
       },
@@ -378,12 +378,12 @@
             "description": "The unique ID for the Universal Egress Point (read-only)."
           },
           "vdcRef": {
-            "description": "The Org vDC the Universal Egress Point belongs to.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The Org vDC the Universal Egress Point belongs to."
           },
           "gatewayRef": {
-            "description": "The Edge Gateway the Egress Point is referring to.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The Edge Gateway the Egress Point is referring to."
           },
           "networkProviderScope": {
             "type": "string",
@@ -394,8 +394,8 @@
             "description": "Specifies whether the egress point is being used for Universal Routing. This is a read-only field."
           },
           "status": {
-            "description": "The status of the Universal Egress Point.",
-            "$ref": "#/definitions/VdcGroupEntityStatus"
+            "$ref": "#/components/schemas/VdcGroupEntityStatus",
+            "description": "The status of the Universal Egress Point."
           },
           "errorMessage": {
             "type": "string"
@@ -411,12 +411,12 @@
             "description": "The id of the Universal Egress Point reference."
           },
           "vdcRef": {
-            "description": "The Org vDC of the Universal Egress Point reference.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The Org vDC of the Universal Egress Point reference."
           },
           "gatewayRef": {
-            "description": "The Edge Gateway of the Universal Egress Point reference.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The Edge Gateway of the Universal Egress Point reference."
           }
         }
       },
@@ -446,7 +446,7 @@
             "description": "Flag indicating if the email settings are system default (true) or for a particular organization (false)\n"
           },
           "smtpServer": {
-            "$ref": "#/definitions/SmtpServerSpec"
+            "$ref": "#/components/schemas/SmtpServerSpec"
           },
           "senderEmailAddress": {
             "type": "string",
@@ -540,7 +540,7 @@
             "type": "string"
           },
           "state": {
-            "$ref": "#/definitions/ExecutionState"
+            "$ref": "#/components/schemas/ExecutionState"
           }
         }
       },
@@ -591,12 +591,12 @@
             "description": "Unique identifier for the network backing in NSX/vCenter."
           },
           "backingType": {
-            "description": "Type of network backing.",
-            "$ref": "#/definitions/ExternalNetworkBackingType"
+            "$ref": "#/components/schemas/ExternalNetworkBackingType",
+            "description": "Type of network backing."
           },
           "networkProvider": {
-            "description": "The Network Provider for the backing, either a vCenter Server or NSX-T Manager.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The Network Provider for the backing, either a vCenter Server or NSX-T Manager."
           }
         }
       },
@@ -657,7 +657,7 @@
             "description": "Flag for whether connection test was successful"
           },
           "error": {
-            "$ref": "#/definitions/Error"
+            "$ref": "#/components/schemas/Error"
           }
         },
         "required": [
@@ -751,10 +751,10 @@
             ]
           },
           "userAttributes": {
-            "$ref": "#/definitions/LdapUserAttributesType"
+            "$ref": "#/components/schemas/LdapUserAttributesType"
           },
           "groupAttributes": {
-            "$ref": "#/definitions/LdapGroupAttributesType"
+            "$ref": "#/components/schemas/LdapGroupAttributesType"
           },
           "useExternalKerberos": {
             "type": "boolean"
@@ -802,7 +802,7 @@
         "description": "Provides LDAP connection and settings test results",
         "properties": {
           "connectionTest": {
-            "$ref": "#/definitions/LdapConnectionTestResult"
+            "$ref": "#/components/schemas/LdapConnectionTestResult"
           },
           "settingsTest": {
             "type": "array",
@@ -915,8 +915,8 @@
             "description": "The description of the network."
           },
           "subnets": {
-            "description": "List of subnets configured for the network.",
-            "$ref": "#/definitions/Subnets"
+            "$ref": "#/components/schemas/Subnets",
+            "description": "List of subnets configured for the network."
           }
         }
       },
@@ -978,46 +978,46 @@
         "type": "object",
         "properties": {
           "sdkObject": {
-            "$ref": "#/definitions/SdkObject"
+            "$ref": "#/components/schemas/SdkObject"
           },
           "string": {
-            "$ref": "#/definitions/StringParam"
+            "$ref": "#/components/schemas/StringParam"
           },
           "secureString": {
-            "$ref": "#/definitions/SecureString"
+            "$ref": "#/components/schemas/SecureString"
           },
           "number": {
-            "$ref": "#/definitions/NumberParam"
+            "$ref": "#/components/schemas/NumberParam"
           },
           "mimeAttachment": {
-            "$ref": "#/definitions/MimeAttachment"
+            "$ref": "#/components/schemas/MimeAttachment"
           },
           "properties": {
-            "$ref": "#/definitions/Properties"
+            "$ref": "#/components/schemas/Properties"
           },
           "date": {
-            "$ref": "#/definitions/DateParam"
+            "$ref": "#/components/schemas/DateParam"
           },
           "boolean": {
-            "$ref": "#/definitions/BooleanParam"
+            "$ref": "#/components/schemas/BooleanParam"
           },
           "composite": {
-            "$ref": "#/definitions/CompositeType"
+            "$ref": "#/components/schemas/CompositeType"
           },
           "regex": {
-            "$ref": "#/definitions/Regex"
+            "$ref": "#/components/schemas/Regex"
           },
           "encryptedString": {
-            "$ref": "#/definitions/EncryptedString"
+            "$ref": "#/components/schemas/EncryptedString"
           },
           "keyValuePair": {
-            "$ref": "#/definitions/KeyValuePair"
+            "$ref": "#/components/schemas/KeyValuePair"
           },
           "compositeValue": {
-            "$ref": "#/definitions/CompositeValue"
+            "$ref": "#/components/schemas/CompositeValue"
           },
           "array": {
-            "$ref": "#/definitions/ArrayParam"
+            "$ref": "#/components/schemas/ArrayParam"
           }
         }
       },
@@ -1026,16 +1026,16 @@
         "description": "A participating vDC",
         "properties": {
           "vdcRef": {
-            "description": "The reference to the vDC that is part of this a vDC group.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The reference to the vDC that is part of this a vDC group."
           },
           "orgRef": {
-            "description": "Read-only field that specifies what organization this vDC is in.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "Read-only field that specifies what organization this vDC is in."
           },
           "siteRef": {
-            "description": "The site ID that this vDC belongs to.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The site ID that this vDC belongs to."
           },
           "networkProviderScope": {
             "type": "string",
@@ -1046,8 +1046,8 @@
             "description": "Read-only field that specifies whether the vDC is local to this VCD cell cluster."
           },
           "status": {
-            "description": "The status that the vDC can be in. An example is if the vDC has been deleted from the system but is still part of the group.",
-            "$ref": "#/definitions/VdcGroupEntityStatus"
+            "$ref": "#/components/schemas/VdcGroupEntityStatus",
+            "description": "The status that the vDC can be in. An example is if the vDC has been deleted from the system but is still part of the group."
           }
         },
         "required": [
@@ -1461,7 +1461,7 @@
             ]
           },
           "rightsCount": {
-            "$ref": "#/definitions/RightsCount"
+            "$ref": "#/components/schemas/RightsCount"
           },
           "subCategories": {
             "type": "array",
@@ -1560,7 +1560,7 @@
             "type": "string"
           },
           "status": {
-            "$ref": "#/definitions/RouterComponentStatus"
+            "$ref": "#/components/schemas/RouterComponentStatus"
           },
           "message": {
             "type": "string"
@@ -1586,12 +1586,12 @@
         "description": "Describes the connection between a routed network and an edge gateway. This must be set if converting from an isolated to a routed network.",
         "properties": {
           "routerRef": {
-            "description": "The edge gateway that this network is attached to.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The edge gateway that this network is attached to."
           },
           "connectionType": {
-            "description": "How the network is connected to the edge gateway. This field is updatable to allow conversions between different types.",
-            "$ref": "#/definitions/VdcNetworkConnectionType"
+            "$ref": "#/components/schemas/VdcNetworkConnectionType",
+            "description": "How the network is connected to the edge gateway. This field is updatable to allow conversions between different types."
           }
         }
       },
@@ -1629,8 +1629,8 @@
             }
           },
           "controlPlaneHealth": {
-            "description": "Status of the nsx controller cluster associated with the nsx managers.\n",
-            "$ref": "#/definitions/RouterComponentHealth"
+            "$ref": "#/components/schemas/RouterComponentHealth",
+            "description": "Status of the nsx controller cluster associated with the nsx managers."
           },
           "vdcReachabilityStatus": {
             "type": "array",
@@ -1707,16 +1707,16 @@
             ]
           },
           "overallStatus": {
-            "description": "Overall status of the associated vCenter. This is not editable.",
-            "$ref": "#/definitions/OverallStatus"
+            "$ref": "#/components/schemas/OverallStatus",
+            "description": "Overall status of the associated vCenter. This is not editable."
           },
           "stats": {
-            "description": "Associated read-only statistics.",
-            "$ref": "#/definitions/SddcStats"
+            "$ref": "#/components/schemas/SddcStats",
+            "description": "Associated read-only statistics."
           },
           "defaultProxy": {
-            "description": "Default proxy for the SDDC. This field is read-only. To set a new default, edit the proxy\nyou wish to make the new default by modifying its defaultProxy flag.\n",
-            "$ref": "#/definitions/SddcProxy"
+            "$ref": "#/components/schemas/SddcProxy",
+            "description": "Default proxy for the SDDC. This field is read-only. To set a new default, edit the proxy\nyou wish to make the new default by modifying its defaultProxy flag."
           }
         },
         "required": [
@@ -1860,16 +1860,16 @@
         "description": "A read-only list of resource allocations for the associated SDDC",
         "properties": {
           "cpu": {
-            "description": "CPUs statistics of the SDDC (values in MHz).",
-            "$ref": "#/definitions/SddcStat"
+            "$ref": "#/components/schemas/SddcStat",
+            "description": "CPUs statistics of the SDDC (values in MHz)."
           },
           "memory": {
-            "description": "Memory statistics of the SDDC (values in MB).",
-            "$ref": "#/definitions/SddcStat"
+            "$ref": "#/components/schemas/SddcStat",
+            "description": "Memory statistics of the SDDC (values in MB)."
           },
           "storage": {
-            "description": "Storage statistics of the SDDC (values in MB).",
-            "$ref": "#/definitions/SddcStat"
+            "$ref": "#/components/schemas/SddcStat",
+            "description": "Storage statistics of the SDDC (values in MB)."
           }
         }
       },
@@ -1919,8 +1919,8 @@
             "description": "The external organization id of the service application"
           },
           "serviceScope": {
-            "description": "The scope of the service application",
-            "$ref": "#/definitions/ServiceAppScope"
+            "$ref": "#/components/schemas/ServiceAppScope",
+            "description": "The scope of the service application"
           },
           "accessTokenTTL": {
             "type": "integer",
@@ -2017,7 +2017,7 @@
             ]
           },
           "url": {
-            "$ref": "#/definitions/Url"
+            "$ref": "#/components/schemas/Url"
           },
           "sslTrustStore": {
             "type": "string",
@@ -2066,8 +2066,8 @@
             "description": "The second DNS server that VMs attached to this network will use."
           },
           "ipRanges": {
-            "description": "Range of IPs within the subnet that can be used in this network. A VM attached to this network is assigned one of these IPs.",
-            "$ref": "#/definitions/IpRanges"
+            "$ref": "#/components/schemas/IpRanges",
+            "description": "Range of IPs within the subnet that can be used in this network. A VM attached to this network is assigned one of these IPs."
           },
           "enabled": {
             "type": "boolean",
@@ -2091,25 +2091,25 @@
         "type": "object",
         "properties": {
           "constraint": {
-            "$ref": "#/definitions/Constraint"
+            "$ref": "#/components/schemas/Constraint"
           },
           "mandatory": {
-            "$ref": "#/definitions/Mandatory"
+            "$ref": "#/components/schemas/Mandatory"
           },
           "restrictDuplicates": {
-            "$ref": "#/definitions/RestrictDuplicates"
+            "$ref": "#/components/schemas/RestrictDuplicates"
           },
           "customValidator": {
-            "$ref": "#/definitions/CustomValidator"
+            "$ref": "#/components/schemas/CustomValidator"
           },
           "numberRange": {
-            "$ref": "#/definitions/NumberRange"
+            "$ref": "#/components/schemas/NumberRange"
           },
           "regexp": {
-            "$ref": "#/definitions/Regexp"
+            "$ref": "#/components/schemas/Regexp"
           },
           "numberFormat": {
-            "$ref": "#/definitions/NumberFormat"
+            "$ref": "#/components/schemas/NumberFormat"
           }
         }
       },
@@ -2117,19 +2117,19 @@
         "type": "object",
         "properties": {
           "decorator": {
-            "$ref": "#/definitions/Decorator"
+            "$ref": "#/components/schemas/Decorator"
           },
           "refreshOnChange": {
-            "$ref": "#/definitions/RefreshOnChange"
+            "$ref": "#/components/schemas/RefreshOnChange"
           },
           "multiLine": {
-            "$ref": "#/definitions/MultiLine"
+            "$ref": "#/components/schemas/MultiLine"
           },
           "chooser": {
-            "$ref": "#/definitions/Chooser"
+            "$ref": "#/components/schemas/Chooser"
           },
           "dropDown": {
-            "$ref": "#/definitions/DropDown"
+            "$ref": "#/components/schemas/DropDown"
           }
         }
       },
@@ -2137,19 +2137,19 @@
         "type": "object",
         "properties": {
           "presentationElement": {
-            "$ref": "#/definitions/PresentationElement"
+            "$ref": "#/components/schemas/PresentationElement"
           },
           "stepInfo": {
-            "$ref": "#/definitions/StepInfo"
+            "$ref": "#/components/schemas/StepInfo"
           },
           "group": {
-            "$ref": "#/definitions/Group"
+            "$ref": "#/components/schemas/Group"
           },
           "field": {
-            "$ref": "#/definitions/Field"
+            "$ref": "#/components/schemas/Field"
           },
           "primaryField": {
-            "$ref": "#/definitions/PrimaryField"
+            "$ref": "#/components/schemas/PrimaryField"
           }
         }
       },
@@ -2157,7 +2157,7 @@
         "type": "object",
         "properties": {
           "emailSettings": {
-            "$ref": "#/definitions/EmailSettings"
+            "$ref": "#/components/schemas/EmailSettings"
           },
           "destination": {
             "type": "string"
@@ -2200,7 +2200,7 @@
             "description": "A custom color defined by the administrator and used to theme the site.\nThe color should be in rgb hex color format such as \"FFFFFF\" all capitalized.\nCan be set to an empty string to use the selected theme's default colors.\n"
           },
           "selectedTheme": {
-            "$ref": "#/definitions/UiTheme"
+            "$ref": "#/components/schemas/UiTheme"
           },
           "customLinks": {
             "type": "array",
@@ -2299,12 +2299,12 @@
         "description": "Object consisting of Egress Points and Universal Routes for a Universal Router.",
         "properties": {
           "egressPoints": {
-            "description": "The list of Egress Points for routing configuration. This is read-only.",
-            "$ref": "#/definitions/EgressPoints"
+            "$ref": "#/components/schemas/EgressPoints",
+            "description": "The list of Egress Points for routing configuration. This is read-only."
           },
           "universalRoutes": {
-            "description": "The list of Universal Routes for routing configuration.\n",
-            "$ref": "#/definitions/UniversalRoutes"
+            "$ref": "#/components/schemas/UniversalRoutes",
+            "description": "The list of Universal Routes for routing configuration."
           }
         }
       },
@@ -2313,20 +2313,20 @@
         "description": "A Route for a Universal Router.",
         "properties": {
           "defaultEgress": {
-            "description": "For a given route, routing by default will go through the default egress point. Every valid/configured route will have a default egress point.",
-            "$ref": "#/definitions/EgressPointReference"
+            "$ref": "#/components/schemas/EgressPointReference",
+            "description": "For a given route, routing by default will go through the default egress point. Every valid/configured route will have a default egress point."
           },
           "standbyEgress": {
-            "description": "A standby egress point can be configured for failover of routes in case there is an issue routign to the default egress point.",
-            "$ref": "#/definitions/EgressPointReference"
+            "$ref": "#/components/schemas/EgressPointReference",
+            "description": "A standby egress point can be configured for failover of routes in case there is an issue routign to the default egress point."
           },
           "networkProviderScope": {
             "type": "string",
             "description": "The network provider scope for the given route. There can only be one route per fault domain for a Universal Route."
           },
           "status": {
-            "description": "The status of the route (whether it's realized, failed, etc.).",
-            "$ref": "#/definitions/UniversalRoutingStatus"
+            "$ref": "#/components/schemas/UniversalRoutingStatus",
+            "description": "The status of the route (whether it's realized, failed, etc.)."
           },
           "errorMessage": {
             "type": "string"
@@ -2350,13 +2350,13 @@
             "type": "string"
           },
           "vdcGroupRef": {
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference"
           },
           "localEgress": {
             "type": "boolean"
           },
           "status": {
-            "$ref": "#/definitions/VdcGroupEntityStatus"
+            "$ref": "#/components/schemas/VdcGroupEntityStatus"
           },
           "errorMessage": {
             "type": "string"
@@ -2383,7 +2383,7 @@
         "description": "List of Dhcp servers for universal router.\nEither egressRef or serverAddress is required to identify Dhcp server.",
         "properties": {
           "egressRef": {
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference"
           },
           "serverAddress": {
             "type": "string"
@@ -2521,7 +2521,7 @@
             "type": "string"
           },
           "orgEntityRef": {
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference"
           },
           "fullname": {
             "type": "string"
@@ -2542,7 +2542,7 @@
             "type": "string"
           },
           "sourceEntityRef": {
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference"
           },
           "enabled": {
             "type": "boolean"
@@ -2557,7 +2557,7 @@
             "type": "string"
           },
           "roleEntityRef": {
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference"
           },
           "roleInherited": {
             "type": "boolean"
@@ -2587,13 +2587,13 @@
             "type": "string"
           },
           "orgEntityRef": {
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference"
           },
           "sourceEntityRef": {
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference"
           },
           "roleEntityRef": {
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference"
           },
           "nameInSource": {
             "type": "string"
@@ -2735,12 +2735,12 @@
             "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
           },
           "pvdcComputePolicyRef": {
-            "description": "Deprecated in Api 32.0, this property will be removed in future release.\n",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "Deprecated in Api 32.0, this property will be removed in future release."
           },
           "pvdcComputePolicy": {
-            "description": "This field cannot be updated and is a read-only field in the client after creation.\n",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "This field cannot be updated and is a read-only field in the client after creation."
           },
           "compatibleVdcTypes": {
             "type": "array",
@@ -2792,8 +2792,8 @@
             "description": "The universal network pool that is common to all the participating vDCs. This field is read-only and\nis derived from the list of participating vDCs.\n"
           },
           "status": {
-            "description": "The status that the group can be in.",
-            "$ref": "#/definitions/VdcGroupEntityStatus"
+            "$ref": "#/components/schemas/VdcGroupEntityStatus",
+            "description": "The status that the group can be in."
           },
           "errorMessage": {
             "type": "string",
@@ -2856,7 +2856,7 @@
             "description": "Whether the DHCP address pool is currently enabled"
           },
           "ipRange": {
-            "$ref": "#/definitions/IpRange"
+            "$ref": "#/components/schemas/IpRange"
           },
           "maxLeaseTime": {
             "type": "integer",
@@ -2886,12 +2886,12 @@
         "description": "A vDC Network Profile object.",
         "properties": {
           "primaryEdgeCluster": {
-            "description": "The Edge Cluster where the primary appliance for an NSX-V Edge Gateway will be deployed.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The Edge Cluster where the primary appliance for an NSX-V Edge Gateway will be deployed."
           },
           "secondaryEdgeCluster": {
-            "description": "The Edge Cluster where the secondary appliance for an NSX-V Edge Gateway will be deployed if HA is enabled on the Edge.",
-            "$ref": "#/definitions/EntityReference"
+            "$ref": "#/components/schemas/EntityReference",
+            "description": "The Edge Cluster where the secondary appliance for an NSX-V Edge Gateway will be deployed if HA is enabled on the Edge."
           }
         }
       },
@@ -2923,7 +2923,7 @@
             }
           },
           "relations": {
-            "$ref": "#/definitions/Relations"
+            "$ref": "#/components/schemas/Relations"
           }
         }
       },
@@ -3105,7 +3105,7 @@
             "type": "boolean"
           },
           "value": {
-            "$ref": "#/definitions/Parameter"
+            "$ref": "#/components/schemas/Parameter"
           }
         }
       },
@@ -3144,7 +3144,7 @@
             }
           },
           "relations": {
-            "$ref": "#/definitions/Relations"
+            "$ref": "#/components/schemas/Relations"
           },
           "startDate": {
             "type": "string",
@@ -3154,7 +3154,7 @@
             "type": "string"
           },
           "state": {
-            "$ref": "#/definitions/ExecutionState"
+            "$ref": "#/components/schemas/ExecutionState"
           }
         }
       },
@@ -3238,7 +3238,7 @@
             "type": "object",
             "properties": {
               "sdkObject": {
-                "$ref": "#/definitions/SdkObject"
+                "$ref": "#/components/schemas/SdkObject"
               },
               "type": {
                 "type": "string"
@@ -3280,7 +3280,7 @@
                 "type": "string"
               },
               "property": {
-                "$ref": "#/definitions/Parameter"
+                "$ref": "#/components/schemas/Parameter"
               }
             }
           }
@@ -3295,16 +3295,16 @@
             "type": "object",
             "properties": {
               "vdcGroupRef": {
-                "description": "The vDC group that this network belongs to.",
-                "$ref": "#/definitions/EntityReference"
+                "$ref": "#/components/schemas/EntityReference",
+                "description": "The vDC group that this network belongs to."
               },
               "routerRef": {
-                "description": "The router that this network is attached to.",
-                "$ref": "#/definitions/EntityReference"
+                "$ref": "#/components/schemas/EntityReference",
+                "description": "The router that this network is attached to."
               },
               "status": {
-                "description": "The status of the network.",
-                "$ref": "#/definitions/VdcGroupEntityStatus"
+                "$ref": "#/components/schemas/VdcGroupEntityStatus",
+                "description": "The status of the network."
               },
               "errorMessage": {
                 "type": "string",
@@ -3386,7 +3386,7 @@
             "type": "object",
             "properties": {
               "array": {
-                "$ref": "#/definitions/ArrayParam"
+                "$ref": "#/components/schemas/ArrayParam"
               }
             }
           }
@@ -3475,8 +3475,8 @@
             "type": "object",
             "properties": {
               "networkBackings": {
-                "description": "Backings for this external network. Describes if this external network\nis backed by port groups, vCenter standard switch or an NSX-T Tier-0 router.\n",
-                "$ref": "#/definitions/ExternalNetworkBackings"
+                "$ref": "#/components/schemas/ExternalNetworkBackings",
+                "description": "Backings for this external network. Describes if this external network\nis backed by port groups, vCenter standard switch or an NSX-T Tier-0 router."
               },
               "totalIpCount": {
                 "type": "integer",
@@ -3595,7 +3595,7 @@
                 "type": "string"
               },
               "value": {
-                "$ref": "#/definitions/Parameter"
+                "$ref": "#/components/schemas/Parameter"
               }
             }
           }
@@ -4192,24 +4192,24 @@
                 "description": "The NSX id of the backing network."
               },
               "backingNetworkType": {
-                "description": "The object type of the backing network.",
-                "$ref": "#/definitions/BackingNetworkType"
+                "$ref": "#/components/schemas/BackingNetworkType",
+                "description": "The object type of the backing network."
               },
               "parentNetworkId": {
-                "description": "The parent network if the network is a direct network, otherwise it will be null.",
-                "$ref": "#/definitions/EntityReference"
+                "$ref": "#/components/schemas/EntityReference",
+                "description": "The parent network if the network is a direct network, otherwise it will be null."
               },
               "networkType": {
-                "description": "The type of network. Changing the network type allows converting between an isolated and routed network.\nNote that the \"connection\" field must also be set if converting from isolated to routed network.\n",
-                "$ref": "#/definitions/VdcNetworkFenceType"
+                "$ref": "#/components/schemas/VdcNetworkFenceType",
+                "description": "The type of network. Changing the network type allows converting between an isolated and routed network.\nNote that the \"connection\" field must also be set if converting from isolated to routed network."
               },
               "orgVdc": {
-                "description": "The organization vDC the network belongs to.",
-                "$ref": "#/definitions/EntityReference"
+                "$ref": "#/components/schemas/EntityReference",
+                "description": "The organization vDC the network belongs to."
               },
               "connection": {
-                "description": "The edge gateway that the network is attached to.\n",
-                "$ref": "#/definitions/RouterConnection"
+                "$ref": "#/components/schemas/RouterConnection",
+                "description": "The edge gateway that the network is attached to."
               },
               "isDefaultNetwork": {
                 "type": "boolean",
@@ -4220,8 +4220,8 @@
                 "description": "Whether this network is shared with other organization vDCs."
               },
               "status": {
-                "description": "Description of the network's status.\n",
-                "$ref": "#/definitions/OrgVdcNetworkStatus"
+                "$ref": "#/components/schemas/OrgVdcNetworkStatus",
+                "description": "Description of the network's status."
               },
               "lastTaskFailureMessage": {
                 "type": "string",
@@ -4362,7 +4362,7 @@
                 }
               },
               "value": {
-                "$ref": "#/definitions/Parameter"
+                "$ref": "#/components/schemas/Parameter"
               }
             }
           }

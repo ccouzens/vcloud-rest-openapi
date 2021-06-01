@@ -28,9 +28,9 @@ components:
           type: boolean
           description: Whether the entity using this IP address is currently deployed.
         allocationType:
+          $ref: '#/components/schemas/AllocatedIpAddressAllocationType'
           description: The possible allocation types for allocated network address
             like VSM allocated, VM allocated or NAT routed.
-          $ref: '#/definitions/AllocatedIpAddressAllocationType'
     AllocatedIpAddressAllocationType:
       type: string
       description: The possible allocation types for allocated network address.
@@ -65,11 +65,11 @@ components:
           description: The value of the capability.
           properties: {}
         type:
+          $ref: '#/components/schemas/CapabilityValueType'
           description: The type of the value.
-          $ref: '#/definitions/CapabilityValueType'
         category:
+          $ref: '#/components/schemas/CapabilityCategory'
           description: The category of the capabilities listed.
-          $ref: '#/definitions/CapabilityCategory'
     CapabilityCategory:
       type: string
       description: Describes the category of the capbilitiy
@@ -237,8 +237,8 @@ components:
         description:
           type: string
         resourcePool:
+          $ref: '#/components/schemas/ResourcePool'
           description: The Resource Pool in vCenter where the Edge VM will be deployed.
-          $ref: '#/definitions/ResourcePool'
         storageProfileName:
           type: string
           description: Name of the Storage Profile. This will define the set of datastores
@@ -262,12 +262,12 @@ components:
           items:
             $ref: '#/definitions/EdgeGatewayUplink'
         gatewayBacking:
+          $ref: '#/components/schemas/EdgeGatewayBacking'
           description: The backing details of the edge gateway; only required if importing
             an NSX-T router.
-          $ref: '#/definitions/EdgeGatewayBacking'
         orgVdc:
+          $ref: '#/components/schemas/EntityReference'
           description: The organization vDC which the gateway belongs to.
-          $ref: '#/definitions/EntityReference'
     EdgeGatewayBacking:
       type: object
       description: The backing details of the edge gateway
@@ -276,12 +276,12 @@ components:
           type: string
           description: The identifier of the edge gateways backing router.
         gatewayType:
+          $ref: '#/components/schemas/EdgeGatewayType'
           description: The type of the gateway. Describes if this is an NSX-T edge
             gateway or an NSX-V edge gateway.
-          $ref: '#/definitions/EdgeGatewayType'
         networkProvider:
+          $ref: '#/components/schemas/EntityReference'
           description: The backing network provider, either NSX-T or NSX-V.
-          $ref: '#/definitions/EntityReference'
     EdgeGatewayType:
       type: string
       description: The type of the edge gateway.
@@ -298,12 +298,9 @@ components:
           description: The identifier of the uplink this edge gateway is connected
             to.
         subnets:
-          description: 'Set of subnets this edge will have access to. Gateway can
-            either be provided or left blank for each subnet, and if left blank will
-            be assigned.
-
-            '
-          $ref: '#/definitions/Subnets'
+          $ref: '#/components/schemas/Subnets'
+          description: Set of subnets this edge will have access to. Gateway can either
+            be provided or left blank for each subnet, and if left blank will be assigned.
     EgressPoint:
       type: object
       description: An Egress Point.
@@ -312,11 +309,11 @@ components:
           type: string
           description: The unique ID for the Universal Egress Point (read-only).
         vdcRef:
+          $ref: '#/components/schemas/EntityReference'
           description: The Org vDC the Universal Egress Point belongs to.
-          $ref: '#/definitions/EntityReference'
         gatewayRef:
+          $ref: '#/components/schemas/EntityReference'
           description: The Edge Gateway the Egress Point is referring to.
-          $ref: '#/definitions/EntityReference'
         networkProviderScope:
           type: string
           description: Read-only field that specifies the network provider scope of
@@ -326,8 +323,8 @@ components:
           description: Specifies whether the egress point is being used for Universal
             Routing. This is a read-only field.
         status:
+          $ref: '#/components/schemas/VdcGroupEntityStatus'
           description: The status of the Universal Egress Point.
-          $ref: '#/definitions/VdcGroupEntityStatus'
         errorMessage:
           type: string
     EgressPointReference:
@@ -338,11 +335,11 @@ components:
           type: string
           description: The id of the Universal Egress Point reference.
         vdcRef:
+          $ref: '#/components/schemas/EntityReference'
           description: The Org vDC of the Universal Egress Point reference.
-          $ref: '#/definitions/EntityReference'
         gatewayRef:
+          $ref: '#/components/schemas/EntityReference'
           description: The Edge Gateway of the Universal Egress Point reference.
-          $ref: '#/definitions/EntityReference'
     EgressPoints:
       type: object
       description: List of Egress Points.
@@ -369,7 +366,7 @@ components:
 
             '
         smtpServer:
-          $ref: '#/definitions/SmtpServerSpec'
+          $ref: '#/components/schemas/SmtpServerSpec'
         senderEmailAddress:
           type: string
           description: 'Sender email address in an email notification or alert
@@ -449,7 +446,7 @@ components:
         startedBy:
           type: string
         state:
-          $ref: '#/definitions/ExecutionState'
+          $ref: '#/components/schemas/ExecutionState'
     ExtensionPoint:
       type: object
       description: Extension Point of a UI Plugin
@@ -485,12 +482,12 @@ components:
           type: string
           description: Unique identifier for the network backing in NSX/vCenter.
         backingType:
+          $ref: '#/components/schemas/ExternalNetworkBackingType'
           description: Type of network backing.
-          $ref: '#/definitions/ExternalNetworkBackingType'
         networkProvider:
+          $ref: '#/components/schemas/EntityReference'
           description: The Network Provider for the backing, either a vCenter Server
             or NSX-T Manager.
-          $ref: '#/definitions/EntityReference'
     ExternalNetworkBackingType:
       type: string
       description: The type of the external network backing.
@@ -533,7 +530,7 @@ components:
           type: boolean
           description: Flag for whether connection test was successful
         error:
-          $ref: '#/definitions/Error'
+          $ref: '#/components/schemas/Error'
       required:
         - successful
     LdapGroupAttributesType:
@@ -597,9 +594,9 @@ components:
             - ACTIVE_DIRECTORY
             - OPEN_LDAP
         userAttributes:
-          $ref: '#/definitions/LdapUserAttributesType'
+          $ref: '#/components/schemas/LdapUserAttributesType'
         groupAttributes:
-          $ref: '#/definitions/LdapGroupAttributesType'
+          $ref: '#/components/schemas/LdapGroupAttributesType'
         useExternalKerberos:
           type: boolean
     LdapSettingsTestResult:
@@ -636,7 +633,7 @@ components:
       description: Provides LDAP connection and settings test results
       properties:
         connectionTest:
-          $ref: '#/definitions/LdapConnectionTestResult'
+          $ref: '#/components/schemas/LdapConnectionTestResult'
         settingsTest:
           type: array
           items:
@@ -719,8 +716,8 @@ components:
           type: string
           description: The description of the network.
         subnets:
+          $ref: '#/components/schemas/Subnets'
           description: List of subnets configured for the network.
-          $ref: '#/definitions/Subnets'
     OrgVdcNetworkStatus:
       type: string
       description: 'Represents status of a Org Vdc network. This value will be PENDING
@@ -782,47 +779,47 @@ components:
       type: object
       properties:
         sdkObject:
-          $ref: '#/definitions/SdkObject'
+          $ref: '#/components/schemas/SdkObject'
         string:
-          $ref: '#/definitions/StringParam'
+          $ref: '#/components/schemas/StringParam'
         secureString:
-          $ref: '#/definitions/SecureString'
+          $ref: '#/components/schemas/SecureString'
         number:
-          $ref: '#/definitions/NumberParam'
+          $ref: '#/components/schemas/NumberParam'
         mimeAttachment:
-          $ref: '#/definitions/MimeAttachment'
+          $ref: '#/components/schemas/MimeAttachment'
         properties:
-          $ref: '#/definitions/Properties'
+          $ref: '#/components/schemas/Properties'
         date:
-          $ref: '#/definitions/DateParam'
+          $ref: '#/components/schemas/DateParam'
         boolean:
-          $ref: '#/definitions/BooleanParam'
+          $ref: '#/components/schemas/BooleanParam'
         composite:
-          $ref: '#/definitions/CompositeType'
+          $ref: '#/components/schemas/CompositeType'
         regex:
-          $ref: '#/definitions/Regex'
+          $ref: '#/components/schemas/Regex'
         encryptedString:
-          $ref: '#/definitions/EncryptedString'
+          $ref: '#/components/schemas/EncryptedString'
         keyValuePair:
-          $ref: '#/definitions/KeyValuePair'
+          $ref: '#/components/schemas/KeyValuePair'
         compositeValue:
-          $ref: '#/definitions/CompositeValue'
+          $ref: '#/components/schemas/CompositeValue'
         array:
-          $ref: '#/definitions/ArrayParam'
+          $ref: '#/components/schemas/ArrayParam'
     ParticipatingVdcReference:
       type: object
       description: A participating vDC
       properties:
         vdcRef:
+          $ref: '#/components/schemas/EntityReference'
           description: The reference to the vDC that is part of this a vDC group.
-          $ref: '#/definitions/EntityReference'
         orgRef:
+          $ref: '#/components/schemas/EntityReference'
           description: Read-only field that specifies what organization this vDC is
             in.
-          $ref: '#/definitions/EntityReference'
         siteRef:
+          $ref: '#/components/schemas/EntityReference'
           description: The site ID that this vDC belongs to.
-          $ref: '#/definitions/EntityReference'
         networkProviderScope:
           type: string
           description: Read-only field that specifies the network provider scope of
@@ -832,9 +829,9 @@ components:
           description: Read-only field that specifies whether the vDC is local to
             this VCD cell cluster.
         status:
+          $ref: '#/components/schemas/VdcGroupEntityStatus'
           description: The status that the vDC can be in. An example is if the vDC
             has been deleted from the system but is still part of the group.
-          $ref: '#/definitions/VdcGroupEntityStatus'
       required:
         - siteRef
         - vdcRef
@@ -1159,7 +1156,7 @@ components:
           x-vcloud-constraints:
             - constraint: Urn
         rightsCount:
-          $ref: '#/definitions/RightsCount'
+          $ref: '#/components/schemas/RightsCount'
         subCategories:
           type: array
           items:
@@ -1219,7 +1216,7 @@ components:
         component:
           type: string
         status:
-          $ref: '#/definitions/RouterComponentStatus'
+          $ref: '#/components/schemas/RouterComponentStatus'
         message:
           type: string
         action:
@@ -1238,12 +1235,12 @@ components:
         This must be set if converting from an isolated to a routed network.
       properties:
         routerRef:
+          $ref: '#/components/schemas/EntityReference'
           description: The edge gateway that this network is attached to.
-          $ref: '#/definitions/EntityReference'
         connectionType:
+          $ref: '#/components/schemas/VdcNetworkConnectionType'
           description: How the network is connected to the edge gateway. This field
             is updatable to allow conversions between different types.
-          $ref: '#/definitions/VdcNetworkConnectionType'
     RouterDnsConfig:
       type: object
       description: A RouterDnsConfig object
@@ -1277,11 +1274,9 @@ components:
           items:
             $ref: '#/definitions/RouterComponentHealth'
         controlPlaneHealth:
-          description: 'Status of the nsx controller cluster associated with the nsx
+          $ref: '#/components/schemas/RouterComponentHealth'
+          description: Status of the nsx controller cluster associated with the nsx
             managers.
-
-            '
-          $ref: '#/definitions/RouterComponentHealth'
         vdcReachabilityStatus:
           type: array
           description: 'Reachability status for local and remote participating vDC''s
@@ -1331,19 +1326,17 @@ components:
             - constraint: NonSearchable
             - constraint: ReadOnly
         overallStatus:
+          $ref: '#/components/schemas/OverallStatus'
           description: Overall status of the associated vCenter. This is not editable.
-          $ref: '#/definitions/OverallStatus'
         stats:
+          $ref: '#/components/schemas/SddcStats'
           description: Associated read-only statistics.
-          $ref: '#/definitions/SddcStats'
         defaultProxy:
+          $ref: '#/components/schemas/SddcProxy'
           description: 'Default proxy for the SDDC. This field is read-only. To set
             a new default, edit the proxy
 
-            you wish to make the new default by modifying its defaultProxy flag.
-
-            '
-          $ref: '#/definitions/SddcProxy'
+            you wish to make the new default by modifying its defaultProxy flag.'
       required:
         - name
         - vcId
@@ -1478,14 +1471,14 @@ components:
       description: A read-only list of resource allocations for the associated SDDC
       properties:
         cpu:
+          $ref: '#/components/schemas/SddcStat'
           description: CPUs statistics of the SDDC (values in MHz).
-          $ref: '#/definitions/SddcStat'
         memory:
+          $ref: '#/components/schemas/SddcStat'
           description: Memory statistics of the SDDC (values in MB).
-          $ref: '#/definitions/SddcStat'
         storage:
+          $ref: '#/components/schemas/SddcStat'
           description: Storage statistics of the SDDC (values in MB).
-          $ref: '#/definitions/SddcStat'
     Service:
       type: object
       properties:
@@ -1520,8 +1513,8 @@ components:
           type: string
           description: The external organization id of the service application
         serviceScope:
+          $ref: '#/components/schemas/ServiceAppScope'
           description: The scope of the service application
-          $ref: '#/definitions/ServiceAppScope'
         accessTokenTTL:
           type: integer
           description: The time to live of the access token in seconds.
@@ -1601,7 +1594,7 @@ components:
             - START_TLS
             - SSL
         url:
-          $ref: '#/definitions/Url'
+          $ref: '#/components/schemas/Url'
         sslTrustStore:
           type: string
           description: 'The custom ssl trust certs if ssl is enabled
@@ -1647,9 +1640,9 @@ components:
           description: The second DNS server that VMs attached to this network will
             use.
         ipRanges:
+          $ref: '#/components/schemas/IpRanges'
           description: Range of IPs within the subnet that can be used in this network.
             A VM attached to this network is assigned one of these IPs.
-          $ref: '#/definitions/IpRanges'
         enabled:
           type: boolean
           description: Indicates whether the external network subnet is currently
@@ -1666,50 +1659,50 @@ components:
       type: object
       properties:
         constraint:
-          $ref: '#/definitions/Constraint'
+          $ref: '#/components/schemas/Constraint'
         mandatory:
-          $ref: '#/definitions/Mandatory'
+          $ref: '#/components/schemas/Mandatory'
         restrictDuplicates:
-          $ref: '#/definitions/RestrictDuplicates'
+          $ref: '#/components/schemas/RestrictDuplicates'
         customValidator:
-          $ref: '#/definitions/CustomValidator'
+          $ref: '#/components/schemas/CustomValidator'
         numberRange:
-          $ref: '#/definitions/NumberRange'
+          $ref: '#/components/schemas/NumberRange'
         regexp:
-          $ref: '#/definitions/Regexp'
+          $ref: '#/components/schemas/Regexp'
         numberFormat:
-          $ref: '#/definitions/NumberFormat'
+          $ref: '#/components/schemas/NumberFormat'
     SupportedDecorators:
       type: object
       properties:
         decorator:
-          $ref: '#/definitions/Decorator'
+          $ref: '#/components/schemas/Decorator'
         refreshOnChange:
-          $ref: '#/definitions/RefreshOnChange'
+          $ref: '#/components/schemas/RefreshOnChange'
         multiLine:
-          $ref: '#/definitions/MultiLine'
+          $ref: '#/components/schemas/MultiLine'
         chooser:
-          $ref: '#/definitions/Chooser'
+          $ref: '#/components/schemas/Chooser'
         dropDown:
-          $ref: '#/definitions/DropDown'
+          $ref: '#/components/schemas/DropDown'
     SupportedPresentationElements:
       type: object
       properties:
         presentationElement:
-          $ref: '#/definitions/PresentationElement'
+          $ref: '#/components/schemas/PresentationElement'
         stepInfo:
-          $ref: '#/definitions/StepInfo'
+          $ref: '#/components/schemas/StepInfo'
         group:
-          $ref: '#/definitions/Group'
+          $ref: '#/components/schemas/Group'
         field:
-          $ref: '#/definitions/Field'
+          $ref: '#/components/schemas/Field'
         primaryField:
-          $ref: '#/definitions/PrimaryField'
+          $ref: '#/components/schemas/PrimaryField'
     TestEmailRequest:
       type: object
       properties:
         emailSettings:
-          $ref: '#/definitions/EmailSettings'
+          $ref: '#/components/schemas/EmailSettings'
         destination:
           type: string
     Tier0Routers:
@@ -1746,7 +1739,7 @@ components:
 
             '
         selectedTheme:
-          $ref: '#/definitions/UiTheme'
+          $ref: '#/components/schemas/UiTheme'
         customLinks:
           type: array
           items:
@@ -1826,34 +1819,32 @@ components:
         Router.
       properties:
         egressPoints:
+          $ref: '#/components/schemas/EgressPoints'
           description: The list of Egress Points for routing configuration. This is
             read-only.
-          $ref: '#/definitions/EgressPoints'
         universalRoutes:
-          description: 'The list of Universal Routes for routing configuration.
-
-            '
-          $ref: '#/definitions/UniversalRoutes'
+          $ref: '#/components/schemas/UniversalRoutes'
+          description: The list of Universal Routes for routing configuration.
     UniversalRoute:
       type: object
       description: A Route for a Universal Router.
       properties:
         defaultEgress:
+          $ref: '#/components/schemas/EgressPointReference'
           description: For a given route, routing by default will go through the default
             egress point. Every valid/configured route will have a default egress
             point.
-          $ref: '#/definitions/EgressPointReference'
         standbyEgress:
+          $ref: '#/components/schemas/EgressPointReference'
           description: A standby egress point can be configured for failover of routes
             in case there is an issue routign to the default egress point.
-          $ref: '#/definitions/EgressPointReference'
         networkProviderScope:
           type: string
           description: The network provider scope for the given route. There can only
             be one route per fault domain for a Universal Route.
         status:
+          $ref: '#/components/schemas/UniversalRoutingStatus'
           description: The status of the route (whether it's realized, failed, etc.).
-          $ref: '#/definitions/UniversalRoutingStatus'
         errorMessage:
           type: string
       required:
@@ -1869,11 +1860,11 @@ components:
         description:
           type: string
         vdcGroupRef:
-          $ref: '#/definitions/EntityReference'
+          $ref: '#/components/schemas/EntityReference'
         localEgress:
           type: boolean
         status:
-          $ref: '#/definitions/VdcGroupEntityStatus'
+          $ref: '#/components/schemas/VdcGroupEntityStatus'
         errorMessage:
           type: string
     UniversalRouterDhcpConfig:
@@ -1893,7 +1884,7 @@ components:
         Either egressRef or serverAddress is required to identify Dhcp server.'
       properties:
         egressRef:
-          $ref: '#/definitions/EntityReference'
+          $ref: '#/components/schemas/EntityReference'
         serverAddress:
           type: string
     UniversalRouters:
@@ -2006,7 +1997,7 @@ components:
         description:
           type: string
         orgEntityRef:
-          $ref: '#/definitions/EntityReference'
+          $ref: '#/components/schemas/EntityReference'
         fullname:
           type: string
         email:
@@ -2020,7 +2011,7 @@ components:
         nameInSource:
           type: string
         sourceEntityRef:
-          $ref: '#/definitions/EntityReference'
+          $ref: '#/components/schemas/EntityReference'
         enabled:
           type: boolean
         locked:
@@ -2030,7 +2021,7 @@ components:
         alertEmail:
           type: string
         roleEntityRef:
-          $ref: '#/definitions/EntityReference'
+          $ref: '#/components/schemas/EntityReference'
         roleInherited:
           type: boolean
         delayAfterPowerOnSeconds:
@@ -2050,11 +2041,11 @@ components:
         description:
           type: string
         orgEntityRef:
-          $ref: '#/definitions/EntityReference'
+          $ref: '#/components/schemas/EntityReference'
         sourceEntityRef:
-          $ref: '#/definitions/EntityReference'
+          $ref: '#/components/schemas/EntityReference'
         roleEntityRef:
-          $ref: '#/definitions/EntityReference'
+          $ref: '#/components/schemas/EntityReference'
         nameInSource:
           type: string
         providerType:
@@ -2252,17 +2243,13 @@ components:
 
             '
         pvdcComputePolicyRef:
-          description: 'Deprecated in Api 32.0, this property will be removed in future
+          $ref: '#/components/schemas/EntityReference'
+          description: Deprecated in Api 32.0, this property will be removed in future
             release.
-
-            '
-          $ref: '#/definitions/EntityReference'
         pvdcComputePolicy:
-          description: 'This field cannot be updated and is a read-only field in the
+          $ref: '#/components/schemas/EntityReference'
+          description: This field cannot be updated and is a read-only field in the
             client after creation.
-
-            '
-          $ref: '#/definitions/EntityReference'
         compatibleVdcTypes:
           type: array
           description: A list of read-only compatible vDC types for this policy.
@@ -2310,8 +2297,8 @@ components:
 
             '
         status:
+          $ref: '#/components/schemas/VdcGroupEntityStatus'
           description: The status that the group can be in.
-          $ref: '#/definitions/VdcGroupEntityStatus'
         errorMessage:
           type: string
           description: If the group has an error status, a more detailed error message
@@ -2363,7 +2350,7 @@ components:
           type: boolean
           description: Whether the DHCP address pool is currently enabled
         ipRange:
-          $ref: '#/definitions/IpRange'
+          $ref: '#/components/schemas/IpRange'
         maxLeaseTime:
           type: integer
           description: Max lease time in seconds
@@ -2386,13 +2373,13 @@ components:
       description: A vDC Network Profile object.
       properties:
         primaryEdgeCluster:
+          $ref: '#/components/schemas/EntityReference'
           description: The Edge Cluster where the primary appliance for an NSX-V Edge
             Gateway will be deployed.
-          $ref: '#/definitions/EntityReference'
         secondaryEdgeCluster:
+          $ref: '#/components/schemas/EntityReference'
           description: The Edge Cluster where the secondary appliance for an NSX-V
             Edge Gateway will be deployed if HA is enabled on the Edge.
-          $ref: '#/definitions/EntityReference'
     VmcSddc:
       type: object
       description: A VMware Cloud on AWS SDDC
@@ -2415,7 +2402,7 @@ components:
           items:
             $ref: '#/definitions/WsAttribute'
         relations:
-          $ref: '#/definitions/Relations'
+          $ref: '#/components/schemas/Relations'
     VroRemoteItem:
       type: object
       description: Information about various objects in vRealize Orchestrator server
@@ -2536,7 +2523,7 @@ components:
         updated:
           type: boolean
         value:
-          $ref: '#/definitions/Parameter'
+          $ref: '#/components/schemas/Parameter'
     WsWorkflowExecution:
       type: object
       properties:
@@ -2562,14 +2549,14 @@ components:
           items:
             $ref: '#/definitions/WsParameter'
         relations:
-          $ref: '#/definitions/Relations'
+          $ref: '#/components/schemas/Relations'
         startDate:
           type: string
           format: date-time
         startedBy:
           type: string
         state:
-          $ref: '#/definitions/ExecutionState'
+          $ref: '#/components/schemas/ExecutionState'
     AllocatedIpAddresses:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -2612,7 +2599,7 @@ components:
         - type: object
           properties:
             sdkObject:
-              $ref: '#/definitions/SdkObject'
+              $ref: '#/components/schemas/SdkObject'
             type:
               type: string
     CompositeType:
@@ -2634,21 +2621,21 @@ components:
             id:
               type: string
             property:
-              $ref: '#/definitions/Parameter'
+              $ref: '#/components/schemas/Parameter'
     CrossVdcNetwork:
       allOf:
         - $ref: '#/components/schemas/Network'
         - type: object
           properties:
             vdcGroupRef:
+              $ref: '#/components/schemas/EntityReference'
               description: The vDC group that this network belongs to.
-              $ref: '#/definitions/EntityReference'
             routerRef:
+              $ref: '#/components/schemas/EntityReference'
               description: The router that this network is attached to.
-              $ref: '#/definitions/EntityReference'
             status:
+              $ref: '#/components/schemas/VdcGroupEntityStatus'
               description: The status of the network.
-              $ref: '#/definitions/VdcGroupEntityStatus'
             errorMessage:
               type: string
               description: If the network has an error status, a more detailed error
@@ -2692,7 +2679,7 @@ components:
         - type: object
           properties:
             array:
-              $ref: '#/definitions/ArrayParam'
+              $ref: '#/components/schemas/ArrayParam'
     EdgeClusters:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -2738,14 +2725,12 @@ components:
         - type: object
           properties:
             networkBackings:
+              $ref: '#/components/schemas/ExternalNetworkBackings'
               description: 'Backings for this external network. Describes if this
                 external network
 
                 is backed by port groups, vCenter standard switch or an NSX-T Tier-0
-                router.
-
-                '
-              $ref: '#/definitions/ExternalNetworkBackings'
+                router.'
             totalIpCount:
               type: integer
               description: The number of IP addresses defined by the static ip pools.
@@ -2814,7 +2799,7 @@ components:
             key:
               type: string
             value:
-              $ref: '#/definitions/Parameter'
+              $ref: '#/components/schemas/Parameter'
     LogicalVmGroups:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -3124,29 +3109,25 @@ components:
               type: string
               description: The NSX id of the backing network.
             backingNetworkType:
+              $ref: '#/components/schemas/BackingNetworkType'
               description: The object type of the backing network.
-              $ref: '#/definitions/BackingNetworkType'
             parentNetworkId:
+              $ref: '#/components/schemas/EntityReference'
               description: The parent network if the network is a direct network,
                 otherwise it will be null.
-              $ref: '#/definitions/EntityReference'
             networkType:
+              $ref: '#/components/schemas/VdcNetworkFenceType'
               description: 'The type of network. Changing the network type allows
                 converting between an isolated and routed network.
 
                 Note that the "connection" field must also be set if converting from
-                isolated to routed network.
-
-                '
-              $ref: '#/definitions/VdcNetworkFenceType'
+                isolated to routed network.'
             orgVdc:
+              $ref: '#/components/schemas/EntityReference'
               description: The organization vDC the network belongs to.
-              $ref: '#/definitions/EntityReference'
             connection:
-              description: 'The edge gateway that the network is attached to.
-
-                '
-              $ref: '#/definitions/RouterConnection'
+              $ref: '#/components/schemas/RouterConnection'
+              description: The edge gateway that the network is attached to.
             isDefaultNetwork:
               type: boolean
               description: 'Deprecated unused field, this property will be removed
@@ -3158,10 +3139,8 @@ components:
               description: Whether this network is shared with other organization
                 vDCs.
             status:
-              description: 'Description of the network''s status.
-
-                '
-              $ref: '#/definitions/OrgVdcNetworkStatus'
+              $ref: '#/components/schemas/OrgVdcNetworkStatus'
+              description: Description of the network's status.
             lastTaskFailureMessage:
               type: string
               description: 'Brief failure message if the last configuration task failed.
@@ -3250,7 +3229,7 @@ components:
               items:
                 $ref: '#/definitions/Field'
             value:
-              $ref: '#/definitions/Parameter'
+              $ref: '#/components/schemas/Parameter'
     RightsBundle:
       allOf:
         - $ref: '#/components/schemas/PublishableRightsMapping'

@@ -18,6 +18,13 @@ async function defs(page: Page) {
   const refStringCorrector = (val: string): string =>
     val.replace(/^\#\/definitions\//, "#/components/schemas/");
 
+  const refCorrector = (val: Ref): Ref => ({
+    $ref: refStringCorrector(val.$ref),
+    ...(val.description !== undefined && {
+      description: descriptionCorrector(val.description),
+    }),
+  });
+
   const descriptionCorrector = (val: string): string => val.trim();
 
   type Boolean = {
@@ -72,7 +79,7 @@ async function defs(page: Page) {
   type Object = {
     type?: "object";
     description?: string;
-    properties: Record<
+    properties?: Record<
       string,
       Ref | Enum | Boolean | Integer | String | Number | Array | DeepObject
     >;
@@ -85,7 +92,23 @@ async function defs(page: Page) {
     ...(val.description !== undefined && {
       description: descriptionCorrector(val.description),
     }),
-    properties: val.properties,
+    ...(val.properties !== undefined && {
+      properties: Object.entries(val.properties)
+        .map(([key, value]): Object["properties"] => {
+          if ("$ref" in value) {
+            return { [key]: refCorrector(value) };
+          } else {
+            return { [key]: value };
+          }
+        })
+        .reduce(
+          (previousValue, currentValue) => ({
+            ...previousValue,
+            ...currentValue,
+          }),
+          {}
+        ),
+    }),
     ...(val.required !== undefined && {
       required: val.required,
     }),
