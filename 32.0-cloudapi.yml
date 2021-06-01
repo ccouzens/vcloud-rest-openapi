@@ -888,9 +888,7 @@ components:
             '
         dataType:
           type: string
-          description: 'user preference value data type. This is immutable.
-
-            '
+          description: user preference value data type. This is immutable.
           enum:
             - BOOLEAN
             - INTEGER
@@ -1586,9 +1584,7 @@ components:
             '
         secureMode:
           type: string
-          description: 'Security mode used to connect to the SMTP server
-
-            '
+          description: Security mode used to connect to the SMTP server
           enum:
             - NONE
             - START_TLS
@@ -1970,10 +1966,10 @@ components:
           type: string
         checksumAlgo:
           type: string
-          default: sha1
           enum:
             - sha1
             - sha256
+          default: sha1
       required:
         - fileName
         - size

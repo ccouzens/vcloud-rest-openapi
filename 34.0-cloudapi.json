@@ -922,7 +922,7 @@
           },
           "ipAddressTypeFiltering": {
             "type": "string",
-            "description": "Specifies IP address type based filtering in each direction. Setting the value to\n'DISABLED' will disable address family based filtering.\n",
+            "description": "Specifies IP address type based filtering in each direction. Setting the value to\n'DISABLED' will disable address family based filtering.",
             "enum": [
               "IPV4",
               "IPV6",
@@ -1392,7 +1392,7 @@
           },
           "action": {
             "type": "string",
-            "description": "Action for the prefix list. This specifies whether the packet from specified network is advertised\nor not for routing purposes.\n",
+            "description": "Action for the prefix list. This specifies whether the packet from specified network is advertised\nor not for routing purposes.",
             "enum": [
               "PERMIT",
               "DENY"
@@ -3057,7 +3057,7 @@
           },
           "dataType": {
             "type": "string",
-            "description": "user preference value data type. This is immutable.\n",
+            "description": "user preference value data type. This is immutable.",
             "enum": [
               "BOOLEAN",
               "INTEGER",
@@ -4503,7 +4503,7 @@
           },
           "secureMode": {
             "type": "string",
-            "description": "Security mode used to connect to the SMTP server\n",
+            "description": "Security mode used to connect to the SMTP server",
             "enum": [
               "NONE",
               "START_TLS",
@@ -5673,11 +5673,6 @@
               "IAAS",
               "SDDC",
               "MIXED"
-            ],
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
             ]
           },
           "listenerState": {
@@ -5697,11 +5692,6 @@
               "RED",
               "YELLOW",
               "GREEN"
-            ],
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
             ]
           },
           "vcVersion": {
@@ -6229,7 +6219,7 @@
           },
           "type": {
             "type": "string",
-            "description": "Defines the group as LOCAL or UNIVERSAL. Cannot be changed after a router is assigned to the group.\nA universal network pool will be used if set to UNIVERSAL. The given network pool will be used if\nset to LOCAL. If the type is not set, the group will default to UNIVERSAL. LOCAL vDC groups consist of\nvDCs with the same network provider, sharing the same network pool for cross-vDC networking.  UNIVERSAL\nvDC groups have vDCs with different network provider scopes with a single shared universal network pool\nfor cross-vDC networking.\n",
+            "description": "Defines the group as LOCAL or UNIVERSAL. Cannot be changed after a router is assigned to the group.\nA universal network pool will be used if set to UNIVERSAL. The given network pool will be used if\nset to LOCAL. If the type is not set, the group will default to UNIVERSAL. LOCAL vDC groups consist of\nvDCs with the same network provider, sharing the same network pool for cross-vDC networking.  UNIVERSAL\nvDC groups have vDCs with different network provider scopes with a single shared universal network pool\nfor cross-vDC networking.",
             "enum": [
               "LOCAL",
               "UNIVERSAL"

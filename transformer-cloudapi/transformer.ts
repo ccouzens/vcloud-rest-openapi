@@ -97,6 +97,8 @@ async function defs(page: Page) {
         .map(([key, value]): Object["properties"] => {
           if ("$ref" in value) {
             return { [key]: refCorrector(value) };
+          } else if ("enum" in value) {
+            return { [key]: enumCorrector(value) };
           } else {
             return { [key]: value };
           }

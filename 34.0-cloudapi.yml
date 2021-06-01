@@ -757,9 +757,7 @@ components:
           description: 'Specifies IP address type based filtering in each direction.
             Setting the value to
 
-            ''DISABLED'' will disable address family based filtering.
-
-            '
+            ''DISABLED'' will disable address family based filtering.'
           enum:
             - IPV4
             - IPV6
@@ -1257,9 +1255,7 @@ components:
           description: 'Action for the prefix list. This specifies whether the packet
             from specified network is advertised
 
-            or not for routing purposes.
-
-            '
+            or not for routing purposes.'
           enum:
             - PERMIT
             - DENY
@@ -2667,9 +2663,7 @@ components:
             '
         dataType:
           type: string
-          description: 'user preference value data type. This is immutable.
-
-            '
+          description: user preference value data type. This is immutable.
           enum:
             - BOOLEAN
             - INTEGER
@@ -3795,9 +3789,7 @@ components:
             '
         secureMode:
           type: string
-          description: 'Security mode used to connect to the SMTP server
-
-            '
+          description: Security mode used to connect to the SMTP server
           enum:
             - NONE
             - START_TLS
@@ -4674,8 +4666,6 @@ components:
             - IAAS
             - SDDC
             - MIXED
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         listenerState:
           type: string
           description: The vcenter listener state. One of <ul> <li>INITIAL</li> <li>INVALID_SETTINGS</li>
@@ -4694,8 +4684,6 @@ components:
             - RED
             - YELLOW
             - GREEN
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         vcVersion:
           type: string
           example: 6.7.0
@@ -5199,9 +5187,7 @@ components:
             vDC groups have vDCs with different network provider scopes with a single
             shared universal network pool
 
-            for cross-vDC networking.
-
-            '
+            for cross-vDC networking.'
           enum:
             - LOCAL
             - UNIVERSAL

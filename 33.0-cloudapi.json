@@ -2335,7 +2335,7 @@
           },
           "dataType": {
             "type": "string",
-            "description": "user preference value data type. This is immutable.\n",
+            "description": "user preference value data type. This is immutable.",
             "enum": [
               "BOOLEAN",
               "INTEGER",
@@ -3599,7 +3599,7 @@
           },
           "secureMode": {
             "type": "string",
-            "description": "Security mode used to connect to the SMTP server\n",
+            "description": "Security mode used to connect to the SMTP server",
             "enum": [
               "NONE",
               "START_TLS",
@@ -4277,11 +4277,11 @@
           },
           "checksumAlgo": {
             "type": "string",
-            "default": "sha1",
             "enum": [
               "sha1",
               "sha256"
-            ]
+            ],
+            "default": "sha1"
           }
         },
         "required": [
