@@ -2491,12 +2491,8 @@ components:
       properties:
         view:
           type: integer
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         modify:
           type: integer
-          x-vcloud-constraints:
-            - constraint: ReadOnly
     RightsMapping:
       type: object
       description: RightsMapping
@@ -3700,20 +3696,14 @@ components:
           format: int64
           description: 'The CPU speed in MHz of this VM. This is optional. When provided,
 
-            VMs with this policy cannot have more than CPU speed defined by this field.
-
-            '
-          x-vcloud-added-in: 32
+            VMs with this policy cannot have more than CPU speed defined by this field.'
         memory:
           type: integer
           format: int64
           description: 'The maximum memory in MB allowed for a VM. This is optional.
             When provided, VMs with
 
-            this policy cannot have configured memory more than defined by this field.
-
-            '
-          x-vcloud-added-in: 32
+            this policy cannot have configured memory more than defined by this field.'
         cpuCount:
           type: integer
           format: int32
@@ -3721,18 +3711,12 @@ components:
             When provided,
 
             VMs with this policy cannot have more than number of CPUs defined by this
-            field.
-
-            '
-          x-vcloud-added-in: 32
+            field.'
         coresPerSocket:
           type: integer
           format: int32
-          description: 'The cores per socket to be configured for the VM where this
+          description: The cores per socket to be configured for the VM where this
             policy is applied.
-
-            '
-          x-vcloud-added-in: 32
         memoryReservationGuarantee:
           type: number
           format: double
@@ -3773,15 +3757,7 @@ components:
             applied. -1 means unlimited. This
 
             is optional. If not provided, limit would be equal to the vCPUSpeed multiplied
-            by numCPU.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+            by numCPU.'
         memoryLimit:
           type: integer
           format: int64
@@ -3789,45 +3765,21 @@ components:
             is applied. -1 means unlimited. This
 
             is optional. If not provided, limit would be equal to the configured memory
-            of the VM.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+            of the VM.'
         cpuShares:
           type: integer
           format: int32
           description: 'The number of CPU shares for the VM on which this policy is
             applied. This is optional. If
 
-            not provided, Normal shares would be applied to the VM.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+            not provided, Normal shares would be applied to the VM.'
         memoryShares:
           type: integer
           format: int32
           description: 'The number of memory shares for the VM on which this policy
             is applied. This is optional. If
 
-            not provided, Normal shares would be applied to the VM.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+            not provided, Normal shares would be applied to the VM.'
         extraConfigs:
           type: object
           description: 'Map of extra configs to be set on the VM with this policy.
@@ -4814,18 +4766,10 @@ components:
               type: integer
               description: The number of backings available for use.
               readOnly: true
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-                - constraint: ReadOnly
             usedBackingsCount:
               type: integer
               description: The number of network pool backings in use.
               readOnly: true
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-                - constraint: ReadOnly
             managingOwnerRef:
               $ref: '#/components/schemas/EntityReference'
               description: The Id of vCenter server or the NSX-T manager that manages

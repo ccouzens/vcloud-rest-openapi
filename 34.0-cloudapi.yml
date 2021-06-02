@@ -667,9 +667,7 @@ components:
             If the session is not re-established within this timer, the receiving
             speaker will
 
-            delete all the stale routes from that peer.
-
-            '
+            delete all the stale routes from that peer.'
           minimum: 1
           maximum: 3600
           default: 180
@@ -3239,12 +3237,8 @@ components:
       properties:
         view:
           type: integer
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         modify:
           type: integer
-          x-vcloud-constraints:
-            - constraint: ReadOnly
     RightsMapping:
       type: object
       description: RightsMapping
@@ -4333,20 +4327,14 @@ components:
           type: integer
           format: int64
           description: The total memory (in MB) of the virtual machine.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         cpuCount:
           type: integer
           format: int32
           description: The total number of CPUs of the virtual machine.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         storage:
           type: integer
           format: int64
           description: The total storage (in KB) of the virtual machine.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         path:
           type: string
           description: The absolute path of the virtual machine in the vCenter's datastore.
@@ -4355,8 +4343,6 @@ components:
         virtualHardwareVersion:
           type: integer
           description: The virtual hardware version of the virtual machine.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         state:
           type: string
           description: The following strings are valid states of the virtual machine.
@@ -4678,87 +4664,41 @@ components:
         clustersCount:
           type: integer
           description: The number of clusters in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         totalVmCount:
           type: integer
           description: The number of VMs in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         poweredOnVmCount:
           type: integer
           description: The number of powered-on VMs in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         totalMemMb:
           type: integer
           description: The total memory (in MB) in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         reservedMemMb:
           type: integer
           description: The reserved memory (in MB) in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         demandedMemMb:
           type: integer
           description: The demanded memory (in MB) in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         totalCpuMhz:
           type: integer
           description: The total CPU (in MHz) in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         reservedCpuMhz:
           type: integer
           description: The reserved CPU (in MHz) in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         demandedCpuMhz:
           type: integer
           description: The demanded CPU (in MHz) in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         totalStorageMb:
           type: integer
           description: The size (in MB) of all datastores in this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         freeStorageMb:
           type: integer
           description: The size of free storage (in MB) of all datastores in this
             vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         uncommittedStorageMb:
           type: integer
           description: The size of uncommitted storage (in MB) of all datastores in
             this vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
     VROServiceInfo:
       type: object
       description: Response type with meta information about a vRealize Orchestrator
@@ -4825,20 +4765,14 @@ components:
           format: int64
           description: 'The CPU speed in MHz of this VM. This is optional. When provided,
 
-            VMs with this policy cannot have more than CPU speed defined by this field.
-
-            '
-          x-vcloud-added-in: 32
+            VMs with this policy cannot have more than CPU speed defined by this field.'
         memory:
           type: integer
           format: int64
           description: 'The maximum memory in MB allowed for a VM. This is optional.
             When provided, VMs with
 
-            this policy cannot have configured memory more than defined by this field.
-
-            '
-          x-vcloud-added-in: 32
+            this policy cannot have configured memory more than defined by this field.'
         cpuCount:
           type: integer
           format: int32
@@ -4846,18 +4780,12 @@ components:
             When provided,
 
             VMs with this policy cannot have more than number of CPUs defined by this
-            field.
-
-            '
-          x-vcloud-added-in: 32
+            field.'
         coresPerSocket:
           type: integer
           format: int32
-          description: 'The cores per socket to be configured for the VM where this
+          description: The cores per socket to be configured for the VM where this
             policy is applied.
-
-            '
-          x-vcloud-added-in: 32
         memoryReservationGuarantee:
           type: number
           format: double
@@ -4898,15 +4826,7 @@ components:
             applied. -1 means unlimited. This
 
             is optional. If not provided, limit would be equal to the vCPUSpeed multiplied
-            by numCPU.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+            by numCPU.'
         memoryLimit:
           type: integer
           format: int64
@@ -4914,45 +4834,21 @@ components:
             is applied. -1 means unlimited. This
 
             is optional. If not provided, limit would be equal to the configured memory
-            of the VM.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+            of the VM.'
         cpuShares:
           type: integer
           format: int32
           description: 'The number of CPU shares for the VM on which this policy is
             applied. This is optional. If
 
-            not provided, Normal shares would be applied to the VM.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+            not provided, Normal shares would be applied to the VM.'
         memoryShares:
           type: integer
           format: int32
           description: 'The number of memory shares for the VM on which this policy
             is applied. This is optional. If
 
-            not provided, Normal shares would be applied to the VM.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+            not provided, Normal shares would be applied to the VM.'
         extraConfigs:
           type: object
           description: 'Map of extra configs to be set on the VM with this policy.
@@ -6047,18 +5943,10 @@ components:
               type: integer
               description: The number of backings available for use.
               readOnly: true
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-                - constraint: ReadOnly
             usedBackingsCount:
               type: integer
               description: The number of network pool backings in use.
               readOnly: true
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
-                - constraint: ReadOnly
             managingOwnerRef:
               $ref: '#/components/schemas/EntityReference'
               description: The Id of vCenter server or the NSX-T manager that manages

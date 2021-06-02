@@ -840,7 +840,7 @@
           "restartTimer": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum time taken (in seconds) for a BGP session to be established after a restart.\nIf the session is not re-established within this timer, the receiving speaker will\ndelete all the stale routes from that peer.\n",
+            "description": "Maximum time taken (in seconds) for a BGP session to be established after a restart.\nIf the session is not re-established within this timer, the receiving speaker will\ndelete all the stale routes from that peer.",
             "minimum": 1,
             "maximum": 3600,
             "default": 180
@@ -3823,20 +3823,10 @@
         "description": "RightsCount - A count of rights in a given category by type",
         "properties": {
           "view": {
-            "type": "integer",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "integer"
           },
           "modify": {
-            "type": "integer",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "integer"
           }
         }
       },
@@ -5208,32 +5198,17 @@
           "memory": {
             "type": "integer",
             "format": "int64",
-            "description": "The total memory (in MB) of the virtual machine.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The total memory (in MB) of the virtual machine."
           },
           "cpuCount": {
             "type": "integer",
             "format": "int32",
-            "description": "The total number of CPUs of the virtual machine.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The total number of CPUs of the virtual machine."
           },
           "storage": {
             "type": "integer",
             "format": "int64",
-            "description": "The total storage (in KB) of the virtual machine.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The total storage (in KB) of the virtual machine."
           },
           "path": {
             "type": "string",
@@ -5246,12 +5221,7 @@
           },
           "virtualHardwareVersion": {
             "type": "integer",
-            "description": "The virtual hardware version of the virtual machine.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The virtual hardware version of the virtual machine."
           },
           "state": {
             "type": "string",
@@ -5720,177 +5690,51 @@
           },
           "clustersCount": {
             "type": "integer",
-            "description": "The number of clusters in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The number of clusters in this vCenter server."
           },
           "totalVmCount": {
             "type": "integer",
-            "description": "The number of VMs in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The number of VMs in this vCenter server."
           },
           "poweredOnVmCount": {
             "type": "integer",
-            "description": "The number of powered-on VMs in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The number of powered-on VMs in this vCenter server."
           },
           "totalMemMb": {
             "type": "integer",
-            "description": "The total memory (in MB) in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The total memory (in MB) in this vCenter server."
           },
           "reservedMemMb": {
             "type": "integer",
-            "description": "The reserved memory (in MB) in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The reserved memory (in MB) in this vCenter server."
           },
           "demandedMemMb": {
             "type": "integer",
-            "description": "The demanded memory (in MB) in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The demanded memory (in MB) in this vCenter server."
           },
           "totalCpuMhz": {
             "type": "integer",
-            "description": "The total CPU (in MHz) in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The total CPU (in MHz) in this vCenter server."
           },
           "reservedCpuMhz": {
             "type": "integer",
-            "description": "The reserved CPU (in MHz) in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The reserved CPU (in MHz) in this vCenter server."
           },
           "demandedCpuMhz": {
             "type": "integer",
-            "description": "The demanded CPU (in MHz) in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The demanded CPU (in MHz) in this vCenter server."
           },
           "totalStorageMb": {
             "type": "integer",
-            "description": "The size (in MB) of all datastores in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The size (in MB) of all datastores in this vCenter server."
           },
           "freeStorageMb": {
             "type": "integer",
-            "description": "The size of free storage (in MB) of all datastores in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The size of free storage (in MB) of all datastores in this vCenter server."
           },
           "uncommittedStorageMb": {
             "type": "integer",
-            "description": "The size of uncommitted storage (in MB) of all datastores in this vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The size of uncommitted storage (in MB) of all datastores in this vCenter server."
           }
         }
       },
@@ -5956,26 +5800,22 @@
           "cpuSpeed": {
             "type": "integer",
             "format": "int64",
-            "description": "The CPU speed in MHz of this VM. This is optional. When provided,\nVMs with this policy cannot have more than CPU speed defined by this field.\n",
-            "x-vcloud-added-in": 32
+            "description": "The CPU speed in MHz of this VM. This is optional. When provided,\nVMs with this policy cannot have more than CPU speed defined by this field."
           },
           "memory": {
             "type": "integer",
             "format": "int64",
-            "description": "The maximum memory in MB allowed for a VM. This is optional. When provided, VMs with\nthis policy cannot have configured memory more than defined by this field.\n",
-            "x-vcloud-added-in": 32
+            "description": "The maximum memory in MB allowed for a VM. This is optional. When provided, VMs with\nthis policy cannot have configured memory more than defined by this field."
           },
           "cpuCount": {
             "type": "integer",
             "format": "int32",
-            "description": "The maximum number of CPUs allowed for a VM. This is optional. When provided,\nVMs with this policy cannot have more than number of CPUs defined by this field.\n",
-            "x-vcloud-added-in": 32
+            "description": "The maximum number of CPUs allowed for a VM. This is optional. When provided,\nVMs with this policy cannot have more than number of CPUs defined by this field."
           },
           "coresPerSocket": {
             "type": "integer",
             "format": "int32",
-            "description": "The cores per socket to be configured for the VM where this policy is applied.\n",
-            "x-vcloud-added-in": 32
+            "description": "The cores per socket to be configured for the VM where this policy is applied."
           },
           "memoryReservationGuarantee": {
             "type": "number",
@@ -6001,30 +5841,22 @@
           "cpuLimit": {
             "type": "integer",
             "format": "int64",
-            "description": "The limit of CPU in MHz for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the vCPUSpeed multiplied by numCPU.\n",
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "The limit of CPU in MHz for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the vCPUSpeed multiplied by numCPU."
           },
           "memoryLimit": {
             "type": "integer",
             "format": "int64",
-            "description": "The limit of memory in MB for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the configured memory of the VM.\n",
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "The limit of memory in MB for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the configured memory of the VM."
           },
           "cpuShares": {
             "type": "integer",
             "format": "int32",
-            "description": "The number of CPU shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM.\n",
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "The number of CPU shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM."
           },
           "memoryShares": {
             "type": "integer",
             "format": "int32",
-            "description": "The number of memory shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM.\n",
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "The number of memory shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM."
           },
           "extraConfigs": {
             "type": "object",
@@ -7563,34 +7395,12 @@
               "totalBackingsCount": {
                 "type": "integer",
                 "description": "The number of backings available for use.",
-                "readOnly": true,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  },
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
+                "readOnly": true
               },
               "usedBackingsCount": {
                 "type": "integer",
                 "description": "The number of network pool backings in use.",
-                "readOnly": true,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  },
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
+                "readOnly": true
               },
               "managingOwnerRef": {
                 "$ref": "#/components/schemas/EntityReference",

@@ -2964,20 +2964,10 @@
         "description": "RightsCount - A count of rights in a given category by type",
         "properties": {
           "view": {
-            "type": "integer",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "integer"
           },
           "modify": {
-            "type": "integer",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "integer"
           }
         }
       },
@@ -4489,26 +4479,22 @@
           "cpuSpeed": {
             "type": "integer",
             "format": "int64",
-            "description": "The CPU speed in MHz of this VM. This is optional. When provided,\nVMs with this policy cannot have more than CPU speed defined by this field.\n",
-            "x-vcloud-added-in": 32
+            "description": "The CPU speed in MHz of this VM. This is optional. When provided,\nVMs with this policy cannot have more than CPU speed defined by this field."
           },
           "memory": {
             "type": "integer",
             "format": "int64",
-            "description": "The maximum memory in MB allowed for a VM. This is optional. When provided, VMs with\nthis policy cannot have configured memory more than defined by this field.\n",
-            "x-vcloud-added-in": 32
+            "description": "The maximum memory in MB allowed for a VM. This is optional. When provided, VMs with\nthis policy cannot have configured memory more than defined by this field."
           },
           "cpuCount": {
             "type": "integer",
             "format": "int32",
-            "description": "The maximum number of CPUs allowed for a VM. This is optional. When provided,\nVMs with this policy cannot have more than number of CPUs defined by this field.\n",
-            "x-vcloud-added-in": 32
+            "description": "The maximum number of CPUs allowed for a VM. This is optional. When provided,\nVMs with this policy cannot have more than number of CPUs defined by this field."
           },
           "coresPerSocket": {
             "type": "integer",
             "format": "int32",
-            "description": "The cores per socket to be configured for the VM where this policy is applied.\n",
-            "x-vcloud-added-in": 32
+            "description": "The cores per socket to be configured for the VM where this policy is applied."
           },
           "memoryReservationGuarantee": {
             "type": "number",
@@ -4534,30 +4520,22 @@
           "cpuLimit": {
             "type": "integer",
             "format": "int64",
-            "description": "The limit of CPU in MHz for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the vCPUSpeed multiplied by numCPU.\n",
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "The limit of CPU in MHz for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the vCPUSpeed multiplied by numCPU."
           },
           "memoryLimit": {
             "type": "integer",
             "format": "int64",
-            "description": "The limit of memory in MB for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the configured memory of the VM.\n",
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "The limit of memory in MB for the VM on which this policy is applied. -1 means unlimited. This\nis optional. If not provided, limit would be equal to the configured memory of the VM."
           },
           "cpuShares": {
             "type": "integer",
             "format": "int32",
-            "description": "The number of CPU shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM.\n",
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "The number of CPU shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM."
           },
           "memoryShares": {
             "type": "integer",
             "format": "int32",
-            "description": "The number of memory shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM.\n",
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "The number of memory shares for the VM on which this policy is applied. This is optional. If\nnot provided, Normal shares would be applied to the VM."
           },
           "extraConfigs": {
             "type": "object",
@@ -6005,34 +5983,12 @@
               "totalBackingsCount": {
                 "type": "integer",
                 "description": "The number of backings available for use.",
-                "readOnly": true,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  },
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
+                "readOnly": true
               },
               "usedBackingsCount": {
                 "type": "integer",
                 "description": "The number of network pool backings in use.",
-                "readOnly": true,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  },
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
+                "readOnly": true
               },
               "managingOwnerRef": {
                 "$ref": "#/components/schemas/EntityReference",

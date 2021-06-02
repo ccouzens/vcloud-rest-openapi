@@ -47,12 +47,28 @@ async function defs(page: Page) {
     format?: "int32" | "int64";
     minimum?: number;
     maximum?: number;
+    default?: number;
+    readOnly?: boolean;
   };
   type Number = {
     type: "number";
     description: string;
     format?: "double";
   };
+
+  const integerCorrector = (val: Integer): Integer => ({
+    type: "integer",
+    ...((val.format === "int32" || val.format === "int64") && {
+      format: val.format,
+    }),
+    ...(val.description !== undefined && {
+      description: descriptionCorrector(val.description),
+    }),
+    ...(val.minimum !== undefined && { minimum: val.minimum }),
+    ...(val.maximum !== undefined && { maximum: val.maximum }),
+    ...(val.default !== undefined && { default: val.default }),
+    ...(val.readOnly !== undefined && { readOnly: val.readOnly }),
+  });
 
   type String = {
     type: "string";
@@ -110,6 +126,8 @@ async function defs(page: Page) {
             return { [key]: enumCorrector(value) };
           } else if (value.type === "boolean") {
             return { [key]: booleanCorrector(value) };
+          } else if (value.type == "integer") {
+            return { [key]: integerCorrector(value) };
           } else {
             return { [key]: value };
           }
