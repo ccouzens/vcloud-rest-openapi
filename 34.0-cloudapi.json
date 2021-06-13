@@ -11,12 +11,7 @@
         "description": "A location accessible to this session.",
         "properties": {
           "locationId": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "string"
           },
           "site": {
             "$ref": "#/components/schemas/EntityReference"
@@ -25,28 +20,13 @@
             "$ref": "#/components/schemas/EntityReference"
           },
           "restApiEndpoint": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "string"
           },
           "uiEndpoint": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "string"
           },
           "apiVersion": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "string"
           }
         }
       },
@@ -160,20 +140,7 @@
         "description": "AuditTrailEvent",
         "properties": {
           "eventId": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "audit"
-                  }
-                ]
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "type": "string"
           },
           "description": {
             "type": "string"
@@ -188,64 +155,22 @@
             "$ref": "#/components/schemas/EntityReference"
           },
           "taskId": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "type": "string"
           },
           "taskCellId": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ],
-            "x-vcloud-restricted": "Visible to provider users only"
+            "type": "string"
           },
           "cellId": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ],
-            "x-vcloud-restricted": "Visible to provider users only"
+            "type": "string"
           },
           "eventType": {
             "type": "string"
           },
           "serviceNamespace": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "type": "string"
           },
           "eventStatus": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "type": "string"
           },
           "timestamp": {
             "type": "string",
@@ -391,39 +316,12 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique id of the cell.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "cell"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The unique id of the cell."
           },
           "productBuildDate": {
             "type": "string",
             "format": "date-time",
-            "description": "The build date for the version of the product installed on this cell.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The build date for the version of the product installed on this cell."
           },
           "isActive": {
             "type": "boolean",
@@ -431,30 +329,15 @@
           },
           "name": {
             "type": "string",
-            "description": "The name of the cell.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The name of the cell."
           },
           "primaryIP": {
             "type": "string",
-            "description": "The primary ip address of the cell.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The primary ip address of the cell."
           },
           "productVersion": {
             "type": "string",
-            "description": "The product version of the cell.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The product version of the cell."
           }
         }
       },
@@ -535,11 +418,11 @@
         "properties": {
           "workflowId": {
             "type": "string",
-            "description": "uuid of workflow.\n"
+            "description": "uuid of workflow."
           },
           "workflowInputParameter": {
             "type": "string",
-            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
+            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped."
           }
         },
         "required": [
@@ -563,14 +446,14 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID of custom entity\n"
+            "description": "UUID of custom entity"
           },
           "name": {
             "type": "string"
           },
           "customEntityTypeId": {
             "type": "string",
-            "description": "This refers to UUID of custom entity type\n"
+            "description": "This refers to UUID of custom entity type"
           }
         },
         "required": [
@@ -582,22 +465,22 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for custom entity type. This is immutable.\n"
+            "description": "UUID for custom entity type. This is immutable."
           },
           "vroId": {
             "type": "string"
           },
           "vroDynamicType": {
             "type": "string",
-            "description": "This refers to VRO's dynamic type.\n"
+            "description": "This refers to VRO's dynamic type."
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n"
+            "description": "Display name."
           },
           "nss": {
             "type": "string",
-            "description": "This refers to a unique namespace specific string.\n"
+            "description": "This refers to a unique namespace specific string."
           },
           "description": {
             "type": "string",
@@ -623,15 +506,15 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of workflow\n"
+            "description": "Name of workflow"
           },
           "workflowId": {
             "type": "string",
-            "description": "UUID of workflow.\n"
+            "description": "UUID of workflow."
           },
           "workflowInputParameter": {
             "type": "string",
-            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
+            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped."
           }
         },
         "required": [
@@ -813,8 +696,10 @@
           },
           "localASNumber": {
             "type": "string",
-            "example": "65546",
-            "description": "BGP AS number to advertise to BGP peers. BGP AS number can be specified in\neither ASPLAIN or ASDOT formats, like ASPLAIN format :- '65546', ASDOT format :- '1.10'\n"
+            "description": "BGP AS number to advertise to BGP peers. BGP AS number can be specified in\neither ASPLAIN or ASDOT formats, like ASPLAIN format :- '65546', ASDOT format :- '1.10'",
+            "examples": [
+              "65546"
+            ]
           },
           "gracefulRestart": {
             "$ref": "#/components/schemas/EdgeBgpGracefulRestartConfig",
@@ -861,17 +746,21 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique id of this BGP neighbor. On updates, the id is required for the object, while for create a new id will be generated. This id is not a VCD URN.\n"
+            "description": "The unique id of this BGP neighbor. On updates, the id is required for the object, while for create a new id will be generated. This id is not a VCD URN."
           },
           "neighborAddress": {
             "type": "string",
-            "example": "10.22.1.100",
-            "description": "The IP address of the BGP neighbor. Both IPv4 and IPv6 formats are supported."
+            "description": "The IP address of the BGP neighbor. Both IPv4 and IPv6 formats are supported.",
+            "examples": [
+              "10.22.1.100"
+            ]
           },
           "remoteASNumber": {
             "type": "string",
-            "example": "65546",
-            "description": "The remote AS number of a BGP neighbor in ASPLAIN format."
+            "description": "The remote AS number of a BGP neighbor in ASPLAIN format.",
+            "examples": [
+              "65546"
+            ]
           },
           "keepAliveTimer": {
             "type": "integer",
@@ -904,7 +793,7 @@
           },
           "neighborPassword": {
             "type": "string",
-            "description": "Password for BGP neighbor authentication. Empty string (\"\") clears existing password.\nNot specifying a value will be treated as \"no password\".\n",
+            "description": "Password for BGP neighbor authentication. Empty string (\"\") clears existing password.\nNot specifying a value will be treated as \"no password\".",
             "maxLength": 20
           },
           "ipAddressTypeFiltering": {
@@ -1088,7 +977,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique id of this IPSec VPN tunnel. On updates, the id is required for the tunnel, while for create a new id will be generated.\n"
+            "description": "The unique id of this IPSec VPN tunnel. On updates, the id is required for the tunnel, while for create a new id will be generated."
           },
           "name": {
             "type": "string",
@@ -1120,7 +1009,7 @@
           },
           "securityType": {
             "type": "string",
-            "description": "This is the security type used for the IPSec Tunnel. If nothing is specified, this will be set to 'DEFAULT' in which the default settings in NSX will be used.\nFor custom settings, one should use the connectionProperties endpoint to specify custom settings. The security type will then appropriately reflect itself as\n'CUSTOM'.\n",
+            "description": "This is the security type used for the IPSec Tunnel. If nothing is specified, this will be set to 'DEFAULT' in which the default settings in NSX will be used.\nFor custom settings, one should use the connectionProperties endpoint to specify custom settings. The security type will then appropriately reflect itself as\n'CUSTOM'.",
             "default": "DEFAULT"
           },
           "logging": {
@@ -1145,7 +1034,7 @@
         "properties": {
           "securityType": {
             "type": "string",
-            "description": "This is the security type used for the IPSec Tunnel. If nothing is specified, this will be set to 'DEFAULT' in which the default settings in NSX will be used.\nIf 'CUSTOM' is specified, then ike, tunnel, and dpd configurations can be set.\n",
+            "description": "This is the security type used for the IPSec Tunnel. If nothing is specified, this will be set to 'DEFAULT' in which the default settings in NSX will be used.\nIf 'CUSTOM' is specified, then ike, tunnel, and dpd configurations can be set.",
             "default": "DEFAULT"
           },
           "ikeConfiguration": {
@@ -1276,7 +1165,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique id of the NAT Rule. This must be supplied when updating a given NAT Rule. On creation, an unique id is generated for the NAT Rule.\n"
+            "description": "The unique id of the NAT Rule. This must be supplied when updating a given NAT Rule. On creation, an unique id is generated for the NAT Rule."
           },
           "name": {
             "type": "string",
@@ -1300,15 +1189,15 @@
           },
           "externalAddresses": {
             "type": "string",
-            "description": "The external addresses for the NAT Rule. This must be supplied as a single IP or Network CIDR. For a DNAT rule, this is the external facing IP Address for incoming traffic.\nFor an SNAT rule, this is the external facing IP Address for outgoing traffic. These ips are typically allocated/suballocated IP Addresses on\nthe Edge Gateway.\n"
+            "description": "The external addresses for the NAT Rule. This must be supplied as a single IP or Network CIDR. For a DNAT rule, this is the external facing IP Address for incoming traffic.\nFor an SNAT rule, this is the external facing IP Address for outgoing traffic. These ips are typically allocated/suballocated IP Addresses on\nthe Edge Gateway."
           },
           "internalAddresses": {
             "type": "string",
-            "description": "The internal addresses for the NAT Rule. This must be supplied as a single IP or Network CIDR. For a DNAT rule, this is the internal IP Address for incoming traffic.\nFor an SNAT rule, this is the internal IP Address for outgoing traffic. These ips are typically the Private IPs that are allocated to workloads.\n"
+            "description": "The internal addresses for the NAT Rule. This must be supplied as a single IP or Network CIDR. For a DNAT rule, this is the internal IP Address for incoming traffic.\nFor an SNAT rule, this is the internal IP Address for outgoing traffic. These ips are typically the Private IPs that are allocated to workloads."
           },
           "internalPort": {
             "type": "string",
-            "description": "Port number or port range for incoming network traffic. If Any Traffic is selected for the Service, the default internal port is \"ANY\".\n"
+            "description": "Port number or port range for incoming network traffic. If Any Traffic is selected for the Service, the default internal port is \"ANY\"."
           },
           "logging": {
             "type": "boolean",
@@ -1322,7 +1211,7 @@
           },
           "snatDestinationAddresses": {
             "type": "string",
-            "description": "The destination addresses to match in the SNAT Rule. This must be supplied as a single IP or Network CIDR.\nProviding no value for this field results in match with ANY destination network. These IPs are typically\nthe Private IPs that are allocated to destination workloads.\n"
+            "description": "The destination addresses to match in the SNAT Rule. This must be supplied as a single IP or Network CIDR.\nProviding no value for this field results in match with ANY destination network. These IPs are typically\nthe Private IPs that are allocated to destination workloads."
           },
           "version": {
             "$ref": "#/components/schemas/ObjectVersion"
@@ -1341,7 +1230,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique id of this prefix list. On updates, the id is required for the list, while for create a new id will be generated. This id is not a VCD URN.\n"
+            "description": "The unique id of this prefix list. On updates, the id is required for the list, while for create a new id will be generated. This id is not a VCD URN."
           },
           "name": {
             "type": "string",
@@ -1374,8 +1263,10 @@
         "properties": {
           "network": {
             "type": "string",
-            "example": "10.22.0.0/22",
-            "description": "The network prefix in CIDR format. If the value is not specified,\nit will be treated as \"ANY\" which means match all networks.\nBoth IPv4 and IPv6 formats are supported.\n"
+            "description": "The network prefix in CIDR format. If the value is not specified,\nit will be treated as \"ANY\" which means match all networks.\nBoth IPv4 and IPv6 formats are supported.",
+            "examples": [
+              "10.22.0.0/22"
+            ]
           },
           "action": {
             "type": "string",
@@ -1496,11 +1387,11 @@
           },
           "senderEmailAddress": {
             "type": "string",
-            "description": "Sender email address in an email notification or alert\n"
+            "description": "Sender email address in an email notification or alert"
           },
           "defaultEmailSubjectPrefix": {
             "type": "string",
-            "description": "The prefix used in the email subject line for all email notifications and alerts from the system\n"
+            "description": "The prefix used in the email subject line for all email notifications and alerts from the system"
           },
           "alertEmailToAllAdmins": {
             "type": "boolean",
@@ -1508,7 +1399,7 @@
           },
           "alertEmailTo": {
             "type": "string",
-            "description": "A comma separated email addresses to send all alert messages to\n"
+            "description": "A comma separated email addresses to send all alert messages to"
           }
         }
       },
@@ -1596,8 +1487,10 @@
         "properties": {
           "id": {
             "type": "string",
-            "example": "2a4ba9ad-e8d5-409c-8cae-c06910cd9b47",
-            "description": "The id of the entity."
+            "description": "The id of the entity.",
+            "examples": [
+              "2a4ba9ad-e8d5-409c-8cae-c06910cd9b47"
+            ]
           },
           "name": {
             "type": "string",
@@ -1661,8 +1554,7 @@
           },
           "name": {
             "type": "string",
-            "description": "The name of this external network backing, if it exists.",
-            "x-vcloud-added-in": 33
+            "description": "The name of this external network backing, if it exists."
           }
         }
       },
@@ -1724,15 +1616,7 @@
           },
           "networkProviderScope": {
             "type": "string",
-            "description": "The network provider scope that this object belongs to. This is a read-only property and is determined by the input context entity ID during object creation.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The network provider scope that this object belongs to. This is a read-only property and is determined by the input context entity ID during object creation."
           }
         }
       },
@@ -1750,38 +1634,14 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique id of this firewall rule. If a rule with the ruleId\nis not already present, a new rule will be created. If it already\nexists, the rule will be updated.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The unique id of this firewall rule. If a rule with the ruleId\nis not already present, a new rule will be created. If it already\nexists, the rule will be updated."
           },
           "name": {
             "type": "string",
-            "description": "Name for the rule.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "Name for the rule."
           },
           "description": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "type": "string"
           },
           "sourceFirewallGroups": {
             "type": "array",
@@ -1902,7 +1762,7 @@
           },
           "backingId": {
             "type": "string",
-            "description": "The Id of the edge cluster in NSX-T manager. The user should\nspecify the id of NSX-T edge cluster during edge gateway create/update.\nVCD will automatically create a corresponding VCD Edge cluster object\nreferencing the specified NSX-T edge cluster.\nFor NSX-V Edges, this is set to NULL.\n"
+            "description": "The Id of the edge cluster in NSX-T manager. The user should\nspecify the id of NSX-T edge cluster during edge gateway create/update.\nVCD will automatically create a corresponding VCD Edge cluster object\nreferencing the specified NSX-T edge cluster.\nFor NSX-V Edges, this is set to NULL."
           }
         }
       },
@@ -2336,7 +2196,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for LogicalVmGroup. This is immutable.\n"
+            "description": "UUID for LogicalVmGroup. This is immutable."
           },
           "description": {
             "type": "string",
@@ -2344,7 +2204,7 @@
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n"
+            "description": "Display name."
           },
           "namedVmGroupReferences": {
             "type": "array",
@@ -2355,18 +2215,7 @@
           },
           "pvdcId": {
             "type": "string",
-            "description": "URN for Provider vDC.\n",
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "providervdc"
-                  }
-                ]
-              }
-            ]
+            "description": "URN for Provider vDC."
           }
         },
         "required": [
@@ -2389,15 +2238,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique ID for the network. This field is read-only.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The unique ID for the network. This field is read-only."
           },
           "name": {
             "type": "string",
@@ -2405,15 +2246,7 @@
           },
           "description": {
             "type": "string",
-            "description": "The description of the network.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The description of the network."
           },
           "subnets": {
             "$ref": "#/components/schemas/Subnets",
@@ -2475,27 +2308,11 @@
           },
           "contextEntityId": {
             "type": "string",
-            "description": "The context under which this object is created. The context can the id of either the organization vDC or the network provider.\nThis field is required on object creation and is unset on object reads. This same context ID can be used in the context filter field\nwhen querying for the list of objects.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The context under which this object is created. The context can the id of either the organization vDC or the network provider.\nThis field is required on object creation and is unset on object reads. This same context ID can be used in the context filter field\nwhen querying for the list of objects."
           },
           "networkProviderScope": {
             "type": "string",
-            "description": "The network provider scope that this object belongs to. This is a read-only property and is determined by the input context entity ID during object creation.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The network provider scope that this object belongs to. This is a read-only property and is determined by the input context entity ID during object creation."
           }
         }
       },
@@ -2624,48 +2441,23 @@
         "properties": {
           "username": {
             "type": "string",
-            "description": "User name to connect to the NSX-V server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "User name to connect to the NSX-V server."
           },
           "password": {
             "type": "string",
-            "description": "Cleartext password to connect to the NSX-V server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ],
-            "x-vcloud-password": true
+            "description": "Cleartext password to connect to the NSX-V server."
           },
           "url": {
             "type": "string",
             "format": "uri",
-            "example": "https://sampleVsm.vmware.com",
             "description": "URL of the server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
+            "examples": [
+              "https://sampleVsm.vmware.com"
             ]
           },
           "softwareVersion": {
             "type": "string",
-            "description": "Version of the NSX-V Manager",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "Version of the NSX-V Manager"
           }
         },
         "required": [
@@ -2679,72 +2471,26 @@
         "properties": {
           "vcId": {
             "type": "string",
-            "example": "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "description": "URN of the associated vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "vimserver"
-                  }
-                ]
-              }
+            "examples": [
+              "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "networkProviderScope": {
             "type": "string",
-            "description": "Public label of this NSX server visible to all tenants.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "Public label of this NSX server visible to all tenants."
           },
           "controlVmResourcePoolVcPath": {
             "type": "string",
-            "description": "Path to the resource pool to use for creating Control VM for Cross-VDC Networking.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "Path to the resource pool to use for creating Control VM for Cross-VDC Networking."
           },
           "controlVmDatastoreName": {
             "type": "string",
-            "description": "Name of the Datastore to use for creating Control VM for Cross-VDC Networking.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "Name of the Datastore to use for creating Control VM for Cross-VDC Networking."
           },
           "controlVmManagementInterfaceName": {
             "type": "string",
-            "description": "Name of the management interface to use for creating Control VM for Cross-VDC Networking.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "Name of the management interface to use for creating Control VM for Cross-VDC Networking."
           }
         },
         "required": [
@@ -2799,7 +2545,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique id of the DNS forwarder zone. If value is unset, a new zone is created.\nIf value is set, an update is done on the zone.\n"
+            "description": "The unique id of the DNS forwarder zone. If value is unset, a new zone is created.\nIf value is set, an update is done on the zone."
           },
           "displayName": {
             "type": "string",
@@ -2997,11 +2743,11 @@
         "properties": {
           "classifier": {
             "type": "string",
-            "description": "unique indetifier for this preference definition. It will be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable\n"
+            "description": "unique indetifier for this preference definition. It will be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable"
           },
           "name": {
             "type": "string",
-            "description": "Display name. This is same as preference definition name and is immutable.\n"
+            "description": "Display name. This is same as preference definition name and is immutable."
           },
           "value": {
             "type": "string"
@@ -3019,20 +2765,20 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for preference definition. This is immutable.\n"
+            "description": "UUID for preference definition. This is immutable."
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n"
+            "description": "Display name."
           },
           "description": {
             "type": "string",
-            "description": "Description for user preference\n",
+            "description": "Description for user preference",
             "default": ""
           },
           "classifier": {
             "type": "string",
-            "description": "unique indetifier for this preference definition. It should be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable.\n"
+            "description": "unique indetifier for this preference definition. It should be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable."
           },
           "dataType": {
             "type": "string",
@@ -3225,21 +2971,11 @@
         "properties": {
           "result": {
             "type": "string",
-            "description": "If the connection test succeeded, if an error was encountered a brief summary will be included.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "If the connection test succeeded, if an error was encountered a brief summary will be included."
           },
           "resolvedIp": {
             "type": "string",
-            "description": "The IP address the host was resolved to.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The IP address the host was resolved to."
           },
           "canConnect": {
             "type": "boolean",
@@ -3251,12 +2987,7 @@
           },
           "certificateChain": {
             "type": "string",
-            "description": "The SSL certificate chain presented by the server if a secure connection was made.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The SSL certificate chain presented by the server if a secure connection was made."
           }
         }
       },
@@ -3300,27 +3031,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "example": "Proxy Sample Name",
+            "examples": [
+              "Proxy Sample Name"
+            ],
             "pattern": ".*[\\S].*"
           },
           "id": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "proxy"
-                  }
-                ]
-              }
-            ]
+            "type": "string"
           },
           "parent": {
             "$ref": "#/components/schemas/EntityReference",
@@ -3353,18 +3070,7 @@
           },
           "token": {
             "type": "string",
-            "description": "The generated read-only token that should be used as the password when using this proxy.\nTo generate a new token, activate the proxy. The token is tied to the user session that activated the proxy.\nIf the proxy is inactive, this value will be null.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The generated read-only token that should be used as the password when using this proxy.\nTo generate a new token, activate the proxy. The token is tied to the user session that activated the proxy.\nIf the proxy is inactive, this value will be null."
           },
           "parentProxy": {
             "$ref": "#/components/schemas/EntityReference",
@@ -3372,14 +3078,18 @@
           },
           "targetHost": {
             "type": "string",
-            "example": "sampleVc.vmware.com",
-            "description": "IP address or FQDN of the host being proxied. This is not editable once the proxy has been created."
+            "description": "IP address or FQDN of the host being proxied. This is not editable once the proxy has been created.",
+            "examples": [
+              "sampleVc.vmware.com"
+            ]
           },
           "uiUrl": {
             "type": "string",
             "format": "uri",
-            "example": "https://sampleVc.vmware.com",
-            "description": "The URL of the proxied component's UI endpoint. This is the URL that the browser tab\n will be pointed to when the proxy is launched via the H5 UI of VCD.\n",
+            "description": "The URL of the proxied component's UI endpoint. This is the URL that the browser tab\n will be pointed to when the proxy is launched via the H5 UI of VCD.",
+            "examples": [
+              "https://sampleVc.vmware.com"
+            ],
             "default": ""
           }
         },
@@ -3396,39 +3106,19 @@
         "properties": {
           "name": {
             "type": "string",
-            "example": "Proxy Sample Name",
+            "examples": [
+              "Proxy Sample Name"
+            ],
             "pattern": ".*[\\S].*"
           },
           "id": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "proxyConfiguration"
-                  }
-                ]
-              }
-            ]
+            "type": "string"
           },
           "description": {
             "type": "string",
-            "example": "Configuration to connect to VC-1",
             "description": "Optional description.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
+            "examples": [
+              "Configuration to connect to VC-1"
             ]
           },
           "authType": {
@@ -3440,46 +3130,22 @@
           },
           "username": {
             "type": "string",
-            "description": "username to connect to the proxy server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "username to connect to the proxy server."
           },
           "password": {
             "type": "string",
-            "description": "password to connect to the proxy server, when auth type is Basic.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ],
-            "x-vcloud-password": true
+            "description": "password to connect to the proxy server, when auth type is Basic."
           },
           "token": {
             "type": "string",
-            "description": "authentication token to connect to the proxy server, when auth type is Bearer.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ],
-            "x-vcloud-password": true
+            "description": "authentication token to connect to the proxy server, when auth type is Bearer."
           },
           "host": {
             "type": "string",
-            "example": "sampleProxy.vmware.com",
-            "description": "hostname of the proxy server."
+            "description": "hostname of the proxy server.",
+            "examples": [
+              "sampleProxy.vmware.com"
+            ]
           },
           "port": {
             "type": "integer",
@@ -3533,33 +3199,23 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for pVDC compute policy. This is immutable.\n"
+            "description": "UUID for pVDC compute policy. This is immutable."
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n",
+            "description": "Display name.",
             "minLength": 1,
             "maxLength": 128
           },
           "description": {
             "type": "string",
+            "default": "",
             "minLength": 1,
-            "maxLength": 256,
-            "default": ""
+            "maxLength": 256
           },
           "pvdcId": {
             "type": "string",
-            "description": "URN for Provider VDC.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "providervdc"
-                  }
-                ]
-              }
-            ]
+            "description": "URN for Provider VDC."
           },
           "namedVmGroupReferences": {
             "type": "array",
@@ -3622,7 +3278,7 @@
         "properties": {
           "remoteId": {
             "type": "string",
-            "description": "This Remote ID is needed to uniquely identify the peer site. The Remote ID is the public IP Address of the remote device terminating the VPN Tunnel.\nWhen NAT is configured on the Remote ID, enter the private IP Address of the Remote Site. If remote ID is not set, VCD will set the remote Id to the\nremote address.\n"
+            "description": "This Remote ID is needed to uniquely identify the peer site. The Remote ID is the public IP Address of the remote device terminating the VPN Tunnel.\nWhen NAT is configured on the Remote ID, enter the private IP Address of the Remote Site. If remote ID is not set, VCD will set the remote Id to the\nremote address."
           },
           "remoteAddress": {
             "type": "string",
@@ -3675,20 +3331,7 @@
           },
           "id": {
             "type": "string",
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "right"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "description": {
             "type": "string",
@@ -3703,27 +3346,12 @@
           "category": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "rightsCategory"
-                  }
-                ]
-              }
-            ]
+            "maxLength": 128
           },
           "serviceNamespace": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "rightType": {
             "type": "string",
@@ -3760,20 +3388,7 @@
             "maxLength": 128
           },
           "id": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "rightsCategory"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "string"
           },
           "bundleKey": {
             "type": "string",
@@ -3781,17 +3396,7 @@
             "maxLength": 128
           },
           "parent": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "rightsCategory"
-                  }
-                ]
-              }
-            ]
+            "type": "string"
           },
           "rightsCount": {
             "$ref": "#/components/schemas/RightsCount"
@@ -3841,12 +3446,7 @@
           },
           "id": {
             "type": "string",
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "description": {
             "type": "string",
@@ -3855,12 +3455,7 @@
           "bundleKey": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "readOnly": {
             "type": "boolean"
@@ -3994,39 +3589,19 @@
         "properties": {
           "name": {
             "type": "string",
-            "example": "SDDC Sample Name"
+            "examples": [
+              "SDDC Sample Name"
+            ]
           },
           "id": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "sddc"
-                  }
-                ]
-              }
-            ]
+            "type": "string"
           },
           "description": {
             "type": "string",
-            "example": "SDDC Sample Description",
-            "default": "",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "examples": [
+              "SDDC Sample Description"
+            ],
+            "default": ""
           },
           "enabled": {
             "type": "boolean",
@@ -4034,28 +3609,16 @@
           },
           "vcId": {
             "type": "string",
-            "example": "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "description": "URN of the associated vCenter. This is not editable once the SDDC has been created.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
+            "examples": [
+              "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "version": {
             "type": "string",
-            "example": "6.7.0",
             "description": "Version of the associated vCenter. This is not editable.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
+            "examples": [
+              "6.7.0"
             ]
           },
           "overallStatus": {
@@ -4091,17 +3654,7 @@
           },
           "proxyId": {
             "type": "string",
-            "description": "An optional identifier to a Proxy that can be used to establish a connection to the endpoint",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "proxy"
-                  }
-                ]
-              }
-            ]
+            "description": "An optional identifier to a Proxy that can be used to establish a connection to the endpoint"
           }
         }
       },
@@ -4111,41 +3664,19 @@
         "properties": {
           "name": {
             "type": "string",
-            "example": "SDDC Proxy Sample Name",
+            "examples": [
+              "SDDC Proxy Sample Name"
+            ],
             "pattern": ".*[\\S].*"
           },
           "id": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "sddcProxy"
-                  }
-                ]
-              }
-            ]
+            "type": "string"
           },
           "sddcId": {
             "type": "string",
-            "example": "urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "description": "URN of the parent SDDC. This is not editable once the proxy has been created.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "sddc"
-                  }
-                ]
-              }
+            "examples": [
+              "urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "enabled": {
@@ -4160,8 +3691,10 @@
           },
           "targetHost": {
             "type": "string",
-            "example": "sampleVc.vmware.com",
-            "description": "IP address or FQDN of the host being proxied. This is not editable once the proxy has been created."
+            "description": "IP address or FQDN of the host being proxied. This is not editable once the proxy has been created.",
+            "examples": [
+              "sampleVc.vmware.com"
+            ]
           },
           "active": {
             "type": "boolean",
@@ -4170,18 +3703,7 @@
           },
           "token": {
             "type": "string",
-            "description": "The generated read-only token that should be used as the password when using this proxy.\nTo generate a new token, activate the proxy. The token is tied to the user session that activated the proxy.\nIf the proxy is inactive, this value will be null.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The generated read-only token that should be used as the password when using this proxy.\nTo generate a new token, activate the proxy. The token is tied to the user session that activated the proxy.\nIf the proxy is inactive, this value will be null."
           },
           "defaultProxy": {
             "type": "boolean",
@@ -4190,27 +3712,18 @@
           },
           "parentProxyId": {
             "type": "string",
-            "example": "urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "description": "The URN of the parent proxy. If a proxy has a parent, the proxy is activated along with\nits parent and shares the token with its parent. Each proxy may only have one parent.\nA parent proxy cannot have a parent of its own.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "sddcProxy"
-                  }
-                ]
-              }
+            "description": "The URN of the parent proxy. If a proxy has a parent, the proxy is activated along with\nits parent and shares the token with its parent. Each proxy may only have one parent.\nA parent proxy cannot have a parent of its own.",
+            "examples": [
+              "urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "uiUrl": {
             "type": "string",
             "format": "uri",
-            "example": "https://sampleVc.vmware.com",
-            "description": "The URL of the proxied component's UI endpoint. This is the URL that the browser tab\n will be pointed to when the proxy is launched via the H5 UI of VCD.\n",
+            "description": "The URL of the proxied component's UI endpoint. This is the URL that the browser tab\n will be pointed to when the proxy is launched via the H5 UI of VCD.",
+            "examples": [
+              "https://sampleVc.vmware.com"
+            ],
             "default": ""
           }
         },
@@ -4405,20 +3918,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "session"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "user": {
             "$ref": "#/components/schemas/EntityReference"
@@ -4459,19 +3959,19 @@
           },
           "sslTrustStore": {
             "type": "string",
-            "description": "The custom ssl trust certs if ssl is enabled\n"
+            "description": "The custom ssl trust certs if ssl is enabled"
           },
           "userName": {
             "type": "string",
-            "description": "Username to login to server\n"
+            "description": "Username to login to server"
           },
           "password": {
             "type": "string",
-            "description": "Password to login to the server\n"
+            "description": "Password to login to the server"
           },
           "description": {
             "type": "string",
-            "description": "A human readable description of the entity\n"
+            "description": "A human readable description of the entity"
           },
           "name": {
             "type": "string",
@@ -4679,13 +4179,17 @@
         "properties": {
           "thumbprint": {
             "type": "string",
-            "example": "00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00",
-            "description": "The SDDC Proxy SSL certificate thumbprint."
+            "description": "The SDDC Proxy SSL certificate thumbprint.",
+            "examples": [
+              "00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"
+            ]
           },
           "algorithm": {
             "type": "string",
-            "example": "SHA-256",
-            "description": "Algorithm used for the thumbprint calculation."
+            "description": "Algorithm used for the thumbprint calculation.",
+            "examples": [
+              "SHA-256"
+            ]
           }
         }
       },
@@ -4707,89 +4211,28 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "ID of this token. Sorting on this field is not supported.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "token"
-                  }
-                ]
-              }
-            ]
+            "description": "ID of this token. Sorting on this field is not supported."
           },
           "token": {
             "type": "string",
-            "description": "User specific token that can be used to access proxies. Sorting on this field is not supported.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "User specific token that can be used to access proxies. Sorting on this field is not supported."
           },
           "expirationTimeUtc": {
             "type": "string",
             "format": "date-time",
-            "description": "Time stamp representing when the token will expire (in UTC).",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "Time stamp representing when the token will expire (in UTC)."
           },
           "username": {
             "type": "string",
-            "description": "Name of the user that this token is assigned to.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "Name of the user that this token is assigned to."
           },
           "userId": {
             "type": "string",
-            "description": "ID of the user that this token is assigned to. Sorting on this field is not supported.\n Can not be updated.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "user"
-                  }
-                ]
-              }
-            ]
+            "description": "ID of the user that this token is assigned to. Sorting on this field is not supported.\n Can not be updated."
           },
           "orgName": {
             "type": "string",
-            "description": "Name of the organization that the assigned user belongs to. Sorting and filtering on this field is not supported.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "NonSearchable"
-              }
-            ]
+            "description": "Name of the organization that the assigned user belongs to. Sorting and filtering on this field is not supported."
           }
         },
         "required": [
@@ -4803,20 +4246,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "trustedCertificate"
-                  }
-                ]
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "alias": {
             "type": "string",
@@ -4824,15 +4254,9 @@
           },
           "certificate": {
             "type": "string",
-            "example": "-----BEGIN CERTIFICATE----- <sample certificate contents> -----END CERTIFICATE-----",
             "description": "PEM encoded certificate",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "Certificate"
-              }
+            "examples": [
+              "-----BEGIN CERTIFICATE----- <sample certificate contents> -----END CERTIFICATE-----"
             ]
           }
         },
@@ -4932,7 +4356,7 @@
           },
           "portalColor": {
             "type": "string",
-            "description": "A custom color defined by the administrator and used to theme the site.\nThe color should be in rgb hex color format such as \"FFFFFF\" all capitalized.\nCan be set to an empty string to use the selected theme's default colors.\n"
+            "description": "A custom color defined by the administrator and used to theme the site.\nThe color should be in rgb hex color format such as \"FFFFFF\" all capitalized.\nCan be set to an empty string to use the selected theme's default colors."
           },
           "selectedTheme": {
             "$ref": "#/components/schemas/UiTheme"
@@ -5188,12 +4612,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the virtual machine.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The name of the virtual machine."
           },
           "memory": {
             "type": "integer",
@@ -5212,12 +4631,7 @@
           },
           "path": {
             "type": "string",
-            "description": "The absolute path of the virtual machine in the vCenter's datastore.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The absolute path of the virtual machine in the vCenter's datastore."
           },
           "virtualHardwareVersion": {
             "type": "integer",
@@ -5225,24 +4639,11 @@
           },
           "state": {
             "type": "string",
-            "description": "The following strings are valid states of the virtual machine. <ul> <li>INVALID</li> <li>OFF</li> <li>ON</li> <li>SUSPENDED</li> <li>UNKNOWN</li> <li>STUCK</li> </ul>",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The following strings are valid states of the virtual machine. <ul> <li>INVALID</li> <li>OFF</li> <li>ON</li> <li>SUSPENDED</li> <li>UNKNOWN</li> <li>STUCK</li> </ul>"
           },
           "moRef": {
             "type": "string",
-            "description": "The vSphere Managed Object Reference.",
-            "x-vcloud-constraint": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The vSphere Managed Object Reference."
           }
         }
       },
@@ -5433,8 +4834,7 @@
             "type": "string"
           },
           "id": {
-            "type": "string",
-            "x-vcloud-added-in": 34
+            "type": "string"
           },
           "description": {
             "type": "string"
@@ -5462,41 +4862,23 @@
         "properties": {
           "vcId": {
             "type": "string",
-            "example": "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "description": "URN of the associated vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "vimserver"
-                  }
-                ]
-              }
+            "examples": [
+              "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "name": {
             "type": "string",
-            "example": "vCenter Sample Name",
-            "description": "The name of the vCenter server."
+            "description": "The name of the vCenter server.",
+            "examples": [
+              "vCenter Sample Name"
+            ]
           },
           "description": {
             "type": "string",
-            "example": "vCenter Sample Description",
             "description": "Optional description.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
+            "examples": [
+              "vCenter Sample Description"
             ]
           },
           "username": {
@@ -5505,22 +4887,15 @@
           },
           "password": {
             "type": "string",
-            "description": "Cleartext password to connect to the server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ],
-            "x-vcloud-password": true
+            "description": "Cleartext password to connect to the server."
           },
           "url": {
             "type": "string",
             "format": "uri",
-            "example": "https://sampleVc.vmware.com",
-            "description": "URL of the server."
+            "description": "URL of the server.",
+            "examples": [
+              "https://sampleVc.vmware.com"
+            ]
           },
           "isEnabled": {
             "type": "boolean",
@@ -5539,45 +4914,15 @@
           },
           "rootFolder": {
             "type": "string",
-            "description": "vCenter root folder in which the vCloud Director system folder will be created. This parameter only takes the folder name and not directory structure.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "vCenter root folder in which the vCloud Director system folder will be created. This parameter only takes the folder name and not directory structure."
           },
           "vcNoneNetwork": {
             "type": "string",
-            "description": "Network in Vcenter to be used as 'NONE' network by vCD.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "Network in Vcenter to be used as 'NONE' network by vCD."
           },
           "tenantVisibleName": {
             "type": "string",
-            "description": "Public label of this vCenter server visible to all tenants.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "Public label of this vCenter server visible to all tenants."
           },
           "isConnected": {
             "type": "boolean",
@@ -5596,12 +4941,7 @@
           },
           "listenerState": {
             "type": "string",
-            "description": "The vcenter listener state. One of <ul> <li>INITIAL</li> <li>INVALID_SETTINGS</li> <li>UNSUPPORTED</li> <li>DISCONNECTED</li> <li>CONNECTING</li> <li>CONNECTED_SYNCING</li> <li>CONNECTED</li> <li>STOP_REQ</li> <li>STOP_AND_PURGE_REQ</li> <li>STOP_ACK</li> </ul>",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The vcenter listener state. One of <ul> <li>INITIAL</li> <li>INVALID_SETTINGS</li> <li>UNSUPPORTED</li> <li>DISCONNECTED</li> <li>CONNECTING</li> <li>CONNECTED_SYNCING</li> <li>CONNECTED</li> <li>STOP_REQ</li> <li>STOP_AND_PURGE_REQ</li> <li>STOP_ACK</li> </ul>"
           },
           "clusterHealthStatus": {
             "type": "string",
@@ -5615,45 +4955,21 @@
           },
           "vcVersion": {
             "type": "string",
-            "example": "6.7.0",
             "description": "The version of the VIM server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
+            "examples": [
+              "6.7.0"
             ]
           },
           "uuid": {
             "type": "string",
-            "description": "The instance UUID property of the vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "description": "The instance UUID property of the vCenter server."
           },
           "nsxVManager": {
             "$ref": "#/components/schemas/NsxVManager",
             "description": "the NSX-V attached to this Virtual Center server, when present."
           },
           "proxyConfigurationUrn": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "proxyConfiguration"
-                  }
-                ]
-              }
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -5669,23 +4985,9 @@
         "properties": {
           "vcId": {
             "type": "string",
-            "example": "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "description": "URN of the associated vCenter server.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "vimserver"
-                  }
-                ]
-              }
+            "examples": [
+              "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "clustersCount": {
@@ -5744,7 +5046,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "This is a read-only field in the client. Values set on this field will be ignored by the server.\n"
+            "description": "This is a read-only field in the client. Values set on this field will be ignored by the server."
           },
           "name": {
             "type": "string"
@@ -5761,15 +5063,14 @@
           },
           "password": {
             "type": "string",
-            "format": "password",
-            "description": "The password is hidden using a Password Mask represented by a series of 6 asterisks (\"******\") in the response.\nThe Password Mask is not an acceptable password during VRO Server registration.\nDuring an update, the Password Mask set for the 'password' field is interpreted as no change to the field and is ignored.\n"
+            "description": "The password is hidden using a Password Mask represented by a series of 6 asterisks (\"******\") in the response.\nThe Password Mask is not an acceptable password during VRO Server registration.\nDuring an update, the Password Mask set for the 'password' field is interpreted as no change to the field and is ignored."
           },
           "version": {
             "type": "string"
           },
           "trustAnchor": {
             "type": "string",
-            "description": "SSL Certificate chain for the VRO endpoint\n"
+            "description": "SSL Certificate chain for the VRO endpoint"
           }
         }
       },
@@ -5778,22 +5079,17 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for vDC compute policy. This is immutable.\n"
+            "description": "UUID for vDC compute policy. This is immutable."
           },
           "description": {
             "type": "string",
-            "minLength": 1,
-            "maxLength": 256,
             "default": "A vDC compute policy.",
-            "x-vcloud-constraint": [
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "minLength": 1,
+            "maxLength": 256
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n",
+            "description": "Display name.",
             "minLength": 1,
             "maxLength": 128
           },
@@ -5888,22 +5184,7 @@
           },
           "pvdcId": {
             "type": "string",
-            "description": "URN for Provider VDC.\n",
-            "x-vcloud-added-in": 33,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "Urn",
-                "args": [
-                  {
-                    "arg": "providervdc"
-                  }
-                ]
-              }
-            ],
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            "description": "URN for Provider VDC."
           },
           "namedVmGroups": {
             "type": "array",
@@ -5973,11 +5254,11 @@
           },
           "networkPoolUniversalId": {
             "type": "string",
-            "description": "The network provider's universal id that is backing the universal network pool.\nThis field is read-only and is derived from the list of participating vDCs if a universal vDC group is created.\nFor universal vDC groups, each participating vDC should have a universal network pool that is backed by this same id.\n"
+            "description": "The network provider's universal id that is backing the universal network pool.\nThis field is read-only and is derived from the list of participating vDCs if a universal vDC group is created.\nFor universal vDC groups, each participating vDC should have a universal network pool that is backed by this same id."
           },
           "networkPoolId": {
             "type": "string",
-            "description": "ID of network pool to use if creating a local vDC group router.\nMust be set if creating a local group. Ignored if creating a\nuniversal group.\n"
+            "description": "ID of network pool to use if creating a local vDC group router.\nMust be set if creating a local group. Ignored if creating a\nuniversal group."
           },
           "status": {
             "$ref": "#/components/schemas/VdcGroupEntityStatus",
@@ -6916,7 +6197,7 @@
               },
               "serviceNetworkDefinition": {
                 "type": "string",
-                "description": "The network definition in CDIR form that DNS and DHCP service on an NSX-T edge will run on. The subnet prefix length must be 27.\nThis property applies to creating or importing an NSX-T Edge. This is not supported for VMC.\nIf nothing is set, the default is 192.168.255.225/27.  The DHCP listener IP network is on 192.168.255.225/30.\nThe DNS listener IP network is on 192.168.255.228/32.  This field cannot be updated.\n"
+                "description": "The network definition in CDIR form that DNS and DHCP service on an NSX-T edge will run on. The subnet prefix length must be 27.\nThis property applies to creating or importing an NSX-T Edge. This is not supported for VMC.\nIf nothing is set, the default is 192.168.255.225/27.  The DHCP listener IP network is on 192.168.255.225/30.\nThe DNS listener IP network is on 192.168.255.228/32.  This field cannot be updated."
               },
               "edgeClusterConfig": {
                 "$ref": "#/components/schemas/GatewayEdgeClusterConfig",
@@ -6937,7 +6218,7 @@
             "properties": {
               "primaryIp": {
                 "type": "string",
-                "description": "The primary IP address allocated for this subnet. If not specified, this IP is auto-allocated.  This IP belongs to the external network\nand can be used for system-configured NAT rules such as DNS forwarder configuration.\n"
+                "description": "The primary IP address allocated for this subnet. If not specified, this IP is auto-allocated.  This IP belongs to the external network\nand can be used for system-configured NAT rules such as DNS forwarder configuration."
               },
               "autoAllocateIpRanges": {
                 "type": "boolean",
@@ -7314,8 +6595,7 @@
             "type": "object",
             "properties": {
               "content": {
-                "type": "string",
-                "format": "binary"
+                "type": "string"
               },
               "name": {
                 "type": "string"
@@ -7344,38 +6624,14 @@
             "properties": {
               "id": {
                 "type": "string",
-                "description": "The id of the Network Pool in URN format.",
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "Urn",
-                    "args": [
-                      {
-                        "arg": "networkpool"
-                      }
-                    ]
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  },
-                  {
-                    "constraint": "ReadOnly"
-                  }
-                ]
+                "description": "The id of the Network Pool in URN format."
               },
               "name": {
                 "type": "string",
                 "description": "The name of the Network Pool. Names for Network Pools must be unique across the system."
               },
               "description": {
-                "type": "string",
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
+                "type": "string"
               },
               "poolType": {
                 "$ref": "#/components/schemas/NetworkPoolBackingType",
@@ -7775,17 +7031,7 @@
             "properties": {
               "id": {
                 "type": "string",
-                "maxLength": 128,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "Urn",
-                    "args": [
-                      {
-                        "arg": "role"
-                      }
-                    ]
-                  }
-                ]
+                "maxLength": 128
               }
             }
           }
@@ -8205,7 +7451,7 @@
               },
               "lastTaskFailureMessage": {
                 "type": "string",
-                "description": "Brief failure message if the last configuration task failed.\nDeprecated in Api 33.0, this property will be removed in next release.\n",
+                "description": "Brief failure message if the last configuration task failed.\nDeprecated in Api 33.0, this property will be removed in next release.",
                 "readOnly": true
               },
               "guestVlanTaggingAllowed": {
@@ -8374,17 +7620,7 @@
             "properties": {
               "id": {
                 "type": "string",
-                "maxLength": 128,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "Urn",
-                    "args": [
-                      {
-                        "arg": "globalRole"
-                      }
-                    ]
-                  }
-                ]
+                "maxLength": 128
               }
             }
           }
@@ -8438,17 +7674,7 @@
             "properties": {
               "id": {
                 "type": "string",
-                "maxLength": 128,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "Urn",
-                    "args": [
-                      {
-                        "arg": "rightsBundle"
-                      }
-                    ]
-                  }
-                ]
+                "maxLength": 128
               }
             }
           }

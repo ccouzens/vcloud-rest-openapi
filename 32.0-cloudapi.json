@@ -143,11 +143,11 @@
         "properties": {
           "workflowId": {
             "type": "string",
-            "description": "uuid of workflow.\n"
+            "description": "uuid of workflow."
           },
           "workflowInputParameter": {
             "type": "string",
-            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
+            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped."
           }
         },
         "required": [
@@ -171,14 +171,14 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID of custom entity\n"
+            "description": "UUID of custom entity"
           },
           "name": {
             "type": "string"
           },
           "customEntityTypeId": {
             "type": "string",
-            "description": "This refers to UUID of custom entity type\n"
+            "description": "This refers to UUID of custom entity type"
           }
         },
         "required": [
@@ -190,22 +190,22 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for custom entity type. This is immutable.\n"
+            "description": "UUID for custom entity type. This is immutable."
           },
           "vroId": {
             "type": "string"
           },
           "vroDynamicType": {
             "type": "string",
-            "description": "This refers to VRO's dynamic type.\n"
+            "description": "This refers to VRO's dynamic type."
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n"
+            "description": "Display name."
           },
           "nss": {
             "type": "string",
-            "description": "This refers to a unique namespace specific string.\n"
+            "description": "This refers to a unique namespace specific string."
           },
           "description": {
             "type": "string",
@@ -231,15 +231,15 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of workflow\n"
+            "description": "Name of workflow"
           },
           "workflowId": {
             "type": "string",
-            "description": "UUID of workflow.\n"
+            "description": "UUID of workflow."
           },
           "workflowInputParameter": {
             "type": "string",
-            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped.\n"
+            "description": "Name of input parameter of given workflow to which this custom entity type should be mapped."
           }
         },
         "required": [
@@ -450,11 +450,11 @@
           },
           "senderEmailAddress": {
             "type": "string",
-            "description": "Sender email address in an email notification or alert\n"
+            "description": "Sender email address in an email notification or alert"
           },
           "defaultEmailSubjectPrefix": {
             "type": "string",
-            "description": "The prefix used in the email subject line for all email notifications and alerts from the system\n"
+            "description": "The prefix used in the email subject line for all email notifications and alerts from the system"
           },
           "alertEmailToAllAdmins": {
             "type": "boolean",
@@ -462,7 +462,7 @@
           },
           "alertEmailTo": {
             "type": "string",
-            "description": "A comma separated email addresses to send all alert messages to\n"
+            "description": "A comma separated email addresses to send all alert messages to"
           }
         }
       },
@@ -876,7 +876,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for LogicalVmGroup. This is immutable.\n"
+            "description": "UUID for LogicalVmGroup. This is immutable."
           },
           "description": {
             "type": "string",
@@ -884,7 +884,7 @@
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n"
+            "description": "Display name."
           },
           "namedVmGroupReferences": {
             "type": "array",
@@ -1060,11 +1060,11 @@
         "properties": {
           "classifier": {
             "type": "string",
-            "description": "unique indetifier for this preference definition. It will be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable\n"
+            "description": "unique indetifier for this preference definition. It will be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable"
           },
           "name": {
             "type": "string",
-            "description": "Display name. This is same as preference definition name and is immutable.\n"
+            "description": "Display name. This is same as preference definition name and is immutable."
           },
           "value": {
             "type": "string"
@@ -1082,20 +1082,20 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for preference definition. This is immutable.\n"
+            "description": "UUID for preference definition. This is immutable."
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n"
+            "description": "Display name."
           },
           "description": {
             "type": "string",
-            "description": "Description for user preference\n",
+            "description": "Description for user preference",
             "default": ""
           },
           "classifier": {
             "type": "string",
-            "description": "unique indetifier for this preference definition. It should be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable.\n"
+            "description": "unique indetifier for this preference definition. It should be of type <scope>:<name>.\ne.g vrops:myworkflow. This is immutable."
           },
           "dataType": {
             "type": "string",
@@ -1287,11 +1287,11 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for pVDC compute policy. This is immutable.\n"
+            "description": "UUID for pVDC compute policy. This is immutable."
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n"
+            "description": "Display name."
           },
           "description": {
             "type": "string",
@@ -1299,7 +1299,7 @@
           },
           "pvdcId": {
             "type": "string",
-            "description": "URN for Provider VDC.\n"
+            "description": "URN for Provider VDC."
           },
           "namedVmGroupReferences": {
             "type": "array",
@@ -1365,15 +1365,7 @@
           },
           "id": {
             "type": "string",
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "description": {
             "type": "string",
@@ -1386,22 +1378,12 @@
           "category": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn"
-              }
-            ]
+            "maxLength": 128
           },
           "serviceNamespace": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "rightType": {
             "type": "string",
@@ -1438,27 +1420,14 @@
             "maxLength": 128
           },
           "id": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "type": "string"
           },
           "bundleKey": {
             "type": "string",
             "maxLength": 128
           },
           "parent": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn"
-              }
-            ]
+            "type": "string"
           },
           "rightsCount": {
             "$ref": "#/components/schemas/RightsCount"
@@ -1503,15 +1472,7 @@
           },
           "id": {
             "type": "string",
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "description": {
             "type": "string",
@@ -1521,12 +1482,7 @@
           "bundleKey": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "maxLength": 128
           },
           "readOnly": {
             "type": "boolean"
@@ -1632,34 +1588,19 @@
         "properties": {
           "name": {
             "type": "string",
-            "example": "SDDC Sample Name"
+            "examples": [
+              "SDDC Sample Name"
+            ]
           },
           "id": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn"
-              }
-            ]
+            "type": "string"
           },
           "description": {
             "type": "string",
-            "example": "SDDC Sample Description",
-            "default": "",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "examples": [
+              "SDDC Sample Description"
+            ],
+            "default": ""
           },
           "enabled": {
             "type": "boolean",
@@ -1667,28 +1608,16 @@
           },
           "vcId": {
             "type": "string",
-            "example": "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "description": "URN of the associated vCenter. This is not editable once the SDDC has been created.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
+            "examples": [
+              "urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "version": {
             "type": "string",
-            "example": "6.7.0",
             "description": "Version of the associated vCenter. This is not editable.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
+            "examples": [
+              "6.7.0"
             ]
           },
           "overallStatus": {
@@ -1715,30 +1644,18 @@
         "properties": {
           "name": {
             "type": "string",
-            "example": "SDDC Proxy Sample Name"
+            "examples": [
+              "SDDC Proxy Sample Name"
+            ]
           },
           "id": {
-            "type": "string",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              },
-              {
-                "constraint": "Urn"
-              }
-            ]
+            "type": "string"
           },
           "sddcId": {
             "type": "string",
-            "example": "urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "description": "URN of the parent SDDC. This is not editable once the proxy has been created.",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "Urn"
-              }
+            "examples": [
+              "urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "enabled": {
@@ -1753,8 +1670,10 @@
           },
           "targetHost": {
             "type": "string",
-            "example": "sampleVc.vmware.com",
-            "description": "IP address or FQDN of the host being proxied. This is not editable once the proxy has been created."
+            "description": "IP address or FQDN of the host being proxied. This is not editable once the proxy has been created.",
+            "examples": [
+              "sampleVc.vmware.com"
+            ]
           },
           "active": {
             "type": "boolean",
@@ -1763,18 +1682,7 @@
           },
           "token": {
             "type": "string",
-            "description": "The generated read-only token that should be used as the password when using this proxy.\nTo generate a new token, activate the proxy. The token is tied to the user session that activated the proxy.\nIf the proxy is inactive, this value will be null.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+            "description": "The generated read-only token that should be used as the password when using this proxy.\nTo generate a new token, activate the proxy. The token is tied to the user session that activated the proxy.\nIf the proxy is inactive, this value will be null."
           },
           "defaultProxy": {
             "type": "boolean",
@@ -1783,22 +1691,18 @@
           },
           "parentProxyId": {
             "type": "string",
-            "example": "urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "description": "The URN of the parent proxy. If a proxy has a parent, the proxy is activated along with\nits parent and shares the token with its parent. Each proxy may only have one parent.\nA parent proxy cannot have a parent of its own.\n",
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              },
-              {
-                "constraint": "Urn"
-              }
+            "description": "The URN of the parent proxy. If a proxy has a parent, the proxy is activated along with\nits parent and shares the token with its parent. Each proxy may only have one parent.\nA parent proxy cannot have a parent of its own.",
+            "examples": [
+              "urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
             ]
           },
           "uiUrl": {
             "type": "string",
             "format": "uri",
-            "example": "https://sampleVc.vmware.com",
-            "description": "The URL of the proxied component's UI endpoint. This is the URL that the browser tab\n will be pointed to when the proxy is launched via the H5 UI of VCD.\n",
+            "description": "The URL of the proxied component's UI endpoint. This is the URL that the browser tab\n will be pointed to when the proxy is launched via the H5 UI of VCD.",
+            "examples": [
+              "https://sampleVc.vmware.com"
+            ],
             "default": ""
           }
         },
@@ -1998,19 +1902,19 @@
           },
           "sslTrustStore": {
             "type": "string",
-            "description": "The custom ssl trust certs if ssl is enabled\n"
+            "description": "The custom ssl trust certs if ssl is enabled"
           },
           "userName": {
             "type": "string",
-            "description": "Username to login to server\n"
+            "description": "Username to login to server"
           },
           "password": {
             "type": "string",
-            "description": "Password to login to the server\n"
+            "description": "Password to login to the server"
           },
           "description": {
             "type": "string",
-            "description": "A human readable description of the entity\n"
+            "description": "A human readable description of the entity"
           },
           "name": {
             "type": "string",
@@ -2174,7 +2078,7 @@
           },
           "portalColor": {
             "type": "string",
-            "description": "A custom color defined by the administrator and used to theme the site.\nThe color should be in rgb hex color format such as \"FFFFFF\" all capitalized.\nCan be set to an empty string to use the selected theme's default colors.\n"
+            "description": "A custom color defined by the administrator and used to theme the site.\nThe color should be in rgb hex color format such as \"FFFFFF\" all capitalized.\nCan be set to an empty string to use the selected theme's default colors."
           },
           "selectedTheme": {
             "$ref": "#/components/schemas/UiTheme"
@@ -2592,7 +2496,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "This is a read-only field in the client. Values set on this field will be ignored by the server.\n"
+            "description": "This is a read-only field in the client. Values set on this field will be ignored by the server."
           },
           "name": {
             "type": "string"
@@ -2609,15 +2513,14 @@
           },
           "password": {
             "type": "string",
-            "format": "password",
-            "description": "The password is hidden using a Password Mask represented by a series of 6 asterisks (\"******\") in the response.\nThe Password Mask is not an acceptable password during VRO Server registration.\nDuring an update, the Password Mask set for the 'password' field is interpreted as no change to the field and is ignored.\n"
+            "description": "The password is hidden using a Password Mask represented by a series of 6 asterisks (\"******\") in the response.\nThe Password Mask is not an acceptable password during VRO Server registration.\nDuring an update, the Password Mask set for the 'password' field is interpreted as no change to the field and is ignored."
           },
           "version": {
             "type": "string"
           },
           "trustAnchor": {
             "type": "string",
-            "description": "SSL Certificate chain for the VRO endpoint\n"
+            "description": "SSL Certificate chain for the VRO endpoint"
           }
         }
       },
@@ -2626,7 +2529,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "UUID for vDC compute policy. This is immutable.\n"
+            "description": "UUID for vDC compute policy. This is immutable."
           },
           "description": {
             "type": "string",
@@ -2634,7 +2537,7 @@
           },
           "name": {
             "type": "string",
-            "description": "Display name.\n"
+            "description": "Display name."
           },
           "cpuSpeed": {
             "type": "integer",
@@ -2750,7 +2653,7 @@
           },
           "networkPoolUniversalId": {
             "type": "string",
-            "description": "The universal network pool that is common to all the participating vDCs. This field is read-only and\nis derived from the list of participating vDCs.\n"
+            "description": "The universal network pool that is common to all the participating vDCs. This field is read-only and\nis derived from the list of participating vDCs."
           },
           "status": {
             "$ref": "#/components/schemas/VdcGroupEntityStatus",
@@ -3598,8 +3501,7 @@
             "type": "object",
             "properties": {
               "content": {
-                "type": "string",
-                "format": "binary"
+                "type": "string"
               },
               "name": {
                 "type": "string"
@@ -4181,7 +4083,7 @@
               },
               "lastTaskFailureMessage": {
                 "type": "string",
-                "description": "Brief failure message if the last configuration task failed.\n",
+                "description": "Brief failure message if the last configuration task failed.",
                 "readOnly": true
               },
               "guestVlanTaggingAllowed": {

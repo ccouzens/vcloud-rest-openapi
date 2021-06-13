@@ -10,24 +10,16 @@ components:
       properties:
         locationId:
           type: string
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         site:
           $ref: '#/components/schemas/EntityReference'
         org:
           $ref: '#/components/schemas/EntityReference'
         restApiEndpoint:
           type: string
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         uiEndpoint:
           type: string
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         apiVersion:
           type: string
-          x-vcloud-constraints:
-            - constraint: ReadOnly
     AllocatedIpAddress:
       type: object
       description: 'Describes an allocated IP address for a network. IP addresses
@@ -139,11 +131,6 @@ components:
       properties:
         eventId:
           type: string
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: audit
-            - constraint: NonSortable
         description:
           type: string
         operatingOrg:
@@ -154,33 +141,16 @@ components:
           $ref: '#/components/schemas/EntityReference'
         taskId:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         taskCellId:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-restricted: Visible to provider users only
         cellId:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-restricted: Visible to provider users only
         eventType:
           type: string
         serviceNamespace:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         eventStatus:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         timestamp:
           type: string
           format: date-time
@@ -289,39 +259,23 @@ components:
         id:
           type: string
           description: The unique id of the cell.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: Urn
-              args:
-                - arg: cell
-            - constraint: ReadOnly
         productBuildDate:
           type: string
           format: date-time
           description: The build date for the version of the product installed on
             this cell.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: NonSearchable
-            - constraint: ReadOnly
         isActive:
           type: boolean
           description: Cell active state.
         name:
           type: string
           description: The name of the cell.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         primaryIP:
           type: string
           description: The primary ip address of the cell.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         productVersion:
           type: string
           description: The product version of the cell.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
     CommonNsxTRouterFields:
       type: object
       description: Common fields that all Tier-0 or Tier-1 routers have.
@@ -382,15 +336,11 @@ components:
       properties:
         workflowId:
           type: string
-          description: 'uuid of workflow.
-
-            '
+          description: uuid of workflow.
         workflowInputParameter:
           type: string
-          description: 'Name of input parameter of given workflow to which this custom
+          description: Name of input parameter of given workflow to which this custom
             entity type should be mapped.
-
-            '
       required:
         - workflowId
         - workflowInputParameter
@@ -406,16 +356,12 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID of custom entity
-
-            '
+          description: UUID of custom entity
         name:
           type: string
         customEntityTypeId:
           type: string
-          description: 'This refers to UUID of custom entity type
-
-            '
+          description: This refers to UUID of custom entity type
       required:
         - name
     CustomEntityType:
@@ -423,26 +369,18 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID for custom entity type. This is immutable.
-
-            '
+          description: UUID for custom entity type. This is immutable.
         vroId:
           type: string
         vroDynamicType:
           type: string
-          description: 'This refers to VRO''s dynamic type.
-
-            '
+          description: This refers to VRO's dynamic type.
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
         nss:
           type: string
-          description: 'This refers to a unique namespace specific string.
-
-            '
+          description: This refers to a unique namespace specific string.
         description:
           type: string
           default: ''
@@ -461,20 +399,14 @@ components:
       properties:
         name:
           type: string
-          description: 'Name of workflow
-
-            '
+          description: Name of workflow
         workflowId:
           type: string
-          description: 'UUID of workflow.
-
-            '
+          description: UUID of workflow.
         workflowInputParameter:
           type: string
-          description: 'Name of input parameter of given workflow to which this custom
+          description: Name of input parameter of given workflow to which this custom
             entity type should be mapped.
-
-            '
       required:
         - name
         - workflowId
@@ -631,14 +563,13 @@ components:
           default: true
         localASNumber:
           type: string
-          example: '65546'
           description: 'BGP AS number to advertise to BGP peers. BGP AS number can
             be specified in
 
             either ASPLAIN or ASDOT formats, like ASPLAIN format :- ''65546'', ASDOT
-            format :- ''1.10''
-
-            '
+            format :- ''1.10'''
+          examples:
+            - '65546'
         gracefulRestart:
           $ref: '#/components/schemas/EdgeBgpGracefulRestartConfig'
           description: 'BGP Graceful Restart configuration. Not specifying a value
@@ -685,20 +616,20 @@ components:
       properties:
         id:
           type: string
-          description: 'The unique id of this BGP neighbor. On updates, the id is
-            required for the object, while for create a new id will be generated.
-            This id is not a VCD URN.
-
-            '
+          description: The unique id of this BGP neighbor. On updates, the id is required
+            for the object, while for create a new id will be generated. This id is
+            not a VCD URN.
         neighborAddress:
           type: string
-          example: 10.22.1.100
           description: The IP address of the BGP neighbor. Both IPv4 and IPv6 formats
             are supported.
+          examples:
+            - 10.22.1.100
         remoteASNumber:
           type: string
-          example: '65546'
           description: The remote AS number of a BGP neighbor in ASPLAIN format.
+          examples:
+            - '65546'
         keepAliveTimer:
           type: integer
           format: int32
@@ -737,9 +668,7 @@ components:
           description: 'Password for BGP neighbor authentication. Empty string ("")
             clears existing password.
 
-            Not specifying a value will be treated as "no password".
-
-            '
+            Not specifying a value will be treated as "no password".'
           maxLength: 20
         ipAddressTypeFiltering:
           type: string
@@ -919,10 +848,8 @@ components:
       properties:
         id:
           type: string
-          description: 'The unique id of this IPSec VPN tunnel. On updates, the id
+          description: The unique id of this IPSec VPN tunnel. On updates, the id
             is required for the tunnel, while for create a new id will be generated.
-
-            '
         name:
           type: string
           description: Name for the tunnel.
@@ -961,9 +888,7 @@ components:
             to specify custom settings. The security type will then appropriately
             reflect itself as
 
-            ''CUSTOM''.
-
-            '
+            ''CUSTOM''.'
           default: DEFAULT
         logging:
           type: boolean
@@ -996,9 +921,7 @@ components:
             in NSX will be used.
 
             If ''CUSTOM'' is specified, then ike, tunnel, and dpd configurations can
-            be set.
-
-            '
+            be set.'
           default: DEFAULT
         ikeConfiguration:
           $ref: '#/components/schemas/IkeConfig'
@@ -1106,11 +1029,8 @@ components:
       properties:
         id:
           type: string
-          description: 'The unique id of the NAT Rule. This must be supplied when
-            updating a given NAT Rule. On creation, an unique id is generated for
-            the NAT Rule.
-
-            '
+          description: The unique id of the NAT Rule. This must be supplied when updating
+            a given NAT Rule. On creation, an unique id is generated for the NAT Rule.
         name:
           type: string
           description: User friendly name for the NAT Rule. Name must be provided.
@@ -1144,9 +1064,7 @@ components:
             For an SNAT rule, this is the external facing IP Address for outgoing
             traffic. These ips are typically allocated/suballocated IP Addresses on
 
-            the Edge Gateway.
-
-            '
+            the Edge Gateway.'
         internalAddresses:
           type: string
           description: 'The internal addresses for the NAT Rule. This must be supplied
@@ -1154,16 +1072,12 @@ components:
             IP Address for incoming traffic.
 
             For an SNAT rule, this is the internal IP Address for outgoing traffic.
-            These ips are typically the Private IPs that are allocated to workloads.
-
-            '
+            These ips are typically the Private IPs that are allocated to workloads.'
         internalPort:
           type: string
-          description: 'Port number or port range for incoming network traffic. If
+          description: Port number or port range for incoming network traffic. If
             Any Traffic is selected for the Service, the default internal port is
             "ANY".
-
-            '
         logging:
           type: boolean
           description: A flag indicating whether logging for the individual nat rule
@@ -1182,9 +1096,7 @@ components:
             Providing no value for this field results in match with ANY destination
             network. These IPs are typically
 
-            the Private IPs that are allocated to destination workloads.
-
-            '
+            the Private IPs that are allocated to destination workloads.'
         version:
           $ref: '#/components/schemas/ObjectVersion'
       required:
@@ -1201,11 +1113,9 @@ components:
       properties:
         id:
           type: string
-          description: 'The unique id of this prefix list. On updates, the id is required
+          description: The unique id of this prefix list. On updates, the id is required
             for the list, while for create a new id will be generated. This id is
             not a VCD URN.
-
-            '
         name:
           type: string
           description: Name for the prefix list.
@@ -1229,14 +1139,13 @@ components:
       properties:
         network:
           type: string
-          example: 10.22.0.0/22
           description: 'The network prefix in CIDR format. If the value is not specified,
 
             it will be treated as "ANY" which means match all networks.
 
-            Both IPv4 and IPv6 formats are supported.
-
-            '
+            Both IPv4 and IPv6 formats are supported.'
+          examples:
+            - 10.22.0.0/22
         action:
           type: string
           description: 'Action for the prefix list. This specifies whether the packet
@@ -1334,15 +1243,11 @@ components:
           $ref: '#/components/schemas/SmtpServerSpec'
         senderEmailAddress:
           type: string
-          description: 'Sender email address in an email notification or alert
-
-            '
+          description: Sender email address in an email notification or alert
         defaultEmailSubjectPrefix:
           type: string
-          description: 'The prefix used in the email subject line for all email notifications
+          description: The prefix used in the email subject line for all email notifications
             and alerts from the system
-
-            '
         alertEmailToAllAdmins:
           type: boolean
           description: 'A flag to indicate the choice between sending alert emails
@@ -1351,10 +1256,8 @@ components:
             administrators in the system and designated list of email recipients'
         alertEmailTo:
           type: string
-          description: 'A comma separated email addresses to send all alert messages
+          description: A comma separated email addresses to send all alert messages
             to
-
-            '
     EntityReference:
       type: object
       description: Entity reference used to describe VCD entities
@@ -1417,8 +1320,9 @@ components:
       properties:
         id:
           type: string
-          example: 2a4ba9ad-e8d5-409c-8cae-c06910cd9b47
           description: The id of the entity.
+          examples:
+            - 2a4ba9ad-e8d5-409c-8cae-c06910cd9b47
         name:
           type: string
           description: The name of entity.
@@ -1466,7 +1370,6 @@ components:
         name:
           type: string
           description: The name of this external network backing, if it exists.
-          x-vcloud-added-in: 33
     ExternalNetworkBackingType:
       type: string
       description: The type of the external network backing.
@@ -1518,14 +1421,9 @@ components:
             This property is required and cannot be updated.'
         networkProviderScope:
           type: string
-          description: 'The network provider scope that this object belongs to. This
+          description: The network provider scope that this object belongs to. This
             is a read-only property and is determined by the input context entity
             ID during object creation.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     FirewallGroupType:
       type: string
       description: "Defines the type of Firewall Group. These groups can be used in\
@@ -1547,23 +1445,12 @@ components:
 
             is not already present, a new rule will be created. If it already
 
-            exists, the rule will be updated.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+            exists, the rule will be updated.'
         name:
           type: string
           description: Name for the rule.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         description:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         sourceFirewallGroups:
           type: array
           description: 'List of source groups for firewall rule. It specifies the
@@ -1706,9 +1593,7 @@ components:
 
             referencing the specified NSX-T edge cluster.
 
-            For NSX-V Edges, this is set to NULL.
-
-            '
+            For NSX-V Edges, this is set to NULL.'
     GatewayUsedIpAddress:
       type: object
       description: Describes an IP address currently be used by the edge gateway.
@@ -2041,17 +1926,13 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID for LogicalVmGroup. This is immutable.
-
-            '
+          description: UUID for LogicalVmGroup. This is immutable.
         description:
           type: string
           default: ''
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
         namedVmGroupReferences:
           type: array
           description: 'List of named vm groups associated with logical vm group.
@@ -2061,14 +1942,7 @@ components:
             $ref: '#/definitions/EntityReference'
         pvdcId:
           type: string
-          description: 'URN for Provider vDC.
-
-            '
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: providervdc
+          description: URN for Provider vDC.
       required:
         - name
     NatRuleType:
@@ -2086,18 +1960,12 @@ components:
         id:
           type: string
           description: The unique ID for the network. This field is read-only.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSortable
         name:
           type: string
           description: The name of the network.
         description:
           type: string
           description: The description of the network.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         subnets:
           $ref: '#/components/schemas/Subnets'
           description: List of subnets configured for the network.
@@ -2166,22 +2034,12 @@ components:
             This field is required on object creation and is unset on object reads.
             This same context ID can be used in the context filter field
 
-            when querying for the list of objects.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+            when querying for the list of objects.'
         networkProviderScope:
           type: string
-          description: 'The network provider scope that this object belongs to. This
+          description: The network provider scope that this object belongs to. This
             is a read-only property and is determined by the input context entity
             ID during object creation.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
     NetworkingObjectStatus:
       type: object
       description: Represents status of a networking entity.
@@ -2300,28 +2158,18 @@ components:
         username:
           type: string
           description: User name to connect to the NSX-V server.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         password:
           type: string
           description: Cleartext password to connect to the NSX-V server.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-password: true
         url:
           type: string
           format: uri
-          example: https://sampleVsm.vmware.com
           description: URL of the server.
-          x-vcloud-constraints:
-            - constraint: NonSortable
+          examples:
+            - https://sampleVsm.vmware.com
         softwareVersion:
           type: string
           description: Version of the NSX-V Manager
-          x-vcloud-constraints:
-            - constraint: ReadOnly
       required:
         - url
         - username
@@ -2331,41 +2179,24 @@ components:
       properties:
         vcId:
           type: string
-          example: urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: URN of the associated vCenter server.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: vimserver
+          examples:
+            - urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         networkProviderScope:
           type: string
           description: Public label of this NSX server visible to all tenants.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         controlVmResourcePoolVcPath:
           type: string
           description: Path to the resource pool to use for creating Control VM for
             Cross-VDC Networking.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         controlVmDatastoreName:
           type: string
           description: Name of the Datastore to use for creating Control VM for Cross-VDC
             Networking.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         controlVmManagementInterfaceName:
           type: string
           description: Name of the management interface to use for creating Control
             VM for Cross-VDC Networking.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
       required:
         - controlVmDatastoreName
         - controlVmManagementInterfaceName
@@ -2411,9 +2242,7 @@ components:
           description: 'The unique id of the DNS forwarder zone. If value is unset,
             a new zone is created.
 
-            If value is set, an update is done on the zone.
-
-            '
+            If value is set, an update is done on the zone.'
         displayName:
           type: string
           description: User friendly name for the zone.
@@ -2596,15 +2425,11 @@ components:
           description: 'unique indetifier for this preference definition. It will
             be of type <scope>:<name>.
 
-            e.g vrops:myworkflow. This is immutable
-
-            '
+            e.g vrops:myworkflow. This is immutable'
         name:
           type: string
-          description: 'Display name. This is same as preference definition name and
+          description: Display name. This is same as preference definition name and
             is immutable.
-
-            '
         value:
           type: string
       required:
@@ -2617,28 +2442,20 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID for preference definition. This is immutable.
-
-            '
+          description: UUID for preference definition. This is immutable.
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
         description:
           type: string
-          description: 'Description for user preference
-
-            '
+          description: Description for user preference
           default: ''
         classifier:
           type: string
           description: 'unique indetifier for this preference definition. It should
             be of type <scope>:<name>.
 
-            e.g vrops:myworkflow. This is immutable.
-
-            '
+            e.g vrops:myworkflow. This is immutable.'
         dataType:
           type: string
           description: user preference value data type. This is immutable.
@@ -2777,13 +2594,9 @@ components:
           type: string
           description: If the connection test succeeded, if an error was encountered
             a brief summary will be included.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         resolvedIp:
           type: string
           description: The IP address the host was resolved to.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         canConnect:
           type: boolean
           description: If vCD can establish a connection on the specified port.
@@ -2794,8 +2607,6 @@ components:
           type: string
           description: The SSL certificate chain presented by the server if a secure
             connection was made.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
     ProviderVdc:
       type: object
       description: A provider vdc.
@@ -2828,16 +2639,11 @@ components:
       properties:
         name:
           type: string
-          example: Proxy Sample Name
+          examples:
+            - Proxy Sample Name
           pattern: .*[\S].*
         id:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: proxy
         parent:
           $ref: '#/components/schemas/EntityReference'
           description: The EntityReference of the parent entity (e.g. vCenter Server,
@@ -2878,13 +2684,7 @@ components:
             To generate a new token, activate the proxy. The token is tied to the
             user session that activated the proxy.
 
-            If the proxy is inactive, this value will be null.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: ReadOnly
+            If the proxy is inactive, this value will be null.'
         parentProxy:
           $ref: '#/components/schemas/EntityReference'
           description: 'The EntityReference of the parent proxy. If a proxy has a
@@ -2896,16 +2696,18 @@ components:
             A parent proxy cannot have a parent of its own.'
         targetHost:
           type: string
-          example: sampleVc.vmware.com
           description: IP address or FQDN of the host being proxied. This is not editable
             once the proxy has been created.
+          examples:
+            - sampleVc.vmware.com
         uiUrl:
           type: string
           format: uri
-          example: https://sampleVc.vmware.com
           description: "The URL of the proxied component's UI endpoint. This is the\
             \ URL that the browser tab\n will be pointed to when the proxy is launched\
-            \ via the H5 UI of VCD.\n"
+            \ via the H5 UI of VCD."
+          examples:
+            - https://sampleVc.vmware.com
           default: ''
       required:
         - name
@@ -2919,23 +2721,16 @@ components:
       properties:
         name:
           type: string
-          example: Proxy Sample Name
+          examples:
+            - Proxy Sample Name
           pattern: .*[\S].*
         id:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: proxyConfiguration
         description:
           type: string
-          example: Configuration to connect to VC-1
           description: Optional description.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+          examples:
+            - Configuration to connect to VC-1
         authType:
           type: string
           enum:
@@ -2944,29 +2739,19 @@ components:
         username:
           type: string
           description: username to connect to the proxy server.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         password:
           type: string
           description: password to connect to the proxy server, when auth type is
             Basic.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-password: true
         token:
           type: string
           description: authentication token to connect to the proxy server, when auth
             type is Bearer.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-password: true
         host:
           type: string
-          example: sampleProxy.vmware.com
           description: hostname of the proxy server.
+          examples:
+            - sampleProxy.vmware.com
         port:
           type: integer
           description: port of the proxy server.
@@ -3008,30 +2793,20 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID for pVDC compute policy. This is immutable.
-
-            '
+          description: UUID for pVDC compute policy. This is immutable.
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
           minLength: 1
           maxLength: 128
         description:
           type: string
+          default: ''
           minLength: 1
           maxLength: 256
-          default: ''
         pvdcId:
           type: string
-          description: 'URN for Provider VDC.
-
-            '
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: providervdc
+          description: URN for Provider VDC.
         namedVmGroupReferences:
           type: array
           description: 'This field cannot be updated and is a read-only field in the
@@ -3100,9 +2875,7 @@ components:
             of the Remote Site. If remote ID is not set, VCD will set the remote Id
             to the
 
-            remote address.
-
-            '
+            remote address.'
         remoteAddress:
           type: string
           description: IPV4 Address of the remote endpoint on the remote site. This
@@ -3147,11 +2920,6 @@ components:
         id:
           type: string
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: right
-            - constraint: ReadOnly
         description:
           type: string
           minLength: 1
@@ -3164,16 +2932,10 @@ components:
           type: string
           minLength: 1
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: rightsCategory
         serviceNamespace:
           type: string
           minLength: 1
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         rightType:
           type: string
           enum:
@@ -3199,21 +2961,12 @@ components:
           maxLength: 128
         id:
           type: string
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: rightsCategory
-            - constraint: ReadOnly
         bundleKey:
           type: string
           minLength: 1
           maxLength: 128
         parent:
           type: string
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: rightsCategory
         rightsCount:
           $ref: '#/components/schemas/RightsCount'
         subCategories:
@@ -3246,8 +2999,6 @@ components:
         id:
           type: string
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         description:
           type: string
           maxLength: 256
@@ -3255,8 +3006,6 @@ components:
           type: string
           minLength: 1
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         readOnly:
           type: boolean
       required:
@@ -3375,40 +3124,29 @@ components:
       properties:
         name:
           type: string
-          example: SDDC Sample Name
+          examples:
+            - SDDC Sample Name
         id:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: sddc
         description:
           type: string
-          example: SDDC Sample Description
+          examples:
+            - SDDC Sample Description
           default: ''
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         enabled:
           type: boolean
           default: false
         vcId:
           type: string
-          example: urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: URN of the associated vCenter. This is not editable once the
             SDDC has been created.
-          x-vcloud-constraints:
-            - constraint: NonSortable
+          examples:
+            - urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         version:
           type: string
-          example: 6.7.0
           description: Version of the associated vCenter. This is not editable.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: NonSearchable
-            - constraint: ReadOnly
+          examples:
+            - 6.7.0
         overallStatus:
           $ref: '#/components/schemas/OverallStatus'
           description: Overall status of the associated vCenter. This is not editable.
@@ -3450,35 +3188,23 @@ components:
           type: string
           description: An optional identifier to a Proxy that can be used to establish
             a connection to the endpoint
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: proxy
     SddcProxy:
       type: object
       description: SDDC proxy configuration
       properties:
         name:
           type: string
-          example: SDDC Proxy Sample Name
+          examples:
+            - SDDC Proxy Sample Name
           pattern: .*[\S].*
         id:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: sddcProxy
         sddcId:
           type: string
-          example: urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: URN of the parent SDDC. This is not editable once the proxy
             has been created.
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: sddc
+          examples:
+            - urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         enabled:
           type: boolean
           description: 'True if the proxy is enabled. Proxy can only be enabled/disabled
@@ -3494,9 +3220,10 @@ components:
           default: false
         targetHost:
           type: string
-          example: sampleVc.vmware.com
           description: IP address or FQDN of the host being proxied. This is not editable
             once the proxy has been created.
+          examples:
+            - sampleVc.vmware.com
         active:
           type: boolean
           description: 'True if the proxy is currently active for the user session
@@ -3512,13 +3239,7 @@ components:
             To generate a new token, activate the proxy. The token is tied to the
             user session that activated the proxy.
 
-            If the proxy is inactive, this value will be null.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: ReadOnly
+            If the proxy is inactive, this value will be null.'
         defaultProxy:
           type: boolean
           description: 'True if this is the default proxy for the parent SDDC. A proxy
@@ -3532,28 +3253,23 @@ components:
           default: false
         parentProxyId:
           type: string
-          example: urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: 'The URN of the parent proxy. If a proxy has a parent, the
             proxy is activated along with
 
             its parent and shares the token with its parent. Each proxy may only have
             one parent.
 
-            A parent proxy cannot have a parent of its own.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: Urn
-              args:
-                - arg: sddcProxy
+            A parent proxy cannot have a parent of its own.'
+          examples:
+            - urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         uiUrl:
           type: string
           format: uri
-          example: https://sampleVc.vmware.com
           description: "The URL of the proxied component's UI endpoint. This is the\
             \ URL that the browser tab\n will be pointed to when the proxy is launched\
-            \ via the H5 UI of VCD.\n"
+            \ via the H5 UI of VCD."
+          examples:
+            - https://sampleVc.vmware.com
           default: ''
       required:
         - name
@@ -3703,11 +3419,6 @@ components:
         id:
           type: string
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: session
-            - constraint: ReadOnly
         user:
           $ref: '#/components/schemas/EntityReference'
         org:
@@ -3740,24 +3451,16 @@ components:
           $ref: '#/components/schemas/Url'
         sslTrustStore:
           type: string
-          description: 'The custom ssl trust certs if ssl is enabled
-
-            '
+          description: The custom ssl trust certs if ssl is enabled
         userName:
           type: string
-          description: 'Username to login to server
-
-            '
+          description: Username to login to server
         password:
           type: string
-          description: 'Password to login to the server
-
-            '
+          description: Password to login to the server
         description:
           type: string
-          description: 'A human readable description of the entity
-
-            '
+          description: A human readable description of the entity
         name:
           type: string
           description: A human readable name of the entity
@@ -3906,12 +3609,14 @@ components:
       properties:
         thumbprint:
           type: string
-          example: 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00
           description: The SDDC Proxy SSL certificate thumbprint.
+          examples:
+            - 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00
         algorithm:
           type: string
-          example: SHA-256
           description: Algorithm used for the thumbprint calculation.
+          examples:
+            - SHA-256
     Tier0Routers:
       type: object
       description: List of NSX-T's Tier-0 routers.
@@ -3929,48 +3634,25 @@ components:
         id:
           type: string
           description: ID of this token. Sorting on this field is not supported.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: token
         token:
           type: string
           description: User specific token that can be used to access proxies. Sorting
             on this field is not supported.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
         expirationTimeUtc:
           type: string
           format: date-time
           description: Time stamp representing when the token will expire (in UTC).
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         username:
           type: string
           description: Name of the user that this token is assigned to.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         userId:
           type: string
           description: "ID of the user that this token is assigned to. Sorting on\
-            \ this field is not supported.\n Can not be updated.\n"
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: user
+            \ this field is not supported.\n Can not be updated."
         orgName:
           type: string
           description: Name of the organization that the assigned user belongs to.
             Sorting and filtering on this field is not supported.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSortable
-            - constraint: NonSearchable
       required:
         - id
         - userId
@@ -3981,22 +3663,15 @@ components:
         id:
           type: string
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: trustedCertificate
-            - constraint: ReadOnly
         alias:
           type: string
           maxLength: 255
         certificate:
           type: string
-          example: '-----BEGIN CERTIFICATE----- <sample certificate contents> -----END
-            CERTIFICATE-----'
           description: PEM encoded certificate
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: Certificate
+          examples:
+            - '-----BEGIN CERTIFICATE----- <sample certificate contents> -----END
+              CERTIFICATE-----'
       required:
         - alias
         - certificate
@@ -4098,9 +3773,7 @@ components:
 
             The color should be in rgb hex color format such as "FFFFFF" all capitalized.
 
-            Can be set to an empty string to use the selected theme''s default colors.
-
-            '
+            Can be set to an empty string to use the selected theme''s default colors.'
         selectedTheme:
           $ref: '#/components/schemas/UiTheme'
         customLinks:
@@ -4317,8 +3990,6 @@ components:
         name:
           type: string
           description: The name of the virtual machine.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         memory:
           type: integer
           format: int64
@@ -4334,8 +4005,6 @@ components:
         path:
           type: string
           description: The absolute path of the virtual machine in the vCenter's datastore.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         virtualHardwareVersion:
           type: integer
           description: The virtual hardware version of the virtual machine.
@@ -4344,14 +4013,9 @@ components:
           description: The following strings are valid states of the virtual machine.
             <ul> <li>INVALID</li> <li>OFF</li> <li>ON</li> <li>SUSPENDED</li> <li>UNKNOWN</li>
             <li>STUCK</li> </ul>
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         moRef:
           type: string
           description: The vSphere Managed Object Reference.
-          x-vcloud-constraint:
-            - constraint: NonSortable
-            - constraint: ReadOnly
     UploadMetadataResponse:
       allOf:
         - type: object
@@ -4489,7 +4153,6 @@ components:
           type: string
         id:
           type: string
-          x-vcloud-added-in: 34
         description:
           type: string
         orgEntityRef:
@@ -4508,40 +4171,31 @@ components:
       properties:
         vcId:
           type: string
-          example: urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: URN of the associated vCenter server.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: vimserver
+          examples:
+            - urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         name:
           type: string
-          example: vCenter Sample Name
           description: The name of the vCenter server.
+          examples:
+            - vCenter Sample Name
         description:
           type: string
-          example: vCenter Sample Description
           description: Optional description.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
+          examples:
+            - vCenter Sample Description
         username:
           type: string
           description: User name to connect to the server.
         password:
           type: string
           description: Cleartext password to connect to the server.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-password: true
         url:
           type: string
           format: uri
-          example: https://sampleVc.vmware.com
           description: URL of the server.
+          examples:
+            - https://sampleVc.vmware.com
         isEnabled:
           type: boolean
           description: True if the vCenter server is enabled for use with vCloud Director.
@@ -4565,23 +4219,12 @@ components:
           description: vCenter root folder in which the vCloud Director system folder
             will be created. This parameter only takes the folder name and not directory
             structure.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: ReadOnly
         vcNoneNetwork:
           type: string
           description: Network in Vcenter to be used as 'NONE' network by vCD.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: ReadOnly
         tenantVisibleName:
           type: string
           description: Public label of this vCenter server visible to all tenants.
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         isConnected:
           type: boolean
           description: True if the vCenter server is connected.
@@ -4604,8 +4247,6 @@ components:
             <li>UNSUPPORTED</li> <li>DISCONNECTED</li> <li>CONNECTING</li> <li>CONNECTED_SYNCING</li>
             <li>CONNECTED</li> <li>STOP_REQ</li> <li>STOP_AND_PURGE_REQ</li> <li>STOP_ACK</li>
             </ul>
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         clusterHealthStatus:
           type: string
           description: The overall health status of clusters in this vCenter server.
@@ -4618,26 +4259,17 @@ components:
             - GREEN
         vcVersion:
           type: string
-          example: 6.7.0
           description: The version of the VIM server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
+          examples:
+            - 6.7.0
         uuid:
           type: string
           description: The instance UUID property of the vCenter server.
-          x-vcloud-constraints:
-            - constraint: ReadOnly
-            - constraint: NonSearchable
-            - constraint: NonSortable
         nsxVManager:
           $ref: '#/components/schemas/NsxVManager'
           description: the NSX-V attached to this Virtual Center server, when present.
         proxyConfigurationUrn:
           type: string
-          x-vcloud-constraints:
-            - constraint: Urn
-              args:
-                - arg: proxyConfiguration
       required:
         - name
         - url
@@ -4649,14 +4281,9 @@ components:
       properties:
         vcId:
           type: string
-          example: urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: URN of the associated vCenter server.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
-              args:
-                - arg: vimserver
+          examples:
+            - urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         clustersCount:
           type: integer
           description: The number of clusters in this vCenter server.
@@ -4702,10 +4329,8 @@ components:
       properties:
         id:
           type: string
-          description: 'This is a read-only field in the client. Values set on this
+          description: This is a read-only field in the client. Values set on this
             field will be ignored by the server.
-
-            '
         name:
           type: string
         description:
@@ -4717,43 +4342,32 @@ components:
           type: string
         password:
           type: string
-          format: password
           description: 'The password is hidden using a Password Mask represented by
             a series of 6 asterisks ("******") in the response.
 
             The Password Mask is not an acceptable password during VRO Server registration.
 
             During an update, the Password Mask set for the ''password'' field is
-            interpreted as no change to the field and is ignored.
-
-            '
+            interpreted as no change to the field and is ignored.'
         version:
           type: string
         trustAnchor:
           type: string
-          description: 'SSL Certificate chain for the VRO endpoint
-
-            '
+          description: SSL Certificate chain for the VRO endpoint
     VdcComputePolicy:
       type: object
       properties:
         id:
           type: string
-          description: 'UUID for vDC compute policy. This is immutable.
-
-            '
+          description: UUID for vDC compute policy. This is immutable.
         description:
           type: string
+          default: A vDC compute policy.
           minLength: 1
           maxLength: 256
-          default: A vDC compute policy.
-          x-vcloud-constraint:
-            - constraint: NonSortable
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
           minLength: 1
           maxLength: 128
         cpuSpeed:
@@ -4868,20 +4482,7 @@ components:
             the policy is SIZING_ONLY or if it also contains affinity information.'
         pvdcId:
           type: string
-          description: 'URN for Provider VDC.
-
-            '
-          x-vcloud-added-in: 33
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: Urn
-              args:
-                - arg: providervdc
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
+          description: URN for Provider VDC.
         namedVmGroups:
           type: array
           description: 'List of list of vmGroups grouped together in a meaningful
@@ -4967,18 +4568,14 @@ components:
             vDCs if a universal vDC group is created.
 
             For universal vDC groups, each participating vDC should have a universal
-            network pool that is backed by this same id.
-
-            '
+            network pool that is backed by this same id.'
         networkPoolId:
           type: string
           description: 'ID of network pool to use if creating a local vDC group router.
 
             Must be set if creating a local group. Ignored if creating a
 
-            universal group.
-
-            '
+            universal group.'
         status:
           $ref: '#/components/schemas/VdcGroupEntityStatus'
           description: The status that the group can be in.
@@ -5620,9 +5217,7 @@ components:
                 IP network is on 192.168.255.225/30.
 
                 The DNS listener IP network is on 192.168.255.228/32.  This field
-                cannot be updated.
-
-                '
+                cannot be updated.'
             edgeClusterConfig:
               $ref: '#/components/schemas/GatewayEdgeClusterConfig'
               description: 'Edge Cluster Configuration for the Edge Gateway. Can be
@@ -5652,9 +5247,7 @@ components:
                 network
 
                 and can be used for system-configured NAT rules such as DNS forwarder
-                configuration.
-
-                '
+                configuration.'
             autoAllocateIpRanges:
               type: boolean
               description: Used for create and update api calls. If set to true, IP
@@ -5878,7 +5471,6 @@ components:
           properties:
             content:
               type: string
-              format: binary
             name:
               type: string
             mimeType:
@@ -5894,21 +5486,12 @@ components:
             id:
               type: string
               description: The id of the Network Pool in URN format.
-              x-vcloud-constraints:
-                - constraint: Urn
-                  args:
-                    - arg: networkpool
-                - constraint: NonSortable
-                - constraint: ReadOnly
             name:
               type: string
               description: The name of the Network Pool. Names for Network Pools must
                 be unique across the system.
             description:
               type: string
-              x-vcloud-constraints:
-                - constraint: NonSearchable
-                - constraint: NonSortable
             poolType:
               $ref: '#/components/schemas/NetworkPoolBackingType'
               description: The network pool backing type.
@@ -6124,10 +5707,6 @@ components:
             id:
               type: string
               maxLength: 128
-              x-vcloud-constraints:
-                - constraint: Urn
-                  args:
-                    - arg: role
     Roles:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -6365,9 +5944,7 @@ components:
               type: string
               description: 'Brief failure message if the last configuration task failed.
 
-                Deprecated in Api 33.0, this property will be removed in next release.
-
-                '
+                Deprecated in Api 33.0, this property will be removed in next release.'
               readOnly: true
             guestVlanTaggingAllowed:
               type: boolean
@@ -6492,10 +6069,6 @@ components:
             id:
               type: string
               maxLength: 128
-              x-vcloud-constraints:
-                - constraint: Urn
-                  args:
-                    - arg: globalRole
     NetworkPool:
       allOf:
         - $ref: '#/components/schemas/NetworkPoolSummary'
@@ -6529,7 +6102,3 @@ components:
             id:
               type: string
               maxLength: 128
-              x-vcloud-constraints:
-                - constraint: Urn
-                  args:
-                    - arg: rightsBundle

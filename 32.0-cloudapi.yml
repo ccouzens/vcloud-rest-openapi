@@ -110,15 +110,11 @@ components:
       properties:
         workflowId:
           type: string
-          description: 'uuid of workflow.
-
-            '
+          description: uuid of workflow.
         workflowInputParameter:
           type: string
-          description: 'Name of input parameter of given workflow to which this custom
+          description: Name of input parameter of given workflow to which this custom
             entity type should be mapped.
-
-            '
       required:
         - workflowId
         - workflowInputParameter
@@ -134,16 +130,12 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID of custom entity
-
-            '
+          description: UUID of custom entity
         name:
           type: string
         customEntityTypeId:
           type: string
-          description: 'This refers to UUID of custom entity type
-
-            '
+          description: This refers to UUID of custom entity type
       required:
         - name
     CustomEntityType:
@@ -151,26 +143,18 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID for custom entity type. This is immutable.
-
-            '
+          description: UUID for custom entity type. This is immutable.
         vroId:
           type: string
         vroDynamicType:
           type: string
-          description: 'This refers to VRO''s dynamic type.
-
-            '
+          description: This refers to VRO's dynamic type.
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
         nss:
           type: string
-          description: 'This refers to a unique namespace specific string.
-
-            '
+          description: This refers to a unique namespace specific string.
         description:
           type: string
           default: ''
@@ -189,20 +173,14 @@ components:
       properties:
         name:
           type: string
-          description: 'Name of workflow
-
-            '
+          description: Name of workflow
         workflowId:
           type: string
-          description: 'UUID of workflow.
-
-            '
+          description: UUID of workflow.
         workflowInputParameter:
           type: string
-          description: 'Name of input parameter of given workflow to which this custom
+          description: Name of input parameter of given workflow to which this custom
             entity type should be mapped.
-
-            '
       required:
         - name
         - workflowId
@@ -363,15 +341,11 @@ components:
           $ref: '#/components/schemas/SmtpServerSpec'
         senderEmailAddress:
           type: string
-          description: 'Sender email address in an email notification or alert
-
-            '
+          description: Sender email address in an email notification or alert
         defaultEmailSubjectPrefix:
           type: string
-          description: 'The prefix used in the email subject line for all email notifications
+          description: The prefix used in the email subject line for all email notifications
             and alerts from the system
-
-            '
         alertEmailToAllAdmins:
           type: boolean
           description: 'A flag to indicate the choice between sending alert emails
@@ -380,10 +354,8 @@ components:
             administrators in the system and designated list of email recipients'
         alertEmailTo:
           type: string
-          description: 'A comma separated email addresses to send all alert messages
+          description: A comma separated email addresses to send all alert messages
             to
-
-            '
     EntityReference:
       type: object
       description: Entity reference used to describe VCD entities
@@ -674,17 +646,13 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID for LogicalVmGroup. This is immutable.
-
-            '
+          description: UUID for LogicalVmGroup. This is immutable.
         description:
           type: string
           default: ''
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
         namedVmGroupReferences:
           type: array
           description: 'List of named vm groups associated with logical vm group.
@@ -835,15 +803,11 @@ components:
           description: 'unique indetifier for this preference definition. It will
             be of type <scope>:<name>.
 
-            e.g vrops:myworkflow. This is immutable
-
-            '
+            e.g vrops:myworkflow. This is immutable'
         name:
           type: string
-          description: 'Display name. This is same as preference definition name and
+          description: Display name. This is same as preference definition name and
             is immutable.
-
-            '
         value:
           type: string
       required:
@@ -856,28 +820,20 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID for preference definition. This is immutable.
-
-            '
+          description: UUID for preference definition. This is immutable.
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
         description:
           type: string
-          description: 'Description for user preference
-
-            '
+          description: Description for user preference
           default: ''
         classifier:
           type: string
           description: 'unique indetifier for this preference definition. It should
             be of type <scope>:<name>.
 
-            e.g vrops:myworkflow. This is immutable.
-
-            '
+            e.g vrops:myworkflow. This is immutable.'
         dataType:
           type: string
           description: user preference value data type. This is immutable.
@@ -1013,22 +969,16 @@ components:
       properties:
         id:
           type: string
-          description: 'UUID for pVDC compute policy. This is immutable.
-
-            '
+          description: UUID for pVDC compute policy. This is immutable.
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
         description:
           type: string
           default: ''
         pvdcId:
           type: string
-          description: 'URN for Provider VDC.
-
-            '
+          description: URN for Provider VDC.
         namedVmGroupReferences:
           type: array
           description: 'This field cannot be updated and is a read-only field in the
@@ -1083,9 +1033,6 @@ components:
         id:
           type: string
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: Urn
-            - constraint: ReadOnly
         description:
           type: string
           maxLength: 256
@@ -1096,14 +1043,10 @@ components:
           type: string
           minLength: 1
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: Urn
         serviceNamespace:
           type: string
           minLength: 1
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         rightType:
           type: string
           enum:
@@ -1129,16 +1072,11 @@ components:
           maxLength: 128
         id:
           type: string
-          x-vcloud-constraints:
-            - constraint: Urn
-            - constraint: ReadOnly
         bundleKey:
           type: string
           maxLength: 128
         parent:
           type: string
-          x-vcloud-constraints:
-            - constraint: Urn
         rightsCount:
           $ref: '#/components/schemas/RightsCount'
         subCategories:
@@ -1169,9 +1107,6 @@ components:
         id:
           type: string
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: Urn
-            - constraint: ReadOnly
         description:
           type: string
           minLength: 1
@@ -1180,8 +1115,6 @@ components:
           type: string
           minLength: 1
           maxLength: 128
-          x-vcloud-constraints:
-            - constraint: ReadOnly
         readOnly:
           type: boolean
       required:
@@ -1271,38 +1204,29 @@ components:
       properties:
         name:
           type: string
-          example: SDDC Sample Name
+          examples:
+            - SDDC Sample Name
         id:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
         description:
           type: string
-          example: SDDC Sample Description
+          examples:
+            - SDDC Sample Description
           default: ''
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
         enabled:
           type: boolean
           default: false
         vcId:
           type: string
-          example: urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: URN of the associated vCenter. This is not editable once the
             SDDC has been created.
-          x-vcloud-constraints:
-            - constraint: NonSortable
+          examples:
+            - urn:vcloud:vimserver:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         version:
           type: string
-          example: 6.7.0
           description: Version of the associated vCenter. This is not editable.
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: NonSearchable
-            - constraint: ReadOnly
+          examples:
+            - 6.7.0
         overallStatus:
           $ref: '#/components/schemas/OverallStatus'
           description: Overall status of the associated vCenter. This is not editable.
@@ -1324,20 +1248,16 @@ components:
       properties:
         name:
           type: string
-          example: SDDC Proxy Sample Name
+          examples:
+            - SDDC Proxy Sample Name
         id:
           type: string
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: ReadOnly
-            - constraint: Urn
         sddcId:
           type: string
-          example: urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: URN of the parent SDDC. This is not editable once the proxy
             has been created.
-          x-vcloud-constraints:
-            - constraint: Urn
+          examples:
+            - urn:vcloud:sddc:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         enabled:
           type: boolean
           description: 'True if the proxy is enabled. Proxy can only be enabled/disabled
@@ -1353,9 +1273,10 @@ components:
           default: false
         targetHost:
           type: string
-          example: sampleVc.vmware.com
           description: IP address or FQDN of the host being proxied. This is not editable
             once the proxy has been created.
+          examples:
+            - sampleVc.vmware.com
         active:
           type: boolean
           description: 'True if the proxy is currently active for the user session
@@ -1371,13 +1292,7 @@ components:
             To generate a new token, activate the proxy. The token is tied to the
             user session that activated the proxy.
 
-            If the proxy is inactive, this value will be null.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-            - constraint: ReadOnly
+            If the proxy is inactive, this value will be null.'
         defaultProxy:
           type: boolean
           description: 'True if this is the default proxy for the parent SDDC. A proxy
@@ -1391,26 +1306,23 @@ components:
           default: false
         parentProxyId:
           type: string
-          example: urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           description: 'The URN of the parent proxy. If a proxy has a parent, the
             proxy is activated along with
 
             its parent and shares the token with its parent. Each proxy may only have
             one parent.
 
-            A parent proxy cannot have a parent of its own.
-
-            '
-          x-vcloud-constraints:
-            - constraint: NonSortable
-            - constraint: Urn
+            A parent proxy cannot have a parent of its own.'
+          examples:
+            - urn:vcloud:sddcProxy:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         uiUrl:
           type: string
           format: uri
-          example: https://sampleVc.vmware.com
           description: "The URL of the proxied component's UI endpoint. This is the\
             \ URL that the browser tab\n will be pointed to when the proxy is launched\
-            \ via the H5 UI of VCD.\n"
+            \ via the H5 UI of VCD."
+          examples:
+            - https://sampleVc.vmware.com
           default: ''
       required:
         - name
@@ -1560,24 +1472,16 @@ components:
           $ref: '#/components/schemas/Url'
         sslTrustStore:
           type: string
-          description: 'The custom ssl trust certs if ssl is enabled
-
-            '
+          description: The custom ssl trust certs if ssl is enabled
         userName:
           type: string
-          description: 'Username to login to server
-
-            '
+          description: Username to login to server
         password:
           type: string
-          description: 'Password to login to the server
-
-            '
+          description: Password to login to the server
         description:
           type: string
-          description: 'A human readable description of the entity
-
-            '
+          description: A human readable description of the entity
         name:
           type: string
           description: A human readable name of the entity
@@ -1698,9 +1602,7 @@ components:
 
             The color should be in rgb hex color format such as "FFFFFF" all capitalized.
 
-            Can be set to an empty string to use the selected theme''s default colors.
-
-            '
+            Can be set to an empty string to use the selected theme''s default colors.'
         selectedTheme:
           $ref: '#/components/schemas/UiTheme'
         customLinks:
@@ -2025,10 +1927,8 @@ components:
       properties:
         id:
           type: string
-          description: 'This is a read-only field in the client. Values set on this
+          description: This is a read-only field in the client. Values set on this
             field will be ignored by the server.
-
-            '
         name:
           type: string
         description:
@@ -2040,39 +1940,30 @@ components:
           type: string
         password:
           type: string
-          format: password
           description: 'The password is hidden using a Password Mask represented by
             a series of 6 asterisks ("******") in the response.
 
             The Password Mask is not an acceptable password during VRO Server registration.
 
             During an update, the Password Mask set for the ''password'' field is
-            interpreted as no change to the field and is ignored.
-
-            '
+            interpreted as no change to the field and is ignored.'
         version:
           type: string
         trustAnchor:
           type: string
-          description: 'SSL Certificate chain for the VRO endpoint
-
-            '
+          description: SSL Certificate chain for the VRO endpoint
     VdcComputePolicy:
       type: object
       properties:
         id:
           type: string
-          description: 'UUID for vDC compute policy. This is immutable.
-
-            '
+          description: UUID for vDC compute policy. This is immutable.
         description:
           type: string
           default: A vDC compute policy.
         name:
           type: string
-          description: 'Display name.
-
-            '
+          description: Display name.
         cpuSpeed:
           type: integer
           format: int64
@@ -2202,9 +2093,7 @@ components:
           description: 'The universal network pool that is common to all the participating
             vDCs. This field is read-only and
 
-            is derived from the list of participating vDCs.
-
-            '
+            is derived from the list of participating vDCs.'
         status:
           $ref: '#/components/schemas/VdcGroupEntityStatus'
           description: The status that the group can be in.
@@ -2730,7 +2619,6 @@ components:
           properties:
             content:
               type: string
-              format: binary
             name:
               type: string
             mimeType:
@@ -3046,9 +2934,7 @@ components:
               description: Description of the network's status.
             lastTaskFailureMessage:
               type: string
-              description: 'Brief failure message if the last configuration task failed.
-
-                '
+              description: Brief failure message if the last configuration task failed.
               readOnly: true
             guestVlanTaggingAllowed:
               type: boolean

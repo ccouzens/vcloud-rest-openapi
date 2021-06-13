@@ -90,11 +90,32 @@ async function defs(page: Page) {
     format?: "date-time" | "password" | "uri";
     description?: string;
     example?: string;
+    examples?: string[];
     default?: string;
     minLength?: number;
     maxLength?: number;
     readOnly?: true;
+    pattern?: string;
   };
+
+  const stringCorrector = (val: String): String => ({
+    type: "string",
+    ...((val.format === "date-time" || val.format === "uri") && {
+      format: val.format,
+    }),
+    ...(val.description !== undefined && {
+      description: descriptionCorrector(val.description),
+    }),
+    ...(val.example !== undefined && {
+      examples: [val.example],
+    }),
+    ...(val.default !== undefined && { default: val.default }),
+    ...(val.minLength !== undefined && { minLength: val.minLength }),
+    ...(val.maxLength !== undefined && { maxLength: val.maxLength }),
+    ...(val.readOnly !== undefined && { readOnly: val.readOnly }),
+    ...(val.pattern !== undefined && { pattern: val.pattern }),
+  });
+
   type Array = {
     type: "array";
     description?: string;
@@ -145,6 +166,8 @@ async function defs(page: Page) {
             return { [key]: integerCorrector(value) };
           } else if (value.type === "number") {
             return { [key]: numberCorrector(value) };
+          } else if (value.type === "string") {
+            return { [key]: stringCorrector(value) };
           } else {
             return { [key]: value };
           }
