@@ -50,11 +50,6 @@ async function defs(page: Page) {
     default?: number;
     readOnly?: boolean;
   };
-  type Number = {
-    type: "number";
-    description: string;
-    format?: "double";
-  };
 
   const integerCorrector = (val: Integer): Integer => ({
     type: "integer",
@@ -68,6 +63,26 @@ async function defs(page: Page) {
     ...(val.maximum !== undefined && { maximum: val.maximum }),
     ...(val.default !== undefined && { default: val.default }),
     ...(val.readOnly !== undefined && { readOnly: val.readOnly }),
+  });
+
+  type Number = {
+    type: "number";
+    description?: string;
+    format?: "double";
+    minimum?: number;
+    maximum?: number;
+  };
+
+  const numberCorrector = (val: Number): Number => ({
+    type: "number",
+    ...(val.format === "double" && {
+      format: val.format,
+    }),
+    ...(val.description !== undefined && {
+      description: descriptionCorrector(val.description),
+    }),
+    ...(val.minimum !== undefined && { minimum: val.minimum }),
+    ...(val.maximum !== undefined && { maximum: val.maximum }),
   });
 
   type String = {
@@ -128,6 +143,8 @@ async function defs(page: Page) {
             return { [key]: booleanCorrector(value) };
           } else if (value.type == "integer") {
             return { [key]: integerCorrector(value) };
+          } else if (value.type === "number") {
+            return { [key]: numberCorrector(value) };
           } else {
             return { [key]: value };
           }

@@ -891,16 +891,12 @@ components:
             should be number or string), false otherwise. This is immutable.
         minValue:
           type: number
-          description: 'minimum value for user preference. Only valid if user preference
+          description: minimum value for user preference. Only valid if user preference
             type is number. This is immutable.
-
-            '
         maxValue:
           type: number
-          description: 'maximum value for user preference. Only valid if user preference
+          description: maximum value for user preference. Only valid if user preference
             type is number. This is immutable.
-
-            '
         defaultValue:
           type: string
         allowedValues:
@@ -2106,27 +2102,13 @@ components:
         memoryReservationGuarantee:
           type: number
           format: double
-          description: 'The factor of the configured memory reserved for the VM on
+          description: The factor of the configured memory reserved for the VM on
             which this policy is applied.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires view alternate admin version
-            of Compute Policies right to access this field.
-
-            '
         cpuReservationGuarantee:
           type: number
           format: double
-          description: 'The factor of the configured CPU reserved for the VM on which
+          description: The factor of the configured CPU reserved for the VM on which
             this policy is applied.
-
-            '
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires view alternate admin version
-            of Compute Policies right to access this field.
-
-            '
         cpuLimit:
           type: integer
           format: int64
