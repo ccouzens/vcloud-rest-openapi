@@ -126,7 +126,23 @@ async function defs(page: Page) {
       | {
           type: "string";
         };
+    minItems?: number;
+    maxItems?: number;
   };
+  const arrayCorrector = (val: Array): Array => ({
+    type: "array",
+    ...(val.description !== undefined && {
+      description: descriptionCorrector(val.description),
+    }),
+    items: {
+      ...("$ref" in val.items
+        ? { $ref: refStringCorrector(val.items.$ref) }
+        : { type: "string" }),
+    },
+    ...(val.minItems !== undefined && { minItems: val.minItems }),
+    ...(val.maxItems !== undefined && { maxItems: val.maxItems }),
+  });
+
   type DeepObject = {
     type: "object";
     description?: string;
@@ -168,6 +184,8 @@ async function defs(page: Page) {
             return { [key]: numberCorrector(value) };
           } else if (value.type === "string") {
             return { [key]: stringCorrector(value) };
+          } else if (value.type === "array") {
+            return { [key]: arrayCorrector(value) };
           } else {
             return { [key]: value };
           }

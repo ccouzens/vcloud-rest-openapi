@@ -124,7 +124,7 @@ components:
         entities:
           type: array
           items:
-            $ref: '#/definitions/CustomEntity'
+            $ref: '#/components/schemas/CustomEntity'
     CustomEntity:
       type: object
       properties:
@@ -190,7 +190,7 @@ components:
         actions:
           type: array
           items:
-            $ref: '#/definitions/CustomEntityTypeAction'
+            $ref: '#/components/schemas/CustomEntityTypeAction'
     Decorator:
       type: object
       properties:
@@ -236,7 +236,7 @@ components:
           type: array
           description: The uplink connections for the edge gateway.
           items:
-            $ref: '#/definitions/EdgeGatewayUplink'
+            $ref: '#/components/schemas/EdgeGatewayUplink'
         gatewayBacking:
           $ref: '#/components/schemas/EdgeGatewayBacking'
           description: The backing details of the edge gateway; only required if importing
@@ -324,7 +324,7 @@ components:
           type: array
           description: The list of Universal Egress Points.
           items:
-            $ref: '#/definitions/EgressPoint'
+            $ref: '#/components/schemas/EgressPoint'
     EmailSettings:
       type: object
       description: Email related settings for a system
@@ -384,7 +384,7 @@ components:
         parameters:
           type: array
           items:
-            $ref: '#/definitions/WsParameter'
+            $ref: '#/components/schemas/WsParameter'
     ExecutionState:
       type: string
       enum:
@@ -467,7 +467,7 @@ components:
         values:
           type: array
           items:
-            $ref: '#/definitions/ExternalNetworkBacking'
+            $ref: '#/components/schemas/ExternalNetworkBacking'
     IpRange:
       type: object
       description: An IpRange
@@ -485,7 +485,7 @@ components:
         values:
           type: array
           items:
-            $ref: '#/definitions/IpRange'
+            $ref: '#/components/schemas/IpRange'
     LdapConnectionTestResult:
       type: object
       description: Provides LDAP connection test results
@@ -601,7 +601,7 @@ components:
         settingsTest:
           type: array
           items:
-            $ref: '#/definitions/LdapSettingsTestResult'
+            $ref: '#/components/schemas/LdapSettingsTestResult'
     LdapUserAttributesType:
       type: object
       description: Defines how LDAP attributes are used when importing a user.
@@ -632,7 +632,7 @@ components:
         attributes:
           type: array
           items:
-            $ref: '#/definitions/WsAttribute'
+            $ref: '#/components/schemas/WsAttribute'
         href:
           type: string
         rel:
@@ -655,11 +655,9 @@ components:
           description: Display name.
         namedVmGroupReferences:
           type: array
-          description: 'List of named vm groups associated with logical vm group.
-
-            '
+          description: List of named vm groups associated with logical vm group.
           items:
-            $ref: '#/definitions/EntityReference'
+            $ref: '#/components/schemas/EntityReference'
       required:
         - name
     Network:
@@ -879,17 +877,17 @@ components:
         inputParameters:
           type: array
           items:
-            $ref: '#/definitions/WsParameter'
+            $ref: '#/components/schemas/WsParameter'
         name:
           type: string
         outputParameters:
           type: array
           items:
-            $ref: '#/definitions/WsParameter'
+            $ref: '#/components/schemas/WsParameter'
         steps:
           type: array
           items:
-            $ref: '#/definitions/StepInfo'
+            $ref: '#/components/schemas/StepInfo'
     PresentationElement:
       type: object
       properties:
@@ -906,7 +904,7 @@ components:
         messages:
           type: array
           items:
-            $ref: '#/definitions/PresentationMessageInfo'
+            $ref: '#/components/schemas/PresentationMessageInfo'
       required:
         - elementType
       discriminator: elementType
@@ -924,7 +922,7 @@ components:
         parameters:
           type: array
           items:
-            $ref: '#/definitions/WsParameter'
+            $ref: '#/components/schemas/WsParameter'
         startDate:
           type: string
           format: date-time
@@ -933,7 +931,7 @@ components:
         steps:
           type: array
           items:
-            $ref: '#/definitions/StepInfo'
+            $ref: '#/components/schemas/StepInfo'
         valid:
           type: boolean
     PresentationExecutionsList:
@@ -945,7 +943,7 @@ components:
         executions:
           type: array
           items:
-            $ref: '#/definitions/ExecutionSummary'
+            $ref: '#/components/schemas/ExecutionSummary'
         start:
           type: integer
           format: int32
@@ -981,21 +979,16 @@ components:
           description: URN for Provider VDC.
         namedVmGroupReferences:
           type: array
-          description: 'This field cannot be updated and is a read-only field in the
+          description: This field cannot be updated and is a read-only field in the
             client after creation.
-
-            '
           items:
-            $ref: '#/definitions/EntityReference'
+            $ref: '#/components/schemas/EntityReference'
         logicalVmGroupReferences:
           type: array
-          description: 'This field cannot be updated and is a read-only field after
+          description: This field cannot be updated and is a read-only field after
             creation.
-
-            '
           items:
-            $ref: '#/definitions/EntityReference'
-          x-vcloud-added-in: 32
+            $ref: '#/components/schemas/EntityReference'
     Relations:
       type: object
       properties:
@@ -1005,7 +998,7 @@ components:
         link:
           type: array
           items:
-            $ref: '#/definitions/Link'
+            $ref: '#/components/schemas/Link'
         start:
           type: integer
           format: int32
@@ -1056,10 +1049,7 @@ components:
           type: array
           description: The set of implied rights.
           items:
-            $ref: '#/definitions/EntityReference'
-          x-vcloud-added-in: 32
-          x-vcloud-constraints:
-            - constraint: ReadOnly
+            $ref: '#/components/schemas/EntityReference'
       required:
         - name
     RightsCategoryNode:
@@ -1083,8 +1073,6 @@ components:
           type: array
           items:
             type: string
-            x-vcloud-constraints:
-              - constraint: Urn
       required:
         - bundleKey
         - name
@@ -1168,22 +1156,18 @@ components:
       properties:
         nsxManagersHealth:
           type: array
-          description: 'Status of all the nsx managers spanned by the universal router.
-
-            '
+          description: Status of all the nsx managers spanned by the universal router.
           items:
-            $ref: '#/definitions/RouterComponentHealth'
+            $ref: '#/components/schemas/RouterComponentHealth'
         controlVmHealth:
           type: array
           description: 'Status of all the universal router control VMs within each
             network provider scope.
 
             This also includes status of egress points and routes configured for the
-            universal router.
-
-            '
+            universal router.'
           items:
-            $ref: '#/definitions/RouterComponentHealth'
+            $ref: '#/components/schemas/RouterComponentHealth'
         controlPlaneHealth:
           $ref: '#/components/schemas/RouterComponentHealth'
           description: Status of the nsx controller cluster associated with the nsx
@@ -1193,11 +1177,9 @@ components:
           description: 'Reachability status for local and remote participating vDC''s
             of referenced vDC group.
 
-            States whether a vDC is reachable from this local site.
-
-            '
+            States whether a vDC is reachable from this local site.'
           items:
-            $ref: '#/definitions/RouterComponentHealth'
+            $ref: '#/components/schemas/RouterComponentHealth'
     Sddc:
       type: object
       description: Software-defined data center
@@ -1521,7 +1503,7 @@ components:
         values:
           type: array
           items:
-            $ref: '#/definitions/Subnet'
+            $ref: '#/components/schemas/Subnet'
     SupportedConstraints:
       type: object
       properties:
@@ -1579,7 +1561,7 @@ components:
         values:
           type: array
           items:
-            $ref: '#/definitions/Tier0Router'
+            $ref: '#/components/schemas/Tier0Router'
     Tier1Routers:
       type: object
       description: List of NSX-T's Tier-1 routers.
@@ -1587,7 +1569,7 @@ components:
         values:
           type: array
           items:
-            $ref: '#/definitions/Tier1Router'
+            $ref: '#/components/schemas/Tier1Router'
     UiBranding:
       type: object
       description: A branding object with the portal name, portal color, selected
@@ -1608,7 +1590,7 @@ components:
         customLinks:
           type: array
           items:
-            $ref: '#/definitions/UiBrandingMenuItem'
+            $ref: '#/components/schemas/UiBrandingMenuItem'
       required:
         - customLinks
         - portalName
@@ -1741,7 +1723,7 @@ components:
         servers:
           type: array
           items:
-            $ref: '#/definitions/UniversalRouterDhcpServer'
+            $ref: '#/components/schemas/UniversalRouterDhcpServer'
     UniversalRouterDhcpServer:
       type: object
       description: 'List of Dhcp servers for universal router.
@@ -1759,7 +1741,7 @@ components:
         values:
           type: array
           items:
-            $ref: '#/definitions/UniversalRouter'
+            $ref: '#/components/schemas/UniversalRouter'
     UniversalRoutes:
       type: object
       description: List of routes associated with a Universal Router.
@@ -1772,7 +1754,7 @@ components:
           type: array
           description: The list of Universal Routes.
           items:
-            $ref: '#/definitions/UniversalRoute'
+            $ref: '#/components/schemas/UniversalRoute'
         providerScopesToForceUnconfigure:
           type: array
           description: 'The list network provider scopes whose route will be unconfigure
@@ -1786,9 +1768,7 @@ components:
             will first unconfigure any existing egress point before configuring the
             new egress
 
-            point.
-
-            '
+            point.'
           items:
             type: string
     UniversalRoutingStatus:
@@ -2055,11 +2035,6 @@ components:
           description: A list of read-only compatible vDC types for this policy.
           items:
             type: string
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires view alternate admin version
-            of Compute Policies right to access this field.
-
-            '
       required:
         - name
     VdcGroup:
@@ -2083,7 +2058,7 @@ components:
           description: The list of organization vDCs that are participating in this
             group.
           items:
-            $ref: '#/definitions/ParticipatingVdcReference'
+            $ref: '#/components/schemas/ParticipatingVdcReference'
         universalNetworkingEnabled:
           type: boolean
           description: True means that universal routers can be created. This field
@@ -2139,7 +2114,7 @@ components:
           type: array
           description: Range of DHCP IP addresses
           items:
-            $ref: '#/definitions/VdcNetworkDhcpPool'
+            $ref: '#/components/schemas/VdcNetworkDhcpPool'
     VdcNetworkDhcpPool:
       type: object
       description: A range of DHCP ip addresses and its lease time configuration.
@@ -2198,7 +2173,7 @@ components:
         attributes:
           type: array
           items:
-            $ref: '#/definitions/WsAttribute'
+            $ref: '#/components/schemas/WsAttribute'
         relations:
           $ref: '#/components/schemas/Relations'
     VroRemoteItem:
@@ -2232,7 +2207,7 @@ components:
         remoteItems:
           type: array
           items:
-            $ref: '#/definitions/VroRemoteItem'
+            $ref: '#/components/schemas/VroRemoteItem'
         resultTotal:
           type: integer
         pageCount:
@@ -2256,7 +2231,7 @@ components:
         items:
           type: array
           items:
-            $ref: '#/definitions/VroRemotePluginItem'
+            $ref: '#/components/schemas/VroRemotePluginItem'
     VroRemotePluginType:
       type: object
       description: Type definition for a plugin namespace
@@ -2274,7 +2249,7 @@ components:
         types:
           type: array
           items:
-            $ref: '#/definitions/VroRemotePluginType'
+            $ref: '#/components/schemas/VroRemotePluginType'
         namespace:
           type: string
     VroRemoteWorkflowItem:
@@ -2339,13 +2314,13 @@ components:
         inputParameters:
           type: array
           items:
-            $ref: '#/definitions/WsParameter'
+            $ref: '#/components/schemas/WsParameter'
         name:
           type: string
         outputParameters:
           type: array
           items:
-            $ref: '#/definitions/WsParameter'
+            $ref: '#/components/schemas/WsParameter'
         relations:
           $ref: '#/components/schemas/Relations'
         startDate:
@@ -2363,7 +2338,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/AllocatedIpAddress'
+                $ref: '#/components/schemas/AllocatedIpAddress'
       description: List of IP allocated IP addresses
     ArrayParam:
       allOf:
@@ -2373,7 +2348,7 @@ components:
             value:
               type: array
               items:
-                $ref: '#/definitions/Parameter'
+                $ref: '#/components/schemas/Parameter'
     BooleanParam:
       allOf:
         - $ref: '#/components/schemas/Parameter'
@@ -2389,7 +2364,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/Capability'
+                $ref: '#/components/schemas/Capability'
       description: List of read-only capabilities.
     Chooser:
       allOf:
@@ -2408,7 +2383,7 @@ components:
             property:
               type: array
               items:
-                $ref: '#/definitions/CompositeValue'
+                $ref: '#/components/schemas/CompositeValue'
             type:
               type: string
     CompositeValue:
@@ -2447,7 +2422,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/CrossVdcNetwork'
+                $ref: '#/components/schemas/CrossVdcNetwork'
       description: List of cross vDC networks
     CustomEntityTypes:
       allOf:
@@ -2458,7 +2433,7 @@ components:
               type: array
               description: The current page of custom entity types.
               items:
-                $ref: '#/definitions/CustomEntityType'
+                $ref: '#/components/schemas/CustomEntityType'
       description: A list of custom entity types.
     CustomValidator:
       allOf:
@@ -2486,7 +2461,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/EdgeCluster'
+                $ref: '#/components/schemas/EdgeCluster'
       description: List of Edge Clusters.
     EdgeGateways:
       allOf:
@@ -2497,7 +2472,7 @@ components:
               type: array
               description: A list of EdgeGateways.
               items:
-                $ref: '#/definitions/EdgeGateway'
+                $ref: '#/components/schemas/EdgeGateway'
       description: List of edge gateways
     EncryptedString:
       allOf:
@@ -2515,7 +2490,7 @@ components:
               type: array
               description: The current page of entity references.
               items:
-                $ref: '#/definitions/EntityReference'
+                $ref: '#/components/schemas/EntityReference'
       description: A list of entity references.
     ExternalNetwork:
       allOf:
@@ -2548,7 +2523,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/ExternalNetwork'
+                $ref: '#/components/schemas/ExternalNetwork'
       description: List of External Networks
     Field:
       allOf:
@@ -2558,11 +2533,11 @@ components:
             decorators:
               type: array
               items:
-                $ref: '#/definitions/Decorator'
+                $ref: '#/components/schemas/Decorator'
             constraints:
               type: array
               items:
-                $ref: '#/definitions/Constraint'
+                $ref: '#/components/schemas/Constraint'
             type:
               type: string
             affectedFieldsIds:
@@ -2578,7 +2553,7 @@ components:
               type: array
               description: The current page of global roles.
               items:
-                $ref: '#/definitions/GlobalRole'
+                $ref: '#/components/schemas/GlobalRole'
       description: A list of global roles.
     Group:
       allOf:
@@ -2588,7 +2563,7 @@ components:
             fields:
               type: array
               items:
-                $ref: '#/definitions/PrimaryField'
+                $ref: '#/components/schemas/PrimaryField'
     KeyValuePair:
       allOf:
         - $ref: '#/components/schemas/Parameter'
@@ -2607,7 +2582,7 @@ components:
               type: array
               description: The current page of LogicalVmGroups.
               items:
-                $ref: '#/definitions/LogicalVmGroup'
+                $ref: '#/components/schemas/LogicalVmGroup'
       description: A list of LogicalVmGroups.
     Mandatory:
       allOf:
@@ -2658,7 +2633,7 @@ components:
               type: array
               description: The current page for preference definitions.
               items:
-                $ref: '#/definitions/PreferenceDefinition'
+                $ref: '#/components/schemas/PreferenceDefinition'
       description: A list of preference definitions
     Preferences:
       allOf:
@@ -2669,7 +2644,7 @@ components:
               type: array
               description: The list of user preferences.
               items:
-                $ref: '#/definitions/Preference'
+                $ref: '#/components/schemas/Preference'
       description: A list of user preferences
     Properties:
       allOf:
@@ -2679,7 +2654,7 @@ components:
             property:
               type: array
               items:
-                $ref: '#/definitions/KeyValuePair'
+                $ref: '#/components/schemas/KeyValuePair'
     PublishableRightsMapping:
       allOf:
         - $ref: '#/components/schemas/RightsMapping'
@@ -2699,7 +2674,7 @@ components:
               type: array
               description: The current page of provider VDC compute policies.
               items:
-                $ref: '#/definitions/PvdcComputePolicy'
+                $ref: '#/components/schemas/PvdcComputePolicy'
       description: A list of provider VDC compute policies.
     RefreshOnChange:
       allOf:
@@ -2730,7 +2705,7 @@ components:
               type: array
               description: The current page of rights.
               items:
-                $ref: '#/definitions/Right'
+                $ref: '#/components/schemas/Right'
       description: A list of rights.
     RightsBundles:
       allOf:
@@ -2741,7 +2716,7 @@ components:
               type: array
               description: The current page of rights bundles.
               items:
-                $ref: '#/definitions/RightsBundle'
+                $ref: '#/components/schemas/RightsBundle'
     RightsCategoryNodes:
       allOf:
         - $ref: '#/components/schemas/Page'
@@ -2751,7 +2726,7 @@ components:
               type: array
               description: The current page of rights category nodes.
               items:
-                $ref: '#/definitions/RightsCategoryNode'
+                $ref: '#/components/schemas/RightsCategoryNode'
       description: A list of rights category nodes.
     Role:
       allOf:
@@ -2766,7 +2741,7 @@ components:
               type: array
               description: The current page of roles.
               items:
-                $ref: '#/definitions/Role'
+                $ref: '#/components/schemas/Role'
       description: A list of roles.
     SddcProxies:
       allOf:
@@ -2776,7 +2751,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/SddcProxy'
+                $ref: '#/components/schemas/SddcProxy'
       description: A paginated list of SDDC proxies
     Sddcs:
       allOf:
@@ -2786,7 +2761,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/Sddc'
+                $ref: '#/components/schemas/Sddc'
       description: A paginated list of software-defined data centers
     SdkObject:
       allOf:
@@ -2818,7 +2793,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/ServiceApp'
+                $ref: '#/components/schemas/ServiceApp'
       description: List of VMware service applications
     ServiceItems:
       allOf:
@@ -2829,7 +2804,7 @@ components:
               type: array
               description: The current page of service items.
               items:
-                $ref: '#/definitions/ServiceItem'
+                $ref: '#/components/schemas/ServiceItem'
       description: A list of service items.
     Services:
       allOf:
@@ -2840,7 +2815,7 @@ components:
               type: array
               description: The current page of services.
               items:
-                $ref: '#/definitions/Service'
+                $ref: '#/components/schemas/Service'
       description: A list of services.
     StepInfo:
       allOf:
@@ -2852,7 +2827,7 @@ components:
             elements:
               type: array
               items:
-                $ref: '#/definitions/PresentationElement'
+                $ref: '#/components/schemas/PresentationElement'
     StringParam:
       allOf:
         - $ref: '#/components/schemas/Parameter'
@@ -2881,7 +2856,7 @@ components:
               type: array
               description: The current page of VDC compute policies.
               items:
-                $ref: '#/definitions/VdcComputePolicy'
+                $ref: '#/components/schemas/VdcComputePolicy'
       description: A list of VDC compute policies.
     VdcGroups:
       allOf:
@@ -2891,7 +2866,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/VdcGroup'
+                $ref: '#/components/schemas/VdcGroup'
       description: List of vDC Groups.
     VdcNetwork:
       allOf:
@@ -2972,7 +2947,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/VdcNetwork'
+                $ref: '#/components/schemas/VdcNetwork'
       description: List of Org vDC networks
     VmcSddcs:
       allOf:
@@ -2982,7 +2957,7 @@ components:
             values:
               type: array
               items:
-                $ref: '#/definitions/VmcSddc'
+                $ref: '#/components/schemas/VmcSddc'
       description: List of VMware Cloud on AWS SDDCs
     VroRemoteWorkflowItems:
       allOf:
@@ -2993,7 +2968,7 @@ components:
               type: array
               description: The current page of remove VRO workflows.
               items:
-                $ref: '#/definitions/VroRemoteWorkflowItem'
+                $ref: '#/components/schemas/VroRemoteWorkflowItem'
       description: A list of remote VRO workflows.
     VroWorkflowServiceItem:
       allOf:
@@ -3016,7 +2991,7 @@ components:
             fields:
               type: array
               items:
-                $ref: '#/definitions/Field'
+                $ref: '#/components/schemas/Field'
             value:
               $ref: '#/components/schemas/Parameter'
     RightsBundle:

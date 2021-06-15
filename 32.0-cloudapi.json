@@ -161,7 +161,7 @@
           "entities": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/CustomEntity"
+              "$ref": "#/components/schemas/CustomEntity"
             }
           }
         }
@@ -253,7 +253,7 @@
           "actions": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/CustomEntityTypeAction"
+              "$ref": "#/components/schemas/CustomEntityTypeAction"
             }
           }
         }
@@ -315,7 +315,7 @@
             "type": "array",
             "description": "The uplink connections for the edge gateway.",
             "items": {
-              "$ref": "#/definitions/EdgeGatewayUplink"
+              "$ref": "#/components/schemas/EdgeGatewayUplink"
             }
           },
           "gatewayBacking": {
@@ -428,7 +428,7 @@
             "type": "array",
             "description": "The list of Universal Egress Points.",
             "items": {
-              "$ref": "#/definitions/EgressPoint"
+              "$ref": "#/components/schemas/EgressPoint"
             }
           }
         }
@@ -503,7 +503,7 @@
           "parameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           }
         }
@@ -617,7 +617,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ExternalNetworkBacking"
+              "$ref": "#/components/schemas/ExternalNetworkBacking"
             }
           }
         }
@@ -643,7 +643,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/IpRange"
+              "$ref": "#/components/schemas/IpRange"
             }
           }
         }
@@ -807,7 +807,7 @@
           "settingsTest": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/LdapSettingsTestResult"
+              "$ref": "#/components/schemas/LdapSettingsTestResult"
             }
           }
         }
@@ -854,7 +854,7 @@
           "attributes": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsAttribute"
+              "$ref": "#/components/schemas/WsAttribute"
             }
           },
           "href": {
@@ -888,9 +888,9 @@
           },
           "namedVmGroupReferences": {
             "type": "array",
-            "description": "List of named vm groups associated with logical vm group.\n",
+            "description": "List of named vm groups associated with logical vm group.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
+              "$ref": "#/components/schemas/EntityReference"
             }
           }
         },
@@ -1152,7 +1152,7 @@
           "inputParameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "name": {
@@ -1161,13 +1161,13 @@
           "outputParameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "steps": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/StepInfo"
+              "$ref": "#/components/schemas/StepInfo"
             }
           }
         }
@@ -1193,7 +1193,7 @@
           "messages": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/PresentationMessageInfo"
+              "$ref": "#/components/schemas/PresentationMessageInfo"
             }
           }
         },
@@ -1220,7 +1220,7 @@
           "parameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "startDate": {
@@ -1233,7 +1233,7 @@
           "steps": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/StepInfo"
+              "$ref": "#/components/schemas/StepInfo"
             }
           },
           "valid": {
@@ -1251,7 +1251,7 @@
           "executions": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ExecutionSummary"
+              "$ref": "#/components/schemas/ExecutionSummary"
             }
           },
           "start": {
@@ -1303,18 +1303,17 @@
           },
           "namedVmGroupReferences": {
             "type": "array",
-            "description": "This field cannot be updated and is a read-only field in the client after creation.\n",
+            "description": "This field cannot be updated and is a read-only field in the client after creation.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
+              "$ref": "#/components/schemas/EntityReference"
             }
           },
           "logicalVmGroupReferences": {
             "type": "array",
-            "description": "This field cannot be updated and is a read-only field after creation.\n",
+            "description": "This field cannot be updated and is a read-only field after creation.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
-            },
-            "x-vcloud-added-in": 32
+              "$ref": "#/components/schemas/EntityReference"
+            }
           }
         }
       },
@@ -1328,7 +1327,7 @@
           "link": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/Link"
+              "$ref": "#/components/schemas/Link"
             }
           },
           "start": {
@@ -1396,14 +1395,8 @@
             "type": "array",
             "description": "The set of implied rights.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
-            },
-            "x-vcloud-added-in": 32,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+              "$ref": "#/components/schemas/EntityReference"
+            }
           }
         },
         "required": [
@@ -1435,12 +1428,7 @@
           "subCategories": {
             "type": "array",
             "items": {
-              "type": "string",
-              "x-vcloud-constraints": [
-                {
-                  "constraint": "Urn"
-                }
-              ]
+              "type": "string"
             }
           }
         },
@@ -1557,16 +1545,16 @@
         "properties": {
           "nsxManagersHealth": {
             "type": "array",
-            "description": "Status of all the nsx managers spanned by the universal router.\n",
+            "description": "Status of all the nsx managers spanned by the universal router.",
             "items": {
-              "$ref": "#/definitions/RouterComponentHealth"
+              "$ref": "#/components/schemas/RouterComponentHealth"
             }
           },
           "controlVmHealth": {
             "type": "array",
-            "description": "Status of all the universal router control VMs within each network provider scope.\nThis also includes status of egress points and routes configured for the universal router.\n",
+            "description": "Status of all the universal router control VMs within each network provider scope.\nThis also includes status of egress points and routes configured for the universal router.",
             "items": {
-              "$ref": "#/definitions/RouterComponentHealth"
+              "$ref": "#/components/schemas/RouterComponentHealth"
             }
           },
           "controlPlaneHealth": {
@@ -1575,9 +1563,9 @@
           },
           "vdcReachabilityStatus": {
             "type": "array",
-            "description": "Reachability status for local and remote participating vDC's of referenced vDC group.\nStates whether a vDC is reachable from this local site.\n",
+            "description": "Reachability status for local and remote participating vDC's of referenced vDC group.\nStates whether a vDC is reachable from this local site.",
             "items": {
-              "$ref": "#/definitions/RouterComponentHealth"
+              "$ref": "#/components/schemas/RouterComponentHealth"
             }
           }
         }
@@ -1963,7 +1951,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/Subnet"
+              "$ref": "#/components/schemas/Subnet"
             }
           }
         }
@@ -2052,7 +2040,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/Tier0Router"
+              "$ref": "#/components/schemas/Tier0Router"
             }
           }
         }
@@ -2064,7 +2052,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/Tier1Router"
+              "$ref": "#/components/schemas/Tier1Router"
             }
           }
         }
@@ -2086,7 +2074,7 @@
           "customLinks": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/UiBrandingMenuItem"
+              "$ref": "#/components/schemas/UiBrandingMenuItem"
             }
           }
         },
@@ -2254,7 +2242,7 @@
           "servers": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/UniversalRouterDhcpServer"
+              "$ref": "#/components/schemas/UniversalRouterDhcpServer"
             }
           }
         }
@@ -2278,7 +2266,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/UniversalRouter"
+              "$ref": "#/components/schemas/UniversalRouter"
             }
           }
         }
@@ -2295,12 +2283,12 @@
             "type": "array",
             "description": "The list of Universal Routes.",
             "items": {
-              "$ref": "#/definitions/UniversalRoute"
+              "$ref": "#/components/schemas/UniversalRoute"
             }
           },
           "providerScopesToForceUnconfigure": {
             "type": "array",
-            "description": "The list network provider scopes whose route will be unconfigure forcefully. This means that a route that is in state that normally shouldn't be\nunconfigurable (i.e. NSX or remote vCD site is down) will still be unconfigured. Errors may be ignored. Note that this force option also affects any route\nupdate where a network provider's egress point is modified/changed. vCD will first unconfigure any existing egress point before configuring the new egress\npoint.\n",
+            "description": "The list network provider scopes whose route will be unconfigure forcefully. This means that a route that is in state that normally shouldn't be\nunconfigurable (i.e. NSX or remote vCD site is down) will still be unconfigured. Errors may be ignored. Note that this force option also affects any route\nupdate where a network provider's egress point is modified/changed. vCD will first unconfigure any existing egress point before configuring the new egress\npoint.",
             "items": {
               "type": "string"
             }
@@ -2611,9 +2599,7 @@
             "description": "A list of read-only compatible vDC types for this policy.",
             "items": {
               "type": "string"
-            },
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+            }
           }
         },
         "required": [
@@ -2644,7 +2630,7 @@
             "type": "array",
             "description": "The list of organization vDCs that are participating in this group.",
             "items": {
-              "$ref": "#/definitions/ParticipatingVdcReference"
+              "$ref": "#/components/schemas/ParticipatingVdcReference"
             }
           },
           "universalNetworkingEnabled": {
@@ -2706,7 +2692,7 @@
             "type": "array",
             "description": "Range of DHCP IP addresses",
             "items": {
-              "$ref": "#/definitions/VdcNetworkDhcpPool"
+              "$ref": "#/components/schemas/VdcNetworkDhcpPool"
             }
           }
         }
@@ -2783,7 +2769,7 @@
           "attributes": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsAttribute"
+              "$ref": "#/components/schemas/WsAttribute"
             }
           },
           "relations": {
@@ -2834,7 +2820,7 @@
           "remoteItems": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/VroRemoteItem"
+              "$ref": "#/components/schemas/VroRemoteItem"
             }
           },
           "resultTotal": {
@@ -2870,7 +2856,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/VroRemotePluginItem"
+              "$ref": "#/components/schemas/VroRemotePluginItem"
             }
           }
         }
@@ -2897,7 +2883,7 @@
           "types": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/VroRemotePluginType"
+              "$ref": "#/components/schemas/VroRemotePluginType"
             }
           },
           "namespace": {
@@ -2995,7 +2981,7 @@
           "inputParameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "name": {
@@ -3004,7 +2990,7 @@
           "outputParameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "relations": {
@@ -3033,7 +3019,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/AllocatedIpAddress"
+                  "$ref": "#/components/schemas/AllocatedIpAddress"
                 }
               }
             }
@@ -3052,7 +3038,7 @@
               "value": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Parameter"
+                  "$ref": "#/components/schemas/Parameter"
                 }
               }
             }
@@ -3085,7 +3071,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Capability"
+                  "$ref": "#/components/schemas/Capability"
                 }
               }
             }
@@ -3122,7 +3108,7 @@
               "property": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/CompositeValue"
+                  "$ref": "#/components/schemas/CompositeValue"
                 }
               },
               "type": {
@@ -3190,7 +3176,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/CrossVdcNetwork"
+                  "$ref": "#/components/schemas/CrossVdcNetwork"
                 }
               }
             }
@@ -3210,7 +3196,7 @@
                 "type": "array",
                 "description": "The current page of custom entity types.",
                 "items": {
-                  "$ref": "#/definitions/CustomEntityType"
+                  "$ref": "#/components/schemas/CustomEntityType"
                 }
               }
             }
@@ -3267,7 +3253,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/EdgeCluster"
+                  "$ref": "#/components/schemas/EdgeCluster"
                 }
               }
             }
@@ -3287,7 +3273,7 @@
                 "type": "array",
                 "description": "A list of EdgeGateways.",
                 "items": {
-                  "$ref": "#/definitions/EdgeGateway"
+                  "$ref": "#/components/schemas/EdgeGateway"
                 }
               }
             }
@@ -3322,7 +3308,7 @@
                 "type": "array",
                 "description": "The current page of entity references.",
                 "items": {
-                  "$ref": "#/definitions/EntityReference"
+                  "$ref": "#/components/schemas/EntityReference"
                 }
               }
             }
@@ -3368,7 +3354,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/ExternalNetwork"
+                  "$ref": "#/components/schemas/ExternalNetwork"
                 }
               }
             }
@@ -3387,13 +3373,13 @@
               "decorators": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Decorator"
+                  "$ref": "#/components/schemas/Decorator"
                 }
               },
               "constraints": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Constraint"
+                  "$ref": "#/components/schemas/Constraint"
                 }
               },
               "type": {
@@ -3421,7 +3407,7 @@
                 "type": "array",
                 "description": "The current page of global roles.",
                 "items": {
-                  "$ref": "#/definitions/GlobalRole"
+                  "$ref": "#/components/schemas/GlobalRole"
                 }
               }
             }
@@ -3440,7 +3426,7 @@
               "fields": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/PrimaryField"
+                  "$ref": "#/components/schemas/PrimaryField"
                 }
               }
             }
@@ -3477,7 +3463,7 @@
                 "type": "array",
                 "description": "The current page of LogicalVmGroups.",
                 "items": {
-                  "$ref": "#/definitions/LogicalVmGroup"
+                  "$ref": "#/components/schemas/LogicalVmGroup"
                 }
               }
             }
@@ -3580,7 +3566,7 @@
                 "type": "array",
                 "description": "The current page for preference definitions.",
                 "items": {
-                  "$ref": "#/definitions/PreferenceDefinition"
+                  "$ref": "#/components/schemas/PreferenceDefinition"
                 }
               }
             }
@@ -3600,7 +3586,7 @@
                 "type": "array",
                 "description": "The list of user preferences.",
                 "items": {
-                  "$ref": "#/definitions/Preference"
+                  "$ref": "#/components/schemas/Preference"
                 }
               }
             }
@@ -3619,7 +3605,7 @@
               "property": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/KeyValuePair"
+                  "$ref": "#/components/schemas/KeyValuePair"
                 }
               }
             }
@@ -3656,7 +3642,7 @@
                 "type": "array",
                 "description": "The current page of provider VDC compute policies.",
                 "items": {
-                  "$ref": "#/definitions/PvdcComputePolicy"
+                  "$ref": "#/components/schemas/PvdcComputePolicy"
                 }
               }
             }
@@ -3720,7 +3706,7 @@
                 "type": "array",
                 "description": "The current page of rights.",
                 "items": {
-                  "$ref": "#/definitions/Right"
+                  "$ref": "#/components/schemas/Right"
                 }
               }
             }
@@ -3740,7 +3726,7 @@
                 "type": "array",
                 "description": "The current page of rights bundles.",
                 "items": {
-                  "$ref": "#/definitions/RightsBundle"
+                  "$ref": "#/components/schemas/RightsBundle"
                 }
               }
             }
@@ -3759,7 +3745,7 @@
                 "type": "array",
                 "description": "The current page of rights category nodes.",
                 "items": {
-                  "$ref": "#/definitions/RightsCategoryNode"
+                  "$ref": "#/components/schemas/RightsCategoryNode"
                 }
               }
             }
@@ -3789,7 +3775,7 @@
                 "type": "array",
                 "description": "The current page of roles.",
                 "items": {
-                  "$ref": "#/definitions/Role"
+                  "$ref": "#/components/schemas/Role"
                 }
               }
             }
@@ -3808,7 +3794,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/SddcProxy"
+                  "$ref": "#/components/schemas/SddcProxy"
                 }
               }
             }
@@ -3827,7 +3813,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Sddc"
+                  "$ref": "#/components/schemas/Sddc"
                 }
               }
             }
@@ -3888,7 +3874,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/ServiceApp"
+                  "$ref": "#/components/schemas/ServiceApp"
                 }
               }
             }
@@ -3908,7 +3894,7 @@
                 "type": "array",
                 "description": "The current page of service items.",
                 "items": {
-                  "$ref": "#/definitions/ServiceItem"
+                  "$ref": "#/components/schemas/ServiceItem"
                 }
               }
             }
@@ -3928,7 +3914,7 @@
                 "type": "array",
                 "description": "The current page of services.",
                 "items": {
-                  "$ref": "#/definitions/Service"
+                  "$ref": "#/components/schemas/Service"
                 }
               }
             }
@@ -3950,7 +3936,7 @@
               "elements": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/PresentationElement"
+                  "$ref": "#/components/schemas/PresentationElement"
                 }
               }
             }
@@ -4010,7 +3996,7 @@
                 "type": "array",
                 "description": "The current page of VDC compute policies.",
                 "items": {
-                  "$ref": "#/definitions/VdcComputePolicy"
+                  "$ref": "#/components/schemas/VdcComputePolicy"
                 }
               }
             }
@@ -4029,7 +4015,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/VdcGroup"
+                  "$ref": "#/components/schemas/VdcGroup"
                 }
               }
             }
@@ -4130,7 +4116,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/VdcNetwork"
+                  "$ref": "#/components/schemas/VdcNetwork"
                 }
               }
             }
@@ -4149,7 +4135,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/VmcSddc"
+                  "$ref": "#/components/schemas/VmcSddc"
                 }
               }
             }
@@ -4169,7 +4155,7 @@
                 "type": "array",
                 "description": "The current page of remove VRO workflows.",
                 "items": {
-                  "$ref": "#/definitions/VroRemoteWorkflowItem"
+                  "$ref": "#/components/schemas/VroRemoteWorkflowItem"
                 }
               }
             }
@@ -4216,7 +4202,7 @@
               "fields": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Field"
+                  "$ref": "#/components/schemas/Field"
                 }
               },
               "value": {

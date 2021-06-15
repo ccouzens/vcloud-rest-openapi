@@ -228,7 +228,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/AvailableIpPoolSubnet"
+              "$ref": "#/components/schemas/AvailableIpPoolSubnet"
             }
           }
         }
@@ -436,7 +436,7 @@
           "entities": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/CustomEntity"
+              "$ref": "#/components/schemas/CustomEntity"
             }
           }
         }
@@ -528,7 +528,7 @@
           "actions": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/CustomEntityTypeAction"
+              "$ref": "#/components/schemas/CustomEntityTypeAction"
             }
           }
         }
@@ -626,7 +626,7 @@
             "type": "array",
             "description": "List of DvpgProperty for each DVPG backing this network",
             "items": {
-              "$ref": "#/definitions/DvpgProperty"
+              "$ref": "#/components/schemas/DvpgProperty"
             }
           }
         }
@@ -831,7 +831,7 @@
             "type": "array",
             "description": "All BGP neighbors for an edge gateway.",
             "items": {
-              "$ref": "#/definitions/EdgeBgpNeighbor"
+              "$ref": "#/components/schemas/EdgeBgpNeighbor"
             }
           }
         }
@@ -886,10 +886,10 @@
             "type": "array",
             "description": "The list of forwarder zones with its matching DNS domains.",
             "items": {
-              "$ref": "#/definitions/NsxtDnsForwarderZoneConfig"
+              "$ref": "#/components/schemas/NsxtDnsForwarderZoneConfig"
             },
-            "maxItems": 5,
-            "minItems": 0
+            "minItems": 0,
+            "maxItems": 5
           },
           "version": {
             "$ref": "#/components/schemas/ObjectVersion"
@@ -925,7 +925,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/EdgeGatewaySubnet"
+              "$ref": "#/components/schemas/EdgeGatewaySubnet"
             }
           }
         }
@@ -1244,7 +1244,7 @@
             "type": "array",
             "description": "List of network prefixes.",
             "items": {
-              "$ref": "#/definitions/EdgePrefixListEntry"
+              "$ref": "#/components/schemas/EdgePrefixListEntry"
             },
             "minItems": 1
           },
@@ -1301,7 +1301,7 @@
             "type": "array",
             "description": "All Prefix lists.",
             "items": {
-              "$ref": "#/definitions/EdgePrefixList"
+              "$ref": "#/components/schemas/EdgePrefixList"
             }
           }
         }
@@ -1365,7 +1365,7 @@
             "type": "array",
             "description": "The list of Universal Egress Points.",
             "items": {
-              "$ref": "#/definitions/EgressPoint"
+              "$ref": "#/components/schemas/EgressPoint"
             }
           }
         }
@@ -1440,7 +1440,7 @@
           "parameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           }
         }
@@ -1575,7 +1575,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ExternalNetworkBacking"
+              "$ref": "#/components/schemas/ExternalNetworkBacking"
             }
           }
         }
@@ -1645,41 +1645,25 @@
           },
           "sourceFirewallGroups": {
             "type": "array",
-            "description": "List of source groups for firewall rule. It specifies the sources of network traffic for the firewall rule.\nNull value or an empty list will be treated as \"ANY\" which means traffic from any source.\n",
+            "description": "List of source groups for firewall rule. It specifies the sources of network traffic for the firewall rule.\nNull value or an empty list will be treated as \"ANY\" which means traffic from any source.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
+              "$ref": "#/components/schemas/EntityReference"
             },
-            "maxItems": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "maxItems": 128
           },
           "destinationFirewallGroups": {
             "type": "array",
-            "description": "List of source groups for firewall rule. It specifies the destinations of network traffic for the firewall rule.\nNull value or an empty list will be treated as \"ANY\" which means traffic to any destination.\n",
+            "description": "List of source groups for firewall rule. It specifies the destinations of network traffic for the firewall rule.\nNull value or an empty list will be treated as \"ANY\" which means traffic to any destination.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
+              "$ref": "#/components/schemas/EntityReference"
             },
-            "maxItems": 128,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ]
+            "maxItems": 128
           },
           "applicationPortProfiles": {
             "type": "array",
-            "description": "The list of application ports where this firewall rule is applicable.\nNull value or an empty list will be treated as \"ANY\" which means rule applies to all ports.\n",
+            "description": "The list of application ports where this firewall rule is applicable.\nNull value or an empty list will be treated as \"ANY\" which means rule applies to all ports.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
+              "$ref": "#/components/schemas/EntityReference"
             },
             "maxItems": 128
           },
@@ -1830,7 +1814,7 @@
             "type": "array",
             "description": "The list of Diffie-Helman groups to be used is PFS is enabled. Default is GROUP14.",
             "items": {
-              "$ref": "#/definitions/DhGroupType"
+              "$ref": "#/components/schemas/DhGroupType"
             },
             "minItems": 1
           },
@@ -1838,14 +1822,14 @@
             "type": "array",
             "description": "The list of Digest algorithms for IKE. This is used during IKE negotiation. Default is SHA2_256.",
             "items": {
-              "$ref": "#/definitions/IkeDigestAlgorithmType"
+              "$ref": "#/components/schemas/IkeDigestAlgorithmType"
             }
           },
           "encryptionAlgorithms": {
             "type": "array",
             "description": "The list of Encryption algorithms for IKE. This is used during IKE negotiation. Default is AES_128.",
             "items": {
-              "$ref": "#/definitions/IkeEncryptionAlgorithmType"
+              "$ref": "#/components/schemas/IkeEncryptionAlgorithmType"
             },
             "minItems": 1
           },
@@ -1936,7 +1920,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/IpRange"
+              "$ref": "#/components/schemas/IpRange"
             }
           }
         }
@@ -2100,7 +2084,7 @@
           "settingsTest": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/LdapSettingsTestResult"
+              "$ref": "#/components/schemas/LdapSettingsTestResult"
             }
           }
         }
@@ -2147,7 +2131,7 @@
           "attributes": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsAttribute"
+              "$ref": "#/components/schemas/WsAttribute"
             }
           },
           "href": {
@@ -2182,8 +2166,8 @@
             "items": {
               "type": "string"
             },
-            "maxItems": 128,
-            "minItems": 1
+            "minItems": 1,
+            "maxItems": 128
           }
         },
         "required": [
@@ -2208,9 +2192,9 @@
           },
           "namedVmGroupReferences": {
             "type": "array",
-            "description": "List of named vm groups associated with logical vm group.\n",
+            "description": "List of named vm groups associated with logical vm group.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
+              "$ref": "#/components/schemas/EntityReference"
             }
           },
           "pvdcId": {
@@ -2264,16 +2248,16 @@
           },
           "vdsRefs": {
             "type": "array",
-            "description": "The information about virtual distributed switches. This information is\navailable only for VLAN, VXLAN and Universal VXLAN backed network pools.\n",
+            "description": "The information about virtual distributed switches. This information is\navailable only for VLAN, VXLAN and Universal VXLAN backed network pools.",
             "items": {
-              "$ref": "#/definitions/BackingRef"
+              "$ref": "#/components/schemas/BackingRef"
             }
           },
           "portGroupRefs": {
             "type": "array",
-            "description": "All the vSphere port groups that will be used by this network pool. This information is\navailable only for Portgroup backed network pools.\n",
+            "description": "All the vSphere port groups that will be used by this network pool. This information is\navailable only for Portgroup backed network pools.",
             "items": {
-              "$ref": "#/definitions/BackingRef"
+              "$ref": "#/components/schemas/BackingRef"
             }
           },
           "transportZoneRef": {
@@ -2393,7 +2377,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/NsxTEdgeCluster"
+              "$ref": "#/components/schemas/NsxTEdgeCluster"
             }
           }
         }
@@ -2430,7 +2414,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/NsxTTransportZone"
+              "$ref": "#/components/schemas/NsxTTransportZone"
             }
           }
         }
@@ -2534,7 +2518,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/NsxVTransportZone"
+              "$ref": "#/components/schemas/NsxVTransportZone"
             }
           }
         }
@@ -2553,7 +2537,7 @@
           },
           "dnsDomainNames": {
             "type": "array",
-            "description": "List of domain names on which conditional forwarding is based. This field is required if the DNS Zone is\nbeing used for a conditional forwarder. This field will also be used for conditional reverse lookup.\nThis field should not be set if the zone is used as default forwarder zone.\n",
+            "description": "List of domain names on which conditional forwarding is based. This field is required if the DNS Zone is\nbeing used for a conditional forwarder. This field will also be used for conditional reverse lookup.\nThis field should not be set if the zone is used as default forwarder zone.",
             "items": {
               "type": "string"
             }
@@ -2564,8 +2548,8 @@
             "items": {
               "type": "string"
             },
-            "maxItems": 3,
-            "minItems": 0
+            "minItems": 0,
+            "maxItems": 3
           }
         }
       },
@@ -2626,9 +2610,8 @@
             "type": "array",
             "description": "Association info for each result.",
             "items": {
-              "$ref": "#/definitions/Association"
-            },
-            "x-vcloud-added-in": 33
+              "$ref": "#/components/schemas/Association"
+            }
           }
         }
       },
@@ -2835,7 +2818,7 @@
           "inputParameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "name": {
@@ -2844,13 +2827,13 @@
           "outputParameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "steps": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/StepInfo"
+              "$ref": "#/components/schemas/StepInfo"
             }
           }
         }
@@ -2876,7 +2859,7 @@
           "messages": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/PresentationMessageInfo"
+              "$ref": "#/components/schemas/PresentationMessageInfo"
             }
           }
         },
@@ -2903,7 +2886,7 @@
           "parameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "startDate": {
@@ -2916,7 +2899,7 @@
           "steps": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/StepInfo"
+              "$ref": "#/components/schemas/StepInfo"
             }
           },
           "valid": {
@@ -2934,7 +2917,7 @@
           "executions": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ExecutionSummary"
+              "$ref": "#/components/schemas/ExecutionSummary"
             }
           },
           "start": {
@@ -3219,33 +3202,24 @@
           },
           "namedVmGroupReferences": {
             "type": "array",
-            "description": "This field cannot be updated and is a read-only field in the client after creation.\nDeprecated in Api 33.0, this property will be removed in future release.\n",
+            "description": "This field cannot be updated and is a read-only field in the client after creation.\nDeprecated in Api 33.0, this property will be removed in future release.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
-            },
-            "x-vcloud-added-in": 31,
-            "x-vcloud-deprecated-in": 33,
-            "x-vcloud-removed-in": 33,
-            "x-vcloud-deprecated-alternative": "namedVmGroups"
+              "$ref": "#/components/schemas/EntityReference"
+            }
           },
           "namedVmGroups": {
             "type": "array",
-            "description": "List of list of vmGroups grouped together in a meaningful manner.\nA group of vmGroups would consist of one functionally equal vmGroup picked from each cluster of the pvdc.\n",
+            "description": "List of list of vmGroups grouped together in a meaningful manner.\nA group of vmGroups would consist of one functionally equal vmGroup picked from each cluster of the pvdc.",
             "items": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/EntityReference"
-              }
-            },
-            "x-vcloud-added-in": 33
+              "type": "string"
+            }
           },
           "logicalVmGroupReferences": {
             "type": "array",
-            "description": "This field cannot be updated and is a read-only field after creation.\n",
+            "description": "This field cannot be updated and is a read-only field after creation.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
-            },
-            "x-vcloud-added-in": 32
+              "$ref": "#/components/schemas/EntityReference"
+            }
           }
         },
         "required": [
@@ -3263,7 +3237,7 @@
           "link": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/Link"
+              "$ref": "#/components/schemas/Link"
             }
           },
           "start": {
@@ -3290,8 +3264,8 @@
             "items": {
               "type": "string"
             },
-            "maxItems": 128,
-            "minItems": 0
+            "minItems": 0,
+            "maxItems": 128
           }
         },
         "required": [
@@ -3364,14 +3338,8 @@
             "type": "array",
             "description": "The set of implied rights.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
-            },
-            "x-vcloud-added-in": 32,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "ReadOnly"
-              }
-            ]
+              "$ref": "#/components/schemas/EntityReference"
+            }
           }
         },
         "required": [
@@ -3404,17 +3372,7 @@
           "subCategories": {
             "type": "array",
             "items": {
-              "type": "string",
-              "x-vcloud-constraints": [
-                {
-                  "constraint": "Urn",
-                  "args": [
-                    {
-                      "arg": "rightsCategory"
-                    }
-                  ]
-                }
-              ]
+              "type": "string"
             }
           }
         },
@@ -3476,16 +3434,12 @@
           },
           "subnets": {
             "type": "array",
-            "example": [
-              "100.64.1.0/24",
-              "fc7e:f206:db42::/48"
-            ],
-            "description": "List of subnets that will be advertised so that the Edge Gateway can route out to the connected external network.\nEach value is in CIDR format. Note that the CIDR value will automatically be converted to its network definition based on the prefix length.\n",
+            "description": "List of subnets that will be advertised so that the Edge Gateway can route out to the connected external network.\nEach value is in CIDR format. Note that the CIDR value will automatically be converted to its network definition based on the prefix length.",
             "items": {
               "type": "string"
             },
-            "maxItems": 100,
-            "minItems": 0
+            "minItems": 0,
+            "maxItems": 100
           }
         }
       },
@@ -3558,16 +3512,16 @@
         "properties": {
           "nsxManagersHealth": {
             "type": "array",
-            "description": "Status of all the nsx managers spanned by the universal router.\n",
+            "description": "Status of all the nsx managers spanned by the universal router.",
             "items": {
-              "$ref": "#/definitions/RouterComponentHealth"
+              "$ref": "#/components/schemas/RouterComponentHealth"
             }
           },
           "controlVmHealth": {
             "type": "array",
-            "description": "Status of all the universal router control VMs within each network provider scope.\nThis also includes status of egress points and routes configured for the universal router.\n",
+            "description": "Status of all the universal router control VMs within each network provider scope.\nThis also includes status of egress points and routes configured for the universal router.",
             "items": {
-              "$ref": "#/definitions/RouterComponentHealth"
+              "$ref": "#/components/schemas/RouterComponentHealth"
             }
           },
           "controlPlaneHealth": {
@@ -3576,9 +3530,9 @@
           },
           "vdcReachabilityStatus": {
             "type": "array",
-            "description": "Reachability status for local and remote participating vDC's of referenced vDC group.\nStates whether a vDC is reachable from this local site.\n",
+            "description": "Reachability status for local and remote participating vDC's of referenced vDC group.\nStates whether a vDC is reachable from this local site.",
             "items": {
-              "$ref": "#/definitions/RouterComponentHealth"
+              "$ref": "#/components/schemas/RouterComponentHealth"
             }
           }
         }
@@ -4079,7 +4033,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/Subnet"
+              "$ref": "#/components/schemas/Subnet"
             }
           }
         }
@@ -4200,7 +4154,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/Tier0Router"
+              "$ref": "#/components/schemas/Tier0Router"
             }
           }
         }
@@ -4282,22 +4236,22 @@
             "type": "array",
             "description": "The list of Diffie-Helman groups to be used is PFS is enabled. Default is GROUP14.",
             "items": {
-              "$ref": "#/definitions/DhGroupType"
+              "$ref": "#/components/schemas/DhGroupType"
             },
             "minItems": 1
           },
           "digestAlgorithms": {
             "type": "array",
-            "description": "The list of Digest algorithms to be used for message digest. The default digest algorithm is implictly covered by default encrpyption algorithm AES_GCM_128.\n",
+            "description": "The list of Digest algorithms to be used for message digest. The default digest algorithm is implictly covered by default encrpyption algorithm AES_GCM_128.",
             "items": {
-              "$ref": "#/definitions/TunnelDigestAlgorithmType"
+              "$ref": "#/components/schemas/TunnelDigestAlgorithmType"
             }
           },
           "encryptionAlgorithms": {
             "type": "array",
-            "description": "The list of Encryption algorithms to use in IPSec tunnel establishment. Default is AES_GCM_128. NO_ENCRYPTION_AUTH_AES_GMAC_* enables authentication on input\ndata without encryption. If one of these options is used, digest algorithm should be empty.\n",
+            "description": "The list of Encryption algorithms to use in IPSec tunnel establishment. Default is AES_GCM_128. NO_ENCRYPTION_AUTH_AES_GMAC_* enables authentication on input\ndata without encryption. If one of these options is used, digest algorithm should be empty.",
             "items": {
-              "$ref": "#/definitions/TunnelEncryptionAlgorithmType"
+              "$ref": "#/components/schemas/TunnelEncryptionAlgorithmType"
             },
             "minItems": 1
           },
@@ -4364,7 +4318,7 @@
           "customLinks": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/UiBrandingMenuItem"
+              "$ref": "#/components/schemas/UiBrandingMenuItem"
             }
           }
         },
@@ -4536,7 +4490,7 @@
           "servers": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/UniversalRouterDhcpServer"
+              "$ref": "#/components/schemas/UniversalRouterDhcpServer"
             }
           }
         }
@@ -4560,7 +4514,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/UniversalRouter"
+              "$ref": "#/components/schemas/UniversalRouter"
             }
           }
         }
@@ -4577,12 +4531,12 @@
             "type": "array",
             "description": "The list of Universal Routes.",
             "items": {
-              "$ref": "#/definitions/UniversalRoute"
+              "$ref": "#/components/schemas/UniversalRoute"
             }
           },
           "providerScopesToForceUnconfigure": {
             "type": "array",
-            "description": "The list network provider scopes whose route will be unconfigure forcefully. This means that a route that is in state that normally shouldn't be\nunconfigurable (i.e. NSX or remote vCD site is down) will still be unconfigured. Errors may be ignored. Note that this force option also affects any route\nupdate where a network provider's egress point is modified/changed. vCD will first unconfigure any existing egress point before configuring the new egress\npoint.\n",
+            "description": "The list network provider scopes whose route will be unconfigure forcefully. This means that a route that is in state that normally shouldn't be\nunconfigurable (i.e. NSX or remote vCD site is down) will still be unconfigured. Errors may be ignored. Note that this force option also affects any route\nupdate where a network provider's egress point is modified/changed. vCD will first unconfigure any existing egress point before configuring the new egress\npoint.",
             "items": {
               "type": "string"
             }
@@ -5174,9 +5128,7 @@
             "description": "A list of read-only compatible vDC types for this policy.",
             "items": {
               "type": "string"
-            },
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            }
           },
           "isSizingOnly": {
             "type": "boolean",
@@ -5188,24 +5140,17 @@
           },
           "namedVmGroups": {
             "type": "array",
-            "description": "List of list of vmGroups grouped together in a meaningful manner.\nA group of vmGroups would consist of one functionally equal vmGroup picked from each cluster of the pvdc.\n",
+            "description": "List of list of vmGroups grouped together in a meaningful manner.\nA group of vmGroups would consist of one functionally equal vmGroup picked from each cluster of the pvdc.",
             "items": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/EntityReference"
-              }
-            },
-            "x-vcloud-added-in": 33,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+              "type": "string"
+            }
           },
           "logicalVmGroupReferences": {
             "type": "array",
-            "description": "List of logical vm group references. This value is set at creation time and cannot be edited later.\n",
+            "description": "List of logical vm group references. This value is set at creation time and cannot be edited later.",
             "items": {
-              "$ref": "#/definitions/EntityReference"
-            },
-            "x-vcloud-added-in": 33,
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+              "$ref": "#/components/schemas/EntityReference"
+            }
           },
           "isAutoGenerated": {
             "type": "boolean",
@@ -5245,7 +5190,7 @@
             "type": "array",
             "description": "The list of organization vDCs that are participating in this group.",
             "items": {
-              "$ref": "#/definitions/ParticipatingVdcReference"
+              "$ref": "#/components/schemas/ParticipatingVdcReference"
             }
           },
           "universalNetworkingEnabled": {
@@ -5320,7 +5265,7 @@
             "type": "array",
             "description": "Range of DHCP IP addresses",
             "items": {
-              "$ref": "#/definitions/VdcNetworkDhcpPool"
+              "$ref": "#/components/schemas/VdcNetworkDhcpPool"
             }
           }
         }
@@ -5395,7 +5340,7 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/VlanIdRange"
+              "$ref": "#/components/schemas/VlanIdRange"
             }
           }
         }
@@ -5424,7 +5369,7 @@
           "attributes": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsAttribute"
+              "$ref": "#/components/schemas/WsAttribute"
             }
           },
           "relations": {
@@ -5475,7 +5420,7 @@
           "remoteItems": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/VroRemoteItem"
+              "$ref": "#/components/schemas/VroRemoteItem"
             }
           },
           "resultTotal": {
@@ -5511,7 +5456,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/VroRemotePluginItem"
+              "$ref": "#/components/schemas/VroRemotePluginItem"
             }
           }
         }
@@ -5538,7 +5483,7 @@
           "types": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/VroRemotePluginType"
+              "$ref": "#/components/schemas/VroRemotePluginType"
             }
           },
           "namespace": {
@@ -5636,7 +5581,7 @@
           "inputParameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "name": {
@@ -5645,7 +5590,7 @@
           "outputParameters": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/WsParameter"
+              "$ref": "#/components/schemas/WsParameter"
             }
           },
           "relations": {
@@ -5675,7 +5620,7 @@
                 "type": "array",
                 "description": "The current page of accessible locations.",
                 "items": {
-                  "$ref": "#/definitions/AccessibleLocation"
+                  "$ref": "#/components/schemas/AccessibleLocation"
                 }
               }
             }
@@ -5694,7 +5639,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/AllocatedIpAddress"
+                  "$ref": "#/components/schemas/AllocatedIpAddress"
                 }
               }
             }
@@ -5732,7 +5677,7 @@
                 "type": "array",
                 "description": "A list of protocol and ports supported by this application port profile.",
                 "items": {
-                  "$ref": "#/definitions/ApplicationPortList"
+                  "$ref": "#/components/schemas/ApplicationPortList"
                 }
               },
               "usableForNAT": {
@@ -5755,7 +5700,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/ApplicationPortProfile"
+                  "$ref": "#/components/schemas/ApplicationPortProfile"
                 }
               }
             }
@@ -5774,7 +5719,7 @@
               "value": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Parameter"
+                  "$ref": "#/components/schemas/Parameter"
                 }
               }
             }
@@ -5793,7 +5738,7 @@
                 "type": "array",
                 "description": "The current page of audit trail events.",
                 "items": {
-                  "$ref": "#/definitions/AuditTrailEvent"
+                  "$ref": "#/components/schemas/AuditTrailEvent"
                 }
               }
             }
@@ -5827,7 +5772,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Capability"
+                  "$ref": "#/components/schemas/Capability"
                 }
               }
             }
@@ -5846,7 +5791,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Cell"
+                  "$ref": "#/components/schemas/Cell"
                 }
               }
             }
@@ -5866,7 +5811,7 @@
                 "type": "array",
                 "description": "The current page of certificates.",
                 "items": {
-                  "$ref": "#/definitions/TrustedCertificate"
+                  "$ref": "#/components/schemas/TrustedCertificate"
                 }
               }
             }
@@ -5903,7 +5848,7 @@
               "property": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/CompositeValue"
+                  "$ref": "#/components/schemas/CompositeValue"
                 }
               },
               "type": {
@@ -5971,7 +5916,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/CrossVdcNetwork"
+                  "$ref": "#/components/schemas/CrossVdcNetwork"
                 }
               }
             }
@@ -5991,7 +5936,7 @@
                 "type": "array",
                 "description": "The current page of custom entity types.",
                 "items": {
-                  "$ref": "#/definitions/CustomEntityType"
+                  "$ref": "#/components/schemas/CustomEntityType"
                 }
               }
             }
@@ -6033,7 +5978,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/DistributedPortGroup"
+                  "$ref": "#/components/schemas/DistributedPortGroup"
                 }
               }
             }
@@ -6067,7 +6012,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/DvSwitch"
+                  "$ref": "#/components/schemas/DvSwitch"
                 }
               }
             }
@@ -6086,7 +6031,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/EdgeCluster"
+                  "$ref": "#/components/schemas/EdgeCluster"
                 }
               }
             }
@@ -6122,24 +6067,24 @@
             "properties": {
               "systemRules": {
                 "type": "array",
-                "description": "The ordered list of system defined edge firewall rules. System rules are\napplied before user defined rules in the order in which they are returned.\n",
+                "description": "The ordered list of system defined edge firewall rules. System rules are\napplied before user defined rules in the order in which they are returned.",
                 "items": {
-                  "$ref": "#/definitions/EdgeFirewallRule"
+                  "$ref": "#/components/schemas/EdgeFirewallRule"
                 }
               },
               "userDefinedRules": {
                 "type": "array",
-                "description": "The ordered list of user defined edge firewall rules.\nUsers are allowed to add/modify/delete rules only to this list.\n",
+                "description": "The ordered list of user defined edge firewall rules.\nUsers are allowed to add/modify/delete rules only to this list.",
                 "items": {
-                  "$ref": "#/definitions/EdgeFirewallRule"
+                  "$ref": "#/components/schemas/EdgeFirewallRule"
                 },
                 "maxItems": 1000
               },
               "defaultRules": {
                 "type": "array",
-                "description": "The ordered list of default edge firewall rules. Default rules are\napplied after the user defined rules in the order in which they are returned.\n",
+                "description": "The ordered list of default edge firewall rules. Default rules are\napplied after the user defined rules in the order in which they are returned.",
                 "items": {
-                  "$ref": "#/definitions/EdgeFirewallRule"
+                  "$ref": "#/components/schemas/EdgeFirewallRule"
                 }
               }
             }
@@ -6171,7 +6116,7 @@
                 "type": "array",
                 "description": "The uplink connections for the edge gateway.",
                 "items": {
-                  "$ref": "#/definitions/EdgeGatewayUplink"
+                  "$ref": "#/components/schemas/EdgeGatewayUplink"
                 }
               },
               "distributedRoutingEnabled": {
@@ -6242,7 +6187,7 @@
                 "type": "array",
                 "description": "A list of EdgeGateways.",
                 "items": {
-                  "$ref": "#/definitions/EdgeGateway"
+                  "$ref": "#/components/schemas/EdgeGateway"
                 }
               }
             }
@@ -6262,7 +6207,7 @@
                 "type": "array",
                 "description": "The list of IPSec VPN tunnels.",
                 "items": {
-                  "$ref": "#/definitions/EdgeIpSecVpnTunnel"
+                  "$ref": "#/components/schemas/EdgeIpSecVpnTunnel"
                 },
                 "maxItems": 1000
               }
@@ -6283,7 +6228,7 @@
                 "type": "array",
                 "description": "The list of NAT Rules.",
                 "items": {
-                  "$ref": "#/definitions/EdgeNatRule"
+                  "$ref": "#/components/schemas/EdgeNatRule"
                 }
               }
             }
@@ -6318,7 +6263,7 @@
                 "type": "array",
                 "description": "The current page of entity references.",
                 "items": {
-                  "$ref": "#/definitions/EntityReference"
+                  "$ref": "#/components/schemas/EntityReference"
                 }
               }
             }
@@ -6373,7 +6318,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/ExternalNetwork"
+                  "$ref": "#/components/schemas/ExternalNetwork"
                 }
               }
             }
@@ -6392,13 +6337,13 @@
               "decorators": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Decorator"
+                  "$ref": "#/components/schemas/Decorator"
                 }
               },
               "constraints": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Constraint"
+                  "$ref": "#/components/schemas/Constraint"
                 }
               },
               "type": {
@@ -6425,7 +6370,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/FirewallGroupAssociatedVM"
+                  "$ref": "#/components/schemas/FirewallGroupAssociatedVM"
                 }
               }
             }
@@ -6476,7 +6421,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/FirewallGroupSummary"
+                  "$ref": "#/components/schemas/FirewallGroupSummary"
                 }
               }
             }
@@ -6495,7 +6440,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/GatewayUsedIpAddress"
+                  "$ref": "#/components/schemas/GatewayUsedIpAddress"
                 }
               }
             }
@@ -6515,7 +6460,7 @@
                 "type": "array",
                 "description": "The current page of global roles.",
                 "items": {
-                  "$ref": "#/definitions/GlobalRole"
+                  "$ref": "#/components/schemas/GlobalRole"
                 }
               }
             }
@@ -6534,7 +6479,7 @@
               "fields": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/PrimaryField"
+                  "$ref": "#/components/schemas/PrimaryField"
                 }
               }
             }
@@ -6571,7 +6516,7 @@
                 "type": "array",
                 "description": "The current page of LogicalVmGroups.",
                 "items": {
-                  "$ref": "#/definitions/LogicalVmGroup"
+                  "$ref": "#/components/schemas/LogicalVmGroup"
                 }
               }
             }
@@ -6671,7 +6616,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/NetworkPoolSummary"
+                  "$ref": "#/components/schemas/NetworkPoolSummary"
                 }
               }
             }
@@ -6738,7 +6683,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/PortGroup"
+                  "$ref": "#/components/schemas/PortGroup"
                 }
               }
             }
@@ -6758,7 +6703,7 @@
                 "type": "array",
                 "description": "The current page for preference definitions.",
                 "items": {
-                  "$ref": "#/definitions/PreferenceDefinition"
+                  "$ref": "#/components/schemas/PreferenceDefinition"
                 }
               }
             }
@@ -6778,7 +6723,7 @@
                 "type": "array",
                 "description": "The list of user preferences.",
                 "items": {
-                  "$ref": "#/definitions/Preference"
+                  "$ref": "#/components/schemas/Preference"
                 }
               }
             }
@@ -6797,7 +6742,7 @@
               "property": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/KeyValuePair"
+                  "$ref": "#/components/schemas/KeyValuePair"
                 }
               }
             }
@@ -6815,7 +6760,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/ProviderVdc"
+                  "$ref": "#/components/schemas/ProviderVdc"
                 }
               }
             }
@@ -6834,7 +6779,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Proxy"
+                  "$ref": "#/components/schemas/Proxy"
                 }
               }
             }
@@ -6853,7 +6798,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/ProxyConfiguration"
+                  "$ref": "#/components/schemas/ProxyConfiguration"
                 }
               }
             }
@@ -6891,7 +6836,7 @@
                 "type": "array",
                 "description": "The current page of provider VDC compute policies.",
                 "items": {
-                  "$ref": "#/definitions/PvdcComputePolicy"
+                  "$ref": "#/components/schemas/PvdcComputePolicy"
                 }
               }
             }
@@ -6947,7 +6892,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/ResourcePool"
+                  "$ref": "#/components/schemas/ResourcePool"
                 }
               }
             }
@@ -6974,7 +6919,7 @@
                 "type": "array",
                 "description": "The current page of rights.",
                 "items": {
-                  "$ref": "#/definitions/Right"
+                  "$ref": "#/components/schemas/Right"
                 }
               }
             }
@@ -6994,7 +6939,7 @@
                 "type": "array",
                 "description": "The current page of rights bundles.",
                 "items": {
-                  "$ref": "#/definitions/RightsBundle"
+                  "$ref": "#/components/schemas/RightsBundle"
                 }
               }
             }
@@ -7013,7 +6958,7 @@
                 "type": "array",
                 "description": "The current page of rights category nodes.",
                 "items": {
-                  "$ref": "#/definitions/RightsCategoryNode"
+                  "$ref": "#/components/schemas/RightsCategoryNode"
                 }
               }
             }
@@ -7049,7 +6994,7 @@
                 "type": "array",
                 "description": "The current page of roles.",
                 "items": {
-                  "$ref": "#/definitions/Role"
+                  "$ref": "#/components/schemas/Role"
                 }
               }
             }
@@ -7068,7 +7013,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/SddcProxy"
+                  "$ref": "#/components/schemas/SddcProxy"
                 }
               }
             }
@@ -7087,7 +7032,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Sddc"
+                  "$ref": "#/components/schemas/Sddc"
                 }
               }
             }
@@ -7148,7 +7093,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/ServiceApp"
+                  "$ref": "#/components/schemas/ServiceApp"
                 }
               }
             }
@@ -7168,7 +7113,7 @@
                 "type": "array",
                 "description": "The current page of service items.",
                 "items": {
-                  "$ref": "#/definitions/ServiceItem"
+                  "$ref": "#/components/schemas/ServiceItem"
                 }
               }
             }
@@ -7188,7 +7133,7 @@
                 "type": "array",
                 "description": "The current page of services.",
                 "items": {
-                  "$ref": "#/definitions/Service"
+                  "$ref": "#/components/schemas/Service"
                 }
               }
             }
@@ -7208,7 +7153,7 @@
                 "type": "array",
                 "description": "The current page of sessions.",
                 "items": {
-                  "$ref": "#/definitions/Session"
+                  "$ref": "#/components/schemas/Session"
                 }
               }
             }
@@ -7230,7 +7175,7 @@
               "elements": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/PresentationElement"
+                  "$ref": "#/components/schemas/PresentationElement"
                 }
               }
             }
@@ -7248,7 +7193,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/StorageProfile"
+                  "$ref": "#/components/schemas/StorageProfile"
                 }
               }
             }
@@ -7290,7 +7235,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Token"
+                  "$ref": "#/components/schemas/Token"
                 }
               }
             }
@@ -7319,7 +7264,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/UnmanagedVirtualMachine"
+                  "$ref": "#/components/schemas/UnmanagedVirtualMachine"
                 }
               }
             }
@@ -7338,7 +7283,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/UsedIpAddress"
+                  "$ref": "#/components/schemas/UsedIpAddress"
                 }
               }
             }
@@ -7358,7 +7303,7 @@
                 "type": "array",
                 "description": "The current page of vCenter server.",
                 "items": {
-                  "$ref": "#/definitions/VCenterServer"
+                  "$ref": "#/components/schemas/VCenterServer"
                 }
               }
             }
@@ -7378,7 +7323,7 @@
                 "type": "array",
                 "description": "The current page of VDC compute policies.",
                 "items": {
-                  "$ref": "#/definitions/VdcComputePolicy"
+                  "$ref": "#/components/schemas/VdcComputePolicy"
                 }
               }
             }
@@ -7397,7 +7342,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/VdcGroup"
+                  "$ref": "#/components/schemas/VdcGroup"
                 }
               }
             }
@@ -7488,9 +7433,9 @@
               },
               "securityGroups": {
                 "type": "array",
-                "description": "The list of firewall groups of type SECURITY_GROUP that are assigned to the Org VDC Network. These groups can then be used\nin firewall rules to protect the Org VDC Network and allow/deny traffic.\n",
+                "description": "The list of firewall groups of type SECURITY_GROUP that are assigned to the Org VDC Network. These groups can then be used\nin firewall rules to protect the Org VDC Network and allow/deny traffic.",
                 "items": {
-                  "$ref": "#/definitions/EntityReference"
+                  "$ref": "#/components/schemas/EntityReference"
                 }
               }
             }
@@ -7509,7 +7454,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/VdcNetwork"
+                  "$ref": "#/components/schemas/VdcNetwork"
                 }
               }
             }
@@ -7528,7 +7473,7 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/VmcSddc"
+                  "$ref": "#/components/schemas/VmcSddc"
                 }
               }
             }
@@ -7548,7 +7493,7 @@
                 "type": "array",
                 "description": "The current page of remove VRO workflows.",
                 "items": {
-                  "$ref": "#/definitions/VroRemoteWorkflowItem"
+                  "$ref": "#/components/schemas/VroRemoteWorkflowItem"
                 }
               }
             }
@@ -7584,26 +7529,17 @@
             "properties": {
               "ipAddresses": {
                 "type": "array",
-                "description": "IP Addresses included in the group. This is only applicable for IP_SET Firewall Groups. This can support IPv4 and IPv6 addresses in single, range, and CIDR formats.\n",
+                "description": "IP Addresses included in the group. This is only applicable for IP_SET Firewall Groups. This can support IPv4 and IPv6 addresses in single, range, and CIDR formats.",
                 "items": {
                   "type": "string"
                 }
               },
               "members": {
                 "type": "array",
-                "description": "The list of static member entities such as Org vDC Networks to be used. This is only applicable for SECURITY_GROUP Firewall Groups. The objects used\nmust be scoped to the particular Edge Gateway specified.\n",
+                "description": "The list of static member entities such as Org vDC Networks to be used. This is only applicable for SECURITY_GROUP Firewall Groups. The objects used\nmust be scoped to the particular Edge Gateway specified.",
                 "items": {
-                  "$ref": "#/definitions/EntityReference"
-                },
-                "x-vcloud-added-in": 34,
-                "x-vcloud-constraints": [
-                  {
-                    "constraint": "NonSearchable"
-                  },
-                  {
-                    "constraint": "NonSortable"
-                  }
-                ]
+                  "$ref": "#/components/schemas/EntityReference"
+                }
               }
             }
           }
@@ -7654,7 +7590,7 @@
               "fields": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Field"
+                  "$ref": "#/components/schemas/Field"
                 }
               },
               "value": {
