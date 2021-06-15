@@ -203,7 +203,7 @@ async function defs(page: Page) {
           } else if (value.type === "object") {
             return { [key]: deepObjectCorrector(value) };
           } else {
-            return { [key]: value };
+            throw new Error("Unexpected object type");
           }
         })
         .reduce(
