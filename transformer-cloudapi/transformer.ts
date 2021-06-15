@@ -153,6 +153,20 @@ async function defs(page: Page) {
       | Array;
   };
 
+  const deepObjectCorrector = (val: DeepObject): DeepObject => ({
+    type: "object",
+    ...(val.description !== undefined && {
+      description: descriptionCorrector(val.description),
+    }),
+    ...(val.additionalProperties !== undefined && {
+      additionalProperties: {
+        ...(val.additionalProperties.type === "string"
+          ? { type: "string" }
+          : arrayCorrector(val.additionalProperties)),
+      },
+    }),
+  });
+
   type Object = {
     type?: "object";
     description?: string;
@@ -186,6 +200,8 @@ async function defs(page: Page) {
             return { [key]: stringCorrector(value) };
           } else if (value.type === "array") {
             return { [key]: arrayCorrector(value) };
+          } else if (value.type === "object") {
+            return { [key]: deepObjectCorrector(value) };
           } else {
             return { [key]: value };
           }

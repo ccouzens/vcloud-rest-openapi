@@ -63,7 +63,6 @@ components:
         value:
           type: object
           description: The value of the capability.
-          properties: {}
         type:
           $ref: '#/components/schemas/CapabilityValueType'
           description: The type of the value.
@@ -437,7 +436,7 @@ components:
           additionalProperties:
             type: array
             items:
-              $ref: '#/definitions/ExtensionPoint'
+              $ref: '#/components/schemas/ExtensionPoint'
     ExternalNetworkBacking:
       type: object
       description: Information about an external network backing.
@@ -2012,16 +2011,9 @@ components:
             not provided, Normal shares would be applied to the VM.'
         extraConfigs:
           type: object
-          description: 'Map of extra configs to be set on the VM with this policy.
-
-            '
+          description: Map of extra configs to be set on the VM with this policy.
           additionalProperties:
             type: string
-          x-vcloud-added-in: 32
-          x-vcloud-restricted: 'Restricted field, requires view alternate admin version
-            of Compute Policies right to access this field.
-
-            '
         pvdcComputePolicyRef:
           $ref: '#/components/schemas/EntityReference'
           description: Deprecated in Api 32.0, this property will be removed in future

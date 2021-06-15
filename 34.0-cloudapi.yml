@@ -158,12 +158,6 @@ components:
           type: boolean
         additionalProperties:
           type: object
-          properties: {}
-          x-vcloud-constraints:
-            - constraint: NonSearchable
-            - constraint: NonSortable
-          x-vcloud-restricted: Visible to users with the 'Perform Administrator Queries'
-            right
     AvailableIpPoolSubnet:
       type: object
       description: Describes an available IP address.
@@ -227,7 +221,6 @@ components:
         value:
           type: object
           description: The value of the capability.
-          properties: {}
         type:
           $ref: '#/components/schemas/CapabilityValueType'
           description: The type of the value.
@@ -1352,7 +1345,7 @@ components:
           additionalProperties:
             type: array
             items:
-              $ref: '#/definitions/ExtensionPoint'
+              $ref: '#/components/schemas/ExtensionPoint'
     ExternalNetworkBacking:
       type: object
       description: Information about an external network backing.
@@ -4383,19 +4376,9 @@ components:
             not provided, Normal shares would be applied to the VM.'
         extraConfigs:
           type: object
-          description: 'Map of extra configs to be set on the VM with this policy.
-
-            '
+          description: Map of extra configs to be set on the VM with this policy.
           additionalProperties:
             type: string
-          x-vcloud-added-in: 32
-          x-vcloud-constraints:
-            - constraint: NonSortable
-          x-vcloud-restricted: 'Restricted field, requires ''View Alternate Admin
-            version of Compute Policies for an Organization VDC'' right to access
-            this field.
-
-            '
         pvdcComputePolicyRef:
           $ref: '#/components/schemas/EntityReference'
           description: Deprecated in Api 32.0, this property will be removed in future

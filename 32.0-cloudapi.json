@@ -77,8 +77,7 @@
           },
           "value": {
             "type": "object",
-            "description": "The value of the capability.",
-            "properties": {}
+            "description": "The value of the capability."
           },
           "type": {
             "$ref": "#/components/schemas/CapabilityValueType",
@@ -576,7 +575,7 @@
             "additionalProperties": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ExtensionPoint"
+                "$ref": "#/components/schemas/ExtensionPoint"
               }
             }
           }
@@ -2579,12 +2578,10 @@
           },
           "extraConfigs": {
             "type": "object",
-            "description": "Map of extra configs to be set on the VM with this policy.\n",
+            "description": "Map of extra configs to be set on the VM with this policy.",
             "additionalProperties": {
               "type": "string"
-            },
-            "x-vcloud-added-in": 32,
-            "x-vcloud-restricted": "Restricted field, requires view alternate admin version of Compute Policies right to access this field.\n"
+            }
           },
           "pvdcComputePolicyRef": {
             "$ref": "#/components/schemas/EntityReference",

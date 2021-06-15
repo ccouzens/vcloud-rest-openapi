@@ -180,17 +180,7 @@
             "type": "boolean"
           },
           "additionalProperties": {
-            "type": "object",
-            "properties": {},
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSearchable"
-              },
-              {
-                "constraint": "NonSortable"
-              }
-            ],
-            "x-vcloud-restricted": "Visible to users with the 'Perform Administrator Queries' right"
+            "type": "object"
           }
         }
       },
@@ -275,8 +265,7 @@
           },
           "value": {
             "type": "object",
-            "description": "The value of the capability.",
-            "properties": {}
+            "description": "The value of the capability."
           },
           "type": {
             "$ref": "#/components/schemas/CapabilityValueType",
@@ -1228,7 +1217,7 @@
             "additionalProperties": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ExtensionPoint"
+                "$ref": "#/components/schemas/ExtensionPoint"
               }
             }
           }
@@ -4106,17 +4095,10 @@
           },
           "extraConfigs": {
             "type": "object",
-            "description": "Map of extra configs to be set on the VM with this policy.\n",
+            "description": "Map of extra configs to be set on the VM with this policy.",
             "additionalProperties": {
               "type": "string"
-            },
-            "x-vcloud-added-in": 32,
-            "x-vcloud-constraints": [
-              {
-                "constraint": "NonSortable"
-              }
-            ],
-            "x-vcloud-restricted": "Restricted field, requires 'View Alternate Admin version of Compute Policies for an Organization VDC' right to access this field.\n"
+            }
           },
           "pvdcComputePolicyRef": {
             "$ref": "#/components/schemas/EntityReference",
