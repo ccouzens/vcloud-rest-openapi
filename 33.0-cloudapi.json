@@ -5,6 +5,16 @@
     "version": "2019-09-12T10:07:17.587-07:00"
   },
   "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
     "schemas": {
       "AccessibleLocation": {
         "type": "object",

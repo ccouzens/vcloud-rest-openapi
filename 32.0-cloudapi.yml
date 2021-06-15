@@ -3,6 +3,13 @@ info:
   title: vCloud Director OpenAPI
   version: '2019-03-25T19:48:54.360-07:00'
 components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
   schemas:
     AllocatedIpAddress:
       type: object

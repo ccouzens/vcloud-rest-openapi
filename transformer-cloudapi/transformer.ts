@@ -302,6 +302,16 @@ async function defs(page: Page) {
       ),
     },
     components: {
+      securitySchemes: {
+        basicAuth: {
+          type: "http",
+          scheme: "basic",
+        },
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+        },
+      },
       schemas: await defs(page),
     },
   };
