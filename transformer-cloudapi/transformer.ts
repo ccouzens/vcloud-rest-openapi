@@ -314,6 +314,16 @@ async function defs(page: Page) {
       },
       schemas: await defs(page),
     },
+    tags: await page.evaluate(() => {
+      const headers = document.querySelectorAll(
+        "#scrollingNav li.nav-header:not(.nav-fixed)"
+      );
+      const names = [];
+      for (let i = 0; i < headers.length; i++) {
+        names.push({ name: headers[i].getAttribute("data-group") });
+      }
+      return names;
+    }),
   };
 
   await browser.close();
