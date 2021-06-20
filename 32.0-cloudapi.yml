@@ -3053,3 +3053,919 @@ tags:
   - name: VrealizeWorkflows
   - name: VroWorkflowExecution
   - name: VroWorkflowPresentation
+paths:
+  /branding/themes:
+    parameters: []
+  /branding/themes/{name}:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+  /branding/themes/{name}/contents:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+  /branding/icon:
+    parameters: []
+  /branding/logo:
+    parameters: []
+  /branding/tenant/{org}/icon:
+    parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+  /branding/tenant/{org}/logo:
+    parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+  /branding/themes/{name}/css:
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+  /branding:
+    parameters: []
+  /branding/tenant/{org}:
+    parameters:
+      - name: org
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/vdcs/{orgVdcId}/capabilities:
+    parameters:
+      - name: orgVdcId
+        in: path
+        required: true
+        schema:
+          type: string
+  /:
+    parameters: []
+  /query/page:
+    parameters: []
+  /1.0.0/crossVdcNetworks/{crossVdcNetworkId}:
+    parameters:
+      - name: crossVdcNetworkId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/crossVdcNetworks/{crossVdcNetworkId}/sync:
+    parameters:
+      - name: crossVdcNetworkId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/crossVdcNetworks:
+    parameters: []
+  /1.0.0/vdcGroups/{vdcGroupId}/crossVdcNetworks:
+    parameters:
+      - name: vdcGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntityTypes:
+    parameters: []
+  /customEntityTypes/{customEntityTypeId}/actions:
+    parameters:
+      - name: customEntityTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntityTypes/{customEntityTypeId}:
+    parameters:
+      - name: customEntityTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntityTypes/{customEntityTypeId}/actions/{workflowId}:
+    parameters:
+      - name: customEntityTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntities:
+    parameters: []
+  /customEntities/{customEntityId}:
+    parameters:
+      - name: customEntityId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntities/{customEntityId}/sdkObject:
+    parameters:
+      - name: customEntityId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntityTypes/{customEntityTypeId}/tenants:
+    parameters:
+      - name: customEntityTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntityTypes/{customEntityTypeId}/tenants/publish:
+    parameters:
+      - name: customEntityTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntityTypes/{customEntityTypeId}/tenants/publishAll:
+    parameters:
+      - name: customEntityTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntityTypes/{customEntityTypeId}/tenants/unpublish:
+    parameters:
+      - name: customEntityTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+  /customEntityTypes/{customEntityTypeId}/tenants/unpublishAll:
+    parameters:
+      - name: customEntityTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/edgeClusters/{edgeClusterId}:
+    parameters:
+      - name: edgeClusterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/edgeClusters:
+    parameters: []
+  /1.0.0/edgeGateways/{gatewayId}:
+    parameters:
+      - name: gatewayId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/edgeGateways:
+    parameters: []
+  /1.0.0/universalRouters/{universalRouterId}/routing/egressPoints/{egressPointId}:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: egressPointId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/routing/egressPoints/{egressPointId}/sync:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: egressPointId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/routing/egressPoints:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/smtp/test:
+    parameters: []
+  /1.0.0/externalNetworks:
+    parameters: []
+  /1.0.0/externalNetworks/{externalNetworkId}:
+    parameters:
+      - name: externalNetworkId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/globalRoles/{id}/rights:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/globalRoles:
+    parameters: []
+  /1.0.0/globalRoles/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/globalRoles/{id}/tenants/publish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/globalRoles/{id}/tenants/publishAll:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/globalRoles/{id}/tenants/unpublish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/globalRoles/{id}/tenants/unpublishAll:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/globalRoles/{id}/tenants:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/ldap/search/group:
+    parameters: []
+  /1.0.0/ldap/search/user:
+    parameters: []
+  /1.0.0/ldap/sync:
+    parameters: []
+  /1.0.0/ldap/test:
+    parameters: []
+  /1.0.0/logicalVmGroups/{logicalVmGroupId}/namedVmGroups:
+    parameters:
+      - name: logicalVmGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/logicalVmGroups:
+    parameters: []
+  /1.0.0/logicalVmGroups/{logicalVmGroupId}:
+    parameters:
+      - name: logicalVmGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/logicalVmGroups/{logicalVmGroupId}/pvdcPolicies:
+    parameters:
+      - name: logicalVmGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/nsxTResources/importableTier0Routers:
+    parameters: []
+  /1.0.0/nsxTResources/importableTier1Routers:
+    parameters: []
+  /1.0.0/orgVdcNetworks/{vdcNetworkId}:
+    parameters:
+      - name: vdcNetworkId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/orgVdcNetworks/{vdcNetworkId}/allocatedIpAddresses:
+    parameters:
+      - name: vdcNetworkId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/orgVdcNetworks/{vdcNetworkId}/reset:
+    parameters:
+      - name: vdcNetworkId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/orgVdcNetworks/{vdcNetworkId}/syncSyslog:
+    parameters:
+      - name: vdcNetworkId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/orgVdcNetworks/{vdcNetworkId}/dhcp:
+    parameters:
+      - name: vdcNetworkId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/orgVdcNetworks:
+    parameters: []
+  /1.0.0/preferences/{classifier}:
+    parameters:
+      - name: classifier
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/definitions/preferences/{preferenceDefinitionId}:
+    parameters:
+      - name: preferenceDefinitionId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/definitions/preferences:
+    parameters: []
+  /1.0.0/preferences:
+    parameters: []
+  /1.0.0/pvdcComputePolicies:
+    parameters: []
+  /1.0.0/pvdcComputePolicies/{pvdcComputePolicyId}:
+    parameters:
+      - name: pvdcComputePolicyId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/pvdcComputePolicies/{pvdcComputePolicyId}/vms:
+    parameters:
+      - name: pvdcComputePolicyId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rights/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rights:
+    parameters: []
+  /1.0.0/rightsBundles/{id}/rights:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rightsBundles:
+    parameters: []
+  /1.0.0/rightsBundles/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rightsBundles/{id}/tenants/publish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rightsBundles/{id}/tenants/publishAll:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rightsBundles/{id}/tenants/unpublish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rightsBundles/{id}/tenants/unpublishAll:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rightsBundles/{id}/tenants:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rightsCategories/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/rightsCategories:
+    parameters: []
+  /1.0.0/roles/{id}/rights:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/roles:
+    parameters: []
+  /1.0.0/roles/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcProxies:
+    parameters: []
+  /1.0.0/sddcProxies/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcProxiesPac:
+    parameters: []
+  /1.0.0/sddcProxies/{id}/cert:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcProxies/{id}/thumbprint:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcs:
+    parameters: []
+  /1.0.0/sddcs/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcs/{id}/proxies:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcs/{id}/owner:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcs/{id}/tenants:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcs/{id}/tenants/publish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/sddcs/{id}/tenants/unpublish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/serviceApps/{serviceAppId}:
+    parameters:
+      - name: serviceAppId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/serviceApps:
+    parameters: []
+  /serviceLibrary:
+    parameters: []
+  /serviceLibrary/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /serviceItem/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /serviceItem/{id}/tenants:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /serviceLibrary/{id}/workflows:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /serviceItem/{id}/tenants/publish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /serviceItem/{id}/tenants/publishAll:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /serviceItem/{id}/tenants/unpublish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /serviceItem/{id}/tenants/unpublishAll:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /serviceItem:
+    parameters: []
+  /extensions/ui/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /extensions/ui/extensionPoints:
+    parameters: []
+  /extensions/ui/{id}/plugin:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /extensions/ui/{id}/tenants:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /extensions/ui/{id}/tenants/publish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /extensions/ui/{id}/tenants/publishAll:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /extensions/ui/{id}/tenants/unpublish:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /extensions/ui/{id}/tenants/unpublishAll:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /extensions/ui:
+    parameters: []
+  /1.0.0/universalRouters/{universalRouterId}:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/sync:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/dhcp:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/dns:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/health:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters:
+    parameters: []
+  /1.0.0/vdcGroups/{vdcGroupId}/universalRouters:
+    parameters:
+      - name: vdcGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/routing:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/routing/routes:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/universalRouters/{universalRouterId}/routing/routes/sync:
+    parameters:
+      - name: universalRouterId
+        in: path
+        required: true
+        schema:
+          type: string
+  /vro/servers/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /vro/servers:
+    parameters: []
+  /1.0.0/vdcComputePolicies/{vdcComputePolicyId}/vdcs:
+    parameters:
+      - name: vdcComputePolicyId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/vdcComputePolicies:
+    parameters: []
+  /1.0.0/vdcComputePolicies/{vdcComputePolicyId}:
+    parameters:
+      - name: vdcComputePolicyId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/vdcComputePolicies/{vdcComputePolicyId}/vms:
+    parameters:
+      - name: vdcComputePolicyId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/vdcGroups/{vdcGroupId}:
+    parameters:
+      - name: vdcGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/vdcGroups/{vdcGroupId}/sync:
+    parameters:
+      - name: vdcGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/vdcGroups:
+    parameters: []
+  /1.0.0/vdcs/{orgVdcId}/networkProfile:
+    parameters:
+      - name: orgVdcId
+        in: path
+        required: true
+        schema:
+          type: string
+  /1.0.0/serviceApps/{serviceAppId}/sddcs:
+    parameters:
+      - name: serviceAppId
+        in: path
+        required: true
+        schema:
+          type: string
+  /vro/servers/{vroId}/sdkObjects/{target}/{browsePaths:.+}:
+    parameters:
+      - name: vroId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: browsePaths
+        in: path
+        required: true
+        schema:
+          type: string
+  /vro/servers/{vroId}/entityTypes:
+    parameters:
+      - name: vroId
+        in: path
+        required: true
+        schema:
+          type: string
+  /vro/servers/{vroId}/entityTypes/{pluginName}:
+    parameters:
+      - name: vroId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pluginName
+        in: path
+        required: true
+        schema:
+          type: string
+  /vro/servers/{vroId}/inventory{any:.*}:
+    parameters:
+      - name: vroId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: any
+        in: path
+        required: true
+        schema:
+          type: string
+  /vro/servers/{vroId}/sdkObjects/{target}:
+    parameters:
+      - name: vroId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: path
+        required: true
+        schema:
+          type: string
+  /vro/servers/{vroServerId}/workflows:
+    parameters:
+      - name: vroServerId
+        in: path
+        required: true
+        schema:
+          type: string
+  /workflows/{workflowId}/executions/{executionId}/state:
+    parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: executionId
+        in: path
+        required: true
+        schema:
+          type: string
+  /workflows/{workflowId}/executions/{executionId}:
+    parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: executionId
+        in: path
+        required: true
+        schema:
+          type: string
+  /workflows/{workflowId}/executions:
+    parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+  /workflows/parameterTypes:
+    parameters: []
+  /workflows/decorators:
+    parameters: []
+  /workflows/presentationElements:
+    parameters: []
+  /workflows/constraints:
+    parameters: []
+  /workflows/{workflowId}/presentation/instances/{presentationExecutionId}:
+    parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: presentationExecutionId
+        in: path
+        required: true
+        schema:
+          type: string
+  /workflows/{workflowId}/presentation/instances:
+    parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
+  /workflows/{workflowId}/presentation:
+    parameters:
+      - name: workflowId
+        in: path
+        required: true
+        schema:
+          type: string
