@@ -1,34 +1,28 @@
 import { Page } from "puppeteer";
 
+type ParameterType = {
+  name: string;
+  in: "path";
+  required: true;
+  schema: { type: string };
+};
+
+type OperationObjectType = {
+  tags: string[];
+  description: string;
+};
+
+type PathItemType = {
+  parameters: ParameterType[];
+  get?: OperationObjectType;
+  put?: OperationObjectType;
+  post?: OperationObjectType;
+  delete?: OperationObjectType;
+};
+
 export const paths = async (page: Page) =>
   await page.evaluate(() => {
-    const pathItems: Record<
-      string,
-      {
-        parameters: {
-          name: string;
-          in: "path";
-          required: true;
-          schema: { type: string };
-        }[];
-      }
-    > = {};
-    const pathAricles = document.querySelectorAll("#sections article");
-    for (let i = 0; i < pathAricles.length; i++) {
-      const pathArticle = pathAricles[i];
-      const route =
-        pathArticle.querySelector(
-          "pre.prettyprint.language-html.prettyprinted span.pln"
-        )?.textContent ?? null;
-      if (route === null) {
-        continue;
-      }
-      const parameters: {
-        name: string;
-        in: "path";
-        required: true;
-        schema: { type: string };
-      }[] = [];
+    function populateParams(pathArticle: Element, pathItem: PathItemType) {
       const paramsTables = pathArticle.querySelectorAll("[id=methodsubtable]");
       for (let i = 0; i < paramsTables.length; i++) {
         const paramsTable = paramsTables[i];
@@ -48,7 +42,7 @@ export const paths = async (page: Page) =>
             if (name === null || type === null) {
               continue;
             }
-            parameters.push({
+            pathItem.parameters.push({
               name: name.split("*")[0],
               in: "path",
               required: true,
@@ -57,7 +51,52 @@ export const paths = async (page: Page) =>
           }
         }
       }
-      pathItems[route] = { parameters };
+    }
+
+    const pathItems: Record<string, PathItemType> = {};
+    const pathAricles = document.querySelectorAll("#sections article");
+    for (let i = 0; i < pathAricles.length; i++) {
+      const pathArticle = pathAricles[i];
+      const routeElement = pathArticle.querySelector(
+        "pre.prettyprint.language-html.prettyprinted span.pln"
+      );
+      if (routeElement === null) {
+        continue;
+      }
+      const route = routeElement.textContent ?? null;
+      if (route === null) {
+        continue;
+      }
+
+      const pathItem: PathItemType = pathItems[route] ?? { parameters: [] };
+      pathItems[route] = pathItem;
+
+      if (pathItem.parameters.length === 0) {
+        populateParams(pathArticle, pathItem);
+      }
+
+      const description =
+        pathArticle.querySelector("div")?.textContent?.trim() ?? null;
+      if (description === null) {
+        continue;
+      }
+      const operationObject: OperationObjectType = { tags: [], description };
+      switch (
+        routeElement.parentElement?.parentElement?.getAttribute("data-type")
+      ) {
+        case "get":
+          pathItem.get = operationObject;
+          break;
+        case "put":
+          pathItem.put = operationObject;
+          break;
+        case "post":
+          pathItem.post = operationObject;
+          break;
+        case "delete":
+          pathItem.delete = operationObject;
+          break;
+      }
     }
     return pathItems;
   });

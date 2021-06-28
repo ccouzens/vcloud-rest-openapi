@@ -3056,6 +3056,12 @@ tags:
 paths:
   /branding/themes:
     parameters: []
+    post:
+      tags: []
+      description: Create a new custom theme
+    get:
+      tags: []
+      description: Get a list of themes
   /branding/themes/{name}:
     parameters:
       - name: name
@@ -3063,6 +3069,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete an existing custom theme
+    get:
+      tags: []
+      description: Retrieve a specified theme identified by name
+    put:
+      tags: []
+      description: Update an existing custom theme
   /branding/themes/{name}/contents:
     parameters:
       - name: name
@@ -3070,10 +3085,34 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete an existing custom theme's contents
+    post:
+      tags: []
+      description: Upload the contents for this theme
   /branding/icon:
     parameters: []
+    delete:
+      tags: []
+      description: Delete system level icon
+    get:
+      tags: []
+      description: Gets the system level browser icon
+    put:
+      tags: []
+      description: Sets the system level icon
   /branding/logo:
     parameters: []
+    delete:
+      tags: []
+      description: Delete system level logo
+    get:
+      tags: []
+      description: Gets the system level logo
+    put:
+      tags: []
+      description: Sets the system level logo
   /branding/tenant/{org}/icon:
     parameters:
       - name: org
@@ -3081,6 +3120,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete system level icon
+    get:
+      tags: []
+      description: Gets the system level browser icon
+    put:
+      tags: []
+      description: Sets the system level icon
   /branding/tenant/{org}/logo:
     parameters:
       - name: org
@@ -3088,6 +3136,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete the org-specific logo
+    get:
+      tags: []
+      description: Gets the org-specific logo
+    put:
+      tags: []
+      description: Sets the org-specific logo
   /branding/themes/{name}/css:
     parameters:
       - name: name
@@ -3095,8 +3152,17 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve the custom CSS for this theme, if any
   /branding:
     parameters: []
+    get:
+      tags: []
+      description: Gets the system level branding
+    put:
+      tags: []
+      description: Sets default branding
   /branding/tenant/{org}:
     parameters:
       - name: org
@@ -3104,6 +3170,15 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Gets org-specific branding
+    put:
+      tags: []
+      description: Sets org-specific branding
+    delete:
+      tags: []
+      description: Remove org-specific branding
   /1.0.0/vdcs/{orgVdcId}/capabilities:
     parameters:
       - name: orgVdcId
@@ -3111,10 +3186,20 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves capabilities for a given entity.
   /:
     parameters: []
+    get:
+      tags: []
+      description: Get base navigation links
   /query/page:
     parameters: []
+    get:
+      tags: []
+      description: This endpoint will not produce results. It is a placeholder to
+        enforce code generation of Page.
   /1.0.0/crossVdcNetworks/{crossVdcNetworkId}:
     parameters:
       - name: crossVdcNetworkId
@@ -3122,6 +3207,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a specific Cross vDC network
+    get:
+      tags: []
+      description: Retrieves a specific Cross vDC network.
+    put:
+      tags: []
+      description: Updates a specific Cross vDC network.
   /1.0.0/crossVdcNetworks/{crossVdcNetworkId}/sync:
     parameters:
       - name: crossVdcNetworkId
@@ -3129,8 +3223,17 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Sync/repair a specific Cross vDC network.
   /1.0.0/crossVdcNetworks:
     parameters: []
+    post:
+      tags: []
+      description: Creates a Cross vDC network.
+    get:
+      tags: []
+      description: Get all Cross vDC networks in the system.
   /1.0.0/vdcGroups/{vdcGroupId}/crossVdcNetworks:
     parameters:
       - name: vdcGroupId
@@ -3138,8 +3241,17 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get all Cross vDC networks of a vDC group.
   /customEntityTypes:
     parameters: []
+    post:
+      tags: []
+      description: Creates a new custom entity type
+    get:
+      tags: []
+      description: Get list of all custom entity types
   /customEntityTypes/{customEntityTypeId}/actions:
     parameters:
       - name: customEntityTypeId
@@ -3147,6 +3259,12 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Creates a new custom entity type action.
+    get:
+      tags: []
+      description: Get all actions associated with this custom entity type
   /customEntityTypes/{customEntityTypeId}:
     parameters:
       - name: customEntityTypeId
@@ -3154,6 +3272,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified custom entity type.
+    get:
+      tags: []
+      description: Get specified custom entity type
+    put:
+      tags: []
+      description: Update specified custom entity type
   /customEntityTypes/{customEntityTypeId}/actions/{workflowId}:
     parameters:
       - name: customEntityTypeId
@@ -3166,8 +3293,14 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified custom entity type action
   /customEntities:
     parameters: []
+    get:
+      tags: []
+      description: Get list of all custom entities
   /customEntities/{customEntityId}:
     parameters:
       - name: customEntityId
@@ -3175,6 +3308,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get specified custom entity
   /customEntities/{customEntityId}/sdkObject:
     parameters:
       - name: customEntityId
@@ -3182,6 +3318,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get specified custom entity represented as on Sdk-Object
   /customEntityTypes/{customEntityTypeId}/tenants:
     parameters:
       - name: customEntityTypeId
@@ -3189,6 +3328,14 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves list of tenants for whom the custom entity type is explicitly
+        published
+    put:
+      tags: []
+      description: Resets list of tenants for whom the custom entity type is explicitly
+        published
   /customEntityTypes/{customEntityTypeId}/tenants/publish:
     parameters:
       - name: customEntityTypeId
@@ -3196,6 +3343,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the custom entity type to the specified tenants
   /customEntityTypes/{customEntityTypeId}/tenants/publishAll:
     parameters:
       - name: customEntityTypeId
@@ -3203,6 +3353,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the custom entity type to all tenants
   /customEntityTypes/{customEntityTypeId}/tenants/unpublish:
     parameters:
       - name: customEntityTypeId
@@ -3210,6 +3363,10 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Revokes publication of the custom entity type to the specified
+        tenants
   /customEntityTypes/{customEntityTypeId}/tenants/unpublishAll:
     parameters:
       - name: customEntityTypeId
@@ -3217,6 +3374,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Unpublishes the custom entity type from all tenants
   /1.0.0/edgeClusters/{edgeClusterId}:
     parameters:
       - name: edgeClusterId
@@ -3224,8 +3384,23 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a specific Edge Cluster
+    get:
+      tags: []
+      description: Retrieves a specific Edge Cluster
+    put:
+      tags: []
+      description: Updates a specific Edge Cluster
   /1.0.0/edgeClusters:
     parameters: []
+    post:
+      tags: []
+      description: Create a new Edge Cluster
+    get:
+      tags: []
+      description: Get all Edge Clusters in the system
   /1.0.0/edgeGateways/{gatewayId}:
     parameters:
       - name: gatewayId
@@ -3233,8 +3408,23 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a specific Edge Gateway
+    get:
+      tags: []
+      description: Retrieves a specific Edge Gateway
+    put:
+      tags: []
+      description: Updates a specific Edge Gateway
   /1.0.0/edgeGateways:
     parameters: []
+    post:
+      tags: []
+      description: Create a new edge gateway
+    get:
+      tags: []
+      description: Get all the edge gateways
   /1.0.0/universalRouters/{universalRouterId}/routing/egressPoints/{egressPointId}:
     parameters:
       - name: universalRouterId
@@ -3247,6 +3437,12 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a specific Universal Egress Point.
+    get:
+      tags: []
+      description: Retrieves a specific Universal Egress Point.
   /1.0.0/universalRouters/{universalRouterId}/routing/egressPoints/{egressPointId}/sync:
     parameters:
       - name: universalRouterId
@@ -3259,6 +3455,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Sync/repair the egress point.
   /1.0.0/universalRouters/{universalRouterId}/routing/egressPoints:
     parameters:
       - name: universalRouterId
@@ -3266,10 +3465,26 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Creates a new Universal Egress Point from a specified Edge Gateway
+        and Org vDC.
+    get:
+      tags: []
+      description: Get a list of Universal Egress Points for a Universal Router.
   /1.0.0/smtp/test:
     parameters: []
+    post:
+      tags: []
+      description: Tests Email Settings and Connection
   /1.0.0/externalNetworks:
     parameters: []
+    post:
+      tags: []
+      description: Create an external network
+    get:
+      tags: []
+      description: Get all external networks.
   /1.0.0/externalNetworks/{externalNetworkId}:
     parameters:
       - name: externalNetworkId
@@ -3277,6 +3492,12 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a specific external network.
+    get:
+      tags: []
+      description: Retrieves a specific external network.
   /1.0.0/globalRoles/{id}/rights:
     parameters:
       - name: id
@@ -3284,8 +3505,25 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Adds the specified rights to a global role.
+    get:
+      tags: []
+      description: Gets a paged list of rights (as references) contained by a particular
+        global role
+    put:
+      tags: []
+      description: Replaces the existing set of rights in global role with the rights
+        (as references) supplied.
   /1.0.0/globalRoles:
     parameters: []
+    post:
+      tags: []
+      description: Creates a new global role
+    get:
+      tags: []
+      description: Get list of global roles
   /1.0.0/globalRoles/{id}:
     parameters:
       - name: id
@@ -3293,6 +3531,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified global role
+    get:
+      tags: []
+      description: Get specified global role
+    put:
+      tags: []
+      description: Update specified global role
   /1.0.0/globalRoles/{id}/tenants/publish:
     parameters:
       - name: id
@@ -3300,6 +3547,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the global role to the specified tenants
   /1.0.0/globalRoles/{id}/tenants/publishAll:
     parameters:
       - name: id
@@ -3307,6 +3557,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the global role to all tenants
   /1.0.0/globalRoles/{id}/tenants/unpublish:
     parameters:
       - name: id
@@ -3314,6 +3567,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Revokes publication of the global role to the specified tenants
   /1.0.0/globalRoles/{id}/tenants/unpublishAll:
     parameters:
       - name: id
@@ -3321,6 +3577,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Unpublishes the global role from all tenants
   /1.0.0/globalRoles/{id}/tenants:
     parameters:
       - name: id
@@ -3328,14 +3587,33 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves list of tenants for whom the global role is explicitly
+        published
+    put:
+      tags: []
+      description: Resets list of tenants for whom the global role is explicitly published
   /1.0.0/ldap/search/group:
     parameters: []
+    get:
+      tags: []
+      description: Search LDAP Groups
   /1.0.0/ldap/search/user:
     parameters: []
+    get:
+      tags: []
+      description: Search LDAP Users
   /1.0.0/ldap/sync:
     parameters: []
+    post:
+      tags: []
+      description: Synchronize LDAP users/settings
   /1.0.0/ldap/test:
     parameters: []
+    post:
+      tags: []
+      description: Tests LDAP Connection and Settings
   /1.0.0/logicalVmGroups/{logicalVmGroupId}/namedVmGroups:
     parameters:
       - name: logicalVmGroupId
@@ -3343,8 +3621,20 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Assign named vm groups to logical vm group.
+    get:
+      tags: []
+      description: Get all named vm groups associated with logical vm group
   /1.0.0/logicalVmGroups:
     parameters: []
+    post:
+      tags: []
+      description: Creates a new logical vm group
+    get:
+      tags: []
+      description: Get list of logical vm groups.
   /1.0.0/logicalVmGroups/{logicalVmGroupId}:
     parameters:
       - name: logicalVmGroupId
@@ -3352,6 +3642,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified logical vm group.
+    get:
+      tags: []
+      description: Get specified logical vm group
+    put:
+      tags: []
+      description: Update specified logical vm group
   /1.0.0/logicalVmGroups/{logicalVmGroupId}/pvdcPolicies:
     parameters:
       - name: logicalVmGroupId
@@ -3359,10 +3658,21 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get all pvdc policies associated with logical vm group
   /1.0.0/nsxTResources/importableTier0Routers:
     parameters: []
+    get:
+      tags: []
+      description: Get all importable Tier-0 routers that are accessible to an organization
+        vDC.
   /1.0.0/nsxTResources/importableTier1Routers:
     parameters: []
+    get:
+      tags: []
+      description: Get all importable Tier-1 routers that are accessible to an organization
+        vDC.
   /1.0.0/orgVdcNetworks/{vdcNetworkId}:
     parameters:
       - name: vdcNetworkId
@@ -3370,6 +3680,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a specific Org vDC network.
+    get:
+      tags: []
+      description: Retrieves a specific Org vDC network.
+    put:
+      tags: []
+      description: Updates a specific Org vDC network.
   /1.0.0/orgVdcNetworks/{vdcNetworkId}/allocatedIpAddresses:
     parameters:
       - name: vdcNetworkId
@@ -3377,6 +3696,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve the list of IP addresses allocated to the network.
   /1.0.0/orgVdcNetworks/{vdcNetworkId}/reset:
     parameters:
       - name: vdcNetworkId
@@ -3384,6 +3706,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Reset a specific isolated Org vDC network.
   /1.0.0/orgVdcNetworks/{vdcNetworkId}/syncSyslog:
     parameters:
       - name: vdcNetworkId
@@ -3391,6 +3716,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Synchronize syslog server settings for a Org vDC network.
   /1.0.0/orgVdcNetworks/{vdcNetworkId}/dhcp:
     parameters:
       - name: vdcNetworkId
@@ -3398,8 +3726,23 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Removes Dhcp configuration on a specific Org vDC network.
+    get:
+      tags: []
+      description: Retrieves Dhcp configuration of a specific Org vDC network.
+    put:
+      tags: []
+      description: Updates Dhcp configuration of a specific Org vDC network.
   /1.0.0/orgVdcNetworks:
     parameters: []
+    post:
+      tags: []
+      description: Create an organization vDC network.
+    get:
+      tags: []
+      description: Get all Org vDC networks.
   /1.0.0/preferences/{classifier}:
     parameters:
       - name: classifier
@@ -3407,6 +3750,12 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get specified user preference.
+    put:
+      tags: []
+      description: Update specified user preference
   /1.0.0/definitions/preferences/{preferenceDefinitionId}:
     parameters:
       - name: preferenceDefinitionId
@@ -3414,12 +3763,27 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get specified preference definition.
   /1.0.0/definitions/preferences:
     parameters: []
+    get:
+      tags: []
+      description: Get list of preference definitions.
   /1.0.0/preferences:
     parameters: []
+    get:
+      tags: []
+      description: Query user preferences.
   /1.0.0/pvdcComputePolicies:
     parameters: []
+    post:
+      tags: []
+      description: Creates a new provider vDC compute policy
+    get:
+      tags: []
+      description: Get list of provider vDC compute policies.
   /1.0.0/pvdcComputePolicies/{pvdcComputePolicyId}:
     parameters:
       - name: pvdcComputePolicyId
@@ -3427,6 +3791,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified provider vDC compute policy.
+    get:
+      tags: []
+      description: Get specified provider vDC compute policy
+    put:
+      tags: []
+      description: Update specified provider vDC compute policy
   /1.0.0/pvdcComputePolicies/{pvdcComputePolicyId}/vms:
     parameters:
       - name: pvdcComputePolicyId
@@ -3434,6 +3807,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get all VMs associated with this pVDC compute policy
   /1.0.0/rights/{id}:
     parameters:
       - name: id
@@ -3441,8 +3817,14 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve an individual right.
   /1.0.0/rights:
     parameters: []
+    get:
+      tags: []
+      description: Get list of rights visible to logged-in user
   /1.0.0/rightsBundles/{id}/rights:
     parameters:
       - name: id
@@ -3450,8 +3832,25 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Adds the specified rights to a rights bundle.
+    get:
+      tags: []
+      description: Gets a paged list of rights (as references) contained by a particular
+        bundle
+    put:
+      tags: []
+      description: Replaces the existing set of rights in bundle with the rights (as
+        references) supplied.
   /1.0.0/rightsBundles:
     parameters: []
+    post:
+      tags: []
+      description: Creates a new rights bundle
+    get:
+      tags: []
+      description: Get list of rights bundles
   /1.0.0/rightsBundles/{id}:
     parameters:
       - name: id
@@ -3459,6 +3858,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified rights bundle
+    get:
+      tags: []
+      description: Get specified rights bundle
+    put:
+      tags: []
+      description: Update specified rights bundle
   /1.0.0/rightsBundles/{id}/tenants/publish:
     parameters:
       - name: id
@@ -3466,6 +3874,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the rights bundle to the specified tenants
   /1.0.0/rightsBundles/{id}/tenants/publishAll:
     parameters:
       - name: id
@@ -3473,6 +3884,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the rights bundle to all tenants
   /1.0.0/rightsBundles/{id}/tenants/unpublish:
     parameters:
       - name: id
@@ -3480,6 +3894,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Revokes publication of the rights bundle to the specified tenants
   /1.0.0/rightsBundles/{id}/tenants/unpublishAll:
     parameters:
       - name: id
@@ -3487,6 +3904,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Unpublishes the rights bundle from all tenants
   /1.0.0/rightsBundles/{id}/tenants:
     parameters:
       - name: id
@@ -3494,6 +3914,14 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves list of tenants for whom the rights bundle is explicitly
+        published
+    put:
+      tags: []
+      description: Resets list of tenants for whom the rights bundle is explicitly
+        published
   /1.0.0/rightsCategories/{id}:
     parameters:
       - name: id
@@ -3501,8 +3929,14 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve an individual Right category.
   /1.0.0/rightsCategories:
     parameters: []
+    get:
+      tags: []
+      description: Get a list of Rights Categories visible to the logged in user
   /1.0.0/roles/{id}/rights:
     parameters:
       - name: id
@@ -3510,8 +3944,25 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Adds the specified rights to a role.
+    get:
+      tags: []
+      description: Gets a paged list of rights (as references) contained by a particular
+        role
+    put:
+      tags: []
+      description: Replaces the existing set of rights in role with the rights (as
+        references) supplied.
   /1.0.0/roles:
     parameters: []
+    post:
+      tags: []
+      description: Creates a new role
+    get:
+      tags: []
+      description: Get list of roles for a tenant
   /1.0.0/roles/{id}:
     parameters:
       - name: id
@@ -3519,8 +3970,23 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified role
+    get:
+      tags: []
+      description: Get specified role
+    put:
+      tags: []
+      description: Update specified role
   /1.0.0/sddcProxies:
     parameters: []
+    post:
+      tags: []
+      description: Creates an SDDC proxy.
+    get:
+      tags: []
+      description: Gets a paged list of SDDC proxies for a tenant.
   /1.0.0/sddcProxies/{id}:
     parameters:
       - name: id
@@ -3528,8 +3994,21 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete a specific SDDC proxy. Will not delete an enabled proxy
+        unless force is specified.
+    get:
+      tags: []
+      description: Retrieves a specific SDDC proxy.
+    put:
+      tags: []
+      description: Update a specific SDDC proxy.
   /1.0.0/sddcProxiesPac:
     parameters: []
+    get:
+      tags: []
+      description: Gets the .pac file for the user's accessible SDDC proxies.
   /1.0.0/sddcProxies/{id}/cert:
     parameters:
       - name: id
@@ -3537,6 +4016,12 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve a SDDC proxy SSL certificate chain in PEM format.
+    put:
+      tags: []
+      description: Update a SDDC proxy certificate chain in PEM format.
   /1.0.0/sddcProxies/{id}/thumbprint:
     parameters:
       - name: id
@@ -3544,8 +4029,19 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve a SDDC Proxy SSL certificate thumbprint. The thumbprint
+        is the SHA-1 hash of the DER encoding of the certificate.
   /1.0.0/sddcs:
     parameters: []
+    post:
+      tags: []
+      description: Create a Software-Defined Datacenter.
+    get:
+      tags: []
+      description: Get the list of Software-Defined Datacenters accessible to the
+        user.
   /1.0.0/sddcs/{id}:
     parameters:
       - name: id
@@ -3553,6 +4049,18 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: 'Delete a specific Software-Defined Datacenter. Unless force is
+        specified, SDDC & its
+
+        proxies must be disabled before they can be deleted.'
+    get:
+      tags: []
+      description: Retrieve a specific Software-Defined Datacenter.
+    put:
+      tags: []
+      description: Update a specific Software-Defined Datacenter.
   /1.0.0/sddcs/{id}/proxies:
     parameters:
       - name: id
@@ -3560,6 +4068,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve the proxies for the Software-Defined Datacenter.
   /1.0.0/sddcs/{id}/owner:
     parameters:
       - name: id
@@ -3567,6 +4078,12 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve the owner of the Software-Defined Datacenter.
+    put:
+      tags: []
+      description: Update the owner of the Software-Defined Datacenter.
   /1.0.0/sddcs/{id}/tenants:
     parameters:
       - name: id
@@ -3574,6 +4091,14 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieve the list of tenants a Software-Defined Datacenter is published
+        to.
+    put:
+      tags: []
+      description: Reset the list of tenants a Software-Defined Datacenter is published
+        to.
   /1.0.0/sddcs/{id}/tenants/publish:
     parameters:
       - name: id
@@ -3581,6 +4106,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publish a Software-Defined Datacenter to the given tenants.
   /1.0.0/sddcs/{id}/tenants/unpublish:
     parameters:
       - name: id
@@ -3588,6 +4116,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Revoke publication of the Software-Defined Datacenter for the tenants.
   /1.0.0/serviceApps/{serviceAppId}:
     parameters:
       - name: serviceAppId
@@ -3595,10 +4126,31 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a specific VMware service application.
+    get:
+      tags: []
+      description: Retrieves a specific VMware service application
+    put:
+      tags: []
+      description: Updates a specific VMware service application.
   /1.0.0/serviceApps:
     parameters: []
+    post:
+      tags: []
+      description: Create a VMware service app
+    get:
+      tags: []
+      description: Get all registered VMware service applications
   /serviceLibrary:
     parameters: []
+    post:
+      tags: []
+      description: Creates a new service
+    get:
+      tags: []
+      description: Get list of services
   /serviceLibrary/{id}:
     parameters:
       - name: id
@@ -3606,6 +4158,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified service
+    get:
+      tags: []
+      description: Get specified service
+    put:
+      tags: []
+      description: Update specified service
   /serviceItem/{id}:
     parameters:
       - name: id
@@ -3613,6 +4174,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes specified service item
+    get:
+      tags: []
+      description: Get the specified item
+    put:
+      tags: []
+      description: Update specified service item
   /serviceItem/{id}/tenants:
     parameters:
       - name: id
@@ -3620,6 +4190,14 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves list of tenants for whom the service item is explicitly
+        published
+    put:
+      tags: []
+      description: Resets list of tenants for whom the service item is explicitly
+        published
   /serviceLibrary/{id}/workflows:
     parameters:
       - name: id
@@ -3627,6 +4205,13 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: This endpoint will not produce results. It is a placeholder to
+        enforce code generation of VroWorkflowServiceItem
+    post:
+      tags: []
+      description: Add VRO remote workflows to this service
   /serviceItem/{id}/tenants/publish:
     parameters:
       - name: id
@@ -3634,6 +4219,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the service item to the specified tenants
   /serviceItem/{id}/tenants/publishAll:
     parameters:
       - name: id
@@ -3641,6 +4229,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the service item to all tenants
   /serviceItem/{id}/tenants/unpublish:
     parameters:
       - name: id
@@ -3648,6 +4239,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Revokes publication of the service item to the specified tenants
   /serviceItem/{id}/tenants/unpublishAll:
     parameters:
       - name: id
@@ -3655,8 +4249,14 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Unpublishes the service item from all tenants
   /serviceItem:
     parameters: []
+    get:
+      tags: []
+      description: Get all items across all services
   /extensions/ui/{id}:
     parameters:
       - name: id
@@ -3664,8 +4264,24 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete system level logo
+    get:
+      tags: []
+      description: Retrieves extension specific plugin metadata
+    put:
+      tags: []
+      description: Updates extension specific plugin's metadata
   /extensions/ui/extensionPoints:
     parameters: []
+    get:
+      tags: []
+      description: Retrieves a map of extension Points and an ordered list of items
+        registered with that extension point
+    put:
+      tags: []
+      description: Customizes the order and enables/disables extension Points
   /extensions/ui/{id}/plugin:
     parameters:
       - name: id
@@ -3673,6 +4289,12 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete the plugin for this extension
+    post:
+      tags: []
+      description: Upload the plugin for this extension
   /extensions/ui/{id}/tenants:
     parameters:
       - name: id
@@ -3680,6 +4302,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves list of tenants for whom the plugin is explicitly published
   /extensions/ui/{id}/tenants/publish:
     parameters:
       - name: id
@@ -3687,6 +4312,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the UI plugin to the specified tenants
   /extensions/ui/{id}/tenants/publishAll:
     parameters:
       - name: id
@@ -3694,6 +4322,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Publishes the UI plugin to all tenants
   /extensions/ui/{id}/tenants/unpublish:
     parameters:
       - name: id
@@ -3701,6 +4332,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Revokes publication of the UI plugin to the specified tenants
   /extensions/ui/{id}/tenants/unpublishAll:
     parameters:
       - name: id
@@ -3708,8 +4342,17 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Unpublishes the UI plugin from all tenants
   /extensions/ui:
     parameters: []
+    post:
+      tags: []
+      description: Adds plugin metadata for a new UI Extension
+    get:
+      tags: []
+      description: Get a list of all UI Extensions
   /1.0.0/universalRouters/{universalRouterId}:
     parameters:
       - name: universalRouterId
@@ -3717,6 +4360,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a specific Universal Router
+    get:
+      tags: []
+      description: Retrieves a specific Universal Router
+    put:
+      tags: []
+      description: Updates a specific Universal Router
   /1.0.0/universalRouters/{universalRouterId}/sync:
     parameters:
       - name: universalRouterId
@@ -3724,6 +4376,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Sync/repair the Universal Router
   /1.0.0/universalRouters/{universalRouterId}/dhcp:
     parameters:
       - name: universalRouterId
@@ -3731,6 +4386,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes Dhcp configuration of a specific Universal Router
+    get:
+      tags: []
+      description: Retrieves Dhcp configuration of a specific Universal Router
+    put:
+      tags: []
+      description: Updates Dhcp configuration for a specific Universal Router
   /1.0.0/universalRouters/{universalRouterId}/dns:
     parameters:
       - name: universalRouterId
@@ -3738,6 +4402,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes dns configuration of a universal router
+    get:
+      tags: []
+      description: Retrieves dns configuration of a universal router
+    put:
+      tags: []
+      description: Updates dns configuration of a universal Router
   /1.0.0/universalRouters/{universalRouterId}/health:
     parameters:
       - name: universalRouterId
@@ -3745,8 +4418,14 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get Health information of a universal router
   /1.0.0/universalRouters:
     parameters: []
+    post:
+      tags: []
+      description: Create a new universal router
   /1.0.0/vdcGroups/{vdcGroupId}/universalRouters:
     parameters:
       - name: vdcGroupId
@@ -3754,6 +4433,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get all the universal routers defined for a vDC group
   /1.0.0/universalRouters/{universalRouterId}/routing:
     parameters:
       - name: universalRouterId
@@ -3761,6 +4443,19 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves Universal Egress Points and routing configuration for
+        a Universal Router.
+    put:
+      tags: []
+      description: 'Updates the routing configuration using the specified egress points
+        in the universal routes. Any egress point that does not exist will be
+
+        created before updating routing. Any egress point that currently exists and
+        is not in use by any of the specified routes will be deleted. If the new
+
+        egress points for routing fail to create, routing will not be updated.'
   /1.0.0/universalRouters/{universalRouterId}/routing/routes:
     parameters:
       - name: universalRouterId
@@ -3768,6 +4463,12 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves routing configuration for a Universal Router.
+    put:
+      tags: []
+      description: Updates routing configuration for a Universal Router.
   /1.0.0/universalRouters/{universalRouterId}/routing/routes/sync:
     parameters:
       - name: universalRouterId
@@ -3775,6 +4476,9 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Sync/repair the routing configuration for a Universal Router.
   /vro/servers/{id}:
     parameters:
       - name: id
@@ -3782,8 +4486,23 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves service specific metadata for a vRealize Orchestrator
+    delete:
+      tags: []
+      description: Unregisters a vRealize Orchestrator endpoint from vCloud Director
+    put:
+      tags: []
+      description: Updates service specific metadata for a vRealize Orchestrator
   /vro/servers:
     parameters: []
+    get:
+      tags: []
+      description: Get a list of registered vRealize Orchestrator services
+    post:
+      tags: []
+      description: Register a vRealize Orchestrator endpoint with vCloud Director
   /1.0.0/vdcComputePolicies/{vdcComputePolicyId}/vdcs:
     parameters:
       - name: vdcComputePolicyId
@@ -3791,8 +4510,20 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: Assign this organization vDC compute policy to list of vDCs.
+    get:
+      tags: []
+      description: Get organization vDCs associated with this vDC compute policy
   /1.0.0/vdcComputePolicies:
     parameters: []
+    post:
+      tags: []
+      description: Creates a new organization vDC compute policy
+    get:
+      tags: []
+      description: Get list of organization vDC compute policies.
   /1.0.0/vdcComputePolicies/{vdcComputePolicyId}:
     parameters:
       - name: vdcComputePolicyId
@@ -3800,6 +4531,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete specified organization vDC compute policy.
+    get:
+      tags: []
+      description: Get specified organization vDC compute policy
+    put:
+      tags: []
+      description: Update specified organization vDC compute policy
   /1.0.0/vdcComputePolicies/{vdcComputePolicyId}/vms:
     parameters:
       - name: vdcComputePolicyId
@@ -3807,6 +4547,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get all VMs associated with this vDC compute policy
   /1.0.0/vdcGroups/{vdcGroupId}:
     parameters:
       - name: vdcGroupId
@@ -3814,6 +4557,16 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes a vDC Group
+    get:
+      tags: []
+      description: Retrieves a specific vDC Group.
+    put:
+      tags: []
+      description: Updates a specific vDC Group.  Example is to add/remove a participarting
+        vDC.
   /1.0.0/vdcGroups/{vdcGroupId}/sync:
     parameters:
       - name: vdcGroupId
@@ -3821,8 +4574,32 @@ paths:
         required: true
         schema:
           type: string
+    post:
+      tags: []
+      description: 'Sync/repair the vDC group. An example usage is to detect if a
+        vDC still exists/is valid.
+
+        If an Org vDC referenced by the VDC group is deleted or if it is not participating
+        in universal networking,
+
+        it''s status will be updated to OBJECT_NOT_FOUND and the vdc group will be
+        marked as NOT_REALIZED.
+
+        If the vDC group has universalNetworkingEnabled set to true, this will also
+        initiate a sync of associated router, if any.
+
+        The router entities like egress points and universal routes will also be marked
+        as NOT_REALIZED
+
+        if they reference the removed Org vDC.'
   /1.0.0/vdcGroups:
     parameters: []
+    post:
+      tags: []
+      description: Creates a vDC Group.
+    get:
+      tags: []
+      description: Get a list of vDC Groups.
   /1.0.0/vdcs/{orgVdcId}/networkProfile:
     parameters:
       - name: orgVdcId
@@ -3830,6 +4607,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Deletes/Reset a vDC Network Profile.
+    get:
+      tags: []
+      description: Retrieves the vDC Network Profile.
+    put:
+      tags: []
+      description: Updates the vDC Network Profile.
   /1.0.0/serviceApps/{serviceAppId}/sddcs:
     parameters:
       - name: serviceAppId
@@ -3837,6 +4623,13 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Retrieves a list of SDDCs for a specific VMware service application
+        that are available
+    post:
+      tags: []
+      description: Register a VMware service application SDDC's components
   /vro/servers/{vroId}/sdkObjects/{target}/{browsePaths:.+}:
     parameters:
       - name: vroId
@@ -3854,6 +4647,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Browse remote vRealize Orchestrator inventory
   /vro/servers/{vroId}/entityTypes:
     parameters:
       - name: vroId
@@ -3861,6 +4657,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Browse remote vRealize Orchestrator inventory
   /vro/servers/{vroId}/entityTypes/{pluginName}:
     parameters:
       - name: vroId
@@ -3873,6 +4672,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Browse remote vRealize Orchestrator inventory
   /vro/servers/{vroId}/inventory{any:.*}:
     parameters:
       - name: vroId
@@ -3885,6 +4687,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Browse remote vRealize Orchestrator inventory
   /vro/servers/{vroId}/sdkObjects/{target}:
     parameters:
       - name: vroId
@@ -3897,6 +4702,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Browse remote vRealize Orchestrator inventory
   /vro/servers/{vroServerId}/workflows:
     parameters:
       - name: vroServerId
@@ -3904,6 +4712,9 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Browse remote vRealize Orchestrator workflows
   /workflows/{workflowId}/executions/{executionId}/state:
     parameters:
       - name: workflowId
@@ -3916,6 +4727,12 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Cancel workflow run
+    get:
+      tags: []
+      description: Get workflow execution state
   /workflows/{workflowId}/executions/{executionId}:
     parameters:
       - name: workflowId
@@ -3928,6 +4745,12 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete workflow run
+    get:
+      tags: []
+      description: Get workflow execution
   /workflows/{workflowId}/executions:
     parameters:
       - name: workflowId
@@ -3935,14 +4758,36 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get all executions
+    post:
+      tags: []
+      description: Start workflow execution
   /workflows/parameterTypes:
     parameters: []
+    get:
+      tags: []
+      description: This endpoint will not produce results. It is a placeholder to
+        enforce code generation of ParameterTypes.
   /workflows/decorators:
     parameters: []
+    get:
+      tags: []
+      description: This endpoint will not produce results. It is a placeholder to
+        enforce code generation of SupportedDecorators.
   /workflows/presentationElements:
     parameters: []
+    get:
+      tags: []
+      description: This endpoint will not produce results. It is a placeholder to
+        enforce code generation of SupportedPresentationElements.
   /workflows/constraints:
     parameters: []
+    get:
+      tags: []
+      description: This endpoint will not produce results. It is a placeholder to
+        enforce code generation of SupportedConstraints.
   /workflows/{workflowId}/presentation/instances/{presentationExecutionId}:
     parameters:
       - name: workflowId
@@ -3955,6 +4800,15 @@ paths:
         required: true
         schema:
           type: string
+    delete:
+      tags: []
+      description: Delete workflow presentation execution
+    get:
+      tags: []
+      description: Load Execution
+    put:
+      tags: []
+      description: Update presentation
   /workflows/{workflowId}/presentation/instances:
     parameters:
       - name: workflowId
@@ -3962,6 +4816,12 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get all presentations
+    post:
+      tags: []
+      description: Start presentation
   /workflows/{workflowId}/presentation:
     parameters:
       - name: workflowId
@@ -3969,3 +4829,6 @@ paths:
         required: true
         schema:
           type: string
+    get:
+      tags: []
+      description: Get presentation
