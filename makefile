@@ -8,6 +8,8 @@ specs = \
 34.0.json \
 35.0.json \
 35.2.json \
+36.0.json \
+36.1.json \
 27.0.yml \
 29.0.yml \
 30.0.yml \
@@ -16,7 +18,9 @@ specs = \
 33.0.yml \
 34.0.yml \
 35.0.yml \
-35.2.yml
+35.2.yml \
+36.0.yml \
+36.1.yml
 
 .PHONY : all
 all : $(specs)
@@ -51,11 +55,19 @@ website/34.0.zip:
 
 website/35.0.zip:
 	mkdir -p $(dir $@)
-	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/e5392f68-0310-4bb0-9622-52adfe664c4c/8a8ba663-8f08-471c-9bc9-9f998696b9c0/doc/8a8ba663-8f08-471c-9bc9-9f998696b9c0.zip > $@
+	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/e5392f68-0310-4bb0-9622-52adfe664c4c/f4b08a32-8cbc-42a3-8a07-fba714d8d5d1/doc/f4b08a32-8cbc-42a3-8a07-fba714d8d5d1.zip > $@
 
 website/35.2.zip:
 	mkdir -p $(dir $@)
 	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/ad96a8e3-043d-4e88-a0ba-87db0965b492/029c9ce7-e5fc-47c7-8003-f4bfa046e6db/doc/029c9ce7-e5fc-47c7-8003-f4bfa046e6db.zip > $@
+
+website/36.0.zip:
+	mkdir -p $(dir $@)
+	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/4cb94d1d-d9d0-49cd-b6e5-f4edebaf6753/b83c6907-dc7e-4f3c-9bc5-4060ed512f49/doc/b83c6907-dc7e-4f3c-9bc5-4060ed512f49.zip > $@
+
+website/36.1.zip:
+	mkdir -p $(dir $@)
+	curl https://vdc-download.vmware.com/vmwb-repository/dcr-public/84726741-c7a2-4445-80e6-f0f941e37595/e8d64305-2e69-45ac-bff5-8f98220c7891/doc/e8d64305-2e69-45ac-bff5-8f98220c7891.zip > $@
 
 ./%.json: website/%.zip
 	(cd transformer; cargo run --release) < $< > $@
