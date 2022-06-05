@@ -65,3 +65,31 @@ OpenAPI) is MIT Licensed.
 
 I've assigned the copyright of the OpenAPI definitions to VMware as they are
 derived from their documentation.
+
+## Differences between versions
+
+It may be useful to see what has changed between two versions. The key to
+getting a useful diff is to mask the version number in the content header. The
+following command lines are useful for seeing the differences between versions:
+
+```bash
+# If the repository is downloaded
+diff -U20 --color=always \
+  <(< 36.0.json sed -r 's/version=[0-9.]+/version=xx.x/') \
+  <(< 36.3.json sed -r 's/version=[0-9.]+/version=xx.x/') \
+  | less -R
+```
+
+```bash
+# If the repository has not been downloaded
+diff -U20 --color=always \
+  <(
+    curl -s https://raw.githubusercontent.com/ccouzens/vcloud-rest-openapi/main/36.0.json \
+    | sed -r 's/version=[0-9.]+/version=xx.x/'
+  ) \
+  <(
+    curl -s https://raw.githubusercontent.com/ccouzens/vcloud-rest-openapi/main/36.3.json \
+    | sed -r 's/version=[0-9.]+/version=xx.x/'
+  ) \
+  | less -R
+```
