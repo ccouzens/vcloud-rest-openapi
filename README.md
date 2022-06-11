@@ -93,3 +93,15 @@ diff -U20 --color=always \
   ) \
   | less -R
 ```
+
+## Status
+
+I used to work at a company that administered vCloud Director instances. As
+such, having a programmable way to manage them was useful to me.
+
+My current company does not use vCloud Director. As such
+
+- I no longer use the vCloud Director API and can't verify these OpenAPI schemas
+  against a real instance solving real problems
+- I'm not making changes except for adding newer versions and responding to
+  GitHub issues
