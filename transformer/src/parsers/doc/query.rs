@@ -8,17 +8,10 @@ pub enum QueryParseError {
     DetailPageParseError(#[from] DetailPageFromStrError),
     #[error("Cannot find type name")]
     CannotFindTypeName,
-    #[error("Cannot find description")]
-    CannotFindDescription,
-    #[error("Cannot find record result")]
-    CannotFindRecordResult,
 }
 
-#[derive(Debug)]
 pub struct Query {
     pub name: String,
-    description: String,
-    record_result: String,
 }
 
 impl TryFrom<&str> for Query {
@@ -39,23 +32,6 @@ impl<'a> TryFrom<DetailPage> for Query {
             .and_then(DefinitionListValue::as_text)
             .ok_or(Self::Error::CannotFindTypeName)?
             .to_string();
-        let description = p
-            .definition_list
-            .find("Description:")
-            .and_then(DefinitionListValue::text_to_markdown)
-            .ok_or(Self::Error::CannotFindDescription)?;
-        let record_result = p
-            .definition_list
-            .find("Record Result:")
-            .and_then(DefinitionListValue::as_text)
-            .and_then(|t| t.strip_suffix("</a>)"))
-            .and_then(|t| t.split('>').nth(1))
-            .ok_or(Self::Error::CannotFindRecordResult)?
-            .to_string();
-        Ok(Query {
-            name,
-            description,
-            record_result,
-        })
+        Ok(Query { name })
     }
 }

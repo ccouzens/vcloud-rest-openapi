@@ -93,9 +93,9 @@ impl<'a> TryFrom<DetailPage> for Operation {
                 .ok_or(Self::Error::CannotFindMethodError)?
                 .parse()?;
         let path: String =
-            p.h1.splitn(2, ' ')
-                .nth(1)
+            p.h1.split_once(' ')
                 .ok_or(Self::Error::CannotFindPathError)?
+                .1
                 .into();
         let description = p
             .definition_list
