@@ -433,7 +433,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "JAXBElement<TaskType\\> for API version 30.0 or greater, 204 no\\_content for older API versions",
+            "description": "JAXBElement\\<TaskType\\> for API version 30.0 or greater, 204 no\\_content for older API versions",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=31.0": {
                 "schema": {
@@ -554,7 +554,7 @@
         "description": "Retrieve the value of the specified key from catalog item metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -655,7 +655,7 @@
         "description": "Retrieve the value of the specified key from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -848,7 +848,7 @@
         "description": "Retrieve the value of the specified key from disk metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataValueType\\>}",
+            "description": "{@link JAXBElement\\<MetadataValueType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -1484,7 +1484,7 @@
         "description": "Retrieve the value of the specified key from media object metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -1773,7 +1773,7 @@
         "description": "Retrieve the value of the specified key from network metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -2163,7 +2163,7 @@
         "description": "Retrieve the value of the specified key from organization metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -2356,7 +2356,7 @@
         "description": "Retrieve the value of the specified key from provider vDC metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -2457,7 +2457,7 @@
         "description": "Retrieve the value of the specified key from Provider VDC Storage Profile metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -3523,7 +3523,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Retrieve the representation of a registered NSX\\-T manager.",
+        "description": "Retrieve the representation of a registered NSX-T manager.",
         "responses": {
           "2XX": {
             "description": "NsxTManagerType",
@@ -3546,7 +3546,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Update an existing NSX\\-T Manager.",
+        "description": "Update an existing NSX-T Manager.",
         "requestBody": {
           "content": {
             "application/vnd.vmware.admin.nsxTmanager+json;version=31.0": {
@@ -3559,7 +3559,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "updated NSX\\-T Manager",
+            "description": "updated NSX-T Manager",
             "content": {
               "application/vnd.vmware.admin.networkManagers+json;version=31.0": {
                 "schema": {
@@ -3579,7 +3579,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Delete an existing NSX\\-T Manager.",
+        "description": "Delete an existing NSX-T Manager.",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3896,7 +3896,7 @@
         "description": "Retrieve the value of the specified key from vApp or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -4089,7 +4089,7 @@
         "description": "Retrieve the value of the specified key from vApp template or VM metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -4410,7 +4410,7 @@
         "description": "Retrieve the value of the specified key from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -4511,7 +4511,7 @@
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -4632,7 +4632,7 @@
         "tags": [
           "user"
         ],
-        "description": "Updates the specified VM affinity/anti\\-affinity rule. This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
+        "description": "Updates the specified VM affinity/anti-affinity rule. This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
         "requestBody": {
           "content": {
             "application/vnd.vmware.vcloud.vmaffinityrule+json;version=31.0": {
@@ -4665,7 +4665,7 @@
         "tags": [
           "user"
         ],
-        "description": "Deletes the specified VM affinity/anti\\-affinity rule",
+        "description": "Deletes the specified VM affinity/anti-affinity rule",
         "responses": {
           "2XX": {
             "description": "success"
@@ -4863,7 +4863,7 @@
         "description": "Retrieve the list of IP addresses allocated to the network.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<AllocatedIpAddressesType\\>}",
+            "description": "{@link JAXBElement\\<AllocatedIpAddressesType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.allocatedNetworkAddress+json;version=31.0": {
                 "schema": {
@@ -4899,7 +4899,7 @@
         "description": "Retrieve a list of IP addresses allocated to the network.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<AllocatedIpAddressesType\\>}",
+            "description": "{@link JAXBElement\\<AllocatedIpAddressesType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.allocatedNetworkAddress+json;version=31.0": {
                 "schema": {
@@ -4935,7 +4935,7 @@
         "description": "Retrieve system AMQP settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<AmqpSettingsType\\>}",
+            "description": "{@link JAXBElement\\<AmqpSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.amqpSettings+json;version=31.0": {
                 "schema": {
@@ -4968,7 +4968,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<AmqpSettingsType\\>}",
+            "description": "{@link JAXBElement\\<AmqpSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.amqpSettings+json;version=31.0": {
                 "schema": {
@@ -5279,7 +5279,7 @@
         "description": "Retrieves the complete list of Organizations associated with this organization",
         "responses": {
           "2XX": {
-            "description": "non\\-null, possibly empty {@link List} of {@link OrgAssociationsType} representing this organization's associations",
+            "description": "non-null, possibly empty {@link List} of {@link OrgAssociationsType} representing this organization's associations",
             "content": {
               "application/vnd.vmware.admin.organizationAssociations+json;version=31.0": {
                 "schema": {
@@ -5381,7 +5381,7 @@
         "description": "Retrieve the list of ESX/ESXi hosts in the cloud.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VMWHostReferencesType\\>}",
+            "description": "{@link JAXBElement\\<VMWHostReferencesType\\>}",
             "content": {
               "application/vnd.vmware.admin.vmwHostReferences+json;version=31.0": {
                 "schema": {
@@ -5417,7 +5417,7 @@
         "description": "Retrieve a list of available vCenter networks and portgroups.\n\n Networks and portgroups that are already in use by a vCloud Director network are not listed.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<NetworksReferencesType\\>}"
+            "description": "{@link JAXBElement\\<NetworksReferencesType\\>}"
           }
         },
         "security": [
@@ -5554,7 +5554,7 @@
         "description": "Retrieve a list of operations that are configured as blocking tasks.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<TaskExtensionSettingsType\\>}",
+            "description": "{@link JAXBElement\\<TaskExtensionSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.taskOperationList+json;version=31.0": {
                 "schema": {
@@ -5577,7 +5577,7 @@
         "description": "Update the list of operations that are configured as blocking tasks.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<TaskOperationListType\\>}",
+            "description": "{@link JAXBElement\\<TaskOperationListType\\>}",
             "content": {
               "application/vnd.vmware.admin.taskOperationList+json;version=31.0": {
                 "schema": {
@@ -5602,7 +5602,7 @@
         "description": "Retrieve system blocking task settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<TaskExtensionSettingsType\\>}",
+            "description": "{@link JAXBElement\\<TaskExtensionSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.blockingTaskSettings+json;version=31.0": {
                 "schema": {
@@ -5625,7 +5625,7 @@
         "description": "Update system blocking task settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<TaskExtensionSettingsType\\>}",
+            "description": "{@link JAXBElement\\<TaskExtensionSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.blockingTaskSettings+json;version=31.0": {
                 "schema": {
@@ -5686,7 +5686,7 @@
         "description": "Retrieve system branding settings.\n\n You can use system branding settings to customize the vCloud Director Web console and some of the links that appear on the vCloud Director Home login screen.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<BrandingSettingsType\\>}",
+            "description": "{@link JAXBElement\\<BrandingSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.brandingSettings+json;version=31.0": {
                 "schema": {
@@ -5719,7 +5719,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<BrandingSettingsType\\>}",
+            "description": "{@link JAXBElement\\<BrandingSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.brandingSettings+json;version=31.0": {
                 "schema": {
@@ -5780,7 +5780,7 @@
         "description": "Retrieve all metadata associated with a catalog item.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -5849,7 +5849,7 @@
         "description": "Retrieve metadata associated with the catalog.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -5918,7 +5918,7 @@
         "description": "Retrieve all catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -5954,7 +5954,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from catalog metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -6008,7 +6008,7 @@
         "description": "Retrieve the owner of a catalog.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OwnerType\\>}",
+            "description": "{@link JAXBElement\\<OwnerType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.owner+json;version=31.0": {
                 "schema": {
@@ -6067,7 +6067,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieves a list of Catalogs by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of Catalogs by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -6152,7 +6152,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -6571,7 +6571,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get a list of all datastores by using REST API General QueryHandler. This is read only list of datastores. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "description": "Get a list of all datastores by using REST API General QueryHandler. This is read only list of datastores. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - referenceView or simpleView. Default format is referenceView.",
         "parameters": [
           {
             "in": "query",
@@ -6656,7 +6656,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -6755,7 +6755,7 @@
         "description": "Retrieve metadata associated with the disk.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -6824,7 +6824,7 @@
         "description": "Retrieve the owner of a disk.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OwnerType\\>}",
+            "description": "{@link JAXBElement\\<OwnerType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.owner+json;version=31.0": {
                 "schema": {
@@ -6883,7 +6883,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieves a disk list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a disk list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -6968,7 +6968,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -7124,7 +7124,7 @@
         "description": "Retrieve system email settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<EmailSettingsType\\>}",
+            "description": "{@link JAXBElement\\<EmailSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.emailSettings+json;version=31.0": {
                 "schema": {
@@ -7157,7 +7157,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<EmailSettingsType\\>}",
+            "description": "{@link JAXBElement\\<EmailSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.emailSettings+json;version=31.0": {
                 "schema": {
@@ -7366,7 +7366,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Retrieve a list of extension objects and operations.\n\n The VMWExtension element provides access to a cloud\\-wide namespace of vSphere platform objects that are registered for use by the system, and links that allow you to add vSphere servers and related resources such as networks and resource pools to the cloud. It also provides access to system level configuration settings for Kerberos and LDAP services.",
+        "description": "Retrieve a list of extension objects and operations.\n\n The VMWExtension element provides access to a cloud-wide namespace of vSphere platform objects that are registered for use by the system, and links that allow you to add vSphere servers and related resources such as networks and resource pools to the cloud. It also provides access to system level configuration settings for Kerberos and LDAP services.",
         "responses": {
           "2XX": {
             "description": "VMWExtensionType",
@@ -7474,7 +7474,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of external networks by using REST API general QueryHandler. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "description": "Get list of external networks by using REST API general QueryHandler. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - referenceView or simpleView. Default format is referenceView.",
         "parameters": [
           {
             "in": "query",
@@ -7559,7 +7559,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -7577,7 +7577,7 @@
         "description": "Retrieve other organization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<GeneralOrgSettingsType\\>}",
+            "description": "{@link JAXBElement\\<GeneralOrgSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationFederationSettings+json;version=31.0": {
                 "schema": {
@@ -7610,7 +7610,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<GeneralOrgSettingsType\\>}",
+            "description": "{@link JAXBElement\\<GeneralOrgSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationFederationSettings+json;version=31.0": {
                 "schema": {
@@ -7734,10 +7734,10 @@
         "tags": [
           "extension"
         ],
-        "description": "Retrieve other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system\\-wide configuration defaults.",
+        "description": "Retrieve other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system-wide configuration defaults.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<GeneralSettingsType\\>}",
+            "description": "{@link JAXBElement\\<GeneralSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.generalSettings+json;version=31.0": {
                 "schema": {
@@ -7757,7 +7757,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Update other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system\\-wide configuration defaults.",
+        "description": "Update other system settings.\n\n These settings include catalog publishing rights, VM quotas, and related system-wide configuration defaults.",
         "requestBody": {
           "content": {
             "application/vnd.vmware.admin.generalSettings+json;version=31.0": {
@@ -7770,7 +7770,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<GeneralSettingsType\\>}",
+            "description": "{@link JAXBElement\\<GeneralSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.generalSettings+json;version=31.0": {
                 "schema": {
@@ -7795,7 +7795,7 @@
         "description": "Retrieve other organization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<GeneralOrgSettingsType\\>}",
+            "description": "{@link JAXBElement\\<GeneralOrgSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationGeneralSettings+json;version=31.0": {
                 "schema": {
@@ -7828,7 +7828,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<GeneralOrgSettingsType\\>}",
+            "description": "{@link JAXBElement\\<GeneralOrgSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationGeneralSettings+json;version=31.0": {
                 "schema": {
@@ -7861,7 +7861,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Retrieves a list of groups for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of groups for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -7946,7 +7946,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -7961,7 +7961,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieve status of guest customization for that VM Following are the possible status 0 \\- PENDING\\_GC : Guest Customization is either not started or in progress. This is set whenever a VM need customization. 1 \\- PENDING\\_REBOOT : GC is successful, but reboot is pending. This is set when vCloud receives \"guestinfo.gc.status\" as successful 2 \\- PENDING\\_POST\\_GC : Reboot has happened, waiting for post gc script to complete. This is set when tools running status comes as \"Running\" based on conditions 1 & 2 3 \\- COMPLETE : GC is complete.",
+        "description": "Retrieve status of guest customization for that VM Following are the possible status 0 - PENDING\\_GC : Guest Customization is either not started or in progress. This is set whenever a VM need customization. 1 - PENDING\\_REBOOT : GC is successful, but reboot is pending. This is set when vCloud receives \"guestinfo.gc.status\" as successful 2 - PENDING\\_POST\\_GC : Reboot has happened, waiting for post gc script to complete. This is set when tools running status comes as \"Running\" based on conditions 1 & 2 3 - COMPLETE : GC is complete.",
         "responses": {
           "2XX": {
             "description": "VmCheckPGCType",
@@ -8344,7 +8344,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of hosts by using REST API general QueryHAndler; This is read only list of host references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "description": "Get list of hosts by using REST API general QueryHAndler; This is read only list of host references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - referenceView or simpleView. Default format is referenceView.",
         "parameters": [
           {
             "in": "query",
@@ -8429,7 +8429,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -8447,7 +8447,7 @@
         "description": "Retrieve system Kerberos settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<KerberosSettingsType\\>}",
+            "description": "{@link JAXBElement\\<KerberosSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.kerberosSettings+json;version=31.0": {
                 "schema": {
@@ -8480,7 +8480,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<KerberosSettingsType\\>}",
+            "description": "{@link JAXBElement\\<KerberosSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.kerberosSettings+json;version=31.0": {
                 "schema": {
@@ -8505,7 +8505,7 @@
         "description": "Retrieve system LDAP settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<LdapSettingsType\\>}",
+            "description": "{@link JAXBElement\\<LdapSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.ldapSettings+json;version=31.0": {
                 "schema": {
@@ -8538,7 +8538,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<LdapSettingsType\\>}",
+            "description": "{@link JAXBElement\\<LdapSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.ldapSettings+json;version=31.0": {
                 "schema": {
@@ -8701,7 +8701,7 @@
         "description": "Retrieve vCloud Director catalog setting details.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<CatalogSettingsType\\>}",
+            "description": "{@link JAXBElement\\<CatalogSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.catalogSettings+json;version=31.0": {
                 "schema": {
@@ -8734,7 +8734,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<CatalogSettingsType\\>}",
+            "description": "{@link JAXBElement\\<CatalogSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.catalogSettings+json;version=31.0": {
                 "schema": {
@@ -8759,7 +8759,7 @@
         "description": "Retrieve vCloud Director software license details.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<LicenseType\\>}",
+            "description": "{@link JAXBElement\\<LicenseType\\>}",
             "content": {
               "application/vnd.vmware.admin.licenseSettings+json;version=31.0": {
                 "schema": {
@@ -8792,7 +8792,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<LicenseType\\>}",
+            "description": "{@link JAXBElement\\<LicenseType\\>}",
             "content": {
               "application/vnd.vmware.admin.licenseSettings+json;version=31.0": {
                 "schema": {
@@ -8958,7 +8958,7 @@
         "tags": [
           "user"
         ],
-        "description": "Login with HTTP POST request.\n\n The response includes an authorization token in this format:\n\n x\\-vcloud\\-authorization: *token*\n\n Include this header in all subsequent requests.",
+        "description": "Login with HTTP POST request.\n\n The response includes an authorization token in this format:\n\n x-vcloud-authorization: *token*\n\n Include this header in all subsequent requests.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -9020,7 +9020,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "AcceptedResponse<TaskType\\>",
+            "description": "AcceptedResponse\\<TaskType\\>",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=31.0": {
                 "schema": {
@@ -9042,7 +9042,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieve all RASD items that specify CD\\-ROM, DVD, and floppy disk device and controller properties of a VM.",
+        "description": "Retrieve all RASD items that specify CD-ROM, DVD, and floppy disk device and controller properties of a VM.",
         "responses": {
           "2XX": {
             "description": "RasdItemsListType",
@@ -9078,7 +9078,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieve all RASD items that specify CD\\-ROM, DVD, and floppy disk device and controller properties of a VM.",
+        "description": "Retrieve all RASD items that specify CD-ROM, DVD, and floppy disk device and controller properties of a VM.",
         "responses": {
           "2XX": {
             "description": "RasdItemsListType",
@@ -9117,7 +9117,7 @@
         "description": "Retrieve metadata associated with a media object.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -9186,7 +9186,7 @@
         "description": "Retrieve the owner of a media object.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OwnerType\\>}",
+            "description": "{@link JAXBElement\\<OwnerType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.owner+json;version=31.0": {
                 "schema": {
@@ -9219,7 +9219,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieves a media list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a media list by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -9304,7 +9304,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -9426,7 +9426,7 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VMWVmGroupType\\>} with given VM group name"
+            "description": "{@link JAXBElement\\<VMWVmGroupType\\>} with given VM group name"
           }
         },
         "security": [
@@ -9455,7 +9455,7 @@
         "description": "Gets all references to named VM groups.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VMWVmGroupType\\>} with given VM group name",
+            "description": "{@link JAXBElement\\<VMWVmGroupType\\>} with given VM group name",
             "content": {
               "application/vnd.vmware.vcloud.query.references+json;version=31.0": {
                 "schema": {
@@ -9894,7 +9894,7 @@
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -9963,7 +9963,7 @@
         "description": "Retrieve metadata associated with the network.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -9999,7 +9999,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from network metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -10075,7 +10075,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of network pools by using REST API general QueryHandler. This is read only list of network pool references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "description": "Get list of network pools by using REST API general QueryHandler. This is read only list of network pool references and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - referenceView or simpleView. Default format is referenceView.",
         "parameters": [
           {
             "in": "query",
@@ -10160,7 +10160,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -10236,7 +10236,7 @@
         "description": "Retrieve system AMQP notifications settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<NotificationsSettingsType\\>}",
+            "description": "{@link JAXBElement\\<NotificationsSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.notificationsSettings+json;version=31.0": {
                 "schema": {
@@ -10269,7 +10269,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<NotificationsSettingsType\\>}",
+            "description": "{@link JAXBElement\\<NotificationsSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.notificationsSettings+json;version=31.0": {
                 "schema": {
@@ -10291,7 +10291,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Retrieve an existing NSX\\-T Manager.",
+        "description": "Retrieve an existing NSX-T Manager.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -10314,7 +10314,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Register an NSX\\-T Manager.",
+        "description": "Register an NSX-T Manager.",
         "requestBody": {
           "content": {
             "application/vnd.vmware.admin.nsxTmanager+json;version=31.0": {
@@ -10327,7 +10327,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "A newly created NSX\\-T Manager",
+            "description": "A newly created NSX-T Manager",
             "content": {
               "application/vnd.vmware.admin.networkManagers+json;version=31.0": {
                 "schema": {
@@ -10410,7 +10410,7 @@
         "description": "Retrieve organization OAuth settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgOAuthSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgOAuthSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationOAuthSettings+json;version=31.0": {
                 "schema": {
@@ -10443,7 +10443,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgOAuthSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgOAuthSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationOAuthSettings+json;version=31.0": {
                 "schema": {
@@ -10589,7 +10589,7 @@
         "description": "Retrieves the system wide defaults for tenant throttling",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OperationLimitsSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OperationLimitsSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.operationLimitsSettings+json;version=31.0": {
                 "schema": {
@@ -10622,7 +10622,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OperationLimitsSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OperationLimitsSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.operationLimitsSettings+json;version=31.0": {
                 "schema": {
@@ -10647,7 +10647,7 @@
         "description": "Retrieve organization email settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgEmailSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgEmailSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationEmailSettings+json;version=31.0": {
                 "schema": {
@@ -10680,7 +10680,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement<OrgEmailSettingsType\\>",
+            "description": "JAXBElement\\<OrgEmailSettingsType\\>",
             "content": {
               "application/vnd.vmware.admin.organizationEmailSettings+json;version=31.0": {
                 "schema": {
@@ -10716,7 +10716,7 @@
         "description": "Retrieve organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgGuestPersonalizationSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgGuestPersonalizationSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.guestPersonalizationSettings+json;version=31.0": {
                 "schema": {
@@ -10749,7 +10749,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgGuestPersonalizationSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgGuestPersonalizationSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.guestPersonalizationSettings+json;version=31.0": {
                 "schema": {
@@ -10785,7 +10785,7 @@
         "description": "Retrieve organization LDAP settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgEmailSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgEmailSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationLdapSettings+json;version=31.0": {
                 "schema": {
@@ -10819,7 +10819,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgEmailSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgEmailSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationLdapSettings+json;version=31.0": {
                 "schema": {
@@ -10853,7 +10853,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of Organization Networks for the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "description": "Get list of Organization Networks for the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - referenceView or simpleView. Default format is referenceView.",
         "parameters": [
           {
             "in": "query",
@@ -10938,7 +10938,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -10956,7 +10956,7 @@
         "description": "Retrieve organization defaults for guest personalization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgGuestPersonalizationSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgGuestPersonalizationSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.operationLimitsSettings+json;version=31.0": {
                 "schema": {
@@ -10989,7 +10989,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement<OrgGuestPersonalizationSettingsType\\>",
+            "description": "JAXBElement\\<OrgGuestPersonalizationSettingsType\\>",
             "content": {
               "application/vnd.vmware.admin.operationLimitsSettings+json;version=31.0": {
                 "schema": {
@@ -11025,7 +11025,7 @@
         "description": "Retrieve organization password policy settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgPasswordPolicySettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgPasswordPolicySettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.organizationPasswordPolicySettings+json;version=31.0": {
                 "schema": {
@@ -11058,7 +11058,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement<OrgPasswordPolicyLeaseSettingsType\\>",
+            "description": "JAXBElement\\<OrgPasswordPolicyLeaseSettingsType\\>",
             "content": {
               "application/vnd.vmware.admin.organizationPasswordPolicySettings+json;version=31.0": {
                 "schema": {
@@ -11094,7 +11094,7 @@
         "description": "Retrieve settings for this organization.\n\n Organization settings are divided into categories. This request retrieves all categories of organization settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.orgSettings+json;version=31.0": {
                 "schema": {
@@ -11127,7 +11127,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.orgSettings+json;version=31.0": {
                 "schema": {
@@ -11320,7 +11320,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of all Organization Vdcs in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "description": "Get list of all Organization Vdcs in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - referenceView or simpleView. Default format is referenceView.",
         "parameters": [
           {
             "in": "query",
@@ -11405,7 +11405,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -11459,7 +11459,7 @@
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -11528,7 +11528,7 @@
         "description": "Retrieve metadata associated with the organization.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -11564,7 +11564,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from organization metadata .",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -11676,7 +11676,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Retrieves a list of organizations by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of organizations by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -11761,7 +11761,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -11779,7 +11779,7 @@
         "description": "Retrieve a list of ProductSection elements from a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<ProductSectionListType\\>}",
+            "description": "{@link JAXBElement\\<ProductSectionListType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.productSections+json;version=31.0": {
                 "schema": {
@@ -11848,7 +11848,7 @@
         "description": "Retrieve a list of ProductSection elements from a vApp template, vApp, or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<ProductSectionListType\\>}",
+            "description": "{@link JAXBElement\\<ProductSectionListType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.productSections+json;version=31.0": {
                 "schema": {
@@ -11953,7 +11953,7 @@
         "description": "Retrieve metadata associated with the provider vDC.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -12152,7 +12152,7 @@
         "description": "Retrieve metadata associated with the Provider VDC Storage Profile.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -12218,7 +12218,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of provider vDCs by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references, records or idrecords. Default format is records.",
+        "description": "Get list of provider vDCs by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references, records or idrecords. Default format is records.",
         "parameters": [
           {
             "in": "query",
@@ -12303,7 +12303,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -12601,7 +12601,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Retrieves a list of vdcs in the organization; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of vdcs in the organization; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -12686,7 +12686,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -12701,7 +12701,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -12786,7 +12786,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -12812,7 +12812,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of roles in the cloud by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -12897,7 +12897,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -13042,7 +13042,7 @@
         "description": "Unauthenticated GET of versions.xsd schema definition file.",
         "responses": {
           "2XX": {
-            "description": "versions.xsd encoded as UTF\\-8"
+            "description": "versions.xsd encoded as UTF-8"
           }
         },
         "security": [
@@ -13876,7 +13876,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement<TaskType\\>",
+            "description": "JAXBElement\\<TaskType\\>",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=31.0": {
                 "schema": {
@@ -13901,7 +13901,7 @@
         "description": "Retrieve SnapshotSection element for a vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<SnapshotSectionType\\>}",
+            "description": "{@link JAXBElement\\<SnapshotSectionType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.snapshotSection+json;version=31.0": {
                 "schema": {
@@ -13989,7 +13989,7 @@
         "description": "Retrieve all storage profiles in the VIM server",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VMWStorageProfilesType\\>}",
+            "description": "{@link JAXBElement\\<VMWStorageProfilesType\\>}",
             "content": {
               "application/vnd.vmware.admin.vmwStorageProfiles+json;version=31.0": {
                 "schema": {
@@ -14022,7 +14022,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of all stranded items in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references, records or idrecords. Default format is records.",
+        "description": "Get list of all stranded items in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references, records or idrecords. Default format is records.",
         "parameters": [
           {
             "in": "query",
@@ -14107,7 +14107,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -14169,7 +14169,7 @@
         "description": "Retrieve system password policy settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<SystemPasswordPolicySettingsType\\>}",
+            "description": "{@link JAXBElement\\<SystemPasswordPolicySettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.systemPasswordPolicySettings+json;version=31.0": {
                 "schema": {
@@ -14202,7 +14202,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<SystemPasswordPolicySettingsType\\>}",
+            "description": "{@link JAXBElement\\<SystemPasswordPolicySettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.systemPasswordPolicySettings+json;version=31.0": {
                 "schema": {
@@ -14227,7 +14227,7 @@
         "description": "Retrieve system settings.\n\n System settings specify default values and behaviors for the cloud and all of the organizations in it. System settings are divided into categories. This request retrieves all categories of system settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<SystemSettingsType\\>}",
+            "description": "{@link JAXBElement\\<SystemSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.systemSettings+json;version=31.0": {
                 "schema": {
@@ -14260,7 +14260,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<SystemSettingsType\\>}",
+            "description": "{@link JAXBElement\\<SystemSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.systemSettings+json;version=31.0": {
                 "schema": {
@@ -14449,7 +14449,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Retrieves a list of users for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of users for organization the org admin belongs to by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -14534,7 +14534,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -14552,7 +14552,7 @@
         "description": "Retrieve organization vApp lease settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgLeaseSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgLeaseSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.vAppLeaseSettings+json;version=31.0": {
                 "schema": {
@@ -14585,7 +14585,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement<OrgVAppTemplateLeaseSettingsType\\>",
+            "description": "JAXBElement\\<OrgVAppTemplateLeaseSettingsType\\>",
             "content": {
               "application/vnd.vmware.admin.vAppLeaseSettings+json;version=31.0": {
                 "schema": {
@@ -14621,7 +14621,7 @@
         "description": "Retrieve metadata associated with the vApp or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -14719,7 +14719,7 @@
         "description": "Retrieve the owner of a vApp.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OwnerType\\>}",
+            "description": "{@link JAXBElement\\<OwnerType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.owner+json;version=31.0": {
                 "schema": {
@@ -14817,7 +14817,7 @@
         "description": "Retrieve organization vApp template lease settings.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OrgVAppTemplateLeaseSettingsType\\>}",
+            "description": "{@link JAXBElement\\<OrgVAppTemplateLeaseSettingsType\\>}",
             "content": {
               "application/vnd.vmware.admin.vAppTemplateLeaseSettings+json;version=31.0": {
                 "schema": {
@@ -14850,7 +14850,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "JAXBElement<OrgVAppTemplateLeaseSettingsType\\>",
+            "description": "JAXBElement\\<OrgVAppTemplateLeaseSettingsType\\>",
             "content": {
               "application/vnd.vmware.admin.vAppTemplateLeaseSettings+json;version=31.0": {
                 "schema": {
@@ -14886,7 +14886,7 @@
         "description": "Retrieve metadata associated with the vApp template or VM.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -14984,7 +14984,7 @@
         "description": "Retrieve the owner of a vApp template.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<OwnerType\\>}",
+            "description": "{@link JAXBElement\\<OwnerType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.owner+json;version=31.0": {
                 "schema": {
@@ -15043,7 +15043,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieves a list of vAppTemplates using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of vAppTemplates using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -15128,7 +15128,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -15143,7 +15143,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of all vApps in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "description": "Get list of all vApps in the system by using REST API general QueryHandler. This is read only list and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - referenceView or simpleView. Default format is referenceView.",
         "parameters": [
           {
             "in": "query",
@@ -15228,7 +15228,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -15243,10 +15243,10 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieves a list of vApps by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of vApps by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -15261,7 +15261,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieves a list of VMs in lease by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- references or records. Default format is references.",
+        "description": "Retrieves a list of VMs in lease by using REST API general QueryHandler; If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - references or records. Default format is references.",
         "parameters": [
           {
             "in": "query",
@@ -15346,7 +15346,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>"
+            "description": "Returns OkResponse\\<ContainerType\\>"
           }
         },
         "security": [
@@ -15433,7 +15433,7 @@
         "description": "Retrieve the vSphere URL of an object.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VSphereWebClientUrlType\\>}",
+            "description": "{@link JAXBElement\\<VSphereWebClientUrlType\\>}",
             "content": {
               "application/vnd.vmware.admin.vSphereWebClientUrl+json;version=31.0": {
                 "schema": {
@@ -15484,7 +15484,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Retrieve an administrative view of a cloud.\n\n The VCloud element provides access to cloud\\-wide namespace of objects that an administrator can view and, in most cases, modify.",
+        "description": "Retrieve an administrative view of a cloud.\n\n The VCloud element provides access to cloud-wide namespace of objects that an administrator can view and, in most cases, modify.",
         "responses": {
           "2XX": {
             "description": "VCloudType",
@@ -15512,7 +15512,7 @@
         "description": "Get all vDC compute policies references in given vDC",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VdcComputePolicyReferencesType\\>}",
+            "description": "{@link JAXBElement\\<VdcComputePolicyReferencesType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.query.references+json;version=31.0": {
                 "schema": {
@@ -15545,7 +15545,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VdcComputePolicyReferencesType\\>}",
+            "description": "{@link JAXBElement\\<VdcComputePolicyReferencesType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.vdcComputePolicyReferences+json;version=31.0": {
                 "schema": {
@@ -15581,7 +15581,7 @@
         "description": "Get all vDC compute policies references in given vDC",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VdcComputePolicyReferencesType\\>}",
+            "description": "{@link JAXBElement\\<VdcComputePolicyReferencesType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.query.references+json;version=31.0": {
                 "schema": {
@@ -15755,7 +15755,7 @@
         "description": "Retrieve metadata associated with the virtual datacenter.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -15824,7 +15824,7 @@
         "description": "Retrieve metadata associated with a vDC.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -15860,7 +15860,7 @@
         "description": "Retrieve the value of the specified key in the specified domain from virtual datacenter metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -15950,7 +15950,7 @@
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -16019,7 +16019,7 @@
         "description": "Retrieve metadata associated with the vDC storage profile.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata+json;version=31.0": {
                 "schema": {
@@ -16055,7 +16055,7 @@
         "description": "Retrieve the value of the specified key from vDC storage profile metadata.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<MetadataType\\>}",
+            "description": "{@link JAXBElement\\<MetadataType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.metadata.value+json;version=31.0": {
                 "schema": {
@@ -16276,7 +16276,7 @@
         "description": "Retrieve services associated with this network pool",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<ServicesType\\>}",
+            "description": "{@link JAXBElement\\<ServicesType\\>}",
             "content": {
               "application/vnd.vmware.admin.vmwNetworkPool.services+json;version=31.0": {
                 "schema": {
@@ -16334,7 +16334,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Get list of vSphere servers by using REST API general QueryHandler; This is read only list of vim servers and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation \\- referenceView or simpleView. Default format is referenceView.",
+        "description": "Get list of vSphere servers by using REST API general QueryHandler; This is read only list of vim servers and is not bound to specific states. If filter is provided it will be applied to the corresponding result set. Format determines the elements representation - referenceView or simpleView. Default format is referenceView.",
         "parameters": [
           {
             "in": "query",
@@ -16419,7 +16419,7 @@
         ],
         "responses": {
           "2XX": {
-            "description": "Returns OkResponse<ContainerType\\>;"
+            "description": "Returns OkResponse\\<ContainerType\\>;"
           }
         },
         "security": [
@@ -16610,7 +16610,7 @@
         "description": "Retrieves a list of all VM Affinity rules within a given vDC.",
         "responses": {
           "2XX": {
-            "description": "a list of all VM Affinity rules( both affinity and anti\\-affinity) for the given vDC",
+            "description": "a list of all VM Affinity rules( both affinity and anti-affinity) for the given vDC",
             "content": {
               "application/vnd.vmware.vcloud.vmaffinityrules+json;version=31.0": {
                 "schema": {
@@ -16712,7 +16712,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link AcceptedResponse<TaskType\\>}",
+            "description": "{@link AcceptedResponse\\<TaskType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=31.0": {
                 "schema": {
@@ -16745,7 +16745,7 @@
         "tags": [
           "user"
         ],
-        "description": "Return the results of the most recent POST /vApp/vm\\-{id}/action/checkCompliance request to the specified VM.",
+        "description": "Return the results of the most recent POST /vApp/vm-{id}/action/checkCompliance request to the specified VM.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -16804,7 +16804,7 @@
         "tags": [
           "user"
         ],
-        "description": "Gets the current usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard\\-style metric name patterns to fine\\-tune the list of returned metrics.",
+        "description": "Gets the current usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard-style metric name patterns to fine-tune the list of returned metrics.",
         "requestBody": {
           "content": {
             "application/vnd.vmware.vcloud.metrics.currentUsageSpec+json;version=31.0": {
@@ -16850,10 +16850,10 @@
         "tags": [
           "extension"
         ],
-        "description": "Gets {@link JAXBElement<VMWVmGroupType\\>} with given VM group name.",
+        "description": "Gets {@link JAXBElement\\<VMWVmGroupType\\>} with given VM group name.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VMWVmGroupType\\>} with given VM group name"
+            "description": "{@link JAXBElement\\<VMWVmGroupType\\>} with given VM group name"
           }
         },
         "security": [
@@ -16920,7 +16920,7 @@
         "description": "",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VMWVmGroupType\\>} with given VM group name",
+            "description": "{@link JAXBElement\\<VMWVmGroupType\\>} with given VM group name",
             "content": {
               "application/vnd.vmware.admin.vmwVmGroupsType+json;version=31.0": {
                 "schema": {
@@ -17089,7 +17089,7 @@
         "tags": [
           "user"
         ],
-        "description": "Gets the historic usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard\\-style metric name patterns to fine\\-tune the list of returned metrics, as well as a start and end time (either relative or absolute) to refine the set of sample points to a specific date range.",
+        "description": "Gets the historic usage for VM metrics according to the provided spec object.\n\n The spec object can contain a collection of wildcard-style metric name patterns to fine-tune the list of returned metrics, as well as a start and end time (either relative or absolute) to refine the set of sample points to a specific date range.",
         "requestBody": {
           "content": {
             "application/vnd.vmware.vcloud.metrics.historicUsageSpec+json;version=31.0": {
@@ -17174,7 +17174,7 @@
         "description": "Retrieve a list of all VMs attached to a disk.",
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VmsType\\>}",
+            "description": "{@link JAXBElement\\<VmsType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.vms+json;version=31.0": {
                 "schema": {
@@ -17236,7 +17236,7 @@
         "tags": [
           "extension"
         ],
-        "description": "Retrieve a list of virtual machines that can be imported from a registered vCenter server.\n\n This request supports optional query parameters:\n\n* page \\- The page to return. The first page is page 1.\n* pageSize \\- The number of virtual machines to list on a page. An integer value between 1 and 100. The default value is 1.",
+        "description": "Retrieve a list of virtual machines that can be imported from a registered vCenter server.\n\n This request supports optional query parameters:\n\n* page - The page to return. The first page is page 1.\n* pageSize - The number of virtual machines to list on a page. An integer value between 1 and 100. The default value is 1.",
         "parameters": [
           {
             "in": "query",
@@ -17423,7 +17423,7 @@
         "tags": [
           "user"
         ],
-        "description": "Retrieve a screen ticket that you can use with the VMRC browser plug\\-in to gain access to the console of a running VM.",
+        "description": "Retrieve a screen ticket that you can use with the VMRC browser plug-in to gain access to the console of a running VM.",
         "responses": {
           "2XX": {
             "description": "ScreenTicketType",
@@ -17796,7 +17796,7 @@
         "description": "Check storage profile compliance for the specified VM.",
         "responses": {
           "2XX": {
-            "description": "TaskType\n\n This operation is asynchronous and returns a task. When the task completes, you can retrieve the results by making a GET /vApp/vm\\-{id}/complianceResult request.",
+            "description": "TaskType\n\n This operation is asynchronous and returns a task. When the task completes, you can retrieve the results by making a GET /vApp/vm-{id}/complianceResult request.",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=31.0": {
                 "schema": {
@@ -18832,7 +18832,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys\\-admin client at API version < 27",
+        "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys-admin client at API version \\< 27",
         "requestBody": {
           "content": {
             "application/vnd.vmware.admin.role+json;version=31.0": {
@@ -18878,7 +18878,7 @@
         "tags": [
           "admin"
         ],
-        "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys\\-admin client at API version < 27",
+        "description": "Creates a role or optionally creates a role template along with role instances based on the tempalte for a sys-admin client at API version \\< 27",
         "requestBody": {
           "content": {
             "application/vnd.vmware.admin.role+json;version=31.0": {
@@ -19363,7 +19363,7 @@
         "tags": [
           "user"
         ],
-        "description": "Hide hardware\\-assisted CPU virtualization from guest OS.",
+        "description": "Hide hardware-assisted CPU virtualization from guest OS.",
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -20024,7 +20024,7 @@
         "tags": [
           "user"
         ],
-        "description": "Expose hardware\\-assisted CPU virtualization to guest OS.",
+        "description": "Expose hardware-assisted CPU virtualization to guest OS.",
         "responses": {
           "2XX": {
             "description": "TaskType\n\n This operation is asynchronous and returns a task that you can monitor to track the progress of the request.",
@@ -20060,7 +20060,7 @@
         "tags": [
           "user"
         ],
-        "description": "Place the vApp in maintenance mode.\n\n When a vApp is in maintenance mode, it is read\\-only to users. Only a system administrator can modify it. User\\-initiated tasks that are running when the vApp enters maintenance mode continue to run.",
+        "description": "Place the vApp in maintenance mode.\n\n When a vApp is in maintenance mode, it is read-only to users. Only a system administrator can modify it. User-initiated tasks that are running when the vApp enters maintenance mode continue to run.",
         "responses": {
           "2XX": {
             "description": "success"
@@ -20865,7 +20865,7 @@
         "description": "Log in and create a Session object.\n\n To authenticate to the API service, POST a request to its login URL. The request body must contain a MIME Base64 encoding of your credentials in the form:\n\n*user*@*organization*:*password*\n\n To obtain the login URL, make an unauthenticated GET request to the vCloud Director api/versions URL. The response to this request lists the API versions that the server supports, and provides a login URL for each version.",
         "responses": {
           "2XX": {
-            "description": "SessionType\n\n The response includes an authorization token in this format:\n\n x\\-vcloud\\-authorization: *token*\n\n Include this header in all subsequent requests.",
+            "description": "SessionType\n\n The response includes an authorization token in this format:\n\n x-vcloud-authorization: *token*\n\n Include this header in all subsequent requests.",
             "content": {
               "application/vnd.vmware.vcloud.session+json;version=31.0": {
                 "schema": {
@@ -21018,7 +21018,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<TaskType\\>}",
+            "description": "{@link JAXBElement\\<TaskType\\>}",
             "content": {
               "application/vnd.vmware.vcloud.task+json;version=31.0": {
                 "schema": {
@@ -21565,7 +21565,7 @@
         "tags": [
           "user"
         ],
-        "description": "Updates Vm name, Description, and any or all of the following sections.  \n\n* VirtualHardwareSection\n* OperatingSystemSection\n* NetworkConnectionSection\n* GuestCustomizationSection\n\n Sections not included in the request body will not be updated. In API requests that specify version 29.0 or higher, this operation allows to also update:\n* the boot\\-options of the VM (boot\\-delay and enter\\-bios).\n* the storage profile\n* the VM capabilities (ability to add CPU or MEM while the VM is powered\\-on)\n* the hardware\\-assisted CPU virtualization capability",
+        "description": "Updates Vm name, Description, and any or all of the following sections.  \n\n* VirtualHardwareSection\n* OperatingSystemSection\n* NetworkConnectionSection\n* GuestCustomizationSection\n\n Sections not included in the request body will not be updated. In API requests that specify version 29.0 or higher, this operation allows to also update:\n\n* the boot-options of the VM (boot-delay and enter-bios).\n* the storage profile\n* the VM capabilities (ability to add CPU or MEM while the VM is powered-on)\n* the hardware-assisted CPU virtualization capability",
         "requestBody": {
           "content": {
             "application/vnd.vmware.vcloud.vm+json;version=31.0": {
@@ -21890,7 +21890,7 @@
         "tags": [
           "user"
         ],
-        "description": "Reloads VM state from VC. Checks VM's extra configuration properties to ensure that they include all the default properties required for cloud\\-managed VMs and do not include any blacklisted properties or values. Reconfigures VM to add default properties and remove blacklisted properties and values if needed.\n\n This API is available to sysadmin users only.",
+        "description": "Reloads VM state from VC. Checks VM's extra configuration properties to ensure that they include all the default properties required for cloud-managed VMs and do not include any blacklisted properties or values. Reconfigures VM to add default properties and remove blacklisted properties and values if needed.\n\n This API is available to sysadmin users only.",
         "responses": {
           "2XX": {
             "description": "success"
@@ -23396,7 +23396,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<CertificateUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<CertificateUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.certificateUploadSocketType+json;version=31.0": {
                 "schema": {
@@ -23431,7 +23431,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<TrustStoreUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<TrustStoreUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.trustStoreUploadSocketType+json;version=31.0": {
                 "schema": {
@@ -23466,7 +23466,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<KeystoreUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<KeystoreUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.keystoreUploadSocketType+json;version=31.0": {
                 "schema": {
@@ -23502,7 +23502,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<KeystoreUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<KeystoreUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.keystoreUploadSocketType+json;version=31.0": {
                 "schema": {
@@ -23549,7 +23549,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<CertificateUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<CertificateUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.certificateUploadSocketType+json;version=31.0": {
                 "schema": {
@@ -23585,7 +23585,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<FileUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<FileUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.certificateUploadSocketType+json;version=31.0": {
                 "schema": {
@@ -23714,7 +23714,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<SspiKeytabUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<SspiKeytabUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.sspiKeytabUploadSocketType+json;version=31.0": {
                 "schema": {
@@ -23749,7 +23749,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<SspiKeytabUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<SspiKeytabUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.sspiKeytabUploadSocketType+json;version=31.0": {
                 "schema": {
@@ -23888,7 +23888,7 @@
         },
         "responses": {
           "2XX": {
-            "description": "{@link JAXBElement<VcTrustStoreUploadSocketType\\>}",
+            "description": "{@link JAXBElement\\<VcTrustStoreUploadSocketType\\>}",
             "content": {
               "application/vnd.vmware.admin.vcTrustStoreUploadSocket+json;version=31.0": {
                 "schema": {
@@ -24473,7 +24473,7 @@
       },
       "vcloud_EventPropertiesType": {
         "title": "vcloud_EventPropertiesType",
-        "description": "List of event\\-specific properties.",
+        "description": "List of event-specific properties.",
         "type": "object",
         "additionalProperties": false
       },
@@ -24520,7 +24520,7 @@
                 ]
               },
               "eventProperties": {
-                "description": "List of event\\-specific properties.",
+                "description": "List of event-specific properties.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_EventPropertiesType"
@@ -24622,7 +24622,7 @@
                 "format": "int32"
               },
               "computeCapacity": {
-                "description": "Read\\-only indicator of CPU and memory capacity.",
+                "description": "Read-only indicator of CPU and memory capacity.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_RootComputeCapacityType"
@@ -24630,7 +24630,7 @@
                 ]
               },
               "availableNetworks": {
-                "description": "Read\\-only list of available networks.",
+                "description": "Read-only list of available networks.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_AvailableNetworksType"
@@ -24646,7 +24646,7 @@
                 ]
               },
               "capabilities": {
-                "description": "Read\\-only list of virtual hardware versions supported by this Provider vDC.",
+                "description": "Read-only list of virtual hardware versions supported by this Provider vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_CapabilitiesType"
@@ -24654,7 +24654,7 @@
                 ]
               },
               "vdcs": {
-                "description": "Read\\-only list of organization vDCs backed by this Provider vDC.",
+                "description": "Read-only list of organization vDCs backed by this Provider vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_VdcsType"
@@ -24666,7 +24666,7 @@
                 "type": "boolean"
               },
               "networkPoolReferences": {
-                "description": "Read\\-only list of network pools used by this Provider vDC.",
+                "description": "Read-only list of network pools used by this Provider vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_NetworkPoolReferencesType"
@@ -24742,7 +24742,7 @@
                 "format": "int64"
               },
               "isThinProvision": {
-                "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over\\-allocation of storage.",
+                "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over-allocation of storage.",
                 "type": "boolean"
               },
               "networkPoolReference": {
@@ -24818,7 +24818,7 @@
                 "format": "int64"
               },
               "isThinProvision": {
-                "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over\\-allocation of storage.",
+                "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over-allocation of storage.",
                 "type": "boolean"
               },
               "networkPoolReference": {
@@ -24959,7 +24959,7 @@
             "type": "object",
             "properties": {
               "cpu": {
-                "description": "Read\\-only indicator of CPU capacity available in the Provider vDC.",
+                "description": "Read-only indicator of CPU capacity available in the Provider vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
@@ -24967,7 +24967,7 @@
                 ]
               },
               "memory": {
-                "description": "Read\\-only indicator of memory capacity available in the Provider vDC.",
+                "description": "Read-only indicator of memory capacity available in the Provider vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
@@ -25484,7 +25484,7 @@
                 "type": "boolean"
               },
               "isLocked": {
-                "description": "True if the user account has been locked due to too many invalid login attempts. A locked user account can be re\\-enabled by updating the user with this flag set to false. Only the system can set the value to true.",
+                "description": "True if the user account has been locked due to too many invalid login attempts. A locked user account can be re-enabled by updating the user with this flag set to false. Only the system can set the value to true.",
                 "type": "boolean"
               },
               "iM": {
@@ -26235,7 +26235,7 @@
             "type": "object",
             "properties": {
               "gateway": {
-                "description": "EdgeGateway configuration for the VDC created by this template. The following restrictions apply:\n* You may not specify a BackwardCompatibilityMode or an EdgeGatewayServiceConfiguration.\n* The GatewayInterfaces element must contain exactly one GatewayInterface. That GatewayInterface must have an InterfaceType of uplink and must not contain a SubnetParticipation element.\n\n",
+                "description": "EdgeGateway configuration for the VDC created by this template. The following restrictions apply:\n\n* You may not specify a BackwardCompatibilityMode or an EdgeGatewayServiceConfiguration.\n* The GatewayInterfaces element must contain exactly one GatewayInterface. That GatewayInterface must have an InterfaceType of uplink and must not contain a SubnetParticipation element.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_GatewayType"
@@ -26243,7 +26243,7 @@
                 ]
               },
               "network": {
-                "description": "Org VDC network configuration created by this template. The following restrictions apply:\n* You may not specify a BackwardCompatibilityMode, EdgeGatewayServiceConfiguration, or NetworkFeatures.\n* The NetworkConfiguration must specify a FenceMode of natRouted.\n\n",
+                "description": "Org VDC network configuration created by this template. The following restrictions apply:\n\n* You may not specify a BackwardCompatibilityMode, EdgeGatewayServiceConfiguration, or NetworkFeatures.\n* The NetworkConfiguration must specify a FenceMode of natRouted.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
@@ -26500,7 +26500,7 @@
                 "format": "int32"
               },
               "vdcQuota": {
-                "description": "Maximum number of VDCs allowed in this organization. A value of \\-1 means there is no maximum. A value of 0 means this organization cannot create any VDCs.",
+                "description": "Maximum number of VDCs allowed in this organization. A value of -1 means there is no maximum. A value of 0 means this organization cannot create any VDCs.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -26557,7 +26557,7 @@
             "type": "object",
             "properties": {
               "sAMLMetadata": {
-                "description": "XML\\-encoded SAML 2.0 metadata from this organization's identity provider. If empty, this organization does not support SAML. Download this content over a secure connection from a trusted source (typically your identity provider's SAML metadata URL).",
+                "description": "XML-encoded SAML 2.0 metadata from this organization's identity provider. If empty, this organization does not support SAML. Download this content over a secure connection from a trusted source (typically your identity provider's SAML metadata URL).",
                 "type": "string"
               },
               "enabled": {
@@ -26582,7 +26582,7 @@
                 ]
               },
               "samlSPKeyAndCertificateChain": {
-                "description": "Container for an organization's PEM\\-encoded private key and certificate chain. The private key and the public key from the leaf certificate are used during SAML message processing. Not returned on GET",
+                "description": "Container for an organization's PEM-encoded private key and certificate chain. The private key and the public key from the leaf certificate are used during SAML message processing. Not returned on GET",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_SamlSPKeyAndCertificateChainType"
@@ -26642,7 +26642,7 @@
       },
       "vcloud_SamlSPKeyAndCertificateChainType": {
         "title": "vcloud_SamlSPKeyAndCertificateChainType",
-        "description": "Container for an organization's PEM\\-encoded private key and public key certificate chain used during SAML\\-token processing.",
+        "description": "Container for an organization's PEM-encoded private key and public key certificate chain used during SAML-token processing.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -26651,11 +26651,11 @@
             "type": "object",
             "properties": {
               "key": {
-                "description": "PEM\\-encoded private key body in PKCS#8 format. Key is used during SAML operations for this Org.",
+                "description": "PEM-encoded private key body in PKCS#8 format. Key is used during SAML operations for this Org.",
                 "type": "string"
               },
               "certificateChain": {
-                "description": "PEM\\-formatted X509 certificate chain. The public key from the leaf certificate is used during SAML operations for this Org.",
+                "description": "PEM-formatted X509 certificate chain. The public key from the leaf certificate is used during SAML operations for this Org.",
                 "type": "string"
               }
             },
@@ -26919,7 +26919,7 @@
                 "type": "string"
               },
               "userName": {
-                "description": "Username to use when logging in to LDAP, specified using LDAP attribute=value pairs (for example: cn=\"ldap\\-admin\", c=\"example\", dc=\"com\").",
+                "description": "Username to use when logging in to LDAP, specified using LDAP attribute=value pairs (for example: cn=\"ldap-admin\", c=\"example\", dc=\"com\").",
                 "type": "string"
               },
               "password": {
@@ -27176,7 +27176,7 @@
                 "type": "string"
               },
               "smtpSecureMode": {
-                "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls \\-\\- Use the STARTTLS protocol  \n ssl \\-\\- \\-Use the SSL/TLS protocol  \n none \\-\\- Do not use any security protocol",
+                "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls -- Use the STARTTLS protocol  \n ssl -- -Use the SSL/TLS protocol  \n none -- Do not use any security protocol",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_SmtpSecureModeType"
@@ -27432,7 +27432,7 @@
                 "type": "boolean"
               },
               "catalogPublishedUrl": {
-                "description": "Read\\-only endpoint URL supplied by the server. External subscribers can connect to the catalog at this URL.",
+                "description": "Read-only endpoint URL supplied by the server. External subscribers can connect to the catalog at this URL.",
                 "type": "string"
               },
               "password": {
@@ -27489,7 +27489,7 @@
       },
       "vcloud_OrgOperationLimitsSettingsType": {
         "title": "vcloud_OrgOperationLimitsSettingsType",
-        "description": "Represents operation limits settings for an organization. An operation is defined as resource\\-intensive if it returns a Task object. The default value for all operation limits settings is 0, which specifies no limit.",
+        "description": "Represents operation limits settings for an organization. An operation is defined as resource-intensive if it returns a Task object. The default value for all operation limits settings is 0, which specifies no limit.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -27503,22 +27503,22 @@
                 "format": "int32"
               },
               "operationsPerUser": {
-                "description": "Maximum number of resource\\-intensive operations requested by a user in this organization that can be simultaneously eligible to run. When a user makes a request that would cause this limit to be exceeded, the requested operation is queued but remains ineligible to run until enough of the user's eligible requests have been run to allow an ineligible request to become eligible.",
+                "description": "Maximum number of resource-intensive operations requested by a user in this organization that can be simultaneously eligible to run. When a user makes a request that would cause this limit to be exceeded, the requested operation is queued but remains ineligible to run until enough of the user's eligible requests have been run to allow an ineligible request to become eligible.",
                 "type": "integer",
                 "format": "int32"
               },
               "operationsPerOrg": {
-                "description": "Maximum number of resource\\-intensive operations owned by this organization that can be simultaneously eligible to run. When an organization member makes a request that would cause this limit to be exceeded, the requested operation is queued but remains ineligible to run until enough of the organization's eligible requests have been run to allow an ineligible request to become eligible.",
+                "description": "Maximum number of resource-intensive operations owned by this organization that can be simultaneously eligible to run. When an organization member makes a request that would cause this limit to be exceeded, the requested operation is queued but remains ineligible to run until enough of the organization's eligible requests have been run to allow an ineligible request to become eligible.",
                 "type": "integer",
                 "format": "int32"
               },
               "queuedOperationsPerUser": {
-                "description": "Maximum number of resource\\-intensive operations that a user in this organization can queue. When a user makes a request that would cause this limit to be exceeded, the request fails and returns HTTP status 400.",
+                "description": "Maximum number of resource-intensive operations that a user in this organization can queue. When a user makes a request that would cause this limit to be exceeded, the request fails and returns HTTP status 400.",
                 "type": "integer",
                 "format": "int32"
               },
               "queuedOperationsPerOrg": {
-                "description": "Maximum number of queued resource\\-intensive operations allowed for all users in this organization. When an organization member makes a request that would cause this limit to be exceeded, the request fails and returns HTTP status 400.",
+                "description": "Maximum number of queued resource-intensive operations allowed for all users in this organization. When an organization member makes a request that would cause this limit to be exceeded, the request fails and returns HTTP status 400.",
                 "type": "integer",
                 "format": "int32"
               }
@@ -27583,7 +27583,7 @@
             "type": "object",
             "properties": {
               "type": {
-                "description": "The type of the notification. A string of the form com/vmware/vcloud/event/*object\\-type*/*event\\-type*.****",
+                "description": "The type of the notification. A string of the form com/vmware/vcloud/event/*object-type*/*event-type*.****",
                 "type": "string"
               },
               "eventId": {
@@ -27729,7 +27729,7 @@
                 "type": "string"
               },
               "priority": {
-                "description": "Extension service priority. An integer between 0\\-100. A value of 50 denotes a neutral priority.",
+                "description": "Extension service priority. An integer between 0-100. A value of 50 denotes a neutral priority.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -27798,7 +27798,7 @@
                 "type": "string"
               },
               "responseContentType": {
-                "description": "Response Content\\-Type, expressed as a MIME Content\\-Type string. Responses whose Content\\-Type attribute has a value that matches this string are routed to the service. ResponseContentType is mutually exclusive with UrlPattern.",
+                "description": "Response Content-Type, expressed as a MIME Content-Type string. Responses whose Content-Type attribute has a value that matches this string are routed to the service. ResponseContentType is mutually exclusive with UrlPattern.",
                 "type": "string"
               }
             },
@@ -27839,15 +27839,15 @@
             "type": "object",
             "properties": {
               "entryPoint": {
-                "description": "The URL to which a client can send requests to this extension service API. URL string must be <=255 characters. Can include the variable {baseUri}, which represents the vCloud Director REST API base URL.",
+                "description": "The URL to which a client can send requests to this extension service API. URL string must be \\<=255 characters. Can include the variable {baseUri}, which represents the vCloud Director REST API base URL.",
                 "type": "string"
               },
               "namespace": {
-                "description": "The namespace of this external service API definition. Must be <=255 characters.",
+                "description": "The namespace of this external service API definition. Must be \\<=255 characters.",
                 "type": "string"
               },
               "apiVendor": {
-                "description": "The name of the external service API vendor. Not required to be the same as the vendor of the external service this API definition is associated with. Must be <=255 characters.",
+                "description": "The name of the external service API vendor. Not required to be the same as the vendor of the external service this API definition is associated with. Must be \\<=255 characters.",
                 "type": "string"
               },
               "supportedApiVersions": {
@@ -27975,27 +27975,27 @@
             "type": "object",
             "properties": {
               "linkHref": {
-                "description": "The value of href attribute of this service Link. Can be any URI, and can include the variables {baseUri} and {resourceId}. When constructing the href value of the Link, vCloud Director replaces {baseUri} with the vCloud Director REST API base URL, and replaces {resourceId} with the UUID portion of the id attribute value of the resource in which the Link is inserted. Must be <=255 characters.",
+                "description": "The value of href attribute of this service Link. Can be any URI, and can include the variables {baseUri} and {resourceId}. When constructing the href value of the Link, vCloud Director replaces {baseUri} with the vCloud Director REST API base URL, and replaces {resourceId} with the UUID portion of the id attribute value of the resource in which the Link is inserted. Must be \\<=255 characters.",
                 "type": "string"
               },
               "mimeType": {
-                "description": "The value, specified as a MIME content type, of the type attribute of the Link. Must be <=255 characters.",
+                "description": "The value, specified as a MIME content type, of the type attribute of the Link. Must be \\<=255 characters.",
                 "type": "string"
               },
               "rel": {
-                "description": "The value of the rel attribute of the Link. Must be <=255 characters.",
+                "description": "The value of the rel attribute of the Link. Must be \\<=255 characters.",
                 "type": "string"
               },
               "resourceType": {
-                "description": "The object type, specified as a MIME content type, of the object in which the Link appears. Must be <=255 characters.",
+                "description": "The object type, specified as a MIME content type, of the object in which the Link appears. Must be \\<=255 characters.",
                 "type": "string"
               },
               "resourceId": {
-                "description": "The id of the resource in which this Link appears. The resource must be of the type specified in ResourceType. If this element is missing or empty, the Link appears in all resources of the specified type. Must be <=255 characters.",
+                "description": "The id of the resource in which this Link appears. The resource must be of the type specified in ResourceType. If this element is missing or empty, the Link appears in all resources of the specified type. Must be \\<=255 characters.",
                 "type": "string"
               },
               "externalResourceId": {
-                "description": "The id of an external resource managed by an extension. The value of this element will appear as the id attribute of the Link element. Must be <=255 characters.",
+                "description": "The id of an external resource managed by an extension. The value of this element will appear as the id attribute of the Link element. Must be \\<=255 characters.",
                 "type": "string"
               }
             },
@@ -28119,7 +28119,7 @@
             "type": "object",
             "properties": {
               "serviceResourceAccess": {
-                "description": "Specifies service resource access. One of:  \n Entity \\-\\- The action is authorized for the resource referenced in the Entity element in this container.  \n Shared \\-\\- The action is authorized for all resources in this resource class.",
+                "description": "Specifies service resource access. One of:  \n Entity -- The action is authorized for the resource referenced in the Entity element in this container.  \n Shared -- The action is authorized for all resources in this resource class.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
@@ -28127,7 +28127,7 @@
                 ]
               },
               "organizationAccess": {
-                "description": "Specifies organization access. One of:  \n Entity \\-\\- The action is authorized for the organization referenced in the Entity element in this container.  \n Shared \\-\\- The action is authorized for all members of the organization that owns the resource.  \n Published \\-\\- The action is authorized for all members of any organization in the cloud.",
+                "description": "Specifies organization access. One of:  \n Entity -- The action is authorized for the organization referenced in the Entity element in this container.  \n Shared -- The action is authorized for all members of the organization that owns the resource.  \n Published -- The action is authorized for all members of any organization in the cloud.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
@@ -28135,7 +28135,7 @@
                 ]
               },
               "principalAccess": {
-                "description": "Specifies principal access. One of:  \n Entity \\-\\- The action is authorized for the User referenced in the Entity element in this container, or for any role that includes the Right referenced in the Entity element in this container.  \n Shared \\-\\- The action is authorized for all users.",
+                "description": "Specifies principal access. One of:  \n Entity -- The action is authorized for the User referenced in the Entity element in this container, or for any role that includes the Right referenced in the Entity element in this container.  \n Shared -- The action is authorized for all users.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
@@ -28166,7 +28166,7 @@
                 "type": "string"
               },
               "urlPattern": {
-                "description": "The relative URL of the resource as a named regular expression where (?<id\\>) matches the resource identifier. For example:  \n /backup/restore  \n /backup/restore/(?<id\\>[\\-,a\\-g,0\\-9]\\*)  \n Must be <=1024 characters.",
+                "description": "The relative URL of the resource as a named regular expression where (?\\<id\\>) matches the resource identifier. For example:  \n /backup/restore  \n /backup/restore/(?\\<id\\>[-,a-g,0-9]\\*)  \n Must be \\<=1024 characters.",
                 "type": "string"
               },
               "aclRules": {
@@ -28197,19 +28197,19 @@
             "type": "object",
             "properties": {
               "mimeType": {
-                "description": "The MIME type for extension service resources of this resource class. Must be <=128 characters.",
+                "description": "The MIME type for extension service resources of this resource class. Must be \\<=128 characters.",
                 "type": "string"
               },
               "urlTemplate": {
-                "description": "A template for constructing the href attribute value for resources of this class. Can be any URI, and can include the variables {baseUri} and {resourceId}. When constructing the href value, vCloud Director replaces {baseUri} with the vCloud Director REST API base URL, and replaces {resourceId} the UUID portion of the resource id. Must be <=1024 characters.",
+                "description": "A template for constructing the href attribute value for resources of this class. Can be any URI, and can include the variables {baseUri} and {resourceId}. When constructing the href value, vCloud Director replaces {baseUri} with the vCloud Director REST API base URL, and replaces {resourceId} the UUID portion of the resource id. Must be \\<=1024 characters.",
                 "type": "string"
               },
               "nid": {
-                "description": "The Namespace Identifier for resources of this type, as specified in RFC2141. Must be <=255 characters.",
+                "description": "The Namespace Identifier for resources of this type, as specified in RFC2141. Must be \\<=255 characters.",
                 "type": "string"
               },
               "urnPattern": {
-                "description": "The Namespace Specific String for resources of this type, as specified in RFC2141. Can be a string or a named regular expression, where (?<id\\>) matches the resource identifier. Must be <=255 characters.",
+                "description": "The Namespace Specific String for resources of this type, as specified in RFC2141. Can be a string or a named regular expression, where (?\\<id\\>) matches the resource identifier. Must be \\<=255 characters.",
                 "type": "string"
               },
               "serviceResources": {
@@ -28252,7 +28252,7 @@
                 ]
               },
               "externalObjectId": {
-                "description": "Object identifier for this extension service resource. Must be <=255 characters.",
+                "description": "Object identifier for this extension service resource. Must be \\<=255 characters.",
                 "type": "string"
               }
             },
@@ -28409,7 +28409,7 @@
       },
       "vcloud-ext_SystemSettingsType": {
         "title": "vcloud-ext_SystemSettingsType",
-        "description": "Represents system\\-level settings.",
+        "description": "Represents system-level settings.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -28556,7 +28556,7 @@
                 "type": "boolean"
               },
               "consoleProxyExternalAddress": {
-                "description": "Use this address to access the console proxy from the public side of a firewall or load\\-balancer.  \n Leave empty to clear the address.",
+                "description": "Use this address to access the console proxy from the public side of a firewall or load-balancer.  \n Leave empty to clear the address.",
                 "type": "string"
               },
               "hostCheckDelayInSeconds": {
@@ -28570,7 +28570,7 @@
                 "format": "int32"
               },
               "installationId": {
-                "description": "The vCloud Director installation Id. An integer in the range 0 \\- 63.",
+                "description": "The vCloud Director installation Id. An integer in the range 0 - 63.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -28593,7 +28593,7 @@
                 "type": "boolean"
               },
               "prePopDefaultName": {
-                "description": "Pre\\-populate default configuration and virtual machine name.",
+                "description": "Pre-populate default configuration and virtual machine name.",
                 "type": "boolean"
               },
               "quarantineEnabled": {
@@ -28606,15 +28606,15 @@
                 "format": "int32"
               },
               "restApiBaseHttpUri": {
-                "description": "Base REST API URL for HTTP connections from the public side of a firewall, load\\-balancer, or proxy.  \n Leave empty to clear the address.",
+                "description": "Base REST API URL for HTTP connections from the public side of a firewall, load-balancer, or proxy.  \n Leave empty to clear the address.",
                 "type": "string"
               },
               "restApiBaseUri": {
-                "description": "Base REST API URL for HTTPS connections from the public side of a firewall, load\\-balancer, or proxy.  \n Leave empty to clear the address.",
+                "description": "Base REST API URL for HTTPS connections from the public side of a firewall, load-balancer, or proxy.  \n Leave empty to clear the address.",
                 "type": "string"
               },
               "restApiBaseUriPublicCertChain": {
-                "description": "SSL public certificate chain for the RestApiBaseUri. If you specify an address in RestApiBaseUri, you must place the certificate chain for that address here. The certificate chain must consist of zero or more PEM\\-encoded X.509 certificates.",
+                "description": "SSL public certificate chain for the RestApiBaseUri. If you specify an address in RestApiBaseUri, you must place the certificate chain for that address here. The certificate chain must consist of zero or more PEM-encoded X.509 certificates.",
                 "type": "string"
               },
               "sessionTimeoutMinutes": {
@@ -28637,27 +28637,27 @@
                 "format": "int64"
               },
               "systemExternalHttpAddress": {
-                "description": "URL for VCD Web Console HTTP connections from the public side of a firewall, load\\-balancer, or proxy.  \n Leave empty to clear the address.",
+                "description": "URL for VCD Web Console HTTP connections from the public side of a firewall, load-balancer, or proxy.  \n Leave empty to clear the address.",
                 "type": "string"
               },
               "systemExternalAddress": {
-                "description": "URL for VCD Web Console HTTPS connections from the public side of a firewall, load\\-balancer, or proxy.  \n Leave empty to clear the address.",
+                "description": "URL for VCD Web Console HTTPS connections from the public side of a firewall, load-balancer, or proxy.  \n Leave empty to clear the address.",
                 "type": "string"
               },
               "systemExternalAddressPublicCertChain": {
-                "description": "SSL public certificate chain for SystemExternalAddress. If you specify an address in SystemExternalAddress, you must place the certificate chain for that address here. The certificate chain must consist of zero or more PEM\\-encoded X.509 certificates.",
+                "description": "SSL public certificate chain for SystemExternalAddress. If you specify an address in SystemExternalAddress, you must place the certificate chain for that address here. The certificate chain must consist of zero or more PEM-encoded X.509 certificates.",
                 "type": "string"
               },
               "tenantPortalExternalHttpAddress": {
-                "description": "URL for TenantPortal HTTP connections from the public side of a firewall, load\\-balancer, or proxy.  \n Leave empty to clear the address.",
+                "description": "URL for TenantPortal HTTP connections from the public side of a firewall, load-balancer, or proxy.  \n Leave empty to clear the address.",
                 "type": "string"
               },
               "tenantPortalExternalAddress": {
-                "description": "URL for TenantPortal HTTPS connections from the public side of a firewall, load\\-balancer, or proxy.  \n Leave empty to clear the address.",
+                "description": "URL for TenantPortal HTTPS connections from the public side of a firewall, load-balancer, or proxy.  \n Leave empty to clear the address.",
                 "type": "string"
               },
               "tenantPortalPublicCertChain": {
-                "description": "SSL public certificate chain for TenantPortalExternalAddress. If you specify an address in TenantPortalExternalAddress, you must place the certificate chain for that address here. The certificate chain must consist of zero or more PEM\\-encoded X.509 certificates.",
+                "description": "SSL public certificate chain for TenantPortalExternalAddress. If you specify an address in TenantPortalExternalAddress, you must place the certificate chain for that address here. The certificate chain must consist of zero or more PEM-encoded X.509 certificates.",
                 "type": "string"
               },
               "transferSessionTimeoutSeconds": {
@@ -28714,7 +28714,7 @@
                 "type": "string"
               },
               "maxVdcQuota": {
-                "description": "Maximum number of VDCs allowed in this organization. A value of \\-1 means there is no maximum. A value of 0 means this organization cannot create any VDCs. This value is used to initialize VdcQuota in the OrgGeneralSettings of a new organization.",
+                "description": "Maximum number of VDCs allowed in this organization. A value of -1 means there is no maximum. A value of 0 means this organization cannot create any VDCs. This value is used to initialize VdcQuota in the OrgGeneralSettings of a new organization.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -29007,7 +29007,7 @@
                 "type": "string"
               },
               "userName": {
-                "description": "Username to use when logging in to LDAP, specified using LDAP attribute=value pairs (for example: cn=\"ldap\\-admin\", c=\"example\", dc=\"com\").",
+                "description": "Username to use when logging in to LDAP, specified using LDAP attribute=value pairs (for example: cn=\"ldap-admin\", c=\"example\", dc=\"com\").",
                 "type": "string"
               },
               "password": {
@@ -29180,7 +29180,7 @@
       },
       "vcloud-ext_BrandingSettingsType": {
         "title": "vcloud-ext_BrandingSettingsType",
-        "description": "Information used to customize the vCloud Director Web console. Include provider\\-specific text and values.",
+        "description": "Information used to customize the vCloud Director Web console. Include provider-specific text and values.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -29257,19 +29257,19 @@
                 "type": "boolean"
               },
               "expired": {
-                "description": "Flag indicating whether the provided serial number has expired. This is a read\\-only field for the API. The license manager will set this flag appropriately.",
+                "description": "Flag indicating whether the provided serial number has expired. This is a read-only field for the API. The license manager will set this flag appropriately.",
                 "type": "boolean"
               },
               "persisted": {
-                "description": "Flag indicating whether this license element is persisted. Note that starting with vCloud 5.5 attempting to set an expired license key while the system is federated with component\\-manager will not persist the key in the CIS Licensing sub system. Otherwise, for compatibility reason, if the key is expired and the system is not federated with component manager then this key gets persisted in the vCloud local licensing system.",
+                "description": "Flag indicating whether this license element is persisted. Note that starting with vCloud 5.5 attempting to set an expired license key while the system is federated with component-manager will not persist the key in the CIS Licensing sub system. Otherwise, for compatibility reason, if the key is expired and the system is not federated with component manager then this key gets persisted in the vCloud local licensing system.",
                 "type": "boolean"
               },
               "publishingToRemoteSitesFeature": {
-                "description": "Flag indicating whether the provided serial number has feature 'publishing\\-to\\-remote\\-sites'. This is a read\\-only field for the API. The license manager will set this flag appropriately.",
+                "description": "Flag indicating whether the provided serial number has feature 'publishing-to-remote-sites'. This is a read-only field for the API. The license manager will set this flag appropriately.",
                 "type": "boolean"
               },
               "subscribingToRemoteSitesFeature": {
-                "description": "Flag indicating whether the provided serial number has feature 'subscribing\\-to\\-remote\\-sites'. This is a read\\-only field for the API. The license manager will set this flag appropriately.",
+                "description": "Flag indicating whether the provided serial number has feature 'subscribing-to-remote-sites'. This is a read-only field for the API. The license manager will set this flag appropriately.",
                 "type": "boolean"
               },
               "licenseMetricsInfo": {
@@ -29334,11 +29334,11 @@
                 "format": "date-time"
               },
               "publishingToRemoteSites": {
-                "description": "Whether the content\\-catalog feature to publish to external sites is used.",
+                "description": "Whether the content-catalog feature to publish to external sites is used.",
                 "type": "boolean"
               },
               "subscribingToRemoteSites": {
-                "description": "Whether the content\\-catalog feature to subscribe to external sites is used.",
+                "description": "Whether the content-catalog feature to subscribe to external sites is used.",
                 "type": "boolean"
               }
             },
@@ -29369,7 +29369,7 @@
                 "type": "boolean"
               },
               "alertEmailTo": {
-                "description": "A comma\\-separated list of email addresses to send alert messages to.",
+                "description": "A comma-separated list of email addresses to send alert messages to.",
                 "type": "string"
               },
               "smtpSettings": {
@@ -29413,7 +29413,7 @@
                 "format": "int32"
               },
               "smtpSecureMode": {
-                "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls \\-\\- Use the STARTTLS protocol  \n ssl \\-\\- \\-Use the SSL/TLS protocol  \n none \\-\\- Do not use any security protocol",
+                "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls -- Use the STARTTLS protocol  \n ssl -- -Use the SSL/TLS protocol  \n none -- Do not use any security protocol",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_SmtpSecureModeType"
@@ -29451,7 +29451,7 @@
             "type": "object",
             "properties": {
               "allowLowerCaseRealms": {
-                "description": "A value of true allows the use of lower\\-case characters in realm names.",
+                "description": "A value of true allows the use of lower-case characters in realm names.",
                 "type": "boolean"
               },
               "realm": {
@@ -29483,7 +29483,7 @@
                 "type": "string"
               },
               "name": {
-                "description": "The name of the realm. Must be all upper\\-case characters unless AllowLowerCaseRealms is true.",
+                "description": "The name of the realm. Must be all upper-case characters unless AllowLowerCaseRealms is true.",
                 "type": "string"
               },
               "domain": {
@@ -29627,7 +29627,7 @@
       },
       "vcloud-ext_OperationLimitsSettingsType": {
         "title": "vcloud-ext_OperationLimitsSettingsType",
-        "description": "Specifies default operation limits settings for all organizations in the system. An operation is defined as resource\\-intensive if it returns a Task object. The default value for all operation limits settings is 0, which specifies no limit",
+        "description": "Specifies default operation limits settings for all organizations in the system. An operation is defined as resource-intensive if it returns a Task object. The default value for all operation limits settings is 0, which specifies no limit",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -29636,22 +29636,22 @@
             "type": "object",
             "properties": {
               "runningPerUser": {
-                "description": "Maximum number of resource\\-intensive operations requested by a user in any organization that can be simultaneously eligible to run when an orgnization specific limit is not set. When a user makes a request that causes this limit to exceed; the requested operation is queued but remains ineligible to run until enough of the user's eligible requests have been run.",
+                "description": "Maximum number of resource-intensive operations requested by a user in any organization that can be simultaneously eligible to run when an orgnization specific limit is not set. When a user makes a request that causes this limit to exceed; the requested operation is queued but remains ineligible to run until enough of the user's eligible requests have been run.",
                 "type": "integer",
                 "format": "int32"
               },
               "runningPerOrg": {
-                "description": "Maximum number of resource\\-intensive operations owned by any organization that can be simultaneously eligible to run when an orgnization specific limit is not set. When an organization member makes a request that causes this limit to exceed, the requested operation is queued but remains ineligible to run until enough of the organization's eligible requests have been run.",
+                "description": "Maximum number of resource-intensive operations owned by any organization that can be simultaneously eligible to run when an orgnization specific limit is not set. When an organization member makes a request that causes this limit to exceed, the requested operation is queued but remains ineligible to run until enough of the organization's eligible requests have been run.",
                 "type": "integer",
                 "format": "int32"
               },
               "queuedOperationsPerUser": {
-                "description": "Maximum number of resource\\-intensive operations that a user in any organization can queue when an orgnization specific limit is not set. When a user makes a request that causes this limit to exceed, the request fails and returns HTTP status 400.",
+                "description": "Maximum number of resource-intensive operations that a user in any organization can queue when an orgnization specific limit is not set. When a user makes a request that causes this limit to exceed, the request fails and returns HTTP status 400.",
                 "type": "integer",
                 "format": "int32"
               },
               "queuedOperationsPerOrg": {
-                "description": "Maximum number of queued resource\\-intensive operations allowed for users in any organization when an orgnization specific limit is not set. When an organization member makes a request that causes this limit to exceed, the request fails and returns HTTP status 400.",
+                "description": "Maximum number of queued resource-intensive operations allowed for users in any organization when an orgnization specific limit is not set. When an organization member makes a request that causes this limit to exceed, the request fails and returns HTTP status 400.",
                 "type": "integer",
                 "format": "int32"
               }
@@ -29850,7 +29850,7 @@
       },
       "vcloud-ext_NsxTManagersType": {
         "title": "vcloud-ext_NsxTManagersType",
-        "description": "Represents parameters to register an NSX\\-T Manager.",
+        "description": "Represents parameters to register an NSX-T Manager.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -29859,7 +29859,7 @@
             "type": "object",
             "properties": {
               "nsxTManager": {
-                "description": "NSX\\-T manager administrator credentials. Required for register, modify.",
+                "description": "NSX-T manager administrator credentials. Required for register, modify.",
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/vcloud-ext_NsxTManagerType"
@@ -29960,7 +29960,7 @@
       },
       "vcloud-ext_NsxTManagerType": {
         "title": "vcloud-ext_NsxTManagerType",
-        "description": "Represents credentials to a NSX\\-T Manager.",
+        "description": "Represents credentials to a NSX-T Manager.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud-ext_ServerType"
@@ -30156,7 +30156,7 @@
                 ]
               },
               "importedDisk": {
-                "description": "Represents a disk of the VM in order to specify per\\-disk Storage Profile.",
+                "description": "Represents a disk of the VM in order to specify per-disk Storage Profile.",
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/vcloud-ext_ImportedDiskType"
@@ -30218,7 +30218,7 @@
                 ]
               },
               "importedDisk": {
-                "description": "Represents a disk of the VM in order to specify per\\-disk Storage Profile.",
+                "description": "Represents a disk of the VM in order to specify per-disk Storage Profile.",
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/vcloud-ext_ImportedDiskType"
@@ -30284,7 +30284,7 @@
                 ]
               },
               "importedDisk": {
-                "description": "Represents a disk of the VM in order to specify per\\-disk Storage Profile.",
+                "description": "Represents a disk of the VM in order to specify per-disk Storage Profile.",
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/vcloud-ext_ImportedDiskType"
@@ -30598,7 +30598,7 @@
                 }
               },
               "nsxTManagerReference": {
-                "description": "An optional reference to a registered NSX\\-T Manager to back networking operations for this provider vDC.",
+                "description": "An optional reference to a registered NSX-T Manager to back networking operations for this provider vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
@@ -30652,7 +30652,7 @@
                 }
               },
               "nsxTManagerReference": {
-                "description": "An optional reference to a Registered NSX\\-T Manager to back networking operations for this Provider vDC.",
+                "description": "An optional reference to a Registered NSX-T Manager to back networking operations for this Provider vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
@@ -30871,7 +30871,7 @@
                 ]
               },
               "usedNetworksCount": {
-                "description": "This is a read\\-only indication of how many networks in this pool are in use.",
+                "description": "This is a read-only indication of how many networks in this pool are in use.",
                 "type": "integer",
                 "format": "int32"
               }
@@ -30910,7 +30910,7 @@
                 ]
               },
               "usedNetworksCount": {
-                "description": "This is a read\\-only indication of how many networks in this pool are in use.",
+                "description": "This is a read-only indication of how many networks in this pool are in use.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -30956,7 +30956,7 @@
                 ]
               },
               "usedNetworksCount": {
-                "description": "This is a read\\-only indication of how many networks in this pool are in use.",
+                "description": "This is a read-only indication of how many networks in this pool are in use.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -31006,7 +31006,7 @@
                 ]
               },
               "usedNetworksCount": {
-                "description": "This is a read\\-only indication of how many networks in this pool are in use.",
+                "description": "This is a read-only indication of how many networks in this pool are in use.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -31111,7 +31111,7 @@
       "vcloud-ext_LicensingReportType": {
         "deprecated": true,
         "title": "vcloud-ext_LicensingReportType",
-        "description": "Represents a read\\-only licensing metric report. This type is deprecated since version 5.5 because of scalability issues. The new typed queries 'licensingReportQueryList', 'licensingReportSampleQueryList', 'licensingManagedServerQueryList' and 'licensingVirtualMachineQueryList', when combined, replaces this.",
+        "description": "Represents a read-only licensing metric report. This type is deprecated since version 5.5 because of scalability issues. The new typed queries 'licensingReportQueryList', 'licensingReportSampleQueryList', 'licensingManagedServerQueryList' and 'licensingVirtualMachineQueryList', when combined, replaces this.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -32029,7 +32029,7 @@
             "type": "object",
             "properties": {
               "thinProvision": {
-                "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over\\-allocation of storage.",
+                "description": "Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over-allocation of storage.",
                 "type": "boolean"
               },
               "fastProvisioningEnabled": {
@@ -32161,7 +32161,7 @@
       },
       "vcloud-ext_VMWVdcTemplateBindingType": {
         "title": "vcloud-ext_VMWVdcTemplateBindingType",
-        "description": "A Binding pairs a Name element that contains a user\\-specified identifier in URN format with a Value element that contains a reference to an object. The Name can then be used anywhere in the request where a reference to that type of object is allowed. For example, when specifying multiple Provider VDCs in a VMWVdcTemplate, create a Binding where the Value is a reference to an external network in a candidate Provider VDC, then use the Name from that binding in place of the href attribute required by the Network element in the GatewayConfiguration of the VdcTemplateSpecification. When the template is instantiated, the Name is replaced by the network reference in the Value part of the Binding associated with the Provider VDC that the system selects during instantiation.",
+        "description": "A Binding pairs a Name element that contains a user-specified identifier in URN format with a Value element that contains a reference to an object. The Name can then be used anywhere in the request where a reference to that type of object is allowed. For example, when specifying multiple Provider VDCs in a VMWVdcTemplate, create a Binding where the Value is a reference to an external network in a candidate Provider VDC, then use the Name from that binding in place of the href attribute required by the Network element in the GatewayConfiguration of the VdcTemplateSpecification. When the template is instantiated, the Name is replaced by the network reference in the Value part of the Binding associated with the Provider VDC that the system selects during instantiation.",
         "type": "object",
         "properties": {
           "name": {
@@ -32224,7 +32224,7 @@
       },
       "vcloud-ext_VMWHostGroupType": {
         "title": "vcloud-ext_VMWHostGroupType",
-        "description": "HostGroup identifies a list of references to hosts in this resource pool to which VM\\-Host affinity rules can apply. VM\\-Host affinity rules determine placement of virtual machines on hosts in a cluster.",
+        "description": "HostGroup identifies a list of references to hosts in this resource pool to which VM-Host affinity rules can apply. VM-Host affinity rules determine placement of virtual machines on hosts in a cluster.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -32275,7 +32275,7 @@
       },
       "vcloud-ext_VMWVmHostAffinityRuleType": {
         "title": "vcloud-ext_VMWVmHostAffinityRuleType",
-        "description": "A VM\\-Host affinity rule controls the placement of VMs on hosts.",
+        "description": "A VM-Host affinity rule controls the placement of VMs on hosts.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_AffinityRuleType"
@@ -32311,7 +32311,7 @@
             "type": "object",
             "properties": {
               "vmHostAffinityRule": {
-                "description": "A VM\\-Host affinity rule controls the placement of VMs on hosts.",
+                "description": "A VM-Host affinity rule controls the placement of VMs on hosts.",
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/vcloud-ext_VMWVmHostAffinityRuleType"
@@ -32368,7 +32368,7 @@
       },
       "vcloud-ext_VMWVmGroupType": {
         "title": "vcloud-ext_VMWVmGroupType",
-        "description": "VmGroup identifies a group of VMs in this resource pool to which VM\\-Host affinity rules can be applied. VM\\-Host affinity rules control placement of virtual machines on hosts in a resource pool.",
+        "description": "VmGroup identifies a group of VMs in this resource pool to which VM-Host affinity rules can be applied. VM-Host affinity rules control placement of virtual machines on hosts in a resource pool.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -32502,7 +32502,7 @@
                 ]
               },
               "isPublished": {
-                "description": "True if the catalog is shared with all other organizations in the system. This value is read\\-only in the user view. To modify it, an administrator must use the publish link in the admin view of the catalog.",
+                "description": "True if the catalog is shared with all other organizations in the system. This value is read-only in the user view. To modify it, an administrator must use the publish link in the admin view of the catalog.",
                 "type": "boolean"
               },
               "dateCreated": {
@@ -32682,7 +32682,7 @@
         "type": "object",
         "properties": {
           "message": {
-            "description": "An one line, human\\-readable message describing the error that occurred.",
+            "description": "An one line, human-readable message describing the error that occurred.",
             "type": "string"
           },
           "majorErrorCode": {
@@ -32691,11 +32691,11 @@
             "format": "int32"
           },
           "minorErrorCode": {
-            "description": "Resource\\-specific error code.",
+            "description": "Resource-specific error code.",
             "type": "string"
           },
           "vendorSpecificErrorCode": {
-            "description": "A vendor\\- or implementation\\-specific error code that can reference specific modules or source lines for diagnostic purposes.",
+            "description": "A vendor- or implementation-specific error code that can reference specific modules or source lines for diagnostic purposes.",
             "type": "string"
           }
         },
@@ -32766,7 +32766,7 @@
       },
       "vcloud_LinkType": {
         "title": "vcloud_LinkType",
-        "description": "Extends reference type by adding relation attribute. Defines a hyper\\-link with a relationship, hyper\\-link reference, and an optional MIME type.",
+        "description": "Extends reference type by adding relation attribute. Defines a hyper-link with a relationship, hyper-link reference, and an optional MIME type.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ReferenceType"
@@ -33224,7 +33224,7 @@
                 ]
               },
               "key": {
-                "description": "An arbitrary key name. Length cannot exceed 256 UTF\\-8 characters.",
+                "description": "An arbitrary key name. Length cannot exceed 256 UTF-8 characters.",
                 "type": "string"
               },
               "typedValue": {
@@ -33267,7 +33267,7 @@
       },
       "vcloud_MetadataStringValue": {
         "title": "vcloud_MetadataStringValue",
-        "description": "UTF\\-8 character set. Strings longer than 1000 characters cannot be searched for in a query.",
+        "description": "UTF-8 character set. Strings longer than 1000 characters cannot be searched for in a query.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
@@ -33288,7 +33288,7 @@
       },
       "vcloud_MetadataNumberValue": {
         "title": "vcloud_MetadataNumberValue",
-        "description": "A signed 8\\-byte integer.",
+        "description": "A signed 8-byte integer.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
@@ -33331,7 +33331,7 @@
       },
       "vcloud_MetadataDateTimeValue": {
         "title": "vcloud_MetadataDateTimeValue",
-        "description": "UTC format. For example 2012\\-06\\-18T12:00:00\\-05:00",
+        "description": "UTC format. For example 2012-06-18T12:00:00-05:00",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
@@ -33353,7 +33353,7 @@
       },
       "vcloud_MetadataType": {
         "title": "vcloud_MetadataType",
-        "description": "User\\-defined metadata associated with with an object.",
+        "description": "User-defined metadata associated with with an object.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -33457,7 +33457,7 @@
       },
       "vcloud_SmtpSecureModeType": {
         "title": "vcloud_SmtpSecureModeType",
-        "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls \\-\\- Use the STARTTLS protocol  \n ssl \\-\\- \\-Use the SSL/TLS protocol  \n none \\-\\- Do not use any security protocol",
+        "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls -- Use the STARTTLS protocol  \n ssl -- -Use the SSL/TLS protocol  \n none -- Do not use any security protocol",
         "type": "string",
         "enum": [
           "none",
@@ -33632,7 +33632,7 @@
             "type": "object",
             "properties": {
               "id": {
-                "description": "The object identifier, expressed in URN format. The value of this attribute uniquely identifies the object, persists for the life of the object, and is never reused. This context\\-free identifier can apply to any object in any system.",
+                "description": "The object identifier, expressed in URN format. The value of this attribute uniquely identifies the object, persists for the life of the object, and is never reused. This context-free identifier can apply to any object in any system.",
                 "type": "string"
               },
               "type": {
@@ -33739,7 +33739,7 @@
       },
       "vcloud_ToCloudTunnelCreateParamsType": {
         "title": "vcloud_ToCloudTunnelCreateParamsType",
-        "description": "Parameters for creating to\\-the\\-cloud tunnel",
+        "description": "Parameters for creating to-the-cloud tunnel",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -33756,7 +33756,7 @@
                 "type": "string"
               },
               "sourceId": {
-                "description": "A UUID identifying the vCTA on\\-premise",
+                "description": "A UUID identifying the vCTA on-premise",
                 "type": "string"
               }
             },
@@ -33770,7 +33770,7 @@
       },
       "vcloud_ToCloudTunnelType": {
         "title": "vcloud_ToCloudTunnelType",
-        "description": "Describes to\\-the\\-cloud tunnel",
+        "description": "Describes to-the-cloud tunnel",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -33787,7 +33787,7 @@
                 "type": "string"
               },
               "sourceId": {
-                "description": "A UUID identifying the vCTA on\\-premise",
+                "description": "A UUID identifying the vCTA on-premise",
                 "type": "string"
               }
             },
@@ -33801,7 +33801,7 @@
       },
       "vcloud_AdminToCloudTunnelType": {
         "title": "vcloud_AdminToCloudTunnelType",
-        "description": "Describes the administrator view of a to\\-the\\-cloud tunnel",
+        "description": "Describes the administrator view of a to-the-cloud tunnel",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ToCloudTunnelType"
@@ -33834,7 +33834,7 @@
       },
       "vcloud_FromCloudTunnelCreateParamsType": {
         "title": "vcloud_FromCloudTunnelCreateParamsType",
-        "description": "Parameters for creating from\\-the\\-cloud tunnel",
+        "description": "Parameters for creating from-the-cloud tunnel",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -33855,7 +33855,7 @@
                 "type": "string"
               },
               "sourceId": {
-                "description": "A UUID identifying the vCTA on\\-premise",
+                "description": "A UUID identifying the vCTA on-premise",
                 "type": "string"
               }
             },
@@ -33869,7 +33869,7 @@
       },
       "vcloud_FromCloudTunnelType": {
         "title": "vcloud_FromCloudTunnelType",
-        "description": "Describes from\\-the\\-cloud tunnel",
+        "description": "Describes from-the-cloud tunnel",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -33890,7 +33890,7 @@
                 "type": "string"
               },
               "sourceId": {
-                "description": "A UUID identifying the vCTA on\\-premise",
+                "description": "A UUID identifying the vCTA on-premise",
                 "type": "string"
               }
             },
@@ -33904,7 +33904,7 @@
       },
       "vcloud_AdminFromCloudTunnelType": {
         "title": "vcloud_AdminFromCloudTunnelType",
-        "description": "Describes the administrator view of a from\\-the\\-cloud tunnel",
+        "description": "Describes the administrator view of a from-the-cloud tunnel",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_FromCloudTunnelType"
@@ -33913,7 +33913,7 @@
             "type": "object",
             "properties": {
               "tunnelEndPoint": {
-                "description": "IP address and port to access the tunnel in the form of [ip\\-address]:[port].",
+                "description": "IP address and port to access the tunnel in the form of [ip-address]:[port].",
                 "type": "string"
               }
             },
@@ -33929,7 +33929,7 @@
         "type": "object",
         "properties": {
           "port": {
-            "description": "The port number of the from\\-the\\-cloud tunnel listener",
+            "description": "The port number of the from-the-cloud tunnel listener",
             "type": "integer",
             "format": "int32"
           },
@@ -33950,7 +33950,7 @@
       },
       "vcloud_FromCloudTunnelListenerCreateParamsType": {
         "title": "vcloud_FromCloudTunnelListenerCreateParamsType",
-        "description": "Parameters for creating from\\-the\\-cloud tunnel listener",
+        "description": "Parameters for creating from-the-cloud tunnel listener",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -33966,7 +33966,7 @@
       },
       "vcloud_FromCloudTunnelListenerType": {
         "title": "vcloud_FromCloudTunnelListenerType",
-        "description": "Properties of a from\\-the\\-cloud tunnel listener. A from\\-the\\-cloud listener associates a port with a particular (traffic type, endpoint tag) tuple. Ports are unique and (traffic type, endpoint tag) tuples are unique.",
+        "description": "Properties of a from-the-cloud tunnel listener. A from-the-cloud listener associates a port with a particular (traffic type, endpoint tag) tuple. Ports are unique and (traffic type, endpoint tag) tuples are unique.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -33982,7 +33982,7 @@
       },
       "vcloud_FromCloudTunnelListenerListType": {
         "title": "vcloud_FromCloudTunnelListenerListType",
-        "description": "A list of the existing from\\-the\\-cloud tunnel listeners.",
+        "description": "A list of the existing from-the-cloud tunnel listeners.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ContainerType"
@@ -33991,7 +33991,7 @@
             "type": "object",
             "properties": {
               "fromCloudTunnelListener": {
-                "description": "From\\-the\\-cloud tunnel listener",
+                "description": "From-the-cloud tunnel listener",
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/vcloud_FromCloudTunnelListenerType"
@@ -34129,11 +34129,11 @@
                 "type": "string"
               },
               "cloudProxyFromCloudTunnelHost": {
-                "description": "IP address or hostname of the effective host used for from\\-the\\-cloud tunnels.",
+                "description": "IP address or hostname of the effective host used for from-the-cloud tunnels.",
                 "type": "string"
               },
               "cloudProxyFromCloudTunnelHostOverride": {
-                "description": "IP address or hostname of the host used for from\\-the\\-cloud tunnels. Leave empty to use default.",
+                "description": "IP address or hostname of the host used for from-the-cloud tunnels. Leave empty to use default.",
                 "type": "string"
               }
             },
@@ -34419,7 +34419,7 @@
       },
       "vcloud_HistoricUsageType": {
         "title": "vcloud_HistoricUsageType",
-        "description": "A collection of time\\-based metrics representing historic usage statistics",
+        "description": "A collection of time-based metrics representing historic usage statistics",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -34487,24 +34487,24 @@
             "type": "object",
             "properties": {
               "restEndpoint": {
-                "description": "The URI of the REST API end\\-point for the site.",
+                "description": "The URI of the REST API end-point for the site.",
                 "type": "string",
                 "format": "uri"
               },
               "baseUiEndpoint": {
                 "deprecated": true,
-                "description": "The base URI of the UI end\\-point for the site.",
+                "description": "The base URI of the UI end-point for the site.",
                 "type": "string",
                 "format": "uri"
               },
               "tenantUiEndpoint": {
                 "deprecated": true,
-                "description": "The URI of the Tenant UI end\\-point for the site.",
+                "description": "The URI of the Tenant UI end-point for the site.",
                 "type": "string",
                 "format": "uri"
               },
               "restEndpointCertificate": {
-                "description": "Optional PEM\\-encoded certificate to use when connecting to the REST API end\\-point.",
+                "description": "Optional PEM-encoded certificate to use when connecting to the REST API end-point.",
                 "type": "string"
               }
             },
@@ -34519,7 +34519,7 @@
       },
       "vcloud_SiteType": {
         "title": "vcloud_SiteType",
-        "description": "Represents a single site in a multi\\-site vCloud configuration.",
+        "description": "Represents a single site in a multi-site vCloud configuration.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_MultisiteType"
@@ -34589,7 +34589,7 @@
                 "type": "string"
               },
               "publicKey": {
-                "description": "PEM\\-encoded public key for the remote site.",
+                "description": "PEM-encoded public key for the remote site.",
                 "type": "string"
               },
               "status": {
@@ -34677,7 +34677,7 @@
                 "type": "string"
               },
               "orgPublicKey": {
-                "description": "PEM\\-encoded public key for this organization.",
+                "description": "PEM-encoded public key for this organization.",
                 "type": "string"
               },
               "status": {
@@ -34734,7 +34734,7 @@
               },
               "useMultisiteToken": {
                 "deprecated": true,
-                "description": "True if the location accepts multisite x\\-vcloud\\-authorization token for this user.",
+                "description": "True if the location accepts multisite x-vcloud-authorization token for this user.",
                 "type": "boolean"
               },
               "authContext": {
@@ -35154,7 +35154,7 @@
                 "type": "string"
               },
               "icmpSubType": {
-                "description": "ICMP subtype. One of: address\\-mask\\-request, address\\-mask\\-reply, destination\\-unreachable, echo\\-request, echo\\-reply, parameter\\-problem, redirect, router\\-advertisement, router\\-solicitation, source\\-quench, time\\-exceeded, timestamp\\-request, timestamp\\-reply, any.",
+                "description": "ICMP subtype. One of: address-mask-request, address-mask-reply, destination-unreachable, echo-request, echo-reply, parameter-problem, redirect, router-advertisement, router-solicitation, source-quench, time-exceeded, timestamp-request, timestamp-reply, any.",
                 "type": "string"
               }
             },
@@ -35384,7 +35384,7 @@
       },
       "vcloud_VmSelectionType": {
         "title": "vcloud_VmSelectionType",
-        "description": "Represents details of an vm\\+nic\\+iptype selection.",
+        "description": "Represents details of an vm+nic+iptype selection.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -35402,7 +35402,7 @@
                 "format": "int32"
               },
               "ipType": {
-                "description": "The value can be one of:\\- assigned: assigned internal IP be automatically choosen. NAT: NATed external IP will be automatically choosen.",
+                "description": "The value can be one of:- assigned: assigned internal IP be automatically choosen. NAT: NATed external IP will be automatically choosen.",
                 "type": "string"
               }
             },
@@ -35437,7 +35437,7 @@
                 "type": "string"
               },
               "icmpSubType": {
-                "description": "ICMP subtype. One of: address\\-mask\\-request, address\\-mask\\-reply, destination\\-unreachable, echo\\-request, echo\\-reply, parameter\\-problem, redirect, router\\-advertisement, router\\-solicitation, source\\-quench, time\\-exceeded, timestamp\\-request, timestamp\\-reply, any.",
+                "description": "ICMP subtype. One of: address-mask-request, address-mask-reply, destination-unreachable, echo-request, echo-reply, parameter-problem, redirect, router-advertisement, router-solicitation, source-quench, time-exceeded, timestamp-request, timestamp-reply, any.",
                 "type": "string"
               },
               "destinationPortRange": {
@@ -35459,7 +35459,7 @@
       },
       "vcloud_IpsecVpnServiceType": {
         "title": "vcloud_IpsecVpnServiceType",
-        "description": "Represents an IPSec\\-VPN network service.",
+        "description": "Represents an IPSec-VPN network service.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_NetworkServiceType"
@@ -35484,7 +35484,7 @@
                 ]
               },
               "ipsecVpnTunnel": {
-                "description": "Details of an IPSec\\-VPN tunnel.",
+                "description": "Details of an IPSec-VPN tunnel.",
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/vcloud_IpsecVpnTunnelType"
@@ -35497,7 +35497,7 @@
       },
       "vcloud_IpsecVpnTunnelType": {
         "title": "vcloud_IpsecVpnTunnelType",
-        "description": "Represents details of an IPSec\\-VPN tunnel.",
+        "description": "Represents details of an IPSec-VPN tunnel.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -35551,11 +35551,11 @@
                 "format": "int32"
               },
               "isEnabled": {
-                "description": "Specifies if the IPSec\\-VPN Tunnel should be enabled.",
+                "description": "Specifies if the IPSec-VPN Tunnel should be enabled.",
                 "type": "boolean"
               },
               "isOperational": {
-                "description": "Specifies if the IPSec\\-VPN Tunnel is operational.",
+                "description": "Specifies if the IPSec-VPN Tunnel is operational.",
                 "type": "boolean"
               },
               "errorDetails": {
@@ -36756,7 +36756,7 @@
                 ]
               },
               "allocatedIpAddresses": {
-                "description": "Read\\-only list of allocated IP addresses in the network.",
+                "description": "Read-only list of allocated IP addresses in the network.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_IpAddressesType"
@@ -36764,7 +36764,7 @@
                 ]
               },
               "subAllocations": {
-                "description": "Read\\-only list of IP addresses that are sub allocated to edge gateways.",
+                "description": "Read-only list of IP addresses that are sub allocated to edge gateways.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_SubAllocationsType"
@@ -37273,7 +37273,7 @@
                 "type": "string"
               },
               "isEnabled": {
-                "description": "True if this organization is enabled (allows login and all other operations). Read\\-only in the user view. Modifiable in the admin view (AdminOrg element).",
+                "description": "True if this organization is enabled (allows login and all other operations). Read-only in the user view. Modifiable in the admin view (AdminOrg element).",
                 "type": "boolean"
               }
             },
@@ -38724,7 +38724,7 @@
                 "type": "string"
               },
               "isReadOnly": {
-                "description": "True if this entity is read\\-only.",
+                "description": "True if this entity is read-only.",
                 "type": "boolean"
               },
               "identityProviderType": {
@@ -38859,7 +38859,7 @@
                 "type": "string"
               },
               "isReadOnly": {
-                "description": "True if this entity is read\\-only.",
+                "description": "True if this entity is read-only.",
                 "type": "boolean"
               }
             },
@@ -39096,7 +39096,7 @@
                 "type": "boolean"
               },
               "universalId": {
-                "description": "cross\\-vc unique id for universal transport zone",
+                "description": "cross-vc unique id for universal transport zone",
                 "type": "string"
               }
             },
@@ -39344,7 +39344,7 @@
                 "type": "string"
               },
               "isCrossHostEnabled": {
-                "description": "True if this host is cross\\-host enabled.",
+                "description": "True if this host is cross-host enabled.",
                 "type": "boolean"
               },
               "numberOfVMs": {
@@ -39935,7 +39935,7 @@
                 "type": "string"
               },
               "isReadOnly": {
-                "description": "True if this entity is read\\-only",
+                "description": "True if this entity is read-only",
                 "type": "boolean"
               },
               "identityProviderType": {
@@ -40733,7 +40733,7 @@
                 "type": "string"
               },
               "task": {
-                "description": "In\\-progress task reference or id",
+                "description": "In-progress task reference or id",
                 "type": "string"
               },
               "storageProfile": {
@@ -40851,7 +40851,7 @@
                 "type": "string"
               },
               "task": {
-                "description": "In\\-progress task reference or id",
+                "description": "In-progress task reference or id",
                 "type": "string"
               },
               "storageProfile": {
@@ -41683,7 +41683,7 @@
                 "type": "string"
               },
               "principalType": {
-                "description": "Principal type \\- user or right.",
+                "description": "Principal type - user or right.",
                 "type": "string"
               },
               "resourceClassAction": {
@@ -41691,15 +41691,15 @@
                 "type": "string"
               },
               "orgAccess": {
-                "description": "Organization Access \\- Entity, Shared or Published.",
+                "description": "Organization Access - Entity, Shared or Published.",
                 "type": "string"
               },
               "serviceResourceAccess": {
-                "description": "Service Resource Access \\- Entity or Shared .",
+                "description": "Service Resource Access - Entity or Shared .",
                 "type": "string"
               },
               "principalAccess": {
-                "description": "Principal Access \\- Entity or Shared.",
+                "description": "Principal Access - Entity or Shared.",
                 "type": "string"
               }
             },
@@ -41925,15 +41925,15 @@
                 "format": "int32"
               },
               "crossVdcNetworkId": {
-                "description": "Owner cross\\-vdc network Id",
+                "description": "Owner cross-vdc network Id",
                 "type": "string"
               },
               "vdcGroupId": {
-                "description": "vDC Group Id of owning cross\\-vdc network",
+                "description": "vDC Group Id of owning cross-vdc network",
                 "type": "string"
               },
               "crossVdcNetworkLocationId": {
-                "description": "Org and Site Ids of cross\\-vdc network",
+                "description": "Org and Site Ids of cross-vdc network",
                 "type": "string"
               }
             },
@@ -42218,11 +42218,11 @@
                 "type": "string"
               },
               "tenantVisibleName": {
-                "description": "The tenant\\-visible name of this template.",
+                "description": "The tenant-visible name of this template.",
                 "type": "string"
               },
               "tenantVisibleDescription": {
-                "description": "The tenant\\-visible description of this template.",
+                "description": "The tenant-visible description of this template.",
                 "type": "string"
               }
             },
@@ -42564,7 +42564,7 @@
                 ]
               },
               "progress": {
-                "description": "Read\\-only indicator of task progress as an approximate percentage between 0 and 100. Not available for all tasks.",
+                "description": "Read-only indicator of task progress as an approximate percentage between 0 and 100. Not available for all tasks.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -42708,7 +42708,7 @@
                 "type": "boolean"
               },
               "nestedHypervisorEnabled": {
-                "description": "True if hardware\\-assisted CPU virtualization capabilities in the host should be exposed to the guest operating system.",
+                "description": "True if hardware-assisted CPU virtualization capabilities in the host should be exposed to the guest operating system.",
                 "type": "boolean"
               },
               "vAppScopedLocalId": {
@@ -42818,7 +42818,7 @@
             "type": "object",
             "properties": {
               "bootDelay": {
-                "description": "Number of milliseconds to wait between powering\\-on and booting this virtual machine. Defaults to 0. Maximum permissible value is 10000 milliseconds.",
+                "description": "Number of milliseconds to wait between powering-on and booting this virtual machine. Defaults to 0. Maximum permissible value is 10000 milliseconds.",
                 "type": "integer",
                 "format": "int64"
               },
@@ -42865,7 +42865,7 @@
             "type": "object",
             "properties": {
               "ovfDescriptorUploaded": {
-                "description": "Read\\-only indicator that the OVF descriptor for this vApp has been uploaded.",
+                "description": "Read-only indicator that the OVF descriptor for this vApp has been uploaded.",
                 "type": "boolean"
               },
               "owner": {
@@ -43116,7 +43116,7 @@
                 "type": "string"
               },
               "networkAdapterType": {
-                "description": "Type of network adapter to be used for this connection. One of:  \n**VLANCE (emulated version of the AMD 79C970 PCnet32\\-LANCE NIC)**  \n**E1000 (emulated version of the Intel 82545EM Gigabit Ethernet NIC)**  \n**E1000E (emulates a newer model of Intel Gigabit NIC (number 82574))**  \n**VMXNET (has no physical counterpart; optimized for performance in a virtual machine)**  \n**VMXNET2 (based on the VMXNET adapter but provides some high\\-performance features)**  \n**VMXNET3 (next generation of a paravirtualized NIC designed for performance; not related to VMXNET or VMXNET2)**  \n**FLEXIBLE (identifies itself as a Vlance adapter when a virtual machine boots, but initializes itself and functions as either a Vlance or a VMXNET adapter, depending on which driver initializes it)**  \n**SRIOVETHERNETCARD (Single Root I/O Virtualization virtual NIC, see https://kb.vmware.com/s/article/2038739)**  \n",
+                "description": "Type of network adapter to be used for this connection. One of:  \n**VLANCE (emulated version of the AMD 79C970 PCnet32-LANCE NIC)**  \n**E1000 (emulated version of the Intel 82545EM Gigabit Ethernet NIC)**  \n**E1000E (emulates a newer model of Intel Gigabit NIC (number 82574))**  \n**VMXNET (has no physical counterpart; optimized for performance in a virtual machine)**  \n**VMXNET2 (based on the VMXNET adapter but provides some high-performance features)**  \n**VMXNET3 (next generation of a paravirtualized NIC designed for performance; not related to VMXNET or VMXNET2)**  \n**FLEXIBLE (identifies itself as a Vlance adapter when a virtual machine boots, but initializes itself and functions as either a Vlance or a VMXNET adapter, depending on which driver initializes it)**  \n**SRIOVETHERNETCARD (Single Root I/O Virtualization virtual NIC, see https://kb.vmware.com/s/article/2038739)**",
                 "type": "string"
               }
             },
@@ -43132,7 +43132,7 @@
       },
       "vcloud_VirtualCpuTypeType": {
         "title": "vcloud_VirtualCpuTypeType",
-        "description": "Xxxxx. One of:  \n 32 \\-\\- xxxx  \n 64 \\-\\- xxxx",
+        "description": "Xxxxx. One of:  \n 32 -- xxxx  \n 64 -- xxxx",
         "type": "string",
         "enum": [
           "VM32",
@@ -43141,7 +43141,7 @@
       },
       "vcloud_MediaTypeType": {
         "title": "vcloud_MediaTypeType",
-        "description": "Xxxxx. One of:  \n xx \\-\\- xxxx  \n xx \\-\\- xxxx",
+        "description": "Xxxxx. One of:  \n xx -- xxxx  \n xx -- xxxx",
         "type": "string",
         "enum": [
           "ISO",
@@ -43150,7 +43150,7 @@
       },
       "vcloud_MediaStateType": {
         "title": "vcloud_MediaStateType",
-        "description": "Describes the possible configuration states of a media device. One of:  \n DISCONNECTED \\-\\- The media device is disconnected, i.e., it isn't configured to provide access to any local or remote media  \n SERVER \\-\\- The media device is configured to use a media file made available on the cell side.  \n REMOTE \\-\\- The media device is configured as a client side device through the VM console.",
+        "description": "Describes the possible configuration states of a media device. One of:  \n DISCONNECTED -- The media device is disconnected, i.e., it isn't configured to provide access to any local or remote media  \n SERVER -- The media device is configured to use a media file made available on the cell side.  \n REMOTE -- The media device is configured as a client side device through the VM console.",
         "type": "string",
         "enum": [
           "DISCONNECTED",
@@ -43207,7 +43207,7 @@
                 "format": "int32"
               },
               "adapterType": {
-                "description": "The type of controller, e.g. IDE vs SCSI and if SCSI bus\\-logic vs LSI logic.",
+                "description": "The type of controller, e.g. IDE vs SCSI and if SCSI bus-logic vs LSI logic.",
                 "type": "string"
               }
             },
@@ -43249,11 +43249,11 @@
                 "format": "int32"
               },
               "adapterType": {
-                "description": "The type of disk controller, e.g. IDE vs SCSI and if SCSI bus\\-logic vs LSI logic.",
+                "description": "The type of disk controller, e.g. IDE vs SCSI and if SCSI bus-logic vs LSI logic.",
                 "type": "string"
               },
               "thinProvisioned": {
-                "description": "Specifies whether the disk storage is pre\\-allocated or allocated on demand.",
+                "description": "Specifies whether the disk storage is pre-allocated or allocated on demand.",
                 "type": "boolean"
               },
               "disk": {
@@ -43303,7 +43303,7 @@
       },
       "vcloud_ResourceSharesLevelType": {
         "title": "vcloud_ResourceSharesLevelType",
-        "description": "Xxxxx. One of:  \n xx \\-\\- xxxx  \n xx \\-\\- xxxx",
+        "description": "Xxxxx. One of:  \n xx -- xxxx  \n xx -- xxxx",
         "type": "string",
         "enum": [
           "LOW",
@@ -43439,7 +43439,7 @@
       },
       "vcloud_VmSpecSectionType": {
         "title": "vcloud_VmSpecSectionType",
-        "description": "Container for the specification of this virtual machine. This is an alternate to using ovf:VirtualHardwareSection \\+ ovf:OperatingSystemSection",
+        "description": "Container for the specification of this virtual machine. This is an alternate to using ovf:VirtualHardwareSection + ovf:OperatingSystemSection",
         "allOf": [
           {
             "$ref": "#/components/schemas/ovf_Section_Type"
@@ -43498,7 +43498,7 @@
                 ]
               },
               "hardwareVersion": {
-                "description": "vSphere name of Virtual Hardware Version of this VM. Example: vmx\\-13 This parameter may be omitted when using the VmSpec to update the contents of an existing VM.",
+                "description": "vSphere name of Virtual Hardware Version of this VM. Example: vmx-13 This parameter may be omitted when using the VmSpec to update the contents of an existing VM.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_HardwareVersionType"
@@ -43805,7 +43805,7 @@
                 "type": "boolean"
               },
               "powerOn": {
-                "description": "True if the vApp should be powered\\-on at instantiation. Defaults to true.",
+                "description": "True if the vApp should be powered-on at instantiation. Defaults to true.",
                 "type": "boolean"
               },
               "vAppParent": {
@@ -43995,7 +43995,7 @@
             "type": "object",
             "properties": {
               "powerOn": {
-                "description": "True if the VM should be powered\\-on at instantiation. Defaults to false.",
+                "description": "True if the VM should be powered-on at instantiation. Defaults to false.",
                 "type": "boolean"
               },
               "sourcedVmTemplateItem": {
@@ -44064,7 +44064,7 @@
                 }
               },
               "createItem": {
-                "description": "Read\\-only information about a VM added during vApp composition or recomposition.",
+                "description": "Read-only information about a VM added during vApp composition or recomposition.",
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/vcloud_VmType"
@@ -44086,11 +44086,11 @@
             "type": "object",
             "properties": {
               "powerOn": {
-                "description": "True if the VM should be powered\\-on after creation. Defaults to false.",
+                "description": "True if the VM should be powered-on after creation. Defaults to false.",
                 "type": "boolean"
               },
               "createVm": {
-                "description": "Read\\-only information about the Vm to create. This information appears in the Task returned by a createVm request.",
+                "description": "Read-only information about the Vm to create. This information appears in the Task returned by a createVm request.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_VmType"
@@ -44764,7 +44764,7 @@
       },
       "vcloud_ComplianceResultType": {
         "title": "vcloud_ComplianceResultType",
-        "description": "Represents the results of a GET /vApp/vm\\-{id}/complianceResult request. Empty if such a request has never been made.",
+        "description": "Represents the results of a GET /vApp/vm-{id}/complianceResult request. Empty if such a request has never been made.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -45112,7 +45112,7 @@
                 ]
               },
               "resourceEntities": {
-                "description": "Read\\-only list of resource entities in this vDC.",
+                "description": "Read-only list of resource entities in this vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_ResourceEntitiesType"
@@ -45120,7 +45120,7 @@
                 ]
               },
               "availableNetworks": {
-                "description": "Read\\-only list of organization vDC networks in this vDC.",
+                "description": "Read-only list of organization vDC networks in this vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_AvailableNetworksType"
@@ -45128,7 +45128,7 @@
                 ]
               },
               "capabilities": {
-                "description": "Read\\-only list of VM hardware capabilities supported in this vDC.",
+                "description": "Read-only list of VM hardware capabilities supported in this vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_CapabilitiesType"
@@ -45156,7 +45156,7 @@
                 "format": "int32"
               },
               "isEnabled": {
-                "description": "True if this vDC is enabled for use. Read\\-only in the user view. Modifiable in the admin view.",
+                "description": "True if this vDC is enabled for use. Read-only in the user view. Modifiable in the admin view.",
                 "type": "boolean"
               },
               "vdcStorageProfiles": {
@@ -45231,7 +45231,7 @@
             "type": "object",
             "properties": {
               "supportedHardwareVersions": {
-                "description": "Read\\-only list of virtual hardware versions supported by this vDC.",
+                "description": "Read-only list of virtual hardware versions supported by this vDC.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_SupportedHardwareVersionsType"
@@ -45356,7 +45356,7 @@
                 "type": "boolean"
               },
               "supportsHotAdd": {
-                "description": "Specifies whether the hot\\-add memory and virtual CPU feature is supported.",
+                "description": "Specifies whether the hot-add memory and virtual CPU feature is supported.",
                 "type": "boolean"
               },
               "supportedMemorySizeGb": {
@@ -45486,7 +45486,7 @@
       },
       "vcloud_PayGoVdcSummaryType": {
         "title": "vcloud_PayGoVdcSummaryType",
-        "description": "Represents the summary of consumed CPU, memory, and storage for a vDC using the AllocationVApp (Pay\\-as\\-you\\-Go) allocation model.",
+        "description": "Represents the summary of consumed CPU, memory, and storage for a vDC using the AllocationVApp (Pay-as-you-Go) allocation model.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -45521,7 +45521,7 @@
       },
       "vcloud_OrgVdcRollupType": {
         "title": "vcloud_OrgVdcRollupType",
-        "description": "Contains rolled\\-up summary information for all vDCs in this organization. If a multisite request is made for this summary information, it will contain combined summary information for the vDCs in this organization and any associated organizations.",
+        "description": "Contains rolled-up summary information for all vDCs in this organization. If a multisite request is made for this summary information, it will contain combined summary information for the vDCs in this organization and any associated organizations.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -45588,7 +45588,7 @@
                 ]
               },
               "payGoVdcSummary": {
-                "description": "Represents the summation of consumed memory and storage for all vDCs using the AllocationVApp (Pay\\-as\\-you\\-Go) allocation model.",
+                "description": "Represents the summation of consumed memory and storage for all vDCs using the AllocationVApp (Pay-as-you-Go) allocation model.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_PayGoVdcSummaryType"
@@ -45654,20 +45654,20 @@
       },
       "vcloud_VdcStorageProfileIopsSettingsType": {
         "title": "vcloud_VdcStorageProfileIopsSettingsType",
-        "description": "Grouping of IOPs related settings associated with a particular VdcStorageProfile, i.e. a particular Vdc \\+ StorageProfile pairing.",
+        "description": "Grouping of IOPs related settings associated with a particular VdcStorageProfile, i.e. a particular Vdc + StorageProfile pairing.",
         "type": "object",
         "properties": {
           "enabled": {
-            "description": "True if this storage profile is IOPs\\-based placement enabled.",
+            "description": "True if this storage profile is IOPs-based placement enabled.",
             "type": "boolean"
           },
           "diskIopsMax": {
-            "description": "The maximum IOPS value that this storage profile is permitted to deliver. Value must be in the range 0\\-Integer.MAX\\_VALUE, and if greater than 0, cannot be less than the value of DiskIopsDefault. Value of 0 means this max setting is is disabled and there is no max disk IOPS restriction.",
+            "description": "The maximum IOPS value that this storage profile is permitted to deliver. Value must be in the range 0-Integer.MAX\\_VALUE, and if greater than 0, cannot be less than the value of DiskIopsDefault. Value of 0 means this max setting is is disabled and there is no max disk IOPS restriction.",
             "type": "integer",
             "format": "int64"
           },
           "diskIopsDefault": {
-            "description": "This value is applied when provisioning a disk that does not specify vcloud:iops. Value must be in the range 0\\-Integer.MAX\\_VALUE. If DiskIopsPerGbMax is greater than 0 and if (diskSize \\* DiskIopsPerGbMax) less than DiskIopsDefault, then the default iops for the disk will be set as (diskSize \\* DiskIopsPerGbMax). Value of 0 for disk iops means that no iops would be reserved or provisioned for that virtual disk.",
+            "description": "This value is applied when provisioning a disk that does not specify vcloud:iops. Value must be in the range 0-Integer.MAX\\_VALUE. If DiskIopsPerGbMax is greater than 0 and if (diskSize \\* DiskIopsPerGbMax) less than DiskIopsDefault, then the default iops for the disk will be set as (diskSize \\* DiskIopsPerGbMax). Value of 0 for disk iops means that no iops would be reserved or provisioned for that virtual disk.",
             "type": "integer",
             "format": "int64"
           },
@@ -45863,7 +45863,7 @@
       },
       "vcloud_AffinityRuleType": {
         "title": "vcloud_AffinityRuleType",
-        "description": "Represents the base type for affinity and anti\\-affinity rules.",
+        "description": "Represents the base type for affinity and anti-affinity rules.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_IdentifiableResourceType"
@@ -45884,7 +45884,7 @@
                 "type": "boolean"
               },
               "polarity": {
-                "description": "The polarity of this rule. One of:   \nAffinity   \nAnti\\-Affinity",
+                "description": "The polarity of this rule. One of:   \nAffinity   \nAnti-Affinity",
                 "type": "string",
                 "enum": [
                   "Affinity",
@@ -45904,7 +45904,7 @@
       },
       "vcloud_VmAffinityRuleType": {
         "title": "vcloud_VmAffinityRuleType",
-        "description": "A VM affinity rule to be applied to two or more VMs. A VM\\-VM affinity rule specifies whether selected individual virtual machines should run on the same host or be kept on separate hosts. An affinity rule tries to keep the specified virtual machines together on the same host while an anti\\-affinity rule tries to keep the specified virtual machines apart.",
+        "description": "A VM affinity rule to be applied to two or more VMs. A VM-VM affinity rule specifies whether selected individual virtual machines should run on the same host or be kept on separate hosts. An affinity rule tries to keep the specified virtual machines together on the same host while an anti-affinity rule tries to keep the specified virtual machines apart.",
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_AffinityRuleType"
@@ -46104,7 +46104,7 @@
                 ]
               },
               "reservedBusUnitNumber": {
-                "description": "Reserved combination of bus\\-number/unit\\-number.",
+                "description": "Reserved combination of bus-number/unit-number.",
                 "allOf": [
                   {
                     "$ref": "#/components/schemas/vcloud_BusUnitNumberType"
@@ -46302,7 +46302,7 @@
                 "type": "string"
               },
               "x64": {
-                "description": "True if this operating system is supported for use on 64\\-bit hardware.",
+                "description": "True if this operating system is supported for use on 64-bit hardware.",
                 "type": "boolean"
               },
               "maximumCpuCount": {
