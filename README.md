@@ -94,6 +94,12 @@ diff -U20 --color=always \
   | less -R
 ```
 
+## The temporary workaround for the issue [OpenAPITools/openapi-generator#9444](https://github.com/OpenAPITools/openapi-generator/issues/9444):
+```bash
+find <output directory>/ -type f \( -name "*.java" -o -name "*.md" \) -exec sed -ri -f fix.sed {} \;
+```
+
+
 ## Status
 
 I used to work at a company that administered vCloud Director instances. As
