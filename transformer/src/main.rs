@@ -1,4 +1,6 @@
 #[macro_use]
+extern crate log;
+#[macro_use]
 extern crate unhtml_derive;
 #[macro_use]
 extern crate lazy_static;
@@ -9,19 +11,22 @@ use schema_tweaks::{
     metadata_superclass::metadata_superclass, query_parameters::query_parameters,
     query_superclass::query_superclass, stub_ovf::stub_ovf,
 };
-use std::io::Read;
+use std::{collections::BTreeMap, io::Read};
 mod info;
 mod parsers;
 mod paths;
 mod queries;
 mod schema_tweaks;
 mod schemas;
+mod types;
 use anyhow::{Context, Result};
 
 #[macro_use]
 extern crate indexmap;
 
 fn main() -> Result<()> {
+    env_logger::init();
+    info!("starting up");
     let mut zip_buffer = Vec::new();
     std::io::stdin()
         .read_to_end(&mut zip_buffer)
@@ -40,6 +45,17 @@ fn main() -> Result<()> {
     stub_ovf(&mut schemas);
     metadata_superclass(&mut schemas);
     query_superclass(&mut schemas);
+
+    let content_element_mapping: BTreeMap<String, String> = types::types(&mut zip)
+        .context("unable to collect types")?
+        .iter()
+        .flat_map(move |(key, value)| {
+            value
+                .elements
+                .iter()
+                .map(move |e| (e.to_string(), key.to_string()))
+        })
+        .collect();
 
     let about_info = crate::parsers::about::parse(&{
         let mut html = String::new();
@@ -71,8 +87,13 @@ fn main() -> Result<()> {
             },
             ..Default::default()
         }),
-        paths: paths::paths(&mut zip, content_type_mapping, api_version)
-            .context("Unable to collect paths")?,
+        paths: paths::paths(
+            &mut zip,
+            content_type_mapping,
+            content_element_mapping,
+            api_version,
+        )
+        .context("Unable to collect paths")?,
         tags: vec![
             Tag {
                 name: "user".into(),

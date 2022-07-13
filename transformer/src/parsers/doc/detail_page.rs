@@ -117,6 +117,15 @@ impl DefinitionListValue {
             DefinitionListValue::TextAndSublist { sublist, .. } => Some(sublist),
         }
     }
+
+    pub fn to_inner_text(&self) -> Option<String> {
+        self.as_text().map(|t| {
+            scraper::Html::parse_fragment(t)
+                .root_element()
+                .text()
+                .collect()
+        })
+    }
 }
 
 #[derive(Debug, PartialEq)]
