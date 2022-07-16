@@ -11,6 +11,7 @@ use zip::read::ZipArchive;
 pub fn paths<R: Read + Seek>(
     zip: &mut ZipArchive<R>,
     content_type_mapping: BTreeMap<String, String>,
+    content_element_mapping: BTreeMap<String, String>,
     api_version: String,
 ) -> Result<Paths> {
     let path_param_regex =
@@ -72,7 +73,11 @@ pub fn paths<R: Read + Seek>(
             })
         {
             let method = operation.method;
-            let openapi_op = Some(operation.to_openapi(&api_version, &content_type_mapping));
+            let openapi_op = Some(operation.to_openapi(
+                &api_version,
+                &content_type_mapping,
+                &content_element_mapping,
+            ));
             match method {
                 Method::Get => path_item.get = openapi_op,
                 Method::Post => path_item.post = openapi_op,

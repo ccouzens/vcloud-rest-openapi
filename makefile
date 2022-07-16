@@ -82,7 +82,11 @@ website/36.3.zip:
 	curl https://vdc-repo.vmware.com/vmwb-repository/dcr-public/4adeac16-da3e-4d8e-8a47-aa726a94e0cc/f5fab4aa-7340-4009-ae8c-d767ccc34d66/doc/f5fab4aa-7340-4009-ae8c-d767ccc34d66.zip > $@
 
 ./%.json: website/%.zip
-	(cd transformer; cargo run --release) < $< > $@
+	(cd transformer; RUST_LOG=transformer=debug cargo run --release) < $< > $@
 
 ./%.yml: ./%.json
-	yq --yaml-output < $< > $@
+	yq -P '.' $< > $@
+
+.PHONY : clean
+clean :
+	rm -f *.json *.yml

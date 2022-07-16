@@ -1788,7 +1788,7 @@
               },
               "application/vnd.vmware.admin.vmwexternalnet+json;version=36.0": {
                 "schema": {
-                  "$ref": "#/components/schemas/vcloud-ext_VMWExternalNetworkType"
+                  "$ref": "#/components/schemas/vcloud_ExternalNetworkType"
                 }
               }
             }
@@ -5208,6 +5208,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -5486,6 +5491,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -5555,6 +5565,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -5580,6 +5595,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -5604,6 +5624,11 @@
               "application/vnd.vmware.vcloud.query.references+json;version=36.0": {
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
                 }
               }
             }
@@ -6992,7 +7017,14 @@
         "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:RASD\\_Type"
+            "description": "ovf:RASD\\_Type",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItem+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/ovf_Item"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7955,6 +7987,21 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
+              },
+              "application/vnd.vmware.vcloud.query.idrecords+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
+              },
+              "application/vnd.vmware.vcloud.query.queryList+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryListType"
+                }
               }
             }
           }
@@ -8258,6 +8305,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -8326,6 +8378,11 @@
               "application/vnd.vmware.vcloud.query.references+json;version=36.0": {
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
                 }
               }
             }
@@ -9339,6 +9396,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -9786,7 +9848,14 @@
         "description": "Retrieve the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:RASD\\_Type"
+            "description": "ovf:RASD\\_Type",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItem+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/ovf_Item"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -11641,6 +11710,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -12248,6 +12322,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -12850,6 +12929,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -12910,6 +12994,11 @@
               "application/vnd.vmware.vcloud.query.references+json;version=36.0": {
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
+                }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
                 }
               }
             }
@@ -14196,6 +14285,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -14714,6 +14808,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/vcloud_ReferencesType"
                 }
+              },
+              "application/vnd.vmware.vcloud.query.records+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/vcloud_QueryResultRecordsType"
+                }
               }
             }
           }
@@ -14733,7 +14832,14 @@
         "description": "Retrieve a list of vCloud API versions supported by this system. This request does not require an authentication token.",
         "responses": {
           "2XX": {
-            "description": "The list of supported vCloud API versions and their login URLs."
+            "description": "The list of supported vCloud API versions and their login URLs.",
+            "content": {
+              "application/*+json;version=36.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/versioning_SupportedVersionsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -49029,6 +49135,19 @@
         "additionalProperties": false
       },
       "ovf_Section_Type": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ovf_Item": {
         "type": "object",
         "properties": {
           "info": {

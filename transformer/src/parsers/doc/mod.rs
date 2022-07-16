@@ -3,3 +3,4 @@ pub mod detail_page;
 pub mod etc;
 pub mod operation;
 pub mod query;
+pub mod r#type;

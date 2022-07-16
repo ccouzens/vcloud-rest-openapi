@@ -5344,7 +5344,14 @@
         "description": "Retrieve the RASD item that specifies CPU properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:RASD\\_Type"
+            "description": "ovf:RASD\\_Type",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/ovf_Item"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7538,7 +7545,14 @@
         "description": "Retrieve the RASD item that specifies memory properties of a VM.",
         "responses": {
           "2XX": {
-            "description": "ovf:RASD\\_Type"
+            "description": "ovf:RASD\\_Type",
+            "content": {
+              "application/vnd.vmware.vcloud.rasdItem+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/ovf_Item"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8958,7 +8972,7 @@
             "content": {
               "application/vnd.vmware.admin.operationLimitsSettings+json;version=27.0": {
                 "schema": {
-                  "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
+                  "$ref": "#/components/schemas/vcloud_OrgOperationLimitsSettingsType"
                 }
               }
             }
@@ -11343,7 +11357,14 @@
         "description": "Retrieve a list of vCloud API versions supported by this system. This request does not require an authentication token.",
         "responses": {
           "2XX": {
-            "description": "The list of supported vCloud API versions and their login URLs."
+            "description": "The list of supported vCloud API versions and their login URLs.",
+            "content": {
+              "application/*+json;version=27.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/versioning_SupportedVersionsType"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -40927,6 +40948,19 @@
         "additionalProperties": false
       },
       "ovf_Section_Type": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ovf_Item": {
         "type": "object",
         "properties": {
           "info": {
