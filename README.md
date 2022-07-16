@@ -94,6 +94,14 @@ diff -U20 --color=always \
   | less -R
 ```
 
+## Known Issues
+
+To fix the issue [Unable to compile Java openapi client#3](https://github.com/ccouzens/vcloud-rest-openapi/issues/3), run [patch_java_openapi_client.sed](./patch_java_openapi_client.sed) as a temporary workaround
+
+```bash
+find <output directory>/ -type f \( -name "*.java" -o -name "*.md" \) -exec sed -ri -f patch_java_openapi_client.sed {} \;
+```
+
 ## Status
 
 I used to work at a company that administered vCloud Director instances. As
