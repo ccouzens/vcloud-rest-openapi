@@ -3,36 +3,6 @@ use indexmap::IndexSet;
 use std::convert::TryFrom;
 use thiserror::Error;
 
-#[derive(Debug, PartialEq, Copy, Clone)]
-pub enum Modifiable {
-    Always,
-    None,
-    Create,
-    Update,
-}
-
-#[derive(Debug, PartialEq)]
-pub struct Attribute {
-    pub name: String,
-    pub r#type: String,
-    pub required: bool,
-    pub modifiable: Modifiable,
-    pub deprecated: Option<bool>,
-    pub since: String,
-    pub description: Option<String>,
-}
-
-#[derive(Debug, PartialEq)]
-pub struct Element {
-    pub name: String,
-    pub r#type: String,
-    pub required: bool,
-    pub modifiable: Modifiable,
-    pub deprecated: Option<bool>,
-    pub since: String,
-    pub description: Option<String>,
-}
-
 #[derive(Debug, PartialEq)]
 pub struct Type {
     pub r#type: String,
@@ -66,7 +36,7 @@ impl TryFrom<&str> for Type {
     }
 }
 
-impl<'a> TryFrom<DetailPage> for Type {
+impl TryFrom<DetailPage> for Type {
     type Error = TypeParseError;
 
     fn try_from(p: DetailPage) -> Result<Self, Self::Error> {
@@ -82,8 +52,7 @@ impl<'a> TryFrom<DetailPage> for Type {
             .definition_list
             .find("Namespace:")
             .and_then(DefinitionListValue::to_inner_text)
-            .unwrap_or_default()
-            .to_string();
+            .unwrap_or_default();
         let description = p
             .definition_list
             .find("Description:")
@@ -99,14 +68,13 @@ impl<'a> TryFrom<DetailPage> for Type {
             .definition_list
             .find("Extends:")
             .and_then(DefinitionListValue::to_inner_text)
-            .unwrap_or_default()
-            .to_string();
+            .unwrap_or_default();
         let name = match namespace.as_str() {
             "http://www.vmware.com/vcloud/extension/v1.5" => format!("vcloud-ext_{}", r#type),
             "http://www.vmware.com/vcloud/versions" => format!("versioning_{}", r#type),
             "http://www.vmware.com/vcloud/v1.5" => format!("vcloud_{}", r#type),
             "http://schemas.dmtf.org/ovf/envelope/1" => format!("ovf_{}", r#type),
-            _ => format!("{}", r#type),
+            _ => r#type.to_string(),
         };
         Ok(Self {
             r#type,

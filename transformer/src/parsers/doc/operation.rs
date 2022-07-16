@@ -106,9 +106,7 @@ fn get_content_element(text: &str) -> Option<String> {
         )
         .flat_map(|el| el.text())
         .map(String::from)
-        .collect::<Vec<_>>()
-        .first()
-        .map(|e| e.into())
+        .next()
 }
 
 fn get_content_media_types_from_examples(
@@ -134,7 +132,7 @@ fn get_content_media_types_from_examples(
 fn merge_mimes(
     first_mimes: &IndexSet<String>,
     second_mimes: &IndexSet<(String, String)>,
-) -> Option<IndexSet<(String, String)>> {
+) -> IndexSet<(String, String)> {
     let r = first_mimes
         .iter()
         .filter_map(|mime| {
@@ -146,21 +144,19 @@ fn merge_mimes(
                     }
                     None
                 })
-                .or(Some((mime.into(), String::new())))
+                .or_else(|| Some((mime.into(), String::new())))
         })
         .collect::<IndexSet<(String, String)>>();
     if r.is_empty() {
-        return Some(
-            first_mimes
-                .iter()
-                .map(|mime| (mime.into(), String::new()))
-                .collect(),
-        );
+        return first_mimes
+            .iter()
+            .map(|mime| (mime.into(), String::new()))
+            .collect();
     }
-    Some(r)
+    r
 }
 
-impl<'a> TryFrom<DetailPage> for Operation {
+impl TryFrom<DetailPage> for Operation {
     type Error = OperationParseError;
 
     fn try_from(p: DetailPage) -> Result<Self, Self::Error> {
@@ -170,9 +166,9 @@ impl<'a> TryFrom<DetailPage> for Operation {
                 .ok_or(Self::Error::CannotFindMethodError)?
                 .parse()?;
         let path: String =
-            p.h1.splitn(2, ' ')
-                .nth(1)
+            p.h1.split_once(' ')
                 .ok_or(Self::Error::CannotFindPathError)?
+                .1
                 .into();
         let description = p
             .definition_list
@@ -196,7 +192,7 @@ impl<'a> TryFrom<DetailPage> for Operation {
             .map(|t| html_to_mimes(t).collect::<IndexSet<_>>())
             .and_then(|mimes| {
                 get_content_media_types_from_examples(&p.definition_list, "Request")
-                    .and_then(|mimes_from_examples| merge_mimes(&mimes, &mimes_from_examples))
+                    .map(|mimes_from_examples| merge_mimes(&mimes, &mimes_from_examples))
             })
             .unwrap_or_default();
 
@@ -216,7 +212,7 @@ impl<'a> TryFrom<DetailPage> for Operation {
             .map(|t| html_to_mimes(t).collect::<IndexSet<_>>())
             .and_then(|mimes| {
                 get_content_media_types_from_examples(&p.definition_list, "Response")
-                    .and_then(|mimes_from_examples| merge_mimes(&mimes, &mimes_from_examples))
+                    .map(|mimes_from_examples| merge_mimes(&mimes, &mimes_from_examples))
             })
             .unwrap_or_default();
 
@@ -606,7 +602,7 @@ fn merge_mimes_test() {
     let actual = merge_mimes(&first_mimes, &second_mimes);
     assert_eq!(
         actual,
-        Some(indexset![
+        indexset![
             (
                 String::from("application/vnd.vmware.vcloud.query.records+xml"),
                 String::from("QueryResultRecords")
@@ -639,6 +635,6 @@ fn merge_mimes_test() {
                 String::from("application/vnd.vmware.vcloud.query.queryList+json"),
                 String::from("")
             ),
-        ])
+        ]
     )
 }

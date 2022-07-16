@@ -22,7 +22,7 @@ impl TryFrom<&str> for Query {
     }
 }
 
-impl<'a> TryFrom<DetailPage> for Query {
+impl TryFrom<DetailPage> for Query {
     type Error = QueryParseError;
 
     fn try_from(p: DetailPage) -> Result<Self, Self::Error> {
