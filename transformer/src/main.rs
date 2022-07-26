@@ -81,9 +81,9 @@ fn main() -> Result<()> {
             schemas,
             security_schemes: indexmap! {
                 "basicAuth".into() => ReferenceOr::Item(
-                    SecurityScheme::HTTP { scheme: "basic".into(), bearer_format: None}),
+                    SecurityScheme::HTTP {scheme:"basic".into(),bearer_format:None, description: None }),
                 "bearerAuth".into() => ReferenceOr::Item(
-                    SecurityScheme::HTTP { scheme: "bearer".into(), bearer_format: None})
+                    SecurityScheme::HTTP {scheme:"bearer".into(),bearer_format:None, description: None })
             },
             ..Default::default()
         }),
@@ -99,16 +99,19 @@ fn main() -> Result<()> {
                 name: "user".into(),
                 description: Some(html2md::parse_html(&about_info.user_tag)),
                 external_docs: None,
+                extensions: Default::default(),
             },
             Tag {
                 name: "admin".into(),
                 description: Some(html2md::parse_html(&about_info.admin_tag)),
                 external_docs: None,
+                extensions: Default::default(),
             },
             Tag {
                 name: "extension".into(),
                 description: Some(html2md::parse_html(&about_info.extension_tag)),
                 external_docs: None,
+                extensions: Default::default(),
             },
         ],
         ..Default::default()

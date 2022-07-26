@@ -12,7 +12,7 @@ pub(super) struct SimpleType {
     pub(super) pattern: Option<String>,
     pub(super) list: bool,
     pub(super) parent: PrimitiveType,
-    pub(super) enumeration: Vec<String>,
+    pub(super) enumeration: Vec<Option<String>>,
     pub(super) min_inclusive: Option<String>,
 }
 
@@ -103,7 +103,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
                                         attributes,
                                         ..
                                     }) if namespace == XML_SCHEMA_NS && name == "enumeration" => {
-                                        attributes.get("value").cloned()
+                                        Some(attributes.get("value").cloned())
                                     }
                                     _ => None,
                                 })
@@ -173,10 +173,10 @@ impl From<&SimpleType> for openapiv3::Schema {
                 schema_data,
                 schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Array(
                     openapiv3::ArrayType {
-                        items: openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                        items: Some(openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
                             schema_kind,
                             schema_data: Default::default(),
-                        }),
+                        })),
                         max_items: None,
                         min_items: None,
                         unique_items: false,

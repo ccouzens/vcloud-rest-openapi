@@ -365,9 +365,9 @@ impl Operation {
                     ..Default::default()
                 })
             }),
-            security: vec![indexmap! {
+            security: Some(vec![indexmap! {
                 if self.basic_auth { "basicAuth" } else { "bearerAuth" }.to_string() => vec![]
-            }],
+            }]),
             deprecated: self.deprecated,
             parameters: self
                 .query_parameters
@@ -389,6 +389,8 @@ impl Operation {
                             name: qp.name,
                             example: None,
                             examples: Default::default(),
+                            explode: None,
+                            extensions: indexmap! {},
                         },
                         allow_reserved: false,
                         style: openapiv3::QueryStyle::Form,

@@ -39,6 +39,7 @@ pub fn query_superclass(output: &mut IndexMap<String, ReferenceOr<Schema>>) {
                         .iter()
                         .map(|qrt| (qrt.1.clone(), format!("#/components/schemas/{}", qrt.0)))
                         .collect(),
+                    extensions: Default::default(),
                 }),
                 ..Default::default()
             },
@@ -54,7 +55,7 @@ pub fn query_superclass(output: &mut IndexMap<String, ReferenceOr<Schema>>) {
             ReferenceOr::boxed_item(Schema {
                 schema_data: Default::default(),
                 schema_kind: SchemaKind::Type(Type::String(StringType {
-                    enumeration: query_record_types.into_iter().map(|qrt| qrt.1).collect(),
+                    enumeration: query_record_types.into_iter().map(|qrt| Some(qrt.1)).collect(),
                     ..Default::default()
                 })),
             })
@@ -77,9 +78,9 @@ pub fn query_superclass(output: &mut IndexMap<String, ReferenceOr<Schema>>) {
                 ReferenceOr::boxed_item(Schema {
                     schema_data: Default::default(),
                     schema_kind: SchemaKind::Type(Type::Array(ArrayType {
-                        items: ReferenceOr::Reference {
+                        items: Some(ReferenceOr::Reference {
                             reference: String::from("#/components/schemas/QueryResultRecordType"),
-                        },
+                        }),
                         min_items: None,
                         max_items: None,
                         unique_items: false,
@@ -92,11 +93,11 @@ pub fn query_superclass(output: &mut IndexMap<String, ReferenceOr<Schema>>) {
                     ReferenceOr::boxed_item(Schema {
                         schema_data: Default::default(),
                         schema_kind: SchemaKind::Type(Type::Array(ArrayType {
-                            items: ReferenceOr::Reference {
+                            items: Some(ReferenceOr::Reference {
                                 reference: String::from(
                                     "#/components/schemas/vcloud_ReferenceType",
                                 ),
-                            },
+                            }),
                             min_items: None,
                             max_items: None,
                             unique_items: false,

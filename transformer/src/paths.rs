@@ -25,7 +25,10 @@ pub fn paths<R: Read + Seek>(
 
     path_file_names.sort();
 
-    let mut paths = Paths::new();
+    let mut paths = Paths {
+        paths: Default::default(),
+        extensions: Default::default(),
+    };
 
     for file_name in path_file_names {
         let mut html = String::new();
@@ -40,7 +43,7 @@ pub fn paths<R: Read + Seek>(
             continue;
         }
         if let openapiv3::ReferenceOr::Item(path_item) =
-            paths.entry(operation.path.clone()).or_insert_with(|| {
+            paths.paths.entry(operation.path.clone()).or_insert_with(|| {
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {
                     parameters: path_param_regex
                         .captures_iter(&operation.path)
@@ -63,6 +66,8 @@ pub fn paths<R: Read + Seek>(
                                     ),
                                     example: None,
                                     examples: Default::default(),
+                                    explode: None,
+                                    extensions: Default::default(),
                                 },
                                 style: Default::default(),
                             })
