@@ -48,7 +48,7 @@ pub fn query_parameters(schemas: &mut IndexMap<String, ReferenceOr<Schema>>, que
                     schema_kind: SchemaKind::Type(Type::String(StringType {
                         enumeration: ["references", "records", "idrecords"]
                             .iter()
-                            .map(|e| e.to_string())
+                            .map(|e| Some(e.to_string()))
                             .collect(),
                         ..Default::default()
                     })),
@@ -111,7 +111,7 @@ pub fn query_parameters(schemas: &mut IndexMap<String, ReferenceOr<Schema>>, que
                 ReferenceOr::Item(Schema {
                     schema_data: Default::default(),
                     schema_kind: SchemaKind::Type(Type::String(StringType {
-                        enumeration: queries.iter().map(|q| q.name.clone()).collect(),
+                        enumeration: queries.iter().map(|q| Some(q.name.clone())).collect(),
                         ..Default::default()
                     })),
                 }),

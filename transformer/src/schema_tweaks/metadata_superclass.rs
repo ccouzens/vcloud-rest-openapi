@@ -35,6 +35,7 @@ pub fn metadata_superclass(output: &mut IndexMap<String, ReferenceOr<Schema>>) {
                         .iter()
                         .map(|qrt| (qrt.1.clone(), format!("#/components/schemas/{}", qrt.0)))
                         .collect(),
+                    extensions: Default::default(),
                 }),
                 ..Default::default()
             },
@@ -79,7 +80,7 @@ pub fn metadata_superclass(output: &mut IndexMap<String, ReferenceOr<Schema>>) {
             ReferenceOr::boxed_item(Schema {
                 schema_data: Default::default(),
                 schema_kind: SchemaKind::Type(Type::String(StringType {
-                    enumeration: metadata_types.into_iter().map(|qrt| qrt.1).collect(),
+                    enumeration: metadata_types.into_iter().map(|qrt| Some(qrt.1)).collect(),
                     ..Default::default()
                 })),
             })

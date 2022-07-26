@@ -55,7 +55,7 @@ impl FromStr for PrimitiveType {
 pub(super) struct RestrictedPrimitiveType<'a> {
     pub(super) r#type: PrimitiveType,
     pub(super) pattern: &'a Option<String>,
-    pub(super) enumeration: &'a Vec<String>,
+    pub(super) enumeration: &'a Vec<Option<String>>,
     pub(super) min_inclusive: &'a Option<String>,
 }
 
@@ -96,7 +96,8 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                 enumeration: t
                     .enumeration
                     .iter()
-                    .filter_map(|s| s.parse().ok())
+                    .flat_map(|s| s)
+                    .map(|s| s.parse().ok())
                     .collect(),
                 ..Default::default()
             }),
@@ -106,7 +107,8 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                 enumeration: t
                     .enumeration
                     .iter()
-                    .filter_map(|s| s.parse().ok())
+                    .flat_map(|s| s)
+                    .map(|s| s.parse().ok())
                     .collect(),
                 ..Default::default()
             }),
@@ -116,7 +118,8 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                 enumeration: t
                     .enumeration
                     .iter()
-                    .filter_map(|s| s.parse().ok())
+                    .flat_map(|s| s)
+                    .map(|s| s.parse().ok())
                     .collect(),
                 ..Default::default()
             }),
@@ -126,7 +129,8 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                     enumeration: t
                         .enumeration
                         .iter()
-                        .filter_map(|s| s.parse().ok())
+                        .flat_map(|s| s)
+                        .map(|s| s.parse().ok())
                         .collect(),
                     ..Default::default()
                 })
@@ -137,7 +141,8 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                 enumeration: t
                     .enumeration
                     .iter()
-                    .filter_map(|s| s.parse().ok())
+                    .flat_map(|s| s)
+                    .map(|s| s.parse().ok())
                     .collect(),
                 ..Default::default()
             }),

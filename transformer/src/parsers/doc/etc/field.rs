@@ -161,10 +161,10 @@ impl From<&Field> for openapiv3::Schema {
             schema_kind: match (s.occurrences, reference_or_schema_type) {
                 (Occurrences::Array, openapiv3::ReferenceOr::Item(schema_type)) => {
                     openapiv3::SchemaKind::Type(openapiv3::Type::Array(openapiv3::ArrayType {
-                        items: openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                        items: Some(openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
                             schema_data: Default::default(),
                             schema_kind: openapiv3::SchemaKind::Type(schema_type),
-                        }),
+                        })),
                         min_items: None,
                         max_items: None,
                         unique_items: false,
@@ -173,7 +173,7 @@ impl From<&Field> for openapiv3::Schema {
 
                 (Occurrences::Array, openapiv3::ReferenceOr::Reference { reference }) => {
                     openapiv3::SchemaKind::Type(openapiv3::Type::Array(openapiv3::ArrayType {
-                        items: openapiv3::ReferenceOr::Reference { reference },
+                        items: Some(openapiv3::ReferenceOr::Reference { reference }),
                         min_items: None,
                         max_items: None,
                         unique_items: false,
