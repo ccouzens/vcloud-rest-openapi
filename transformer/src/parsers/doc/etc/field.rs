@@ -35,10 +35,12 @@ pub enum FieldParseError {
     Removed,
 }
 
-impl TryFrom<(&xmltree::XMLNode, &str)> for Field {
+impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
     type Error = FieldParseError;
 
-    fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
+    fn try_from(
+        (xml, root, schema_namespace): (&xmltree::XMLNode, &xmltree::XMLNode, &str),
+    ) -> Result<Self, Self::Error> {
         match xml {
             xmltree::XMLNode::Element(xmltree::Element {
                 namespace: Some(namespace),
@@ -47,52 +49,107 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for Field {
                 children,
                 ..
             }) if namespace == XML_SCHEMA_NS && name == "element" => {
-                // Name comes from the attribute name.
-                // In the XML the fields start with a uppercase letter.
-                // But in the JSON, the first letter is lowercase.
-                let name = attributes
-                    .get("name")
-                    .ok_or(FieldParseError::MissingName)?
-                    .chars()
-                    .enumerate()
-                    .map(|(i, c)| if i == 0 { c.to_ascii_lowercase() } else { c })
-                    .collect();
-                let r#type = match children
-                    .iter()
-                    .flat_map(|xml| SimpleType::try_from((xml, schema_namespace)))
-                    .next()
-                {
-                    Some(s) => openapiv3::ReferenceOr::Item(s),
-                    None => {
-                        let type_name =
-                            attributes.get("type").ok_or(FieldParseError::MissingType)?;
-                        str_to_simple_type_or_reference(schema_namespace, type_name)
+                match attributes.get("ref") {
+                    Some(type_name) => {
+                        let xml = root.as_element().and_then(|e| {
+                            e.children.iter().find(|&child| match child {
+                                xmltree::XMLNode::Element(xmltree::Element {
+                                    attributes, ..
+                                }) => attributes.get("name").map_or(false,|name| name == type_name),
+                                _ => false
+                            })
+                        });
+                        let name: String = xml
+                            .and_then(|xml| match xml {
+                                xmltree::XMLNode::Element(xmltree::Element {
+                                    attributes, ..
+                                }) => attributes.get("name"),
+                                _ => None,
+                            })
+                            .ok_or(FieldParseError::MissingName)?
+                            .chars()
+                            .enumerate()
+                            .map(|(i, c)| if i == 0 { c.to_ascii_lowercase() } else { c })
+                            .collect();
+                        let r#type = xml
+                            .and_then(|child| match child {
+                                xmltree::XMLNode::Element(xmltree::Element {
+                                    attributes, ..
+                                }) => SimpleType::try_from((child, schema_namespace))
+                                    .map(|s| openapiv3::ReferenceOr::Item(s))
+                                    .or(attributes
+                                        .get("type")
+                                        .ok_or(FieldParseError::MissingType)
+                                        .map(|type_name| {
+                                            str_to_simple_type_or_reference(
+                                                schema_namespace,
+                                                type_name,
+                                            )
+                                        })).ok(),
+                                _ => None,
+                            }).unwrap();
+                        let occurrences = match (
+                            attributes.get("minOccurs").map_or("1", String::as_str),
+                            attributes.get("maxOccurs").map_or("1", String::as_str),
+                        ) {
+                            (_, "unbounded") => Occurrences::Array,
+                            ("0", _) => Occurrences::Optional,
+                            _ => Occurrences::One,
+                        };
+                        let annotation = children.iter().flat_map(Annotation::try_from).next();
+                        if annotation.as_ref().map(|a| a.removed) == Some(true) {
+                            return Err(FieldParseError::Removed);
+                        }
+                        Ok(Field {
+                            annotation,
+                            name,
+                            r#type,
+                            occurrences,
+                        })
                     }
-                };
-                let occurrences = match (
-                    attributes
-                        .get("minOccurs")
-                        .map(String::as_str)
-                        .unwrap_or("1"),
-                    attributes
-                        .get("maxOccurs")
-                        .map(String::as_str)
-                        .unwrap_or("1"),
-                ) {
-                    (_, "unbounded") => Occurrences::Array,
-                    ("0", _) => Occurrences::Optional,
-                    _ => Occurrences::One,
-                };
-                let annotation = children.iter().flat_map(Annotation::try_from).next();
-                if annotation.as_ref().map(|a| a.removed) == Some(true) {
-                    return Err(FieldParseError::Removed);
+                    _ => {
+                        // Name comes from the attribute name.
+                        // In the XML the fields start with a uppercase letter.
+                        // But in the JSON, the first letter is lowercase.
+                        let name = attributes
+                            .get("name")
+                            .ok_or(FieldParseError::MissingName)?
+                            .chars()
+                            .enumerate()
+                            .map(|(i, c)| if i == 0 { c.to_ascii_lowercase() } else { c })
+                            .collect();
+                        let r#type = match children
+                            .iter()
+                            .flat_map(|xml| SimpleType::try_from((xml, schema_namespace)))
+                            .next()
+                        {
+                            Some(s) => openapiv3::ReferenceOr::Item(s),
+                            None => {
+                                let type_name =
+                                    attributes.get("type").ok_or(FieldParseError::MissingType)?;
+                                str_to_simple_type_or_reference(schema_namespace, type_name)
+                            }
+                        };
+                        let occurrences = match (
+                            attributes.get("minOccurs").map_or("1", String::as_str),
+                            attributes.get("maxOccurs").map_or("1", String::as_str),
+                        ) {
+                            (_, "unbounded") => Occurrences::Array,
+                            ("0", _) => Occurrences::Optional,
+                            _ => Occurrences::One,
+                        };
+                        let annotation = children.iter().flat_map(Annotation::try_from).next();
+                        if annotation.as_ref().map(|a| a.removed) == Some(true) {
+                            return Err(FieldParseError::Removed);
+                        }
+                        Ok(Field {
+                            annotation,
+                            name,
+                            r#type,
+                            occurrences,
+                        })
+                    }
                 }
-                Ok(Field {
-                    annotation,
-                    name,
-                    r#type,
-                    occurrences,
-                })
             }
             xmltree::XMLNode::Element(xmltree::Element {
                 namespace: Some(namespace),
@@ -208,7 +265,13 @@ fn test_parse_field_from_required_attribute() {
     </xs:attribute>
 "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -233,7 +296,13 @@ fn test_parse_field_from_optional_attribute() {
     </xs:attribute>
 "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -258,7 +327,13 @@ fn test_field_optional_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -283,7 +358,13 @@ fn test_field_array_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -312,7 +393,13 @@ fn test_field_exactly_one_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -337,7 +424,13 @@ fn test_anyuri_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -363,7 +456,13 @@ fn test_double_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -389,7 +488,13 @@ fn test_long_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -415,7 +520,12 @@ fn test_datetime_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(tree),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -441,7 +551,13 @@ fn test_base64_binary_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -467,7 +583,13 @@ fn test_normalized_string_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -492,7 +614,13 @@ fn test_short_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -517,7 +645,13 @@ fn test_decimal_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -542,7 +676,12 @@ fn test_float_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(tree),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -568,7 +707,13 @@ fn test_hex_binary_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -593,7 +738,13 @@ fn test_integer_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -618,7 +769,12 @@ fn test_any_type_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -648,7 +804,13 @@ fn test_element_with_simple_type() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -672,7 +834,13 @@ fn test_attribute_with_simple_type() {
     </xs:attribute>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let s = Field::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let s = Field::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),

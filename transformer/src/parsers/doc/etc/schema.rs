@@ -51,7 +51,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for Schema {
 
     fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
         match xml {
-            xmltree::XMLNode::Element(xmltree::Element {
+            root @ xmltree::XMLNode::Element(xmltree::Element {
                 namespace: Some(namespace),
                 name,
                 children,
@@ -59,7 +59,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for Schema {
             }) if namespace == XML_SCHEMA_NS && name == "schema" => Ok(Schema {
                 types: children
                     .iter()
-                    .flat_map(|x| Type::try_from((x, schema_namespace)))
+                    .flat_map(|x| Type::try_from((x, root, schema_namespace)))
                     .collect(),
             }),
             _ => Err(SchemaParseError::NotSchemaNode),

@@ -15233,6 +15233,10 @@ components:
     vcloud_ProviderVdcType:
       title: vcloud_ProviderVdcType
       description: Represents a Provider vDC.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminVdcType: vcloud_AdminVdcType
       allOf:
         - $ref: '#/components/schemas/vcloud_EntityType'
         - type: object
@@ -15268,10 +15272,19 @@ components:
               description: Read-only list of network pools used by this Provider vDC.
               allOf:
                 - $ref: '#/components/schemas/vcloud_NetworkPoolReferencesType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_CreateVdcParamsType:
       title: vcloud_CreateVdcParamsType
       description: Parameters for creating an organization vDC.
+      discriminator:
+        propertyName: _type
+        mapping:
+          CreateVdcParamsType: vcloud_CreateVdcParamsType
+          UpdateVdcStorageProfilesType: vcloud_UpdateVdcStorageProfilesType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -15353,15 +15366,22 @@ components:
             includeMemoryOverhead:
               description: Set to true to indicate if the FLEX vDC is to include memory overhead into its accounting for admission control. This is an optional field and is useful only for FLEX vDC creation.
               type: boolean
+            _type:
+              type: string
           required:
             - allocationModel
             - computeCapacity
             - vdcStorageProfile
             - providerVdcReference
+            - _type
           additionalProperties: false
     vcloud_AdminVdcType:
       title: vcloud_AdminVdcType
       description: Represents the admin view of an organization vDC.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminVdcType: vcloud_AdminVdcType
       allOf:
         - $ref: '#/components/schemas/vcloud_VdcType'
         - type: object
@@ -15416,6 +15436,10 @@ components:
             includeMemoryOverhead:
               description: Set to true to indicate if the FLEX vDC is to include memory overhead into its accounting for admission control. This is an optional field and is useful only for FLEX vDC creation.
               type: boolean
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_VdcReferencesType:
       title: vcloud_VdcReferencesType
@@ -15525,6 +15549,10 @@ components:
     vcloud_ProviderVdcStorageProfileType:
       title: vcloud_ProviderVdcStorageProfileType
       description: Represents a Provider vDC storage profile.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminVdcStorageProfileType: vcloud_AdminVdcStorageProfileType
       allOf:
         - $ref: '#/components/schemas/vcloud_EntityType'
         - type: object
@@ -15551,14 +15579,22 @@ components:
               description: Allocated IOPS in this storage profile.
               type: integer
               format: int64
+            _type:
+              type: string
           required:
             - units
             - capacityTotal
             - capacityUsed
+            - _type
           additionalProperties: false
     vcloud_VdcStorageProfileParamsType:
       title: vcloud_VdcStorageProfileParamsType
       description: Represents the parameters to create a storage profile in an organization vDC
+      discriminator:
+        propertyName: _type
+        mapping:
+          CreateVdcParamsType: vcloud_CreateVdcParamsType
+          UpdateVdcStorageProfilesType: vcloud_UpdateVdcStorageProfilesType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -15587,15 +15623,22 @@ components:
               description: Reference to a Provider vDC storage profile.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
           required:
             - units
             - limit
             - default
             - providerVdcStorageProfile
+            - _type
           additionalProperties: false
     vcloud_AdminVdcStorageProfileType:
       title: vcloud_AdminVdcStorageProfileType
       description: Represents a storage profile in an organization vDC.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminVdcStorageProfileType: vcloud_AdminVdcStorageProfileType
       allOf:
         - $ref: '#/components/schemas/vcloud_VdcStorageProfileType'
         - type: object
@@ -15604,8 +15647,11 @@ components:
               description: Reference to a Provider vDC storage profile.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
           required:
             - providerVdcStorageProfile
+            - _type
           additionalProperties: false
     vcloud_UpdateVdcStorageProfilesType:
       title: vcloud_UpdateVdcStorageProfilesType
@@ -15952,9 +15998,18 @@ components:
     vcloud_OrganizationReferenceType:
       title: vcloud_OrganizationReferenceType
       description: Represents a reference to an organization.
+      discriminator:
+        propertyName: _type
+        mapping:
+          OrganizationReferenceType: vcloud_OrganizationReferenceType
       allOf:
         - $ref: '#/components/schemas/vcloud_ReferenceType'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_OrganizationReferencesType:
       deprecated: true
@@ -16017,6 +16072,10 @@ components:
       deprecated: true
       title: vcloud_AdminOrgType
       description: Represents the admin view of an organization.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminOrgType: vcloud_AdminOrgType
       allOf:
         - $ref: '#/components/schemas/vcloud_OrgType'
         - type: object
@@ -16067,8 +16126,11 @@ components:
               description: A container for references to Role objects in the organization.
               allOf:
                 - $ref: '#/components/schemas/vcloud_RoleReferencesType'
+            _type:
+              type: string
           required:
             - settings
+            - _type
           additionalProperties: false
     vcloud_OrgVAppTemplateLeaseSettingsType:
       title: vcloud_OrgVAppTemplateLeaseSettingsType
@@ -16238,40 +16300,96 @@ components:
       additionalProperties: false
     vcloud_VdcTemplateSpecificationType:
       title: vcloud_VdcTemplateSpecificationType
+      discriminator:
+        propertyName: _type
+        mapping:
+          AllocationPoolVdcTemplateSpecificationType: vcloud_AllocationPoolVdcTemplateSpecificationType
+          FlexVdcTemplateSpecificationType: vcloud_FlexVdcTemplateSpecificationType
+          ReservationPoolVdcTemplateSpecificationType: vcloud_ReservationPoolVdcTemplateSpecificationType
       allOf:
         - $ref: '#/components/schemas/vcloud_VdcSpecificationGroup'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_AllocationPoolVdcTemplateSpecificationType:
       title: vcloud_AllocationPoolVdcTemplateSpecificationType
       description: Specification for a VDC template using the AllocationPool allocation model.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AllocationPoolVdcTemplateSpecificationType: vcloud_AllocationPoolVdcTemplateSpecificationType
+          FlexVdcTemplateSpecificationType: vcloud_FlexVdcTemplateSpecificationType
+          ReservationPoolVdcTemplateSpecificationType: vcloud_ReservationPoolVdcTemplateSpecificationType
       allOf:
         - $ref: '#/components/schemas/vcloud_VdcTemplateSpecificationType'
         - $ref: '#/components/schemas/vcloud_AllocationPoolVdcSpecificationGroup'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_FlexVdcTemplateSpecificationType:
       title: vcloud_FlexVdcTemplateSpecificationType
       description: Specification for a VDC template using the Flex allocation model.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AllocationPoolVdcTemplateSpecificationType: vcloud_AllocationPoolVdcTemplateSpecificationType
+          FlexVdcTemplateSpecificationType: vcloud_FlexVdcTemplateSpecificationType
+          AllocationVappVdcTemplateSpecificationType: vcloud_AllocationVappVdcTemplateSpecificationType
+          ReservationPoolVdcTemplateSpecificationType: vcloud_ReservationPoolVdcTemplateSpecificationType
       allOf:
         - $ref: '#/components/schemas/vcloud_VdcTemplateSpecificationType'
         - $ref: '#/components/schemas/vcloud_AllocationVAppVdcSpecificationGroup'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_AllocationVappVdcTemplateSpecificationType:
       title: vcloud_AllocationVappVdcTemplateSpecificationType
       description: Specification for a VDC template using the AllocationVApp allocation model.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AllocationPoolVdcTemplateSpecificationType: vcloud_AllocationPoolVdcTemplateSpecificationType
+          FlexVdcTemplateSpecificationType: vcloud_FlexVdcTemplateSpecificationType
+          ReservationPoolVdcTemplateSpecificationType: vcloud_ReservationPoolVdcTemplateSpecificationType
       allOf:
         - $ref: '#/components/schemas/vcloud_FlexVdcTemplateSpecificationType'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_ReservationPoolVdcTemplateSpecificationType:
       title: vcloud_ReservationPoolVdcTemplateSpecificationType
       description: Specification for a VDC template using the ReservationPool allocation model.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AllocationPoolVdcTemplateSpecificationType: vcloud_AllocationPoolVdcTemplateSpecificationType
+          FlexVdcTemplateSpecificationType: vcloud_FlexVdcTemplateSpecificationType
+          ReservationPoolVdcTemplateSpecificationType: vcloud_ReservationPoolVdcTemplateSpecificationType
       allOf:
         - $ref: '#/components/schemas/vcloud_VdcTemplateSpecificationType'
         - $ref: '#/components/schemas/vcloud_ReservationPoolVdcSpecificationGroup'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_VdcTemplateSpecificationGatewayConfigurationType:
       title: vcloud_VdcTemplateSpecificationGatewayConfigurationType
@@ -16349,6 +16467,10 @@ components:
     vcloud_ExternalNetworkType:
       title: vcloud_ExternalNetworkType
       description: Represents the admin view of an external network.
+      discriminator:
+        propertyName: _type
+        mapping:
+          ExternalNetworkType: vcloud_ExternalNetworkType
       allOf:
         - $ref: '#/components/schemas/vcloud_NetworkType'
         - type: object
@@ -16360,6 +16482,10 @@ components:
               description: List of network backings (vCenter server and port group moref) for this network.
               allOf:
                 - $ref: '#/components/schemas/vcloud_NetworkBackingInfoType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_NetworkBackingInfoType:
       title: vcloud_NetworkBackingInfoType
@@ -16968,6 +17094,10 @@ components:
     vcloud_AdminCatalogType:
       title: vcloud_AdminCatalogType
       description: Represents the admin view of a catalog.
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminCatalogType: vcloud_AdminCatalogType
       allOf:
         - $ref: '#/components/schemas/vcloud_CatalogType'
         - type: object
@@ -16984,6 +17114,10 @@ components:
               description: Configuration parameters for a catalog that is published externally.
               allOf:
                 - $ref: '#/components/schemas/vcloud_PublishExternalCatalogParamsType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_OrgsType:
       title: vcloud_OrgsType
@@ -18424,6 +18558,10 @@ components:
       deprecated: true
       title: vcloud-ext_LookupServiceSettingsType
       description: Information that allows vCloud Director to connect to a vSphere lookup service. This element is deprecated and no longer required or used.
+      discriminator:
+        propertyName: _type
+        mapping:
+          LookupServiceParamsType: vcloud-ext_LookupServiceParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ResourceType'
         - type: object
@@ -18431,6 +18569,10 @@ components:
             lookupServiceUrl:
               description: The URL of the vSphere Lookup Service. If empty or missing on PUT, any registered lookup service is unregistered.
               type: string
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud-ext_LookupServiceParamsType:
       deprecated: true
@@ -18565,6 +18707,10 @@ components:
     vcloud-ext_BlockingTaskOperationParamsType:
       title: vcloud-ext_BlockingTaskOperationParamsType
       description: Parameters to POST with a blocking task action.
+      discriminator:
+        propertyName: _type
+        mapping:
+          BlockingTaskUpdateProgressParamsType: vcloud-ext_BlockingTaskUpdateProgressParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ResourceType'
         - type: object
@@ -18572,8 +18718,11 @@ components:
             message:
               description: Message that will be associated with the action.
               type: string
+            _type:
+              type: string
           required:
             - message
+            - _type
           additionalProperties: false
     vcloud-ext_BlockingTaskUpdateProgressParamsType:
       title: vcloud-ext_BlockingTaskUpdateProgressParamsType
@@ -18631,6 +18780,12 @@ components:
     vcloud-ext_ServerType:
       title: vcloud-ext_ServerType
       description: Information needed to connect to a vSphere or a vShield manager server.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VimServerType: vcloud-ext_VimServerType
+          NsxTManagerType: vcloud-ext_NsxTManagerType
+          ShieldManagerType: vcloud-ext_ShieldManagerType
       allOf:
         - $ref: '#/components/schemas/vcloud_EntityType'
         - type: object
@@ -18645,9 +18800,12 @@ components:
               description: URL of the server.
               type: string
               format: uri
+            _type:
+              type: string
           required:
             - username
             - url
+            - _type
           additionalProperties: false
     vcloud-ext_RegisterVimServerParamsType:
       title: vcloud-ext_RegisterVimServerParamsType
@@ -18683,6 +18841,12 @@ components:
     vcloud-ext_VimServerType:
       title: vcloud-ext_VimServerType
       description: Represents vCenter server information.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VimServerType: vcloud-ext_VimServerType
+          NsxTManagerType: vcloud-ext_NsxTManagerType
+          ShieldManagerType: vcloud-ext_ShieldManagerType
       allOf:
         - $ref: '#/components/schemas/vcloud-ext_ServerType'
         - type: object
@@ -18790,8 +18954,11 @@ components:
               description: The size of uncommitted storage (in MB) of all datastores in this vCenter.
               type: integer
               format: int32
+            _type:
+              type: string
           required:
             - isEnabled
+            - _type
           additionalProperties: false
     vcloud-ext_VMWVimServerReferencesType:
       title: vcloud-ext_VMWVimServerReferencesType
@@ -19206,6 +19373,12 @@ components:
     vcloud-ext_VimObjectRefType:
       title: vcloud-ext_VimObjectRefType
       description: Represents the moref and the type of a vSphere object.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VmObjectRefType: vcloud-ext_VmObjectRefType
+          DiskDatastoreType: vcloud-ext_DiskDatastoreType
+          HostObjectRefType: vcloud-ext_HostObjectRefType
       type: object
       properties:
         vimServerRef:
@@ -19218,10 +19391,13 @@ components:
         vimObjectType:
           description: 'The vSphere type of the object. One of: CLUSTER\_COMPUTE\_RESOURCE (The object is a vSphere cluster compute resource.), RESOURCE\_POOL (The object is a vSphere resource pool.), DATASTORE (The object is a vSphere datastore.), HOST (The object is an ESX/ESXi host.), VIRTUAL\_MACHINE (The object is a vSphere VM.), VIRTUAL\_APP (The object is a vSphere vApp.), NETWORK (The object is a vSphere network.), DV\_PORTGROUP (The object is a vSphere distributed virtual portgroup.), DV\_SWITCH (The object is a vSphere distributed virtual switch.), DATASTORE\_CLUSTER (The object is a vSphere storage pod.)'
           type: string
+        _type:
+          type: string
       required:
         - vimServerRef
         - moRef
         - vimObjectType
+        - _type
       additionalProperties: false
     vcloud-ext_VimObjectRefsType:
       title: vcloud-ext_VimObjectRefsType
@@ -19401,9 +19577,22 @@ components:
     vcloud-ext_VMWNetworkPoolType:
       title: vcloud-ext_VMWNetworkPoolType
       description: Base extension network pool type.
+      discriminator:
+        propertyName: _type
+        mapping:
+          PortGroupPoolType: vcloud-ext_PortGroupPoolType
+          VlanPoolType: vcloud-ext_VlanPoolType
+          FencePoolType: vcloud-ext_FencePoolType
+          VxlanPoolType: vcloud-ext_VxlanPoolType
+          GenevePoolType: vcloud-ext_GenevePoolType
       allOf:
         - $ref: '#/components/schemas/vcloud_NetworkPoolType'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud-ext_PortGroupPoolType:
       title: vcloud-ext_PortGroupPoolType
@@ -19634,6 +19823,12 @@ components:
       deprecated: true
       title: vcloud-ext_LicensingManagedServerType
       description: Captures a single set of metrics for a managed server for a given sample.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VimServerType: vcloud-ext_VimServerType
+          NsxTManagerType: vcloud-ext_NsxTManagerType
+          ShieldManagerType: vcloud-ext_ShieldManagerType
       type: object
       properties:
         cpu:
@@ -19648,10 +19843,13 @@ components:
           description: Managed object reference of the server.
           allOf:
             - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+        _type:
+          type: string
       required:
         - cpu
         - memoryInstalled
         - vimObjectRef
+        - _type
       additionalProperties: false
     vcloud-ext_LicensingVirtualMachineType:
       deprecated: true
@@ -20217,6 +20415,13 @@ components:
       additionalProperties: false
     vcloud-ext_VMWVdcTemplateSpecificationType:
       title: vcloud-ext_VMWVdcTemplateSpecificationType
+      discriminator:
+        propertyName: _type
+        mapping:
+          VMWAllocationPoolVdcTemplateSpecificationType: vcloud-ext_VMWAllocationPoolVdcTemplateSpecificationType
+          VMWFlexVdcTemplateSpecificationType: vcloud-ext_VMWFlexVdcTemplateSpecificationType
+          VMWAllocationVappVdcTemplateSpecificationType: vcloud-ext_VMWAllocationVappVdcTemplateSpecificationType
+          VMWReservationPoolVdcTemplateSpecificationType: vcloud-ext_VMWReservationPoolVdcTemplateSpecificationType
       allOf:
         - $ref: '#/components/schemas/vcloud_VdcSpecificationGroup'
         - type: object
@@ -20230,6 +20435,10 @@ components:
             networkProfileConfiguration:
               allOf:
                 - $ref: '#/components/schemas/vcloud-ext_VdcTemplateNetworkProfileType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud-ext_AutomaticNetworkPoolReferenceType:
       title: vcloud-ext_AutomaticNetworkPoolReferenceType
@@ -20859,6 +21068,10 @@ components:
     vcloud_CopyOrMoveCatalogItemParamsType:
       title: vcloud_CopyOrMoveCatalogItemParamsType
       description: Parameters for a copyCatalogItem or moveCatalogItem request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          CopyOrMoveCatalogItemParamsType: vcloud_CopyOrMoveCatalogItemParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -20867,12 +21080,19 @@ components:
               description: Reference to the source catalog item to copy or move from.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_PublishCatalogParamsType:
       title: vcloud_PublishCatalogParamsType
       description: Parameters required when sharing a catalog with other organizations.
+      discriminator:
+        propertyName: _type
+        mapping:
+          CopyOrMoveCatalogItemParamsType: vcloud_CopyOrMoveCatalogItemParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -20880,8 +21100,11 @@ components:
             isPublished:
               description: A value of true makes this catalog available to the administrators in all other organizations in the system. A value of false revokes that availability. To share this catalog in your own organization, use controlAccess.
               type: boolean
+            _type:
+              type: string
           required:
             - isPublished
+            - _type
           additionalProperties: false
     vcloud_CatalogItemType:
       title: vcloud_CatalogItemType
@@ -20948,6 +21171,21 @@ components:
     vcloud_VCloudExtensibleType:
       title: vcloud_VCloudExtensibleType
       description: A base abstract type for all complex types that support extensions.
+      discriminator:
+        propertyName: _type
+        mapping:
+          ErrorType: vcloud_ErrorType
+          TenantErrorType: vcloud_TenantErrorType
+          ResourceType: vcloud_ResourceType
+          ParamsType: vcloud_ParamsType
+          ReferenceType: vcloud_ReferenceType
+          CapacityType: vcloud_CapacityType
+          AccessSettingType: vcloud_AccessSettingType
+          ExternalSubjectType: vcloud_ExternalSubjectType
+          AccessSettingsType: vcloud_AccessSettingsType
+          ControlAccessParamsType: vcloud_ControlAccessParamsType
+          FileUploadParamsType: vcloud_FileUploadParamsType
+          FileUploadSocketType: vcloud_FileUploadSocketType
       type: object
       properties:
         vCloudExtension:
@@ -20955,6 +21193,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/vcloud_VCloudExtensionType'
+        _type:
+          type: string
+      required:
+        - _type
       additionalProperties: false
     vcloud_CommonErrorAttributes:
       title: vcloud_CommonErrorAttributes
@@ -21034,6 +21276,16 @@ components:
     vcloud_ResourceType:
       title: vcloud_ResourceType
       description: The base type for all objects in the vCloud model. Has an optional list of links and href and type attributes.
+      discriminator:
+        propertyName: _type
+        mapping:
+          IdentifiableResourceType: vcloud_IdentifiableResourceType
+          ContainerType: vcloud_ContainerType
+          OwnerType: vcloud_OwnerType
+          MetadataEntryType: vcloud_MetadataEntryType
+          MetadataType: vcloud_MetadataType
+          MetadataValueType: vcloud_MetadataValueType
+          SchemaLinksType: vcloud_SchemaLinksType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -21050,10 +21302,24 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_LinkType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_IdentifiableResourceType:
       title: vcloud_IdentifiableResourceType
       description: The base type for all resource types which contain an id attribute.
+      discriminator:
+        propertyName: _type
+        mapping:
+          IdentifiableResourceType: vcloud_IdentifiableResourceType
+          ContainerType: vcloud_ContainerType
+          OwnerType: vcloud_OwnerType
+          MetadataEntryType: vcloud_MetadataEntryType
+          MetadataType: vcloud_MetadataType
+          MetadataValueType: vcloud_MetadataValueType
+          SchemaLinksType: vcloud_SchemaLinksType
       allOf:
         - $ref: '#/components/schemas/vcloud_ResourceType'
         - type: object
@@ -21064,6 +21330,10 @@ components:
             operationKey:
               description: Optional unique identifier to support idempotent semantics for create and delete operations.
               type: string
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_ParamsType:
       title: vcloud_ParamsType
@@ -21082,6 +21352,11 @@ components:
     vcloud_ReferenceType:
       title: vcloud_ReferenceType
       description: A reference to a resource. Contains an href attribute and optional name and type attributes.
+      discriminator:
+        propertyName: _type
+        mapping:
+          LinkType: vcloud_LinkType
+          ResourceReferenceType: vcloud_ResourceReferenceType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -21099,12 +21374,20 @@ components:
             name:
               description: Contains the name of the the entity.
               type: string
+            _type:
+              type: string
           required:
             - href
+            - _type
           additionalProperties: false
     vcloud_ResourceReferenceType:
       title: vcloud_ResourceReferenceType
       description: Represents a reference to a resource. Contains an href attribute, a resource status attribute, and optional name and type attributes.
+      discriminator:
+        propertyName: _type
+        mapping:
+          LinkType: vcloud_LinkType
+          ResourceReferenceType: vcloud_ResourceReferenceType
       allOf:
         - $ref: '#/components/schemas/vcloud_ReferenceType'
         - type: object
@@ -21113,10 +21396,19 @@ components:
               description: Status of a resource.
               type: integer
               format: int32
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_ContainerType:
       title: vcloud_ContainerType
       description: Container for query result sets.
+      discriminator:
+        propertyName: _type
+        mapping:
+          ReferencesType: vcloud_ReferencesType
+          QueryListType: vcloud_QueryListType
       allOf:
         - $ref: '#/components/schemas/vcloud_ResourceType'
         - type: object
@@ -21136,18 +21428,18 @@ components:
               description: Total number of records or references in the container.
               type: integer
               format: int64
-            record:
-              type: array
-              items:
-                $ref: '#/components/schemas/QueryResultRecordType'
-            reference:
-              type: array
-              items:
-                $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_CapacityType:
       title: vcloud_CapacityType
       description: Represents the capacity of a given resource.
+      discriminator:
+        propertyName: _type
+        mapping:
+          CapacityWithUsageType: vcloud_CapacityWithUsageType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -21163,9 +21455,12 @@ components:
               description: Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies overprovisioning.
               type: integer
               format: int64
+            _type:
+              type: string
           required:
             - units
             - limit
+            - _type
           additionalProperties: false
     vcloud_CapacityWithUsageType:
       title: vcloud_CapacityWithUsageType
@@ -21276,6 +21571,11 @@ components:
       allOf:
         - $ref: '#/components/schemas/vcloud_ContainerType'
         - type: object
+          properties:
+            reference:
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_ReferenceType'
           additionalProperties: false
     vcloud_QueryListType:
       title: vcloud_QueryListType
@@ -21314,7 +21614,7 @@ components:
             typedValue:
               description: "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue"
               allOf:
-                - $ref: '#/components/schemas/MetadataTypedValue'
+                - $ref: '#/components/schemas/vcloud_MetadataTypedValue'
           required:
             - domain
             - key
@@ -21323,15 +21623,17 @@ components:
     vcloud_MetadataTypedValue:
       title: vcloud_MetadataTypedValue
       description: "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue"
+      discriminator:
+        propertyName: _type
+        mapping:
+          MetadataStringValue: vcloud_MetadataStringValue
+          MetadataNumberValue: vcloud_MetadataNumberValue
+          MetadataBooleanValue: vcloud_MetadataBooleanValue
+          MetadataDateTimeValue: vcloud_MetadataDateTimeValue
       type: object
       properties:
         _type:
           type: string
-          enum:
-            - MetadataStringValue
-            - MetadataNumberValue
-            - MetadataBooleanValue
-            - MetadataDateTimeValue
       required:
         - _type
       additionalProperties: false
@@ -21410,7 +21712,7 @@ components:
                 - $ref: '#/components/schemas/vcloud_MetadataDomainTagType'
             typedValue:
               allOf:
-                - $ref: '#/components/schemas/MetadataTypedValue'
+                - $ref: '#/components/schemas/vcloud_MetadataTypedValue'
           required:
             - typedValue
           additionalProperties: false
@@ -21591,6 +21893,10 @@ components:
     vcloud_EntityReferenceType:
       title: vcloud_EntityReferenceType
       description: A reference to a vCloud entity.
+      discriminator:
+        propertyName: _type
+        mapping:
+          EntityLinkType: vcloud_EntityLinkType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -21604,8 +21910,11 @@ components:
             name:
               description: The name of the referenced object.
               type: string
+            _type:
+              type: string
           required:
             - id
+            - _type
           additionalProperties: false
     vcloud_EntityLinkType:
       title: vcloud_EntityLinkType
@@ -21682,6 +21991,10 @@ components:
     vcloud_ToCloudTunnelType:
       title: vcloud_ToCloudTunnelType
       description: Describes to-the-cloud tunnel
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminToCloudTunnelType: vcloud_AdminToCloudTunnelType
       allOf:
         - $ref: '#/components/schemas/vcloud_EntityType'
         - type: object
@@ -21695,13 +22008,20 @@ components:
             sourceId:
               description: A UUID identifying the vCTA on-premise
               type: string
+            _type:
+              type: string
           required:
             - trafficType
             - destinationId
+            - _type
           additionalProperties: false
     vcloud_AdminToCloudTunnelType:
       title: vcloud_AdminToCloudTunnelType
       description: Describes the administrator view of a to-the-cloud tunnel
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminToCloudTunnelType: vcloud_AdminToCloudTunnelType
       allOf:
         - $ref: '#/components/schemas/vcloud_ToCloudTunnelType'
         - type: object
@@ -21716,10 +22036,13 @@ components:
             useSsl:
               description: Whether SSL protocol is used by the destination server in the cloud
               type: boolean
+            _type:
+              type: string
           required:
             - destinationIpAddress
             - destinationPort
             - useSsl
+            - _type
           additionalProperties: false
     vcloud_FromCloudTunnelCreateParamsType:
       title: vcloud_FromCloudTunnelCreateParamsType
@@ -21747,6 +22070,10 @@ components:
     vcloud_FromCloudTunnelType:
       title: vcloud_FromCloudTunnelType
       description: Describes from-the-cloud tunnel
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminFromCloudTunnelType: vcloud_AdminFromCloudTunnelType
       allOf:
         - $ref: '#/components/schemas/vcloud_EntityType'
         - type: object
@@ -21763,13 +22090,20 @@ components:
             sourceId:
               description: A UUID identifying the vCTA on-premise
               type: string
+            _type:
+              type: string
           required:
             - trafficType
             - destinationId
+            - _type
           additionalProperties: false
     vcloud_AdminFromCloudTunnelType:
       title: vcloud_AdminFromCloudTunnelType
       description: Describes the administrator view of a from-the-cloud tunnel
+      discriminator:
+        propertyName: _type
+        mapping:
+          AdminFromCloudTunnelType: vcloud_AdminFromCloudTunnelType
       allOf:
         - $ref: '#/components/schemas/vcloud_FromCloudTunnelType'
         - type: object
@@ -21777,8 +22111,11 @@ components:
             tunnelEndPoint:
               description: IP address and port to access the tunnel in the form of [ip-address]:[port].
               type: string
+            _type:
+              type: string
           required:
             - tunnelEndPoint
+            - _type
           additionalProperties: false
     vcloud_FromCloudTunnelListenerProperties:
       title: vcloud_FromCloudTunnelListenerProperties
@@ -21947,6 +22284,10 @@ components:
     vcloud_CloneMediaParamsType:
       title: vcloud_CloneMediaParamsType
       description: Parameters required by a cloneMedia request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          CloneMediaParamsType: vcloud_CloneMediaParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -21962,8 +22303,11 @@ components:
               description: A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_TimeUnitType:
       title: vcloud_TimeUnitType
@@ -21977,11 +22321,26 @@ components:
         - week
     vcloud_TimeType:
       title: vcloud_TimeType
+      discriminator:
+        propertyName: _type
+        mapping:
+          RelativeTimeType: vcloud_RelativeTimeType
+          AbsoluteTimeType: vcloud_AbsoluteTimeType
       type: object
+      properties:
+        _type:
+          type: string
+      required:
+        - _type
       additionalProperties: false
     vcloud_RelativeTimeType:
       title: vcloud_RelativeTimeType
       description: Specifies an earlier time relative to the current time
+      discriminator:
+        propertyName: _type
+        mapping:
+          RelativeTimeType: vcloud_RelativeTimeType
+          AbsoluteTimeType: vcloud_AbsoluteTimeType
       allOf:
         - $ref: '#/components/schemas/vcloud_TimeType'
         - type: object
@@ -21993,13 +22352,21 @@ components:
               description: time unit enumeration value
               allOf:
                 - $ref: '#/components/schemas/vcloud_TimeUnitType'
+            _type:
+              type: string
           required:
             - interval
             - unit
+            - _type
           additionalProperties: false
     vcloud_AbsoluteTimeType:
       title: vcloud_AbsoluteTimeType
       description: Specifies an absolute time in UTC
+      discriminator:
+        propertyName: _type
+        mapping:
+          RelativeTimeType: vcloud_RelativeTimeType
+          AbsoluteTimeType: vcloud_AbsoluteTimeType
       allOf:
         - $ref: '#/components/schemas/vcloud_TimeType'
         - type: object
@@ -22008,8 +22375,11 @@ components:
               description: absolute UTC time value
               type: string
               format: date-time
+            _type:
+              type: string
           required:
             - time
+            - _type
           additionalProperties: false
     vcloud_SimpleMetricType:
       title: vcloud_SimpleMetricType
@@ -22140,6 +22510,11 @@ components:
     vcloud_MultisiteType:
       title: vcloud_MultisiteType
       description: site vCloud configuration.
+      discriminator:
+        propertyName: _type
+        mapping:
+          SiteType: vcloud_SiteType
+          SiteAssociationType: vcloud_SiteAssociationType
       allOf:
         - $ref: '#/components/schemas/vcloud_EntityType'
         - type: object
@@ -22161,10 +22536,13 @@ components:
             restEndpointCertificate:
               description: Optional PEM-encoded certificate to use when connecting to the REST API end-point.
               type: string
+            _type:
+              type: string
           required:
             - restEndpoint
             - baseUiEndpoint
             - tenantUiEndpoint
+            - _type
           additionalProperties: false
     vcloud_SiteType:
       title: vcloud_SiteType
@@ -22394,6 +22772,12 @@ components:
     vcloud_NetworkType:
       title: vcloud_NetworkType
       description: Represents a Network in the vCloud model.
+      discriminator:
+        propertyName: _type
+        mapping:
+          OrgNetworkType: vcloud_OrgNetworkType
+          VAppNetworkType: vcloud_VAppNetworkType
+          OrgVdcNetworkType: vcloud_OrgVdcNetworkType
       allOf:
         - $ref: '#/components/schemas/vcloud_EntityType'
         - type: object
@@ -22402,10 +22786,20 @@ components:
               description: Network configuration.
               allOf:
                 - $ref: '#/components/schemas/vcloud_NetworkConfigurationType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_OrgNetworkType:
       title: vcloud_OrgNetworkType
       description: Represents an organization network in the vCloud model.
+      discriminator:
+        propertyName: _type
+        mapping:
+          OrgNetworkType: vcloud_OrgNetworkType
+          VAppNetworkType: vcloud_VAppNetworkType
+          OrgVdcNetworkType: vcloud_OrgVdcNetworkType
       allOf:
         - $ref: '#/components/schemas/vcloud_NetworkType'
         - type: object
@@ -22418,10 +22812,20 @@ components:
               description: Optional set of IP addresses that this organization network is limited to using for purposes of NAT.
               allOf:
                 - $ref: '#/components/schemas/vcloud_IpAddressesType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_VAppNetworkType:
       title: vcloud_VAppNetworkType
       description: Represents a vApp network.
+      discriminator:
+        propertyName: _type
+        mapping:
+          OrgNetworkType: vcloud_OrgNetworkType
+          VAppNetworkType: vcloud_VAppNetworkType
+          OrgVdcNetworkType: vcloud_OrgVdcNetworkType
       allOf:
         - $ref: '#/components/schemas/vcloud_NetworkType'
         - type: object
@@ -22429,10 +22833,25 @@ components:
             deployed:
               description: True if the network is deployed.
               type: boolean
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_NetworkServiceType:
       title: vcloud_NetworkServiceType
       description: This is the root of the substitution group for network services. Replace it with any of NatService, LoadBalancerService IpsecVpnService/GatewayIpsecVpnService, DhcpService/GatewayDhcpService, FirewallService, or StaticRoutingService.
+      discriminator:
+        propertyName: _type
+        mapping:
+          DhcpServiceType: vcloud_DhcpServiceType
+          NatServiceType: vcloud_NatServiceType
+          FirewallServiceType: vcloud_FirewallServiceType
+          IpsecVpnServiceType: vcloud_IpsecVpnServiceType
+          StaticRoutingServiceType: vcloud_StaticRoutingServiceType
+          GatewayDhcpServiceType: vcloud_GatewayDhcpServiceType
+          LoadBalancerServiceType: vcloud_LoadBalancerServiceType
+          GatewayIpsecVpnServiceType: vcloud_GatewayIpsecVpnServiceType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -22440,11 +22859,20 @@ components:
             isEnabled:
               description: Enable or disable the service using this flag
               type: boolean
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_NetworkFeaturesType:
       title: vcloud_NetworkFeaturesType
       description: Represents features of a network.
       type: object
+      properties:
+        networkService:
+          type: array
+          items:
+            $ref: '#/components/schemas/vcloud_NetworkServiceType'
       additionalProperties: false
     vcloud_RouterInfoType:
       title: vcloud_RouterInfoType
@@ -22797,6 +23225,10 @@ components:
             description:
               description: A description of the tunnel.
               type: string
+            ipsecVpnPeer:
+              description: Details about the peer network.
+              allOf:
+                - $ref: '#/components/schemas/vcloud_IpsecVpnPeerType'
             peerIpAddress:
               description: IP address of the peer Edge device.
               allOf:
@@ -22830,6 +23262,7 @@ components:
               type: string
           required:
             - name
+            - ipsecVpnPeer
             - peerIpAddress
             - peerNetworkAddress
             - peerNetworkMask
@@ -22841,13 +23274,28 @@ components:
     vcloud_IpsecVpnPeerType:
       title: vcloud_IpsecVpnPeerType
       description: Gives more details of peer end point.
+      discriminator:
+        propertyName: _type
+        mapping:
+          IpsecVpnManagedPeerType: vcloud_IpsecVpnManagedPeerType
+          IpsecVpnUnmanagedPeerType: vcloud_IpsecVpnUnmanagedPeerType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_IpsecVpnManagedPeerType:
       title: vcloud_IpsecVpnManagedPeerType
       description: Gives more details of peer end point.
+      discriminator:
+        propertyName: _type
+        mapping:
+          IpsecVpnLocalPeerType: vcloud_IpsecVpnLocalPeerType
+          IpsecVpnRemotePeerType: vcloud_IpsecVpnRemotePeerType
       allOf:
         - $ref: '#/components/schemas/vcloud_IpsecVpnPeerType'
         - type: object
@@ -22858,9 +23306,12 @@ components:
             name:
               description: Name of the peer network.
               type: string
+            _type:
+              type: string
           required:
             - id
             - name
+            - _type
           additionalProperties: false
     vcloud_IpsecVpnLocalPeerType:
       title: vcloud_IpsecVpnLocalPeerType
@@ -22893,9 +23344,18 @@ components:
     vcloud_IpsecVpnUnmanagedPeerType:
       title: vcloud_IpsecVpnUnmanagedPeerType
       description: Gives more details of peer end point not managed by vCloud Director.
+      discriminator:
+        propertyName: _type
+        mapping:
+          IpsecVpnThirdPartyPeerType: vcloud_IpsecVpnThirdPartyPeerType
       allOf:
         - $ref: '#/components/schemas/vcloud_IpsecVpnPeerType'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_IpsecVpnThirdPartyPeerType:
       title: vcloud_IpsecVpnThirdPartyPeerType
@@ -23283,6 +23743,10 @@ components:
             description:
               description: A description of the tunnel.
               type: string
+            ipsecVpnPeer:
+              description: Details about the peer network.
+              allOf:
+                - $ref: '#/components/schemas/vcloud_IpsecVpnPeerType'
             peerIpAddress:
               description: IP address of the peer endpoint.
               allOf:
@@ -23331,6 +23795,7 @@ components:
               type: string
           required:
             - name
+            - ipsecVpnPeer
             - peerIpAddress
             - peerId
             - localIpAddress
@@ -23625,6 +24090,12 @@ components:
     vcloud_OrgVdcNetworkType:
       title: vcloud_OrgVdcNetworkType
       description: Represents an Org vDC network in the vCloud model.
+      discriminator:
+        propertyName: _type
+        mapping:
+          OrgNetworkType: vcloud_OrgNetworkType
+          VAppNetworkType: vcloud_VAppNetworkType
+          OrgVdcNetworkType: vcloud_OrgVdcNetworkType
       allOf:
         - $ref: '#/components/schemas/vcloud_NetworkType'
         - type: object
@@ -23651,9 +24122,12 @@ components:
               description: A reference to the network backing object (logical switch, portgroup, etc.) that exists on a vCenter server registered with the system.
               allOf:
                 - $ref: '#/components/schemas/vcloud_VimObjectRefType'
+            _type:
+              type: string
           required:
             - providerInfo
             - vimPortGroupRef
+            - _type
           additionalProperties: false
     vcloud_VimObjectRefType:
       title: vcloud_VimObjectRefType
@@ -23871,6 +24345,11 @@ components:
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
+          properties:
+            networkService:
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_NetworkServiceType'
           additionalProperties: false
     vcloud_EdgeClusterConfigurationType:
       title: vcloud_EdgeClusterConfigurationType
@@ -23992,10 +24471,104 @@ components:
       allOf:
         - $ref: '#/components/schemas/vcloud_ContainerType'
         - type: object
+          properties:
+            record:
+              description: A record representing a query result.
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_QueryResultRecordType'
           additionalProperties: false
     vcloud_QueryResultRecordType:
       title: vcloud_QueryResultRecordType
       description: Base type for a single record from query result in records format. Subtypes define more specific elements.
+      discriminator:
+        propertyName: _type
+        mapping:
+          QueryResultOrgRecordType: vcloud_QueryResultOrgRecordType
+          QueryResultOrgVdcRecordType: vcloud_QueryResultOrgVdcRecordType
+          QueryResultMediaRecordType: vcloud_QueryResultMediaRecordType
+          QueryResultVAppTemplateRecordType: vcloud_QueryResultVAppTemplateRecordType
+          QueryResultVAppRecordType: vcloud_QueryResultVAppRecordType
+          QueryResultVMRecordType: vcloud_QueryResultVMRecordType
+          QueryResultOrgNetworkRecordType: vcloud_QueryResultOrgNetworkRecordType
+          QueryResultAdminOrgNetworkRecordType: vcloud_QueryResultAdminOrgNetworkRecordType
+          QueryResultVAppNetworkRecordType: vcloud_QueryResultVAppNetworkRecordType
+          QueryResultCatalogRecordType: vcloud_QueryResultCatalogRecordType
+          QueryResultAdminVdcRecordType: vcloud_QueryResultAdminVdcRecordType
+          QueryResultVMWProviderVdcRecordType: vcloud_QueryResultVMWProviderVdcRecordType
+          QueryResultNetworkRecordType: vcloud_QueryResultNetworkRecordType
+          QueryResultGroupRecordType: vcloud_QueryResultGroupRecordType
+          QueryResultUserRecordType: vcloud_QueryResultUserRecordType
+          QueryResultStrandedUserRecordType: vcloud_QueryResultStrandedUserRecordType
+          QueryResultRoleRecordType: vcloud_QueryResultRoleRecordType
+          QueryResultAllocatedExternalAddressRecordType: vcloud_QueryResultAllocatedExternalAddressRecordType
+          QueryResultEventRecordType: vcloud_QueryResultEventRecordType
+          QueryResultResourcePoolRecordType: vcloud_QueryResultResourcePoolRecordType
+          QueryResultDatastoreRecordType: vcloud_QueryResultDatastoreRecordType
+          QueryResultNetworkPoolRecordType: vcloud_QueryResultNetworkPoolRecordType
+          QueryResultPortgroupRecordType: vcloud_QueryResultPortgroupRecordType
+          QueryResultDvSwitchRecordType: vcloud_QueryResultDvSwitchRecordType
+          QueryResultCellRecordType: vcloud_QueryResultCellRecordType
+          QueryResultVirtualCenterRecordType: vcloud_QueryResultVirtualCenterRecordType
+          QueryResultHostRecordType: vcloud_QueryResultHostRecordType
+          QueryResultAdminVAppRecordType: vcloud_QueryResultAdminVAppRecordType
+          QueryResultRightRecordType: vcloud_QueryResultRightRecordType
+          QueryResultAdminVMRecordType: vcloud_QueryResultAdminVMRecordType
+          QueryResultAdminAllocatedExternalAddressRecordType: vcloud_QueryResultAdminAllocatedExternalAddressRecordType
+          QueryResultVAppOrgNetworkRelationRecordType: vcloud_QueryResultVAppOrgNetworkRelationRecordType
+          QueryResultOrgVdcResourcePoolRelationRecordType: vcloud_QueryResultOrgVdcResourcePoolRelationRecordType
+          QueryResultProviderVdcResourcePoolRelationRecordType: vcloud_QueryResultProviderVdcResourcePoolRelationRecordType
+          QueryResultDatastoreProviderVdcRelationRecordType: vcloud_QueryResultDatastoreProviderVdcRelationRecordType
+          QueryResultAdminUserRecordType: vcloud_QueryResultAdminUserRecordType
+          QueryResultAdminGroupRecordType: vcloud_QueryResultAdminGroupRecordType
+          QueryResultAdminVAppNetworkRecordType: vcloud_QueryResultAdminVAppNetworkRecordType
+          QueryResultAdminCatalogRecordType: vcloud_QueryResultAdminCatalogRecordType
+          QueryResultAdminCatalogItemRecordType: vcloud_QueryResultAdminCatalogItemRecordType
+          QueryResultCatalogItemRecordType: vcloud_QueryResultCatalogItemRecordType
+          QueryResultAdminMediaRecordType: vcloud_QueryResultAdminMediaRecordType
+          QueryResultAdminVAppTemplateRecordType: vcloud_QueryResultAdminVAppTemplateRecordType
+          QueryResultAdminShadowVMRecordType: vcloud_QueryResultAdminShadowVMRecordType
+          QueryResultTaskRecordType: vcloud_QueryResultTaskRecordType
+          QueryResultAdminTaskRecordType: vcloud_QueryResultAdminTaskRecordType
+          QueryResultBlockingTaskRecordType: vcloud_QueryResultBlockingTaskRecordType
+          QueryResultDiskRecordType: vcloud_QueryResultDiskRecordType
+          QueryResultVmDiskRelationRecordType: vcloud_QueryResultVmDiskRelationRecordType
+          QueryResultAdminDiskRecordType: vcloud_QueryResultAdminDiskRecordType
+          QueryResultAdminVmDiskRelationRecordType: vcloud_QueryResultAdminVmDiskRelationRecordType
+          QueryResultConditionRecordType: vcloud_QueryResultConditionRecordType
+          QueryResultAdminEventRecordType: vcloud_QueryResultAdminEventRecordType
+          QueryResultStrandedItemRecordType: vcloud_QueryResultStrandedItemRecordType
+          QueryResultAdminServiceRecordType: vcloud_QueryResultAdminServiceRecordType
+          QueryResultServiceRecordType: vcloud_QueryResultServiceRecordType
+          QueryResultServiceLinkRecordType: vcloud_QueryResultServiceLinkRecordType
+          QueryResultStorageProfileRecordType: vcloud_QueryResultStorageProfileRecordType
+          QueryResultOrgVdcStorageProfileRecordType: vcloud_QueryResultOrgVdcStorageProfileRecordType
+          QueryResultAdminOrgVdcStorageProfileRecordType: vcloud_QueryResultAdminOrgVdcStorageProfileRecordType
+          QueryResultProviderVdcStorageProfileRecordType: vcloud_QueryResultProviderVdcStorageProfileRecordType
+          QueryResultApiFilterRecordType: vcloud_QueryResultApiFilterRecordType
+          QueryResultAdminApiDefinitionRecordType: vcloud_QueryResultAdminApiDefinitionRecordType
+          QueryResultApiDefinitionRecordType: vcloud_QueryResultApiDefinitionRecordType
+          QueryResultAdminFileDescriptorRecordType: vcloud_QueryResultAdminFileDescriptorRecordType
+          QueryResultFileDescriptorRecordType: vcloud_QueryResultFileDescriptorRecordType
+          QueryResultResourceClassActionRecordType: vcloud_QueryResultResourceClassActionRecordType
+          QueryResultAclRuleRecordType: vcloud_QueryResultAclRuleRecordType
+          QueryResultResourceClassRecordType: vcloud_QueryResultResourceClassRecordType
+          QueryResultServiceResourceRecordType: vcloud_QueryResultServiceResourceRecordType
+          QueryResultEdgeGatewayRecordType: vcloud_QueryResultEdgeGatewayRecordType
+          QueryResultOrgVdcNetworkRecordType: vcloud_QueryResultOrgVdcNetworkRecordType
+          QueryResultVAppOrgVdcNetworkRelationRecordType: vcloud_QueryResultVAppOrgVdcNetworkRelationRecordType
+          QueryResultExternalLocalizationRecordType: vcloud_QueryResultExternalLocalizationRecordType
+          QueryResultResourcePoolVMRecordType: vcloud_QueryResultResourcePoolVMRecordType
+          QueryResultVmGroupVmsRecordType: vcloud_QueryResultVmGroupVmsRecordType
+          QueryResultVmGroupsRecordType: vcloud_QueryResultVmGroupsRecordType
+          QueryResultAdminRoleRecordType: vcloud_QueryResultAdminRoleRecordType
+          QueryResultNsxTManagerRecordType: vcloud_QueryResultNsxTManagerRecordType
+          QueryResultAdminOrgVdcTemplateRecordType: vcloud_QueryResultAdminOrgVdcTemplateRecordType
+          QueryResultOrgVdcTemplateRecordType: vcloud_QueryResultOrgVdcTemplateRecordType
+          QueryResultGatewayUplinksRecordType: vcloud_QueryResultGatewayUplinksRecordType
+          QueryResultSiteRecordType: vcloud_QueryResultSiteRecordType
+          QueryResultSiteAssociationRecordType: vcloud_QueryResultSiteAssociationRecordType
+          QueryResultOrgAssociationRecordType: vcloud_QueryResultOrgAssociationRecordType
       type: object
       properties:
         href:
@@ -24018,100 +24591,8 @@ components:
             - $ref: '#/components/schemas/vcloud_MetadataType'
         _type:
           type: string
-          enum:
-            - QueryResultLicensingReportRecordType
-            - QueryResultLicensingReportSampleRecordType
-            - QueryResultLicensingManagedServerRecordType
-            - QueryResultLicensingVirtualMachineRecordType
-            - QueryResultAdminEventCBMRecordType
-            - QueryResultToCloudTunnelRecordType
-            - QueryResultFromCloudTunnelRecordType
-            - QueryResultSiteOrgAssociationRecordType
-            - QueryResultOrgRecordType
-            - QueryResultOrgVdcRecordType
-            - QueryResultMediaRecordType
-            - QueryResultVAppTemplateRecordType
-            - QueryResultVAppRecordType
-            - QueryResultVMRecordType
-            - QueryResultOrgNetworkRecordType
-            - QueryResultAdminOrgNetworkRecordType
-            - QueryResultVAppNetworkRecordType
-            - QueryResultCatalogRecordType
-            - QueryResultAdminVdcRecordType
-            - QueryResultVMWProviderVdcRecordType
-            - QueryResultNetworkRecordType
-            - QueryResultGroupRecordType
-            - QueryResultUserRecordType
-            - QueryResultStrandedUserRecordType
-            - QueryResultRoleRecordType
-            - QueryResultAllocatedExternalAddressRecordType
-            - QueryResultEventRecordType
-            - QueryResultResourcePoolRecordType
-            - QueryResultDatastoreRecordType
-            - QueryResultNetworkPoolRecordType
-            - QueryResultPortgroupRecordType
-            - QueryResultDvSwitchRecordType
-            - QueryResultCellRecordType
-            - QueryResultVirtualCenterRecordType
-            - QueryResultHostRecordType
-            - QueryResultAdminVAppRecordType
-            - QueryResultRightRecordType
-            - QueryResultAdminVMRecordType
-            - QueryResultAdminAllocatedExternalAddressRecordType
-            - QueryResultVAppOrgNetworkRelationRecordType
-            - QueryResultOrgVdcResourcePoolRelationRecordType
-            - QueryResultProviderVdcResourcePoolRelationRecordType
-            - QueryResultDatastoreProviderVdcRelationRecordType
-            - QueryResultAdminUserRecordType
-            - QueryResultAdminGroupRecordType
-            - QueryResultAdminVAppNetworkRecordType
-            - QueryResultAdminCatalogRecordType
-            - QueryResultAdminCatalogItemRecordType
-            - QueryResultCatalogItemRecordType
-            - QueryResultAdminMediaRecordType
-            - QueryResultAdminVAppTemplateRecordType
-            - QueryResultAdminShadowVMRecordType
-            - QueryResultTaskRecordType
-            - QueryResultAdminTaskRecordType
-            - QueryResultBlockingTaskRecordType
-            - QueryResultDiskRecordType
-            - QueryResultVmDiskRelationRecordType
-            - QueryResultAdminDiskRecordType
-            - QueryResultAdminVmDiskRelationRecordType
-            - QueryResultConditionRecordType
-            - QueryResultAdminEventRecordType
-            - QueryResultStrandedItemRecordType
-            - QueryResultAdminServiceRecordType
-            - QueryResultServiceRecordType
-            - QueryResultServiceLinkRecordType
-            - QueryResultStorageProfileRecordType
-            - QueryResultOrgVdcStorageProfileRecordType
-            - QueryResultAdminOrgVdcStorageProfileRecordType
-            - QueryResultProviderVdcStorageProfileRecordType
-            - QueryResultApiFilterRecordType
-            - QueryResultAdminApiDefinitionRecordType
-            - QueryResultApiDefinitionRecordType
-            - QueryResultAdminFileDescriptorRecordType
-            - QueryResultFileDescriptorRecordType
-            - QueryResultResourceClassActionRecordType
-            - QueryResultAclRuleRecordType
-            - QueryResultResourceClassRecordType
-            - QueryResultServiceResourceRecordType
-            - QueryResultEdgeGatewayRecordType
-            - QueryResultOrgVdcNetworkRecordType
-            - QueryResultVAppOrgVdcNetworkRelationRecordType
-            - QueryResultExternalLocalizationRecordType
-            - QueryResultResourcePoolVMRecordType
-            - QueryResultVmGroupVmsRecordType
-            - QueryResultVmGroupsRecordType
-            - QueryResultAdminRoleRecordType
-            - QueryResultNsxTManagerRecordType
-            - QueryResultAdminOrgVdcTemplateRecordType
-            - QueryResultOrgVdcTemplateRecordType
-            - QueryResultGatewayUplinksRecordType
-            - QueryResultSiteRecordType
-            - QueryResultSiteAssociationRecordType
-            - QueryResultOrgAssociationRecordType
+      required:
+        - _type
       additionalProperties: false
     vcloud_QueryResultOrgRecordType:
       title: vcloud_QueryResultOrgRecordType
@@ -28045,6 +28526,10 @@ components:
     vcloud_ResourceEntityType:
       title: vcloud_ResourceEntityType
       description: Base type that represents a resource entity such as a vApp template or virtual media.
+      discriminator:
+        propertyName: _type
+        mapping:
+          ResourceEntityType: vcloud_ResourceEntityType
       allOf:
         - $ref: '#/components/schemas/vcloud_EntityType'
         - type: object
@@ -28057,6 +28542,10 @@ components:
               description: Represents a list of files to be transferred (uploaded or downloaded). Each File in the list is part of the ResourceEntity.
               allOf:
                 - $ref: '#/components/schemas/vcloud_FilesListType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_FilesListType:
       title: vcloud_FilesListType
@@ -28356,6 +28845,12 @@ components:
     vcloud_AbstractVAppType:
       title: vcloud_AbstractVAppType
       description: Represents a base type for VAppType and VmType.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VmType: vcloud_VmType
+          VmCheckPGCType: vcloud_VmCheckPGCType
+          VAppType: vcloud_VAppType
       allOf:
         - $ref: '#/components/schemas/vcloud_ResourceEntityType'
         - type: object
@@ -28371,6 +28866,10 @@ components:
               description: Creation date/time of the vApp.
               type: string
               format: date-time
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_VmType:
       title: vcloud_VmType
@@ -28559,6 +29058,17 @@ components:
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
+          properties:
+            vApp:
+              description: Reserved. Unimplemented.
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_VAppType'
+            vm:
+              description: Rerpresents a virtual machine.
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_VmType'
           additionalProperties: false
     vcloud_RasdItemsListType:
       title: vcloud_RasdItemsListType
@@ -28566,13 +29076,35 @@ components:
       allOf:
         - $ref: '#/components/schemas/vcloud_ResourceType'
         - type: object
+          properties:
+            item:
+              description: An individual RASD item.
+              type: array
+              items:
+                $ref: '#/components/schemas/ovf_RASD_Type'
           additionalProperties: false
     vcloud_InstantiationParamsType:
       title: vcloud_InstantiationParamsType
       description: Container for ovf:Section\_Type elements that specify vApp configuration on instantiate, compose, or recompose.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_VAppNetworkConfigurationType:
       title: vcloud_VAppNetworkConfigurationType
@@ -28894,6 +29426,16 @@ components:
     vcloud_ComputeResourceType:
       title: vcloud_ComputeResourceType
       description: Stores the configured value, reservation, shares and limit for compute resources such CPU and Memory for a virtualized workload.
+      discriminator:
+        propertyName: _type
+        mapping:
+          BootOptionsType: vcloud_BootOptionsType
+          ComputePolicyType: vcloud_ComputePolicyType
+          ComputePolicyComplianceType: vcloud_ComputePolicyComplianceType
+          VmCapabilitiesType: vcloud_VmCapabilitiesType
+          RasdItemsListType: vcloud_RasdItemsListType
+          VAppNetworkConfigurationType: vcloud_VAppNetworkConfigurationType
+          VmPendingQuestionType: vcloud_VmPendingQuestionType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -28918,8 +29460,11 @@ components:
               description: Custom priority for the resource. This is a read-only, unless the share level is CUSTOM.
               type: integer
               format: int32
+            _type:
+              type: string
           required:
             - configured
+            - _type
           additionalProperties: false
     vcloud_HardwareVersionBaseType:
       title: vcloud_HardwareVersionBaseType
@@ -29178,6 +29723,20 @@ components:
     vcloud_VAppCreationParamsType:
       title: vcloud_VAppCreationParamsType
       description: Represents vApp creation parameters.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          ComposeVAppParamsType: vcloud_ComposeVAppParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          InstantiateVAppParamsType: vcloud_InstantiateVAppParamsType
+          InstantiateOvfParamsType: vcloud_InstantiateOvfParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29196,6 +29755,10 @@ components:
               description: Instantiation parameters for the composed vApp.
               allOf:
                 - $ref: '#/components/schemas/vcloud_InstantiationParamsType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_SourcedCompositionItemParamType:
       title: vcloud_SourcedCompositionItemParamType
@@ -29254,6 +29817,17 @@ components:
     vcloud_SourcedVmTemplateParamsType:
       title: vcloud_SourcedVmTemplateParamsType
       description: Represents an existing VM template from a Catalog.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29282,12 +29856,26 @@ components:
               description: Describes the capabilities (hot swap, etc.) the instantiated VM should have.
               allOf:
                 - $ref: '#/components/schemas/vcloud_VmCapabilitiesType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_InstantiateVmTemplateParamsType:
       title: vcloud_InstantiateVmTemplateParamsType
       description: Represents VM template instantiation parameters.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29299,14 +29887,32 @@ components:
               description: Represents virtual machine instantiation parameters.
               allOf:
                 - $ref: '#/components/schemas/vcloud_SourcedVmTemplateParamsType'
+            allEULAsAccepted:
+              description: True confirms acceptance of all EULAs in a vApp template. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.
+              type: boolean
             computePolicy:
               description: A reference to a vdc compute policy. This contains VM's actual vdc compute policy reference and also optionally an add-on policy which always defines VM's sizing.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ComputePolicyType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_VmGeneralParamsType:
       title: vcloud_VmGeneralParamsType
       description: A set of overrides to source VM properties to apply to target VM during copying.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29323,10 +29929,26 @@ components:
             regenerateBiosUuid:
               description: True if BIOS UUID of the virtual machine should be regenerated so that it is unique, and not the same as the source virtual machine's BIOS UUID.
               type: boolean
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_ComposeVAppParamsType:
       title: vcloud_ComposeVAppParamsType
       description: Represents vApp composition parameters.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RecomposeVAppParamsType: vcloud_RecomposeVAppParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VAppCreationParamsType'
         - type: object
@@ -29344,10 +29966,28 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_VmType'
+            allEULAsAccepted:
+              description: True confirms acceptance of all EULAs in a vApp template. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.
+              type: boolean
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_CreateVmParamsType:
       title: vcloud_CreateVmParamsType
       description: Represents VM creation parameters.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29363,10 +30003,25 @@ components:
               description: Reference to the media object to insert in the new VM.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_RecomposeVAppParamsType:
       title: vcloud_RecomposeVAppParamsType
       description: Parameters for a recompose vApp request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ComposeVAppParamsType'
         - type: object
@@ -29381,10 +30036,25 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_VmType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_RegisterVAppParamsType:
       title: vcloud_RegisterVAppParamsType
       description: Represents vApp registration parameters.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29408,6 +30078,10 @@ components:
               description: VM's with NICs that are connected directly to a VDC network and where the NICs have manually assigned IP addresses needs to be mapped to a valid IP address within the IP range of the destination site's VDC network. This element provides that mapping.
               allOf:
                 - $ref: '#/components/schemas/vcloud_NicIpMapType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_VsToVmxMapType:
       title: vcloud_VsToVmxMapType
@@ -29432,6 +30106,17 @@ components:
     vcloud_LocalityParamsType:
       title: vcloud_LocalityParamsType
       description: Locality parameters provide a hint that may help optimize placement of a VM with respect to another VM or an independent disk. See [KB 2105352](http://kb.vmware.com/kb/2105352).
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29441,11 +30126,26 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_SourcedVmInstantiationParamsType:
       deprecated: true
       title: vcloud_SourcedVmInstantiationParamsType
       description: Represents instantiation parameters. Deprecated in favor of SourcedCompositionItemParamType
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29466,12 +30166,28 @@ components:
               description: Specification of common hardware parameters that should be applied to the VM upon instantiation. This only applies when instantiating a vApp template and is otherwise ignored.
               allOf:
                 - $ref: '#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_InstantiateVAppParamsType:
       title: vcloud_InstantiateVAppParamsType
       description: Represents vApp instantiation parameters.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          InstantiateVAppTemplateParamsType: vcloud_InstantiateVAppTemplateParamsType
+          CloneVAppParamsType: vcloud_CloneVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VAppCreationParamsType'
         - type: object
@@ -29491,28 +30207,83 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_SourcedCompositionItemParamType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_InstantiateVAppTemplateParamsType:
       title: vcloud_InstantiateVAppTemplateParamsType
       description: Represents vApp template instantiation parameters.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_InstantiateVAppParamsType'
         - type: object
+          properties:
+            allEULAsAccepted:
+              description: True confirms acceptance of all EULAs in a vApp template. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.
+              type: boolean
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_InstantiateOvfParamsType:
       title: vcloud_InstantiateOvfParamsType
       description: Represents vApp instantiation from OVF parameters
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VAppCreationParamsType'
         - type: object
           properties:
             transferFormat:
               type: string
+            allEULAsAccepted:
+              description: True confirms acceptance of all EULAs in an OVF. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.
+              type: boolean
             removeNonStandardOvfExtensions:
               description: If true, remove elements in the uploaded descriptor if they are not defined in the OVF XML namespace (http://schemas.dmtf.org/ovf/envelope/1). Default is false.
               type: boolean
+            networkMapping:
+              description: A mapping from an OVF network name to a vCloud network name. Used to update network properties in the OVF.
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_NetworkMappingType'
+            instantiateOvfProperty:
+              description: A mapping from OVF properties to instantiation values.
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_InstantiateOvfPropertyType'
+            instantiateVmParams:
+              description: Instantiation parameters for the VMs in the vApp.
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_InstantiateVmParamsType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_NetworkMappingType:
       title: vcloud_NetworkMappingType
@@ -29547,6 +30318,17 @@ components:
     vcloud_InstantiateVmParamsType:
       title: vcloud_InstantiateVmParamsType
       description: Instantiation parameters for a VM in a vApp.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29569,12 +30351,26 @@ components:
               description: Specification of common virtual machine hardware parameters. This is a simple way to customize hardware settings without modifying the source OVF descriptor before uploading it.
               allOf:
                 - $ref: '#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType'
+            _type:
+              type: string
           required:
             - id
+            - _type
           additionalProperties: false
     vcloud_InstantiateVmHardwareCustomizationParamsType:
       title: vcloud_InstantiateVmHardwareCustomizationParamsType
       description: Hardware parameter customization applied to a virtual machine in a vApp when instantiated.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29591,17 +30387,48 @@ components:
               description: The amount of virtual machine memory in megabytes. Must be a multiple of four. Minimum size is four megabytes.
               type: integer
               format: int64
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_CloneVAppParamsType:
       title: vcloud_CloneVAppParamsType
       description: Parameters for a clonevApp request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_InstantiateVAppParamsType'
         - type: object
+          properties:
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_MoveVAppParamsType:
       title: vcloud_MoveVAppParamsType
       description: Parameters for a MoveVApp request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29615,12 +30442,26 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_SourcedCompositionItemParamType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_DeployVAppParamsType:
       title: vcloud_DeployVAppParamsType
       description: Parameters to a deploy vApp request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29635,10 +30476,25 @@ components:
             forceCustomization:
               description: Used to specify whether to force customization on deployment, if not set default value is false.
               type: boolean
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_UndeployVAppParamsType:
       title: vcloud_UndeployVAppParamsType
       description: Parameters to an undeploy vApp request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29646,10 +30502,25 @@ components:
             undeployPowerAction:
               description: "The specified action is applied to all virtual machines in the vApp. All values other than **default** ignore actions, order, and delay specified in the StartupSection. One of:  \n**powerOff** (Power off the virtual machines. This is the default action if this attribute is missing or empty)  \n**suspend** (Suspend the virtual machines)  \n**shutdown** (Shut down the virtual machines)  \n**force** (Attempt to power off the virtual machines. Failures in undeploying the virtual machine or associated networks are ignored. All references to the vApp and its virtual machines are removed from the database)  \n**default** (Use the actions, order, and delay specified in the StartupSection)."
               type: string
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_MediaInsertOrEjectParamsType:
       title: vcloud_MediaInsertOrEjectParamsType
       description: Parameters for an insertMedia or ejectMedia request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_VCloudExtensibleType'
         - type: object
@@ -29658,12 +30529,26 @@ components:
               description: Reference to the media object to insert or eject. In API requests that specify version 29.0 or higher, this element is optional when ejecting the media.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
           required:
             - media
+            - _type
           additionalProperties: false
     vcloud_CaptureVAppParamsType:
       title: vcloud_CaptureVAppParamsType
       description: Parameters for a captureVapp request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29681,12 +30566,26 @@ components:
               description: To overwrite an existing vApp template with the one created by this capture, place a reference to the existing template here. Otherwise, the operation creates a new vApp template.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_CaptureVmParamsType:
       title: vcloud_CaptureVmParamsType
       description: Parameters for a VM which is being captured.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29700,8 +30599,11 @@ components:
               description: A reference to a vdc compute policy for template VM. During instantiation this vdc compute policy should be present in destination vDC.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_VmPendingQuestionType:
       title: vcloud_VmPendingQuestionType
@@ -29760,18 +30662,43 @@ components:
     vcloud_RelocateParamsType:
       title: vcloud_RelocateParamsType
       description: Parameters to be used for virtual machine relocation.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       type: object
       properties:
         datastore:
           description: Reference to destination datastore.
           allOf:
             - $ref: '#/components/schemas/vcloud_ReferenceType'
+        _type:
+          type: string
       required:
         - datastore
+        - _type
       additionalProperties: false
     vcloud_CreateSnapshotParamsType:
       title: vcloud_CreateSnapshotParamsType
       description: Parameters for a createSnapshot request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VAppCreationParamsType: vcloud_VAppCreationParamsType
+          InstantiateVmTemplateParamsType: vcloud_InstantiateVmTemplateParamsType
+          CreateVmParamsType: vcloud_CreateVmParamsType
+          RegisterVAppParamsType: vcloud_RegisterVAppParamsType
+          MoveVAppParamsType: vcloud_MoveVAppParamsType
+          CaptureVAppParamsType: vcloud_CaptureVAppParamsType
+          CaptureVmParamsType: vcloud_CaptureVmParamsType
+          CreateSnapshotParamsType: vcloud_CreateSnapshotParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29782,6 +30709,10 @@ components:
             quiesce:
               description: True if the file system of the virtual machine should be quiesced before the snapshot is created.
               type: boolean
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_ComplianceResultType:
       title: vcloud_ComplianceResultType
@@ -29871,6 +30802,11 @@ components:
     vcloud_UploadVAppTemplateParamsType:
       title: vcloud_UploadVAppTemplateParamsType
       description: Parameters for an uploadVappTemplate request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          UploadVAppTemplateParamsType: vcloud_UploadVAppTemplateParamsType
+          CloneVAppTemplateParamsType: vcloud_CloneVAppTemplateParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29889,10 +30825,19 @@ components:
               description: A reference to the storage profile to be specified in the DefaultStorageProfile element of the vApp template created by this operation.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
+          required:
+            - _type
           additionalProperties: false
     vcloud_CloneVAppTemplateParamsType:
       title: vcloud_CloneVAppTemplateParamsType
       description: Parameters for a cloneVappTemplate request.
+      discriminator:
+        propertyName: _type
+        mapping:
+          UploadVAppTemplateParamsType: vcloud_UploadVAppTemplateParamsType
+          CloneVAppTemplateParamsType: vcloud_CloneVAppTemplateParamsType
       allOf:
         - $ref: '#/components/schemas/vcloud_ParamsType'
         - type: object
@@ -29908,8 +30853,11 @@ components:
               description: A reference to the storage profile to be specified in the vApp template created by this operation.
               allOf:
                 - $ref: '#/components/schemas/vcloud_ReferenceType'
+            _type:
+              type: string
           required:
             - source
+            - _type
           additionalProperties: false
     vcloud_CustomizationSectionType:
       title: vcloud_CustomizationSectionType
@@ -30559,6 +31507,10 @@ components:
     vcloud_AffinityRuleType:
       title: vcloud_AffinityRuleType
       description: Represents the base type for affinity and anti-affinity rules.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VmAffinityRuleType: vcloud_VmAffinityRuleType
       allOf:
         - $ref: '#/components/schemas/vcloud_IdentifiableResourceType'
         - type: object
@@ -30578,15 +31530,22 @@ components:
               enum:
                 - Affinity
                 - Anti-Affinity
+            _type:
+              type: string
           required:
             - name
             - isEnabled
             - isMandatory
             - polarity
+            - _type
           additionalProperties: false
     vcloud_VmAffinityRuleType:
       title: vcloud_VmAffinityRuleType
       description: A VM affinity rule to be applied to two or more VMs. A VM-VM affinity rule specifies whether selected individual virtual machines should run on the same host or be kept on separate hosts. An affinity rule tries to keep the specified virtual machines together on the same host while an anti-affinity rule tries to keep the specified virtual machines apart.
+      discriminator:
+        propertyName: _type
+        mapping:
+          VmAffinityRuleType: vcloud_VmAffinityRuleType
       allOf:
         - $ref: '#/components/schemas/vcloud_AffinityRuleType'
         - type: object
@@ -30600,9 +31559,12 @@ components:
               description: A list of VMs under a specific VM affinity rule.
               allOf:
                 - $ref: '#/components/schemas/vcloud_VmsType'
+            _type:
+              type: string
           required:
             - scope
             - vmReferences
+            - _type
           additionalProperties: false
     vcloud_VmAffinityRulesType:
       title: vcloud_VmAffinityRulesType
@@ -30773,7 +31735,16 @@ components:
       additionalProperties: false
     vcloud_NICBaseType:
       title: vcloud_NICBaseType
+      discriminator:
+        propertyName: _type
+        mapping:
+          NICType: vcloud_NICType
       type: object
+      properties:
+        _type:
+          type: string
+      required:
+        - _type
       additionalProperties: false
     vcloud_NICType:
       title: vcloud_NICType
@@ -30992,210 +31963,14 @@ components:
           properties:
             value:
               type: string
-    MetadataTypedValue:
-      discriminator:
-        propertyName: _type
-        mapping:
-          MetadataStringValue: '#/components/schemas/vcloud_MetadataStringValue'
-          MetadataNumberValue: '#/components/schemas/vcloud_MetadataNumberValue'
-          MetadataBooleanValue: '#/components/schemas/vcloud_MetadataBooleanValue'
-          MetadataDateTimeValue: '#/components/schemas/vcloud_MetadataDateTimeValue'
-      oneOf:
-        - $ref: '#/components/schemas/vcloud_MetadataStringValue'
-        - $ref: '#/components/schemas/vcloud_MetadataNumberValue'
-        - $ref: '#/components/schemas/vcloud_MetadataBooleanValue'
-        - $ref: '#/components/schemas/vcloud_MetadataDateTimeValue'
-    QueryResultRecordType:
-      discriminator:
-        propertyName: _type
-        mapping:
-          QueryResultLicensingReportRecordType: '#/components/schemas/vcloud_QueryResultLicensingReportRecordType'
-          QueryResultLicensingReportSampleRecordType: '#/components/schemas/vcloud_QueryResultLicensingReportSampleRecordType'
-          QueryResultLicensingManagedServerRecordType: '#/components/schemas/vcloud_QueryResultLicensingManagedServerRecordType'
-          QueryResultLicensingVirtualMachineRecordType: '#/components/schemas/vcloud_QueryResultLicensingVirtualMachineRecordType'
-          QueryResultAdminEventCBMRecordType: '#/components/schemas/vcloud_QueryResultAdminEventCBMRecordType'
-          QueryResultToCloudTunnelRecordType: '#/components/schemas/vcloud_QueryResultToCloudTunnelRecordType'
-          QueryResultFromCloudTunnelRecordType: '#/components/schemas/vcloud_QueryResultFromCloudTunnelRecordType'
-          QueryResultSiteOrgAssociationRecordType: '#/components/schemas/vcloud_QueryResultSiteOrgAssociationRecordType'
-          QueryResultOrgRecordType: '#/components/schemas/vcloud_QueryResultOrgRecordType'
-          QueryResultOrgVdcRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcRecordType'
-          QueryResultMediaRecordType: '#/components/schemas/vcloud_QueryResultMediaRecordType'
-          QueryResultVAppTemplateRecordType: '#/components/schemas/vcloud_QueryResultVAppTemplateRecordType'
-          QueryResultVAppRecordType: '#/components/schemas/vcloud_QueryResultVAppRecordType'
-          QueryResultVMRecordType: '#/components/schemas/vcloud_QueryResultVMRecordType'
-          QueryResultOrgNetworkRecordType: '#/components/schemas/vcloud_QueryResultOrgNetworkRecordType'
-          QueryResultAdminOrgNetworkRecordType: '#/components/schemas/vcloud_QueryResultAdminOrgNetworkRecordType'
-          QueryResultVAppNetworkRecordType: '#/components/schemas/vcloud_QueryResultVAppNetworkRecordType'
-          QueryResultCatalogRecordType: '#/components/schemas/vcloud_QueryResultCatalogRecordType'
-          QueryResultAdminVdcRecordType: '#/components/schemas/vcloud_QueryResultAdminVdcRecordType'
-          QueryResultVMWProviderVdcRecordType: '#/components/schemas/vcloud_QueryResultVMWProviderVdcRecordType'
-          QueryResultNetworkRecordType: '#/components/schemas/vcloud_QueryResultNetworkRecordType'
-          QueryResultGroupRecordType: '#/components/schemas/vcloud_QueryResultGroupRecordType'
-          QueryResultUserRecordType: '#/components/schemas/vcloud_QueryResultUserRecordType'
-          QueryResultStrandedUserRecordType: '#/components/schemas/vcloud_QueryResultStrandedUserRecordType'
-          QueryResultRoleRecordType: '#/components/schemas/vcloud_QueryResultRoleRecordType'
-          QueryResultAllocatedExternalAddressRecordType: '#/components/schemas/vcloud_QueryResultAllocatedExternalAddressRecordType'
-          QueryResultEventRecordType: '#/components/schemas/vcloud_QueryResultEventRecordType'
-          QueryResultResourcePoolRecordType: '#/components/schemas/vcloud_QueryResultResourcePoolRecordType'
-          QueryResultDatastoreRecordType: '#/components/schemas/vcloud_QueryResultDatastoreRecordType'
-          QueryResultNetworkPoolRecordType: '#/components/schemas/vcloud_QueryResultNetworkPoolRecordType'
-          QueryResultPortgroupRecordType: '#/components/schemas/vcloud_QueryResultPortgroupRecordType'
-          QueryResultDvSwitchRecordType: '#/components/schemas/vcloud_QueryResultDvSwitchRecordType'
-          QueryResultCellRecordType: '#/components/schemas/vcloud_QueryResultCellRecordType'
-          QueryResultVirtualCenterRecordType: '#/components/schemas/vcloud_QueryResultVirtualCenterRecordType'
-          QueryResultHostRecordType: '#/components/schemas/vcloud_QueryResultHostRecordType'
-          QueryResultAdminVAppRecordType: '#/components/schemas/vcloud_QueryResultAdminVAppRecordType'
-          QueryResultRightRecordType: '#/components/schemas/vcloud_QueryResultRightRecordType'
-          QueryResultAdminVMRecordType: '#/components/schemas/vcloud_QueryResultAdminVMRecordType'
-          QueryResultAdminAllocatedExternalAddressRecordType: '#/components/schemas/vcloud_QueryResultAdminAllocatedExternalAddressRecordType'
-          QueryResultVAppOrgNetworkRelationRecordType: '#/components/schemas/vcloud_QueryResultVAppOrgNetworkRelationRecordType'
-          QueryResultOrgVdcResourcePoolRelationRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcResourcePoolRelationRecordType'
-          QueryResultProviderVdcResourcePoolRelationRecordType: '#/components/schemas/vcloud_QueryResultProviderVdcResourcePoolRelationRecordType'
-          QueryResultDatastoreProviderVdcRelationRecordType: '#/components/schemas/vcloud_QueryResultDatastoreProviderVdcRelationRecordType'
-          QueryResultAdminUserRecordType: '#/components/schemas/vcloud_QueryResultAdminUserRecordType'
-          QueryResultAdminGroupRecordType: '#/components/schemas/vcloud_QueryResultAdminGroupRecordType'
-          QueryResultAdminVAppNetworkRecordType: '#/components/schemas/vcloud_QueryResultAdminVAppNetworkRecordType'
-          QueryResultAdminCatalogRecordType: '#/components/schemas/vcloud_QueryResultAdminCatalogRecordType'
-          QueryResultAdminCatalogItemRecordType: '#/components/schemas/vcloud_QueryResultAdminCatalogItemRecordType'
-          QueryResultCatalogItemRecordType: '#/components/schemas/vcloud_QueryResultCatalogItemRecordType'
-          QueryResultAdminMediaRecordType: '#/components/schemas/vcloud_QueryResultAdminMediaRecordType'
-          QueryResultAdminVAppTemplateRecordType: '#/components/schemas/vcloud_QueryResultAdminVAppTemplateRecordType'
-          QueryResultAdminShadowVMRecordType: '#/components/schemas/vcloud_QueryResultAdminShadowVMRecordType'
-          QueryResultTaskRecordType: '#/components/schemas/vcloud_QueryResultTaskRecordType'
-          QueryResultAdminTaskRecordType: '#/components/schemas/vcloud_QueryResultAdminTaskRecordType'
-          QueryResultBlockingTaskRecordType: '#/components/schemas/vcloud_QueryResultBlockingTaskRecordType'
-          QueryResultDiskRecordType: '#/components/schemas/vcloud_QueryResultDiskRecordType'
-          QueryResultVmDiskRelationRecordType: '#/components/schemas/vcloud_QueryResultVmDiskRelationRecordType'
-          QueryResultAdminDiskRecordType: '#/components/schemas/vcloud_QueryResultAdminDiskRecordType'
-          QueryResultAdminVmDiskRelationRecordType: '#/components/schemas/vcloud_QueryResultAdminVmDiskRelationRecordType'
-          QueryResultConditionRecordType: '#/components/schemas/vcloud_QueryResultConditionRecordType'
-          QueryResultAdminEventRecordType: '#/components/schemas/vcloud_QueryResultAdminEventRecordType'
-          QueryResultStrandedItemRecordType: '#/components/schemas/vcloud_QueryResultStrandedItemRecordType'
-          QueryResultAdminServiceRecordType: '#/components/schemas/vcloud_QueryResultAdminServiceRecordType'
-          QueryResultServiceRecordType: '#/components/schemas/vcloud_QueryResultServiceRecordType'
-          QueryResultServiceLinkRecordType: '#/components/schemas/vcloud_QueryResultServiceLinkRecordType'
-          QueryResultStorageProfileRecordType: '#/components/schemas/vcloud_QueryResultStorageProfileRecordType'
-          QueryResultOrgVdcStorageProfileRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcStorageProfileRecordType'
-          QueryResultAdminOrgVdcStorageProfileRecordType: '#/components/schemas/vcloud_QueryResultAdminOrgVdcStorageProfileRecordType'
-          QueryResultProviderVdcStorageProfileRecordType: '#/components/schemas/vcloud_QueryResultProviderVdcStorageProfileRecordType'
-          QueryResultApiFilterRecordType: '#/components/schemas/vcloud_QueryResultApiFilterRecordType'
-          QueryResultAdminApiDefinitionRecordType: '#/components/schemas/vcloud_QueryResultAdminApiDefinitionRecordType'
-          QueryResultApiDefinitionRecordType: '#/components/schemas/vcloud_QueryResultApiDefinitionRecordType'
-          QueryResultAdminFileDescriptorRecordType: '#/components/schemas/vcloud_QueryResultAdminFileDescriptorRecordType'
-          QueryResultFileDescriptorRecordType: '#/components/schemas/vcloud_QueryResultFileDescriptorRecordType'
-          QueryResultResourceClassActionRecordType: '#/components/schemas/vcloud_QueryResultResourceClassActionRecordType'
-          QueryResultAclRuleRecordType: '#/components/schemas/vcloud_QueryResultAclRuleRecordType'
-          QueryResultResourceClassRecordType: '#/components/schemas/vcloud_QueryResultResourceClassRecordType'
-          QueryResultServiceResourceRecordType: '#/components/schemas/vcloud_QueryResultServiceResourceRecordType'
-          QueryResultEdgeGatewayRecordType: '#/components/schemas/vcloud_QueryResultEdgeGatewayRecordType'
-          QueryResultOrgVdcNetworkRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcNetworkRecordType'
-          QueryResultVAppOrgVdcNetworkRelationRecordType: '#/components/schemas/vcloud_QueryResultVAppOrgVdcNetworkRelationRecordType'
-          QueryResultExternalLocalizationRecordType: '#/components/schemas/vcloud_QueryResultExternalLocalizationRecordType'
-          QueryResultResourcePoolVMRecordType: '#/components/schemas/vcloud_QueryResultResourcePoolVMRecordType'
-          QueryResultVmGroupVmsRecordType: '#/components/schemas/vcloud_QueryResultVmGroupVmsRecordType'
-          QueryResultVmGroupsRecordType: '#/components/schemas/vcloud_QueryResultVmGroupsRecordType'
-          QueryResultAdminRoleRecordType: '#/components/schemas/vcloud_QueryResultAdminRoleRecordType'
-          QueryResultNsxTManagerRecordType: '#/components/schemas/vcloud_QueryResultNsxTManagerRecordType'
-          QueryResultAdminOrgVdcTemplateRecordType: '#/components/schemas/vcloud_QueryResultAdminOrgVdcTemplateRecordType'
-          QueryResultOrgVdcTemplateRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcTemplateRecordType'
-          QueryResultGatewayUplinksRecordType: '#/components/schemas/vcloud_QueryResultGatewayUplinksRecordType'
-          QueryResultSiteRecordType: '#/components/schemas/vcloud_QueryResultSiteRecordType'
-          QueryResultSiteAssociationRecordType: '#/components/schemas/vcloud_QueryResultSiteAssociationRecordType'
-          QueryResultOrgAssociationRecordType: '#/components/schemas/vcloud_QueryResultOrgAssociationRecordType'
-      oneOf:
-        - $ref: '#/components/schemas/vcloud_QueryResultLicensingReportRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultLicensingReportSampleRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultLicensingManagedServerRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultLicensingVirtualMachineRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminEventCBMRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultToCloudTunnelRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultFromCloudTunnelRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultSiteOrgAssociationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultOrgRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultOrgVdcRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultMediaRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVAppTemplateRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVAppRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVMRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultOrgNetworkRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminOrgNetworkRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVAppNetworkRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultCatalogRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminVdcRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVMWProviderVdcRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultNetworkRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultGroupRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultUserRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultStrandedUserRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultRoleRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAllocatedExternalAddressRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultEventRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultResourcePoolRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultDatastoreRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultNetworkPoolRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultPortgroupRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultDvSwitchRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultCellRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVirtualCenterRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultHostRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminVAppRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultRightRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminVMRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminAllocatedExternalAddressRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVAppOrgNetworkRelationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultOrgVdcResourcePoolRelationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultProviderVdcResourcePoolRelationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultDatastoreProviderVdcRelationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminUserRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminGroupRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminVAppNetworkRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminCatalogRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminCatalogItemRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultCatalogItemRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminMediaRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminVAppTemplateRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminShadowVMRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultTaskRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminTaskRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultBlockingTaskRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultDiskRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVmDiskRelationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminDiskRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminVmDiskRelationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultConditionRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminEventRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultStrandedItemRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminServiceRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultServiceRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultServiceLinkRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultStorageProfileRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultOrgVdcStorageProfileRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminOrgVdcStorageProfileRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultProviderVdcStorageProfileRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultApiFilterRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminApiDefinitionRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultApiDefinitionRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminFileDescriptorRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultFileDescriptorRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultResourceClassActionRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAclRuleRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultResourceClassRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultServiceResourceRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultEdgeGatewayRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultOrgVdcNetworkRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVAppOrgVdcNetworkRelationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultExternalLocalizationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultResourcePoolVMRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVmGroupVmsRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultVmGroupsRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminRoleRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultNsxTManagerRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultAdminOrgVdcTemplateRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultOrgVdcTemplateRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultGatewayUplinksRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultSiteRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultSiteAssociationRecordType'
-        - $ref: '#/components/schemas/vcloud_QueryResultOrgAssociationRecordType'
+    ovf_RASD_Type:
+      type: object
+      properties:
+        info:
+          type: object
+          properties:
+            value:
+              type: string
 tags:
   - name: user
     description: These operations and queries are accessible to all users who have permission to log into an organization. User elements and user types represent the objects that these operations manipulate.
