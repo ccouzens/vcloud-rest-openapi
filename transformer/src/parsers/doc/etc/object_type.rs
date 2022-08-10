@@ -9,7 +9,7 @@ use crate::parsers::doc::etc::field::Field;
 use crate::parsers::doc::etc::group_ref::GroupRef;
 use crate::parsers::doc::etc::r#type::TypeParseError;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
-use openapiv3::{Discriminator, SchemaKind};
+use openapiv3::{Discriminator};
 #[cfg(test)]
 use serde_json::json;
 use std::convert::TryFrom;
@@ -20,7 +20,6 @@ pub(super) struct ObjectType {
     pub(super) name: String,
     pub(super) fields: Vec<Field>,
     pub(super) parents: Vec<openapiv3::ReferenceOr<SimpleType>>,
-    // TODO: descendants to make a discriminator and a type mapping
     pub(super) descendants: Vec<String>,
 }
 
@@ -84,7 +83,7 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
                                                             && name == "extension" =>
                                                         {
                                                             attributes.get("base").filter(|&name| {
-                                                                type_name.ends_with(name)
+                                                                type_name.eq(name)
                                                             })
                                                         }
                                                         _ => None,

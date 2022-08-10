@@ -23954,12 +23954,6 @@
       "vcloud_ProviderVdcType": {
         "title": "vcloud_ProviderVdcType",
         "description": "Represents a Provider vDC.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminVdcType": "vcloud_AdminVdcType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -24023,14 +24017,8 @@
                     "$ref": "#/components/schemas/vcloud_NetworkPoolReferencesType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -24038,13 +24026,6 @@
       "vcloud_CreateVdcParamsType": {
         "title": "vcloud_CreateVdcParamsType",
         "description": "Parameters for creating an organization vDC.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "CreateVdcParamsType": "vcloud_CreateVdcParamsType",
-            "UpdateVdcStorageProfilesType": "vcloud_UpdateVdcStorageProfilesType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -24144,17 +24125,13 @@
               "vmDiscoveryEnabled": {
                 "description": "True if discovery of vCenter VMs is enabled for resource pools backing this vDC. If left unspecified, the actual behaviour depends on enablement at the organization level and at the system level.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "allocationModel",
               "computeCapacity",
               "vdcStorageProfile",
-              "providerVdcReference",
-              "_type"
+              "providerVdcReference"
             ],
             "additionalProperties": false
           }
@@ -24163,12 +24140,6 @@
       "vcloud_AdminVdcType": {
         "title": "vcloud_AdminVdcType",
         "description": "Represents the admin view of an organization vDC.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminVdcType": "vcloud_AdminVdcType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VdcType"
@@ -24238,14 +24209,8 @@
               "vmDiscoveryEnabled": {
                 "description": "True if discovery of vCenter VMs is enabled for resource pools backing this vDC.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -24423,12 +24388,6 @@
       "vcloud_ProviderVdcStorageProfileType": {
         "title": "vcloud_ProviderVdcStorageProfileType",
         "description": "Represents a Provider vDC storage profile.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminVdcStorageProfileType": "vcloud_AdminVdcStorageProfileType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -24463,16 +24422,12 @@
                 "description": "Allocated IOPS in this storage profile.",
                 "type": "integer",
                 "format": "int64"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "units",
               "capacityTotal",
-              "capacityUsed",
-              "_type"
+              "capacityUsed"
             ],
             "additionalProperties": false
           }
@@ -24481,13 +24436,6 @@
       "vcloud_VdcStorageProfileParamsType": {
         "title": "vcloud_VdcStorageProfileParamsType",
         "description": "Represents the parameters to create a storage profile in an organization vDC",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "CreateVdcParamsType": "vcloud_CreateVdcParamsType",
-            "UpdateVdcStorageProfilesType": "vcloud_UpdateVdcStorageProfilesType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -24527,17 +24475,13 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "units",
               "limit",
               "default",
-              "providerVdcStorageProfile",
-              "_type"
+              "providerVdcStorageProfile"
             ],
             "additionalProperties": false
           }
@@ -24546,12 +24490,6 @@
       "vcloud_AdminVdcStorageProfileType": {
         "title": "vcloud_AdminVdcStorageProfileType",
         "description": "Represents a storage profile in an organization vDC.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminVdcStorageProfileType": "vcloud_AdminVdcStorageProfileType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VdcStorageProfileType"
@@ -24566,14 +24504,10 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "providerVdcStorageProfile",
-              "_type"
+              "providerVdcStorageProfile"
             ],
             "additionalProperties": false
           }
@@ -25092,26 +25026,12 @@
       "vcloud_OrganizationReferenceType": {
         "title": "vcloud_OrganizationReferenceType",
         "description": "Represents a reference to an organization.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "OrganizationReferenceType": "vcloud_OrganizationReferenceType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ReferenceType"
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -25218,12 +25138,6 @@
       "vcloud_AdminOrgType": {
         "title": "vcloud_AdminOrgType",
         "description": "Represents the admin view of an organization.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminOrgType": "vcloud_AdminOrgType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_OrgType"
@@ -25318,14 +25232,10 @@
                     "$ref": "#/components/schemas/vcloud_RoleReferencesType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "settings",
-              "_type"
+              "settings"
             ],
             "additionalProperties": false
           }
@@ -25579,14 +25489,6 @@
       "vcloud_AllocationPoolVdcTemplateSpecificationType": {
         "title": "vcloud_AllocationPoolVdcTemplateSpecificationType",
         "description": "Specification for a VDC template using the AllocationPool allocation model.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AllocationPoolVdcTemplateSpecificationType": "vcloud_AllocationPoolVdcTemplateSpecificationType",
-            "AllocationVappVdcTemplateSpecificationType": "vcloud_AllocationVappVdcTemplateSpecificationType",
-            "ReservationPoolVdcTemplateSpecificationType": "vcloud_ReservationPoolVdcTemplateSpecificationType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VdcTemplateSpecificationType"
@@ -25596,14 +25498,6 @@
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -25611,14 +25505,6 @@
       "vcloud_AllocationVappVdcTemplateSpecificationType": {
         "title": "vcloud_AllocationVappVdcTemplateSpecificationType",
         "description": "Specification for a VDC template using the AllocationVApp allocation model.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AllocationPoolVdcTemplateSpecificationType": "vcloud_AllocationPoolVdcTemplateSpecificationType",
-            "AllocationVappVdcTemplateSpecificationType": "vcloud_AllocationVappVdcTemplateSpecificationType",
-            "ReservationPoolVdcTemplateSpecificationType": "vcloud_ReservationPoolVdcTemplateSpecificationType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VdcTemplateSpecificationType"
@@ -25628,14 +25514,6 @@
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -25643,14 +25521,6 @@
       "vcloud_ReservationPoolVdcTemplateSpecificationType": {
         "title": "vcloud_ReservationPoolVdcTemplateSpecificationType",
         "description": "Specification for a VDC template using the ReservationPool allocation model.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AllocationPoolVdcTemplateSpecificationType": "vcloud_AllocationPoolVdcTemplateSpecificationType",
-            "AllocationVappVdcTemplateSpecificationType": "vcloud_AllocationVappVdcTemplateSpecificationType",
-            "ReservationPoolVdcTemplateSpecificationType": "vcloud_ReservationPoolVdcTemplateSpecificationType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VdcTemplateSpecificationType"
@@ -25660,14 +25530,6 @@
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -25788,12 +25650,6 @@
       "vcloud_ExternalNetworkType": {
         "title": "vcloud_ExternalNetworkType",
         "description": "Represents the admin view of an external network.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "ExternalNetworkType": "vcloud_ExternalNetworkType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_NetworkType"
@@ -25812,14 +25668,8 @@
                     "$ref": "#/components/schemas/vcloud_NetworkBackingInfoType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -26557,12 +26407,6 @@
       "vcloud_AdminCatalogType": {
         "title": "vcloud_AdminCatalogType",
         "description": "Represents the admin view of a catalog.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminCatalogType": "vcloud_AdminCatalogType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_CatalogType"
@@ -26593,14 +26437,8 @@
                     "$ref": "#/components/schemas/vcloud_PublishExternalCatalogParamsType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -29181,13 +29019,6 @@
       "vcloud-ext_VimServerType": {
         "title": "vcloud-ext_VimServerType",
         "description": "Represents vCenter server information.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VimServerType": "vcloud-ext_VimServerType",
-            "ShieldManagerType": "vcloud-ext_ShieldManagerType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud-ext_ServerType"
@@ -29231,14 +29062,10 @@
               "vsphereWebClientServerUrl": {
                 "description": "The URL of VSphere web client server.",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "isEnabled",
-              "_type"
+              "isEnabled"
             ],
             "additionalProperties": false
           }
@@ -30399,13 +30226,6 @@
         "deprecated": true,
         "title": "vcloud-ext_LicensingManagedServerType",
         "description": "Captures a single set of metrics for a managed server for a given sample.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VimServerType": "vcloud-ext_VimServerType",
-            "ShieldManagerType": "vcloud-ext_ShieldManagerType"
-          }
-        },
         "type": "object",
         "properties": {
           "cpu": {
@@ -30425,16 +30245,12 @@
                 "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               }
             ]
-          },
-          "_type": {
-            "type": "string"
           }
         },
         "required": [
           "cpu",
           "memoryInstalled",
-          "vimObjectRef",
-          "_type"
+          "vimObjectRef"
         ],
         "additionalProperties": false
       },
@@ -32214,12 +32030,6 @@
       "vcloud_CopyOrMoveCatalogItemParamsType": {
         "title": "vcloud_CopyOrMoveCatalogItemParamsType",
         "description": "Parameters for a copyCatalogItem or moveCatalogItem request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "CopyOrMoveCatalogItemParamsType": "vcloud_CopyOrMoveCatalogItemParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -32234,14 +32044,10 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "source",
-              "_type"
+              "source"
             ],
             "additionalProperties": false
           }
@@ -32250,12 +32056,6 @@
       "vcloud_PublishCatalogParamsType": {
         "title": "vcloud_PublishCatalogParamsType",
         "description": "Parameters required when sharing a catalog with other organizations.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "CopyOrMoveCatalogItemParamsType": "vcloud_CopyOrMoveCatalogItemParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -32266,14 +32066,10 @@
               "isPublished": {
                 "description": "A value of true makes this catalog available to the administrators in all other organizations in the system. A value of false revokes that availability. To share this catalog in your own organization, use controlAccess.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "isPublished",
-              "_type"
+              "isPublished"
             ],
             "additionalProperties": false
           }
@@ -32579,17 +32375,6 @@
       "vcloud_IdentifiableResourceType": {
         "title": "vcloud_IdentifiableResourceType",
         "description": "The base type for all resource types which contain an id attribute.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "IdentifiableResourceType": "vcloud_IdentifiableResourceType",
-            "ContainerType": "vcloud_ContainerType",
-            "OwnerType": "vcloud_OwnerType",
-            "MetadataEntryType": "vcloud_MetadataEntryType",
-            "MetadataType": "vcloud_MetadataType",
-            "MetadataValueType": "vcloud_MetadataValueType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -32604,14 +32389,8 @@
               "operationKey": {
                 "description": "Optional unique identifier to support idempotent semantics for create and delete operations.",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -32688,13 +32467,6 @@
       "vcloud_ResourceReferenceType": {
         "title": "vcloud_ResourceReferenceType",
         "description": "Represents a reference to a resource. Contains an href attribute, a resource status attribute, and optional name and type attributes.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "LinkType": "vcloud_LinkType",
-            "ResourceReferenceType": "vcloud_ResourceReferenceType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ReferenceType"
@@ -32706,14 +32478,8 @@
                 "description": "Status of a resource.",
                 "type": "integer",
                 "format": "int32"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -33650,12 +33416,6 @@
       "vcloud_AdminToCloudTunnelType": {
         "title": "vcloud_AdminToCloudTunnelType",
         "description": "Describes the administrator view of a to-the-cloud tunnel",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminToCloudTunnelType": "vcloud_AdminToCloudTunnelType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ToCloudTunnelType"
@@ -33675,16 +33435,12 @@
               "useSsl": {
                 "description": "Whether SSL protocol is used by the destination server in the cloud",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "destinationIpAddress",
               "destinationPort",
-              "useSsl",
-              "_type"
+              "useSsl"
             ],
             "additionalProperties": false
           }
@@ -33773,12 +33529,6 @@
       "vcloud_AdminFromCloudTunnelType": {
         "title": "vcloud_AdminFromCloudTunnelType",
         "description": "Describes the administrator view of a from-the-cloud tunnel",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminFromCloudTunnelType": "vcloud_AdminFromCloudTunnelType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_FromCloudTunnelType"
@@ -33789,14 +33539,10 @@
               "tunnelEndPoint": {
                 "description": "IP address and port to access the tunnel in the form of [ip-address]:[port].",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "tunnelEndPoint",
-              "_type"
+              "tunnelEndPoint"
             ],
             "additionalProperties": false
           }
@@ -34066,12 +33812,6 @@
       "vcloud_CloneMediaParamsType": {
         "title": "vcloud_CloneMediaParamsType",
         "description": "Parameters required by a cloneMedia request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "CloneMediaParamsType": "vcloud_CloneMediaParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -34098,14 +33838,10 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "source",
-              "_type"
+              "source"
             ],
             "additionalProperties": false
           }
@@ -34146,13 +33882,6 @@
       "vcloud_RelativeTimeType": {
         "title": "vcloud_RelativeTimeType",
         "description": "Specifies an earlier time relative to the current time",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "RelativeTimeType": "vcloud_RelativeTimeType",
-            "AbsoluteTimeType": "vcloud_AbsoluteTimeType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_TimeType"
@@ -34171,15 +33900,11 @@
                     "$ref": "#/components/schemas/vcloud_TimeUnitType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "interval",
-              "unit",
-              "_type"
+              "unit"
             ],
             "additionalProperties": false
           }
@@ -34188,13 +33913,6 @@
       "vcloud_AbsoluteTimeType": {
         "title": "vcloud_AbsoluteTimeType",
         "description": "Specifies an absolute time in UTC",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "RelativeTimeType": "vcloud_RelativeTimeType",
-            "AbsoluteTimeType": "vcloud_AbsoluteTimeType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_TimeType"
@@ -34206,14 +33924,10 @@
                 "description": "absolute UTC time value",
                 "type": "string",
                 "format": "date-time"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "time",
-              "_type"
+              "time"
             ],
             "additionalProperties": false
           }
@@ -34711,14 +34425,6 @@
         "deprecated": true,
         "title": "vcloud_OrgNetworkType",
         "description": "Represents an organization network in the vCloud model.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "OrgNetworkType": "vcloud_OrgNetworkType",
-            "VAppNetworkType": "vcloud_VAppNetworkType",
-            "OrgVdcNetworkType": "vcloud_OrgVdcNetworkType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_NetworkType"
@@ -34741,14 +34447,8 @@
                     "$ref": "#/components/schemas/vcloud_IpAddressesType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -34756,14 +34456,6 @@
       "vcloud_VAppNetworkType": {
         "title": "vcloud_VAppNetworkType",
         "description": "Represents a vApp network.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "OrgNetworkType": "vcloud_OrgNetworkType",
-            "VAppNetworkType": "vcloud_VAppNetworkType",
-            "OrgVdcNetworkType": "vcloud_OrgVdcNetworkType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_NetworkType"
@@ -34774,14 +34466,8 @@
               "deployed": {
                 "description": "True if the network is deployed.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -36804,14 +36490,6 @@
       "vcloud_OrgVdcNetworkType": {
         "title": "vcloud_OrgVdcNetworkType",
         "description": "Represents an Org vDC network in the vCloud model.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "OrgNetworkType": "vcloud_OrgNetworkType",
-            "VAppNetworkType": "vcloud_VAppNetworkType",
-            "OrgVdcNetworkType": "vcloud_OrgVdcNetworkType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_NetworkType"
@@ -36855,15 +36533,11 @@
                     "$ref": "#/components/schemas/vcloud_VimObjectRefType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "providerInfo",
-              "vimPortGroupRef",
-              "_type"
+              "vimPortGroupRef"
             ],
             "additionalProperties": false
           }
@@ -42041,12 +41715,6 @@
       "vcloud_ResourceEntityType": {
         "title": "vcloud_ResourceEntityType",
         "description": "Base type that represents a resource entity such as a vApp template or virtual media.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "ResourceEntityType": "vcloud_ResourceEntityType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -42066,14 +41734,8 @@
                     "$ref": "#/components/schemas/vcloud_FilesListType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -42739,31 +42401,12 @@
       "vcloud_InstantiationParamsType": {
         "title": "vcloud_InstantiationParamsType",
         "description": "Container for ovf:Section\\_Type elements that specify vApp configuration on instantiate, compose, or recompose.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -43197,16 +42840,6 @@
       "vcloud_ComputeResourceType": {
         "title": "vcloud_ComputeResourceType",
         "description": "xxxx",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "BootOptionsType": "vcloud_BootOptionsType",
-            "VmCapabilitiesType": "vcloud_VmCapabilitiesType",
-            "RasdItemsListType": "vcloud_RasdItemsListType",
-            "VAppNetworkConfigurationType": "vcloud_VAppNetworkConfigurationType",
-            "VmPendingQuestionType": "vcloud_VmPendingQuestionType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -43241,14 +42874,10 @@
                 "description": "xxx.",
                 "type": "integer",
                 "format": "int32"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "configured",
-              "_type"
+              "configured"
             ],
             "additionalProperties": false
           }
@@ -43656,15 +43285,9 @@
         "discriminator": {
           "propertyName": "_type",
           "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
             "ComposeVAppParamsType": "vcloud_ComposeVAppParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
             "InstantiateVAppParamsType": "vcloud_InstantiateVAppParamsType",
-            "InstantiateOvfParamsType": "vcloud_InstantiateOvfParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
+            "InstantiateOvfParamsType": "vcloud_InstantiateOvfParamsType"
           }
         },
         "allOf": [
@@ -43793,17 +43416,6 @@
       "vcloud_SourcedVmTemplateParamsType": {
         "title": "vcloud_SourcedVmTemplateParamsType",
         "description": "Represents an existing VM template from a Catalog. Internal use only.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -43858,14 +43470,10 @@
                     "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "source",
-              "_type"
+              "source"
             ],
             "additionalProperties": false
           }
@@ -43874,17 +43482,6 @@
       "vcloud_InstantiateVmTemplateParamsType": {
         "title": "vcloud_InstantiateVmTemplateParamsType",
         "description": "Represents VM template instantiation parameters. Internal use only.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -43907,14 +43504,8 @@
               "allEULAsAccepted": {
                 "description": "True confirms acceptance of all EULAs in a vApp template. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -43922,17 +43513,6 @@
       "vcloud_VmGeneralParamsType": {
         "title": "vcloud_VmGeneralParamsType",
         "description": "A set of overrides to source VM properties to apply to target VM during copying.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -43955,14 +43535,8 @@
               "regenerateBiosUuid": {
                 "description": "True if BIOS UUID of the virtual machine should be regenerated so that it is unique, and not the same as the source virtual machine's BIOS UUID.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -43973,13 +43547,7 @@
         "discriminator": {
           "propertyName": "_type",
           "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RecomposeVAppParamsType": "vcloud_RecomposeVAppParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
+            "RecomposeVAppParamsType": "vcloud_RecomposeVAppParamsType"
           }
         },
         "allOf": [
@@ -44018,17 +43586,6 @@
       "vcloud_CreateVmParamsType": {
         "title": "vcloud_CreateVmParamsType",
         "description": "Represents VM creation parameters.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -44055,14 +43612,8 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44070,17 +43621,6 @@
       "vcloud_RecomposeVAppParamsType": {
         "title": "vcloud_RecomposeVAppParamsType",
         "description": "Parameters for a recompose vApp request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ComposeVAppParamsType"
@@ -44108,14 +43648,8 @@
                 "items": {
                   "$ref": "#/components/schemas/vcloud_VmType"
                 }
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44123,17 +43657,6 @@
       "vcloud_RegisterVAppParamsType": {
         "title": "vcloud_RegisterVAppParamsType",
         "description": "Represents vApp registration parameters.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -44176,14 +43699,8 @@
                     "$ref": "#/components/schemas/vcloud_NicIpMapType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44215,17 +43732,6 @@
       "vcloud_LocalityParamsType": {
         "title": "vcloud_LocalityParamsType",
         "description": "Locality parameters provide a hint that may help optimize placement of a VM with respect to another VM or an independent disk. See [KB 2105352](http://kb.vmware.com/kb/2105352).",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -44239,14 +43745,8 @@
                 "items": {
                   "$ref": "#/components/schemas/vcloud_ReferenceType"
                 }
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44255,17 +43755,6 @@
         "deprecated": true,
         "title": "vcloud_SourcedVmInstantiationParamsType",
         "description": "Represents instantiation parameters. Deprecated in favor of SourcedCompositionItemParamType",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -44304,14 +43793,10 @@
                     "$ref": "#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "source",
-              "_type"
+              "source"
             ],
             "additionalProperties": false
           }
@@ -44323,14 +43808,8 @@
         "discriminator": {
           "propertyName": "_type",
           "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
             "InstantiateVAppTemplateParamsType": "vcloud_InstantiateVAppTemplateParamsType",
-            "CloneVAppParamsType": "vcloud_CloneVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
+            "CloneVAppParamsType": "vcloud_CloneVAppParamsType"
           }
         },
         "allOf": [
@@ -44386,17 +43865,6 @@
       "vcloud_InstantiateVAppTemplateParamsType": {
         "title": "vcloud_InstantiateVAppTemplateParamsType",
         "description": "Represents vApp template instantiation parameters.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_InstantiateVAppParamsType"
@@ -44407,14 +43875,8 @@
               "allEULAsAccepted": {
                 "description": "True confirms acceptance of all EULAs in a vApp template. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44422,17 +43884,6 @@
       "vcloud_InstantiateOvfParamsType": {
         "title": "vcloud_InstantiateOvfParamsType",
         "description": "Represents vApp instantiation from OVF parameters",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VAppCreationParamsType"
@@ -44471,14 +43922,8 @@
                 "items": {
                   "$ref": "#/components/schemas/vcloud_InstantiateVmParamsType"
                 }
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44526,17 +43971,6 @@
       "vcloud_InstantiateVmParamsType": {
         "title": "vcloud_InstantiateVmParamsType",
         "description": "Instantiation parameters for a VM in a vApp.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -44575,14 +44009,10 @@
                     "$ref": "#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "id",
-              "_type"
+              "id"
             ],
             "additionalProperties": false
           }
@@ -44591,17 +44021,6 @@
       "vcloud_InstantiateVmHardwareCustomizationParamsType": {
         "title": "vcloud_InstantiateVmHardwareCustomizationParamsType",
         "description": "Hardware parameter customization applied to a virtual machine in a vApp when instantiated.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -44623,14 +44042,8 @@
                 "description": "The amount of virtual machine memory in megabytes. Must be a multiple of four. Minimum size is four megabytes.",
                 "type": "integer",
                 "format": "int64"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44638,31 +44051,12 @@
       "vcloud_CloneVAppParamsType": {
         "title": "vcloud_CloneVAppParamsType",
         "description": "Parameters for a clonevApp request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_InstantiateVAppParamsType"
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44670,17 +44064,6 @@
       "vcloud_DeployVAppParamsType": {
         "title": "vcloud_DeployVAppParamsType",
         "description": "Parameters to a deploy vApp request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -44700,14 +44083,8 @@
               "forceCustomization": {
                 "description": "Used to specify whether to force customization on deployment, if not set default value is false.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44715,17 +44092,6 @@
       "vcloud_UndeployVAppParamsType": {
         "title": "vcloud_UndeployVAppParamsType",
         "description": "Parameters to an undeploy vApp request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -44736,14 +44102,8 @@
               "undeployPowerAction": {
                 "description": "The specified action is applied to all virtual machines in the vApp. All values other than **default** ignore actions, order, and delay specified in the StartupSection. One of:  \n**powerOff** (Power off the virtual machines. This is the default action if this attribute is missing or empty)  \n**suspend** (Suspend the virtual machines)  \n**shutdown** (Shut down the virtual machines)  \n**force** (Attempt to power off the virtual machines. Failures in undeploying the virtual machine or associated networks are ignored. All references to the vApp and its virtual machines are removed from the database)  \n**default** (Use the actions, order, and delay specified in the StartupSection).",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -44751,17 +44111,6 @@
       "vcloud_MediaInsertOrEjectParamsType": {
         "title": "vcloud_MediaInsertOrEjectParamsType",
         "description": "Parameters for an insertMedia or ejectMedia request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -44776,14 +44125,10 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "media",
-              "_type"
+              "media"
             ],
             "additionalProperties": false
           }
@@ -44792,17 +44137,6 @@
       "vcloud_CaptureVAppParamsType": {
         "title": "vcloud_CaptureVAppParamsType",
         "description": "Parameters for a captureVapp request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -44834,14 +44168,10 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "source",
-              "_type"
+              "source"
             ],
             "additionalProperties": false
           }
@@ -44927,17 +44257,6 @@
         "deprecated": true,
         "title": "vcloud_RelocateParamsType",
         "description": "Parameters to be used for virtual machine relocation.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "type": "object",
         "properties": {
           "datastore": {
@@ -44947,31 +44266,16 @@
                 "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             ]
-          },
-          "_type": {
-            "type": "string"
           }
         },
         "required": [
-          "datastore",
-          "_type"
+          "datastore"
         ],
         "additionalProperties": false
       },
       "vcloud_CreateSnapshotParamsType": {
         "title": "vcloud_CreateSnapshotParamsType",
         "description": "Parameters for a createSnapshot request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VAppCreationParamsType": "vcloud_VAppCreationParamsType",
-            "InstantiateVmTemplateParamsType": "vcloud_InstantiateVmTemplateParamsType",
-            "CreateVmParamsType": "vcloud_CreateVmParamsType",
-            "RegisterVAppParamsType": "vcloud_RegisterVAppParamsType",
-            "CaptureVAppParamsType": "vcloud_CaptureVAppParamsType",
-            "CreateSnapshotParamsType": "vcloud_CreateSnapshotParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -44986,14 +44290,8 @@
               "quiesce": {
                 "description": "True if the file system of the virtual machine should be quiesced before the snapshot is created.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -45125,13 +44423,6 @@
       "vcloud_UploadVAppTemplateParamsType": {
         "title": "vcloud_UploadVAppTemplateParamsType",
         "description": "Parameters for an uploadVappTemplate request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "UploadVAppTemplateParamsType": "vcloud_UploadVAppTemplateParamsType",
-            "CloneVAppTemplateParamsType": "vcloud_CloneVAppTemplateParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -45159,14 +44450,8 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -45174,13 +44459,6 @@
       "vcloud_CloneVAppTemplateParamsType": {
         "title": "vcloud_CloneVAppTemplateParamsType",
         "description": "Parameters for a cloneVappTemplate request.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "UploadVAppTemplateParamsType": "vcloud_UploadVAppTemplateParamsType",
-            "CloneVAppTemplateParamsType": "vcloud_CloneVAppTemplateParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -45207,14 +44485,10 @@
                     "$ref": "#/components/schemas/vcloud_ReferenceType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "source",
-              "_type"
+              "source"
             ],
             "additionalProperties": false
           }
@@ -45925,12 +45199,6 @@
       "vcloud_VmAffinityRuleType": {
         "title": "vcloud_VmAffinityRuleType",
         "description": "A VM affinity rule to be applied to two or more VMs. A VM-VM affinity rule specifies whether selected individual virtual machines should run on the same host or be kept on separate hosts. An affinity rule tries to keep the specified virtual machines together on the same host while an anti-affinity rule tries to keep the specified virtual machines apart.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VmAffinityRuleType": "vcloud_VmAffinityRuleType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_AffinityRuleType"
@@ -45952,15 +45220,11 @@
                     "$ref": "#/components/schemas/vcloud_VmsType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "scope",
-              "vmReferences",
-              "_type"
+              "vmReferences"
             ],
             "additionalProperties": false
           }
