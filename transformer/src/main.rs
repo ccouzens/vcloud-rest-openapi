@@ -40,8 +40,6 @@ fn main() -> Result<()> {
     let content_type_mapping =
         schemas::schemas(&mut schemas, &mut zip).context("Unable to make content type mappings")?;
     stub_ovf(&mut schemas);
-    //metadata_superclass(&mut schemas);
-    //query_superclass(&mut schemas);
 
     let content_element_mapping: BTreeMap<String, String> = types::types(&mut zip)
         .context("unable to collect types")?

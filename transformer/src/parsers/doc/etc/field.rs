@@ -7,6 +7,7 @@ use crate::parsers::doc::etc::XML_SCHEMA_NS;
 use serde_json::json;
 use std::convert::TryFrom;
 use thiserror::Error;
+use xmltree::XMLNode;
 
 #[derive(Debug, PartialEq, Clone, Copy)]
 pub(super) enum Occurrences {
@@ -49,106 +50,78 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
                 children,
                 ..
             }) if namespace == XML_SCHEMA_NS && name == "element" => {
-                match attributes.get("ref") {
-                    Some(type_name) => {
-                        let xml = root.as_element().and_then(|e| {
-                            e.children.iter().find(|&child| match child {
-                                xmltree::XMLNode::Element(xmltree::Element {
-                                    attributes, ..
-                                }) => attributes.get("name").map_or(false,|name| name == type_name),
-                                _ => false
+                match attributes
+                    .get("ref")
+                    .and_then(|type_name| {
+                        root.as_element()
+                            .and_then(|e| {
+                                e.children.iter().find(|&child| match child {
+                                    xmltree::XMLNode::Element(xmltree::Element {
+                                        attributes,
+                                        ..
+                                    }) => attributes
+                                        .get("name")
+                                        .map_or(false, |name| name == type_name),
+                                    _ => false,
+                                })
                             })
-                        });
-                        let name: String = xml
                             .and_then(|xml| match xml {
                                 xmltree::XMLNode::Element(xmltree::Element {
                                     attributes, ..
-                                }) => attributes.get("name"),
+                                }) => attributes.get("name").map(|name| (name, xml)),
                                 _ => None,
                             })
-                            .ok_or(FieldParseError::MissingName)?
-                            .chars()
-                            .enumerate()
-                            .map(|(i, c)| if i == 0 { c.to_ascii_lowercase() } else { c })
-                            .collect();
-                        let r#type = xml
-                            .and_then(|child| match child {
+                            .and_then(|(name, xml)| match xml {
                                 xmltree::XMLNode::Element(xmltree::Element {
                                     attributes, ..
-                                }) => SimpleType::try_from((child, schema_namespace))
+                                }) => SimpleType::try_from((xml, schema_namespace))
                                     .map(|s| openapiv3::ReferenceOr::Item(s))
-                                    .or(attributes
-                                        .get("type")
-                                        .ok_or(FieldParseError::MissingType)
-                                        .map(|type_name| {
-                                            str_to_simple_type_or_reference(
-                                                schema_namespace,
-                                                type_name,
-                                            )
-                                        })).ok(),
+                                    .ok()
+                                    .or(attributes.get("type").map(|type_name| {
+                                        str_to_simple_type_or_reference(schema_namespace, type_name)
+                                    }))
+                                    .map(|r#type| (name, r#type)),
                                 _ => None,
-                            }).unwrap();
-                        let occurrences = match (
-                            attributes.get("minOccurs").map_or("1", String::as_str),
-                            attributes.get("maxOccurs").map_or("1", String::as_str),
-                        ) {
-                            (_, "unbounded") => Occurrences::Array,
-                            ("0", _) => Occurrences::Optional,
-                            _ => Occurrences::One,
-                        };
-                        let annotation = children.iter().flat_map(Annotation::try_from).next();
-                        if annotation.as_ref().map(|a| a.removed) == Some(true) {
-                            return Err(FieldParseError::Removed);
-                        }
-                        Ok(Field {
-                            annotation,
-                            name,
-                            r#type,
-                            occurrences,
-                        })
-                    }
-                    _ => {
-                        // Name comes from the attribute name.
-                        // In the XML the fields start with a uppercase letter.
-                        // But in the JSON, the first letter is lowercase.
-                        let name = attributes
-                            .get("name")
-                            .ok_or(FieldParseError::MissingName)?
-                            .chars()
-                            .enumerate()
-                            .map(|(i, c)| if i == 0 { c.to_ascii_lowercase() } else { c })
-                            .collect();
-                        let r#type = match children
+                            })
+                    })
+                    .or(children
+                        .iter()
+                        .flat_map(|xml| SimpleType::try_from((xml, schema_namespace)))
+                        .next()
+                        .map(|s| openapiv3::ReferenceOr::Item(s))
+                        .or(attributes.get("type").map(|type_name| {
+                            str_to_simple_type_or_reference(schema_namespace, type_name)
+                        }))
+                        .and_then(|r#type| attributes.get("name").map(|name| (name, r#type))))
+                    .and_then(|(name, ref r#type)| {
+                        children
                             .iter()
-                            .flat_map(|xml| SimpleType::try_from((xml, schema_namespace)))
+                            .flat_map(Annotation::try_from)
                             .next()
-                        {
-                            Some(s) => openapiv3::ReferenceOr::Item(s),
-                            None => {
-                                let type_name =
-                                    attributes.get("type").ok_or(FieldParseError::MissingType)?;
-                                str_to_simple_type_or_reference(schema_namespace, type_name)
-                            }
-                        };
-                        let occurrences = match (
-                            attributes.get("minOccurs").map_or("1", String::as_str),
-                            attributes.get("maxOccurs").map_or("1", String::as_str),
-                        ) {
-                            (_, "unbounded") => Occurrences::Array,
-                            ("0", _) => Occurrences::Optional,
-                            _ => Occurrences::One,
-                        };
-                        let annotation = children.iter().flat_map(Annotation::try_from).next();
-                        if annotation.as_ref().map(|a| a.removed) == Some(true) {
-                            return Err(FieldParseError::Removed);
-                        }
-                        Ok(Field {
-                            annotation,
-                            name,
-                            r#type,
-                            occurrences,
-                        })
-                    }
+                            .map_or_else(
+                                || {
+                                    Some(Ok(Field {
+                                        annotation: None,
+                                        name: decapitalize(name),
+                                        r#type: r#type.to_owned(),
+                                        occurrences: get_occurrences(xml),
+                                    }))
+                                },
+                                |annotation| match annotation {
+                                    Annotation { removed: true, .. } => {
+                                        Some(Err(FieldParseError::Removed))
+                                    }
+                                    _ => Some(Ok(Field {
+                                        annotation: Some(annotation),
+                                        name: decapitalize(name),
+                                        r#type: r#type.to_owned(),
+                                        occurrences: get_occurrences(xml),
+                                    })),
+                                },
+                            )
+                    }) {
+                    Some(result) => result,
+                    None => Err(FieldParseError::MissingType),
                 }
             }
             xmltree::XMLNode::Element(xmltree::Element {
@@ -248,6 +221,29 @@ impl From<&Field> for openapiv3::Schema {
                 }
             },
         }
+    }
+}
+
+/// Decapitalizes the first character in s.
+fn decapitalize(s: &str) -> String {
+    let mut c = s.chars();
+    match c.next() {
+        None => String::new(),
+        Some(f) => f.to_lowercase().collect::<String>() + c.as_str(),
+    }
+}
+
+fn get_occurrences(xml: &XMLNode) -> Occurrences {
+    match xml {
+        xmltree::XMLNode::Element(xmltree::Element { attributes, .. }) => match (
+            attributes.get("minOccurs").map_or("1", String::as_str),
+            attributes.get("maxOccurs").map_or("1", String::as_str),
+        ) {
+            (_, "unbounded") => Occurrences::Array,
+            ("0", _) => Occurrences::Optional,
+            _ => Occurrences::One,
+        },
+        _ => Occurrences::One,
     }
 }
 
@@ -520,9 +516,10 @@ fn test_datetime_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
         &xmltree::XMLNode::Element(tree),
-        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
         "test",
     ))
     .unwrap();
@@ -676,9 +673,10 @@ fn test_float_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
         &xmltree::XMLNode::Element(tree),
-        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
         "test",
     ))
     .unwrap();
@@ -769,6 +767,7 @@ fn test_any_type_into_schema() {
     </xs:element>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
         &xmltree::XMLNode::Element(tree),
         &xmltree::XMLNode::Element(root),
