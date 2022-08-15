@@ -25460,28 +25460,12 @@
       },
       "vcloud_VdcTemplateSpecificationType": {
         "title": "vcloud_VdcTemplateSpecificationType",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AllocationPoolVdcTemplateSpecificationType": "vcloud_AllocationPoolVdcTemplateSpecificationType",
-            "AllocationVappVdcTemplateSpecificationType": "vcloud_AllocationVappVdcTemplateSpecificationType",
-            "ReservationPoolVdcTemplateSpecificationType": "vcloud_ReservationPoolVdcTemplateSpecificationType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VdcSpecificationGroup"
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -28632,12 +28616,6 @@
       "vcloud-ext_LookupServiceSettingsType": {
         "title": "vcloud-ext_LookupServiceSettingsType",
         "description": "Information that allows vCloud Director to connect to a vSphere lookup service.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "LookupServiceParamsType": "vcloud-ext_LookupServiceParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -28648,14 +28626,8 @@
               "lookupServiceUrl": {
                 "description": "The URL of the vSphere Lookup Service. If empty or missing on PUT, any registered lookup service is unregistered.",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -28828,12 +28800,6 @@
       "vcloud-ext_BlockingTaskOperationParamsType": {
         "title": "vcloud-ext_BlockingTaskOperationParamsType",
         "description": "Parameters to POST with a blocking task action.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "BlockingTaskUpdateProgressParamsType": "vcloud-ext_BlockingTaskUpdateProgressParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -28844,14 +28810,10 @@
               "message": {
                 "description": "Message that will be associated with the action.",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "message",
-              "_type"
+              "message"
             ],
             "additionalProperties": false
           }
@@ -28948,13 +28910,6 @@
       "vcloud-ext_ServerType": {
         "title": "vcloud-ext_ServerType",
         "description": "Information needed to connect to a vSphere or a vShield manager server.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VimServerType": "vcloud-ext_VimServerType",
-            "ShieldManagerType": "vcloud-ext_ShieldManagerType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -28974,15 +28929,11 @@
                 "description": "URL of the server.",
                 "type": "string",
                 "format": "uri"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "username",
-              "url",
-              "_type"
+              "url"
             ],
             "additionalProperties": false
           }
@@ -29567,14 +29518,6 @@
       "vcloud-ext_VimObjectRefType": {
         "title": "vcloud-ext_VimObjectRefType",
         "description": "Represents the moref and the type of a vSphere object.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VmObjectRefType": "vcloud-ext_VmObjectRefType",
-            "DiskDatastoreType": "vcloud-ext_DiskDatastoreType",
-            "HostObjectRefType": "vcloud-ext_HostObjectRefType"
-          }
-        },
         "type": "object",
         "properties": {
           "vimServerRef": {
@@ -29592,16 +29535,12 @@
           "vimObjectType": {
             "description": "The vSphere type of the object. One of: CLUSTER\\_COMPUTE\\_RESOURCE (The object is a vSphere cluster compute resource.), RESOURCE\\_POOL (The object is a vSphere resource pool.), DATASTORE (The object is a vSphere datastore.), HOST (The object is an ESX/ESXi host.), VIRTUAL\\_MACHINE (The object is a vSphere VM.), VIRTUAL\\_APP (The object is a vSphere vApp.), NETWORK (The object is a vSphere network.), DV\\_PORTGROUP (The object is a vSphere distributed virtual portgroup.), DV\\_SWITCH (The object is a vSphere distributed virtual switch.), DATASTORE\\_CLUSTER (The object is a vSphere storage pod.)",
             "type": "string"
-          },
-          "_type": {
-            "type": "string"
           }
         },
         "required": [
           "vimServerRef",
           "moRef",
-          "vimObjectType",
-          "_type"
+          "vimObjectType"
         ],
         "additionalProperties": false
       },
@@ -29874,29 +29813,12 @@
       "vcloud-ext_VMWNetworkPoolType": {
         "title": "vcloud-ext_VMWNetworkPoolType",
         "description": "Base extension network pool type.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "PortGroupPoolType": "vcloud-ext_PortGroupPoolType",
-            "VlanPoolType": "vcloud-ext_VlanPoolType",
-            "FencePoolType": "vcloud-ext_FencePoolType",
-            "VxlanPoolType": "vcloud-ext_VxlanPoolType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_NetworkPoolType"
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -31078,14 +31000,6 @@
       },
       "vcloud-ext_VMWVdcTemplateSpecificationType": {
         "title": "vcloud-ext_VMWVdcTemplateSpecificationType",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VMWAllocationPoolVdcTemplateSpecificationType": "vcloud-ext_VMWAllocationPoolVdcTemplateSpecificationType",
-            "VMWAllocationVappVdcTemplateSpecificationType": "vcloud-ext_VMWAllocationVappVdcTemplateSpecificationType",
-            "VMWReservationPoolVdcTemplateSpecificationType": "vcloud-ext_VMWReservationPoolVdcTemplateSpecificationType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VdcSpecificationGroup"
@@ -31100,14 +31014,8 @@
               "fastProvisioningEnabled": {
                 "description": "Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -31562,12 +31470,6 @@
       "vcloud_StatefulEntityType": {
         "title": "vcloud_StatefulEntityType",
         "description": "Extension to the Basic entity type in the vCD object model, to introduce State Awareness.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VdcAwareEntityType": "vcloud_VdcAwareEntityType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud1.5_EntityType"
@@ -31578,14 +31480,8 @@
               "state": {
                 "description": "Status of this entity. The allowed values are: \"Inactive\", \"Activating\", \"Active\", \"Suspending\", \"Suspended\", \"Deleting\", \"Deleted\", \"Error\"\".",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -32180,23 +32076,6 @@
       "vcloud_VCloudExtensibleType": {
         "title": "vcloud_VCloudExtensibleType",
         "description": "A base abstract type for all complex types that support extensions.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "ErrorType": "vcloud_ErrorType",
-            "TenantErrorType": "vcloud_TenantErrorType",
-            "ResourceType": "vcloud_ResourceType",
-            "ParamsType": "vcloud_ParamsType",
-            "ReferenceType": "vcloud_ReferenceType",
-            "CapacityType": "vcloud_CapacityType",
-            "AccessSettingType": "vcloud_AccessSettingType",
-            "ExternalSubjectType": "vcloud_ExternalSubjectType",
-            "AccessSettingsType": "vcloud_AccessSettingsType",
-            "ControlAccessParamsType": "vcloud_ControlAccessParamsType",
-            "FileUploadParamsType": "vcloud_FileUploadParamsType",
-            "FileUploadSocketType": "vcloud_FileUploadSocketType"
-          }
-        },
         "type": "object",
         "properties": {
           "vCloudExtension": {
@@ -32205,14 +32084,8 @@
             "items": {
               "$ref": "#/components/schemas/vcloud_VCloudExtensionType"
             }
-          },
-          "_type": {
-            "type": "string"
           }
         },
-        "required": [
-          "_type"
-        ],
         "additionalProperties": false
       },
       "vcloud_CommonErrorAttributes": {
@@ -32327,17 +32200,6 @@
       "vcloud_ResourceType": {
         "title": "vcloud_ResourceType",
         "description": "The base type for all objects in the vCloud model. Has an optional list of links and href and type attributes.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "IdentifiableResourceType": "vcloud_IdentifiableResourceType",
-            "ContainerType": "vcloud_ContainerType",
-            "OwnerType": "vcloud_OwnerType",
-            "MetadataEntryType": "vcloud_MetadataEntryType",
-            "MetadataType": "vcloud_MetadataType",
-            "MetadataValueType": "vcloud_MetadataValueType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -32360,14 +32222,8 @@
                 "items": {
                   "$ref": "#/components/schemas/vcloud_LinkType"
                 }
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -32421,13 +32277,6 @@
       "vcloud_ReferenceType": {
         "title": "vcloud_ReferenceType",
         "description": "A reference to a resource. Contains an href attribute and optional name and type attributes.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "LinkType": "vcloud_LinkType",
-            "ResourceReferenceType": "vcloud_ResourceReferenceType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -32451,14 +32300,10 @@
               "name": {
                 "description": "Contains the name of the the entity.",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "href",
-              "_type"
+              "href"
             ],
             "additionalProperties": false
           }
@@ -32487,13 +32332,6 @@
       "vcloud_ContainerType": {
         "title": "vcloud_ContainerType",
         "description": "Container for query result sets.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "ReferencesType": "vcloud_ReferencesType",
-            "QueryListType": "vcloud_QueryListType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceType"
@@ -32519,14 +32357,8 @@
                 "description": "Total number of records or references in the container.",
                 "type": "integer",
                 "format": "int64"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -32534,12 +32366,6 @@
       "vcloud_CapacityType": {
         "title": "vcloud_CapacityType",
         "description": "Represents the capacity of a given resource.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "CapacityWithUsageType": "vcloud_CapacityWithUsageType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -32560,15 +32386,11 @@
                 "description": "Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies overprovisioning.",
                 "type": "integer",
                 "format": "int64"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "units",
-              "limit",
-              "_type"
+              "limit"
             ],
             "additionalProperties": false
           }
@@ -33218,12 +33040,6 @@
       "vcloud_EntityReferenceType": {
         "title": "vcloud_EntityReferenceType",
         "description": "A reference to a vCloud entity.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "EntityLinkType": "vcloud_EntityLinkType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -33242,14 +33058,10 @@
               "name": {
                 "description": "The name of the referenced object.",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "id",
-              "_type"
+              "id"
             ],
             "additionalProperties": false
           }
@@ -33375,12 +33187,6 @@
       "vcloud_ToCloudTunnelType": {
         "title": "vcloud_ToCloudTunnelType",
         "description": "Describes to-the-cloud tunnel",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminToCloudTunnelType": "vcloud_AdminToCloudTunnelType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -33399,15 +33205,11 @@
               "sourceId": {
                 "description": "A UUID identifying the vCTA on-premise",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "trafficType",
-              "destinationId",
-              "_type"
+              "destinationId"
             ],
             "additionalProperties": false
           }
@@ -33484,12 +33286,6 @@
       "vcloud_FromCloudTunnelType": {
         "title": "vcloud_FromCloudTunnelType",
         "description": "Describes from-the-cloud tunnel",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "AdminFromCloudTunnelType": "vcloud_AdminFromCloudTunnelType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -33512,15 +33308,11 @@
               "sourceId": {
                 "description": "A UUID identifying the vCTA on-premise",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "trafficType",
-              "destinationId",
-              "_type"
+              "destinationId"
             ],
             "additionalProperties": false
           }
@@ -33861,22 +33653,7 @@
       },
       "vcloud_TimeType": {
         "title": "vcloud_TimeType",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "RelativeTimeType": "vcloud_RelativeTimeType",
-            "AbsoluteTimeType": "vcloud_AbsoluteTimeType"
-          }
-        },
         "type": "object",
-        "properties": {
-          "_type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "_type"
-        ],
         "additionalProperties": false
       },
       "vcloud_RelativeTimeType": {
@@ -34118,13 +33895,6 @@
       "vcloud_MultisiteType": {
         "title": "vcloud_MultisiteType",
         "description": "site vCloud configuration.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "SiteType": "vcloud_SiteType",
-            "SiteAssociationType": "vcloud_SiteAssociationType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -34145,15 +33915,11 @@
               "restEndpointCertificate": {
                 "description": "Optional PEM-encoded certificate to use when connecting to the REST API end-point.",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "restEndpoint",
-              "tenantUiEndpoint",
-              "_type"
+              "tenantUiEndpoint"
             ],
             "additionalProperties": false
           }
@@ -34387,14 +34153,6 @@
       "vcloud_NetworkType": {
         "title": "vcloud_NetworkType",
         "description": "Represents a Network in the vCloud model.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "OrgNetworkType": "vcloud_OrgNetworkType",
-            "VAppNetworkType": "vcloud_VAppNetworkType",
-            "OrgVdcNetworkType": "vcloud_OrgVdcNetworkType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_EntityType"
@@ -34409,14 +34167,8 @@
                     "$ref": "#/components/schemas/vcloud_NetworkConfigurationType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -34475,19 +34227,6 @@
       "vcloud_NetworkServiceType": {
         "title": "vcloud_NetworkServiceType",
         "description": "This is the root of the substitution group for network services. Replace it with any of NatService, LoadBalancerService IpsecVpnService/GatewayIpsecVpnService, DhcpService/GatewayDhcpService, FirewallService, or StaticRoutingService.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "DhcpServiceType": "vcloud_DhcpServiceType",
-            "NatServiceType": "vcloud_NatServiceType",
-            "FirewallServiceType": "vcloud_FirewallServiceType",
-            "IpsecVpnServiceType": "vcloud_IpsecVpnServiceType",
-            "StaticRoutingServiceType": "vcloud_StaticRoutingServiceType",
-            "GatewayDhcpServiceType": "vcloud_GatewayDhcpServiceType",
-            "LoadBalancerServiceType": "vcloud_LoadBalancerServiceType",
-            "GatewayIpsecVpnServiceType": "vcloud_GatewayIpsecVpnServiceType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
@@ -34498,14 +34237,8 @@
               "isEnabled": {
                 "description": "Enable or disable the service using this flag",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -35181,27 +34914,12 @@
       "vcloud_IpsecVpnPeerType": {
         "title": "vcloud_IpsecVpnPeerType",
         "description": "Gives more details of peer end point.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "IpsecVpnManagedPeerType": "vcloud_IpsecVpnManagedPeerType",
-            "IpsecVpnUnmanagedPeerType": "vcloud_IpsecVpnUnmanagedPeerType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VCloudExtensibleType"
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -35209,13 +34927,6 @@
       "vcloud_IpsecVpnManagedPeerType": {
         "title": "vcloud_IpsecVpnManagedPeerType",
         "description": "Gives more details of peer end point.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "IpsecVpnLocalPeerType": "vcloud_IpsecVpnLocalPeerType",
-            "IpsecVpnRemotePeerType": "vcloud_IpsecVpnRemotePeerType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_IpsecVpnPeerType"
@@ -35230,15 +34941,11 @@
               "name": {
                 "description": "Name of the peer network.",
                 "type": "string"
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "id",
-              "name",
-              "_type"
+              "name"
             ],
             "additionalProperties": false
           }
@@ -35292,26 +34999,12 @@
       "vcloud_IpsecVpnUnmanagedPeerType": {
         "title": "vcloud_IpsecVpnUnmanagedPeerType",
         "description": "Gives more details of peer end point not managed by vCloud Director.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "IpsecVpnThirdPartyPeerType": "vcloud_IpsecVpnThirdPartyPeerType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_IpsecVpnPeerType"
           },
           {
             "type": "object",
-            "properties": {
-              "_type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -41222,12 +40915,6 @@
       "vcloud_QueryResultEdgeGatewayRecordType": {
         "title": "vcloud_QueryResultEdgeGatewayRecordType",
         "description": "Type for a single edgeGateway query result in records format.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "QueryResultVchsEdgeGatewayRecordType": "vcloud_QueryResultVchsEdgeGatewayRecordType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_QueryResultRecordType"
@@ -41279,14 +40966,8 @@
               "distributedRoutingEnabled": {
                 "description": "True if Distributed Routing for this Edge Gateway is enabled",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -41294,12 +40975,6 @@
       "vcloud_QueryResultOrgVdcNetworkRecordType": {
         "title": "vcloud_QueryResultOrgVdcNetworkRecordType",
         "description": "Type for a single orgVdcNetwork query result in records format.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "QueryResultVchsOrgVdcNetworkRecordType": "vcloud_QueryResultVchsOrgVdcNetworkRecordType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_QueryResultRecordType"
@@ -41369,14 +41044,8 @@
                 "description": "Total IP Count",
                 "type": "integer",
                 "format": "int32"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -42116,14 +41785,6 @@
       "vcloud_AbstractVAppType": {
         "title": "vcloud_AbstractVAppType",
         "description": "Represents a base type for VAppType and VmType.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VmType": "vcloud_VmType",
-            "VmCheckPGCType": "vcloud_VmCheckPGCType",
-            "VAppType": "vcloud_VAppType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ResourceEntityType"
@@ -42147,14 +41808,8 @@
                 "description": "Creation date/time of the vApp.",
                 "type": "string",
                 "format": "date-time"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -42885,21 +42540,7 @@
       },
       "vcloud_HardwareVersionBaseType": {
         "title": "vcloud_HardwareVersionBaseType",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "HardwareVersionType": "vcloud_HardwareVersionType"
-          }
-        },
         "type": "object",
-        "properties": {
-          "_type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "_type"
-        ],
         "additionalProperties": false
       },
       "vcloud_HardwareVersionType": {
@@ -43282,14 +42923,6 @@
       "vcloud_VAppCreationParamsType": {
         "title": "vcloud_VAppCreationParamsType",
         "description": "Represents vApp creation parameters.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "ComposeVAppParamsType": "vcloud_ComposeVAppParamsType",
-            "InstantiateVAppParamsType": "vcloud_InstantiateVAppParamsType",
-            "InstantiateOvfParamsType": "vcloud_InstantiateOvfParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_ParamsType"
@@ -43320,14 +42953,8 @@
                     "$ref": "#/components/schemas/vcloud_InstantiationParamsType"
                   }
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -43544,12 +43171,6 @@
       "vcloud_ComposeVAppParamsType": {
         "title": "vcloud_ComposeVAppParamsType",
         "description": "Represents vApp composition parameters.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "RecomposeVAppParamsType": "vcloud_RecomposeVAppParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VAppCreationParamsType"
@@ -43571,14 +43192,8 @@
               "allEULAsAccepted": {
                 "description": "True confirms acceptance of all EULAs in a vApp template. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.",
                 "type": "boolean"
-              },
-              "_type": {
-                "type": "string"
               }
             },
-            "required": [
-              "_type"
-            ],
             "additionalProperties": false
           }
         ]
@@ -43805,13 +43420,6 @@
       "vcloud_InstantiateVAppParamsType": {
         "title": "vcloud_InstantiateVAppParamsType",
         "description": "Represents vApp instantiation parameters.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "InstantiateVAppTemplateParamsType": "vcloud_InstantiateVAppTemplateParamsType",
-            "CloneVAppParamsType": "vcloud_CloneVAppParamsType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_VAppCreationParamsType"
@@ -43849,14 +43457,10 @@
                 "items": {
                   "$ref": "#/components/schemas/vcloud_SourcedCompositionItemParamType"
                 }
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
-              "source",
-              "_type"
+              "source"
             ],
             "additionalProperties": false
           }
@@ -44777,21 +44381,7 @@
       },
       "vcloud_SupportedHardwareVersionBaseType": {
         "title": "vcloud_SupportedHardwareVersionBaseType",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "SupportedHardwareVersionType": "vcloud_SupportedHardwareVersionType"
-          }
-        },
         "type": "object",
-        "properties": {
-          "_type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "_type"
-        ],
         "additionalProperties": false
       },
       "vcloud_SupportedHardwareVersionType": {
@@ -45148,12 +44738,6 @@
       "vcloud_AffinityRuleType": {
         "title": "vcloud_AffinityRuleType",
         "description": "Represents the base type for affinity and anti-affinity rules.",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "VmAffinityRuleType": "vcloud_VmAffinityRuleType"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/vcloud_IdentifiableResourceType"
@@ -45180,17 +44764,13 @@
                   "Affinity",
                   "Anti-Affinity"
                 ]
-              },
-              "_type": {
-                "type": "string"
               }
             },
             "required": [
               "name",
               "isEnabled",
               "isMandatory",
-              "polarity",
-              "_type"
+              "polarity"
             ],
             "additionalProperties": false
           }
@@ -45462,21 +45042,7 @@
       },
       "vcloud_NICBaseType": {
         "title": "vcloud_NICBaseType",
-        "discriminator": {
-          "propertyName": "_type",
-          "mapping": {
-            "NICType": "vcloud_NICType"
-          }
-        },
         "type": "object",
-        "properties": {
-          "_type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "_type"
-        ],
         "additionalProperties": false
       },
       "vcloud_NICType": {

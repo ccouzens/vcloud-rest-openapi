@@ -9,7 +9,7 @@ use crate::parsers::doc::etc::field::Field;
 use crate::parsers::doc::etc::group_ref::GroupRef;
 use crate::parsers::doc::etc::r#type::TypeParseError;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
-use openapiv3::{Discriminator};
+use openapiv3::Discriminator;
 #[cfg(test)]
 use serde_json::json;
 use std::convert::TryFrom;
@@ -48,6 +48,11 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();
                 let descendants = type_name
+                    // Filter out types with a property in the payload that holds the discriminator value.
+                    .filter(|&type_name| match type_name.as_str() {
+                        "QueryResultRecordType" | "MetadataTypedValue" => true,
+                        _ => false,
+                    })
                     .and_then(|type_name| {
                         root.as_element().map(|e| {
                             e.children
@@ -82,9 +87,9 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
                                                         ) if namespace == XML_SCHEMA_NS
                                                             && name == "extension" =>
                                                         {
-                                                            attributes.get("base").filter(|&name| {
-                                                                type_name.eq(name)
-                                                            })
+                                                            attributes
+                                                                .get("base")
+                                                                .filter(|&name| type_name.eq(name))
                                                         }
                                                         _ => None,
                                                     })
@@ -327,9 +332,9 @@ impl From<&ObjectType> for openapiv3::Schema {
                                     schema_kind: openapiv3::SchemaKind::Type(
                                         openapiv3::Type::String(openapiv3::StringType {
                                             /* enumeration: descendants
-                                                .iter()
-                                                .map(|name| Some(name.into()))
-                                                .collect(), */
+                                            .iter()
+                                            .map(|name| Some(name.into()))
+                                            .collect(), */
                                             ..Default::default()
                                         }),
                                     ),
@@ -363,10 +368,10 @@ impl From<&ObjectType> for openapiv3::Schema {
                                         schema_data: Default::default(),
                                         schema_kind: openapiv3::SchemaKind::Type(
                                             openapiv3::Type::String(openapiv3::StringType {
-                                               /*  enumeration: descendants
-                                                    .iter()
-                                                    .map(|name| Some(name.into()))
-                                                    .collect(), */
+                                                /*  enumeration: descendants
+                                                .iter()
+                                                .map(|name| Some(name.into()))
+                                                .collect(), */
                                                 ..Default::default()
                                             }),
                                         ),
