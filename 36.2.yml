@@ -28154,9 +28154,8 @@ components:
           properties:
             file:
               description: A file to be transferred (uploaded or downloaded).
-              type: array
-              items:
-                $ref: '#/components/schemas/vcloud_FileType'
+              allOf:
+                - $ref: '#/components/schemas/vcloud_FileType'
           required:
             - file
           additionalProperties: false
@@ -28497,8 +28496,9 @@ components:
                 - $ref: '#/components/schemas/vcloud_ComputePolicyType'
             computePolicyCompliance:
               description: This element shows VM's non compliance details against a given compute policy.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputePolicyComplianceType'
+              type: array
+              items:
+                $ref: '#/components/schemas/vcloud_ComputePolicyComplianceType'
             isComputePolicyCompliant:
               description: True if VM is compliant with the associated compute policies
               type: boolean

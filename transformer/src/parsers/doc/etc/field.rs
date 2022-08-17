@@ -98,27 +98,21 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
                             .iter()
                             .flat_map(Annotation::try_from)
                             .next()
-                            .map_or_else(
-                                || {
-                                    Some(Ok(Field {
-                                        annotation: None,
-                                        name: decapitalize(name),
-                                        r#type: r#type.to_owned(),
-                                        occurrences: get_occurrences(xml),
-                                    }))
-                                },
-                                |annotation| match annotation {
-                                    Annotation { removed: true, .. } => {
-                                        Some(Err(FieldParseError::Removed))
-                                    }
-                                    _ => Some(Ok(Field {
-                                        annotation: Some(annotation),
-                                        name: decapitalize(name),
-                                        r#type: r#type.to_owned(),
-                                        occurrences: get_occurrences(xml),
-                                    })),
-                                },
-                            )
+                            .map(|annotation| match annotation {
+                                Annotation { removed: true, .. } => Err(FieldParseError::Removed),
+                                _ => Ok(Field {
+                                    annotation: Some(annotation),
+                                    name: decapitalize(name),
+                                    r#type: r#type.to_owned(),
+                                    occurrences: get_occurrences(xml),
+                                }),
+                            })
+                            .or(Some(Ok(Field {
+                                annotation: None,
+                                name: decapitalize(name),
+                                r#type: r#type.to_owned(),
+                                occurrences: get_occurrences(xml),
+                            })))
                     }) {
                     Some(result) => result,
                     None => Err(FieldParseError::MissingType),
@@ -233,14 +227,23 @@ fn decapitalize(s: &str) -> String {
     }
 }
 
+/// Occurrence Constraints
 fn get_occurrences(xml: &XMLNode) -> Occurrences {
     match xml {
         xmltree::XMLNode::Element(xmltree::Element { attributes, .. }) => match (
-            attributes.get("minOccurs").map_or("1", String::as_str),
-            attributes.get("maxOccurs").map_or("1", String::as_str),
+            attributes.get("minOccurs").map(String::as_str),
+            attributes.get("maxOccurs").map(String::as_str),
         ) {
-            (_, "unbounded") => Occurrences::Array,
-            ("0", _) => Occurrences::Optional,
+            (Some("1"), Some("1")) => Occurrences::One,
+            (Some("0"), Some("1")) | (Some("0"), None) => Occurrences::Optional,
+            (Some(_), Some("unbounded")) | (Some(_), None) => Occurrences::Array,
+            (Some(_), Some(max_occurs))
+                if max_occurs
+                    .parse::<u32>()
+                    .map_or(false, |max_occurs| max_occurs > 1) =>
+            {
+                Occurrences::Array
+            }
             _ => Occurrences::One,
         },
         _ => Occurrences::One,

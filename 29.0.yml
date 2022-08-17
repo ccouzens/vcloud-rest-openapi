@@ -26002,9 +26002,8 @@ components:
           properties:
             file:
               description: A file to be transferred (uploaded or downloaded).
-              type: array
-              items:
-                $ref: '#/components/schemas/vcloud_FileType'
+              allOf:
+                - $ref: '#/components/schemas/vcloud_FileType'
           required:
             - file
           additionalProperties: false
