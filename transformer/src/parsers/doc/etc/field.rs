@@ -236,7 +236,7 @@ fn get_occurrences(xml: &XMLNode) -> Occurrences {
         ) {
             (Some("1"), Some("1")) => Occurrences::One,
             (Some("0"), Some("1")) | (Some("0"), None) => Occurrences::Optional,
-            (Some(_), Some("unbounded")) | (Some(_), None) => Occurrences::Array,
+            (_, Some("unbounded")) | (Some(_), None) => Occurrences::Array,
             (Some(_), Some(max_occurs))
                 if max_occurs
                     .parse::<u32>()
