@@ -7,10 +7,7 @@ extern crate lazy_static;
 
 use indexmap::IndexMap;
 use openapiv3::{Components, OpenAPI, ReferenceOr, SecurityScheme, Tag};
-use schema_tweaks::{
-    metadata_superclass::metadata_superclass, query_parameters::query_parameters,
-    query_superclass::query_superclass, stub_ovf::stub_ovf,
-};
+use schema_tweaks::{query_parameters::query_parameters, stub_ovf::stub_ovf};
 use std::{collections::BTreeMap, io::Read};
 mod info;
 mod parsers;
@@ -43,8 +40,6 @@ fn main() -> Result<()> {
     let content_type_mapping =
         schemas::schemas(&mut schemas, &mut zip).context("Unable to make content type mappings")?;
     stub_ovf(&mut schemas);
-    metadata_superclass(&mut schemas);
-    query_superclass(&mut schemas);
 
     let content_element_mapping: BTreeMap<String, String> = types::types(&mut zip)
         .context("unable to collect types")?

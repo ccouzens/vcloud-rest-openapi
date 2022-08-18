@@ -9,6 +9,7 @@ use crate::parsers::doc::etc::field::Field;
 use crate::parsers::doc::etc::group_ref::GroupRef;
 use crate::parsers::doc::etc::r#type::TypeParseError;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
+use openapiv3::Discriminator;
 #[cfg(test)]
 use serde_json::json;
 use std::convert::TryFrom;
@@ -19,12 +20,15 @@ pub(super) struct ObjectType {
     pub(super) name: String,
     pub(super) fields: Vec<Field>,
     pub(super) parents: Vec<openapiv3::ReferenceOr<SimpleType>>,
+    pub(super) descendants: Vec<String>,
 }
 
-impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
+impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
     type Error = TypeParseError;
 
-    fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
+    fn try_from(
+        (xml, root, schema_namespace): (&xmltree::XMLNode, &xmltree::XMLNode, &str),
+    ) -> Result<Self, Self::Error> {
         match xml {
             xmltree::XMLNode::Element(xmltree::Element {
                 namespace: Some(namespace),
@@ -36,17 +40,77 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                 && (name == "complexType" || name == "group" || name == "attributeGroup") =>
             {
                 let mut annotations = Vec::new();
-                let name = attributes
-                    .get("name")
+                let type_name = attributes.get("name");
+                let name = type_name
                     .map(|n| format!("{}_{}", schema_namespace, n))
                     .ok_or(TypeParseError::MissingName)?;
                 annotations.extend(children.iter().filter_map(|c| Annotation::try_from(c).ok()));
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();
+                let descendants = type_name
+                    // Filter out types with a property in the payload that holds the discriminator value.
+                    .filter(|&type_name| match type_name.as_str() {
+                        "QueryResultRecordType" | "MetadataTypedValue" => true,
+                        _ => false,
+                    })
+                    .and_then(|type_name| {
+                        root.as_element().map(|e| {
+                            e.children
+                                .iter()
+                                .flat_map(|child| match child {
+                                    xmltree::XMLNode::Element(xmltree::Element {
+                                        attributes,
+                                        namespace: Some(namespace),
+                                        name,
+                                        children,
+                                        ..
+                                    }) if namespace == XML_SCHEMA_NS && name == "complexType" => {
+                                        children
+                                            .iter()
+                                            .find_map(|child| match child {
+                                                xmltree::XMLNode::Element(xmltree::Element {
+                                                    namespace: Some(namespace),
+                                                    name,
+                                                    children,
+                                                    ..
+                                                }) if namespace == XML_SCHEMA_NS
+                                                    && name == "complexContent" =>
+                                                {
+                                                    children.iter().find_map(|child| match child {
+                                                        xmltree::XMLNode::Element(
+                                                            xmltree::Element {
+                                                                namespace: Some(namespace),
+                                                                name,
+                                                                attributes,
+                                                                ..
+                                                            },
+                                                        ) if namespace == XML_SCHEMA_NS
+                                                            && name == "extension" =>
+                                                        {
+                                                            attributes
+                                                                .get("base")
+                                                                .filter(|&name| type_name.eq(name))
+                                                        }
+                                                        _ => None,
+                                                    })
+                                                }
+                                                _ => None,
+                                            })
+                                            .and_then(|_| {
+                                                attributes.get("name").map(|name| name.into())
+                                            })
+                                    }
+                                    _ => Default::default(),
+                                })
+                                .collect::<Vec<_>>()
+                        })
+                    })
+                    .unwrap_or_default();
+
                 fields.extend(
                     children
                         .iter()
-                        .flat_map(|xml| Field::try_from((xml, schema_namespace))),
+                        .flat_map(|xml| Field::try_from((xml, root, schema_namespace))),
                 );
                 for child in children {
                     match child {
@@ -59,7 +123,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                             fields.extend(
                                 children
                                     .iter()
-                                    .flat_map(|xml| Field::try_from((xml, schema_namespace))),
+                                    .flat_map(|xml| Field::try_from((xml, root, schema_namespace))),
                             );
                             parents.extend(children.iter().flat_map(GroupRef::try_from).map(|g| {
                                 str_to_simple_type_or_reference(schema_namespace, &g.reference)
@@ -93,7 +157,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                                             ));
                                         }
                                         fields.extend(children.iter().flat_map(|xml| {
-                                            Field::try_from((xml, schema_namespace))
+                                            Field::try_from((xml, root, schema_namespace))
                                         }));
                                         parents.extend(
                                             children.iter().flat_map(GroupRef::try_from).map(|g| {
@@ -115,7 +179,11 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                                                 {
                                                     fields.extend(children.iter().flat_map(
                                                         |xml| {
-                                                            Field::try_from((xml, schema_namespace))
+                                                            Field::try_from((
+                                                                xml,
+                                                                root,
+                                                                schema_namespace,
+                                                            ))
                                                         },
                                                     ));
                                                     parents.extend(
@@ -176,6 +244,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
                     annotation,
                     fields,
                     parents,
+                    descendants,
                 })
             }
             _ => Err(TypeParseError::NotTypeNode),
@@ -185,68 +254,156 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for ObjectType {
 
 impl From<&ObjectType> for openapiv3::Schema {
     fn from(c: &ObjectType) -> Self {
-        let schema_kind =
-            openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
-                properties: c
-                    .fields
-                    .iter()
-                    .map(|s| {
-                        (
-                            s.name.clone(),
-                            openapiv3::ReferenceOr::boxed_item(openapiv3::Schema::from(s)),
-                        )
-                    })
-                    .collect(),
-                additional_properties: Some(openapiv3::AdditionalProperties::Any(false)),
-                required: c
-                    .fields
-                    .iter()
-                    .filter_map(|s| {
-                        if s.annotation
-                            .as_ref()
-                            .and_then(|a| a.required)
-                            .unwrap_or(false)
-                        {
-                            Some(s.name.clone())
-                        } else {
-                            None
+        match &c {
+            &ObjectType {
+                name,
+                parents,
+                descendants,
+                fields,
+                annotation,
+                ..
+            } => {
+                let mut schema_kind =
+                    openapiv3::SchemaKind::Type(openapiv3::Type::Object(openapiv3::ObjectType {
+                        properties: fields
+                            .iter()
+                            .map(|s| {
+                                (
+                                    s.name.clone(),
+                                    openapiv3::ReferenceOr::boxed_item(openapiv3::Schema::from(s)),
+                                )
+                            })
+                            .collect(),
+                        additional_properties: Some(openapiv3::AdditionalProperties::Any(false)),
+                        required: fields
+                            .iter()
+                            .filter_map(|s| {
+                                if s.annotation
+                                    .as_ref()
+                                    .and_then(|a| a.required)
+                                    .unwrap_or(false)
+                                {
+                                    Some(s.name.clone())
+                                } else {
+                                    None
+                                }
+                            })
+                            .collect(),
+                        ..Default::default()
+                    }));
+                let mut schema_data = openapiv3::SchemaData {
+                    deprecated: annotation.as_ref().map(|a| a.deprecated).unwrap_or(false),
+                    title: Some(name.clone()),
+                    description: annotation.as_ref().and_then(|a| a.description.clone()),
+                    ..Default::default()
+                };
+                if parents.len() > 0 {
+                    let mut all_of = Vec::new();
+                    all_of.extend(parents.iter().map(|reference| match reference {
+                        openapiv3::ReferenceOr::Reference { reference } => {
+                            openapiv3::ReferenceOr::Reference {
+                                reference: format!("#/components/schemas/{}", reference),
+                            }
                         }
-                    })
-                    .collect(),
-                ..Default::default()
-            }));
-        let schema_data = openapiv3::SchemaData {
-            deprecated: c.annotation.as_ref().map(|a| a.deprecated).unwrap_or(false),
-            title: Some(c.name.clone()),
-            description: c.annotation.as_ref().and_then(|a| a.description.clone()),
-            ..Default::default()
-        };
-        match &c.parents.is_empty() {
-            true => openapiv3::Schema {
-                schema_data,
-                schema_kind,
-            },
-            false => {
-                let mut all_of = Vec::new();
-                all_of.extend(c.parents.iter().map(|reference| match reference {
-                    openapiv3::ReferenceOr::Reference { reference } => {
-                        openapiv3::ReferenceOr::Reference {
-                            reference: format!("#/components/schemas/{}", reference),
+                        openapiv3::ReferenceOr::Item(simple_type) => {
+                            openapiv3::ReferenceOr::Item(simple_type.into())
                         }
-                    }
-                    openapiv3::ReferenceOr::Item(simple_type) => {
-                        openapiv3::ReferenceOr::Item(simple_type.into())
-                    }
-                }));
+                    }));
 
-                all_of.push(openapiv3::ReferenceOr::Item(openapiv3::Schema {
-                    schema_kind,
-                    schema_data: Default::default(),
-                }));
+                    all_of.push(openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                        schema_kind,
+                        schema_data: Default::default(),
+                    }));
+
+                    schema_kind = openapiv3::SchemaKind::AllOf { all_of }
+                }
+                if descendants.len() > 0 {
+                    match schema_kind {
+                        openapiv3::SchemaKind::Type(openapiv3::Type::Object(
+                            openapiv3::ObjectType {
+                                ref mut properties,
+                                ref mut required,
+                                ..
+                            },
+                        )) => {
+                            properties.entry(String::from("_type")).or_insert_with(|| {
+                                openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                                    schema_data: Default::default(),
+                                    schema_kind: openapiv3::SchemaKind::Type(
+                                        openapiv3::Type::String(openapiv3::StringType {
+                                            /* enumeration: descendants
+                                            .iter()
+                                            .map(|name| Some(name.into()))
+                                            .collect(), */
+                                            ..Default::default()
+                                        }),
+                                    ),
+                                })
+                            });
+                            required.push(String::from("_type"));
+                        }
+                        openapiv3::SchemaKind::AllOf { ref mut all_of } => {
+                            if let Some(openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                                schema_kind:
+                                    openapiv3::SchemaKind::Type(openapiv3::Type::Object(
+                                        openapiv3::ObjectType {
+                                            ref mut properties,
+                                            ref mut required,
+                                            ..
+                                        },
+                                    )),
+                                ..
+                            })) = all_of.into_iter().find(|kind| match kind {
+                                openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                                    schema_kind:
+                                        openapiv3::SchemaKind::Type(openapiv3::Type::Object(
+                                            openapiv3::ObjectType { .. },
+                                        )),
+                                    ..
+                                }) => true,
+                                _ => false,
+                            }) {
+                                properties.entry(String::from("_type")).or_insert_with(|| {
+                                    openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                                        schema_data: Default::default(),
+                                        schema_kind: openapiv3::SchemaKind::Type(
+                                            openapiv3::Type::String(openapiv3::StringType {
+                                                /*  enumeration: descendants
+                                                .iter()
+                                                .map(|name| Some(name.into()))
+                                                .collect(), */
+                                                ..Default::default()
+                                            }),
+                                        ),
+                                    })
+                                });
+                                required.push(String::from("_type"));
+                            }
+                        }
+                        _ => {}
+                    }
+                    schema_data.discriminator = Some(Discriminator {
+                        property_name: String::from("_type"),
+                        mapping: descendants
+                            .iter()
+                            .map(|n| {
+                                (
+                                    n.clone(),
+                                    name.split_once("_")
+                                        .map(|(namespace, _)| {
+                                            format!("{}_{}", namespace, n.clone())
+                                        })
+                                        .unwrap_or_default(),
+                                )
+                            })
+                            .collect(),
+                        extensions: Default::default(),
+                    });
+                }
 
                 openapiv3::Schema {
                     schema_data,
-                    schema_kind: openapiv3::SchemaKind::AllOf { all_of },
+                    schema_kind,
                 }
             }
         }
@@ -287,7 +444,13 @@ fn parse_attribute_group_test() {
 "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -336,7 +499,13 @@ fn parse_attribute_group_ref_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -394,7 +563,13 @@ fn parse_annotation_inside_complex_content_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -459,7 +634,12 @@ fn removed_field_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), "test")).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(tree),
+        "test",
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),

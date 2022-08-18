@@ -99,7 +99,7 @@ diff -U20 --color=always \
 To fix the issue [Unable to compile Java openapi client#3](https://github.com/ccouzens/vcloud-rest-openapi/issues/3), run [patch_java_openapi_client.sed](./patch_java_openapi_client.sed) as a temporary workaround
 
 ```bash
-find <output directory>/ -type f \( -name "*.java" -o -name "*.md" \) -exec sed -ri -f patch_java_openapi_client.sed {} \;
+find <output directory> -regex '.*\(Type\|Value\|AllOf\|Test\)\.java' -exec grep -H '_type\|typeTest' {} \; -exec sed -ri -f patch_java_openapi_client.sed {} \;
 ```
 
 ## Status
