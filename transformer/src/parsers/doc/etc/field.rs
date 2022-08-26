@@ -127,6 +127,7 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
             }) if namespace == XML_SCHEMA_NS && name == "attribute" => {
                 let name = attributes
                     .get("name")
+                    .map(|name| decapitalize(name))
                     .ok_or(FieldParseError::MissingName)?
                     .to_owned();
                 let r#type = match children

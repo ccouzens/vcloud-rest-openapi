@@ -21659,13 +21659,13 @@
           {
             "type": "object",
             "properties": {
-              "SspiServiceProviderName": {
+              "sspiServiceProviderName": {
                 "description": "Service provider name for SSPI.",
                 "type": "string"
               }
             },
             "required": [
-              "SspiServiceProviderName"
+              "sspiServiceProviderName"
             ],
             "additionalProperties": false
           }

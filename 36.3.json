@@ -25823,14 +25823,14 @@
           {
             "type": "object",
             "properties": {
-              "SspiServiceProviderName": {
+              "sspiServiceProviderName": {
                 "deprecated": true,
                 "description": "Service provider name for SSPI.",
                 "type": "string"
               }
             },
             "required": [
-              "SspiServiceProviderName"
+              "sspiServiceProviderName"
             ],
             "additionalProperties": false
           }
@@ -46113,7 +46113,7 @@
           {
             "type": "object",
             "properties": {
-              "Modified": {
+              "modified": {
                 "description": "True indicates that this section overrides any possible VirtualHardware and OperatingSystem sections during a PUT or POST action.",
                 "type": "boolean"
               },

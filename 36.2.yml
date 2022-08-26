@@ -15743,12 +15743,12 @@ components:
         - $ref: '#/components/schemas/vcloud_FileUploadParamsType'
         - type: object
           properties:
-            SspiServiceProviderName:
+            sspiServiceProviderName:
               deprecated: true
               description: Service provider name for SSPI.
               type: string
           required:
-            - SspiServiceProviderName
+            - sspiServiceProviderName
           additionalProperties: false
     vcloud_SspiKeytabUploadSocketType:
       deprecated: true
@@ -29057,7 +29057,7 @@ components:
         - $ref: '#/components/schemas/ovf_Section_Type'
         - type: object
           properties:
-            Modified:
+            modified:
               description: True indicates that this section overrides any possible VirtualHardware and OperatingSystem sections during a PUT or POST action.
               type: boolean
             osType:

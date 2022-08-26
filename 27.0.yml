@@ -13239,11 +13239,11 @@ components:
         - $ref: '#/components/schemas/vcloud_FileUploadParamsType'
         - type: object
           properties:
-            SspiServiceProviderName:
+            sspiServiceProviderName:
               description: Service provider name for SSPI.
               type: string
           required:
-            - SspiServiceProviderName
+            - sspiServiceProviderName
           additionalProperties: false
     vcloud_SspiKeytabUploadSocketType:
       title: vcloud_SspiKeytabUploadSocketType
