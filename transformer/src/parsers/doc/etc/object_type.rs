@@ -29,15 +29,18 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
     fn try_from(
         (xml, root, schema_namespace): (&xmltree::XMLNode, &xmltree::XMLNode, &str),
     ) -> Result<Self, Self::Error> {
+        let _xml_schema_ns = String::from(XML_SCHEMA_NS);
         match xml {
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(namespace),
+                namespace: Some(_xml_schema_ns),
                 name,
                 attributes,
                 children,
                 ..
-            }) if namespace == XML_SCHEMA_NS
-                && (name == "complexType" || name == "group" || name == "attributeGroup") =>
+            }) if match name.as_str() {
+                "complexType" | "group" | "attributeGroup" => true,
+                _ => false,
+            } =>
             {
                 let mut annotations = Vec::new();
                 let type_name = attributes.get("name");
@@ -48,9 +51,13 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();
                 let descendants = type_name
+                    // TODO: Clarify all possible discriminators types
                     // Filter out types with a property in the payload that holds the discriminator value.
                     .filter(|&type_name| match type_name.as_str() {
-                        "QueryResultRecordType" | "MetadataTypedValue" => true,
+                        "QueryResultRecordType"
+                        | "MetadataTypedValue"
+                        | "HardwareVersionBaseType"
+                        | "SupportedHardwareVersionBaseType" => true,
                         _ => false,
                     })
                     .and_then(|type_name| {
@@ -60,46 +67,42 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
                                 .flat_map(|child| match child {
                                     xmltree::XMLNode::Element(xmltree::Element {
                                         attributes,
-                                        namespace: Some(namespace),
+                                        namespace: Some(_xml_schema_ns),
                                         name,
                                         children,
                                         ..
-                                    }) if namespace == XML_SCHEMA_NS && name == "complexType" => {
-                                        children
-                                            .iter()
-                                            .find_map(|child| match child {
-                                                xmltree::XMLNode::Element(xmltree::Element {
-                                                    namespace: Some(namespace),
-                                                    name,
-                                                    children,
-                                                    ..
-                                                }) if namespace == XML_SCHEMA_NS
-                                                    && name == "complexContent" =>
-                                                {
-                                                    children.iter().find_map(|child| match child {
-                                                        xmltree::XMLNode::Element(
-                                                            xmltree::Element {
-                                                                namespace: Some(namespace),
-                                                                name,
-                                                                attributes,
-                                                                ..
-                                                            },
-                                                        ) if namespace == XML_SCHEMA_NS
-                                                            && name == "extension" =>
-                                                        {
-                                                            attributes
-                                                                .get("base")
-                                                                .filter(|&name| type_name.eq(name))
-                                                        }
-                                                        _ => None,
-                                                    })
-                                                }
-                                                _ => None,
-                                            })
-                                            .and_then(|_| {
-                                                attributes.get("name").map(|name| name.into())
-                                            })
-                                    }
+                                    }) if name == "complexType" => children
+                                        .iter()
+                                        .find_map(|child| match child {
+                                            xmltree::XMLNode::Element(xmltree::Element {
+                                                namespace: Some(_xml_schema_ns),
+                                                name,
+                                                children,
+                                                ..
+                                            }) if match name.as_str() {
+                                                "complexContent" | "simpleContent" => true,
+                                                _ => false,
+                                            } =>
+                                            {
+                                                children.iter().find_map(|child| match child {
+                                                    xmltree::XMLNode::Element(
+                                                        xmltree::Element {
+                                                            namespace: Some(_xml_schema_ns),
+                                                            name,
+                                                            attributes,
+                                                            ..
+                                                        },
+                                                    ) if name == "extension" => attributes
+                                                        .get("base")
+                                                        .filter(|&name| type_name.eq(name)),
+                                                    _ => None,
+                                                })
+                                            }
+                                            _ => None,
+                                        })
+                                        .and_then(|_| {
+                                            attributes.get("name").map(|name| name.into())
+                                        }),
                                     _ => Default::default(),
                                 })
                                 .collect::<Vec<_>>()
@@ -112,48 +115,86 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
                         .iter()
                         .flat_map(|xml| Field::try_from((xml, root, schema_namespace))),
                 );
+
+                let base_name = children.iter().find_map(|c| match c {
+                    xmltree::XMLNode::Element(xmltree::Element {
+                        name,
+                        children,
+                        ..
+                    }) if name == "annotation" => {
+                        children.iter().find_map(|c| match c {
+                            xmltree::XMLNode::Element(xmltree::Element {
+                                name,
+                                children,
+                                ..
+                            }) if name == "appinfo" => {
+                                children.iter().find_map(|c| match c {
+                                    xmltree::XMLNode::Element(xmltree::Element {
+                                        name,
+                                        attributes,
+                                        ..
+                                    }) if name == "property"
+                                        && attributes.get("name").is_some() =>
+                                    {
+                                        attributes.get("name")
+                                    }
+                                    _ => None,
+                                })
+                            }
+                            _ => None,
+                        })
+                    }
+                    _ => None,
+                });
+
                 for child in children {
                     match child {
                         xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
+                            namespace: Some(_xml_schema_ns),
                             name,
                             children,
                             ..
-                        }) if namespace == XML_SCHEMA_NS && name == "sequence" => {
+                        }) if name == "sequence" => {
                             fields.extend(
                                 children
                                     .iter()
                                     .flat_map(|xml| Field::try_from((xml, root, schema_namespace))),
                             );
                             parents.extend(children.iter().flat_map(GroupRef::try_from).map(|g| {
-                                str_to_simple_type_or_reference(schema_namespace, &g.reference)
+                                str_to_simple_type_or_reference(
+                                    schema_namespace,
+                                    &g.reference,
+                                    None,
+                                )
                             }));
                         }
                         xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
+                            namespace: Some(_xml_schema_ns),
                             name,
                             children,
                             ..
-                        }) if namespace == XML_SCHEMA_NS
-                            && (name == "complexContent" || name == "simpleContent") =>
+                        }) if match name.as_str() {
+                            "complexContent" | "simpleContent" => true,
+                            _ => false,
+                        } =>
                         {
                             annotations.extend(
                                 children.iter().filter_map(|c| Annotation::try_from(c).ok()),
                             );
-
                             for child in children {
                                 match child {
                                     xmltree::XMLNode::Element(xmltree::Element {
                                         attributes,
-                                        namespace: Some(namespace),
+                                        namespace: Some(_xml_schema_ns),
                                         name,
                                         children,
                                         ..
-                                    }) if namespace == XML_SCHEMA_NS && name == "extension" => {
+                                    }) if name == "extension" => {
                                         if let Some(type_name) = attributes.get("base") {
                                             parents.push(str_to_simple_type_or_reference(
                                                 schema_namespace,
                                                 type_name,
+                                                base_name.map(|r| r.into()),
                                             ));
                                         }
                                         fields.extend(children.iter().flat_map(|xml| {
@@ -164,19 +205,18 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
                                                 str_to_simple_type_or_reference(
                                                     schema_namespace,
                                                     &g.reference,
+                                                    None,
                                                 )
                                             }),
                                         );
                                         for child in children {
                                             match child {
                                                 xmltree::XMLNode::Element(xmltree::Element {
-                                                    namespace: Some(namespace),
+                                                    namespace: Some(_xml_schema_ns),
                                                     name,
                                                     children,
                                                     ..
-                                                }) if namespace == XML_SCHEMA_NS
-                                                    && name == "sequence" =>
-                                                {
+                                                }) if name == "sequence" => {
                                                     fields.extend(children.iter().flat_map(
                                                         |xml| {
                                                             Field::try_from((
@@ -194,6 +234,7 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
                                                                 str_to_simple_type_or_reference(
                                                                     schema_namespace,
                                                                     &g.reference,
+                                                                    None,
                                                                 )
                                                             }),
                                                     );
@@ -212,18 +253,20 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for ObjectType {
 
                 fields.extend(parents.iter().filter_map(|p| match p {
                     openapiv3::ReferenceOr::Reference { .. } => None,
-                    openapiv3::ReferenceOr::Item(i) => Some(Field {
-                        annotation: Some(Annotation {
-                            content_type: None,
-                            deprecated: false,
-                            description: None,
-                            required: Some(true),
-                            removed: false,
-                        }),
-                        name: "value".into(),
-                        occurrences: Occurrences::One,
-                        r#type: openapiv3::ReferenceOr::Item(i.clone()),
-                    }),
+                    openapiv3::ReferenceOr::Item(i @ SimpleType { name, .. }) => {
+                        Some(Field {
+                            annotation: Some(Annotation {
+                                content_type: None,
+                                deprecated: false,
+                                description: None,
+                                required: Some(true),
+                                removed: false,
+                            }),
+                            name: name.as_ref().map_or("value".into(), |s| s.into()),
+                            occurrences: Occurrences::One,
+                            r#type: openapiv3::ReferenceOr::Item(i.clone()),
+                        })
+                    }
                 }));
 
                 parents.retain(|p| match p {
@@ -634,9 +677,10 @@ fn removed_field_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
+    let root = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
         &xmltree::XMLNode::Element(tree),
-        &xmltree::XMLNode::Element(tree),
+        &xmltree::XMLNode::Element(root),
         "test",
     ))
     .unwrap();

@@ -42540,7 +42540,21 @@
       },
       "vcloud_HardwareVersionBaseType": {
         "title": "vcloud_HardwareVersionBaseType",
+        "discriminator": {
+          "propertyName": "_type",
+          "mapping": {
+            "HardwareVersionType": "vcloud_HardwareVersionType"
+          }
+        },
         "type": "object",
+        "properties": {
+          "_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "_type"
+        ],
         "additionalProperties": false
       },
       "vcloud_HardwareVersionType": {
@@ -44381,7 +44395,21 @@
       },
       "vcloud_SupportedHardwareVersionBaseType": {
         "title": "vcloud_SupportedHardwareVersionBaseType",
+        "discriminator": {
+          "propertyName": "_type",
+          "mapping": {
+            "SupportedHardwareVersionType": "vcloud_SupportedHardwareVersionType"
+          }
+        },
         "type": "object",
+        "properties": {
+          "_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "_type"
+        ],
         "additionalProperties": false
       },
       "vcloud_SupportedHardwareVersionType": {

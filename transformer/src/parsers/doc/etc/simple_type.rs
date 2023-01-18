@@ -20,14 +20,15 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
     type Error = TypeParseError;
 
     fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
+        let _xml_schema_ns = String::from(XML_SCHEMA_NS);
         match xml {
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(namespace),
+                namespace: Some(_xml_schema_ns),
                 name,
                 attributes,
                 children,
                 ..
-            }) if namespace == XML_SCHEMA_NS && name == "simpleType" => {
+            }) if name == "simpleType" => {
                 let name = attributes
                     .get("name")
                     .map(|n| format!("{}_{}", schema_namespace, n));
@@ -38,11 +39,11 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
                 for child in children {
                     match child {
                         xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
+                            namespace: Some(_xml_schema_ns),
                             name: node_name,
                             attributes,
                             ..
-                        }) if namespace == XML_SCHEMA_NS && node_name == "list" => {
+                        }) if node_name == "list" => {
                             let parent = attributes
                                 .get("itemType")
                                 .ok_or(TypeParseError::MissingItemTypeValue)?;
@@ -57,23 +58,23 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
                             });
                         }
                         xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
+                            namespace: Some(_xml_schema_ns),
                             name: node_name,
                             attributes,
                             children,
                             ..
-                        }) if namespace == XML_SCHEMA_NS && node_name == "restriction" => {
+                        }) if node_name == "restriction" => {
                             let parent =
                                 attributes.get("base").ok_or(TypeParseError::MissingBase)?;
                             let pattern = children
                                 .iter()
                                 .filter_map(|child| match child {
                                     xmltree::XMLNode::Element(xmltree::Element {
-                                        namespace: Some(namespace),
+                                        namespace: Some(_xml_schema_ns),
                                         name,
                                         attributes,
                                         ..
-                                    }) if namespace == XML_SCHEMA_NS && name == "pattern" => {
+                                    }) if name == "pattern" => {
                                         attributes.get("value").cloned()
                                     }
                                     _ => None,
@@ -83,11 +84,11 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
                                 .iter()
                                 .filter_map(|child| match child {
                                     xmltree::XMLNode::Element(xmltree::Element {
-                                        namespace: Some(namespace),
+                                        namespace: Some(_xml_schema_ns),
                                         name,
                                         attributes,
                                         ..
-                                    }) if namespace == XML_SCHEMA_NS && name == "minInclusive" => {
+                                    }) if name == "minInclusive" => {
                                         attributes.get("value").cloned()
                                     }
                                     _ => None,
@@ -98,11 +99,11 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
                                 .iter()
                                 .filter_map(|child| match child {
                                     xmltree::XMLNode::Element(xmltree::Element {
-                                        namespace: Some(namespace),
+                                        namespace: Some(_xml_schema_ns),
                                         name,
                                         attributes,
                                         ..
-                                    }) if namespace == XML_SCHEMA_NS && name == "enumeration" => {
+                                    }) if name == "enumeration" => {
                                         Some(attributes.get("value").cloned())
                                     }
                                     _ => None,
@@ -131,6 +132,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for SimpleType {
 pub(super) fn str_to_simple_type_or_reference(
     namespace: &str,
     type_name: &str,
+    name: Option<String>,
 ) -> openapiv3::ReferenceOr<SimpleType> {
     match type_name.parse::<PrimitiveType>() {
         Err(_) => openapiv3::ReferenceOr::Reference {
@@ -145,7 +147,7 @@ pub(super) fn str_to_simple_type_or_reference(
             enumeration: Vec::new(),
             list: false,
             min_inclusive: None,
-            name: None,
+            name,
             parent: p,
             pattern: None,
         }),
