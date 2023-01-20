@@ -29080,12 +29080,19 @@ components:
           additionalProperties: false
     vcloud_HardwareVersionBaseType:
       title: vcloud_HardwareVersionBaseType
+      discriminator:
+        propertyName: _type
+        mapping:
+          HardwareVersionType: vcloud_HardwareVersionType
       type: object
       properties:
-        value:
+        content:
+          type: string
+        _type:
           type: string
       required:
-        - value
+        - content
+        - _type
       additionalProperties: false
     vcloud_HardwareVersionType:
       title: vcloud_HardwareVersionType
@@ -30286,12 +30293,19 @@ components:
           additionalProperties: false
     vcloud_SupportedHardwareVersionBaseType:
       title: vcloud_SupportedHardwareVersionBaseType
+      discriminator:
+        propertyName: _type
+        mapping:
+          SupportedHardwareVersionType: vcloud_SupportedHardwareVersionType
       type: object
       properties:
-        value:
+        content:
+          type: string
+        _type:
           type: string
       required:
-        - value
+        - content
+        - _type
       additionalProperties: false
     vcloud_SupportedHardwareVersionType:
       title: vcloud_SupportedHardwareVersionType

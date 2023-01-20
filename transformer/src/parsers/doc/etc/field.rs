@@ -42,14 +42,15 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
     fn try_from(
         (xml, root, schema_namespace): (&xmltree::XMLNode, &xmltree::XMLNode, &str),
     ) -> Result<Self, Self::Error> {
+        let _xml_schema_ns = String::from(XML_SCHEMA_NS);
         match xml {
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(namespace),
+                namespace: Some(_xml_schema_ns),
                 name,
                 attributes,
                 children,
                 ..
-            }) if namespace == XML_SCHEMA_NS && name == "element" => {
+            }) if name == "element" => {
                 match attributes
                     .get("ref")
                     .and_then(|type_name| {
@@ -78,7 +79,7 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
                                     .map(|s| openapiv3::ReferenceOr::Item(s))
                                     .ok()
                                     .or(attributes.get("type").map(|type_name| {
-                                        str_to_simple_type_or_reference(schema_namespace, type_name)
+                                        str_to_simple_type_or_reference(schema_namespace, type_name, None)
                                     }))
                                     .map(|r#type| (name, r#type)),
                                 _ => None,
@@ -90,7 +91,7 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
                         .next()
                         .map(|s| openapiv3::ReferenceOr::Item(s))
                         .or(attributes.get("type").map(|type_name| {
-                            str_to_simple_type_or_reference(schema_namespace, type_name)
+                            str_to_simple_type_or_reference(schema_namespace, type_name, None)
                         }))
                         .and_then(|r#type| attributes.get("name").map(|name| (name, r#type))))
                     .and_then(|(name, ref r#type)| {
@@ -119,12 +120,12 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
                 }
             }
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(namespace),
+                namespace: Some(_xml_schema_ns),
                 name,
                 attributes,
                 children,
                 ..
-            }) if namespace == XML_SCHEMA_NS && name == "attribute" => {
+            }) if name == "attribute" => {
                 let name = attributes
                     .get("name")
                     .map(|name| decapitalize(name))
@@ -139,7 +140,7 @@ impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Field {
                     None => {
                         let type_name =
                             attributes.get("type").ok_or(FieldParseError::MissingType)?;
-                        str_to_simple_type_or_reference(schema_namespace, type_name)
+                        str_to_simple_type_or_reference(schema_namespace, type_name, None)
                     }
                 };
                 let occurrences = match attributes.get("use").map(String::as_str) {

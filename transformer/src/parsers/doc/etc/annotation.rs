@@ -33,17 +33,17 @@ impl TryFrom<&Vec<xmltree::XMLNode>> for Annotation {
     type Error = AnnotationParseError;
 
     fn try_from(children: &Vec<xmltree::XMLNode>) -> Result<Self, Self::Error> {
+        let _xml_schema_ns = String::from(XML_SCHEMA_NS);
         let description = children
             .iter()
             .filter_map(|child| match child {
                 xmltree::XMLNode::Element(xmltree::Element {
-                    namespace: Some(namespace),
+                    namespace: Some(_xml_schema_ns),
                     name,
                     children,
                     attributes,
                     ..
-                }) if namespace == XML_SCHEMA_NS
-                    && name == "documentation"
+                }) if name == "documentation"
                     && (attributes.get("lang").map(String::as_str) == Some("en")
                         || attributes.is_empty()) =>
                 {
@@ -60,13 +60,12 @@ impl TryFrom<&Vec<xmltree::XMLNode>> for Annotation {
             .iter()
             .filter_map(|child| match child {
                 xmltree::XMLNode::Element(xmltree::Element {
-                    namespace: Some(namespace),
+                    namespace: Some(_xml_schema_ns),
                     name,
                     children,
                     attributes,
                     ..
-                }) if namespace == XML_SCHEMA_NS
-                    && name == "documentation"
+                }) if name == "documentation"
                     && attributes.get("source").map(String::as_str) == Some("required") =>
                 {
                     match children.get(0) {
@@ -83,31 +82,33 @@ impl TryFrom<&Vec<xmltree::XMLNode>> for Annotation {
             .next();
         let deprecated = children.iter().any(|child| match child {
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(namespace),
+                namespace: Some(_xml_schema_ns),
                 name,
                 attributes,
                 ..
-            }) => {
-                namespace == XML_SCHEMA_NS
-                    && name == "documentation"
-                    && attributes.get("source").map(String::as_str) == Some("deprecated")
+            }) if name == "documentation" => { 
+                attributes.get("source").map(String::as_str) == Some("deprecated")
             }
             _ => false,
         });
+        let _xml_schema_ns_meta = String::from("http://www.vmware.com/vcloud/meta");
         let removed = children.iter().any(|child| match child {
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(namespace),
+                namespace: Some(_xml_schema_ns),
                 name,
                 attributes,
                 ..
-            }) => {
-                (namespace == XML_SCHEMA_NS
-                    && name == "documentation"
-                    && attributes.get("source").map(String::as_str) == Some("removed-in"))
-                    || (namespace == "http://www.vmware.com/vcloud/meta"
-                        && name == "version"
-                        && attributes.contains_key("removed-in"))
-            }
+            }) if name == "documentation" => {
+                attributes.get("source").map(String::as_str) == Some("removed-in")
+            },
+            xmltree::XMLNode::Element(xmltree::Element {
+                namespace: Some(_xml_schema_ns_meta),
+                name,
+                attributes,
+                ..
+            }) if name == "version" => {
+                attributes.contains_key("removed-in")
+            },
             _ => false,
         });
 
@@ -115,20 +116,19 @@ impl TryFrom<&Vec<xmltree::XMLNode>> for Annotation {
             .iter()
             .filter_map(|child| match child {
                 xmltree::XMLNode::Element(xmltree::Element {
-                    namespace: Some(namespace),
+                    namespace: Some(_xml_schema_ns),
                     name,
                     children,
                     ..
-                }) if namespace == XML_SCHEMA_NS && name == "appinfo" => children
+                }) if name == "appinfo" => children
                     .iter()
                     .filter_map(|child| match child {
                         xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
+                            namespace: Some(_xml_schema_ns_meta),
                             name,
                             children,
                             ..
-                        }) if namespace == "http://www.vmware.com/vcloud/meta"
-                            && name == "content-type" =>
+                        }) if name == "content-type" =>
                         {
                             match children.get(0) {
                                 Some(xmltree::XMLNode::Text(ct)) => Some(ct.trim().to_owned()),
@@ -155,22 +155,23 @@ impl TryFrom<&xmltree::XMLNode> for Annotation {
     type Error = AnnotationParseError;
 
     fn try_from(value: &xmltree::XMLNode) -> Result<Self, Self::Error> {
+        let _xml_schema_ns = String::from(XML_SCHEMA_NS);
         match value {
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(namespace),
+                namespace: Some(_xml_schema_ns),
                 name,
                 children,
                 ..
-            }) if namespace == XML_SCHEMA_NS && name == "annotation" => {
+            }) if name == "annotation" => {
                 let annotation_a = children
                     .iter()
                     .filter_map(|n| match n {
                         xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(namespace),
+                            namespace: Some(_xml_schema_ns),
                             name,
                             children,
                             ..
-                        }) if namespace == XML_SCHEMA_NS && name == "appinfo" => {
+                        }) if name == "appinfo" => {
                             Annotation::try_from(children).ok()
                         }
                         _ => None,
