@@ -43,14 +43,11 @@ pub enum TypeParseError {
     MissingItemTypeValue,
 }
 
-impl TryFrom<(&xmltree::XMLNode, &xmltree::XMLNode, &str)> for Type {
+impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for Type {
     type Error = TypeParseError;
-    fn try_from((xml, root, schema_namespace): (&xmltree::XMLNode, &xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
-        match ObjectType::try_from((xml, root, schema_namespace)) {
-            Err(TypeParseError::NotTypeNode) => Ok(Type::SimpleType(SimpleType::try_from((
-                xml,
-                schema_namespace,
-            ))?)),
+    fn try_from((xml, types): (&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)) -> Result<Self, Self::Error> {
+        match ObjectType::try_from((xml, types)) {
+            Err(TypeParseError::NotTypeNode) => Ok(Type::SimpleType(SimpleType::try_from(xml)?)),
             Ok(object) => Ok(Type::ObjectType(object)),
             Err(e) => Err(e),
         }
@@ -106,8 +103,12 @@ fn parse_type_wth_parent_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -170,8 +171,12 @@ fn parse_type_that_is_attribute_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -219,8 +224,12 @@ fn parse_type_that_is_attribute_but_not_required_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -270,8 +279,12 @@ fn parse_type_that_is_attribute_but_not_extension_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -313,8 +326,12 @@ fn simple_type_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -338,8 +355,12 @@ fn simple_type_with_pattern_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -363,8 +384,12 @@ fn simple_type_with_min_inclusive_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -386,8 +411,12 @@ fn simple_type_with_list_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -409,8 +438,12 @@ fn simplest_simple_type_into_schema_test() {
     "#;
 
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -443,8 +476,12 @@ fn base_type_into_schema_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -503,8 +540,12 @@ fn parent_type_into_schema_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -562,8 +603,12 @@ fn parse_group_test() {
     </xs:group>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -608,8 +653,12 @@ fn parse_group_ref_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -649,8 +698,12 @@ fn parse_group_ref_no_sequence_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -688,8 +741,12 @@ fn parse_group_ref_one_parent_test() {
     </xs:complexType>
     "#;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
@@ -735,8 +792,12 @@ fn parse_complex_simple_extension_type() {
     </xs:complexType>
         "###;
     let tree = xmltree::Element::parse(xml).unwrap();
-    let root = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((&xmltree::XMLNode::Element(tree), &xmltree::XMLNode::Element(root), "test")).unwrap();
+    let types = xmltree::Element::parse(xml).unwrap();
+    let c = Type::try_from((
+        &xmltree::XMLNode::Element(tree),
+        &vec![&xmltree::XMLNode::Element(types)],
+    ))
+    .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),

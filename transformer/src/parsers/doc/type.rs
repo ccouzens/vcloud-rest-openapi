@@ -69,13 +69,7 @@ impl TryFrom<DetailPage> for Type {
             .find("Extends:")
             .and_then(DefinitionListValue::to_inner_text)
             .unwrap_or_default();
-        let name = match namespace.as_str() {
-            "http://www.vmware.com/vcloud/extension/v1.5" => format!("vcloud-ext_{}", r#type),
-            "http://www.vmware.com/vcloud/versions" => format!("versioning_{}", r#type),
-            "http://www.vmware.com/vcloud/v1.5" => format!("vcloud_{}", r#type),
-            "http://schemas.dmtf.org/ovf/envelope/1" => format!("ovf_{}", r#type),
-            _ => r#type.to_string(),
-        };
+        let name = r#type.to_string();
         Ok(Self {
             r#type,
             name,

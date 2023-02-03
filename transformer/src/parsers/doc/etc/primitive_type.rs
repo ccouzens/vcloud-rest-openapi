@@ -7,6 +7,7 @@ pub enum PrimitiveType {
     AnyUri,
     Base64Binary,
     Boolean,
+    Byte,
     DateTime,
     Decimal,
     Double,
@@ -17,7 +18,11 @@ pub enum PrimitiveType {
     Long,
     NormalizedString,
     Short,
+    UnsignedShort,
     String,
+    UnsignedByte,
+    UnsignedInt,
+    UnsignedLong,
 }
 
 #[derive(Error, Debug, PartialEq)]
@@ -31,10 +36,12 @@ impl FromStr for PrimitiveType {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         Ok(match s {
-            "xs:anyType" => PrimitiveType::AnyType,
+            "xs:anyType" | "xs:anySimpleType" => PrimitiveType::AnyType,
             "xs:anyURI" => PrimitiveType::AnyUri,
             "xs:base64Binary" => PrimitiveType::Base64Binary,
             "xs:boolean" => PrimitiveType::Boolean,
+            "xs:byte" => PrimitiveType::Byte,
+            "xs:unsignedByte" => PrimitiveType::UnsignedByte,
             "xs:dateTime" => PrimitiveType::DateTime,
             "xs:decimal" => PrimitiveType::Decimal,
             "xs:double" => PrimitiveType::Double,
@@ -42,9 +49,12 @@ impl FromStr for PrimitiveType {
             "xs:hexBinary" => PrimitiveType::HexBinary,
             "xs:int" => PrimitiveType::Int,
             "xs:integer" => PrimitiveType::Integer,
+            "xs:unsignedInt" => PrimitiveType::UnsignedInt,
             "xs:long" => PrimitiveType::Long,
+            "xs:unsignedLong" => PrimitiveType::UnsignedLong,
             "xs:normalizedString" => PrimitiveType::NormalizedString,
             "xs:short" => PrimitiveType::Short,
+            "xs:unsignedShort" => PrimitiveType::UnsignedShort,
             "xs:string" => PrimitiveType::String,
             _ => return Err(ParsePrimitiveTypeError::NoMatch(s.to_owned())),
         })
@@ -77,7 +87,7 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                 format: openapiv3::VariantOrUnknownOrEmpty::Unknown("uri".to_owned()),
                 ..Default::default()
             }),
-            PrimitiveType::Base64Binary => Self::String(openapiv3::StringType {
+            PrimitiveType::Base64Binary | PrimitiveType::Byte | PrimitiveType::UnsignedByte => Self::String(openapiv3::StringType {
                 enumeration: t.enumeration.clone(),
                 pattern: t.pattern.clone(),
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::Byte),
@@ -123,7 +133,7 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                     .collect(),
                 ..Default::default()
             }),
-            PrimitiveType::Integer | PrimitiveType::Short => {
+            PrimitiveType::Integer | PrimitiveType::UnsignedInt | PrimitiveType::Short | PrimitiveType::UnsignedShort => {
                 Self::Integer(openapiv3::IntegerType {
                     minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
                     enumeration: t
@@ -135,7 +145,7 @@ impl<'a> From<&RestrictedPrimitiveType<'a>> for openapiv3::Type {
                     ..Default::default()
                 })
             }
-            PrimitiveType::Long => Self::Integer(openapiv3::IntegerType {
+            PrimitiveType::Long | PrimitiveType::UnsignedLong => Self::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
                 minimum: t.min_inclusive.as_ref().and_then(|m| m.parse().ok()),
                 enumeration: t

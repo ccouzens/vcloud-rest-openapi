@@ -1,9 +1,10 @@
 use anyhow::{Context, Result};
 use indexmap::IndexMap;
 use openapiv3::{ReferenceOr, Schema};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 use std::convert::TryFrom;
 use std::io::{Read, Seek};
+use std::iter::FromIterator;
 use zip::read::ZipArchive;
 
 pub fn schemas<R: Read + Seek>(
@@ -17,8 +18,6 @@ pub fn schemas<R: Read + Seek>(
         .filter(|n| !n.starts_with("doc/etc/etc/snapshot"))
         .filter(|&n| n != "doc/etc/schemas/external/xml.xsd")
         .filter(|&n| n != "doc/etc/etc/schemas/external/xml.xsd")
-        .filter(|n| !n.starts_with("doc/etc/schemas/external/ovf1.1/"))
-        .filter(|n| !n.starts_with("doc/etc/etc/schemas/external/ovf1.1/"))
         .map(|n| n.into())
         .collect::<Vec<String>>();
 
@@ -26,28 +25,30 @@ pub fn schemas<R: Read + Seek>(
 
     let mut content_type_mapping = BTreeMap::new();
 
-    for type_file_name in type_file_names {
-        let mut bytes = Vec::new();
-        zip.by_name(&type_file_name)
-            .with_context(|| format!("Unable to search for {}", type_file_name))?
-            .read_to_end(&mut bytes)
-            .with_context(|| format!("Unable to read file {}", type_file_name))?;
+    let types_files: HashMap<&String, xmltree::XMLNode> =
+        HashMap::from_iter(type_file_names.iter().filter_map(|type_file_name| {
+            zip.by_name(&type_file_name)
+                .map(|mut f| {
+                    let mut buffer = Vec::new();
+                    f.read_to_end(&mut buffer)
+                        .map(|_| {
+                            (
+                                type_file_name,
+                                xmltree::XMLNode::Element(
+                                    xmltree::Element::parse(&buffer as &[u8]).unwrap(),
+                                ),
+                            )
+                        })
+                        .unwrap()
+                })
+                .ok()
+        }));
 
-        let namespace = if type_file_name.contains("/etc/1.5/schemas/extension/") {
-            "vcloud-ext"
-        } else if type_file_name.contains("/etc/1.5/schemas/") {
-            "vcloud"
-        } else if type_file_name.contains("/etc/schemas/versioning/") {
-            "versioning"
-        } else if type_file_name.contains("/etc/schemas/external/ovf1.1/") {
-            "ovf"
-        } else {
-            "unknown"
-        };
+    let all_types: Vec<&xmltree::XMLNode> = types_files.values().collect();
 
-        let xsd_schema =
-            crate::parsers::doc::etc::schema::Schema::try_from((&bytes as &[u8], namespace))
-                .with_context(|| format!("Unable to parse {} as schema", type_file_name))?;
+    for (type_file_name, ref type_xml) in types_files.to_owned() {
+        let xsd_schema = crate::parsers::doc::etc::schema::Schema::try_from((type_xml, &all_types))
+            .with_context(|| format!("Unable to parse {} as schema", type_file_name))?;
         output.extend(
             Vec::<Schema>::from(&xsd_schema)
                 .into_iter()
