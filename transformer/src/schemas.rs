@@ -44,11 +44,13 @@ pub fn schemas<R: Read + Seek>(
                 .ok()
         }));
 
-    let all_types: Vec<&xmltree::XMLNode> = types_files.values().collect();
+    let mut all_types: Vec<&xmltree::XMLNode> = types_files.values().collect();
 
-    for (type_file_name, ref type_xml) in types_files.to_owned() {
-        let xsd_schema = crate::parsers::doc::etc::schema::Schema::try_from((type_xml, &all_types))
-            .with_context(|| format!("Unable to parse {} as schema", type_file_name))?;
+    for (type_file_name, type_xml) in types_files.to_owned() {
+        all_types.sort_by_key(|&t| t != &type_xml);
+        let xsd_schema =
+            crate::parsers::doc::etc::schema::Schema::try_from((&type_xml, &all_types))
+                .with_context(|| format!("Unable to parse {} as schema", type_file_name))?;
         output.extend(
             Vec::<Schema>::from(&xsd_schema)
                 .into_iter()

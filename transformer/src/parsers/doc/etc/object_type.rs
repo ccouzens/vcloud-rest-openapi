@@ -94,8 +94,8 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                         | "Section_Type" => true,
                         _ => false,
                     })
-                    .and_then(|type_name| {
-                        types.iter().find_map(|&xml| {
+                    .map(|type_name| {
+                        types.iter().flat_map(|&xml| {
                             xml.as_element().map(|e| {
                                 e.children
                                     .iter()
@@ -149,8 +149,8 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                         _ => Default::default(),
                                     })
                                     .collect::<Vec<_>>()
-                            })
-                        })
+                            }).unwrap_or_default()
+                        }).collect::<Vec<_>>()
                     })
                     .unwrap_or_default();
 
