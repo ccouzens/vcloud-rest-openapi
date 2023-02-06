@@ -57,29 +57,33 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                         name,
                                         ..
                                     }) if name == "element" => {
+                                        /* if attributes.get("name").map_or(false, |n| n == "Item") {
+                                            debug!("type_name: {:?}", type_name);
+                                            debug!("type name: {:?}", attributes.get("type"));
+                                        } */
                                         attributes.get("type").and_then(|name| {
+                                            /* match name.as_str() {
+                                                "ovf:RASD_Type" => {
+                                                    debug!("type name: {:?}", name)
+                                                }
+                                                _ => {}
+                                            } */
                                             match name.split_once(':') {
                                                 Some(("class", _)) => Some(type_name.to_owned()),
                                                 Some((ns, name)) if type_name.eq(name) => {
                                                     Some(format!("{}_{}", ns, name))
                                                 }
                                                 Some((_, _)) => None,
-                                                None => Some(type_name.to_owned()),
+                                                None => None
                                             }
                                         })
                                     }
                                     _ => None,
                                 })
                             })
-                        })
+                        }).or(Some(type_name))
                     })
                     .ok_or(TypeParseError::MissingName)?;
-                match name.as_str() {
-                    "AbstractVAppType" => {
-                        debug!("type name: {}", name)
-                    }
-                    _ => {}
-                }
                 annotations.extend(children.iter().filter_map(|c| Annotation::try_from(c).ok()));
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();
