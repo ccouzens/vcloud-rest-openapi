@@ -54,47 +54,58 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for Field {
                 match attributes
                     .get("ref")
                     .and_then(|type_name| {
-
-                        types.iter().find_map(|&xml| xml.as_element()
-                        .and_then(|e| {
-                            e.children.iter().find(|&child| match child {
-                                xmltree::XMLNode::Element(xmltree::Element {
-                                    attributes,
-                                    ..
-                                }) => attributes
-                                    .get("name")
-                                    .map_or(false, |name| name == type_name),
-                                _ => false,
-                            })
+                        types.iter().find_map(|&xml| {
+                            xml.as_element()
+                                .and_then(|e| {
+                                    e.children.iter().find(|&child| match child {
+                                        xmltree::XMLNode::Element(xmltree::Element {
+                                            attributes,
+                                            ..
+                                        }) => attributes.get("name").map_or(false, |name| {
+                                            match type_name.split_once(':') {
+                                                Some((ns, tn)) if tn.eq(name) => {
+                                                    attributes.get("type").map_or(false, |t| {
+                                                        t.split_once(':')
+                                                            .map_or(false, |(tns, _)| ns == tns)
+                                                    })
+                                                }
+                                                Some((_, _)) => false,
+                                                None => type_name.eq(name),
+                                            }
+                                        }),
+                                        _ => false,
+                                    })
+                                })
+                                .and_then(|xml| match xml {
+                                    xmltree::XMLNode::Element(xmltree::Element {
+                                        attributes,
+                                        ..
+                                    }) => attributes.get("name").map(|name| (name, xml)),
+                                    _ => None,
+                                })
+                                .and_then(|(name, xml)| match xml {
+                                    xmltree::XMLNode::Element(xmltree::Element {
+                                        attributes,
+                                        ..
+                                    }) => SimpleType::try_from(xml)
+                                        .map(|s| openapiv3::ReferenceOr::Item(s))
+                                        .ok()
+                                        .or(attributes.get("type").map(|type_name| {
+                                            str_to_simple_type_or_reference(type_name, None)
+                                        }))
+                                        .map(|r#type| (name, r#type)),
+                                    _ => None,
+                                })
                         })
-                        .and_then(|xml| match xml {
-                            xmltree::XMLNode::Element(xmltree::Element {
-                                attributes, ..
-                            }) => attributes.get("name").map(|name| (name, xml)),
-                            _ => None,
-                        })
-                        .and_then(|(name, xml)| match xml {
-                            xmltree::XMLNode::Element(xmltree::Element {
-                                attributes, ..
-                            }) => SimpleType::try_from(xml)
-                                .map(|s| openapiv3::ReferenceOr::Item(s))
-                                .ok()
-                                .or(attributes.get("type").map(|type_name| {
-                                    str_to_simple_type_or_reference(type_name, None)
-                                }))
-                                .map(|r#type| (name, r#type)),
-                            _ => None,
-                        }))
-
                     })
                     .or(children
                         .iter()
                         .flat_map(|xml| SimpleType::try_from(xml))
                         .next()
                         .map(|s| openapiv3::ReferenceOr::Item(s))
-                        .or(attributes.get("type").map(|type_name| {
-                            str_to_simple_type_or_reference(type_name, None)
-                        }))
+                        .or(attributes
+                            .get("type")
+                            .map(|type_name| str_to_simple_type_or_reference(type_name, None)))
                         .and_then(|r#type| attributes.get("name").map(|name| (name, r#type))))
                     .and_then(|(name, ref r#type)| {
                         children

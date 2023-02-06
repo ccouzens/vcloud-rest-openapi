@@ -48,12 +48,6 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                 let name = type_name
                     .map(String::from)
                     .and_then(|type_name| {
-                        /*                         match type_name.as_str() {
-                            "cimString" => {
-                                debug!("type name: {}", type_name)
-                            }
-                            _ => {}
-                        } */
                         types.iter().find_map(|&xml| {
                             xml.as_element().and_then(|e| {
                                 e.children.iter().find_map(|child| match child {
@@ -80,6 +74,12 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                         })
                     })
                     .ok_or(TypeParseError::MissingName)?;
+                match name.as_str() {
+                    "AbstractVAppType" => {
+                        debug!("type name: {}", name)
+                    }
+                    _ => {}
+                }
                 annotations.extend(children.iter().filter_map(|c| Annotation::try_from(c).ok()));
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();
@@ -95,31 +95,39 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                         _ => false,
                     })
                     .map(|type_name| {
-                        types.iter().flat_map(|&xml| {
-                            xml.as_element().map(|e| {
-                                e.children
-                                    .iter()
-                                    .flat_map(|child| match child {
-                                        xmltree::XMLNode::Element(xmltree::Element {
-                                            attributes,
-                                            namespace: Some(_xml_schema_ns),
-                                            name,
-                                            children,
-                                            ..
-                                        }) if name == "complexType" => children
+                        types
+                            .iter()
+                            .flat_map(|&xml| {
+                                xml.as_element()
+                                    .map(|e| {
+                                        e.children
                                             .iter()
-                                            .find_map(|child| match child {
+                                            .flat_map(|child| match child {
                                                 xmltree::XMLNode::Element(xmltree::Element {
+                                                    attributes,
                                                     namespace: Some(_xml_schema_ns),
                                                     name,
                                                     children,
                                                     ..
-                                                }) if match name.as_str() {
-                                                    "complexContent" | "simpleContent" => true,
-                                                    _ => false,
-                                                } =>
-                                                {
-                                                    children.iter().find_map(|child| match child {
+                                                }) if name == "complexType" => children
+                                                    .iter()
+                                                    .find_map(|child| match child {
+                                                        xmltree::XMLNode::Element(
+                                                            xmltree::Element {
+                                                                namespace: Some(_xml_schema_ns),
+                                                                name,
+                                                                children,
+                                                                ..
+                                                            },
+                                                        ) if match name.as_str() {
+                                                            "complexContent" | "simpleContent" => {
+                                                                true
+                                                            }
+                                                            _ => false,
+                                                        } =>
+                                                        {
+                                                            children.iter().find_map(|child| {
+                                                                match child {
                                                         xmltree::XMLNode::Element(
                                                             xmltree::Element {
                                                                 namespace: Some(_xml_schema_ns),
@@ -139,18 +147,23 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                                             })
                                                             .filter(|name| type_name.eq(name)),
                                                         _ => None,
+                                                    }
+                                                            })
+                                                        }
+                                                        _ => None,
                                                     })
-                                                }
-                                                _ => None,
+                                                    .and_then(|_| {
+                                                        attributes
+                                                            .get("name")
+                                                            .map(|name| name.into())
+                                                    }),
+                                                _ => Default::default(),
                                             })
-                                            .and_then(|_| {
-                                                attributes.get("name").map(|name| name.into())
-                                            }),
-                                        _ => Default::default(),
+                                            .collect::<Vec<_>>()
                                     })
-                                    .collect::<Vec<_>>()
-                            }).unwrap_or_default()
-                        }).collect::<Vec<_>>()
+                                    .unwrap_or_default()
+                            })
+                            .collect::<Vec<_>>()
                     })
                     .unwrap_or_default();
 
