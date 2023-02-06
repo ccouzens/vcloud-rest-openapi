@@ -45,45 +45,39 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                 let mut annotations = Vec::new();
                 // TODO: check qualified names in root by type and base attributes (PrefixedName = Prefix ':' LocalPart) see for details: https://www.w3.org/TR/xml-names11/#NT-QName
                 let type_name = attributes.get("name");
-                let name = type_name
-                    .map(String::from)
-                    .and_then(|type_name| {
-                        types.iter().find_map(|&xml| {
-                            xml.as_element().and_then(|e| {
-                                e.children.iter().find_map(|child| match child {
-                                    xmltree::XMLNode::Element(xmltree::Element {
-                                        namespace: Some(_xml_schema_ns),
-                                        attributes,
-                                        name,
-                                        ..
-                                    }) if name == "element" => {
-                                        /* if attributes.get("name").map_or(false, |n| n == "Item") {
-                                            debug!("type_name: {:?}", type_name);
-                                            debug!("type name: {:?}", attributes.get("type"));
-                                        } */
-                                        attributes.get("type").and_then(|name| {
-                                            /* match name.as_str() {
-                                                "ovf:RASD_Type" => {
-                                                    debug!("type name: {:?}", name)
-                                                }
-                                                _ => {}
-                                            } */
-                                            match name.split_once(':') {
-                                                Some(("class", _)) => Some(type_name.to_owned()),
-                                                Some((ns, name)) if type_name.eq(name) => {
-                                                    Some(format!("{}_{}", ns, name))
-                                                }
-                                                Some((_, _)) => None,
-                                                None => None
-                                            }
+                let name =
+                    type_name
+                        .map(String::from)
+                        .and_then(|type_name| {
+                            types
+                                .iter()
+                                .find_map(|&xml| {
+                                    xml.as_element().and_then(|e| {
+                                        e.children.iter().find_map(|child| match child {
+                                            xmltree::XMLNode::Element(xmltree::Element {
+                                                namespace: Some(_xml_schema_ns),
+                                                attributes,
+                                                name,
+                                                ..
+                                            }) if name == "element" => attributes
+                                                .get("type")
+                                                .and_then(|name| match name.split_once(':') {
+                                                    Some(("class", _)) => {
+                                                        Some(type_name.to_owned())
+                                                    }
+                                                    Some((ns, name)) if type_name.eq(name) => {
+                                                        Some(format!("{}_{}", ns, name))
+                                                    }
+                                                    Some((_, _)) => None,
+                                                    None => None,
+                                                }),
+                                            _ => None,
                                         })
-                                    }
-                                    _ => None,
+                                    })
                                 })
-                            })
-                        }).or(Some(type_name))
-                    })
-                    .ok_or(TypeParseError::MissingName)?;
+                                .or(Some(type_name))
+                        })
+                        .ok_or(TypeParseError::MissingName)?;
                 annotations.extend(children.iter().filter_map(|c| Annotation::try_from(c).ok()));
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();

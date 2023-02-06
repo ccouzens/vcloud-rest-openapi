@@ -40,7 +40,6 @@ impl TryFrom<DetailPage> for Type {
     type Error = TypeParseError;
 
     fn try_from(p: DetailPage) -> Result<Self, Self::Error> {
-        let r#type = p.h1;
         let elements = p
             .definition_list
             .find("Element:")
@@ -53,6 +52,14 @@ impl TryFrom<DetailPage> for Type {
             .find("Namespace:")
             .and_then(DefinitionListValue::to_inner_text)
             .unwrap_or_default();
+        let r#type = p
+            .definition_list
+            .find("Type:")
+            .and_then(DefinitionListValue::to_inner_text)
+            .map_or(p.h1.clone(), |t| match namespace.as_str() {
+                "http://schemas.dmtf.org/ovf/envelope/1" => format!("ovf_{}", t),
+                _ => t,
+            });
         let description = p
             .definition_list
             .find("Description:")
