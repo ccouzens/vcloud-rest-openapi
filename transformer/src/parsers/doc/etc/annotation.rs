@@ -165,7 +165,9 @@ impl TryFrom<&xmltree::XMLNode> for Annotation {
                             name,
                             children,
                             ..
-                        }) if namespace == XML_SCHEMA_NS && name == "appinfo" => Annotation::try_from(children).ok(),
+                        }) if namespace == XML_SCHEMA_NS && name == "appinfo" => {
+                            Annotation::try_from(children).ok()
+                        }
                         _ => None,
                     })
                     .next();
