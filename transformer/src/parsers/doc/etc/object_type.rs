@@ -499,7 +499,7 @@ fn parse_attribute_group_test() {
 </xs:attributeGroup>
 "#;
 
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -555,7 +555,7 @@ fn parse_attribute_group_ref_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -620,7 +620,7 @@ fn parse_annotation_inside_complex_content_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -692,7 +692,7 @@ fn removed_field_test() {
         </xs:sequence>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((

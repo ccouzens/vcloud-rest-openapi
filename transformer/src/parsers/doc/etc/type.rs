@@ -103,7 +103,7 @@ fn parse_type_wth_parent_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -173,7 +173,7 @@ fn parse_type_that_is_attribute_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -228,7 +228,7 @@ fn parse_type_that_is_attribute_but_not_required_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -285,7 +285,7 @@ fn parse_type_that_is_attribute_but_not_extension_test() {
         </xs:attribute>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -333,7 +333,7 @@ fn simple_type_into_schema_test() {
         </xs:restriction>
     </xs:simpleType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -363,7 +363,7 @@ fn simple_type_with_pattern_into_schema_test() {
         </xs:restriction>
     </xs:simpleType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -393,7 +393,7 @@ fn simple_type_with_min_inclusive_into_schema_test() {
         </xs:restriction>
     </xs:simpleType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -421,7 +421,7 @@ fn simple_type_with_list_into_schema_test() {
         <xs:list itemType="xs:string"/>
     </xs:simpleType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -489,7 +489,7 @@ fn base_type_into_schema_test() {
         </xs:sequence>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -555,7 +555,7 @@ fn parent_type_into_schema_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -620,7 +620,7 @@ fn parse_group_test() {
         </xs:sequence>
     </xs:group>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -672,7 +672,7 @@ fn parse_group_ref_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -719,7 +719,7 @@ fn parse_group_ref_no_sequence_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -764,7 +764,7 @@ fn parse_group_ref_one_parent_test() {
         </xs:sequence>
     </xs:complexType>
     "#;
-    let ns: Option<&str> = None;
+    let ns: Option<&str> = Some("test");
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
@@ -817,7 +817,7 @@ fn parse_complex_simple_extension_type() {
       </xs:simpleContent>
     </xs:complexType>
         "###;
-        let ns: Option<&str> = None;
+        let ns: Option<&str> = Some("test");
         let tree = xmltree::Element::parse(xml).unwrap();
         let types = xmltree::Element::parse(xml).unwrap();
         let c = Type::try_from((
