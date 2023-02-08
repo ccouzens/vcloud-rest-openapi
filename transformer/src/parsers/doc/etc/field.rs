@@ -5,6 +5,7 @@ use crate::parsers::doc::etc::simple_type::SimpleType;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
 #[cfg(test)]
 use serde_json::json;
+
 use std::convert::TryFrom;
 use thiserror::Error;
 use xmltree::XMLNode;
@@ -36,25 +37,34 @@ pub enum FieldParseError {
     Removed,
 }
 
-impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for Field {
+impl
+    TryFrom<(
+        Option<&str>,
+        &xmltree::XMLNode,
+        &Vec<(Option<&str>, &xmltree::XMLNode)>,
+    )> for Field
+{
     type Error = FieldParseError;
 
     fn try_from(
-        (xml, types): (&xmltree::XMLNode, &Vec<&xmltree::XMLNode>),
+        (ns, xml, types): (
+            Option<&str>,
+            &xmltree::XMLNode,
+            &Vec<(Option<&str>, &xmltree::XMLNode)>,
+        ),
     ) -> Result<Self, Self::Error> {
-        let _xml_schema_ns = String::from(XML_SCHEMA_NS);
         match xml {
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(_xml_schema_ns),
+                namespace: Some(namespace),
                 name,
                 attributes,
                 children,
                 ..
-            }) if name == "element" => {
+            }) if namespace == XML_SCHEMA_NS && name == "element" => {
                 match attributes
                     .get("ref")
                     .and_then(|type_name| {
-                        types.iter().find_map(|&xml| {
+                        types.iter().find_map(|(_, xml)| {
                             xml.as_element()
                                 .and_then(|e| {
                                     e.children.iter().find(|&child| match child {
@@ -87,11 +97,11 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for Field {
                                     xmltree::XMLNode::Element(xmltree::Element {
                                         attributes,
                                         ..
-                                    }) => SimpleType::try_from(xml)
+                                    }) => SimpleType::try_from((ns, xml))
                                         .map(|s| openapiv3::ReferenceOr::Item(s))
                                         .ok()
                                         .or(attributes.get("type").map(|type_name| {
-                                            str_to_simple_type_or_reference(type_name, None)
+                                            str_to_simple_type_or_reference(ns, type_name, None)
                                         }))
                                         .map(|r#type| (name, r#type)),
                                     _ => None,
@@ -100,12 +110,12 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for Field {
                     })
                     .or(children
                         .iter()
-                        .flat_map(|xml| SimpleType::try_from(xml))
+                        .flat_map(|xml| SimpleType::try_from((ns, xml)))
                         .next()
                         .map(|s| openapiv3::ReferenceOr::Item(s))
                         .or(attributes
                             .get("type")
-                            .map(|type_name| str_to_simple_type_or_reference(type_name, None)))
+                            .map(|type_name| str_to_simple_type_or_reference(ns, type_name, None)))
                         .and_then(|r#type| attributes.get("name").map(|name| (name, r#type))))
                     .and_then(|(name, ref r#type)| {
                         children
@@ -146,14 +156,14 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for Field {
                     .to_owned();
                 let r#type = match children
                     .iter()
-                    .flat_map(|xml| SimpleType::try_from(xml))
+                    .flat_map(|xml| SimpleType::try_from((ns, xml)))
                     .next()
                 {
                     Some(s) => openapiv3::ReferenceOr::Item(s),
                     None => {
                         let type_name =
                             attributes.get("type").ok_or(FieldParseError::MissingType)?;
-                        str_to_simple_type_or_reference(type_name, None)
+                        str_to_simple_type_or_reference(ns, type_name, None)
                     }
                 };
                 let occurrences = match attributes.get("use").map(String::as_str) {
@@ -278,11 +288,13 @@ fn test_parse_field_from_required_attribute() {
         </xs:annotation>
     </xs:attribute>
 "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -308,11 +320,13 @@ fn test_parse_field_from_optional_attribute() {
         </xs:annotation>
     </xs:attribute>
 "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -338,11 +352,13 @@ fn test_field_optional_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -368,11 +384,13 @@ fn test_field_array_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -402,11 +420,13 @@ fn test_field_exactly_one_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -432,11 +452,13 @@ fn test_anyuri_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -463,11 +485,13 @@ fn test_double_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -494,11 +518,13 @@ fn test_long_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -525,11 +551,13 @@ fn test_datetime_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -556,11 +584,13 @@ fn test_base64_binary_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -587,11 +617,13 @@ fn test_normalized_string_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -617,11 +649,13 @@ fn test_short_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -647,11 +681,13 @@ fn test_decimal_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -677,11 +713,13 @@ fn test_float_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -708,11 +746,13 @@ fn test_hex_binary_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -738,11 +778,13 @@ fn test_integer_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -768,11 +810,13 @@ fn test_any_type_into_schema() {
         </xs:annotation>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -803,11 +847,13 @@ fn test_element_with_simple_type() {
         </xs:simpleType>
     </xs:element>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);
@@ -832,11 +878,13 @@ fn test_attribute_with_simple_type() {
         </xs:simpleType>
     </xs:attribute>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let s = Field::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&s);

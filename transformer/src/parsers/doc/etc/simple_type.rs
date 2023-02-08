@@ -16,11 +16,10 @@ pub(super) struct SimpleType {
     pub(super) min_inclusive: Option<String>,
 }
 
-impl TryFrom<&xmltree::XMLNode> for SimpleType {
+impl TryFrom<(Option<&str>, &xmltree::XMLNode)> for SimpleType {
     type Error = TypeParseError;
 
-    fn try_from(xml: &xmltree::XMLNode) -> Result<Self, Self::Error> {
-        let _xml_schema_ns = String::from(XML_SCHEMA_NS);
+    fn try_from((ns, xml): (Option<&str>, &xmltree::XMLNode)) -> Result<Self, Self::Error> {
         match xml {
             xmltree::XMLNode::Element(xmltree::Element {
                 namespace: Some(namespace),
@@ -28,10 +27,10 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
                 attributes,
                 children,
                 ..
-            }) if name == "simpleType" => {
-                let name = attributes
-                    .get("name")
-                    .map(|n| format!("{}", n));
+            }) if namespace == XML_SCHEMA_NS && name == "simpleType" => {
+                let name = attributes.get("name").map(|type_name| {
+                    ns.map_or(type_name.to_owned(), |ns| format!("{}_{}", ns, type_name))
+                });
                 let annotation = children
                     .iter()
                     .filter_map(|c| Annotation::try_from(c).ok())
@@ -74,9 +73,7 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
                                         name,
                                         attributes,
                                         ..
-                                    }) if name == "pattern" => {
-                                        attributes.get("value").cloned()
-                                    }
+                                    }) if name == "pattern" => attributes.get("value").cloned(),
                                     _ => None,
                                 })
                                 .next();
@@ -130,6 +127,7 @@ impl TryFrom<&xmltree::XMLNode> for SimpleType {
 }
 
 pub(super) fn str_to_simple_type_or_reference(
+    ns: Option<&str>,
     type_name: &str,
     name: Option<String>,
 ) -> openapiv3::ReferenceOr<SimpleType> {
@@ -138,7 +136,7 @@ pub(super) fn str_to_simple_type_or_reference(
             reference: if type_name.contains(':') {
                 type_name.replacen(':', "_", 1)
             } else {
-                format!("{}", type_name)
+                ns.map_or(type_name.to_owned(), |ns| format!("{}_{}", ns, type_name))
             },
         },
         Ok(p) => openapiv3::ReferenceOr::Item(SimpleType {

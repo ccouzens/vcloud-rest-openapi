@@ -18,8 +18,6 @@ pub struct Type {
 pub enum TypeParseError {
     #[error("Detail Page Parse Error `{0}`")]
     DetailPageParseError(#[from] DetailPageFromStrError),
-    #[error("Cannot find elements")]
-    CannotFindElementsError,
 }
 
 fn html_to_mimes(html: &str) -> impl Iterator<Item = String> + '_ {
@@ -46,7 +44,7 @@ impl TryFrom<DetailPage> for Type {
             .or(p.definition_list.find("Elements:"))
             .and_then(DefinitionListValue::as_text)
             .map(|v| v.split(',').map(|e| e.trim().into()).collect())
-            .ok_or(Self::Error::CannotFindElementsError)?;
+            .unwrap_or_default();
         let namespace = p
             .definition_list
             .find("Namespace:")
@@ -58,6 +56,13 @@ impl TryFrom<DetailPage> for Type {
             .and_then(DefinitionListValue::to_inner_text)
             .map_or(p.h1.clone(), |t| match namespace.as_str() {
                 "http://schemas.dmtf.org/ovf/envelope/1" => format!("ovf_{}", t),
+                "http://schemas.dmtf.org/ovf/environment/1" => format!("ovfenv_{}", t),
+                "http://schemas.dmtf.org/wbem/wscim/1/common" => format!("cim_{}", t),
+                "http://www.vmware.com/vcloud/meta" => format!("meta_{}", t),
+                "http://www.vmware.com/schema/ovf" => format!("vmw_{}", t),
+                "http://www.vmware.com/vcloud/extension/v1.5" => format!("vcloud-ext_{}", t),
+                "http://www.vmware.com/vcloud/versions" => format!("versioning_{}", t),
+                "http://www.vmware.com/vcloud/v1.5" => format!("vcloud_{}", t),
                 _ => t,
             });
         let description = p

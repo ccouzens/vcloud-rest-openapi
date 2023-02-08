@@ -23,21 +23,30 @@ pub(super) struct ObjectType {
     pub(super) descendants: Vec<String>,
 }
 
-impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
+impl
+    TryFrom<(
+        Option<&str>,
+        &xmltree::XMLNode,
+        &Vec<(Option<&str>, &xmltree::XMLNode)>,
+    )> for ObjectType
+{
     type Error = TypeParseError;
 
     fn try_from(
-        (xml, types): (&xmltree::XMLNode, &Vec<&xmltree::XMLNode>),
+        (ns, xml, types): (
+            Option<&str>,
+            &xmltree::XMLNode,
+            &Vec<(Option<&str>, &xmltree::XMLNode)>,
+        ),
     ) -> Result<Self, Self::Error> {
-        let _xml_schema_ns = String::from(XML_SCHEMA_NS);
         match xml {
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(_xml_schema_ns),
+                namespace: Some(namespace),
                 name,
                 attributes,
                 children,
                 ..
-            }) if match name.as_str() {
+            }) if namespace == XML_SCHEMA_NS && match name.as_str() {
                 "complexType" | "group" | "attributeGroup" => true,
                 _ => false,
             } =>
@@ -45,39 +54,12 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                 let mut annotations = Vec::new();
                 // TODO: check qualified names in root by type and base attributes (PrefixedName = Prefix ':' LocalPart) see for details: https://www.w3.org/TR/xml-names11/#NT-QName
                 let type_name = attributes.get("name");
-                let name =
-                    type_name
-                        .map(String::from)
-                        .and_then(|type_name| {
-                            types
-                                .iter()
-                                .find_map(|&xml| {
-                                    xml.as_element().and_then(|e| {
-                                        e.children.iter().find_map(|child| match child {
-                                            xmltree::XMLNode::Element(xmltree::Element {
-                                                namespace: Some(_xml_schema_ns),
-                                                attributes,
-                                                name,
-                                                ..
-                                            }) if name == "element" => attributes
-                                                .get("type")
-                                                .and_then(|name| match name.split_once(':') {
-                                                    Some(("class", _)) => {
-                                                        Some(type_name.to_owned())
-                                                    }
-                                                    Some((ns, name)) if type_name.eq(name) => {
-                                                        Some(format!("{}_{}", ns, name))
-                                                    }
-                                                    Some((_, _)) => None,
-                                                    None => None,
-                                                }),
-                                            _ => None,
-                                        })
-                                    })
-                                })
-                                .or(Some(type_name))
-                        })
-                        .ok_or(TypeParseError::MissingName)?;
+                let name = type_name
+                    .map(String::from)
+                    .map(|type_name| {
+                        ns.map_or(type_name.to_owned(), |ns| format!("{}_{}", ns, type_name))
+                    })
+                    .ok_or(TypeParseError::MissingName)?;
                 annotations.extend(children.iter().filter_map(|c| Annotation::try_from(c).ok()));
                 let mut fields = Vec::new();
                 let mut parents = Vec::new();
@@ -95,7 +77,7 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                     .map(|type_name| {
                         types
                             .iter()
-                            .flat_map(|&xml| {
+                            .flat_map(|(ns_type, xml)| {
                                 xml.as_element()
                                     .map(|e| {
                                         e.children
@@ -135,15 +117,18 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                                             },
                                                         ) if name == "extension" => attributes
                                                             .get("base")
-                                                            .and_then(|name| {
+                                                            .filter(|&name| {
                                                                 match name.split_once(':') {
-                                                                    Some((_, name)) => {
-                                                                        Some(name.into())
-                                                                    }
-                                                                    None => Some(name.to_owned()),
+                                                                    Some((namespace, name)) => {
+                                                                        ns.map_or(false, |ns| ns == namespace && type_name.eq(name))
+                                                                    },
+                                                                    None => type_name.eq(name),
                                                                 }
                                                             })
-                                                            .filter(|name| type_name.eq(name)),
+                                                            .map(|name| match name.split_once(':') {
+                                                                Some((_, _)) => name.into(),
+                                                                None => ns_type.map_or(name.to_owned(), |ns| format!("{}:{}", ns, name))
+                                                            }),
                                                         _ => None,
                                                     }
                                                             })
@@ -153,7 +138,10 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                                     .and_then(|_| {
                                                         attributes
                                                             .get("name")
-                                                            .map(|name| name.into())
+                                                             .map(|name| match name.split_once(':') {
+                                                                Some((_, name)) => ns_type.map_or(name.into(), |ns| format!("{}:{}", ns, name)),
+                                                                None => ns_type.map_or(name.into(), |ns| format!("{}:{}", ns, name))
+                                                            })
                                                     }),
                                                 _ => Default::default(),
                                             })
@@ -168,7 +156,7 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                 fields.extend(
                     children
                         .iter()
-                        .flat_map(|xml| Field::try_from((xml, types))),
+                        .flat_map(|xml| Field::try_from((ns, xml, types))),
                 );
 
                 let base_name = children.iter().find_map(|c| match c {
@@ -205,13 +193,12 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                             fields.extend(
                                 children
                                     .iter()
-                                    .flat_map(|xml| Field::try_from((xml, types))),
+                                    .flat_map(|xml| Field::try_from((ns, xml, types))),
                             );
                             parents.extend(
-                                children
-                                    .iter()
-                                    .flat_map(GroupRef::try_from)
-                                    .map(|g| str_to_simple_type_or_reference(&g.reference, None)),
+                                children.iter().flat_map(GroupRef::try_from).map(|g| {
+                                    str_to_simple_type_or_reference(ns, &g.reference, None)
+                                }),
                             );
                         }
                         xmltree::XMLNode::Element(xmltree::Element {
@@ -238,6 +225,7 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                     }) if name == "extension" => {
                                         if let Some(type_name) = attributes.get("base") {
                                             parents.push(str_to_simple_type_or_reference(
+                                                ns,
                                                 type_name,
                                                 base_name.map(|r| r.into()),
                                             ));
@@ -245,11 +233,15 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                         fields.extend(
                                             children
                                                 .iter()
-                                                .flat_map(|xml| Field::try_from((xml, types))),
+                                                .flat_map(|xml| Field::try_from((ns, xml, types))),
                                         );
                                         parents.extend(
                                             children.iter().flat_map(GroupRef::try_from).map(|g| {
-                                                str_to_simple_type_or_reference(&g.reference, None)
+                                                str_to_simple_type_or_reference(
+                                                    ns,
+                                                    &g.reference,
+                                                    None,
+                                                )
                                             }),
                                         );
                                         for child in children {
@@ -261,7 +253,7 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                                     ..
                                                 }) if name == "sequence" => {
                                                     fields.extend(children.iter().flat_map(
-                                                        |xml| Field::try_from((xml, types)),
+                                                        |xml| Field::try_from((ns, xml, types)),
                                                     ));
                                                     parents.extend(
                                                         children
@@ -269,6 +261,7 @@ impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for ObjectType {
                                                             .flat_map(GroupRef::try_from)
                                                             .map(|g| {
                                                                 str_to_simple_type_or_reference(
+                                                                    ns,
                                                                     &g.reference,
                                                                     None,
                                                                 )
@@ -456,9 +449,7 @@ impl From<&ObjectType> for openapiv3::Schema {
                         mapping: descendants
                             .iter()
                             .map(|type_name| match type_name.split_once(':') {
-                                Some((ns, name)) => {
-                                    (type_name.to_owned(), format!("{}_{}", ns, name))
-                                }
+                                Some((ns, name)) => (name.to_owned(), format!("{}_{}", ns, name)),
                                 None => (type_name.to_owned(), type_name.to_owned()),
                             })
                             .collect(),
@@ -508,11 +499,13 @@ fn parse_attribute_group_test() {
 </xs:attributeGroup>
 "#;
 
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -562,11 +555,13 @@ fn parse_attribute_group_ref_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -625,11 +620,13 @@ fn parse_annotation_inside_complex_content_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -695,11 +692,13 @@ fn removed_field_test() {
         </xs:sequence>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);

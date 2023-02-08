@@ -3,6 +3,7 @@ use crate::parsers::doc::etc::primitive_type::ParsePrimitiveTypeError;
 use crate::parsers::doc::etc::simple_type::SimpleType;
 #[cfg(test)]
 use serde_json::json;
+
 use std::convert::TryFrom;
 use thiserror::Error;
 
@@ -43,11 +44,11 @@ pub enum TypeParseError {
     MissingItemTypeValue,
 }
 
-impl TryFrom<(&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)> for Type {
+impl TryFrom<(Option<&str>, &xmltree::XMLNode, &Vec<(Option<&str>, &xmltree::XMLNode)>)> for Type {
     type Error = TypeParseError;
-    fn try_from((xml, types): (&xmltree::XMLNode, &Vec<&xmltree::XMLNode>)) -> Result<Self, Self::Error> {
-        match ObjectType::try_from((xml, types)) {
-            Err(TypeParseError::NotTypeNode) => Ok(Type::SimpleType(SimpleType::try_from(xml)?)),
+    fn try_from((ns, xml, types): (Option<&str>, &xmltree::XMLNode, &Vec<(Option<&str>, &xmltree::XMLNode)>)) -> Result<Self, Self::Error> {
+        match ObjectType::try_from((ns, xml, types)) {
+            Err(TypeParseError::NotTypeNode) => Ok(Type::SimpleType(SimpleType::try_from((ns, xml))?)),
             Ok(object) => Ok(Type::ObjectType(object)),
             Err(e) => Err(e),
         }
@@ -102,11 +103,13 @@ fn parse_type_wth_parent_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -170,11 +173,13 @@ fn parse_type_that_is_attribute_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -223,11 +228,13 @@ fn parse_type_that_is_attribute_but_not_required_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -278,11 +285,13 @@ fn parse_type_that_is_attribute_but_not_extension_test() {
         </xs:attribute>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -324,12 +333,13 @@ fn simple_type_into_schema_test() {
         </xs:restriction>
     </xs:simpleType>
     "#;
-
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -353,12 +363,13 @@ fn simple_type_with_pattern_into_schema_test() {
         </xs:restriction>
     </xs:simpleType>
     "#;
-
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -382,12 +393,13 @@ fn simple_type_with_min_inclusive_into_schema_test() {
         </xs:restriction>
     </xs:simpleType>
     "#;
-
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -409,12 +421,13 @@ fn simple_type_with_list_into_schema_test() {
         <xs:list itemType="xs:string"/>
     </xs:simpleType>
     "#;
-
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -436,12 +449,13 @@ fn simplest_simple_type_into_schema_test() {
         </xs:restriction>
     </xs:simpleType>
     "#;
-
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -475,11 +489,13 @@ fn base_type_into_schema_test() {
         </xs:sequence>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -539,11 +555,13 @@ fn parent_type_into_schema_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -602,11 +620,13 @@ fn parse_group_test() {
         </xs:sequence>
     </xs:group>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -652,11 +672,13 @@ fn parse_group_ref_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -697,11 +719,13 @@ fn parse_group_ref_no_sequence_test() {
         </xs:complexContent>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -740,11 +764,13 @@ fn parse_group_ref_one_parent_test() {
         </xs:sequence>
     </xs:complexType>
     "#;
+    let ns: Option<&str> = None;
     let tree = xmltree::Element::parse(xml).unwrap();
     let types = xmltree::Element::parse(xml).unwrap();
     let c = Type::try_from((
+        ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
+        &vec![(ns, &xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -791,13 +817,15 @@ fn parse_complex_simple_extension_type() {
       </xs:simpleContent>
     </xs:complexType>
         "###;
-    let tree = xmltree::Element::parse(xml).unwrap();
-    let types = xmltree::Element::parse(xml).unwrap();
-    let c = Type::try_from((
-        &xmltree::XMLNode::Element(tree),
-        &vec![&xmltree::XMLNode::Element(types)],
-    ))
-    .unwrap();
+        let ns: Option<&str> = None;
+        let tree = xmltree::Element::parse(xml).unwrap();
+        let types = xmltree::Element::parse(xml).unwrap();
+        let c = Type::try_from((
+            ns,
+            &xmltree::XMLNode::Element(tree),
+            &vec![(ns, &xmltree::XMLNode::Element(types))],
+        ))
+        .unwrap();
     let value = openapiv3::Schema::from(&c);
     assert_eq!(
         serde_json::to_value(value).unwrap(),

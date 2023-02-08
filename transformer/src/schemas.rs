@@ -1,4 +1,4 @@
-use anyhow::{Context, Result};
+use anyhow::Result;
 use indexmap::IndexMap;
 use openapiv3::{ReferenceOr, Schema};
 use std::collections::{BTreeMap, HashMap};
@@ -44,13 +44,38 @@ pub fn schemas<R: Read + Seek>(
                 .ok()
         }));
 
-    let mut all_types: Vec<&xmltree::XMLNode> = types_files.values().collect();
+    let all_types = types_files
+        .values()
+        .map(|tf| {
+            (
+                match tf {
+                    xmltree::XMLNode::Element(xmltree::Element { attributes, .. })
+                        if attributes.contains_key("targetNamespace") =>
+                    {
+                        attributes.get("targetNamespace").map(|t| match t.as_str() {
+                            "http://schemas.dmtf.org/ovf/envelope/1" => "ovf",
+                            "http://schemas.dmtf.org/ovf/environment/1" => "ovfenv",
+                            "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" => "rasd",
+                            "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" => "vssd",
+                            "http://schemas.dmtf.org/wbem/wscim/1/common" => "cim",
+                            "http://www.vmware.com/vcloud/meta" => "meta",
+                            "http://www.vmware.com/schema/ovf" => "vmw",
+                            "http://www.vmware.com/vcloud/extension/v1.5" => "vcloud-ext",
+                            "http://www.vmware.com/vcloud/v1.5" => "vcloud",
+                            "http://www.vmware.com/vcloud/versions" => "versioning",
+                            _ => "vcloud",
+                        })
+                    }
+                    _ => None,
+                },
+                tf,
+            )
+        })
+        .collect::<Vec<_>>();
 
-    for (type_file_name, type_xml) in types_files.to_owned() {
-        all_types.sort_by_key(|&t| t != &type_xml);
+    for (ns, type_xml) in all_types.to_owned() {
         let xsd_schema =
-            crate::parsers::doc::etc::schema::Schema::try_from((&type_xml, &all_types))
-                .with_context(|| format!("Unable to parse {} as schema", type_file_name))?;
+            crate::parsers::doc::etc::schema::Schema::try_from((ns, type_xml, &all_types))?;
         output.extend(
             Vec::<Schema>::from(&xsd_schema)
                 .into_iter()
