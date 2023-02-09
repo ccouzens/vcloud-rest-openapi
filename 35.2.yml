@@ -15269,17 +15269,17 @@ components:
       discriminator:
         propertyName: _type
         mapping:
-          AnnotationSection_Type: ovf_AnnotationSection_Type
-          ProductSection_Type: ovf_ProductSection_Type
-          NetworkSection_Type: ovf_NetworkSection_Type
-          DiskSection_Type: ovf_DiskSection_Type
-          OperatingSystemSection_Type: ovf_OperatingSystemSection_Type
-          EulaSection_Type: ovf_EulaSection_Type
-          VirtualHardwareSection_Type: ovf_VirtualHardwareSection_Type
-          ResourceAllocationSection_Type: ovf_ResourceAllocationSection_Type
-          InstallSection_Type: ovf_InstallSection_Type
-          StartupSection_Type: ovf_StartupSection_Type
-          DeploymentOptionSection_Type: ovf_DeploymentOptionSection_Type
+          AnnotationSectionType: ovf_AnnotationSection_Type
+          ProductSectionType: ovf_ProductSection_Type
+          NetworkSectionType: ovf_NetworkSection_Type
+          DiskSectionType: ovf_DiskSection_Type
+          OperatingSystemSectionType: ovf_OperatingSystemSection_Type
+          EulaSectionType: ovf_EulaSection_Type
+          VirtualHardwareSectionType: ovf_VirtualHardwareSection_Type
+          ResourceAllocationSectionType: ovf_ResourceAllocationSection_Type
+          InstallSectionType: ovf_InstallSection_Type
+          StartupSectionType: ovf_StartupSection_Type
+          DeploymentOptionSectionType: ovf_DeploymentOptionSection_Type
           GuestCustomizationStatusSectionType: vcloud_GuestCustomizationStatusSectionType
           NetworkConfigSectionType: vcloud_NetworkConfigSectionType
           LeaseSettingsSectionType: vcloud_LeaseSettingsSectionType
@@ -15288,13 +15288,13 @@ components:
           RuntimeInfoSectionType: vcloud_RuntimeInfoSectionType
           GuestCustomizationSectionType: vcloud_GuestCustomizationSectionType
           SnapshotSectionType: vcloud_SnapshotSectionType
-          DefaultStorageProfileSection_Type: vcloud_DefaultStorageProfileSection_Type
+          DefaultStorageProfileSectionType: vcloud_DefaultStorageProfileSection_Type
           CustomizationSectionType: vcloud_CustomizationSectionType
-          IpAssignmentSection_Type: vmw_IpAssignmentSection_Type
-          CpuCompatibilitySection_Type: vmw_CpuCompatibilitySection_Type
-          StorageGroupSection_Type: vmw_StorageGroupSection_Type
-          StorageSection_Type: vmw_StorageSection_Type
-          BootOrderSection_Type: vmw_BootOrderSection_Type
+          IpAssignmentSectionType: vmw_IpAssignmentSection_Type
+          CpuCompatibilitySectionType: vmw_CpuCompatibilitySection_Type
+          StorageGroupSectionType: vmw_StorageGroupSection_Type
+          StorageSectionType: vmw_StorageSection_Type
+          BootOrderSectionType: vmw_BootOrderSection_Type
       type: object
       properties:
         info:
@@ -15576,8 +15576,8 @@ components:
       discriminator:
         propertyName: _type
         mapping:
-          PropertySection_Type: ovfenv_PropertySection_Type
-          PlatformSection_Type: ovfenv_PlatformSection_Type
+          PropertySectionType: ovfenv_PropertySection_Type
+          PlatformSectionType: ovfenv_PlatformSection_Type
       type: object
       properties:
         _type:

@@ -449,7 +449,7 @@ impl From<&ObjectType> for openapiv3::Schema {
                         mapping: descendants
                             .iter()
                             .map(|type_name| match type_name.split_once(':') {
-                                Some((ns, name)) => (name.to_owned(), format!("{}_{}", ns, name)),
+                                Some((ns, name)) => (name.replace("_", "").to_owned(), format!("{}_{}", ns, name)),
                                 None => (type_name.to_owned(), type_name.to_owned()),
                             })
                             .collect(),
