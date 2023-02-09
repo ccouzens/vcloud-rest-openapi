@@ -40,7 +40,7 @@ impl
     TryFrom<(
         Option<&str>,
         &xmltree::XMLNode,
-        &Vec<(Option<&str>, &xmltree::XMLNode)>,
+        &Vec<(Option<&str>, xmltree::XMLNode)>,
     )> for Schema
 {
     type Error = SchemaParseError;
@@ -49,7 +49,7 @@ impl
         (ns, xml, types): (
             Option<&str>,
             &xmltree::XMLNode,
-            &Vec<(Option<&str>, &xmltree::XMLNode)>,
+            &Vec<(Option<&str>, xmltree::XMLNode)>,
         ),
     ) -> Result<Self, Self::Error> {
         match xml {

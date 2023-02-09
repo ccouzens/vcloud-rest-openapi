@@ -27,7 +27,7 @@ impl
     TryFrom<(
         Option<&str>,
         &xmltree::XMLNode,
-        &Vec<(Option<&str>, &xmltree::XMLNode)>,
+        &Vec<(Option<&str>, xmltree::XMLNode)>,
     )> for ObjectType
 {
     type Error = TypeParseError;
@@ -36,7 +36,7 @@ impl
         (ns, xml, types): (
             Option<&str>,
             &xmltree::XMLNode,
-            &Vec<(Option<&str>, &xmltree::XMLNode)>,
+            &Vec<(Option<&str>, xmltree::XMLNode)>,
         ),
     ) -> Result<Self, Self::Error> {
         match xml {

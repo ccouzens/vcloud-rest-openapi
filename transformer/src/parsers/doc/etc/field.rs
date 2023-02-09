@@ -41,7 +41,7 @@ impl
     TryFrom<(
         Option<&str>,
         &xmltree::XMLNode,
-        &Vec<(Option<&str>, &xmltree::XMLNode)>,
+        &Vec<(Option<&str>, xmltree::XMLNode)>,
     )> for Field
 {
     type Error = FieldParseError;
@@ -50,7 +50,7 @@ impl
         (ns, xml, types): (
             Option<&str>,
             &xmltree::XMLNode,
-            &Vec<(Option<&str>, &xmltree::XMLNode)>,
+            &Vec<(Option<&str>, xmltree::XMLNode)>,
         ),
     ) -> Result<Self, Self::Error> {
         match xml {

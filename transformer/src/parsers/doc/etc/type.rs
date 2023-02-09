@@ -44,9 +44,9 @@ pub enum TypeParseError {
     MissingItemTypeValue,
 }
 
-impl TryFrom<(Option<&str>, &xmltree::XMLNode, &Vec<(Option<&str>, &xmltree::XMLNode)>)> for Type {
+impl TryFrom<(Option<&str>, &xmltree::XMLNode, &Vec<(Option<&str>, xmltree::XMLNode)>)> for Type {
     type Error = TypeParseError;
-    fn try_from((ns, xml, types): (Option<&str>, &xmltree::XMLNode, &Vec<(Option<&str>, &xmltree::XMLNode)>)) -> Result<Self, Self::Error> {
+    fn try_from((ns, xml, types): (Option<&str>, &xmltree::XMLNode, &Vec<(Option<&str>, xmltree::XMLNode)>)) -> Result<Self, Self::Error> {
         match ObjectType::try_from((ns, xml, types)) {
             Err(TypeParseError::NotTypeNode) => Ok(Type::SimpleType(SimpleType::try_from((ns, xml))?)),
             Ok(object) => Ok(Type::ObjectType(object)),
