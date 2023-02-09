@@ -505,7 +505,7 @@ fn parse_attribute_group_test() {
     let c = Type::try_from((
         ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![(ns, &xmltree::XMLNode::Element(types))],
+        &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -561,7 +561,7 @@ fn parse_attribute_group_ref_test() {
     let c = Type::try_from((
         ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![(ns, &xmltree::XMLNode::Element(types))],
+        &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -626,7 +626,7 @@ fn parse_annotation_inside_complex_content_test() {
     let c = Type::try_from((
         ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![(ns, &xmltree::XMLNode::Element(types))],
+        &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);
@@ -698,7 +698,7 @@ fn removed_field_test() {
     let c = Type::try_from((
         ns,
         &xmltree::XMLNode::Element(tree),
-        &vec![(ns, &xmltree::XMLNode::Element(types))],
+        &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
     let value = openapiv3::Schema::from(&c);

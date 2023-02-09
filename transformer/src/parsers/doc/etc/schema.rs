@@ -78,7 +78,7 @@ impl From<&Schema> for Vec<openapiv3::Schema> {
 #[test]
 fn base_schema_into_schemas_test() {
     let ns: Option<&str> = Some("test");
-    let types = &xmltree::XMLNode::Element(
+    let types = xmltree::XMLNode::Element(
         xmltree::Element::parse(include_bytes!("test_base.xsd") as &[u8]).unwrap(),
     );
     let xml = xmltree::XMLNode::Element(
@@ -109,7 +109,7 @@ fn base_schema_into_schemas_test() {
 #[test]
 fn schema_into_schemas_test() {
     let ns: Option<&str> = Some("test");
-    let types = &xmltree::XMLNode::Element(
+    let types = xmltree::XMLNode::Element(
         xmltree::Element::parse(include_bytes!("test.xsd") as &[u8]).unwrap(),
     );
     let xml = xmltree::XMLNode::Element(
