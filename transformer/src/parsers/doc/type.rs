@@ -18,8 +18,6 @@ pub struct Type {
 pub enum TypeParseError {
     #[error("Detail Page Parse Error `{0}`")]
     DetailPageParseError(#[from] DetailPageFromStrError),
-    #[error("Cannot find elements")]
-    CannotFindElementsError,
 }
 
 fn html_to_mimes(html: &str) -> impl Iterator<Item = String> + '_ {
@@ -40,19 +38,33 @@ impl TryFrom<DetailPage> for Type {
     type Error = TypeParseError;
 
     fn try_from(p: DetailPage) -> Result<Self, Self::Error> {
-        let r#type = p.h1;
         let elements = p
             .definition_list
             .find("Element:")
             .or(p.definition_list.find("Elements:"))
             .and_then(DefinitionListValue::as_text)
             .map(|v| v.split(',').map(|e| e.trim().into()).collect())
-            .ok_or(Self::Error::CannotFindElementsError)?;
+            .unwrap_or_default();
         let namespace = p
             .definition_list
             .find("Namespace:")
             .and_then(DefinitionListValue::to_inner_text)
             .unwrap_or_default();
+        let r#type = p
+            .definition_list
+            .find("Type:")
+            .and_then(DefinitionListValue::to_inner_text)
+            .map_or(p.h1.clone(), |t| match namespace.as_str() {
+                "http://schemas.dmtf.org/ovf/envelope/1" => format!("ovf_{}", t),
+                "http://schemas.dmtf.org/ovf/environment/1" => format!("ovfenv_{}", t),
+                "http://schemas.dmtf.org/wbem/wscim/1/common" => format!("cim_{}", t),
+                "http://www.vmware.com/vcloud/meta" => format!("meta_{}", t),
+                "http://www.vmware.com/schema/ovf" => format!("vmw_{}", t),
+                "http://www.vmware.com/vcloud/extension/v1.5" => format!("vcloud-ext_{}", t),
+                "http://www.vmware.com/vcloud/versions" => format!("versioning_{}", t),
+                "http://www.vmware.com/vcloud/v1.5" => format!("vcloud_{}", t),
+                _ => t,
+            });
         let description = p
             .definition_list
             .find("Description:")
@@ -69,13 +81,7 @@ impl TryFrom<DetailPage> for Type {
             .find("Extends:")
             .and_then(DefinitionListValue::to_inner_text)
             .unwrap_or_default();
-        let name = match namespace.as_str() {
-            "http://www.vmware.com/vcloud/extension/v1.5" => format!("vcloud-ext_{}", r#type),
-            "http://www.vmware.com/vcloud/versions" => format!("versioning_{}", r#type),
-            "http://www.vmware.com/vcloud/v1.5" => format!("vcloud_{}", r#type),
-            "http://schemas.dmtf.org/ovf/envelope/1" => format!("ovf_{}", r#type),
-            _ => r#type.to_string(),
-        };
+        let name = r#type.to_string();
         Ok(Self {
             r#type,
             name,

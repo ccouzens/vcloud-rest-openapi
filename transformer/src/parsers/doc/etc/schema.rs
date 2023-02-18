@@ -2,6 +2,7 @@ use crate::parsers::doc::etc::r#type::Type;
 use crate::parsers::doc::etc::XML_SCHEMA_NS;
 #[cfg(test)]
 use serde_json::json;
+
 use std::convert::TryFrom;
 use thiserror::Error;
 
@@ -35,23 +36,24 @@ impl Schema {
     }
 }
 
-impl TryFrom<(&[u8], &str)> for Schema {
-    type Error = SchemaFromBytesError;
-
-    fn try_from((bytes, namespace): (&[u8], &str)) -> Result<Self, Self::Error> {
-        Ok(Self::try_from((
-            &xmltree::XMLNode::Element(xmltree::Element::parse(bytes)?),
-            namespace,
-        ))?)
-    }
-}
-
-impl TryFrom<(&xmltree::XMLNode, &str)> for Schema {
+impl
+    TryFrom<(
+        Option<&str>,
+        &xmltree::XMLNode,
+        &Vec<(Option<&str>, xmltree::XMLNode)>,
+    )> for Schema
+{
     type Error = SchemaParseError;
 
-    fn try_from((xml, schema_namespace): (&xmltree::XMLNode, &str)) -> Result<Self, Self::Error> {
+    fn try_from(
+        (ns, xml, types): (
+            Option<&str>,
+            &xmltree::XMLNode,
+            &Vec<(Option<&str>, xmltree::XMLNode)>,
+        ),
+    ) -> Result<Self, Self::Error> {
         match xml {
-            root @ xmltree::XMLNode::Element(xmltree::Element {
+            xmltree::XMLNode::Element(xmltree::Element {
                 namespace: Some(namespace),
                 name,
                 children,
@@ -59,7 +61,7 @@ impl TryFrom<(&xmltree::XMLNode, &str)> for Schema {
             }) if namespace == XML_SCHEMA_NS && name == "schema" => Ok(Schema {
                 types: children
                     .iter()
-                    .flat_map(|x| Type::try_from((x, root, schema_namespace)))
+                    .flat_map(|x| Type::try_from((ns, x, types)))
                     .collect(),
             }),
             _ => Err(SchemaParseError::NotSchemaNode),
@@ -75,7 +77,14 @@ impl From<&Schema> for Vec<openapiv3::Schema> {
 
 #[test]
 fn base_schema_into_schemas_test() {
-    let s = Schema::try_from((include_bytes!("test_base.xsd") as &[u8], "test")).unwrap();
+    let ns: Option<&str> = Some("test");
+    let types = xmltree::XMLNode::Element(
+        xmltree::Element::parse(include_bytes!("test_base.xsd") as &[u8]).unwrap(),
+    );
+    let xml = xmltree::XMLNode::Element(
+        xmltree::Element::parse(include_bytes!("test_base.xsd") as &[u8]).unwrap(),
+    );
+    let s = Schema::try_from((ns, &xml, &vec![(ns, types)])).unwrap();
     let value = Vec::<openapiv3::Schema>::from(&s);
 
     assert_eq!(
@@ -99,7 +108,14 @@ fn base_schema_into_schemas_test() {
 
 #[test]
 fn schema_into_schemas_test() {
-    let s = Schema::try_from((include_bytes!("test.xsd") as &[u8], "test")).unwrap();
+    let ns: Option<&str> = Some("test");
+    let types = xmltree::XMLNode::Element(
+        xmltree::Element::parse(include_bytes!("test.xsd") as &[u8]).unwrap(),
+    );
+    let xml = xmltree::XMLNode::Element(
+        xmltree::Element::parse(include_bytes!("test.xsd") as &[u8]).unwrap(),
+    );
+    let s = Schema::try_from((ns, &xml, &vec![(ns, types)])).unwrap();
     let value = Vec::<openapiv3::Schema>::from(&s);
 
     assert_eq!(
