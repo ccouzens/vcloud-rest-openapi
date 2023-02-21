@@ -24084,13 +24084,11 @@
     "securitySchemes": {
       "basicAuth": {
         "type": "http",
-        "scheme": "basic",
-        "bearerFormat": null
+        "scheme": "basic"
       },
       "bearerAuth": {
         "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": null
+        "scheme": "bearer"
       }
     },
     "schemas": {
