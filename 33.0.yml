@@ -15248,11 +15248,9 @@ components:
     basicAuth:
       type: http
       scheme: basic
-      bearerFormat: null
     bearerAuth:
       type: http
       scheme: bearer
-      bearerFormat: null
   schemas:
     query-parameter_force:
       type: boolean
