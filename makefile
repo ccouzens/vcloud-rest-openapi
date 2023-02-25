@@ -13,6 +13,7 @@ specs = \
 36.2.json \
 36.3.json \
 37.0.json \
+37.1.json \
 27.0.yml \
 29.0.yml \
 30.0.yml \
@@ -26,7 +27,8 @@ specs = \
 36.1.yml \
 36.2.yml \
 36.3.yml \
-37.0.yml
+37.0.yml \
+37.1.yml
 
 .PHONY : all
 all : $(specs)
@@ -86,6 +88,10 @@ website/36.3.zip:
 website/37.0.zip:
 	mkdir -p $(dir $@)
 	curl https://vdc-repo.vmware.com/vmwb-repository/dcr-public/01bd0ac9-89fb-4136-9229-ba038efee2c0/fa523867-5496-4b27-b7ae-c6e0d1ed08ce/doc/fa523867-5496-4b27-b7ae-c6e0d1ed08ce.zip > $@
+
+website/37.1.zip:
+	mkdir -p $(dir $@)
+	curl https://vdc-repo.vmware.com/vmwb-repository/dcr-public/f207b1a0-8135-4e06-800b-199edba81c40/3d9e0170-5b7f-4319-b6ba-72c7e4ea643f/doc/3d9e0170-5b7f-4319-b6ba-72c7e4ea643f.zip > $@
 
 ./%.json: website/%.zip
 	(cd transformer; RUST_LOG=transformer=debug cargo run --release) < $< > $@
