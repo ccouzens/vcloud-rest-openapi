@@ -23818,12 +23818,7 @@
         "type": "object",
         "properties": {
           "references": {
-            "description": "References to all external files",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ovf_References_Type"
-              }
-            ]
+            "$ref": "#/components/schemas/ovf_References_Type"
           },
           "section": {
             "description": "Package level meta-data",
@@ -23833,12 +23828,7 @@
             }
           },
           "content": {
-            "description": "Content: A VirtualSystem or a VirtualSystemCollection",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ovf_Content_Type"
-              }
-            ]
+            "$ref": "#/components/schemas/ovf_Content_Type"
           },
           "strings": {
             "description": "Localized string resource bundles",
@@ -23904,20 +23894,10 @@
             "type": "string"
           },
           "info": {
-            "description": "Info element describes the meaning of the content, this is typically shown if the type is not understood by an application",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ovf_Msg_Type"
-              }
-            ]
+            "$ref": "#/components/schemas/ovf_Msg_Type"
           },
           "name": {
-            "description": "An optional localizable display name of the content",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ovf_Msg_Type"
-              }
-            ]
+            "$ref": "#/components/schemas/ovf_Msg_Type"
           },
           "section": {
             "description": "Content body is a list of Sections",
@@ -24009,12 +23989,7 @@
         "type": "object",
         "properties": {
           "info": {
-            "description": "Info element describes the meaning of the Section, this is typically shown if the Section is not understood by an application",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ovf_Msg_Type"
-              }
-            ]
+            "$ref": "#/components/schemas/ovf_Msg_Type"
           },
           "_type": {
             "type": "string"
@@ -24054,11 +24029,7 @@
             "type": "object",
             "properties": {
               "annotation": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ovf_Msg_Type"
-                  }
-                ]
+                "$ref": "#/components/schemas/ovf_Msg_Type"
               }
             },
             "additionalProperties": false
@@ -24084,60 +24055,25 @@
                 "type": "string"
               },
               "product": {
-                "description": "Name of product",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ovf_Msg_Type"
-                  }
-                ]
+                "$ref": "#/components/schemas/ovf_Msg_Type"
               },
               "vendor": {
-                "description": "Name of product vendor",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ovf_Msg_Type"
-                  }
-                ]
+                "$ref": "#/components/schemas/ovf_Msg_Type"
               },
               "version": {
-                "description": "Product version, short form",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               },
               "fullVersion": {
-                "description": "Product version, long form",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               },
               "productUrl": {
-                "description": "URL resolving to product description",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               },
               "vendorUrl": {
-                "description": "URL resolving to vendor description",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               },
               "appUrl": {
-                "description": "Experimental: URL resolving to deployed product instance",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               }
             },
             "additionalProperties": false
@@ -24250,11 +24186,7 @@
                 "type": "string"
               },
               "description": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ovf_Msg_Type"
-                  }
-                ]
+                "$ref": "#/components/schemas/ovf_Msg_Type"
               }
             },
             "additionalProperties": false
@@ -24272,11 +24204,7 @@
             "type": "object",
             "properties": {
               "license": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ovf_Msg_Type"
-                  }
-                ]
+                "$ref": "#/components/schemas/ovf_Msg_Type"
               }
             },
             "additionalProperties": false
@@ -24298,11 +24226,7 @@
                 "type": "string"
               },
               "system": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ovf_VSSD_Type"
-                  }
-                ]
+                "$ref": "#/components/schemas/ovf_VSSD_Type"
               },
               "item": {
                 "type": "array",
@@ -24510,36 +24434,16 @@
             "type": "object",
             "properties": {
               "kind": {
-                "description": "Experimental: Deployment platform description",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               },
               "version": {
-                "description": "Experimental: Deployment platform version",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               },
               "vendor": {
-                "description": "Experimental: Deployment platform vendor",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               },
               "locale": {
-                "description": "Experimental: Current locale",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/cim_cimString"
-                  }
-                ]
+                "$ref": "#/components/schemas/cim_cimString"
               },
               "timezone": {
                 "description": "Experimental: Current timezone offset in minutes from UTC. Time zones east of Greenwich are positive and time zones west of Greenwich are negative.",
@@ -24554,6 +24458,77 @@
       "rasd_CIM_ResourceAllocationSettingData_Type": {
         "title": "rasd_CIM_ResourceAllocationSettingData_Type",
         "type": "object",
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "addressOnParent": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "allocationUnits": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "automaticAllocation": {
+            "$ref": "#/components/schemas/cim_cimBoolean"
+          },
+          "automaticDeallocation": {
+            "$ref": "#/components/schemas/cim_cimBoolean"
+          },
+          "configurationName": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "connection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/cim_cimString"
+            }
+          },
+          "description": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "elementName": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "generation": {
+            "$ref": "#/components/schemas/cim_cimUnsignedLong"
+          },
+          "hostResource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/cim_cimString"
+            }
+          },
+          "instanceID": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "limit": {
+            "$ref": "#/components/schemas/cim_cimUnsignedLong"
+          },
+          "otherResourceType": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "poolID": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "reservation": {
+            "$ref": "#/components/schemas/cim_cimUnsignedLong"
+          },
+          "resourceSubType": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "virtualQuantity": {
+            "$ref": "#/components/schemas/cim_cimUnsignedLong"
+          },
+          "virtualQuantityUnits": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "weight": {
+            "$ref": "#/components/schemas/cim_cimUnsignedInt"
+          }
+        },
         "additionalProperties": false
       },
       "vcloud_AmqpConfigurationType": {
@@ -24567,20 +24542,10 @@
             "type": "object",
             "properties": {
               "amqpBrokers": {
-                "description": "List of AMQP Broker configurations.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_AmqpBrokersType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_AmqpBrokersType"
               },
               "amqpComponentConfigurations": {
-                "description": "List of AMQP Broker configurations.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_AmqpComponentConfigurationsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_AmqpComponentConfigurationsType"
               }
             },
             "additionalProperties": false
@@ -24624,12 +24589,7 @@
                 "type": "string"
               },
               "amqpConfigList": {
-                "description": "List of AMQP config entries for a component.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_AmqpConfigListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_AmqpConfigListType"
               }
             },
             "required": [
@@ -24780,28 +24740,13 @@
                 "type": "string"
               },
               "organization": {
-                "description": "The organization in which the blocking task runs.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "user": {
-                "description": "The user who triggered the blocking task.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "taskOwner": {
-                "description": "The owner of the blocking task.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -24869,28 +24814,13 @@
                 "type": "string"
               },
               "owner": {
-                "description": "A reference to the owner of the event.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "user": {
-                "description": "A reference to the user for which the event was created.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "eventProperties": {
-                "description": "List of event-specific properties.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_EventPropertiesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_EventPropertiesType"
               }
             },
             "required": [
@@ -24931,28 +24861,13 @@
                 "type": "boolean"
               },
               "org": {
-                "description": "A reference to the organization to which the event was posted.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "owner": {
-                "description": "A reference to the owner of the event.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "user": {
-                "description": "A reference to the user for which the event was created.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "details": {
                 "description": "Event properties in JSON format.",
@@ -24987,56 +24902,26 @@
                 "format": "int32"
               },
               "computeCapacity": {
-                "description": "Read-only indicator of CPU and memory capacity.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_RootComputeCapacityType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_RootComputeCapacityType"
               },
               "availableNetworks": {
-                "description": "Read-only list of available networks.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_AvailableNetworksType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_AvailableNetworksType"
               },
               "storageProfiles": {
-                "description": "Container for references to vSphere storage profiles available to this Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ProviderVdcStorageProfilesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ProviderVdcStorageProfilesType"
               },
               "capabilities": {
-                "description": "Read-only list of virtual hardware versions supported by this Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CapabilitiesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_CapabilitiesType"
               },
               "vdcs": {
-                "description": "Read-only list of organization vDCs backed by this Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VdcsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VdcsType"
               },
               "isEnabled": {
                 "description": "True if this Provider vDC is enabled and can provide resources to organization vDCs. A Provider vDC is always enabled on creation.",
                 "type": "boolean"
               },
               "networkPoolReferences": {
-                "description": "Read-only list of network pools used by this Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NetworkPoolReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NetworkPoolReferencesType"
               }
             },
             "additionalProperties": false
@@ -25058,12 +24943,7 @@
                 "type": "string"
               },
               "computeCapacity": {
-                "description": "The compute capacity allocated to this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ComputeCapacityType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ComputeCapacityType"
               },
               "nicQuota": {
                 "description": "Maximum number of virtual NICs allowed in this vDC. Defaults to 0, which specifies an unlimited number.",
@@ -25111,28 +24991,13 @@
                 "type": "boolean"
               },
               "networkPoolReference": {
-                "description": "Reference to a network pool in the Provider vDC. Required if this vDC will contain routed or isolated networks.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "providerVdcReference": {
-                "description": "A reference to the Provider vDC from which this organization vDC is provisioned.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "resourcePoolRefs": {
-                "description": "Optional list of additional resource pools to back this Organization vDC. Specified resource pools must be backed by different clusters, and must not back an existing Organization vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               },
               "usesFastProvisioning": {
                 "description": "Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.",
@@ -25187,36 +25052,16 @@
                 "type": "boolean"
               },
               "networkPoolReference": {
-                "description": "Reference to a network pool in the Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "vendorServices": {
-                "description": "Vendor services defined for this org vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VendorServicesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VendorServicesType"
               },
               "providerVdcReference": {
-                "description": "A reference to the ProviderVdc from which this vDC is provisioned.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "resourcePoolRefs": {
-                "description": "A set of references to the vCenter Resource Pools backing this VDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               },
               "usesFastProvisioning": {
                 "description": "Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.",
@@ -25316,20 +25161,10 @@
             "type": "object",
             "properties": {
               "cpu": {
-                "description": "Read-only indicator of CPU capacity available in the Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
               },
               "memory": {
-                "description": "Read-only indicator of memory capacity available in the Provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ProviderVdcCapacityType"
               },
               "isElastic": {
                 "description": "True if compute capacity can grow or shrink based on demand.",
@@ -25481,20 +25316,10 @@
                 "type": "boolean"
               },
               "iopsSettings": {
-                "description": "When NOT provided, disk storage placement ignores IOPs considerations; otherwise, this element holds all the disk IOPs related settings, including a subordinate Enabled flag. When that flag is false, disk provisioning using this profile will behave identically as if this element was not provided in the first place.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VdcStorageProfileIopsSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VdcStorageProfileIopsSettingsType"
               },
               "providerVdcStorageProfile": {
-                "description": "Reference to a Provider vDC storage profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -25518,12 +25343,7 @@
             "type": "object",
             "properties": {
               "providerVdcStorageProfile": {
-                "description": "Reference to a Provider vDC storage profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -25591,12 +25411,7 @@
                 "type": "string"
               },
               "phases": {
-                "description": "One or more Phases implemented by this extension in the context of this Selector.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_PhasesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_PhasesType"
               }
             },
             "required": [
@@ -25839,24 +25654,14 @@
                 "format": "int32"
               },
               "role": {
-                "description": "A reference to the user's role. When you are creating a User, the request body must contain exactly one Role element. If the Role element is empty when retrieved,the user inherits a role from the group.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "password": {
                 "description": "The user's password. This value is never returned by GET. It is inspected on create and modify. On modify, the absence of this element indicates that the password should not be changed.",
                 "type": "string"
               },
               "groupReferences": {
-                "description": "Container for references to groups of which this user is a member.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_GroupsListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_GroupsListType"
               }
             },
             "additionalProperties": false
@@ -25878,24 +25683,14 @@
                 "type": "string"
               },
               "usersList": {
-                "description": "Container for references to users in the group.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_UsersListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_UsersListType"
               },
               "providerType": {
                 "description": "Identity provider type for this this group. One of:  \n**INTEGRATED** (The group is imported from LDAP.)  \n**SAML** (The group is imported from a SAML identity provider.)  \n If missing or empty the default value is **INTEGRATED**.",
                 "type": "string"
               },
               "role": {
-                "description": "The default role for users in this group.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "additionalProperties": false
@@ -26009,12 +25804,7 @@
             "type": "object",
             "properties": {
               "rightReferences": {
-                "description": "Container for references to the rights assigned to this role.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_RightReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_RightReferencesType"
               }
             },
             "additionalProperties": false
@@ -26111,44 +25901,19 @@
             "type": "object",
             "properties": {
               "organizationReferences": {
-                "description": "Container for references to AdminOrg objects in the system.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrganizationReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrganizationReferencesType"
               },
               "providerVdcReferences": {
-                "description": "A container for references to ProviderVdc objects in the system.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ProviderVdcReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ProviderVdcReferencesType"
               },
               "rightReferences": {
-                "description": "A container for references to Right objects in the system.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_RightReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_RightReferencesType"
               },
               "roleReferences": {
-                "description": "A container for references to Role objects in the system.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_RoleReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_RoleReferencesType"
               },
               "networks": {
-                "description": "A container for references to ExternalNetwork objects in the system.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NetworksType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NetworksType"
               }
             },
             "additionalProperties": false
@@ -26166,92 +25931,37 @@
             "type": "object",
             "properties": {
               "settings": {
-                "description": "Settings for this organization. Establishes quotas, limits, and policies. Specifies how the organization connects to LDAP and email services.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgSettingsType"
               },
               "users": {
-                "description": "Container for references to users in this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_UsersListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_UsersListType"
               },
               "groups": {
-                "description": "Container for references to groups in this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_GroupsListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_GroupsListType"
               },
               "catalogs": {
-                "description": "Container for references to catalogs in this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CatalogsListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_CatalogsListType"
               },
               "vdcs": {
-                "description": "Container for references to vDCs in this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VdcsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VdcsType"
               },
               "vdcTemplates": {
-                "description": "Container for references to VDC templates in this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VdcTemplatesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VdcTemplatesType"
               },
               "networks": {
-                "description": "Container for references to organization vDC networks in this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NetworksType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NetworksType"
               },
               "orgAssociations": {
-                "description": "Container for the references to other organizations whose content will be listed with this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgAssociationsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgAssociationsType"
               },
               "rightReferences": {
-                "description": "A container for references to Right objects in the organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrganizationRightsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrganizationRightsType"
               },
               "roleReferences": {
-                "description": "A container for references to Role objects in the organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrganizationRolesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrganizationRolesType"
               },
               "roleTemplateReferences": {
-                "description": "A container for references to Role objects in the organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_RoleReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_RoleReferencesType"
               }
             },
             "required": [
@@ -26318,12 +26028,7 @@
             "type": "object",
             "properties": {
               "vdcTemplateSpecification": {
-                "description": "A reference to the specification for a VDC template object.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VdcTemplateSpecificationType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VdcTemplateSpecificationType"
               }
             },
             "required": [
@@ -26375,12 +26080,7 @@
             "format": "int32"
           },
           "gatewayConfiguration": {
-            "description": "Defines a gateway and NAT Routed organization VDC network to be created.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_VdcTemplateSpecificationGatewayConfigurationType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_VdcTemplateSpecificationGatewayConfigurationType"
           },
           "storageProfile": {
             "description": "A set of name of Storage Profiles, with corresponding limit value, that all Provider VDCs must have, and that are selected at the time of VDC Template instantiation.",
@@ -26549,20 +26249,10 @@
             "type": "object",
             "properties": {
               "gateway": {
-                "description": "EdgeGateway configuration for the VDC created by this template. The following restrictions apply:\n\n* You may not specify a BackwardCompatibilityMode or an EdgeGatewayServiceConfiguration.\n* The GatewayInterfaces element must contain exactly one GatewayInterface. That GatewayInterface must have an InterfaceType of uplink and must not contain a SubnetParticipation element.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_GatewayType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_GatewayType"
               },
               "network": {
-                "description": "Org VDC network configuration created by this template. The following restrictions apply:\n\n* You may not specify a BackwardCompatibilityMode, EdgeGatewayServiceConfiguration, or NetworkFeatures.\n* The NetworkConfiguration must specify a FenceMode of natRouted.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgVdcNetworkType"
               }
             },
             "required": [
@@ -26588,12 +26278,7 @@
                 "type": "string"
               },
               "source": {
-                "description": "A reference to a source object, which must be a VDC template.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "description": {
                 "description": "Optional description.",
@@ -26666,12 +26351,7 @@
                 "type": "string"
               },
               "networkBackingInfo": {
-                "description": "List of network backings (vCenter server and port group moref) for this network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NetworkBackingInfoType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NetworkBackingInfoType"
               }
             },
             "additionalProperties": false
@@ -26696,76 +26376,31 @@
             "type": "object",
             "properties": {
               "orgGeneralSettings": {
-                "description": "Represents general settings for this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgGeneralSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgGeneralSettingsType"
               },
               "vAppLeaseSettings": {
-                "description": "Represents default lease durations and related policies for this organization. Runtime lease default is 7 days. Storage lease default is 30 days.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgLeaseSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgLeaseSettingsType"
               },
               "vAppTemplateLeaseSettings": {
-                "description": "Represents default vAppTemplate lease policies for this organization. Storage lease default is 30 days.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgVAppTemplateLeaseSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgVAppTemplateLeaseSettingsType"
               },
               "orgLdapSettings": {
-                "description": "Represents the hostname and connection details for this organization's primary LDAP service.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgLdapSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgLdapSettingsType"
               },
               "orgEmailSettings": {
-                "description": "Represents the email settings for this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgEmailSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgEmailSettingsType"
               },
               "orgPasswordPolicySettings": {
-                "description": "Represents the password policy settings for this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgPasswordPolicySettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgPasswordPolicySettingsType"
               },
               "orgOperationLimitsSettings": {
-                "description": "Represents operation limits settings for this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgOperationLimitsSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgOperationLimitsSettingsType"
               },
               "orgFederationSettings": {
-                "description": "Represents federated identity settings for this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgFederationSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgFederationSettingsType"
               },
               "orgOAuthSettings": {
-                "description": "Contains OAuth identity provider settings for this organization.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgOAuthSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgOAuthSettingsType"
               }
             },
             "additionalProperties": false
@@ -26893,12 +26528,7 @@
                 "type": "string"
               },
               "samlSPKeyAndCertificateChain": {
-                "description": "Container for an organization's PEM-encoded private key and certificate chain. The private key and the public key from the leaf certificate are used during SAML message processing. Not returned on GET",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SamlSPKeyAndCertificateChainType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SamlSPKeyAndCertificateChainType"
               }
             },
             "required": [
@@ -26950,12 +26580,7 @@
                 "type": "string"
               },
               "oAuthKeyConfigurations": {
-                "description": "A list of OAuth Key configurations.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OAuthKeyConfigurationsListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OAuthKeyConfigurationsListType"
               },
               "enabled": {
                 "description": "True if the OAuth Identity Provider for this organization is enabled. Unset or empty defaults to true.",
@@ -27045,12 +26670,7 @@
                 "type": "string"
               },
               "customOrgLdapSettings": {
-                "description": "If OrgLdapMode is CUSTOM, this element defines the hostname and connection details for the organization's LDAP service.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CustomOrgLdapSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_CustomOrgLdapSettingsType"
               }
             },
             "additionalProperties": false
@@ -27118,20 +26738,10 @@
                 "type": "string"
               },
               "userAttributes": {
-                "description": "Defines how LDAP attributes are used when importing a user.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgLdapUserAttributesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgLdapUserAttributesType"
               },
               "groupAttributes": {
-                "description": "Defines how LDAP attributes are used when importing a group.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgLdapGroupAttributesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgLdapGroupAttributesType"
               },
               "useExternalKerberos": {
                 "description": "Set to true to use an external Kerberos service.",
@@ -27302,12 +26912,7 @@
                 }
               },
               "smtpServerSettings": {
-                "description": "If IsDefaultSmtpServer is false, specifies connection details for an SMTP server to use.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SmtpServerSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SmtpServerSettingsType"
               }
             },
             "required": [
@@ -27353,12 +26958,7 @@
                 "type": "string"
               },
               "smtpSecureMode": {
-                "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls -- Use the STARTTLS protocol  \n ssl -- -Use the SSL/TLS protocol  \n none -- Do not use any security protocol",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SmtpSecureModeType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SmtpSecureModeType"
               },
               "sslTrustStore": {
                 "description": "Custom truststore to use to trust peer certificates when establishing a secure connection using SSL/STARTTLS (when enabled).",
@@ -27419,28 +27019,13 @@
             "type": "object",
             "properties": {
               "catalogStorageProfiles": {
-                "description": "Container for VdcStorageProfile elements that reference storage profiles used by this catalog.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CatalogStorageProfilesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_CatalogStorageProfilesType"
               },
               "externalCatalogSubscriptionParams": {
-                "description": "Configuration parameters for a catalog that has an external subscription.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ExternalCatalogSubscriptionParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ExternalCatalogSubscriptionParamsType"
               },
               "publishExternalCatalogParams": {
-                "description": "Configuration parameters for a catalog that is published externally.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_PublishExternalCatalogParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_PublishExternalCatalogParamsType"
               }
             },
             "additionalProperties": false
@@ -27803,12 +27388,7 @@
                 "type": "string"
               },
               "edgeGatewayIP": {
-                "description": "Gateway IP of this EdgeGateway",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud1.5_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud1.5_IpAddressType"
               },
               "edgeGatewayBackingConfig": {
                 "description": "The Gateway Backing Config i.e \"compact\" or \"full\"",
@@ -27827,20 +27407,10 @@
                 "type": "string"
               },
               "publicIP": {
-                "description": "The Usage count of IPs in the sub-allocation IP-pool of the EdgeGateway",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ipam_IpAddressUsageType"
-                  }
-                ]
+                "$ref": "#/components/schemas/ipam_IpAddressUsageType"
               },
               "iPAddressUsageList": {
-                "description": "The List of IPs with Usage details, that are in the sub-allocation IP-pool of the EdgeGateway",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_EdgeGatewayIpAddressListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_EdgeGatewayIpAddressListType"
               }
             },
             "additionalProperties": false
@@ -27920,12 +27490,7 @@
                 "type": "string"
               },
               "ipRanges": {
-                "description": "List of IP ranges this Network is associated to (for 'isolated' and 'natRouted').",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud1.5_IpRangesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud1.5_IpRangesType"
               },
               "defaultNetwork": {
                 "type": "boolean"
@@ -27949,11 +27514,7 @@
             "type": "string"
           },
           "publicIpUsage": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ipam_IpAddressUsageType"
-              }
-            ]
+            "$ref": "#/components/schemas/ipam_IpAddressUsageType"
           },
           "edgeGatewayHref": {
             "type": "string"
@@ -28118,20 +27679,10 @@
             "type": "object",
             "properties": {
               "owner": {
-                "description": "Catalog owner.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OwnerType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OwnerType"
               },
               "catalogItems": {
-                "description": "Container for CatalogItem elements.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CatalogItemsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_CatalogItemsType"
               },
               "isPublished": {
                 "description": "True if the catalog is shared with all other organizations in the system. This value is read-only in the user view. To modify it, an administrator must use the publish link in the admin view of the catalog.",
@@ -28163,12 +27714,7 @@
             "type": "object",
             "properties": {
               "source": {
-                "description": "Reference to the source catalog item to copy or move from.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -28216,12 +27762,7 @@
                 "format": "int64"
               },
               "entity": {
-                "description": "A reference to a VAppTemplate or Media object.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "property": {
                 "deprecated": true,
@@ -28364,12 +27905,7 @@
                 "type": "string"
               },
               "tenantError": {
-                "description": "The tenant view of the error, when the containing error is an administrator view of the error.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_TenantErrorType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_TenantErrorType"
               }
             },
             "additionalProperties": false
@@ -28754,12 +28290,7 @@
                 "type": "string"
               },
               "accessSettings": {
-                "description": "The access settings to be applied if IsSharedToEveryone is false. Required on create and modify if IsSharedToEveryone is false.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_AccessSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_AccessSettingsType"
               }
             },
             "required": [
@@ -28780,12 +28311,7 @@
             "type": "object",
             "properties": {
               "user": {
-                "description": "Reference to the user who is the owner of this entity.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -28858,24 +28384,14 @@
             "type": "object",
             "properties": {
               "domain": {
-                "description": "A value of SYSTEM places this MetadataEntry in the SYSTEM domain. Omit or leave empty to place this MetadataEntry in the GENERAL domain.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_MetadataDomainTagType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_MetadataDomainTagType"
               },
               "key": {
                 "description": "An arbitrary key name. Length cannot exceed 256 UTF-8 characters.",
                 "type": "string"
               },
               "typedValue": {
-                "description": "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
               }
             },
             "required": [
@@ -29028,19 +28544,10 @@
             "type": "object",
             "properties": {
               "domain": {
-                "description": "One of:  \n GENERAL  \n SYSTEM",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_MetadataDomainTagType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_MetadataDomainTagType"
               },
               "typedValue": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_MetadataTypedValue"
               }
             },
             "required": [
@@ -29088,12 +28595,7 @@
                 "type": "string"
               },
               "task": {
-                "description": "A task representing progress of the upload.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_TaskType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_TaskType"
               }
             },
             "additionalProperties": false
@@ -29139,20 +28641,10 @@
                 "type": "string"
               },
               "storageProfile": {
-                "description": "Storage profile of the disk.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "owner": {
-                "description": "The owner of the disk.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OwnerType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OwnerType"
               }
             },
             "required": [
@@ -29173,20 +28665,10 @@
             "type": "object",
             "properties": {
               "disk": {
-                "description": "Parameters for creating or updating an independent disk.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_DiskType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_DiskType"
               },
               "locality": {
-                "description": "If you supply a reference to a virtual machine, the system will use that information to attempt to optimize access to this disk from that virtual machine. See [KB 2105352](http://kb.vmware.com/kb/2105352).",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -29207,12 +28689,7 @@
             "type": "object",
             "properties": {
               "disk": {
-                "description": "A reference to the disk to attach or detach.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "busNumber": {
                 "description": "Bus number on which to place the disk controller. If empty or missing, the system assigns a bus number and a unit number on that bus.",
@@ -29251,12 +28728,7 @@
                 "type": "string"
               },
               "tasks": {
-                "description": "A list of queued, running, or recently completed tasks associated with this entity.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_TasksInProgressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_TasksInProgressType"
               }
             },
             "required": [
@@ -29806,20 +29278,10 @@
                 "format": "int64"
               },
               "owner": {
-                "description": "Media owner.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OwnerType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OwnerType"
               },
               "vdcStorageProfile": {
-                "description": "A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -29841,24 +29303,14 @@
             "type": "object",
             "properties": {
               "source": {
-                "description": "Reference to a media object to copy.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "isSourceDelete": {
                 "description": "A value of true deletes the Source object after successful completion of the copy operation. Defaults to false if empty or missing.",
                 "type": "boolean"
               },
               "vdcStorageProfile": {
-                "description": "A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -29900,12 +29352,7 @@
                 "type": "integer"
               },
               "unit": {
-                "description": "time unit enumeration value",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_TimeUnitType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_TimeUnitType"
               }
             },
             "required": [
@@ -30170,12 +29617,7 @@
                 "format": "uri"
               },
               "siteAssociations": {
-                "description": "List of sites associated with this site.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SiteAssociationsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SiteAssociationsType"
               }
             },
             "required": [
@@ -30390,12 +29832,7 @@
             "type": "object",
             "properties": {
               "configuration": {
-                "description": "Network configuration.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NetworkConfigurationType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NetworkConfigurationType"
               }
             },
             "additionalProperties": false
@@ -30414,20 +29851,10 @@
             "type": "object",
             "properties": {
               "networkPool": {
-                "description": "Network Pool from which this organization network is created. Not present if it is bridged to an external network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "allowedExternalIpAddresses": {
-                "description": "Optional set of IP addresses that this organization network is limited to using for purposes of NAT.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressesType"
               }
             },
             "additionalProperties": false
@@ -30491,12 +29918,7 @@
         "type": "object",
         "properties": {
           "externalIp": {
-            "description": "Specifies the external IP of the router. Applicable for NAT Routed / Fenced networks only.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_IpAddressType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_IpAddressType"
           }
         },
         "required": [
@@ -30525,28 +29947,13 @@
                 "format": "int32"
               },
               "ipRange": {
-                "description": "IP range for DHCP addresses.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpRangeType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpRangeType"
               },
               "routerIp": {
-                "description": "Router IP.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "subMask": {
-                "description": "The subnet mask.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "primaryNameServer": {
                 "description": "The primary name server.",
@@ -30595,12 +30002,7 @@
                 }
               },
               "externalIp": {
-                "description": "External IP address for rule.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               }
             },
             "additionalProperties": false
@@ -30650,32 +30052,17 @@
             "type": "object",
             "properties": {
               "interface": {
-                "description": "Interface to which rule is applied.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "originalIp": {
-                "description": "Original IP for rule.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "originalPort": {
                 "description": "Original port for rule.",
                 "type": "string"
               },
               "translatedIp": {
-                "description": "Translated IP for rule.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "translatedPort": {
                 "description": "Translated port for rule.",
@@ -30713,20 +30100,10 @@
                 "type": "string"
               },
               "externalIpAddress": {
-                "description": "External IP address to map.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "internalIpAddress": {
-                "description": "Internal IP address to map.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               }
             },
             "required": [
@@ -30753,12 +30130,7 @@
                 "type": "string"
               },
               "externalIpAddress": {
-                "description": "External IP address to map to VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "vAppScopedVmId": {
                 "description": "VAppScopedVmId of the VM to which this rule applies.",
@@ -30790,12 +30162,7 @@
             "type": "object",
             "properties": {
               "externalIpAddress": {
-                "description": "External IP address to forward to.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "externalPort": {
                 "description": "External port to forward to.",
@@ -30803,12 +30170,7 @@
                 "format": "int32"
               },
               "internalIpAddress": {
-                "description": "Internal IP address to forward to.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "internalPort": {
                 "description": "Internal port to forward to.",
@@ -30842,12 +30204,7 @@
             "type": "object",
             "properties": {
               "externalIpAddress": {
-                "description": "External IP address to forward to.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "externalPort": {
                 "description": "External port to forward to.",
@@ -31022,20 +30379,10 @@
             "type": "object",
             "properties": {
               "externalIpAddress": {
-                "description": "IP address of external enterface of the Edge.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "publicIpAddress": {
-                "description": "Public IP address of the Edge.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "ipsecVpnTunnel": {
                 "description": "Details of an IPSec-VPN tunnel.",
@@ -31068,36 +30415,16 @@
                 "type": "string"
               },
               "ipsecVpnPeer": {
-                "description": "Details about the peer network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpsecVpnPeerType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpsecVpnPeerType"
               },
               "peerIpAddress": {
-                "description": "IP address of the peer Edge device.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "peerNetworkAddress": {
-                "description": "Address of the peer network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "peerNetworkMask": {
-                "description": "Netmask of the peer network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "sharedSecret": {
                 "description": "Shared secret used for authentication.",
@@ -31300,24 +30627,14 @@
                 "type": "string"
               },
               "nextHopIp": {
-                "description": "IP Address of Next Hop router/gateway.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "interface": {
                 "description": "Interface to use for static routing. Internal and External are the supported values.",
                 "type": "string"
               },
               "gatewayInterface": {
-                "description": "Gateway interface to which static route is bound.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -31366,12 +30683,7 @@
                 "type": "boolean"
               },
               "network": {
-                "description": "Org vDC network to which the DHCP range is applicable.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "defaultLeaseTime": {
                 "description": "Default lease period for DHCP range.",
@@ -31384,20 +30696,10 @@
                 "format": "int32"
               },
               "lowIpAddress": {
-                "description": "Low IP address in DHCP range.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "highIpAddress": {
-                "description": "High IP address in DHCP range.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               }
             },
             "required": [
@@ -31516,20 +30818,10 @@
                 "type": "string"
               },
               "interface": {
-                "description": "Gateway Interface to which Load Balancer Virtual Server is bound.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "ipAddress": {
-                "description": "Load balancer virtual server Ip Address.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "serviceProfile": {
                 "description": "Load balancer virtual server service profiles.",
@@ -31635,12 +30927,7 @@
                 "type": "string"
               },
               "persistence": {
-                "description": "Persistence type for service profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_LBPersistenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_LBPersistenceType"
               }
             },
             "required": [
@@ -31692,12 +30979,7 @@
             "type": "object",
             "properties": {
               "ipAddress": {
-                "description": "Ip Address for load balancer member.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "condition": {
                 "description": "Condition for this member. Can be enabled or disabled.",
@@ -31809,20 +31091,10 @@
             "type": "object",
             "properties": {
               "network": {
-                "description": "External network reference.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "publicIp": {
-                "description": "Public IP for IPSec endpoint.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               }
             },
             "required": [
@@ -31851,32 +31123,17 @@
                 "type": "string"
               },
               "ipsecVpnPeer": {
-                "description": "Details about the peer network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpsecVpnPeerType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpsecVpnPeerType"
               },
               "peerIpAddress": {
-                "description": "IP address of the peer endpoint.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "peerId": {
                 "description": "Id for the peer end point",
                 "type": "string"
               },
               "localIpAddress": {
-                "description": "Address of the local network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "localId": {
                 "description": "Id for local end point",
@@ -31958,20 +31215,10 @@
                 "type": "string"
               },
               "gateway": {
-                "description": "Subnet Gateway.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "netmask": {
-                "description": "Subnet Netmask.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               }
             },
             "required": [
@@ -31998,20 +31245,10 @@
                 "type": "boolean"
               },
               "ipScopes": {
-                "description": "A list of IP scopes for the network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpScopesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpScopesType"
               },
               "parentNetwork": {
-                "description": "Contains reference to parent network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "fenceMode": {
                 "description": "Isolation type of the network. If ParentNetwork is specified, this property controls connectivity to the parent. One of: bridged (connected directly to the ParentNetwork), isolated (not connected to any other network), natRouted (connected to the ParentNetwork via a NAT service)",
@@ -32022,28 +31259,13 @@
                 "type": "boolean"
               },
               "features": {
-                "description": "Network features like DHCP, firewall and NAT rules.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NetworkFeaturesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NetworkFeaturesType"
               },
               "syslogServerSettings": {
-                "description": "Syslog server settings for the network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SyslogServerSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SyslogServerSettingsType"
               },
               "routerInfo": {
-                "description": "Specifies router information.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_RouterInfoType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_RouterInfoType"
               },
               "advancedNetworkingEnabled": {
                 "description": "True if Advanced Networking has been enabled.",
@@ -32115,12 +31337,7 @@
                 "type": "string"
               },
               "ipAddress": {
-                "description": "Allocated IP address.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               }
             },
             "additionalProperties": false
@@ -32182,20 +31399,10 @@
             "type": "object",
             "properties": {
               "edgeGateway": {
-                "description": "Edge gateway that uses this sub allocation.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "ipRanges": {
-                "description": "IP range sub allocated to the edge gateway.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpRangesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpRangesType"
               }
             },
             "additionalProperties": false
@@ -32213,20 +31420,10 @@
             "type": "object",
             "properties": {
               "startAddress": {
-                "description": "Start address of the IP range.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "endAddress": {
-                "description": "End address of the IP range.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               }
             },
             "required": [
@@ -32274,36 +31471,16 @@
                 "type": "boolean"
               },
               "gateway": {
-                "description": "Gateway of the network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "netmask": {
-                "description": "Network mask.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "dns1": {
-                "description": "Primary DNS server.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "dns2": {
-                "description": "Secondary DNS server.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "dnsSuffix": {
                 "description": "DNS suffix.",
@@ -32314,28 +31491,13 @@
                 "type": "boolean"
               },
               "ipRanges": {
-                "description": "IP ranges used for static pool allocation in the network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpRangesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpRangesType"
               },
               "allocatedIpAddresses": {
-                "description": "Read-only list of allocated IP addresses in the network.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressesType"
               },
               "subAllocations": {
-                "description": "Read-only list of IP addresses that are sub allocated to edge gateways.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SubAllocationsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SubAllocationsType"
               }
             },
             "required": [
@@ -32376,20 +31538,10 @@
         "type": "object",
         "properties": {
           "syslogServerIp1": {
-            "description": "Primary syslog server.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_IpAddressType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_IpAddressType"
           },
           "syslogServerIp2": {
-            "description": "Secondary syslog server.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_IpAddressType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_IpAddressType"
           }
         },
         "additionalProperties": false
@@ -32429,32 +31581,17 @@
                 "type": "string"
               },
               "edgeGateway": {
-                "description": "EdgeGateway that connects this Org vDC network. Applicable only for routed networks.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "serviceConfig": {
-                "description": "Specifies the service configuration for an isolated Org vDC networks.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_GatewayFeaturesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_GatewayFeaturesType"
               },
               "isShared": {
                 "description": "True if this network is shared to multiple Org vDCs.",
                 "type": "boolean"
               },
               "vimPortGroupRef": {
-                "description": "A reference to a VIRTUAL\\_WIRE object that exists on a vCenter server registered with the system. Required on Create when AdvancedNetworkingEnabled has a value of true. Ignored on update, or when AdvancedNetworkingEnabled has a value of false.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VimObjectRefType"
               }
             },
             "required": [
@@ -32471,12 +31608,7 @@
         "type": "object",
         "properties": {
           "vimServerRef": {
-            "description": "The vCenter server reference.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_ReferenceType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_ReferenceType"
           },
           "moRef": {
             "description": "Managed object reference of the object.",
@@ -32510,20 +31642,10 @@
                 "format": "int32"
               },
               "gatewayBackingRef": {
-                "description": "Provides information to access edge gateway via VC",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_GatewayBackingRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_GatewayBackingRefType"
               },
               "configuration": {
-                "description": "Gateway configuration.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_GatewayConfigurationType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_GatewayConfigurationType"
               }
             },
             "required": [
@@ -32543,12 +31665,7 @@
             "type": "string"
           },
           "vCRef": {
-            "description": "Entity ref for Vcenter",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_EntityReferenceType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_EntityReferenceType"
           }
         },
         "additionalProperties": false
@@ -32572,20 +31689,10 @@
                 "type": "string"
               },
               "gatewayInterfaces": {
-                "description": "List of Gateway interfaces.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_GatewayInterfacesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_GatewayInterfacesType"
               },
               "edgeGatewayServiceConfiguration": {
-                "description": "Represents Gateway Features.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_GatewayFeaturesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_GatewayFeaturesType"
               },
               "haEnabled": {
                 "description": "True if this gateway is highly available. (Requires two vShield edge VMs.)",
@@ -32596,12 +31703,7 @@
                 "type": "boolean"
               },
               "syslogServerSettings": {
-                "description": "Syslog server addresses for gateway",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SyslogServerType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SyslogServerType"
               },
               "advancedNetworkingEnabled": {
                 "description": "True if the gateway uses advanced networking",
@@ -32664,12 +31766,7 @@
                 "type": "string"
               },
               "network": {
-                "description": "A reference to the network connected to the gateway interface.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "interfaceType": {
                 "description": "The type of interface: One of: Uplink, Internal",
@@ -32720,12 +31817,7 @@
             "type": "object",
             "properties": {
               "tenantSyslogServerSettings": {
-                "description": "Tenant syslog server settings",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_TenantSyslogServerSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_TenantSyslogServerSettingsType"
               }
             },
             "additionalProperties": false
@@ -32779,36 +31871,16 @@
             "type": "object",
             "properties": {
               "gateway": {
-                "description": "Gateway for subnet",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "netmask": {
-                "description": "Nestmask for the subnet",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "ipAddress": {
-                "description": "Ip Address to be assigned. Keep empty or omit element for auto assignment",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "ipRanges": {
-                "description": "Range of IP addresses available for external interfaces.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpRangesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpRangesType"
               },
               "useForDefaultRoute": {
                 "description": "True if this subnet is default route for the gateway. Defaults to True if this is the only subnet for this gateway. Otherwise defaults to False if omitted or empty.",
@@ -33049,11 +32121,7 @@
             }
           },
           "metadata": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_MetadataType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_MetadataType"
           },
           "_type": {
             "type": "string"
@@ -37634,12 +36702,7 @@
                 "format": "int32"
               },
               "files": {
-                "description": "Represents a list of files to be transferred (uploaded or downloaded). Each File in the list is part of the ResourceEntity.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_FilesListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_FilesListType"
               }
             },
             "additionalProperties": false
@@ -37744,12 +36807,7 @@
                 "type": "string"
               },
               "supportedApiVersions": {
-                "description": "List of API versions supported by the ApiVendor.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VersionsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VersionsType"
               }
             },
             "additionalProperties": false
@@ -37793,12 +36851,7 @@
                 "type": "string"
               },
               "file": {
-                "description": "The file descriptor itself (name, type, href).",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "additionalProperties": false
@@ -37832,12 +36885,7 @@
                 "type": "string"
               },
               "authorizedLocations": {
-                "description": "The locations, both local and remote, that can be accessed by this user in this session.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_AuthorizedLocationsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_AuthorizedLocationsType"
               }
             },
             "additionalProperties": false
@@ -37890,36 +36938,16 @@
                 "type": "boolean"
               },
               "owner": {
-                "description": "Reference to the owner of the task. This is typically the object that the task is creating or updating.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "error": {
-                "description": "Represents error information from a failed task.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ErrorType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ErrorType"
               },
               "user": {
-                "description": "The user who started the task.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "organization": {
-                "description": "The organization to which the User belongs.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "progress": {
                 "description": "Read-only indicator of task progress as an approximate percentage between 0 and 100. Not available for all tasks.",
@@ -37935,12 +36963,7 @@
                 "type": "string"
               },
               "result": {
-                "description": "An optional element that can be used to hold the result of a task.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ResultType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ResultType"
               }
             },
             "required": [
@@ -37987,12 +37010,7 @@
             "type": "string"
           },
           "owner": {
-            "description": "Reference to the owner of the task. This is typically the object that the task is updating.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_ReferenceType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_ReferenceType"
           }
         },
         "additionalProperties": false
@@ -38034,12 +37052,7 @@
                 "type": "boolean"
               },
               "vAppParent": {
-                "description": "Reserved. Unimplemented.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "section": {
                 "description": "An OVF Section with additional custom attributes.",
@@ -38081,36 +37094,16 @@
                 "type": "string"
               },
               "environment": {
-                "description": "OVF environment section.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ovfenv_Environment_Type"
-                  }
-                ]
+                "$ref": "#/components/schemas/ovfenv_Environment_Type"
               },
               "vmCapabilities": {
-                "description": "Allows you to specify certain capabilities of this virtual machine.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
               },
               "storageProfile": {
-                "description": "A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "bootOptions": {
-                "description": "Boot options for this virtual machine.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_BootOptionsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_BootOptionsType"
               }
             },
             "additionalProperties": false
@@ -38226,12 +37219,7 @@
                 "type": "boolean"
               },
               "owner": {
-                "description": "vApp owner.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OwnerType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OwnerType"
               },
               "autoNature": {
                 "description": "True if this vApp is automatically created by vCD when a new VM is discovered in a vCenter Resource Pool attached to an Organization VDC.",
@@ -38242,12 +37230,7 @@
                 "type": "boolean"
               },
               "children": {
-                "description": "Container for virtual machines included in this vApp.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VAppChildrenType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VAppChildrenType"
               }
             },
             "additionalProperties": false
@@ -38346,12 +37329,7 @@
                 "type": "string"
               },
               "configuration": {
-                "description": "Represents a vApp network configuration.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NetworkConfigurationType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NetworkConfigurationType"
               },
               "isDeployed": {
                 "description": "True if this network has been deployed.",
@@ -38479,20 +37457,10 @@
                 "format": "int32"
               },
               "ipAddress": {
-                "description": "IP address assigned to this NIC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "externalIpAddress": {
-                "description": "If the network to which this NIC connects provides NAT services, the external address assigned to this NIC appears here.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_IpAddressType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_IpAddressType"
               },
               "isConnected": {
                 "description": "If the virtual machine is undeployed, this value specifies whether the NIC should be connected upon deployment. If the virtual machine is deployed, this value reports the current status of this NIC's connection, and can be updated to change that connection status.",
@@ -38564,28 +37532,13 @@
                 "type": "string"
               },
               "mediaImage": {
-                "description": "The media image that is mounted onto the device. This property can be 'null' which represents that no media is mounted on the device.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "mediaType": {
-                "description": "Specified the type of media that is mounted onto the device.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_MediaTypeType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_MediaTypeType"
               },
               "mediaState": {
-                "description": "Specifies the state of the media device.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_MediaStateType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_MediaStateType"
               },
               "unitNumber": {
                 "description": "The device number on the controller of the media device.",
@@ -38648,20 +37601,10 @@
                 "type": "boolean"
               },
               "disk": {
-                "description": "Specifies reference to a named disk.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "storageProfile": {
-                "description": "Specifies reference to a storage profile to be associated with the disk.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "overrideVmDefault": {
                 "description": "Specifies that the disk storage profile overrides the VM's default storage profile.",
@@ -38779,12 +37722,7 @@
                 "format": "int64"
               },
               "sharesLevel": {
-                "description": "xxx.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ResourceSharesLevelType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ResourceSharesLevelType"
               },
               "shares": {
                 "description": "xxx.",
@@ -38871,44 +37809,19 @@
                 "format": "int32"
               },
               "cpuResourceMhz": {
-                "description": "CPU compute resources. This parameter may be omitted when using the VmSpec to update the contents of an existing VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ComputeResourceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ComputeResourceType"
               },
               "memoryResourceMb": {
-                "description": "Memory compute resources. This parameter may be omitted when using the VmSpec to update the contents of an existing VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ComputeResourceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ComputeResourceType"
               },
               "mediaSection": {
-                "description": "The media devices of this VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_MediaSectionType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_MediaSectionType"
               },
               "diskSection": {
-                "description": "virtual disks of this VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_DiskSectionType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_DiskSectionType"
               },
               "hardwareVersion": {
-                "description": "vSphere name of Virtual Hardware Version of this VM. Example: vmx-13 This parameter may be omitted when using the VmSpec to update the contents of an existing VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_HardwareVersionType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_HardwareVersionType"
               },
               "vmToolsVersion": {
                 "description": "VMware tools version of this VM.",
@@ -38919,12 +37832,7 @@
                 "type": "string"
               },
               "virtualCpuType": {
-                "description": "The capabilities settings for this VM. This parameter may be omitted when using the VmSpec to update the contents of an existing VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VirtualCpuTypeType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VirtualCpuTypeType"
               },
               "timeSyncWithHost": {
                 "description": "Synchronize the VM's time with the host.",
@@ -39156,12 +38064,7 @@
                 }
               },
               "snapshot": {
-                "description": "Information about a snapshot.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SnapshotType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SnapshotType"
               }
             },
             "additionalProperties": false
@@ -39214,20 +38117,10 @@
                 "type": "boolean"
               },
               "vAppParent": {
-                "description": "Reserved. Unimplemented.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "instantiationParams": {
-                "description": "Instantiation parameters for the composed vApp.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_InstantiationParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_InstantiationParamsType"
               }
             },
             "additionalProperties": false
@@ -39249,32 +38142,17 @@
                 "type": "boolean"
               },
               "source": {
-                "description": "A reference to a source object. One of:  \n vApp  \n vAppTemplate  \n Vm  \n Vms must be powered off and cannot have an independent disk attached.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "vmGeneralParams": {
-                "description": "Specify name, description, and other properties of a VM during instantiation.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VmGeneralParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VmGeneralParamsType"
               },
               "vAppScopedLocalId": {
                 "description": "If Source references a Vm, this value provides a unique identifier for the Vm in the scope of the composed vApp.",
                 "type": "string"
               },
               "instantiationParams": {
-                "description": "If Source references a Vm this can include any of the following OVF sections:  \n VirtualHardwareSection  \n OperatingSystemSection  \n NetworkConnectionSection  \n GuestCustomizationSection.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_InstantiationParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_InstantiationParamsType"
               },
               "networkAssignment": {
                 "description": "If Source references a Vm, this element maps a network name specified in the Vm to the network name of a vApp network defined in the composed vApp.",
@@ -39284,28 +38162,13 @@
                 }
               },
               "storageProfile": {
-                "description": "If Source references a Vm, this element contains a reference to a storage profile to be used for the Vm. The specified storage profile must exist in the organization vDC that contains the composed vApp. If not specified, the default storage profile for the vDC is used.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "localityParams": {
-                "description": "Locality parameters provide a hint that may help optimize placement of a VM and an independent a Disk so that the VM can make efficient use of the disk. See [KB 2105352](http://kb.vmware.com/kb/2105352).",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_LocalityParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_LocalityParamsType"
               },
               "vmCapabilities": {
-                "description": "If Source references a Vm, this element describes the capabilities (hot swap, etc.) the instantiated VM should have.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
               }
             },
             "required": [
@@ -39326,52 +38189,22 @@
             "type": "object",
             "properties": {
               "source": {
-                "description": "A reference to an existing VM template.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "vmGeneralParams": {
-                "description": "Specify name, description, and other properties of a VM during instantiation.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VmGeneralParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VmGeneralParamsType"
               },
               "vmTemplateInstantiationParams": {
-                "description": "This can include any of the following OVF sections and more:  \n NetworkConnectionSection  \n LeaseSettingsSection  \n GuestCustomizationSection.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_InstantiationParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_InstantiationParamsType"
               },
               "storageProfile": {
-                "description": "A reference to a storage profile to be used for the Vm. The specified storage profile must exist in the organization vDC that contains the composed vApp. If not specified, the default storage profile for the vDC is used.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "localityParams": {
-                "description": "Locality parameters provide a hint that may help optimize placement of a VM and an independent a Disk so that the VM can make efficient use of the disk. See [KB 2105352](http://kb.vmware.com/kb/2105352).",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_LocalityParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_LocalityParamsType"
               },
               "vmCapabilities": {
-                "description": "Describes the capabilities (hot swap, etc.) the instantiated VM should have.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VmCapabilitiesType"
               }
             },
             "required": [
@@ -39396,12 +38229,7 @@
                 "type": "boolean"
               },
               "sourcedVmTemplateItem": {
-                "description": "Represents virtual machine instantiation parameters.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SourcedVmTemplateParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SourcedVmTemplateParamsType"
               },
               "allEULAsAccepted": {
                 "description": "True confirms acceptance of all EULAs in a vApp template. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.",
@@ -39488,20 +38316,10 @@
                 "type": "boolean"
               },
               "createVm": {
-                "description": "Read-only information about the Vm to create. This information appears in the Task returned by a createVm request.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VmType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VmType"
               },
               "media": {
-                "description": "Reference to the media object to insert in the new VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "additionalProperties": false
@@ -39559,36 +38377,16 @@
                 "type": "string"
               },
               "vsToVmxMap": {
-                "description": "Map from OVF Virtual Systems via the BIOS UUID to the datastore location of the replicated VM's files on the destination site.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VsToVmxMapType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VsToVmxMapType"
               },
               "ovfToVdcNetworkMap": {
-                "description": "Maps from OVF to site specific networks.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OvfToVdcNetworkMapType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OvfToVdcNetworkMapType"
               },
               "externalNatIpMap": {
-                "description": "Maps source site external NAT IP addresses to destination site external NAT IP addresses.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ExternalNatIpMapType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ExternalNatIpMapType"
               },
               "nicIpMap": {
-                "description": "VM's with NICs that are connected directly to a VDC network and where the NICs have manually assigned IP addresses needs to be mapped to a valid IP address within the IP range of the destination site's VDC network. This element provides that mapping.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NicIpMapType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NicIpMapType"
               }
             },
             "additionalProperties": false
@@ -39653,36 +38451,16 @@
             "type": "object",
             "properties": {
               "source": {
-                "description": "A reference to a source Vm.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "storageProfile": {
-                "description": "A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "localityParams": {
-                "description": "Locality parameters provide a hint that may help optimize placement of a VM with respect to another VM or an independent disk. See [KB 2105352](http://kb.vmware.com/kb/2105352).",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_LocalityParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_LocalityParamsType"
               },
               "hardwareCustomization": {
-                "description": "Specification of common hardware parameters that should be applied to the VM upon instantiation. This only applies when instantiating a vApp template and is otherwise ignored.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType"
               }
             },
             "required": [
@@ -39707,12 +38485,7 @@
                 "type": "boolean"
               },
               "source": {
-                "description": "A reference to a source object. One of:  \n vApp  \n vAppTemplate  \n Vm  \n Vms must be powered off and cannot have an independent disk attached.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "isSourceDelete": {
                 "description": "Set to true to delete the source object after the operation completes.",
@@ -39862,32 +38635,17 @@
                 "type": "string"
               },
               "networkConnectionSection": {
-                "description": "Network connection configuration for a VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NetworkConnectionSectionType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NetworkConnectionSectionType"
               },
               "computerName": {
                 "description": "Represents the computer name that is part of guest customization.",
                 "type": "string"
               },
               "vdcStorageProfile": {
-                "description": "The VDC storage profile to use. If set, the value must refer to an existing and enabled storage profile on the VDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "hardwareCustomization": {
-                "description": "Specification of common virtual machine hardware parameters. This is a simple way to customize hardware settings without modifying the source OVF descriptor before uploading it.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType"
               }
             },
             "required": [
@@ -39998,12 +38756,7 @@
             "type": "object",
             "properties": {
               "media": {
-                "description": "Reference to the media object to insert or eject. In API requests that specify version 29.0 or higher, this element is optional when ejecting the media.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -40024,12 +38777,7 @@
             "type": "object",
             "properties": {
               "source": {
-                "description": "Contains a reference to the vApp to capture.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "section": {
                 "description": "An ovf:Section to configure the vAppTemplate.",
@@ -40039,21 +38787,10 @@
                 }
               },
               "vdcStorageProfile": {
-                "deprecated": true,
-                "description": "A reference to the storage profile to be specified in the vApp template created by this capture. Ignored by vCloud Director 5.5 and later.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "targetCatalogItem": {
-                "description": "To overwrite an existing vApp template with the one created by this capture, place a reference to the existing template here. Otherwise, the operation creates a new vApp template.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -40146,12 +38883,7 @@
         "type": "object",
         "properties": {
           "datastore": {
-            "description": "Reference to destination datastore.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_ReferenceType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_ReferenceType"
           }
         },
         "required": [
@@ -40251,20 +38983,10 @@
                 "type": "boolean"
               },
               "owner": {
-                "description": "vAppTemplate owner.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OwnerType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OwnerType"
               },
               "children": {
-                "description": "Container for virtual machines included in this vApp template.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VAppTemplateChildrenType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VAppTemplateChildrenType"
               },
               "section": {
                 "description": "OVF sections included in this template.",
@@ -40337,12 +39059,7 @@
                 "format": "uri"
               },
               "vdcStorageProfile": {
-                "description": "A reference to the storage profile to be specified in the DefaultStorageProfile element of the vApp template created by this operation.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "additionalProperties": false
@@ -40360,24 +39077,14 @@
             "type": "object",
             "properties": {
               "source": {
-                "description": "Reference to the vApp template to clone.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "isSourceDelete": {
                 "description": "True if the source vApp template should be deleted after cloning is complete.",
                 "type": "boolean"
               },
               "vdcStorageProfile": {
-                "description": "A reference to the storage profile to be specified in the vApp template created by this operation.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -40515,36 +39222,16 @@
                 "type": "string"
               },
               "computeCapacity": {
-                "description": "The compute capacity allocated to this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ComputeCapacityType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ComputeCapacityType"
               },
               "resourceEntities": {
-                "description": "Read-only list of resource entities in this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ResourceEntitiesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ResourceEntitiesType"
               },
               "availableNetworks": {
-                "description": "Read-only list of organization vDC networks in this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_AvailableNetworksType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_AvailableNetworksType"
               },
               "capabilities": {
-                "description": "Read-only list of VM hardware capabilities supported in this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CapabilitiesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_CapabilitiesType"
               },
               "nicQuota": {
                 "description": "Maximum number of virtual NICs allowed in this vDC. Defaults to 0, which specifies an unlimited number.",
@@ -40571,12 +39258,7 @@
                 "type": "boolean"
               },
               "vdcStorageProfiles": {
-                "description": "Storage profiles supported in this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VdcStorageProfilesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VdcStorageProfilesType"
               },
               "vCpuInMhz2": {
                 "description": "Specifies the clock frequency, in Megahertz, for any virtual CPU that is allocated to a VM. A VM with 2 vCPUs will consume twice as much of this value. Ignored for ReservationPool. Required when AllocationModel is AllocationVApp or AllocationPool, and may not be less than 256 MHz. Defaults to 1000 MHz if the element is empty or missing.",
@@ -40599,20 +39281,10 @@
             "type": "object",
             "properties": {
               "cpu": {
-                "description": "CPU capacity and usage.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CapacityWithUsageType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_CapacityWithUsageType"
               },
               "memory": {
-                "description": "Memory capacity and usage.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_CapacityWithUsageType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_CapacityWithUsageType"
               }
             },
             "required": [
@@ -40634,12 +39306,7 @@
             "type": "object",
             "properties": {
               "supportedHardwareVersions": {
-                "description": "Read-only list of virtual hardware versions supported by this vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SupportedHardwareVersionsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SupportedHardwareVersionsType"
               }
             },
             "additionalProperties": false
@@ -40742,12 +39409,7 @@
                 "format": "int64"
               },
               "supportedOperatingSystems": {
-                "description": "Operating systems available for use on virtual machines at this virtual hardware version.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SupportedOperatingSystemsInfoType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SupportedOperatingSystemsInfoType"
               },
               "maxMemorySizeMb": {
                 "description": "Specifies the maximum amount of memory supported (in MB).",
@@ -40895,12 +39557,7 @@
                 "type": "boolean"
               },
               "iopsSettings": {
-                "description": "When NOT provided, disk storage placement ignores IOPs considerations; otherwise, this element holds all the disk IOPs related settings, including a subordinate Enabled flag. When that flag is false, disk provisioning using this profile will behave identically as if this element was not provided in the first place.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VdcStorageProfileIopsSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VdcStorageProfileIopsSettingsType"
               },
               "storageUsedMB": {
                 "description": "Storage used, in Megabytes, by the storage profile",
@@ -41097,12 +39754,7 @@
                 ]
               },
               "vmReferences": {
-                "description": "A list of VMs under a specific VM affinity rule.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_VmsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_VmsType"
               }
             },
             "required": [
@@ -41265,20 +39917,10 @@
                 "format": "int32"
               },
               "busNumberRanges": {
-                "description": "Set of allowed bus number ranges for this disk controller.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_RangesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_RangesType"
               },
               "unitNumberRanges": {
-                "description": "Set of allowed disk unit number ranges for an instance of this disk controller type.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_RangesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_RangesType"
               }
             },
             "required": [
@@ -41408,12 +40050,7 @@
                 "format": "int32"
               },
               "defaultHardDiskAdapterType": {
-                "description": "Default hard disk controller type for this operating system.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_DefaultHardDiskAdapterTypeType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_DefaultHardDiskAdapterTypeType"
               },
               "supportedHardDiskAdapter": {
                 "description": "Hard disk adapter types supported for this operating system.",
@@ -41499,12 +40136,7 @@
                 "type": "boolean"
               },
               "recommendedNIC": {
-                "description": "Default virtual NIC adapter type for this operating system.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_NICType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_NICType"
               },
               "supportedNICType": {
                 "description": "Supported virtual NIC type for this operating system.",
@@ -41711,36 +40343,16 @@
                 "type": "string"
               },
               "apiFilters": {
-                "description": "Container for API filters defined by an extension service.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_ApiFiltersType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_ApiFiltersType"
               },
               "serviceLinks": {
-                "description": "Container for values used to create links defined by an extension service.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_AdminServiceLinksType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_AdminServiceLinksType"
               },
               "apiDefinitions": {
-                "description": "Container for values used to specify an API defined by an extension service.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_AdminApiDefinitionsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_AdminApiDefinitionsType"
               },
               "resourceClasses": {
-                "description": "Container for values that define extension service resource classes.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_ResourceClassesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_ResourceClassesType"
               }
             },
             "required": [
@@ -41820,20 +40432,10 @@
                 "type": "string"
               },
               "supportedApiVersions": {
-                "description": "Supported extension service API versions.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VersionsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VersionsType"
               },
               "files": {
-                "description": "List of files associated with this extension service API definition.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_AdminFileDescriptorsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_AdminFileDescriptorsType"
               }
             },
             "additionalProperties": false
@@ -41899,12 +40501,7 @@
                 "type": "string"
               },
               "file": {
-                "description": "A reference to this extension service API definition file.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "additionalProperties": false
@@ -42062,12 +40659,7 @@
                 "type": "string"
               },
               "entity": {
-                "description": "Required when Access value is Entity. Contains a reference to the entity for which the action is authorized.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -42088,28 +40680,13 @@
             "type": "object",
             "properties": {
               "serviceResourceAccess": {
-                "description": "Specifies service resource access. One of:  \n Entity -- The action is authorized for the resource referenced in the Entity element in this container.  \n Shared -- The action is authorized for all resources in this resource class.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
               },
               "organizationAccess": {
-                "description": "Specifies organization access. One of:  \n Entity -- The action is authorized for the organization referenced in the Entity element in this container.  \n Shared -- The action is authorized for all members of the organization that owns the resource.  \n Published -- The action is authorized for all members of any organization in the cloud.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
               },
               "principalAccess": {
-                "description": "Specifies principal access. One of:  \n Entity -- The action is authorized for the User referenced in the Entity element in this container, or for any role that includes the Right referenced in the Entity element in this container.  \n Shared -- The action is authorized for all users.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_AclAccessType"
               }
             },
             "required": [
@@ -42139,12 +40716,7 @@
                 "type": "string"
               },
               "aclRules": {
-                "description": "Container for values used to create ACL rules for an extension service resource class action.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_AclRulesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_AclRulesType"
               }
             },
             "required": [
@@ -42182,20 +40754,10 @@
                 "type": "string"
               },
               "serviceResources": {
-                "description": "Container for values used to create service resources defined by this extension service.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_ServiceResourcesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_ServiceResourcesType"
               },
               "resourceClassActions": {
-                "description": "Container for values used to create resource class actions defined for this resource class.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_ResourceClassActionsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_ResourceClassActionsType"
               }
             },
             "additionalProperties": false
@@ -42213,12 +40775,7 @@
             "type": "object",
             "properties": {
               "org": {
-                "description": "Organization that this extension service resource belongs to.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "externalObjectId": {
                 "description": "Object identifier for this extension service resource. Must be \\<=255 characters.",
@@ -42332,12 +40889,7 @@
             "type": "object",
             "properties": {
               "user": {
-                "description": "The user for which an authorization check is requested.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "httpMethod": {
                 "description": "One of: GET, PUT, POST, DELETE",
@@ -42387,108 +40939,43 @@
             "type": "object",
             "properties": {
               "generalSettings": {
-                "description": "General settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_GeneralSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_GeneralSettingsType"
               },
               "notificationsSettings": {
-                "description": "Notifications settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_NotificationsSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_NotificationsSettingsType"
               },
               "ldapSettings": {
-                "description": "LDAP settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_LdapSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_LdapSettingsType"
               },
               "amqpSettings": {
-                "description": "AMQP settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_AmqpSettingsType"
               },
               "emailSettings": {
-                "description": "Email settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_EmailSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_EmailSettingsType"
               },
               "license": {
-                "description": "Settings for retrieving and updating vCloud Director license information.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_LicenseType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_LicenseType"
               },
               "brandingSettings": {
-                "description": "BrandingSettings stores all information about how to brand the product for vCloud service, like provider name, logo etc.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_BrandingSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_BrandingSettingsType"
               },
               "blockingTaskSettings": {
-                "description": "Blocking task settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_BlockingTaskSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_BlockingTaskSettingsType"
               },
               "passwordPolicySettings": {
-                "description": "Password policy settings for the cloud provider administrator. These are also inherited by organizations, unless overridden at the organization level.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_SystemPasswordPolicySettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_SystemPasswordPolicySettingsType"
               },
               "kerberosSettings": {
-                "description": "Kerberos settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_KerberosSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_KerberosSettingsType"
               },
               "lookupServiceSettings": {
-                "description": "vSphere lookup service settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_LookupServiceSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_LookupServiceSettingsType"
               },
               "catalogSettings": {
-                "description": "Catalog settings.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_CatalogSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_CatalogSettingsType"
               },
               "operationLimitsSettings": {
-                "description": "Global Tenant Throttling limits",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_OperationLimitsSettingsType"
               }
             },
             "additionalProperties": false
@@ -42561,12 +41048,7 @@
                 "format": "int32"
               },
               "syslogServerSettings": {
-                "description": "Default syslog server settings for networks. If logging is configured for firewall rules, the logs will be directed to these syslog servers. If you change these values, you must synchronize the syslog server settings for each vApp network or Edge Gateway in the system by running its syncSyslogServerSettings action.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SyslogServerSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SyslogServerSettingsType"
               },
               "loginNameOnly": {
                 "description": "System login policy setting (deprecated).",
@@ -42811,12 +41293,7 @@
                 "type": "boolean"
               },
               "error": {
-                "description": "The error of an invalid AMQP settings test.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ErrorType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ErrorType"
               }
             },
             "required": [
@@ -42863,12 +41340,7 @@
                 "type": "string"
               },
               "blockingTaskOperations": {
-                "description": "Task operations which are enabled for blocking. If this element is empty or not supplied no operations will block.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_TaskOperationListType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_TaskOperationListType"
               },
               "timeoutInMilliseconds": {
                 "description": "Value in milliseconds that defines how long to wait for a blocking task to be processed before triggering automatic timeout policy.",
@@ -43006,20 +41478,10 @@
                 "type": "string"
               },
               "userAttributes": {
-                "description": "Defines how LDAP attributes are used when importing a user.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_LdapUserAttributesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_LdapUserAttributesType"
               },
               "groupAttributes": {
-                "description": "Defines how LDAP attributes are used when importing a group.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_LdapGroupAttributesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_LdapGroupAttributesType"
               },
               "useExternalKerberos": {
                 "description": "Set to true to use an external Kerberos service.",
@@ -43255,12 +41717,7 @@
                 "type": "boolean"
               },
               "licenseMetricsInfo": {
-                "description": "Report of License usage metrics.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_LicenseMetricsInfoType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_LicenseMetricsInfoType"
               }
             },
             "required": [
@@ -43355,12 +41812,7 @@
                 "type": "string"
               },
               "smtpSettings": {
-                "description": "The SMTP server for email notifications and alerts.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_SmtpSettingsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_SmtpSettingsType"
               }
             },
             "required": [
@@ -43400,12 +41852,7 @@
                 "type": "boolean"
               },
               "smtpSecureMode": {
-                "description": "Security protocol to use when connecting to the SMTP server. One of:  \n startTls -- Use the STARTTLS protocol  \n ssl -- -Use the SSL/TLS protocol  \n none -- Do not use any security protocol",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_SmtpSecureModeType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_SmtpSecureModeType"
               },
               "sslTrustStore": {
                 "description": "Custom truststore to use to trust peer certificates when establishing a secure connection using SSL/STARTTLS (when enabled).",
@@ -43748,12 +42195,7 @@
                 "type": "string"
               },
               "dataStoreRefs": {
-                "description": "vSphere datastores accessible from this resource pool.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               }
             },
             "required": [
@@ -43822,20 +42264,10 @@
         "type": "object",
         "properties": {
           "vimServer": {
-            "description": "vCenter administrator credentials. Required for register, modify.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimServerType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimServerType"
           },
           "shieldManager": {
-            "description": "vShield manager administrator credentials. Required for register, modify.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_ShieldManagerType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_ShieldManagerType"
           }
         },
         "required": [
@@ -43932,12 +42364,7 @@
             "type": "object",
             "properties": {
               "associatedVimServer": {
-                "description": "Reference to the vCenter server for this vShield manager.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "additionalProperties": false
@@ -44027,12 +42454,7 @@
                 "format": "int64"
               },
               "vdcStorageProfile": {
-                "description": "Reference to a vDC storage profile to associate with this virtual disk.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -44074,20 +42496,10 @@
                 "type": "string"
               },
               "vdcStorageProfile": {
-                "description": "Reference to a vDC storage profile for imported VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "vdc": {
-                "description": "Target vDC for imported VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "importedDisk": {
                 "description": "Represents a disk of the VM in order to specify per-disk Storage Profile.",
@@ -44140,20 +42552,10 @@
                 "type": "string"
               },
               "vdcStorageProfile": {
-                "description": "Reference to a vDC storage profile for imported VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "vApp": {
-                "description": "vApp to hold imported VM.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "importedDisk": {
                 "description": "Represents a disk of the VM in order to specify per-disk Storage Profile.",
@@ -44207,28 +42609,13 @@
                 "type": "string"
               },
               "vdc": {
-                "description": "Target vDC for imported vApp template.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "vdcStorageProfile": {
-                "description": "Storage profile to be specified in the vApp template created by this import.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "catalog": {
-                "description": "Catalog in which the imported vApp template will be listed.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -44262,28 +42649,13 @@
                 "type": "string"
               },
               "vdc": {
-                "description": "The vDC into which the media will be imported.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "catalog": {
-                "description": "The catalog in which the imported media will be listed.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "vdcStorageProfile": {
-                "description": "Storage profile",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               }
             },
             "required": [
@@ -44398,12 +42770,7 @@
         "type": "object",
         "properties": {
           "vimServerRef": {
-            "description": "The vCenter server reference.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_ReferenceType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_ReferenceType"
           },
           "moRef": {
             "description": "Managed object reference of the object.",
@@ -44447,20 +42814,10 @@
             "type": "object",
             "properties": {
               "dataStoreRefs": {
-                "description": "vSphere datastores backing this provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               },
               "resourcePoolRefs": {
-                "description": "Resource pools backing this provider vDC. On create, you must specify a resource pool that is not used by (and is not the child of a resource pool used by) any other provider vDC. On modify, this element is required for schema validation, but its contents cannot be changed.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               },
               "vimServer": {
                 "description": "The vCenter server that provides the resource pools and datastores. A valid reference is required on create. On modify, this element is required for schema validation, but its contents cannot be changed.",
@@ -44470,12 +42827,7 @@
                 }
               },
               "hostReferences": {
-                "description": "Shows all hosts which are connected to VC server.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VMWHostReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VMWHostReferencesType"
               },
               "highestSupportedHardwareVersion": {
                 "description": "The highest virtual hardware version supported by this Provider vDC. If empty or omitted on creation, the system sets it to the highest virtual hardware version suported by all hosts in the primary resource pool. You can modify it when you add more resource pools.",
@@ -44501,12 +42853,7 @@
             "type": "object",
             "properties": {
               "resourcePoolRefs": {
-                "description": "Resource pools backing this provider vDC. You must specify a resource pool that is not used by (and is not the child of a resource pool used by) any other provider vDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               },
               "vimServer": {
                 "description": "The vCenter server that provides the resource pools and datastores. A valid reference is required on create. On modify, this element is required for schema validation, but its contents cannot be changed.",
@@ -44516,12 +42863,7 @@
                 }
               },
               "vxlanNetworkPool": {
-                "description": "Reference to a VXLAN Network Pool to be assigned to this Provider VDC. Leave empty to have the system create the VXLAN pool and assign it to the Provider VDC.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "highestSupportedHardwareVersion": {
                 "description": "The highest virtual hardware version supported by this Provider vDC. If empty or omitted on creation, the system sets it to the highest virtual hardware version suported by all hosts in the primary resource pool. You can modify it when you add more resource pools.",
@@ -44539,12 +42881,7 @@
                 }
               },
               "hostRefs": {
-                "description": "List of host which will be prepared.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_HostObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_HostObjectRefsType"
               },
               "defaultPassword": {
                 "description": "The default password which will be used for preparing hosts.",
@@ -44597,12 +42934,7 @@
             "type": "object",
             "properties": {
               "vimStorageProfile": {
-                "description": "VIM object reference to storage profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               }
             },
             "required": [
@@ -44623,20 +42955,10 @@
             "type": "object",
             "properties": {
               "vimPortGroupRef": {
-                "description": "The portgroup that backs this network. A valid reference to an existing network or dvportgroup in a vCenter server is required on create. On modify, this element is required for schema validation, but its contents cannot be changed.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               },
               "vimPortGroupRefs": {
-                "description": "A list of DV\\_PORTGROUP or NETWORK objects that back this network. Each referenced DV\\_PORTGROUP or NETWORK must exist on a vCenter server registered with the system. You cannot reference more than one DV\\_PORTGROUP or NETWORK from a single vCenter server. You cannot combine DV\\_PORTGROUP and NETWORK objects in this list.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               }
             },
             "additionalProperties": false
@@ -44711,20 +43033,10 @@
             "type": "object",
             "properties": {
               "portGroupRefs": {
-                "description": "References to the vSphere port groups that support this network pool. Required at least one port group moref, for modify and create.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               },
               "vimServer": {
-                "description": "Reference to the vSphere which hosts the port groups. Required VC server on which the port groups exist, for modify and create.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "usedNetworksCount": {
                 "description": "This is a read-only indication of how many networks in this pool are in use.",
@@ -44758,12 +43070,7 @@
                 }
               },
               "vimSwitchRef": {
-                "description": "Reference to the vSphere switch which is used for this pool.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               },
               "usedNetworksCount": {
                 "description": "This is a read-only indication of how many networks in this pool are in use.",
@@ -44804,12 +43111,7 @@
                 "format": "int32"
               },
               "vimSwitchRef": {
-                "description": "Reference to the vSphere switch that supports this VLAN.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               },
               "usedNetworksCount": {
                 "description": "This is a read-only indication of how many networks in this pool are in use.",
@@ -44846,20 +43148,10 @@
             "type": "object",
             "properties": {
               "vimSwitchRef": {
-                "description": "Reference to the vSphere switch that supports the VXLAN networks",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               },
               "transportZoneRef": {
-                "description": "Transport Zone ID of VXLAN Network Pool.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               },
               "usedNetworksCount": {
                 "description": "This is a read-only indication of how many networks in this pool are in use.",
@@ -44888,12 +43180,7 @@
         "type": "object",
         "properties": {
           "vdsContext": {
-            "description": "A VimObjectRef that represents a {vC ID, VDS ID, VLAN ID} tuple",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
           }
         },
         "additionalProperties": false
@@ -45038,12 +43325,7 @@
             "format": "int32"
           },
           "vimObjectRef": {
-            "description": "Managed object reference of the server.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
           }
         },
         "required": [
@@ -45070,12 +43352,7 @@
             "format": "int32"
           },
           "vimObjectRef": {
-            "description": "Managed object reference of the virtual machine.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
           }
         },
         "required": [
@@ -45112,12 +43389,7 @@
             "type": "object",
             "properties": {
               "vimObjectRef": {
-                "description": "The VIM object reference to this datastore.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               },
               "enabled": {
                 "description": "Indicates whether the datastore is enabled.",
@@ -45213,12 +43485,7 @@
                 "type": "string"
               },
               "members": {
-                "description": "Member datastores of a datastore cluster. Standalone datastore has empty collection.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               }
             },
             "required": [
@@ -45262,12 +43529,7 @@
                 "format": "double"
               },
               "dataStoreRefs": {
-                "description": "vSphere datastores that support this storage profile.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               }
             },
             "required": [
@@ -45309,12 +43571,7 @@
             "type": "object",
             "properties": {
               "vimObjectRefs": {
-                "description": "A list of VimServerObjRef objects.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefsType"
               }
             },
             "required": [
@@ -45362,20 +43619,10 @@
                 "type": "boolean"
               },
               "resourcePoolVimObjectRef": {
-                "description": "Vim object reference to resource pool",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               },
               "resourcePoolRef": {
-                "description": "Reference to resource pool",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "enabled": {
                 "description": "Resource pool enabled status",
@@ -45432,12 +43679,7 @@
                 "type": "boolean"
               },
               "resourcePoolVimObjectRef": {
-                "description": "Vim object reference to resource pool",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
               }
             },
             "required": [
@@ -45506,20 +43748,10 @@
         "type": "object",
         "properties": {
           "vmVimObjectRef": {
-            "description": "Reference to a vim vm object.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
           },
           "datastoreVimObjectRef": {
-            "description": "The datastore where the VM's configuration files are stored.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
           },
           "vmDiskDatastores": {
             "description": "The datastore where the VM disk's files are stored.",
@@ -45529,12 +43761,7 @@
             }
           },
           "hostVimObjectRef": {
-            "description": "The host for this VM.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
           },
           "virtualDisksMaxChainLength": {
             "description": "The maximum chain length of the VM's virtual disks.",
@@ -45565,12 +43792,7 @@
             "type": "string"
           },
           "vimObjectRef": {
-            "description": "Vim object reference to a resource pool to which the virtual machine will be migrated. This parameter is optional. If it is not provided, the system will automatically choose a target resource pool and migrate the VMs to it.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
           }
         },
         "required": [
@@ -45618,20 +43840,10 @@
                 "type": "string"
               },
               "parent": {
-                "description": "A reference to the parent stranded item.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_ReferenceType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_ReferenceType"
               },
               "strandedItemVimObjects": {
-                "description": "A collection of stranded item VimObjects.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_StrandedItemVimObjectsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_StrandedItemVimObjectsType"
               }
             },
             "additionalProperties": false
@@ -45820,12 +44032,7 @@
         "type": "object",
         "properties": {
           "rights": {
-            "description": "References to entity rights.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_RightRefsType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_RightRefsType"
           }
         },
         "required": [
@@ -45861,12 +44068,7 @@
             }
           },
           "resourcePoolRef": {
-            "description": "Vim object reference to a resource pool to which the virtual machine will be migrated. This parameter is optional. If it is not provided, the system will automatically choose a target resource pool and migrate the VMs to it.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud-ext_VimObjectRefType"
           }
         },
         "required": [
@@ -45976,12 +44178,7 @@
                 }
               },
               "vdcTemplateSpecification": {
-                "description": "A reference to the specification for a VDC template object.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateSpecificationType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VMWVdcTemplateSpecificationType"
               }
             },
             "required": [
@@ -46025,11 +44222,7 @@
             "format": "uri"
           },
           "value": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/vcloud_ReferenceType"
-              }
-            ]
+            "$ref": "#/components/schemas/vcloud_ReferenceType"
           }
         },
         "additionalProperties": false
@@ -46089,12 +44282,7 @@
             "type": "object",
             "properties": {
               "hosts": {
-                "description": "List of hosts in this host group",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VMWHostReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VMWHostReferencesType"
               }
             },
             "required": [
@@ -46192,12 +44380,7 @@
             "type": "object",
             "properties": {
               "vMWVmGroupReferences": {
-                "description": "References to VM Groups that have identical names.",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_VMWVmGroupReferencesType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_VMWVmGroupReferencesType"
               }
             },
             "required": [
@@ -46303,28 +44486,13 @@
             "type": "object",
             "properties": {
               "orgs": {
-                "description": "List of organizations to be migrated in this operation",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud_OrgsType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud_OrgsType"
               },
               "sourceDatastores": {
-                "description": "List of datastores from which organization storage resources should be migrated",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_DatastoresType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_DatastoresType"
               },
               "targetDatastores": {
-                "description": "List of datastores to which organization storage resources should be migrated",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/vcloud-ext_DatastoresType"
-                  }
-                ]
+                "$ref": "#/components/schemas/vcloud-ext_DatastoresType"
               }
             },
             "additionalProperties": false
@@ -46516,6 +44684,68 @@
       "vssd_CIM_VirtualSystemSettingData_Type": {
         "title": "vssd_CIM_VirtualSystemSettingData_Type",
         "type": "object",
+        "properties": {
+          "automaticStartupActionDelay": {
+            "$ref": "#/components/schemas/cim_cimDateTime"
+          },
+          "automaticStartupActionSequenceNumber": {
+            "$ref": "#/components/schemas/cim_cimUnsignedShort"
+          },
+          "configurationDataRoot": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "configurationFile": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "configurationID": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "configurationName": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "creationTime": {
+            "$ref": "#/components/schemas/cim_cimDateTime"
+          },
+          "description": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "elementName": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "generation": {
+            "$ref": "#/components/schemas/cim_cimUnsignedLong"
+          },
+          "instanceID": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "logDataRoot": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/cim_cimString"
+            }
+          },
+          "recoveryFile": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "snapshotDataRoot": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "suspendDataRoot": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "swapFileDataRoot": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "virtualSystemIdentifier": {
+            "$ref": "#/components/schemas/cim_cimString"
+          },
+          "virtualSystemType": {
+            "$ref": "#/components/schemas/cim_cimString"
+          }
+        },
         "additionalProperties": false
       }
     }

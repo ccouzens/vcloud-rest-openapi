@@ -38,7 +38,7 @@ impl TryFrom<(Option<&str>, &xmltree::XMLNode)> for SimpleType {
                 for child in children {
                     match child {
                         xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(_xml_schema_ns),
+                            namespace: Some(_),
                             name: node_name,
                             attributes,
                             ..
@@ -57,7 +57,7 @@ impl TryFrom<(Option<&str>, &xmltree::XMLNode)> for SimpleType {
                             });
                         }
                         xmltree::XMLNode::Element(xmltree::Element {
-                            namespace: Some(_xml_schema_ns),
+                            namespace: Some(_),
                             name: node_name,
                             attributes,
                             children,
@@ -96,7 +96,7 @@ impl TryFrom<(Option<&str>, &xmltree::XMLNode)> for SimpleType {
                                 .iter()
                                 .filter_map(|child| match child {
                                     xmltree::XMLNode::Element(xmltree::Element {
-                                        namespace: Some(_xml_schema_ns),
+                                        namespace: Some(_),
                                         name,
                                         attributes,
                                         ..

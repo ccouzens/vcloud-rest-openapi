@@ -340,7 +340,12 @@ impl From<&ObjectType> for openapiv3::Schema {
                             .map(|s| {
                                 (
                                     s.name.clone(),
-                                    openapiv3::ReferenceOr::boxed_item(openapiv3::Schema::from(s)),
+                                    match openapiv3::ReferenceOr::from(s) {
+                                        openapiv3::ReferenceOr::Item(v) => openapiv3::ReferenceOr::Item(Box::new(v)),
+                                        openapiv3::ReferenceOr::Reference { reference } => {
+                                            openapiv3::ReferenceOr::Reference { reference }
+                                        }
+                                    }
                                 )
                             })
                             .collect(),

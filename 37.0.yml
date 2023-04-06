@@ -15144,18 +15144,14 @@ components:
       type: object
       properties:
         references:
-          description: References to all external files
-          allOf:
-            - $ref: '#/components/schemas/ovf_References_Type'
+          $ref: '#/components/schemas/ovf_References_Type'
         section:
           description: Package level meta-data
           type: array
           items:
             $ref: '#/components/schemas/ovf_Section_Type'
         content:
-          description: 'Content: A VirtualSystem or a VirtualSystemCollection'
-          allOf:
-            - $ref: '#/components/schemas/ovf_Content_Type'
+          $ref: '#/components/schemas/ovf_Content_Type'
         strings:
           description: Localized string resource bundles
           type: array
@@ -15204,13 +15200,9 @@ components:
         id:
           type: string
         info:
-          description: Info element describes the meaning of the content, this is typically shown if the type is not understood by an application
-          allOf:
-            - $ref: '#/components/schemas/ovf_Msg_Type'
+          $ref: '#/components/schemas/ovf_Msg_Type'
         name:
-          description: An optional localizable display name of the content
-          allOf:
-            - $ref: '#/components/schemas/ovf_Msg_Type'
+          $ref: '#/components/schemas/ovf_Msg_Type'
         section:
           description: Content body is a list of Sections
           type: array
@@ -15279,9 +15271,7 @@ components:
       type: object
       properties:
         info:
-          description: Info element describes the meaning of the Section, this is typically shown if the Section is not understood by an application
-          allOf:
-            - $ref: '#/components/schemas/ovf_Msg_Type'
+          $ref: '#/components/schemas/ovf_Msg_Type'
         _type:
           type: string
       required:
@@ -15308,8 +15298,7 @@ components:
         - type: object
           properties:
             annotation:
-              allOf:
-                - $ref: '#/components/schemas/ovf_Msg_Type'
+              $ref: '#/components/schemas/ovf_Msg_Type'
           additionalProperties: false
     ovf_ProductSection_Type:
       title: ovf_ProductSection_Type
@@ -15325,33 +15314,19 @@ components:
               description: Property identifier suffix
               type: string
             product:
-              description: Name of product
-              allOf:
-                - $ref: '#/components/schemas/ovf_Msg_Type'
+              $ref: '#/components/schemas/ovf_Msg_Type'
             vendor:
-              description: Name of product vendor
-              allOf:
-                - $ref: '#/components/schemas/ovf_Msg_Type'
+              $ref: '#/components/schemas/ovf_Msg_Type'
             version:
-              description: Product version, short form
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
             fullVersion:
-              description: Product version, long form
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
             productUrl:
-              description: URL resolving to product description
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
             vendorUrl:
-              description: URL resolving to vendor description
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
             appUrl:
-              description: 'Experimental: URL resolving to deployed product instance'
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
           additionalProperties: false
     ovf_PropertyConfigurationValue_Type:
       title: ovf_PropertyConfigurationValue_Type
@@ -15426,8 +15401,7 @@ components:
               description: Version defined by the CIM\_OperatingSystem.Version field
               type: string
             description:
-              allOf:
-                - $ref: '#/components/schemas/ovf_Msg_Type'
+              $ref: '#/components/schemas/ovf_Msg_Type'
           additionalProperties: false
     ovf_EulaSection_Type:
       title: ovf_EulaSection_Type
@@ -15437,8 +15411,7 @@ components:
         - type: object
           properties:
             license:
-              allOf:
-                - $ref: '#/components/schemas/ovf_Msg_Type'
+              $ref: '#/components/schemas/ovf_Msg_Type'
           additionalProperties: false
     ovf_VirtualHardwareSection_Type:
       title: ovf_VirtualHardwareSection_Type
@@ -15451,8 +15424,7 @@ components:
               description: Unique identifier of this VirtualHardwareSection (within a VirtualSystem)
               type: string
             system:
-              allOf:
-                - $ref: '#/components/schemas/ovf_VSSD_Type'
+              $ref: '#/components/schemas/ovf_VSSD_Type'
             item:
               type: array
               items:
@@ -15581,21 +15553,13 @@ components:
         - type: object
           properties:
             kind:
-              description: 'Experimental: Deployment platform description'
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
             version:
-              description: 'Experimental: Deployment platform version'
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
             vendor:
-              description: 'Experimental: Deployment platform vendor'
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
             locale:
-              description: 'Experimental: Current locale'
-              allOf:
-                - $ref: '#/components/schemas/cim_cimString'
+              $ref: '#/components/schemas/cim_cimString'
             timezone:
               description: 'Experimental: Current timezone offset in minutes from UTC. Time zones east of Greenwich are positive and time zones west of Greenwich are negative.'
               type: integer
@@ -15604,6 +15568,53 @@ components:
     rasd_CIM_ResourceAllocationSettingData_Type:
       title: rasd_CIM_ResourceAllocationSettingData_Type
       type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/cim_cimString'
+        addressOnParent:
+          $ref: '#/components/schemas/cim_cimString'
+        allocationUnits:
+          $ref: '#/components/schemas/cim_cimString'
+        automaticAllocation:
+          $ref: '#/components/schemas/cim_cimBoolean'
+        automaticDeallocation:
+          $ref: '#/components/schemas/cim_cimBoolean'
+        configurationName:
+          $ref: '#/components/schemas/cim_cimString'
+        connection:
+          type: array
+          items:
+            $ref: '#/components/schemas/cim_cimString'
+        description:
+          $ref: '#/components/schemas/cim_cimString'
+        elementName:
+          $ref: '#/components/schemas/cim_cimString'
+        generation:
+          $ref: '#/components/schemas/cim_cimUnsignedLong'
+        hostResource:
+          type: array
+          items:
+            $ref: '#/components/schemas/cim_cimString'
+        instanceID:
+          $ref: '#/components/schemas/cim_cimString'
+        limit:
+          $ref: '#/components/schemas/cim_cimUnsignedLong'
+        otherResourceType:
+          $ref: '#/components/schemas/cim_cimString'
+        parent:
+          $ref: '#/components/schemas/cim_cimString'
+        poolID:
+          $ref: '#/components/schemas/cim_cimString'
+        reservation:
+          $ref: '#/components/schemas/cim_cimUnsignedLong'
+        resourceSubType:
+          $ref: '#/components/schemas/cim_cimString'
+        virtualQuantity:
+          $ref: '#/components/schemas/cim_cimUnsignedLong'
+        virtualQuantityUnits:
+          $ref: '#/components/schemas/cim_cimString'
+        weight:
+          $ref: '#/components/schemas/cim_cimUnsignedInt'
       additionalProperties: false
     vcloud_AmqpConfigurationType:
       title: vcloud_AmqpConfigurationType
@@ -15613,13 +15624,9 @@ components:
         - type: object
           properties:
             amqpBrokers:
-              description: List of AMQP Broker configurations.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_AmqpBrokersType'
+              $ref: '#/components/schemas/vcloud_AmqpBrokersType'
             amqpComponentConfigurations:
-              description: List of AMQP Broker configurations.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_AmqpComponentConfigurationsType'
+              $ref: '#/components/schemas/vcloud_AmqpComponentConfigurationsType'
           additionalProperties: false
     vcloud_AmqpComponentConfigurationsType:
       title: vcloud_AmqpComponentConfigurationsType
@@ -15645,9 +15652,7 @@ components:
               description: Name of AMQP configuration component.
               type: string
             amqpConfigList:
-              description: List of AMQP config entries for a component.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_AmqpConfigListType'
+              $ref: '#/components/schemas/vcloud_AmqpConfigListType'
           required:
             - name
             - amqpConfigList
@@ -15744,17 +15749,11 @@ components:
               description: "Action that is automatically taken when a request times out. One of:  \n**resume** (The task will be resumed.)  \n**abort** (The task will be aborted. Transient objects are cleaned up. Task status is set to ABORTED.)  \n**fail** (The task will be failed. Transient object status and task status are set to ERROR.)"
               type: string
             organization:
-              description: The organization in which the blocking task runs.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             user:
-              description: The user who triggered the blocking task.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             taskOwner:
-              description: The owner of the blocking task.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - createdTime
             - timeoutDate
@@ -15799,17 +15798,11 @@ components:
               description: A message describing the event. Length must be between 0 and 2000 characters.
               type: string
             owner:
-              description: A reference to the owner of the event.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             user:
-              description: A reference to the user for which the event was created.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             eventProperties:
-              description: List of event-specific properties.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_EventPropertiesType'
+              $ref: '#/components/schemas/vcloud_EventPropertiesType'
           required:
             - type
             - serviceNamespace
@@ -15837,17 +15830,11 @@ components:
               description: True if the event represents a successful operation. False otherwise.
               type: boolean
             org:
-              description: A reference to the organization to which the event was posted.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             owner:
-              description: A reference to the owner of the event.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             user:
-              description: A reference to the user for which the event was created.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             details:
               description: Event properties in JSON format.
               type: string
@@ -15871,32 +15858,20 @@ components:
               type: integer
               format: int32
             computeCapacity:
-              description: Read-only indicator of CPU and memory capacity.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RootComputeCapacityType'
+              $ref: '#/components/schemas/vcloud_RootComputeCapacityType'
             availableNetworks:
-              description: Read-only list of available networks.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_AvailableNetworksType'
+              $ref: '#/components/schemas/vcloud_AvailableNetworksType'
             storageProfiles:
-              description: Container for references to vSphere storage profiles available to this Provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ProviderVdcStorageProfilesType'
+              $ref: '#/components/schemas/vcloud_ProviderVdcStorageProfilesType'
             capabilities:
-              description: Read-only list of virtual hardware versions supported by this Provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_CapabilitiesType'
+              $ref: '#/components/schemas/vcloud_CapabilitiesType'
             vdcs:
-              description: Read-only list of organization vDCs backed by this Provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VdcsType'
+              $ref: '#/components/schemas/vcloud_VdcsType'
             isEnabled:
               description: True if this Provider vDC is enabled and can provide resources to organization vDCs. A Provider vDC is always enabled on creation.
               type: boolean
             networkPoolReferences:
-              description: Read-only list of network pools used by this Provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NetworkPoolReferencesType'
+              $ref: '#/components/schemas/vcloud_NetworkPoolReferencesType'
           additionalProperties: false
     vcloud_CreateVdcParamsType:
       title: vcloud_CreateVdcParamsType
@@ -15909,9 +15884,7 @@ components:
               description: "The allocation model used by this vDC. One of:  \n**AllocationVApp** (Pay as you go. Resources are committed to a vDC only when vApps are created in it. When you use this allocation model, any Limit values you specify for Memory and CPU are ignored on create and returned as 0 on retrieve.)  \n**AllocationPool** (Only a percentage of the resources you allocate are committed to the organization vDC.)  \n**ReservationPool** (All the resources you allocate are committed as a pool to the organization vDC. vApps in vDCs that support this allocation model can specify values for resource and limit.)  \n**FLEX** (A generic type of VDC where all the settings are in full control of the creator.)"
               type: string
             computeCapacity:
-              description: The compute capacity allocated to this vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputeCapacityType'
+              $ref: '#/components/schemas/vcloud_ComputeCapacityType'
             nicQuota:
               description: Maximum number of virtual NICs allowed in this vDC. Defaults to 0, which specifies an unlimited number.
               type: integer
@@ -15948,17 +15921,11 @@ components:
               description: Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over-allocation of storage.
               type: boolean
             networkPoolReference:
-              description: Reference to a network pool in the Provider vDC. Required if this vDC will contain routed or isolated networks.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             providerVdcReference:
-              description: A reference to the Provider vDC from which this organization vDC is provisioned.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             resourcePoolRefs:
-              description: Optional list of additional resource pools to back this Organization vDC. Specified resource pools must be backed by different clusters, and must not back an existing Organization vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
             usesFastProvisioning:
               description: Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.
               type: boolean
@@ -15969,13 +15936,9 @@ components:
               description: True if discovery of vCenter VMs is enabled for resource pools backing this vDC. If left unspecified, the actual behaviour depends on enablement at the organization level and at the system level.
               type: boolean
             defaultComputePolicy:
-              description: Default vDC compute policy in this vDC. It is mandatory for FLEX type of VDCs.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             maxComputePolicy:
-              description: Maximum compute policy in this vDC. If not specified then the default policy would also be considered as maximum policy.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             isElastic:
               description: Set to true to indicate if the FLEX vDC is to be elastic. This is an optional field and is useful only for FLEX vDC creation.
               type: boolean
@@ -16011,21 +15974,13 @@ components:
               description: Boolean to request thin provisioning. Request will be honored only if the underlying datastore supports it. Thin provisioning saves storage space by committing it on demand. This allows over-allocation of storage.
               type: boolean
             networkPoolReference:
-              description: Reference to a network pool in the Provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vendorServices:
-              description: Vendor services defined for this org vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VendorServicesType'
+              $ref: '#/components/schemas/vcloud_VendorServicesType'
             providerVdcReference:
-              description: A reference to the ProviderVdc from which this vDC is provisioned.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             resourcePoolRefs:
-              description: A set of references to the vCenter Resource Pools backing this VDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
             usesFastProvisioning:
               description: Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.
               type: boolean
@@ -16036,9 +15991,7 @@ components:
               description: True if discovery of vCenter VMs is enabled for resource pools backing this vDC.
               type: boolean
             universalNetworkPoolReference:
-              description: Reference to a universal network pool.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             isElastic:
               description: Set to true to indicate if the FLEX vDC is to be elastic. This is an optional field and is useful only for FLEX vDC creation.
               type: boolean
@@ -16101,13 +16054,9 @@ components:
         - type: object
           properties:
             cpu:
-              description: Read-only indicator of CPU capacity available in the Provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ProviderVdcCapacityType'
+              $ref: '#/components/schemas/vcloud_ProviderVdcCapacityType'
             memory:
-              description: Read-only indicator of memory capacity available in the Provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ProviderVdcCapacityType'
+              $ref: '#/components/schemas/vcloud_ProviderVdcCapacityType'
             isElastic:
               description: True if compute capacity can grow or shrink based on demand.
               type: boolean
@@ -16206,16 +16155,12 @@ components:
               description: True if this is default storage profile for this vDC. The default storage profile is used when an object that can specify a storage profile is created with no storage profile specified.
               type: boolean
             iopsSettings:
-              description: When NOT provided, disk storage placement ignores IOPs considerations; otherwise, this element holds all the disk IOPs related settings, including a subordinate Enabled flag. When that flag is false, disk provisioning using this profile will behave identically as if this element was not provided in the first place.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VdcStorageProfileIopsSettingsType'
+              $ref: '#/components/schemas/vcloud_VdcStorageProfileIopsSettingsType'
             inheritPvdcDefaultSettings:
               description: True if this Org VDC storage profile should inheirt the default settings of the parent PVDC storage profile.
               type: boolean
             providerVdcStorageProfile:
-              description: Reference to a Provider vDC storage profile.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - units
             - limit
@@ -16230,9 +16175,7 @@ components:
         - type: object
           properties:
             providerVdcStorageProfile:
-              description: Reference to a Provider vDC storage profile.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - providerVdcStorageProfile
           additionalProperties: false
@@ -16265,9 +16208,7 @@ components:
               description: Description of the provider vdc compute policy.
               type: string
             namedVmGroupReferences:
-              description: References to named VM group.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VMWVmGroupReferencesType'
+              $ref: '#/components/schemas/vcloud-ext_VMWVmGroupReferencesType'
           required:
             - policyDescription
             - namedVmGroupReferences
@@ -16309,9 +16250,7 @@ components:
               description: Opaque string identifying the associated registered object extension.
               type: string
             phases:
-              description: One or more Phases implemented by this extension in the context of this Selector.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_PhasesType'
+              $ref: '#/components/schemas/vcloud_PhasesType'
           required:
             - enabled
             - priority
@@ -16454,16 +16393,12 @@ components:
               type: integer
               format: int32
             role:
-              description: A reference to the user's role. When you are creating a User, the request body must contain exactly one Role element. If the Role element is empty when retrieved,the user inherits a role from the group.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             password:
               description: The user's password. This value is never returned by GET. It is inspected on create and modify. On modify, the absence of this element indicates that the password should not be changed.
               type: string
             groupReferences:
-              description: Container for references to groups of which this user is a member.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_GroupsListType'
+              $ref: '#/components/schemas/vcloud_GroupsListType'
           additionalProperties: false
     vcloud_GroupType:
       title: vcloud_GroupType
@@ -16476,16 +16411,12 @@ components:
               description: Group name as retrieved from, and in the encoding used by, the specified identity provider.
               type: string
             usersList:
-              description: Container for references to users in the group.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_UsersListType'
+              $ref: '#/components/schemas/vcloud_UsersListType'
             providerType:
               description: "Identity provider type for this group. One of:  \n**INTEGRATED** (The group is imported from LDAP.)  \n**SAML** (The group is imported from a SAML identity provider.)  \n**OAUTH** (The group is imported from an OAUTH identity provider.)  \n If missing or empty the default value is **INTEGRATED**."
               type: string
             role:
-              description: The default role for users in this group.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           additionalProperties: false
     vcloud_UsersListType:
       title: vcloud_UsersListType
@@ -16560,9 +16491,7 @@ components:
         - type: object
           properties:
             rightReferences:
-              description: Container for references to the rights assigned to this role.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RightReferencesType'
+              $ref: '#/components/schemas/vcloud_RightReferencesType'
           additionalProperties: false
     vcloud_RoleReferencesType:
       deprecated: true
@@ -16620,27 +16549,15 @@ components:
         - type: object
           properties:
             organizationReferences:
-              description: Container for references to AdminOrg objects in the system.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrganizationReferencesType'
+              $ref: '#/components/schemas/vcloud_OrganizationReferencesType'
             providerVdcReferences:
-              description: A container for references to ProviderVdc objects in the system.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ProviderVdcReferencesType'
+              $ref: '#/components/schemas/vcloud_ProviderVdcReferencesType'
             rightReferences:
-              deprecated: true
-              description: A container for references to Right objects in the system.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RightReferencesType'
+              $ref: '#/components/schemas/vcloud_RightReferencesType'
             roleReferences:
-              deprecated: true
-              description: A container for references to Role objects in the system.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RoleReferencesType'
+              $ref: '#/components/schemas/vcloud_RoleReferencesType'
             networks:
-              description: A container for references to ExternalNetwork objects in the system.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NetworksType'
+              $ref: '#/components/schemas/vcloud_NetworksType'
           additionalProperties: false
     vcloud_AdminOrgType:
       deprecated: true
@@ -16651,52 +16568,27 @@ components:
         - type: object
           properties:
             settings:
-              description: Settings for this organization. Establishes quotas, limits, and policies. Specifies how the organization connects to LDAP and email services.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgSettingsType'
             users:
-              description: Container for references to users in this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_UsersListType'
+              $ref: '#/components/schemas/vcloud_UsersListType'
             groups:
-              description: Container for references to groups in this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_GroupsListType'
+              $ref: '#/components/schemas/vcloud_GroupsListType'
             catalogs:
-              description: Container for references to catalogs in this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_CatalogsListType'
+              $ref: '#/components/schemas/vcloud_CatalogsListType'
             vdcs:
-              description: Container for references to vDCs in this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VdcsType'
+              $ref: '#/components/schemas/vcloud_VdcsType'
             vdcTemplates:
-              description: Container for references to VDC templates in this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VdcTemplatesType'
+              $ref: '#/components/schemas/vcloud_VdcTemplatesType'
             networks:
-              description: Container for references to organization vDC networks in this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NetworksType'
+              $ref: '#/components/schemas/vcloud_NetworksType'
             orgAssociations:
-              description: Container for the references to other organizations whose content will be listed with this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgAssociationsType'
+              $ref: '#/components/schemas/vcloud_OrgAssociationsType'
             rightReferences:
-              deprecated: true
-              description: A container for references to Right objects in the organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrganizationRightsType'
+              $ref: '#/components/schemas/vcloud_OrganizationRightsType'
             roleReferences:
-              deprecated: true
-              description: A container for references to Role objects in the organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrganizationRolesType'
+              $ref: '#/components/schemas/vcloud_OrganizationRolesType'
             roleTemplateReferences:
-              deprecated: true
-              description: A container for references to Role objects in the organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RoleReferencesType'
+              $ref: '#/components/schemas/vcloud_RoleReferencesType'
           required:
             - settings
           additionalProperties: false
@@ -16736,9 +16628,7 @@ components:
         - type: object
           properties:
             vdcTemplateSpecification:
-              description: A reference to the specification for a VDC template object.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VdcTemplateSpecificationType'
+              $ref: '#/components/schemas/vcloud_VdcTemplateSpecificationType'
           required:
             - vdcTemplateSpecification
           additionalProperties: false
@@ -16772,9 +16662,7 @@ components:
           type: integer
           format: int32
         gatewayConfiguration:
-          description: Defines a gateway and NAT Routed organization VDC network to be created.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_VdcTemplateSpecificationGatewayConfigurationType'
+          $ref: '#/components/schemas/vcloud_VdcTemplateSpecificationGatewayConfigurationType'
         storageProfile:
           description: A set of name of Storage Profiles, with corresponding limit value, that all Provider VDCs must have, and that are selected at the time of VDC Template instantiation.
           type: array
@@ -16911,21 +16799,9 @@ components:
         - type: object
           properties:
             gateway:
-              description: |-
-                EdgeGateway configuration for the VDC created by this template. The following restrictions apply:
-
-                * You may not specify a BackwardCompatibilityMode or an EdgeGatewayServiceConfiguration.
-                * The GatewayInterfaces element must contain exactly one GatewayInterface. That GatewayInterface must have an InterfaceType of uplink and must not contain a SubnetParticipation element.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_GatewayType'
+              $ref: '#/components/schemas/vcloud_GatewayType'
             network:
-              description: |-
-                Org VDC network configuration created by this template. The following restrictions apply:
-
-                * You may not specify a BackwardCompatibilityMode, EdgeGatewayServiceConfiguration, or NetworkFeatures.
-                * The NetworkConfiguration must specify a FenceMode of natRouted.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgVdcNetworkType'
+              $ref: '#/components/schemas/vcloud_OrgVdcNetworkType'
           required:
             - gateway
             - network
@@ -16941,9 +16817,7 @@ components:
               description: Typically used to name or identify the subject of the request. For example, the name of the object being created or modified.
               type: string
             source:
-              description: A reference to a source object, which must be a VDC template.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             description:
               description: Optional description.
               type: string
@@ -16987,9 +16861,7 @@ components:
               description: Shows vCenter server and port group moref used for external network.
               type: string
             networkBackingInfo:
-              description: List of network backings (vCenter server and port group moref) for this network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NetworkBackingInfoType'
+              $ref: '#/components/schemas/vcloud_NetworkBackingInfoType'
           additionalProperties: false
     vcloud_NetworkBackingInfoType:
       title: vcloud_NetworkBackingInfoType
@@ -17004,41 +16876,23 @@ components:
         - type: object
           properties:
             orgGeneralSettings:
-              description: Represents general settings for this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgGeneralSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgGeneralSettingsType'
             vAppLeaseSettings:
-              description: Represents default lease durations and related policies for this organization. Runtime lease default is 7 days. Storage lease default is 30 days.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgLeaseSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgLeaseSettingsType'
             vAppTemplateLeaseSettings:
-              description: Represents default vAppTemplate lease policies for this organization. Storage lease default is 30 days.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgVAppTemplateLeaseSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgVAppTemplateLeaseSettingsType'
             orgLdapSettings:
-              description: Represents the hostname and connection details for this organization's primary LDAP service.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgLdapSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgLdapSettingsType'
             orgEmailSettings:
-              description: Represents the email settings for this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgEmailSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgEmailSettingsType'
             orgPasswordPolicySettings:
-              description: Represents the password policy settings for this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgPasswordPolicySettingsType'
+              $ref: '#/components/schemas/vcloud_OrgPasswordPolicySettingsType'
             orgOperationLimitsSettings:
-              description: Represents operation limits settings for this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgOperationLimitsSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgOperationLimitsSettingsType'
             orgFederationSettings:
-              description: Represents federated identity settings for this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgFederationSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgFederationSettingsType'
             orgOAuthSettings:
-              description: Contains OAuth identity provider settings for this organization.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgOAuthSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgOAuthSettingsType'
           additionalProperties: false
     vcloud_OrgGeneralSettingsType:
       title: vcloud_OrgGeneralSettingsType
@@ -17132,8 +16986,7 @@ components:
               type: string
               format: uri
             samlAttributeMapping:
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SamlAttributeMappingType'
+              $ref: '#/components/schemas/vcloud_SamlAttributeMappingType'
             signingCertLibraryItemId:
               description: UUID of a CertificateLibraryItem containing a certificate chain and private key for SAML signing
               type: string
@@ -17203,9 +17056,7 @@ components:
               description: Issuer Id for the OAuth Identity Provider.
               type: string
             oAuthKeyConfigurations:
-              description: A list of OAuth Key configurations.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OAuthKeyConfigurationsListType'
+              $ref: '#/components/schemas/vcloud_OAuthKeyConfigurationsListType'
             enabled:
               description: True if the OAuth Identity Provider for this organization is enabled. Unset or empty defaults to true.
               type: boolean
@@ -17237,9 +17088,7 @@ components:
               items:
                 type: string
             oIDCAttributeMapping:
-              description: Custom claim keys for the /userinfo endpoint
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OIDCAttributeMappingType'
+              $ref: '#/components/schemas/vcloud_OIDCAttributeMappingType'
             maxClockSkew:
               description: Allowed difference between token expiration and vCD system time in seconds.
               type: integer
@@ -17365,9 +17214,7 @@ components:
         - type: object
           properties:
             orgOAuthSettings:
-              description: OrgOauthSettings object configured using information from the IDP
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgOAuthSettingsType'
+              $ref: '#/components/schemas/vcloud_OrgOAuthSettingsType'
             providerConfigResponse:
               description: Raw response from the IDP's provider config endpoint
               type: string
@@ -17386,9 +17233,7 @@ components:
               description: If OrgLdapMode is SYSTEM, specifies an LDAP attribute=value pair to use for OU (organizational unit).
               type: string
             customOrgLdapSettings:
-              description: If OrgLdapMode is CUSTOM, this element defines the hostname and connection details for the organization's LDAP service.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_CustomOrgLdapSettingsType'
+              $ref: '#/components/schemas/vcloud_CustomOrgLdapSettingsType'
           additionalProperties: false
     vcloud_CustomOrgLdapSettingsType:
       title: vcloud_CustomOrgLdapSettingsType
@@ -17436,13 +17281,9 @@ components:
               description: "Defines LDAP service implementation type. One of:  \n**ACTIVE\\_DIRECTORY** (LDAP service provided by Microsoft Active Directory.)  \n**OPEN\\_LDAP** (LDAP service provided by Open LDAP)."
               type: string
             userAttributes:
-              description: Defines how LDAP attributes are used when importing a user.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgLdapUserAttributesType'
+              $ref: '#/components/schemas/vcloud_OrgLdapUserAttributesType'
             groupAttributes:
-              description: Defines how LDAP attributes are used when importing a group.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgLdapGroupAttributesType'
+              $ref: '#/components/schemas/vcloud_OrgLdapGroupAttributesType'
           required:
             - port
             - authenticationMechanism
@@ -17559,9 +17400,7 @@ components:
               items:
                 type: string
             smtpServerSettings:
-              description: If IsDefaultSmtpServer is false, specifies connection details for an SMTP server to use.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SmtpServerSettingsType'
+              $ref: '#/components/schemas/vcloud_SmtpServerSettingsType'
           required:
             - isDefaultSmtpServer
             - isDefaultOrgEmail
@@ -17593,9 +17432,7 @@ components:
               description: Password for the user identified by Username. This value is never returned by GET. It is inspected on create and modify. On modify, the absence of this element indicates that the password should not be changed. Required if IsUseAuthentication is true.
               type: string
             smtpSecureMode:
-              description: "Security protocol to use when connecting to the SMTP server. One of:  \n startTls -- Use the STARTTLS protocol  \n ssl -- -Use the SSL/TLS protocol  \n none -- Do not use any security protocol"
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SmtpSecureModeType'
+              $ref: '#/components/schemas/vcloud_SmtpSecureModeType'
             sslTrustStore:
               description: Custom truststore to use to trust peer certificates when establishing a secure connection using SSL/STARTTLS (when enabled).
               type: string
@@ -17635,17 +17472,11 @@ components:
         - type: object
           properties:
             catalogStorageProfiles:
-              description: Container for VdcStorageProfile elements that reference storage profiles used by this catalog.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_CatalogStorageProfilesType'
+              $ref: '#/components/schemas/vcloud_CatalogStorageProfilesType'
             externalCatalogSubscriptionParams:
-              description: Configuration parameters for a catalog that has an external subscription.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ExternalCatalogSubscriptionParamsType'
+              $ref: '#/components/schemas/vcloud_ExternalCatalogSubscriptionParamsType'
             publishExternalCatalogParams:
-              description: Configuration parameters for a catalog that is published externally.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_PublishExternalCatalogParamsType'
+              $ref: '#/components/schemas/vcloud_PublishExternalCatalogParamsType'
           additionalProperties: false
     vcloud_OrgsType:
       title: vcloud_OrgsType
@@ -17723,9 +17554,7 @@ components:
         - type: object
           properties:
             status:
-              description: Result status of the remote uri probe
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RemoteUriProbeResultStatus'
+              $ref: '#/components/schemas/vcloud_RemoteUriProbeResultStatus'
             errorMessage:
               description: Error message returned from remote URL
               type: string
@@ -18061,13 +17890,9 @@ components:
         - type: object
           properties:
             owner:
-              description: Catalog owner.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OwnerType'
+              $ref: '#/components/schemas/vcloud_OwnerType'
             catalogItems:
-              description: Container for CatalogItem elements.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_CatalogItemsType'
+              $ref: '#/components/schemas/vcloud_CatalogItemsType'
             isPublished:
               description: True if the catalog is shared with all other organizations in the system. This value is read-only in the user view. To modify it, an administrator must use the publish link in the admin view of the catalog.
               type: boolean
@@ -18088,9 +17913,7 @@ components:
         - type: object
           properties:
             source:
-              description: Reference to the source catalog item to copy or move from.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - source
           additionalProperties: false
@@ -18119,9 +17942,7 @@ components:
               type: integer
               format: int64
             entity:
-              description: A reference to a VAppTemplate or Media object.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             dateCreated:
               description: Creation date and time of the catalog item.
               type: string
@@ -18214,9 +18035,7 @@ components:
               description: The stack trace of the exception.
               type: string
             tenantError:
-              description: The tenant view of the error, when the containing error is an administrator view of the error.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_TenantErrorType'
+              $ref: '#/components/schemas/vcloud_TenantErrorType'
           additionalProperties: false
     vcloud_TenantErrorType:
       title: vcloud_TenantErrorType
@@ -18235,9 +18054,7 @@ components:
           description: An optional element that can be used to hold the result of operations.
           type: string
         resultReference:
-          description: An optional element that can be used to hold the reference of a result.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
       additionalProperties: false
     vcloud_LinkType:
       title: vcloud_LinkType
@@ -18466,9 +18283,7 @@ components:
               description: "If IsSharedToEveryone is true, this element must be present to specify the access level. for all members of the organization. One of:  \n FullControl  \n Change  \n ReadOnly"
               type: string
             accessSettings:
-              description: The access settings to be applied if IsSharedToEveryone is false. Required on create and modify if IsSharedToEveryone is false.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_AccessSettingsType'
+              $ref: '#/components/schemas/vcloud_AccessSettingsType'
           required:
             - isSharedToEveryone
           additionalProperties: false
@@ -18480,9 +18295,7 @@ components:
         - type: object
           properties:
             user:
-              description: Reference to the user who is the owner of this entity.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - user
           additionalProperties: false
@@ -18526,16 +18339,12 @@ components:
         - type: object
           properties:
             domain:
-              description: A value of SYSTEM places this MetadataEntry in the SYSTEM domain. Omit or leave empty to place this MetadataEntry in the GENERAL domain.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_MetadataDomainTagType'
+              $ref: '#/components/schemas/vcloud_MetadataDomainTagType'
             key:
               description: An arbitrary key name. Length cannot exceed 256 UTF-8 characters.
               type: string
             typedValue:
-              description: "One of:  \n MetadataStringValue  \n MetadataNumberValue  \n MetadataBooleanValue  \n MetadataDateTimeValue"
-              allOf:
-                - $ref: '#/components/schemas/vcloud_MetadataTypedValue'
+              $ref: '#/components/schemas/vcloud_MetadataTypedValue'
           required:
             - domain
             - key
@@ -18628,12 +18437,9 @@ components:
         - type: object
           properties:
             domain:
-              description: "One of:  \n GENERAL  \n SYSTEM"
-              allOf:
-                - $ref: '#/components/schemas/vcloud_MetadataDomainTagType'
+              $ref: '#/components/schemas/vcloud_MetadataDomainTagType'
             typedValue:
-              allOf:
-                - $ref: '#/components/schemas/vcloud_MetadataTypedValue'
+              $ref: '#/components/schemas/vcloud_MetadataTypedValue'
           required:
             - typedValue
           additionalProperties: false
@@ -18662,9 +18468,7 @@ components:
               description: URL where the file must be uploaded.
               type: string
             task:
-              description: A task representing progress of the upload.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_TaskType'
+              $ref: '#/components/schemas/vcloud_TaskType'
           additionalProperties: false
     vcloud_SmtpSecureModeType:
       title: vcloud_SmtpSecureModeType
@@ -18722,17 +18526,11 @@ components:
               description: The UUID of this named disk's device backing. This is a read-only value.
               type: string
             storageProfile:
-              description: Storage profile of the disk.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             owner:
-              description: The owner of the disk.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OwnerType'
+              $ref: '#/components/schemas/vcloud_OwnerType'
             iopsAllocation:
-              description: IOPS allocated to the disk
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IopsResourceType'
+              $ref: '#/components/schemas/vcloud_IopsResourceType'
           additionalProperties: false
     vcloud_DiskCreateParamsType:
       title: vcloud_DiskCreateParamsType
@@ -18742,13 +18540,9 @@ components:
         - type: object
           properties:
             disk:
-              description: Parameters for creating or updating an independent disk.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_DiskType'
+              $ref: '#/components/schemas/vcloud_DiskType'
             locality:
-              description: If you supply a reference to a virtual machine, the system will use that information to attempt to optimize access to this disk from that virtual machine. See [KB 2105352](http://kb.vmware.com/kb/2105352).
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - disk
           additionalProperties: false
@@ -18760,9 +18554,7 @@ components:
         - type: object
           properties:
             disk:
-              description: A reference to the disk to attach or detach.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             busNumber:
               description: Bus number on which to place the disk controller. If empty or missing, the system assigns a bus number and a unit number on that bus.
               type: integer
@@ -18782,13 +18574,9 @@ components:
         - type: object
           properties:
             vdc:
-              description: A reference to the destination Org VDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             storagePolicy:
-              description: A reference to the storage policy that will be used for the disk in the destination Org VDC. If unset, the default storage policy of the destination Org VDC will be used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             iops:
               description: The IOPS that should be set on the disk. If unset, the default disk IOPS value of the storage policy will be used.
               type: integer
@@ -18810,9 +18598,7 @@ components:
               description: Optional description.
               type: string
             tasks:
-              description: A list of queued, running, or recently completed tasks associated with this entity.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_TasksInProgressType'
+              $ref: '#/components/schemas/vcloud_TasksInProgressType'
           required:
             - name
           additionalProperties: false
@@ -19161,13 +18947,9 @@ components:
               type: integer
               format: int64
             owner:
-              description: Media owner.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OwnerType'
+              $ref: '#/components/schemas/vcloud_OwnerType'
             vdcStorageProfile:
-              description: A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - imageType
             - size
@@ -19180,16 +18962,12 @@ components:
         - type: object
           properties:
             source:
-              description: Reference to a media object to copy.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             isSourceDelete:
               description: A value of true deletes the Source object after successful completion of the copy operation. Defaults to false if empty or missing.
               type: boolean
             vdcStorageProfile:
-              description: A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - source
           additionalProperties: false
@@ -19218,9 +18996,7 @@ components:
               description: numeric portion of time specification
               type: integer
             unit:
-              description: time unit enumeration value
-              allOf:
-                - $ref: '#/components/schemas/vcloud_TimeUnitType'
+              $ref: '#/components/schemas/vcloud_TimeUnitType'
           required:
             - interval
             - unit
@@ -19406,9 +19182,7 @@ components:
               type: string
               format: uri
             siteAssociations:
-              description: List of sites associated with this site.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SiteAssociationsType'
+              $ref: '#/components/schemas/vcloud_SiteAssociationsType'
           additionalProperties: false
     vcloud_SiteAssociationsType:
       title: vcloud_SiteAssociationsType
@@ -19578,13 +19352,9 @@ components:
           description: Provider type of the user
           type: string
         idpRecommendedRoles:
-          description: Role recommended by the IDP
-          allOf:
-            - $ref: '#/components/schemas/vcloud_IdpRecommendedRolesType'
+          $ref: '#/components/schemas/vcloud_IdpRecommendedRolesType'
         idpGroups:
-          description: Groups obtained from the IDP
-          allOf:
-            - $ref: '#/components/schemas/vcloud_IdpGroupsType'
+          $ref: '#/components/schemas/vcloud_IdpGroupsType'
       required:
         - username
         - fullName
@@ -19627,9 +19397,7 @@ components:
         - type: object
           properties:
             configuration:
-              description: Network configuration.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NetworkConfigurationType'
+              $ref: '#/components/schemas/vcloud_NetworkConfigurationType'
           additionalProperties: false
     vcloud_OrgNetworkType:
       title: vcloud_OrgNetworkType
@@ -19639,13 +19407,9 @@ components:
         - type: object
           properties:
             networkPool:
-              description: Network Pool from which this organization network is created. Not present if it is bridged to an external network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             allowedExternalIpAddresses:
-              description: Optional set of IP addresses that this organization network is limited to using for purposes of NAT.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressesType'
+              $ref: '#/components/schemas/vcloud_IpAddressesType'
           additionalProperties: false
     vcloud_VAppNetworkType:
       title: vcloud_VAppNetworkType
@@ -19684,9 +19448,7 @@ components:
       type: object
       properties:
         externalIp:
-          description: Specifies the external IP of the router. Applicable for NAT Routed / Fenced networks only.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_IpAddressType'
+          $ref: '#/components/schemas/vcloud_IpAddressType'
       required:
         - externalIp
       additionalProperties: false
@@ -19706,17 +19468,11 @@ components:
               type: integer
               format: int32
             ipRange:
-              description: IP range for DHCP addresses.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpRangeType'
+              $ref: '#/components/schemas/vcloud_IpRangeType'
             routerIp:
-              description: Router IP.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             subMask:
-              description: The subnet mask.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             primaryNameServer:
               description: The primary name server.
               type: string
@@ -19749,9 +19505,7 @@ components:
               items:
                 $ref: '#/components/schemas/vcloud_NatRuleType'
             externalIp:
-              description: External IP address for rule.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
           additionalProperties: false
     vcloud_NatRuleType:
       title: vcloud_NatRuleType
@@ -19782,20 +19536,14 @@ components:
         - type: object
           properties:
             interface:
-              description: Interface to which rule is applied.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             originalIp:
-              description: Original IP for rule.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             originalPort:
               description: Original port for rule.
               type: string
             translatedIp:
-              description: Translated IP for rule.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             translatedPort:
               description: Translated port for rule.
               type: string
@@ -19820,13 +19568,9 @@ components:
               description: 'One of: automatic (map IP addresses automatically), manual (map IP addresses manually using ExternalIpAddress and InternalIpAddress)'
               type: string
             externalIpAddress:
-              description: External IP address to map.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             internalIpAddress:
-              description: Internal IP address to map.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
           required:
             - mappingMode
             - externalIpAddress
@@ -19843,9 +19587,7 @@ components:
               description: Mapping mode.
               type: string
             externalIpAddress:
-              description: External IP address to map to VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             vAppScopedVmId:
               description: VAppScopedVmId of the VM to which this rule applies.
               type: string
@@ -19866,17 +19608,13 @@ components:
         - type: object
           properties:
             externalIpAddress:
-              description: External IP address to forward to.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             externalPort:
               description: External port to forward to.
               type: integer
               format: int32
             internalIpAddress:
-              description: Internal IP address to forward to.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             internalPort:
               description: Internal port to forward to.
               type: integer
@@ -19899,9 +19637,7 @@ components:
         - type: object
           properties:
             externalIpAddress:
-              description: External IP address to forward to.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             externalPort:
               description: External port to forward to.
               type: integer
@@ -20004,13 +19740,9 @@ components:
         - type: object
           properties:
             externalIpAddress:
-              description: IP address of external enterface of the Edge.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             publicIpAddress:
-              description: Public IP address of the Edge.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             ipsecVpnTunnel:
               description: Details of an IPSec-VPN tunnel.
               type: array
@@ -20031,21 +19763,13 @@ components:
               description: A description of the tunnel.
               type: string
             ipsecVpnPeer:
-              description: Details about the peer network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpsecVpnPeerType'
+              $ref: '#/components/schemas/vcloud_IpsecVpnPeerType'
             peerIpAddress:
-              description: IP address of the peer Edge device.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             peerNetworkAddress:
-              description: Address of the peer network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             peerNetworkMask:
-              description: Netmask of the peer network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             sharedSecret:
               description: Shared secret used for authentication.
               type: string
@@ -20174,16 +19898,12 @@ components:
               description: Network specification in CIDR.
               type: string
             nextHopIp:
-              description: IP Address of Next Hop router/gateway.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             interface:
               description: Interface to use for static routing. Internal and External are the supported values.
               type: string
             gatewayInterface:
-              description: Gateway interface to which static route is bound.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - name
             - network
@@ -20213,9 +19933,7 @@ components:
               description: True if this DHCP Pool is enabled.
               type: boolean
             network:
-              description: Org vDC network to which the DHCP range is applicable.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             defaultLeaseTime:
               description: Default lease period for DHCP range.
               type: integer
@@ -20225,13 +19943,9 @@ components:
               type: integer
               format: int32
             lowIpAddress:
-              description: Low IP address in DHCP range.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             highIpAddress:
-              description: High IP address in DHCP range.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
           required:
             - network
             - maxLeaseTime
@@ -20310,13 +20024,9 @@ components:
               description: Load balancer virtual server description.
               type: string
             interface:
-              description: Gateway Interface to which Load Balancer Virtual Server is bound.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             ipAddress:
-              description: Load balancer virtual server IP Address.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             serviceProfile:
               description: Load balancer virtual server service profiles.
               type: array
@@ -20389,9 +20099,7 @@ components:
               description: Port for this service profile.
               type: string
             persistence:
-              description: Persistence type for service profile.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_LBPersistenceType'
+              $ref: '#/components/schemas/vcloud_LBPersistenceType'
           required:
             - protocol
             - port
@@ -20423,9 +20131,7 @@ components:
         - type: object
           properties:
             ipAddress:
-              description: IP Address for load balancer member.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             condition:
               description: Condition for this member. Can be enabled or disabled.
               type: string
@@ -20498,13 +20204,9 @@ components:
         - type: object
           properties:
             network:
-              description: External network reference.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             publicIp:
-              description: Public IP for IPSec endpoint.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
           required:
             - network
           additionalProperties: false
@@ -20522,20 +20224,14 @@ components:
               description: A description of the tunnel.
               type: string
             ipsecVpnPeer:
-              description: Details about the peer network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpsecVpnPeerType'
+              $ref: '#/components/schemas/vcloud_IpsecVpnPeerType'
             peerIpAddress:
-              description: IP address of the peer endpoint.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             peerId:
               description: Id for the peer end point
               type: string
             localIpAddress:
-              description: Address of the local network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             localId:
               description: Id for local end point
               type: string
@@ -20595,13 +20291,9 @@ components:
               description: Gateway Name.
               type: string
             gateway:
-              description: Subnet Gateway.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             netmask:
-              description: Subnet Netmask.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
           required:
             - name
             - gateway
@@ -20618,13 +20310,9 @@ components:
               description: Compatibility mode. Default is false. If set to true, will allow users to write firewall rules in the old 1.5 format. The new format does not require to use direction in firewall rules. Also, for firewall rules to allow NAT traffic the filter is applied on the original IP addresses. Once set to true cannot be reverted back to false.
               type: boolean
             ipScopes:
-              description: A list of IP scopes for the network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpScopesType'
+              $ref: '#/components/schemas/vcloud_IpScopesType'
             parentNetwork:
-              description: Contains reference to parent network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             fenceMode:
               description: 'Isolation type of the network. If ParentNetwork is specified, this property controls connectivity to the parent. One of: bridged (connected directly to the ParentNetwork), isolated (not connected to any other network), natRouted (connected to the ParentNetwork via a NAT service)'
               type: string
@@ -20632,17 +20320,11 @@ components:
               description: Specifies whether the network resources such as IP/MAC of router will be retained across deployments. Default is false.
               type: boolean
             features:
-              description: Network features like DHCP, firewall and NAT rules.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NetworkFeaturesType'
+              $ref: '#/components/schemas/vcloud_NetworkFeaturesType'
             syslogServerSettings:
-              description: Syslog server settings for the network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SyslogServerSettingsType'
+              $ref: '#/components/schemas/vcloud_SyslogServerSettingsType'
             routerInfo:
-              description: Specifies router information.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RouterInfoType'
+              $ref: '#/components/schemas/vcloud_RouterInfoType'
             subInterface:
               description: True if Network is connected to an Edge Gateway subinterface.
               type: boolean
@@ -20699,9 +20381,7 @@ components:
               description: 'One of: vmAllocated (IP is allocated by VM), natRouted (IP is NAT routed) vsmAllocated (IP is allocated for vShieldManager)'
               type: string
             ipAddress:
-              description: Allocated IP address.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
           additionalProperties: false
     vcloud_AllocatedIpAddressesType:
       title: vcloud_AllocatedIpAddressesType
@@ -20737,13 +20417,9 @@ components:
         - type: object
           properties:
             edgeGateway:
-              description: Edge gateway that uses this sub allocation.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             ipRanges:
-              description: IP range sub allocated to the edge gateway.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpRangesType'
+              $ref: '#/components/schemas/vcloud_IpRangesType'
           additionalProperties: false
     vcloud_IpRangeType:
       title: vcloud_IpRangeType
@@ -20753,13 +20429,9 @@ components:
         - type: object
           properties:
             startAddress:
-              description: Start address of the IP range.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             endAddress:
-              description: End address of the IP range.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
           required:
             - startAddress
             - endAddress
@@ -20788,25 +20460,17 @@ components:
               description: True if the IP scope is inherit from parent network.
               type: boolean
             gateway:
-              description: Gateway of the network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             netmask:
-              description: Network mask.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             subnetPrefixLength:
               description: Network mask.
               type: integer
               format: int32
             dns1:
-              description: Primary DNS server.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             dns2:
-              description: Secondary DNS server.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             dnsSuffix:
               description: DNS suffix.
               type: string
@@ -20814,17 +20478,11 @@ components:
               description: Indicates if subnet is enabled or not. Default value is True.
               type: boolean
             ipRanges:
-              description: IP ranges used for static pool allocation in the network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpRangesType'
+              $ref: '#/components/schemas/vcloud_IpRangesType'
             allocatedIpAddresses:
-              description: Read-only list of allocated IP addresses in the network.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressesType'
+              $ref: '#/components/schemas/vcloud_IpAddressesType'
             subAllocations:
-              description: Read-only list of IP addresses that are sub allocated to edge gateways.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SubAllocationsType'
+              $ref: '#/components/schemas/vcloud_SubAllocationsType'
           required:
             - isInherited
           additionalProperties: false
@@ -20849,13 +20507,9 @@ components:
       type: object
       properties:
         syslogServerIp1:
-          description: Primary syslog server.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_IpAddressType'
+          $ref: '#/components/schemas/vcloud_IpAddressType'
         syslogServerIp2:
-          description: Secondary syslog server.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_IpAddressType'
+          $ref: '#/components/schemas/vcloud_IpAddressType'
       additionalProperties: false
     vcloud_TenantSyslogServerSettingsType:
       title: vcloud_TenantSyslogServerSettingsType
@@ -20883,20 +20537,14 @@ components:
               description: provider Info for the network
               type: string
             edgeGateway:
-              description: EdgeGateway that connects this Org vDC network. Applicable only for routed networks.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             serviceConfig:
-              description: Specifies the service configuration for an isolated Org vDC networks.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_GatewayFeaturesType'
+              $ref: '#/components/schemas/vcloud_GatewayFeaturesType'
             isShared:
               description: True if this network is shared to multiple Org vDCs.
               type: boolean
             vimPortGroupRef:
-              description: A reference to the network backing object (logical switch, portgroup, etc.) that exists on a vCenter server registered with the system.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud_VimObjectRefType'
           required:
             - providerInfo
             - vimPortGroupRef
@@ -20907,9 +20555,7 @@ components:
       type: object
       properties:
         vimServerRef:
-          description: The vCenter server reference.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
         moRef:
           description: Managed object reference of the object.
           type: string
@@ -20948,17 +20594,11 @@ components:
               type: integer
               format: int32
             gatewayBackingRef:
-              description: Provides information to access edge gateway via VC
-              allOf:
-                - $ref: '#/components/schemas/vcloud_GatewayBackingRefType'
+              $ref: '#/components/schemas/vcloud_GatewayBackingRefType'
             edgeGatewayType:
-              description: Represents a gateway.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_EdgeGatewayType'
+              $ref: '#/components/schemas/vcloud_EdgeGatewayType'
             configuration:
-              description: Gateway configuration.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_GatewayConfigurationType'
+              $ref: '#/components/schemas/vcloud_GatewayConfigurationType'
           required:
             - configuration
           additionalProperties: false
@@ -20971,9 +20611,7 @@ components:
           description: Gateway id in VSM (vSheildManager).
           type: string
         vCRef:
-          description: Entity ref for Vcenter
-          allOf:
-            - $ref: '#/components/schemas/vcloud_EntityReferenceType'
+          $ref: '#/components/schemas/vcloud_EntityReferenceType'
       additionalProperties: false
     vcloud_GatewayConfigurationType:
       title: vcloud_GatewayConfigurationType
@@ -20989,13 +20627,9 @@ components:
               description: 'Configuration of the vShield edge VM for this gateway. One of: compact, full.'
               type: string
             gatewayInterfaces:
-              description: List of Gateway interfaces.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_GatewayInterfacesType'
+              $ref: '#/components/schemas/vcloud_GatewayInterfacesType'
             edgeGatewayServiceConfiguration:
-              description: Represents Gateway Features.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_GatewayFeaturesType'
+              $ref: '#/components/schemas/vcloud_GatewayFeaturesType'
             haEnabled:
               description: True if this gateway is highly available. (Requires two vShield edge VMs.)
               type: boolean
@@ -21003,9 +20637,7 @@ components:
               description: True if the default gateway on the external network selected for default route should be used as the DNS relay.
               type: boolean
             syslogServerSettings:
-              description: Syslog server addresses for gateway
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SyslogServerType'
+              $ref: '#/components/schemas/vcloud_SyslogServerType'
             advancedNetworkingEnabled:
               description: True if the gateway uses advanced networking
               type: boolean
@@ -21016,9 +20648,7 @@ components:
               description: True if FIPS mode is enabled for this gateway
               type: boolean
             edgeClusterConfiguration:
-              description: Represents the Edge Cluster Configuration for a given Edge Gateway. Can be changed if a gateway needs to be placed on a specific set of Edge Clusters. For NSX-V Edges, if nothing is specified on create or update, the Org VDC Default will be used. For NSX-T Edges, Open API must be used and this field is read only. If there is no value, the gateway uses the Edge Cluster of the connected External Network's backing Tier-0 router.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_EdgeClusterConfigurationType'
+              $ref: '#/components/schemas/vcloud_EdgeClusterConfigurationType'
           required:
             - gatewayBackingConfig
             - gatewayInterfaces
@@ -21052,9 +20682,7 @@ components:
               description: Gateway Interface display name.
               type: string
             network:
-              description: A reference to the network connected to the gateway interface.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             interfaceType:
               description: 'The type of interface: One of: Uplink, Internal'
               type: string
@@ -21096,9 +20724,7 @@ components:
         - type: object
           properties:
             tenantSyslogServerSettings:
-              description: Tenant syslog server settings
-              allOf:
-                - $ref: '#/components/schemas/vcloud_TenantSyslogServerSettingsType'
+              $ref: '#/components/schemas/vcloud_TenantSyslogServerSettingsType'
           additionalProperties: false
     vcloud_EdgeGatewayFormFactorType:
       title: vcloud_EdgeGatewayFormFactorType
@@ -21131,13 +20757,9 @@ components:
         - type: object
           properties:
             primaryEdgeCluster:
-              description: This is the reference to the Primary Edge Cluster used for the gateway. This refers to a VCD Edge Cluster, which can be setup by the provider. This is required because if there is an Edge Cluster configuration, there must be some primary specified for deploying the Edge Gateway. For NSX-V Edges, this means the primary appliance for the gateway. For NSX-T, this means the Edge Cluster the Tier 1 SR resides on.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             secondaryEdgeCluster:
-              description: This is the reference to the Secondary Edge Cluster used for the gateway. This refers to a VCD Edge Cluster, which can be setup by the provider. It is only applicable for NSX-V Edges when High Availability is enabled. If HA is enabled and no secondary edge cluster is specified, both appliances will be deployed on the primary edge cluster. If there is a specific secondary edge cluster, the standby/secondary appliance will be deployed on the secondary edge cluster.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - primaryEdgeCluster
           additionalProperties: false
@@ -21149,25 +20771,17 @@ components:
         - type: object
           properties:
             gateway:
-              description: Gateway for subnet
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             netmask:
-              description: Nestmask for the subnet
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             subnetPrefixLength:
               description: Subnet prefix length for IPv6
               type: integer
               format: int32
             ipAddress:
-              description: IP Address to be assigned. Keep empty or omit element for auto assignment
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             ipRanges:
-              description: Range of IP addresses available for external interfaces.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpRangesType'
+              $ref: '#/components/schemas/vcloud_IpRangesType'
             useForDefaultRoute:
               description: True if this subnet is default route for the gateway. Defaults to True if this is the only subnet for this gateway. Otherwise defaults to False if omitted or empty.
               type: boolean
@@ -21370,8 +20984,7 @@ components:
           items:
             $ref: '#/components/schemas/vcloud_LinkType'
         metadata:
-          allOf:
-            - $ref: '#/components/schemas/vcloud_MetadataType'
+          $ref: '#/components/schemas/vcloud_MetadataType'
         _type:
           type: string
       required:
@@ -25396,9 +25009,7 @@ components:
               type: integer
               format: int32
             files:
-              description: Represents a list of files to be transferred (uploaded or downloaded). Each File in the list is part of the ResourceEntity.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_FilesListType'
+              $ref: '#/components/schemas/vcloud_FilesListType'
           additionalProperties: false
     vcloud_FilesListType:
       title: vcloud_FilesListType
@@ -25463,9 +25074,7 @@ components:
               description: API definition vendor.
               type: string
             supportedApiVersions:
-              description: List of API versions supported by the ApiVendor.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VersionsType'
+              $ref: '#/components/schemas/vcloud_VersionsType'
           additionalProperties: false
     vcloud_VersionsType:
       title: vcloud_VersionsType
@@ -25491,9 +25100,7 @@ components:
               description: Description for the file descriptor.
               type: string
             file:
-              description: The file descriptor itself (name, type, href).
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           additionalProperties: false
     vcloud_SessionType:
       deprecated: true
@@ -25519,9 +25126,7 @@ components:
               description: Location id of the logged in org
               type: string
             authorizedLocations:
-              description: The locations, both local and remote, that can be accessed by this user in this session.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_AuthorizedLocationsType'
+              $ref: '#/components/schemas/vcloud_AuthorizedLocationsType'
           additionalProperties: false
     vcloud_TaskType:
       title: vcloud_TaskType
@@ -25558,21 +25163,13 @@ components:
               description: Whether user has requested this processing to be canceled.
               type: boolean
             owner:
-              description: Reference to the owner of the task. This is typically the object that the task is creating or updating.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             error:
-              description: Represents error information from a failed task.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ErrorType'
+              $ref: '#/components/schemas/vcloud_ErrorType'
             user:
-              description: The user who started the task.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             organization:
-              description: The organization to which the User belongs.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             progress:
               description: Read-only indicator of task progress as an approximate percentage between 0 and 100. Not available for all tasks.
               type: integer
@@ -25584,17 +25181,11 @@ components:
               description: Detailed message about the task. Also contained by the Owner entity when task status is preRunning.
               type: string
             vcTaskList:
-              description: List of Virtual Center tasks related to this vCD task.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VcTaskListType'
+              $ref: '#/components/schemas/vcloud_VcTaskListType'
             taskSteps:
-              description: In order to accurately report task progress in UI, a vCD task may be broken down into multiple steps. Each step contains detailed information about itself.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_TaskStepListType'
+              $ref: '#/components/schemas/vcloud_TaskStepListType'
             result:
-              description: An optional element that can be used to hold the result of a task.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ResultType'
+              $ref: '#/components/schemas/vcloud_ResultType'
           required:
             - status
             - serviceNamespace
@@ -25638,9 +25229,7 @@ components:
           description: The short name of the operation that is tracked by this task.
           type: string
         owner:
-          description: Reference to the owner of the task. This is typically the object that the task is updating.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
       additionalProperties: false
     vcloud_VcTaskListType:
       title: vcloud_VcTaskListType
@@ -25740,9 +25329,7 @@ components:
               description: True if the virtual machine is deployed.
               type: boolean
             vAppParent:
-              description: Reserved. Unimplemented.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             section:
               description: An OVF Section with additional custom attributes.
               type: array
@@ -25773,26 +25360,15 @@ components:
               description: A unique identifier for the virtual machine in the scope of the vApp.
               type: string
             environment:
-              description: OVF environment section.
-              allOf:
-                - $ref: '#/components/schemas/ovfenv_Environment_Type'
+              $ref: '#/components/schemas/ovfenv_Environment_Type'
             vmCapabilities:
-              description: Allows you to specify certain capabilities of this virtual machine.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VmCapabilitiesType'
+              $ref: '#/components/schemas/vcloud_VmCapabilitiesType'
             storageProfile:
-              description: A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vdcComputePolicy:
-              deprecated: true
-              description: A reference to a vdc compute policy. A VM will always belong to vdc compute policy. The specified vDC compute policy must exist in organization vDC. If not specified, default vDC compute policy will be used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             computePolicy:
-              description: A reference to a vdc compute policy. This contains VM's actual vdc compute policy reference and also optionally an add-on policy which always defines VM's sizing.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputePolicyType'
+              $ref: '#/components/schemas/vcloud_ComputePolicyType'
             computePolicyCompliance:
               description: This element shows VM's non compliance details against a given compute policy.
               type: array
@@ -25802,13 +25378,9 @@ components:
               description: True if VM is compliant with the associated compute policies
               type: boolean
             bootOptions:
-              description: Boot options for this virtual machine.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_BootOptionsType'
+              $ref: '#/components/schemas/vcloud_BootOptionsType'
             media:
-              description: Reference to the media object to insert in a new VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           additionalProperties: false
     vcloud_VmCheckPGCType:
       title: vcloud_VmCheckPGCType
@@ -25862,16 +25434,12 @@ components:
         - type: object
           properties:
             vmPlacementPolicy:
-              description: VdcComputePolicy that defines VM's placement on a host through various affinity constraints.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vmPlacementPolicyFinal:
               description: True indicates that the placement policy cannot be removed from a VM that is instantiated with it. This value defaults to false.
               type: boolean
             vmSizingPolicy:
-              description: VdcComputePolicy that defines VM's sizing and resource allocation.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vmSizingPolicyFinal:
               description: True indicates that the sizing policy cannot be removed from a VM that is instantiated with it. This value defaults to false.
               type: boolean
@@ -25925,9 +25493,7 @@ components:
               description: Read-only indicator that the OVF descriptor for this vApp has been uploaded.
               type: boolean
             owner:
-              description: vApp owner.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OwnerType'
+              $ref: '#/components/schemas/vcloud_OwnerType'
             autoNature:
               description: True if this vApp is automatically created by vCD when a new VM is discovered in a vCenter Resource Pool attached to an Organization VDC.
               type: boolean
@@ -25935,9 +25501,7 @@ components:
               description: True if this vApp is in maintenance mode. Prevents users from changing vApp metadata.
               type: boolean
             children:
-              description: Container for virtual machines included in this vApp.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VAppChildrenType'
+              $ref: '#/components/schemas/vcloud_VAppChildrenType'
           additionalProperties: false
     vcloud_VAppChildrenType:
       title: vcloud_VAppChildrenType
@@ -25997,9 +25561,7 @@ components:
               description: Optional description.
               type: string
             configuration:
-              description: Represents a vApp network configuration.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NetworkConfigurationType'
+              $ref: '#/components/schemas/vcloud_NetworkConfigurationType'
             isDeployed:
               description: True if this network has been deployed.
               type: boolean
@@ -26086,24 +25648,16 @@ components:
               type: integer
               format: int32
             ipAddress:
-              description: IP address assigned to this NIC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             ipType:
-              description: Type of the IP address assigned to this NIC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpTypeType'
+              $ref: '#/components/schemas/vcloud_IpTypeType'
             secondaryIpAddress:
               description: Secondary IP address associated with this NIC.
               type: string
             secondaryIpType:
-              description: Type of the secondary IP address assigned to this NIC. This will be populated with 'IPv6' for dual stack networks, even if there is no secondary IP.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpTypeType'
+              $ref: '#/components/schemas/vcloud_IpTypeType'
             externalIpAddress:
-              description: If the network to which this NIC connects provides NAT services, the external address assigned to this NIC appears here.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IpAddressType'
+              $ref: '#/components/schemas/vcloud_IpAddressType'
             isConnected:
               description: If the virtual machine is undeployed, this value specifies whether the NIC should be connected upon deployment. If the virtual machine is deployed, this value reports the current status of this NIC's connection, and can be updated to change that connection status.
               type: boolean
@@ -26158,17 +25712,11 @@ components:
               description: Describes the media device whose media mount is being specified here. This deviceId must match the RASD.InstanceID attribute in the VirtualHardwareSection of the vApp's OVF description.
               type: string
             mediaImage:
-              description: The media image that is mounted onto the device. This property can be 'null' which represents that no media is mounted on the device.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             mediaType:
-              description: Specified the type of media that is mounted onto the device.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_MediaTypeType'
+              $ref: '#/components/schemas/vcloud_MediaTypeType'
             mediaState:
-              description: Specifies the state of the media device.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_MediaStateType'
+              $ref: '#/components/schemas/vcloud_MediaStateType'
             unitNumber:
               description: The device number on the controller of the media device.
               type: integer
@@ -26213,20 +25761,14 @@ components:
               description: Specifies whether the disk storage is pre-allocated or allocated on demand.
               type: boolean
             disk:
-              description: Specifies reference to a named disk.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             storageProfile:
-              description: Specifies reference to a storage profile to be associated with the disk.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             overrideVmDefault:
               description: Specifies that the disk storage profile overrides the VM's default storage profile.
               type: boolean
             iopsAllocation:
-              description: Specifies the IOPS for the disk.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_IopsResourceType'
+              $ref: '#/components/schemas/vcloud_IopsResourceType'
             virtualQuantityUnit:
               description: The units in which VirtualQuantity is measured.
               type: string
@@ -26320,9 +25862,7 @@ components:
               type: integer
               format: int64
             sharesLevel:
-              description: Pre-determined relative priorities according to which the non-reserved portion of this resource is made available to the virtualized workload.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ResourceSharesLevelType'
+              $ref: '#/components/schemas/vcloud_ResourceSharesLevelType'
             shares:
               description: Custom priority for the resource. This is a read-only, unless the share level is CUSTOM.
               type: integer
@@ -26346,9 +25886,7 @@ components:
               type: integer
               format: int64
             sharesLevel:
-              description: Pre-determined relative priorities according to which the non-reserved portion of IOPS is made available to the virtualized workload. This is a read-only.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ResourceSharesLevelType'
+              $ref: '#/components/schemas/vcloud_ResourceSharesLevelType'
             shares:
               description: Custom priority for IOPS. This is a read-only.
               type: integer
@@ -26409,25 +25947,15 @@ components:
               type: integer
               format: int32
             cpuResourceMhz:
-              description: CPU compute resources. This parameter may be omitted when using the VmSpec to update the contents of an existing VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputeResourceType'
+              $ref: '#/components/schemas/vcloud_ComputeResourceType'
             memoryResourceMb:
-              description: Memory compute resources. This parameter may be omitted when using the VmSpec to update the contents of an existing VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputeResourceType'
+              $ref: '#/components/schemas/vcloud_ComputeResourceType'
             mediaSection:
-              description: The media devices of this VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_MediaSectionType'
+              $ref: '#/components/schemas/vcloud_MediaSectionType'
             diskSection:
-              description: virtual disks of this VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_DiskSectionType'
+              $ref: '#/components/schemas/vcloud_DiskSectionType'
             hardwareVersion:
-              description: 'vSphere name of Virtual Hardware Version of this VM. Example: vmx-13 This parameter may be omitted when using the VmSpec to update the contents of an existing VM.'
-              allOf:
-                - $ref: '#/components/schemas/vcloud_HardwareVersionType'
+              $ref: '#/components/schemas/vcloud_HardwareVersionType'
             vmToolsVersion:
               description: VMware tools version of this VM.
               type: string
@@ -26435,9 +25963,7 @@ components:
               description: The tools guest os identifier of a VM when VM is powered on and has VM Tools installed on it.
               type: string
             virtualCpuType:
-              description: The capabilities settings for this VM. This parameter may be omitted when using the VmSpec to update the contents of an existing VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VirtualCpuTypeType'
+              $ref: '#/components/schemas/vcloud_VirtualCpuTypeType'
             timeSyncWithHost:
               description: Synchronize the VM's time with the host.
               type: boolean
@@ -26596,9 +26122,7 @@ components:
               items:
                 $ref: '#/components/schemas/vcloud_LinkType'
             snapshot:
-              description: Information about a snapshot.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SnapshotType'
+              $ref: '#/components/schemas/vcloud_SnapshotType'
           additionalProperties: false
     vcloud_NetworkAssignmentType:
       title: vcloud_NetworkAssignmentType
@@ -26631,13 +26155,9 @@ components:
               description: True if the vApp should be powered-on at instantiation. Defaults to true.
               type: boolean
             vAppParent:
-              description: Reserved. Unimplemented.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             instantiationParams:
-              description: Instantiation parameters for the composed vApp.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_InstantiationParamsType'
+              $ref: '#/components/schemas/vcloud_InstantiationParamsType'
           additionalProperties: false
     vcloud_SourcedCompositionItemParamType:
       title: vcloud_SourcedCompositionItemParamType
@@ -26650,46 +26170,29 @@ components:
               description: True if the source item should be deleted after composition is complete.
               type: boolean
             source:
-              description: "A reference to a source object. One of:  \n vApp  \n vAppTemplate  \n Vm  \n Vms must be powered off and cannot have an independent disk attached."
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vmGeneralParams:
-              description: Specify name, description, and other properties of a VM during instantiation.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VmGeneralParamsType'
+              $ref: '#/components/schemas/vcloud_VmGeneralParamsType'
             vAppScopedLocalId:
               description: If Source references a Vm, this value provides a unique identifier for the Vm in the scope of the composed vApp.
               type: string
             instantiationParams:
-              description: "If Source references a Vm this can include any of the following OVF sections:  \n VirtualHardwareSection  \n OperatingSystemSection  \n NetworkConnectionSection  \n GuestCustomizationSection."
-              allOf:
-                - $ref: '#/components/schemas/vcloud_InstantiationParamsType'
+              $ref: '#/components/schemas/vcloud_InstantiationParamsType'
             networkAssignment:
               description: If Source references a Vm, this element maps a network name specified in the Vm to the network name of a vApp network defined in the composed vApp.
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_NetworkAssignmentType'
             storageProfile:
-              description: If Source references a Vm, this element contains a reference to a storage profile to be used for the Vm. The specified storage profile must exist in the organization vDC that contains the composed vApp. If not specified, the default storage profile for the vDC is used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vdcComputePolicy:
-              deprecated: true
-              description: A reference to a vdc compute policy. A VM will always belong to vdc compute policy. The specified vDC compute policy must exist in organization vDC. If not specified, default vDC compute policy will be used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             computePolicy:
-              description: A reference to a vdc compute policy. This contains VM's actual vdc compute policy reference and also optionally an add-on policy which always defines VM's sizing.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputePolicyType'
+              $ref: '#/components/schemas/vcloud_ComputePolicyType'
             localityParams:
-              description: Locality parameters provide a hint that may help optimize placement of a VM and an independent a Disk so that the VM can make efficient use of the disk. See [KB 2105352](http://kb.vmware.com/kb/2105352).
-              allOf:
-                - $ref: '#/components/schemas/vcloud_LocalityParamsType'
+              $ref: '#/components/schemas/vcloud_LocalityParamsType'
             vmCapabilities:
-              description: If Source references a Vm, this element describes the capabilities (hot swap, etc.) the instantiated VM should have.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VmCapabilitiesType'
+              $ref: '#/components/schemas/vcloud_VmCapabilitiesType'
           required:
             - source
           additionalProperties: false
@@ -26701,29 +26204,17 @@ components:
         - type: object
           properties:
             source:
-              description: A reference to an existing VM template.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vmGeneralParams:
-              description: Specify name, description, and other properties of a VM during instantiation.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VmGeneralParamsType'
+              $ref: '#/components/schemas/vcloud_VmGeneralParamsType'
             vmTemplateInstantiationParams:
-              description: "This can include any of the following OVF sections and more:  \n NetworkConnectionSection  \n LeaseSettingsSection  \n GuestCustomizationSection."
-              allOf:
-                - $ref: '#/components/schemas/vcloud_InstantiationParamsType'
+              $ref: '#/components/schemas/vcloud_InstantiationParamsType'
             storageProfile:
-              description: A reference to a storage profile to be used for the Vm. The specified storage profile must exist in the organization vDC that contains the composed vApp. If not specified, the default storage profile for the vDC is used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             localityParams:
-              description: Locality parameters provide a hint that may help optimize placement of a VM and an independent a Disk so that the VM can make efficient use of the disk. See [KB 2105352](http://kb.vmware.com/kb/2105352).
-              allOf:
-                - $ref: '#/components/schemas/vcloud_LocalityParamsType'
+              $ref: '#/components/schemas/vcloud_LocalityParamsType'
             vmCapabilities:
-              description: Describes the capabilities (hot swap, etc.) the instantiated VM should have.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VmCapabilitiesType'
+              $ref: '#/components/schemas/vcloud_VmCapabilitiesType'
           required:
             - source
           additionalProperties: false
@@ -26738,16 +26229,12 @@ components:
               description: True if the VM should be powered-on at instantiation. Defaults to false.
               type: boolean
             sourcedVmTemplateItem:
-              description: Represents virtual machine instantiation parameters.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SourcedVmTemplateParamsType'
+              $ref: '#/components/schemas/vcloud_SourcedVmTemplateParamsType'
             allEULAsAccepted:
               description: True confirms acceptance of all EULAs in a vApp template. Instantiation fails if this element is missing, empty, or set to false and one or more EulaSection elements are present.
               type: boolean
             computePolicy:
-              description: A reference to a vdc compute policy. This contains VM's actual vdc compute policy reference and also optionally an add-on policy which always defines VM's sizing.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputePolicyType'
+              $ref: '#/components/schemas/vcloud_ComputePolicyType'
           additionalProperties: false
     vcloud_VmGeneralParamsType:
       title: vcloud_VmGeneralParamsType
@@ -26804,13 +26291,9 @@ components:
               description: True if the VM should be powered-on after creation. Defaults to false.
               type: boolean
             createVm:
-              description: Read-only information about the Vm to create. This information appears in the Task returned by a createVm request.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VmType'
+              $ref: '#/components/schemas/vcloud_VmType'
             media:
-              description: Reference to the media object to insert in the new VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           additionalProperties: false
     vcloud_RecomposeVAppParamsType:
       title: vcloud_RecomposeVAppParamsType
@@ -26841,21 +26324,13 @@ components:
               description: Embedded OVF. Must be embedded as CDATA.
               type: string
             vsToVmxMap:
-              description: Map from OVF Virtual Systems via the BIOS UUID to the datastore location of the replicated VM's files on the destination site.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VsToVmxMapType'
+              $ref: '#/components/schemas/vcloud_VsToVmxMapType'
             ovfToVdcNetworkMap:
-              description: Maps from OVF to site specific networks.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OvfToVdcNetworkMapType'
+              $ref: '#/components/schemas/vcloud_OvfToVdcNetworkMapType'
             externalNatIpMap:
-              description: Maps source site external NAT IP addresses to destination site external NAT IP addresses.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ExternalNatIpMapType'
+              $ref: '#/components/schemas/vcloud_ExternalNatIpMapType'
             nicIpMap:
-              description: VM's with NICs that are connected directly to a VDC network and where the NICs have manually assigned IP addresses needs to be mapped to a valid IP address within the IP range of the destination site's VDC network. This element provides that mapping.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NicIpMapType'
+              $ref: '#/components/schemas/vcloud_NicIpMapType'
           additionalProperties: false
     vcloud_VsToVmxMapType:
       title: vcloud_VsToVmxMapType
@@ -26899,21 +26374,13 @@ components:
         - type: object
           properties:
             source:
-              description: A reference to a source Vm.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             storageProfile:
-              description: A reference to a storage profile to be used for this object. The specified storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             localityParams:
-              description: Locality parameters provide a hint that may help optimize placement of a VM with respect to another VM or an independent disk. See [KB 2105352](http://kb.vmware.com/kb/2105352).
-              allOf:
-                - $ref: '#/components/schemas/vcloud_LocalityParamsType'
+              $ref: '#/components/schemas/vcloud_LocalityParamsType'
             hardwareCustomization:
-              description: Specification of common hardware parameters that should be applied to the VM upon instantiation. This only applies when instantiating a vApp template and is otherwise ignored.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType'
+              $ref: '#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType'
           required:
             - source
           additionalProperties: false
@@ -26928,9 +26395,7 @@ components:
               description: Reserved. Unimplemented.
               type: boolean
             source:
-              description: "A reference to a source object. One of:  \n vApp  \n vAppTemplate  \n Vm  \n Vms must be powered off and cannot have an independent disk attached."
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             isSourceDelete:
               description: Set to true to delete the source object after the operation completes.
               type: boolean
@@ -27025,20 +26490,14 @@ components:
               description: The ovf:id of the VirtualSystem in the source OVF that the instantiation parameters apply to.
               type: string
             networkConnectionSection:
-              description: Network connection configuration for a VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NetworkConnectionSectionType'
+              $ref: '#/components/schemas/vcloud_NetworkConnectionSectionType'
             computerName:
               description: Represents the computer name that is part of guest customization.
               type: string
             vdcStorageProfile:
-              description: The VDC storage profile to use. If set, the value must refer to an existing and enabled storage profile on the VDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             hardwareCustomization:
-              description: Specification of common virtual machine hardware parameters. This is a simple way to customize hardware settings without modifying the source OVF descriptor before uploading it.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType'
+              $ref: '#/components/schemas/vcloud_InstantiateVmHardwareCustomizationParamsType'
           required:
             - id
           additionalProperties: false
@@ -27077,9 +26536,7 @@ components:
         - type: object
           properties:
             source:
-              description: A reference to a source vApp that will be moved.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             section:
               description: An ovf:Section\_Type element that specifies vApp configuration on instantiate, compose, or recompose.
               type: array
@@ -27130,9 +26587,7 @@ components:
         - type: object
           properties:
             media:
-              description: Reference to the media object to insert or eject. In API requests that specify version 29.0 or higher, this element is optional when ejecting the media.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - media
           additionalProperties: false
@@ -27144,9 +26599,7 @@ components:
         - type: object
           properties:
             source:
-              description: Contains a reference to the vApp to capture.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             captureVmParams:
               description: Params to customize template VM during capture
               type: array
@@ -27158,9 +26611,7 @@ components:
               items:
                 $ref: '#/components/schemas/ovf_Section_Type'
             targetCatalogItem:
-              description: To overwrite an existing vApp template with the one created by this capture, place a reference to the existing template here. Otherwise, the operation creates a new vApp template.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - source
           additionalProperties: false
@@ -27172,14 +26623,9 @@ components:
         - type: object
           properties:
             source:
-              description: A reference to VM being captured.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vdcComputePolicy:
-              deprecated: true
-              description: A reference to a vdc compute policy for template VM. During instantiation this vdc compute policy should be present in destination vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - source
           additionalProperties: false
@@ -27243,9 +26689,7 @@ components:
       type: object
       properties:
         datastore:
-          description: Reference to destination datastore.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
       required:
         - datastore
       additionalProperties: false
@@ -27308,13 +26752,9 @@ components:
               description: True if this template is a gold master.
               type: boolean
             owner:
-              description: vAppTemplate owner.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OwnerType'
+              $ref: '#/components/schemas/vcloud_OwnerType'
             children:
-              description: Container for virtual machines included in this vApp template.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VAppTemplateChildrenType'
+              $ref: '#/components/schemas/vcloud_VAppTemplateChildrenType'
             section:
               description: OVF sections included in this template.
               type: array
@@ -27327,14 +26767,9 @@ components:
               description: The name of the storage profile to be used for this object. The named storage profile must exist in the organization vDC that contains the object. If not specified, the default storage profile for the vDC is used.
               type: string
             vdcComputePolicy:
-              deprecated: true
-              description: A reference to a vdc compute policy for template VM. During instantiation this vdc compute policy should be present in destination vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             computePolicy:
-              description: A reference to a vDC compute policy. This contains VM's actual vdc compute policy reference and also optionally an add-on policy which can only define VM's sizing.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputePolicyType'
+              $ref: '#/components/schemas/vcloud_ComputePolicyType'
             dateCreated:
               description: Creation date/time of the template.
               type: string
@@ -27371,9 +26806,7 @@ components:
               type: string
               format: uri
             vdcStorageProfile:
-              description: A reference to the storage profile to be specified in the DefaultStorageProfile element of the vApp template created by this operation.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           additionalProperties: false
     vcloud_CloneVAppTemplateParamsType:
       title: vcloud_CloneVAppTemplateParamsType
@@ -27383,16 +26816,12 @@ components:
         - type: object
           properties:
             source:
-              description: Reference to the vApp template to clone.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             isSourceDelete:
               description: True if the source vApp template should be deleted after cloning is complete.
               type: boolean
             vdcStorageProfile:
-              description: A reference to the storage profile to be specified in the vApp template created by this operation.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - source
           additionalProperties: false
@@ -27487,21 +26916,13 @@ components:
               description: "The allocation model used by this vDC. One of:  \n**AllocationVApp** (Pay as you go. Resources are committed to a vDC only when vApps are created in it. When you use this allocation model, any Limit values you specify for Memory and CPU are ignored on create and returned as 0 on retrieve.)  \n**AllocationPool** (Only a percentage of the resources you allocate are committed to the organization vDC.)  \n**ReservationPool** (All the resources you allocate are committed as a pool to the organization vDC. vApps in vDCs that support this allocation model can specify values for resource and limit.)  \n**Flex** (Only a percentage of the resources you allocate are committed to the organization vDC. You can allocate zero resources also and make it behave like a Pay-As-You-Go type. Based on the values chosen for allocated resources and limits, this vDC can be made to behave as any of the existing three types.)"
               type: string
             computeCapacity:
-              description: The compute capacity allocated to this vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ComputeCapacityType'
+              $ref: '#/components/schemas/vcloud_ComputeCapacityType'
             resourceEntities:
-              description: Read-only list of resource entities in this vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ResourceEntitiesType'
+              $ref: '#/components/schemas/vcloud_ResourceEntitiesType'
             availableNetworks:
-              description: Read-only list of organization vDC networks in this vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_AvailableNetworksType'
+              $ref: '#/components/schemas/vcloud_AvailableNetworksType'
             capabilities:
-              description: Read-only list of VM hardware capabilities supported in this vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_CapabilitiesType'
+              $ref: '#/components/schemas/vcloud_CapabilitiesType'
             nicQuota:
               description: Maximum number of virtual NICs allowed in this vDC. Defaults to 0, which specifies an unlimited number.
               type: integer
@@ -27522,17 +26943,11 @@ components:
               description: True if this vDC is enabled for use. Read-only in the user view. Modifiable in the admin view.
               type: boolean
             vdcStorageProfiles:
-              description: Storage profiles supported in this vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VdcStorageProfilesType'
+              $ref: '#/components/schemas/vcloud_VdcStorageProfilesType'
             defaultComputePolicy:
-              description: Default vDC compute policy in this organization vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             maxComputePolicy:
-              description: Max vDC compute policy in this organization vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vCpuInMhz2:
               description: Specifies the clock frequency, in Megahertz, for any virtual CPU that is allocated to a VM. A VM with 2 vCPUs will consume twice as much of this value. Ignored for ReservationPool. Required when AllocationModel is AllocationVApp or AllocationPool, and may not be less than 256 MHz. Defaults to 1000 MHz if the element is empty or missing.
               type: integer
@@ -27548,13 +26963,9 @@ components:
         - type: object
           properties:
             cpu:
-              description: CPU capacity and usage.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_CapacityWithUsageType'
+              $ref: '#/components/schemas/vcloud_CapacityWithUsageType'
             memory:
-              description: Memory capacity and usage.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_CapacityWithUsageType'
+              $ref: '#/components/schemas/vcloud_CapacityWithUsageType'
           required:
             - cpu
             - memory
@@ -27567,9 +26978,7 @@ components:
         - type: object
           properties:
             supportedHardwareVersions:
-              description: Read-only list of virtual hardware versions supported by this vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SupportedHardwareVersionsType'
+              $ref: '#/components/schemas/vcloud_SupportedHardwareVersionsType'
           additionalProperties: false
     vcloud_SupportedHardwareVersionsType:
       title: vcloud_SupportedHardwareVersionsType
@@ -27638,9 +27047,7 @@ components:
               type: integer
               format: int64
             supportedOperatingSystems:
-              description: Operating systems available for use on virtual machines at this virtual hardware version.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SupportedOperatingSystemsInfoType'
+              $ref: '#/components/schemas/vcloud_SupportedOperatingSystemsInfoType'
             maxMemorySizeMb:
               description: Specifies the maximum amount of memory supported (in MB).
               type: integer
@@ -27842,21 +27249,13 @@ components:
               type: integer
               format: int32
             reservationPoolVdcSummary:
-              description: Represents the summation of consumed and reserved memory, CPU, and storage for all vDCs using the Reservation Pool allocation model.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReservationPoolVdcSummaryType'
+              $ref: '#/components/schemas/vcloud_ReservationPoolVdcSummaryType'
             allocationPoolVdcSummary:
-              description: Represents the summation of consumed and reserved memory, CPU, and storage for a all vDCs using the Allocation Pool allocation model.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_AllocationPoolVdcSummaryType'
+              $ref: '#/components/schemas/vcloud_AllocationPoolVdcSummaryType'
             payGoVdcSummary:
-              description: Represents the summation of consumed memory and storage for all vDCs using the AllocationVApp (Pay-as-you-Go) allocation model.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_PayGoVdcSummaryType'
+              $ref: '#/components/schemas/vcloud_PayGoVdcSummaryType'
             flexVdcSummary:
-              description: Represents the summation of consumed memory and storage for all vDCs using the Flex allocation model.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_FlexVdcSummaryType'
+              $ref: '#/components/schemas/vcloud_FlexVdcSummaryType'
           required:
             - numberOfPoweredOnVms
             - numberOfDeployedVApps
@@ -27946,9 +27345,7 @@ components:
               description: True if this is default storage profile for this vDC. The default storage profile is used when an object that can specify a storage profile is created with no storage profile specified.
               type: boolean
             iopsSettings:
-              description: When NOT provided, disk storage placement ignores IOPs considerations; otherwise, this element holds all the disk IOPs related settings, including a subordinate Enabled flag. When that flag is false, disk provisioning using this profile will behave identically as if this element was not provided in the first place.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VdcStorageProfileIopsSettingsType'
+              $ref: '#/components/schemas/vcloud_VdcStorageProfileIopsSettingsType'
             inheritPvdcDefaultSettings:
               description: True if this Org VDC storage profile should inherit the default settings of the parent PVDC storage profile.
               type: boolean
@@ -28083,9 +27480,7 @@ components:
               enum:
                 - Host
             vmReferences:
-              description: A list of VMs under a specific VM affinity rule.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_VmsType'
+              $ref: '#/components/schemas/vcloud_VmsType'
           required:
             - scope
             - vmReferences
@@ -28190,17 +27585,11 @@ components:
               type: integer
               format: int32
             busNumberRanges:
-              description: Set of allowed bus number ranges for this disk controller.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RangesType'
+              $ref: '#/components/schemas/vcloud_RangesType'
             unitNumberRanges:
-              description: Set of allowed disk unit number ranges for an instance of this disk controller type.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_RangesType'
+              $ref: '#/components/schemas/vcloud_RangesType'
             reservedBusUnitNumber:
-              description: Reserved combination of bus-number/unit-number.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_BusUnitNumberType'
+              $ref: '#/components/schemas/vcloud_BusUnitNumberType'
           required:
             - id
             - legacyId
@@ -28302,9 +27691,7 @@ components:
               type: integer
               format: int32
             defaultHardDiskAdapterType:
-              description: Default hard disk controller type for this operating system.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_DefaultHardDiskAdapterTypeType'
+              $ref: '#/components/schemas/vcloud_DefaultHardDiskAdapterTypeType'
             supportedHardDiskAdapter:
               description: Hard disk adapter types supported for this operating system.
               type: array
@@ -28374,9 +27761,7 @@ components:
               description: True if this organization supports creation of new virtual machines with this OS type.
               type: boolean
             recommendedNIC:
-              description: Default virtual NIC adapter type for this operating system.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_NICType'
+              $ref: '#/components/schemas/vcloud_NICType'
             supportedNICType:
               description: Supported virtual NIC type for this operating system.
               type: array
@@ -28519,21 +27904,13 @@ components:
               description: Extension service vendor name.
               type: string
             apiFilters:
-              description: Container for API filters defined by an extension service.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_ApiFiltersType'
+              $ref: '#/components/schemas/vcloud-ext_ApiFiltersType'
             serviceLinks:
-              description: Container for values used to create links defined by an extension service.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_AdminServiceLinksType'
+              $ref: '#/components/schemas/vcloud-ext_AdminServiceLinksType'
             apiDefinitions:
-              description: Container for values used to specify an API defined by an extension service.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_AdminApiDefinitionsType'
+              $ref: '#/components/schemas/vcloud-ext_AdminApiDefinitionsType'
             resourceClasses:
-              description: Container for values that define extension service resource classes.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_ResourceClassesType'
+              $ref: '#/components/schemas/vcloud-ext_ResourceClassesType'
           required:
             - namespace
             - routingKey
@@ -28583,13 +27960,9 @@ components:
               description: The name of the external service API vendor. Not required to be the same as the vendor of the external service this API definition is associated with. Must be \<=255 characters.
               type: string
             supportedApiVersions:
-              description: Supported extension service API versions.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VersionsType'
+              $ref: '#/components/schemas/vcloud-ext_VersionsType'
             files:
-              description: List of files associated with this extension service API definition.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_AdminFileDescriptorsType'
+              $ref: '#/components/schemas/vcloud-ext_AdminFileDescriptorsType'
           additionalProperties: false
     vcloud-ext_AdminApiDefinitionsType:
       title: vcloud-ext_AdminApiDefinitionsType
@@ -28628,9 +28001,7 @@ components:
               description: Description of this extension service API definition file.
               type: string
             file:
-              description: A reference to this extension service API definition file.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           additionalProperties: false
     vcloud-ext_AdminFileDescriptorsType:
       title: vcloud-ext_AdminFileDescriptorsType
@@ -28729,9 +28100,7 @@ components:
               description: "The access type. One of:  \n Entity  \n Shared  \n Published."
               type: string
             entity:
-              description: Required when Access value is Entity. Contains a reference to the entity for which the action is authorized.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - access
           additionalProperties: false
@@ -28743,17 +28112,11 @@ components:
         - type: object
           properties:
             serviceResourceAccess:
-              description: "Specifies service resource access. One of:  \n Entity -- The action is authorized for the resource referenced in the Entity element in this container.  \n Shared -- The action is authorized for all resources in this resource class."
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_AclAccessType'
+              $ref: '#/components/schemas/vcloud-ext_AclAccessType'
             organizationAccess:
-              description: "Specifies organization access. One of:  \n Entity -- The action is authorized for the organization referenced in the Entity element in this container.  \n Shared -- The action is authorized for all members of the organization that owns the resource.  \n Published -- The action is authorized for all members of any organization in the cloud."
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_AclAccessType'
+              $ref: '#/components/schemas/vcloud-ext_AclAccessType'
             principalAccess:
-              description: "Specifies principal access. One of:  \n Entity -- The action is authorized for the User referenced in the Entity element in this container, or for any role that includes the Right referenced in the Entity element in this container.  \n Shared -- The action is authorized for all users."
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_AclAccessType'
+              $ref: '#/components/schemas/vcloud-ext_AclAccessType'
           required:
             - organizationAccess
             - principalAccess
@@ -28772,9 +28135,7 @@ components:
               description: "The relative URL of the resource as a named regular expression where (?\\<id\\>) matches the resource identifier. For example:  \n /backup/restore  \n /backup/restore/(?\\<id\\>[-,a-g,0-9]\\*)  \n Must be \\<=1024 characters."
               type: string
             aclRules:
-              description: Container for values used to create ACL rules for an extension service resource class action.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_AclRulesType'
+              $ref: '#/components/schemas/vcloud-ext_AclRulesType'
           required:
             - httpMethod
             - urlPattern
@@ -28799,13 +28160,9 @@ components:
               description: The Namespace Specific String for resources of this type, as specified in RFC2141. Can be a string or a named regular expression, where (?\<id\>) matches the resource identifier. Must be \<=255 characters.
               type: string
             serviceResources:
-              description: Container for values used to create service resources defined by this extension service.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_ServiceResourcesType'
+              $ref: '#/components/schemas/vcloud-ext_ServiceResourcesType'
             resourceClassActions:
-              description: Container for values used to create resource class actions defined for this resource class.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_ResourceClassActionsType'
+              $ref: '#/components/schemas/vcloud-ext_ResourceClassActionsType'
           additionalProperties: false
     vcloud-ext_ServiceResourceType:
       title: vcloud-ext_ServiceResourceType
@@ -28815,9 +28172,7 @@ components:
         - type: object
           properties:
             org:
-              description: Organization that this extension service resource belongs to.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             externalObjectId:
               description: Object identifier for this extension service resource. Must be \<=255 characters.
               type: string
@@ -28885,9 +28240,7 @@ components:
         - type: object
           properties:
             user:
-              description: The user for which an authorization check is requested.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             httpMethod:
               description: 'One of: GET, PUT, POST, DELETE'
               type: string
@@ -28918,53 +28271,29 @@ components:
         - type: object
           properties:
             generalSettings:
-              description: General settings.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_GeneralSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_GeneralSettingsType'
             notificationsSettings:
-              description: Notifications settings.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_NotificationsSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_NotificationsSettingsType'
             ldapSettings:
-              description: LDAP settings.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_LdapSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_LdapSettingsType'
             amqpSettings:
-              description: AMQP settings.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_AmqpSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_AmqpSettingsType'
             emailSettings:
-              description: Email settings.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_EmailSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_EmailSettingsType'
             license:
-              description: Settings for retrieving and updating vCloud Director license information.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_LicenseType'
+              $ref: '#/components/schemas/vcloud-ext_LicenseType'
             brandingSettings:
-              description: BrandingSettings stores all information about how to brand the product for vCloud service, like provider name, logo etc.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_BrandingSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_BrandingSettingsType'
             blockingTaskSettings:
-              description: Blocking task settings.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_BlockingTaskSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_BlockingTaskSettingsType'
             passwordPolicySettings:
-              description: Password policy settings for the cloud provider administrator. These are also inherited by organizations, unless overridden at the organization level.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_SystemPasswordPolicySettingsType'
+              $ref: '#/components/schemas/vcloud-ext_SystemPasswordPolicySettingsType'
             catalogSettings:
-              description: Catalog settings.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_CatalogSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_CatalogSettingsType'
             operationLimitsSettings:
-              description: Global Tenant Throttling limits
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_OperationLimitsSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_OperationLimitsSettingsType'
             cpomSettings:
-              description: CPoM Settings.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_CpomSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_CpomSettingsType'
           additionalProperties: false
     vcloud-ext_GeneralSettingsType:
       title: vcloud-ext_GeneralSettingsType
@@ -29011,9 +28340,7 @@ components:
               type: integer
               format: int32
             syslogServerSettings:
-              description: Default syslog server settings for networks. If logging is configured for firewall rules, the logs will be directed to these syslog servers. If you change these values, you must synchronize the syslog server settings for each vApp network or Edge Gateway in the system by running its syncSyslogServerSettings action.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SyslogServerSettingsType'
+              $ref: '#/components/schemas/vcloud_SyslogServerSettingsType'
             loginNameOnly:
               deprecated: true
               description: System login policy setting (deprecated).
@@ -29202,9 +28529,7 @@ components:
               description: Result from AMQP settings test. True, if settings are valid.
               type: boolean
             error:
-              description: The error of an invalid AMQP settings test.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ErrorType'
+              $ref: '#/components/schemas/vcloud_ErrorType'
           required:
             - valid
           additionalProperties: false
@@ -29232,9 +28557,7 @@ components:
               description: 'Action to be taken by the automatic timeout policy processing when it gets triggered due to timeout. One of: resume (The task will be resumed.), abort (The task will be aborted. Transient objects are cleaned up. Task status is set to ABORTED.), fail (The task will be failed. Transient object status and task status are set to ERROR.)'
               type: string
             blockingTaskOperations:
-              description: Task operations which are enabled for blocking. If this element is empty or not supplied no operations will block.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_TaskOperationListType'
+              $ref: '#/components/schemas/vcloud_TaskOperationListType'
             timeoutInMilliseconds:
               description: Value in milliseconds that defines how long to wait for a blocking task to be processed before triggering automatic timeout policy.
               type: integer
@@ -29334,13 +28657,9 @@ components:
               description: Defines the type of the LDAP service.
               type: string
             userAttributes:
-              description: Defines how LDAP attributes are used when importing a user.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_LdapUserAttributesType'
+              $ref: '#/components/schemas/vcloud-ext_LdapUserAttributesType'
             groupAttributes:
-              description: Defines how LDAP attributes are used when importing a group.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_LdapGroupAttributesType'
+              $ref: '#/components/schemas/vcloud-ext_LdapGroupAttributesType'
           required:
             - port
             - isSsl
@@ -29499,9 +28818,7 @@ components:
               description: Flag indicating whether the provided serial number has feature 'subscribing-to-remote-sites'. This is a read-only field for the API. The license manager will set this flag appropriately.
               type: boolean
             licenseMetricsInfo:
-              description: Report of License usage metrics.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_LicenseMetricsInfoType'
+              $ref: '#/components/schemas/vcloud-ext_LicenseMetricsInfoType'
           required:
             - serialNumber
           additionalProperties: false
@@ -29567,9 +28884,7 @@ components:
               description: A comma-separated list of email addresses to send alert messages to.
               type: string
             smtpSettings:
-              description: The SMTP server for email notifications and alerts.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_SmtpSettingsType'
+              $ref: '#/components/schemas/vcloud-ext_SmtpSettingsType'
           required:
             - alertEmailToAllAdmins
             - smtpSettings
@@ -29592,9 +28907,7 @@ components:
               type: integer
               format: int32
             smtpSecureMode:
-              description: "Security protocol to use when connecting to the SMTP server. One of:  \n startTls -- Use the STARTTLS protocol  \n ssl -- -Use the SSL/TLS protocol  \n none -- Do not use any security protocol"
-              allOf:
-                - $ref: '#/components/schemas/vcloud_SmtpSecureModeType'
+              $ref: '#/components/schemas/vcloud_SmtpSecureModeType'
             sslTrustStore:
               description: Custom truststore to use to trust peer certificates when establishing a secure connection using SSL/STARTTLS (when enabled).
               type: string
@@ -29837,9 +29150,7 @@ components:
               description: The vCenter server that provides the resources in this pool.
               type: string
             dataStoreRefs:
-              description: vSphere datastores accessible from this resource pool.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
           required:
             - moRef
             - vimObjectType
@@ -29884,13 +29195,9 @@ components:
       type: object
       properties:
         vimServer:
-          description: vCenter administrator credentials. Required for register, modify.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimServerType'
+          $ref: '#/components/schemas/vcloud-ext_VimServerType'
         shieldManager:
-          description: vShield manager administrator credentials. Required for register, modify.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_ShieldManagerType'
+          $ref: '#/components/schemas/vcloud-ext_ShieldManagerType'
       required:
         - vimServer
       additionalProperties: false
@@ -30046,13 +29353,9 @@ components:
               description: How the NSX-T Manager is deployed.
               type: string
             virtualCenterReference:
-              description: Reference to linked VCenter for VMC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             serviceAppReference:
-              description: Reference to Service Application that owns this NSX-T Manager.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             networkProviderScope:
               description: Public label of this NSX-T server visible to all tenants.
               type: string
@@ -30060,9 +29363,7 @@ components:
               description: Version of the NsxT Manager.
               type: string
             proxyConfigurationReference:
-              description: Reference to Proxy Configuration to use for contacting this NSX-T Manager.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           additionalProperties: false
     vcloud-ext_ShieldManagerType:
       title: vcloud-ext_ShieldManagerType
@@ -30075,9 +29376,7 @@ components:
               description: Public label of this NSX server visible to all tenants.
               type: string
             associatedVimServer:
-              description: Reference to the vCenter server for this vShield manager.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             controlVmResourcePoolVcPath:
               description: Path to the resource pool to use for creating Control VM for Cross-VDC Networking.
               type: string
@@ -30147,9 +29446,7 @@ components:
               type: integer
               format: int64
             vdcStorageProfile:
-              description: Reference to a vDC storage profile to associate with this virtual disk.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - instanceId
             - vdcStorageProfile
@@ -30177,13 +29474,9 @@ components:
               description: Managed object reference of VM to import.
               type: string
             vdcStorageProfile:
-              description: Reference to a vDC storage profile for imported VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vdc:
-              description: Target vDC for imported VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             importedDisk:
               description: Represents a disk of the VM in order to specify per-disk Storage Profile.
               type: array
@@ -30216,13 +29509,9 @@ components:
               description: Managed object reference of VM to import.
               type: string
             vdcStorageProfile:
-              description: Reference to a vDC storage profile for imported VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vdc:
-              description: Target vDC for imported VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             importedDisk:
               description: Represents a disk of the VM in order to specify per-disk Storage Profile.
               type: array
@@ -30258,13 +29547,9 @@ components:
               description: Managed object reference of VM to import.
               type: string
             vdcStorageProfile:
-              description: Reference to a vDC storage profile for imported VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vApp:
-              description: vApp to hold imported VM.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             importedDisk:
               description: Represents a disk of the VM in order to specify per-disk Storage Profile.
               type: array
@@ -30301,17 +29586,11 @@ components:
               description: Managed object reference of VM to import.
               type: string
             vdc:
-              description: Target vDC for imported vApp template. This is optional. If not provided, catalog's VDC will be picked randomly if catalog is not specifically using a VDC for storage.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vdcStorageProfile:
-              description: Storage profile to be specified in the vApp template created by this import.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             catalog:
-              description: Catalog in which the imported vApp template will be listed. This is optional, but either VDC or catalog must be provided.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - vmMoRef
           additionalProperties: false
@@ -30332,17 +29611,11 @@ components:
               description: A full path to media file on the datastore.
               type: string
             vdc:
-              description: The vDC into which the media will be imported.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             catalog:
-              description: The catalog in which the imported media will be listed.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             vdcStorageProfile:
-              description: Storage profile
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
           required:
             - datastoreMoRef
             - sourcePath
@@ -30438,9 +29711,7 @@ components:
       type: object
       properties:
         vimServerRef:
-          description: The vCenter server reference.
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
         moRef:
           description: Managed object reference of the object.
           type: string
@@ -30471,33 +29742,23 @@ components:
         - type: object
           properties:
             dataStoreRefs:
-              description: vSphere datastores backing this provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
             resourcePoolRefs:
-              description: Resource pools backing this provider vDC. On create, you must specify a resource pool that is not used by (and is not the child of a resource pool used by) any other provider vDC. On modify, this element is required for schema validation, but its contents cannot be changed.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
             vimServer:
               description: The vCenter server that provides the resource pools and datastores. A valid reference is required on create. On modify, this element is required for schema validation, but its contents cannot be changed.
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_ReferenceType'
             nsxTManagerReference:
-              description: An optional reference to a registered NSX-T Manager to back networking operations for this provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             hostReferences:
-              description: Shows all hosts which are connected to VC server.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VMWHostReferencesType'
+              $ref: '#/components/schemas/vcloud-ext_VMWHostReferencesType'
             highestSupportedHardwareVersion:
               description: The highest virtual hardware version supported by this Provider vDC. If empty or omitted on creation, the system sets it to the highest virtual hardware version suported by all hosts in the primary resource pool. You can modify it when you add more resource pools.
               type: string
             availableUniversalNetworkPool:
-              description: Selectable universal network reference.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             computeProviderScope:
               description: The compute provider scope represents the compute fault domain for this provider vDC. This value is a tenant-facing tag that is shown to tenants when viewing fault domains of the child Organization vDCs (for ex. a VDC Group).
               type: string
@@ -30513,22 +29774,16 @@ components:
         - type: object
           properties:
             resourcePoolRefs:
-              description: Resource pools backing this provider vDC. You must specify a resource pool that is not used by (and is not the child of a resource pool used by) any other provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
             vimServer:
               description: The vCenter server that provides the resource pools and datastores. A valid reference is required on create. On modify, this element is required for schema validation, but its contents cannot be changed.
               type: array
               items:
                 $ref: '#/components/schemas/vcloud_ReferenceType'
             nsxTManagerReference:
-              description: An optional reference to a Registered NSX-T Manager to back networking operations for this Provider vDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             networkPool:
-              description: Reference to a Geneve or VXLAN Network Pool to be assigned to this Provider VDC. Leave empty to have the system create a default VXLAN pool and assign it to the Provider VDC.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             highestSupportedHardwareVersion:
               description: The highest virtual hardware version supported by this Provider vDC. If empty or omitted on creation, the system sets it to the highest virtual hardware version suported by all hosts in the primary resource pool. You can modify it when you add more resource pools.
               type: string
@@ -30541,9 +29796,7 @@ components:
               items:
                 type: string
             hostRefs:
-              description: List of host which will be prepared.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_HostObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_HostObjectRefsType'
             defaultPassword:
               description: The default password which will be used for preparing hosts.
               type: string
@@ -30579,9 +29832,7 @@ components:
         - type: object
           properties:
             vimStorageProfile:
-              description: VIM object reference to storage profile.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
           required:
             - vimStorageProfile
           additionalProperties: false
@@ -30593,13 +29844,9 @@ components:
         - type: object
           properties:
             vimPortGroupRef:
-              description: The portgroup that backs this network. A valid reference to an existing network or dvportgroup in a vCenter server is required on create. On modify, this element is required for schema validation, but its contents cannot be changed.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
             vimPortGroupRefs:
-              description: A list of DV\_PORTGROUP or NETWORK objects that back this network. Each referenced DV\_PORTGROUP or NETWORK must exist on a vCenter server registered with the system. You cannot reference more than one DV\_PORTGROUP or NETWORK from a single vCenter server. You cannot combine DV\_PORTGROUP and NETWORK objects in this list.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
           additionalProperties: false
     vcloud-ext_VMWExternalNetworkReferencesType:
       title: vcloud-ext_VMWExternalNetworkReferencesType
@@ -30642,13 +29889,9 @@ components:
         - type: object
           properties:
             portGroupRefs:
-              description: References to the vSphere port groups that support this network pool. Required at least one port group moref, for modify and create.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
             vimServer:
-              description: Reference to the vSphere which hosts the port groups. Required VC server on which the port groups exist, for modify and create.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             usedNetworksCount:
               description: This is a read-only indication of how many networks in this pool are in use.
               type: integer
@@ -30670,9 +29913,7 @@ components:
               items:
                 $ref: '#/components/schemas/vcloud-ext_NumericRangeType'
             vimSwitchRef:
-              description: Reference to the vSphere switch which is used for this pool.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
             usedNetworksCount:
               description: This is a read-only indication of how many networks in this pool are in use.
               type: integer
@@ -30700,9 +29941,7 @@ components:
               type: integer
               format: int32
             vimSwitchRef:
-              description: Reference to the vSphere switch that supports this VLAN.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
             usedNetworksCount:
               description: This is a read-only indication of how many networks in this pool are in use.
               type: integer
@@ -30727,13 +29966,9 @@ components:
         - type: object
           properties:
             vimSwitchRef:
-              description: Reference to the vSphere switch that supports the VXLAN networks
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
             transportZoneRef:
-              description: Transport Zone ID of VXLAN Network Pool.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
             usedNetworksCount:
               description: This is a read-only indication of how many networks in this pool are in use.
               type: integer
@@ -30758,9 +29993,7 @@ components:
               description: Transport Zone Path of Geneve Network Pool.
               type: string
             nsxTManagerRef:
-              description: The NSX-T Manager that contains the transport zone.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             usedNetworksCount:
               description: This is a read-only indication of how many networks in this pool are in use.
               type: integer
@@ -30772,9 +30005,7 @@ components:
       type: object
       properties:
         vdsContext:
-          description: A VimObjectRef that represents a {vC ID, VDS ID, VLAN ID} tuple
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+          $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
       additionalProperties: false
     vcloud-ext_NumericRangeType:
       title: vcloud-ext_NumericRangeType
@@ -30874,9 +30105,7 @@ components:
           type: integer
           format: int32
         vimObjectRef:
-          description: Managed object reference of the server.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+          $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
       required:
         - cpu
         - memoryInstalled
@@ -30897,9 +30126,7 @@ components:
           type: integer
           format: int32
         vimObjectRef:
-          description: Managed object reference of the virtual machine.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+          $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
       required:
         - cpu
         - memory
@@ -30925,9 +30152,7 @@ components:
         - type: object
           properties:
             vimObjectRef:
-              description: The VIM object reference to this datastore.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
             enabled:
               description: Indicates whether the datastore is enabled.
               type: boolean
@@ -31002,9 +30227,7 @@ components:
               description: URL to the VIM property page of the datastore host.
               type: string
             members:
-              description: Member datastores of a datastore cluster. Standalone datastore has empty collection.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
           required:
             - thresholdYellowGb
             - thresholdRedGb
@@ -31034,9 +30257,7 @@ components:
               type: number
               format: double
             dataStoreRefs:
-              description: vSphere datastores that support this storage profile.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
             capabilities:
               description: Capabilities supported by this storage profile.
               type: array
@@ -31065,9 +30286,7 @@ components:
         - type: object
           properties:
             vimObjectRefs:
-              description: A list of VimServerObjRef objects.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefsType'
           required:
             - vimObjectRefs
           additionalProperties: false
@@ -31096,13 +30315,9 @@ components:
               description: True if this is primary resource pool for this provider vDC. This attribute has been deprecated since version 29.0.
               type: boolean
             resourcePoolVimObjectRef:
-              description: Vim object reference to resource pool
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
             resourcePoolRef:
-              description: Reference to resource pool
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             enabled:
               description: Resource pool enabled status
               type: boolean
@@ -31158,9 +30373,7 @@ components:
               description: Whether this resource satisfies the vCD rules that makes it a valid candidate to back an Organization VDC.
               type: boolean
             resourcePoolVimObjectRef:
-              description: Vim object reference to resource pool
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+              $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
           required:
             - name
             - validCandidate
@@ -31203,22 +30416,16 @@ components:
       type: object
       properties:
         vmVimObjectRef:
-          description: Reference to a vim vm object.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+          $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
         datastoreVimObjectRef:
-          description: The datastore where the VM's configuration files are stored.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+          $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
         vmDiskDatastores:
           description: The datastore where the VM disk's files are stored.
           type: array
           items:
             $ref: '#/components/schemas/vcloud-ext_DiskDatastoreType'
         hostVimObjectRef:
-          description: The host for this VM.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+          $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
         virtualDisksMaxChainLength:
           description: The maximum chain length of the VM's virtual disks.
           type: integer
@@ -31242,9 +30449,7 @@ components:
           description: The reason for why the item failed on deletion.
           type: string
         vimObjectRef:
-          description: Vim object reference to a resource pool to which the virtual machine will be migrated. This parameter is optional. If it is not provided, the system will automatically choose a target resource pool and migrate the VMs to it.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+          $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
       required:
         - name
         - vimObjectRef
@@ -31278,13 +30483,9 @@ components:
               description: The reason why the deletion failed.
               type: string
             parent:
-              description: A reference to the parent stranded item.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             strandedItemVimObjects:
-              description: A collection of stranded item VimObjects.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_StrandedItemVimObjectsType'
+              $ref: '#/components/schemas/vcloud-ext_StrandedItemVimObjectsType'
           additionalProperties: false
     vcloud-ext_UpdateProviderVdcStorageProfilesParamsType:
       title: vcloud-ext_UpdateProviderVdcStorageProfilesParamsType
@@ -31409,9 +30610,7 @@ components:
       type: object
       properties:
         rights:
-          description: References to entity rights.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_RightRefsType'
+          $ref: '#/components/schemas/vcloud-ext_RightRefsType'
       required:
         - rights
       additionalProperties: false
@@ -31437,9 +30636,7 @@ components:
           items:
             $ref: '#/components/schemas/vcloud_ReferenceType'
         resourcePoolRef:
-          description: Vim object reference to a resource pool to which the virtual machine will be migrated. This parameter is optional. If it is not provided, the system will automatically choose a target resource pool and migrate the VMs to it.
-          allOf:
-            - $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
+          $ref: '#/components/schemas/vcloud-ext_VimObjectRefType'
         pinToDatastore:
           description: Whether or not the VM(s) should be pinned to their current datastore(s). This value defaults to true.
           type: boolean
@@ -31460,8 +30657,7 @@ components:
               description: Boolean to request fast provisioning. Request will be honored only if the underlying datastore supports it. Fast provisioning can reduce the time it takes to create virtual machines by using vSphere linked clones. If you disable fast provisioning, all provisioning operations will result in full clones.
               type: boolean
             networkProfileConfiguration:
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VdcTemplateNetworkProfileType'
+              $ref: '#/components/schemas/vcloud-ext_VdcTemplateNetworkProfileType'
           additionalProperties: false
     vcloud-ext_AutomaticNetworkPoolReferenceType:
       title: vcloud-ext_AutomaticNetworkPoolReferenceType
@@ -31513,18 +30709,14 @@ components:
               description: Description of the VDC template.
               type: string
             networkBackingType:
-              description: 'Network backing type (example: NSX\_V) supported by this VDC template. Set during creation of template and cannot be modified.'
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VdcTemplateNetworkBackingType'
+              $ref: '#/components/schemas/vcloud-ext_VdcTemplateNetworkBackingType'
             providerVdcReference:
               description: A reference to a Provider VDC from which this organization VDC can be provisioned.
               type: array
               items:
                 $ref: '#/components/schemas/vcloud-ext_VMWVdcTemplateProviderVdcSpecificationType'
             vdcTemplateSpecification:
-              description: A reference to the specification for a VDC template object.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VMWVdcTemplateSpecificationType'
+              $ref: '#/components/schemas/vcloud-ext_VMWVdcTemplateSpecificationType'
           required:
             - tenantName
             - tenantDescription
@@ -31559,8 +30751,7 @@ components:
           type: string
           format: uri
         value:
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
       additionalProperties: false
     vcloud-ext_VdcTemplateNetworkProfileType:
       title: vcloud-ext_VdcTemplateNetworkProfileType
@@ -31568,14 +30759,11 @@ components:
       type: object
       properties:
         primaryEdgeCluster:
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
         secondaryEdgeCluster:
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
         servicesEdgeCluster:
-          allOf:
-            - $ref: '#/components/schemas/vcloud_ReferenceType'
+          $ref: '#/components/schemas/vcloud_ReferenceType'
       additionalProperties: false
     vcloud-ext_VMWVdcTemplatesType:
       title: vcloud-ext_VMWVdcTemplatesType
@@ -31611,9 +30799,7 @@ components:
         - type: object
           properties:
             hosts:
-              description: List of hosts in this host group
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VMWHostReferencesType'
+              $ref: '#/components/schemas/vcloud-ext_VMWHostReferencesType'
           required:
             - hosts
           additionalProperties: false
@@ -31672,9 +30858,7 @@ components:
         - type: object
           properties:
             vMWVmGroupReferences:
-              description: References to VM Groups that have identical names.
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_VMWVmGroupReferencesType'
+              $ref: '#/components/schemas/vcloud-ext_VMWVmGroupReferencesType'
           required:
             - vMWVmGroupReferences
           additionalProperties: false
@@ -31739,17 +30923,11 @@ components:
         - type: object
           properties:
             orgs:
-              description: List of organizations to be migrated in this operation
-              allOf:
-                - $ref: '#/components/schemas/vcloud_OrgsType'
+              $ref: '#/components/schemas/vcloud_OrgsType'
             sourceDatastores:
-              description: List of datastores from which organization storage resources should be migrated
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_DatastoresType'
+              $ref: '#/components/schemas/vcloud-ext_DatastoresType'
             targetDatastores:
-              description: List of datastores to which organization storage resources should be migrated
-              allOf:
-                - $ref: '#/components/schemas/vcloud-ext_DatastoresType'
+              $ref: '#/components/schemas/vcloud-ext_DatastoresType'
           additionalProperties: false
     vcloud-ext_UberAdminSettingsType:
       title: vcloud-ext_UberAdminSettingsType
@@ -31792,9 +30970,7 @@ components:
         - type: object
           properties:
             vimServer:
-              description: A reference to the vCenter.
-              allOf:
-                - $ref: '#/components/schemas/vcloud_ReferenceType'
+              $ref: '#/components/schemas/vcloud_ReferenceType'
             backingRef:
               description: The backingRef.
               type: string
@@ -31816,8 +30992,7 @@ components:
           type: string
           format: uri
         alphaVersion:
-          allOf:
-            - $ref: '#/components/schemas/versioning_VersionInfoType'
+          $ref: '#/components/schemas/versioning_VersionInfoType'
       additionalProperties: false
     versioning_VersionInfoType:
       title: versioning_VersionInfoType
@@ -31956,6 +31131,47 @@ components:
     vssd_CIM_VirtualSystemSettingData_Type:
       title: vssd_CIM_VirtualSystemSettingData_Type
       type: object
+      properties:
+        automaticStartupActionDelay:
+          $ref: '#/components/schemas/cim_cimDateTime'
+        automaticStartupActionSequenceNumber:
+          $ref: '#/components/schemas/cim_cimUnsignedShort'
+        configurationDataRoot:
+          $ref: '#/components/schemas/cim_cimString'
+        configurationFile:
+          $ref: '#/components/schemas/cim_cimString'
+        configurationID:
+          $ref: '#/components/schemas/cim_cimString'
+        configurationName:
+          $ref: '#/components/schemas/cim_cimString'
+        creationTime:
+          $ref: '#/components/schemas/cim_cimDateTime'
+        description:
+          $ref: '#/components/schemas/cim_cimString'
+        elementName:
+          $ref: '#/components/schemas/cim_cimString'
+        generation:
+          $ref: '#/components/schemas/cim_cimUnsignedLong'
+        instanceID:
+          $ref: '#/components/schemas/cim_cimString'
+        logDataRoot:
+          $ref: '#/components/schemas/cim_cimString'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/cim_cimString'
+        recoveryFile:
+          $ref: '#/components/schemas/cim_cimString'
+        snapshotDataRoot:
+          $ref: '#/components/schemas/cim_cimString'
+        suspendDataRoot:
+          $ref: '#/components/schemas/cim_cimString'
+        swapFileDataRoot:
+          $ref: '#/components/schemas/cim_cimString'
+        virtualSystemIdentifier:
+          $ref: '#/components/schemas/cim_cimString'
+        virtualSystemType:
+          $ref: '#/components/schemas/cim_cimString'
       additionalProperties: false
 tags:
   - name: user
