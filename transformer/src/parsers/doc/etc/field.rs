@@ -73,6 +73,9 @@ impl
                                             ..
                                         }) => attributes.get("name").map_or(false, |name| {
                                             match type_name.split_once(':') {
+                                                Some((ns, tn)) if ns.eq("class") && tn.eq(name) => {
+                                                    true
+                                                }
                                                 Some((ns, tn)) if tn.eq(name) => {
                                                     attributes.get("type").map_or(false, |t| {
                                                         t.split_once(':')
@@ -98,12 +101,12 @@ impl
                                         attributes,
                                         ..
                                     }) => SimpleType::try_from((ns, xml))
-                                        .map(|s| openapiv3::ReferenceOr::Item(s))
-                                        .ok()
-                                        .or(attributes.get("type").map(|type_name| {
-                                            str_to_simple_type_or_reference(ns, type_name, None)
-                                        }))
-                                        .map(|r#type| (name, r#type)),
+                                            .map(|s| openapiv3::ReferenceOr::Item(s))
+                                            .ok()
+                                            .or(attributes.get("type").map(|type_name| {
+                                                str_to_simple_type_or_reference(ns, type_name, None)
+                                            }))
+                                            .map(|r#type| (name, r#type)),
                                     _ => None,
                                 })
                         })
@@ -143,12 +146,12 @@ impl
                 }
             }
             xmltree::XMLNode::Element(xmltree::Element {
-                namespace: Some(_xml_schema_ns),
+                namespace: Some(namespace),
                 name,
                 attributes,
                 children,
                 ..
-            }) if name == "attribute" => {
+            }) if namespace == XML_SCHEMA_NS && name == "attribute" => {
                 let name = attributes
                     .get("name")
                     .map(|name| decapitalize(name))
@@ -183,9 +186,9 @@ impl
     }
 }
 
-impl From<&Field> for openapiv3::Schema {
+impl From<&Field> for openapiv3::ReferenceOr<openapiv3::Type> {
     fn from(s: &Field) -> Self {
-        let reference_or_schema_type = match &s.r#type {
+        match &s.r#type {
             openapiv3::ReferenceOr::Item(s) => {
                 openapiv3::ReferenceOr::Item(openapiv3::Type::from(&RestrictedPrimitiveType {
                     r#type: s.parent,
@@ -197,48 +200,62 @@ impl From<&Field> for openapiv3::Schema {
             openapiv3::ReferenceOr::Reference { reference } => openapiv3::ReferenceOr::Reference {
                 reference: format!("#/components/schemas/{}", reference),
             },
+        }
+    }
+}
+
+impl From<&Field> for openapiv3::ReferenceOr<openapiv3::Schema> {
+    fn from(s: &Field) -> Self {
+        let reference_or_schema_type = openapiv3::ReferenceOr::from(s);
+        let schema_data = openapiv3::SchemaData {
+            nullable: false,
+            read_only: false,
+            deprecated: s.annotation.as_ref().map(|a| a.deprecated) == Some(true),
+            description: s.annotation.as_ref().and_then(|a| a.description.clone()),
+            ..Default::default()
         };
+        match (s.occurrences, reference_or_schema_type) {
+            (Occurrences::Array, openapiv3::ReferenceOr::Item(schema_type)) => {
+                openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                    schema_data,
+                    schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Array(
+                        openapiv3::ArrayType {
+                            items: Some(openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
+                                schema_data: Default::default(),
+                                schema_kind: openapiv3::SchemaKind::Type(schema_type),
+                            })),
+                            min_items: None,
+                            max_items: None,
+                            unique_items: false,
+                        },
+                    )),
+                })
+            }
 
-        openapiv3::Schema {
-            schema_data: openapiv3::SchemaData {
-                nullable: false,
-                read_only: false,
-                deprecated: s.annotation.as_ref().map(|a| a.deprecated) == Some(true),
-                description: s.annotation.as_ref().and_then(|a| a.description.clone()),
-                ..Default::default()
-            },
-            schema_kind: match (s.occurrences, reference_or_schema_type) {
-                (Occurrences::Array, openapiv3::ReferenceOr::Item(schema_type)) => {
-                    openapiv3::SchemaKind::Type(openapiv3::Type::Array(openapiv3::ArrayType {
-                        items: Some(openapiv3::ReferenceOr::boxed_item(openapiv3::Schema {
-                            schema_data: Default::default(),
-                            schema_kind: openapiv3::SchemaKind::Type(schema_type),
-                        })),
-                        min_items: None,
-                        max_items: None,
-                        unique_items: false,
-                    }))
-                }
+            (Occurrences::Array, openapiv3::ReferenceOr::Reference { reference }) => {
+                openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                    schema_data,
+                    schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Array(
+                        openapiv3::ArrayType {
+                            items: Some(openapiv3::ReferenceOr::Reference { reference }),
+                            min_items: None,
+                            max_items: None,
+                            unique_items: false,
+                        },
+                    )),
+                })
+            }
 
-                (Occurrences::Array, openapiv3::ReferenceOr::Reference { reference }) => {
-                    openapiv3::SchemaKind::Type(openapiv3::Type::Array(openapiv3::ArrayType {
-                        items: Some(openapiv3::ReferenceOr::Reference { reference }),
-                        min_items: None,
-                        max_items: None,
-                        unique_items: false,
-                    }))
-                }
+            (_, openapiv3::ReferenceOr::Item(schema_type)) => {
+                openapiv3::ReferenceOr::Item(openapiv3::Schema {
+                    schema_data,
+                    schema_kind: openapiv3::SchemaKind::Type(schema_type),
+                })
+            }
 
-                (_, openapiv3::ReferenceOr::Item(schema_type)) => {
-                    openapiv3::SchemaKind::Type(schema_type)
-                }
-
-                (_, openapiv3::ReferenceOr::Reference { reference }) => {
-                    openapiv3::SchemaKind::AllOf {
-                        all_of: vec![openapiv3::ReferenceOr::Reference { reference }],
-                    }
-                }
-            },
+            (_, openapiv3::ReferenceOr::Reference { reference }) => {
+                openapiv3::ReferenceOr::Reference { reference }
+            }
         }
     }
 }
@@ -297,7 +314,7 @@ fn test_parse_field_from_required_attribute() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+    let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -329,7 +346,7 @@ fn test_parse_field_from_optional_attribute() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -361,7 +378,7 @@ fn test_field_optional_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -393,7 +410,7 @@ fn test_field_array_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -429,7 +446,7 @@ fn test_field_exactly_one_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -461,7 +478,7 @@ fn test_anyuri_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -494,7 +511,7 @@ fn test_double_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -527,7 +544,7 @@ fn test_long_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -560,7 +577,7 @@ fn test_datetime_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -593,7 +610,7 @@ fn test_base64_binary_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -626,7 +643,7 @@ fn test_normalized_string_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -658,7 +675,7 @@ fn test_short_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -690,7 +707,7 @@ fn test_decimal_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+    let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -722,7 +739,7 @@ fn test_float_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -755,7 +772,7 @@ fn test_hex_binary_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+    let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -787,7 +804,7 @@ fn test_integer_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+    let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -819,7 +836,7 @@ fn test_any_type_into_schema() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+    let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -856,7 +873,7 @@ fn test_element_with_simple_type() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+    let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({
@@ -887,7 +904,7 @@ fn test_attribute_with_simple_type() {
         &vec![(ns, xmltree::XMLNode::Element(types))],
     ))
     .unwrap();
-    let value = openapiv3::Schema::from(&s);
+    let value: openapiv3::ReferenceOr<openapiv3::Schema> = openapiv3::ReferenceOr::from(&s);
     assert_eq!(
         serde_json::to_value(value).unwrap(),
         json!({

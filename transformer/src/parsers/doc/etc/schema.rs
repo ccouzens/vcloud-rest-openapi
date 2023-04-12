@@ -174,12 +174,7 @@ fn schema_into_schemas_test() {
                     "format": "int32"
                   },
                   "boundedCustom2": {
-                    "description": "A reference to another type, but only one or none",
-                    "allOf": [
-                      {
-                        "$ref": "#/components/schemas/test_Custom2Type"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/test_Custom2Type"
                   },
                   "unboundedCustom2": {
                     "description": "A reference to many of another type",
