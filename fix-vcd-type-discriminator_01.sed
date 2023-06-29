@@ -1,5 +1,4 @@
 {
-    0,/typeTest/!{0,/typeTest/s/type/_&/};
     /JSON_PROPERTY_TYPE = "_type"/,+1 {
         s/type/_&/i;
     };
