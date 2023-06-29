@@ -96,8 +96,19 @@ diff -U20 --color=always \
 
 ## Known Issues
 
-To fix the issue [Unable to compile Java openapi client#3](https://github.com/ccouzens/vcloud-rest-openapi/issues/3), run [patch_java_openapi_client.sed](./patch_java_openapi_client.sed) as a temporary workaround
+[Unable to compile Java openapi client#3](https://github.com/ccouzens/vcloud-rest-openapi/issues/3) 
 
+The temporary workaround:
+
+1. Copy patch scripts [fix-vcd-type-discriminator_01.sed](fix-vcd-type-discriminator_01.sed) and [fix-vcd-type-discriminator_02.sed](fix-vcd-type-discriminator_02.sed) to the root project directory
+
+
+2. Clean up the codegenerated client <output directory>:
 ```bash
-find <output directory> -regex '.*\(Type\|Value\|AllOf\|Test\)\.java' -exec grep -H '_type\|typeTest' {} \; -exec sed -ri -f patch_java_openapi_client.sed {} \;
+  rm -rf <output directory>
+```
+
+3. Run the script from the root project directory:
+```bash
+find ./<output directory> -regex '.*\(Type\|Value\)\.java' -exec grep -H 'String JSON_PROPERTY_TYPE = "_type"' {} \; -exec sed -ri -f ./fix-vcd-type-discriminator_01.sed {} \; && find ./<output directory>/ -regex '.*\(Type\|Value\)\.java' -exec grep -H 'extends .*\(Type\|Value\)' {} \; -exec sed -ri -f ./fix-vcd-type-discriminator_02.sed {} \;
 ```
