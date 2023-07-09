@@ -15263,32 +15263,32 @@ components:
       discriminator:
         propertyName: _type
         mapping:
-          AnnotationSectionType: ovf_AnnotationSection_Type
-          ProductSectionType: ovf_ProductSection_Type
-          NetworkSectionType: ovf_NetworkSection_Type
-          DiskSectionType: ovf_DiskSection_Type
-          OperatingSystemSectionType: ovf_OperatingSystemSection_Type
-          EulaSectionType: ovf_EulaSection_Type
-          VirtualHardwareSectionType: ovf_VirtualHardwareSection_Type
-          ResourceAllocationSectionType: ovf_ResourceAllocationSection_Type
-          InstallSectionType: ovf_InstallSection_Type
-          StartupSectionType: ovf_StartupSection_Type
-          DeploymentOptionSectionType: ovf_DeploymentOptionSection_Type
-          GuestCustomizationStatusSectionType: vcloud_GuestCustomizationStatusSectionType
-          NetworkConfigSectionType: vcloud_NetworkConfigSectionType
-          LeaseSettingsSectionType: vcloud_LeaseSettingsSectionType
-          VmSpecSectionType: vcloud_VmSpecSectionType
-          NetworkConnectionSectionType: vcloud_NetworkConnectionSectionType
-          RuntimeInfoSectionType: vcloud_RuntimeInfoSectionType
-          GuestCustomizationSectionType: vcloud_GuestCustomizationSectionType
-          SnapshotSectionType: vcloud_SnapshotSectionType
-          DefaultStorageProfileSectionType: vcloud_DefaultStorageProfileSection_Type
-          CustomizationSectionType: vcloud_CustomizationSectionType
-          IpAssignmentSectionType: vmw_IpAssignmentSection_Type
-          CpuCompatibilitySectionType: vmw_CpuCompatibilitySection_Type
-          StorageGroupSectionType: vmw_StorageGroupSection_Type
-          StorageSectionType: vmw_StorageSection_Type
-          BootOrderSectionType: vmw_BootOrderSection_Type
+          AnnotationSectionType: '#/components/schemas/ovf_AnnotationSection_Type'
+          ProductSectionType: '#/components/schemas/ovf_ProductSection_Type'
+          NetworkSectionType: '#/components/schemas/ovf_NetworkSection_Type'
+          DiskSectionType: '#/components/schemas/ovf_DiskSection_Type'
+          OperatingSystemSectionType: '#/components/schemas/ovf_OperatingSystemSection_Type'
+          EulaSectionType: '#/components/schemas/ovf_EulaSection_Type'
+          VirtualHardwareSectionType: '#/components/schemas/ovf_VirtualHardwareSection_Type'
+          ResourceAllocationSectionType: '#/components/schemas/ovf_ResourceAllocationSection_Type'
+          InstallSectionType: '#/components/schemas/ovf_InstallSection_Type'
+          StartupSectionType: '#/components/schemas/ovf_StartupSection_Type'
+          DeploymentOptionSectionType: '#/components/schemas/ovf_DeploymentOptionSection_Type'
+          GuestCustomizationStatusSectionType: '#/components/schemas/vcloud_GuestCustomizationStatusSectionType'
+          NetworkConfigSectionType: '#/components/schemas/vcloud_NetworkConfigSectionType'
+          LeaseSettingsSectionType: '#/components/schemas/vcloud_LeaseSettingsSectionType'
+          VmSpecSectionType: '#/components/schemas/vcloud_VmSpecSectionType'
+          NetworkConnectionSectionType: '#/components/schemas/vcloud_NetworkConnectionSectionType'
+          RuntimeInfoSectionType: '#/components/schemas/vcloud_RuntimeInfoSectionType'
+          GuestCustomizationSectionType: '#/components/schemas/vcloud_GuestCustomizationSectionType'
+          SnapshotSectionType: '#/components/schemas/vcloud_SnapshotSectionType'
+          DefaultStorageProfileSectionType: '#/components/schemas/vcloud_DefaultStorageProfileSection_Type'
+          CustomizationSectionType: '#/components/schemas/vcloud_CustomizationSectionType'
+          IpAssignmentSectionType: '#/components/schemas/vmw_IpAssignmentSection_Type'
+          CpuCompatibilitySectionType: '#/components/schemas/vmw_CpuCompatibilitySection_Type'
+          StorageGroupSectionType: '#/components/schemas/vmw_StorageGroupSection_Type'
+          StorageSectionType: '#/components/schemas/vmw_StorageSection_Type'
+          BootOrderSectionType: '#/components/schemas/vmw_BootOrderSection_Type'
       type: object
       properties:
         info:
@@ -15550,8 +15550,8 @@ components:
       discriminator:
         propertyName: _type
         mapping:
-          PropertySectionType: ovfenv_PropertySection_Type
-          PlatformSectionType: ovfenv_PlatformSection_Type
+          PropertySectionType: '#/components/schemas/ovfenv_PropertySection_Type'
+          PlatformSectionType: '#/components/schemas/ovfenv_PlatformSection_Type'
       type: object
       properties:
         _type:
@@ -18391,10 +18391,10 @@ components:
       discriminator:
         propertyName: _type
         mapping:
-          MetadataStringValue: vcloud_MetadataStringValue
-          MetadataNumberValue: vcloud_MetadataNumberValue
-          MetadataBooleanValue: vcloud_MetadataBooleanValue
-          MetadataDateTimeValue: vcloud_MetadataDateTimeValue
+          MetadataStringValue: '#/components/schemas/vcloud_MetadataStringValue'
+          MetadataNumberValue: '#/components/schemas/vcloud_MetadataNumberValue'
+          MetadataBooleanValue: '#/components/schemas/vcloud_MetadataBooleanValue'
+          MetadataDateTimeValue: '#/components/schemas/vcloud_MetadataDateTimeValue'
       type: object
       properties:
         _type:
@@ -20904,99 +20904,99 @@ components:
       discriminator:
         propertyName: _type
         mapping:
-          QueryResultLicensingReportRecordType: vcloud_QueryResultLicensingReportRecordType
-          QueryResultLicensingReportSampleRecordType: vcloud_QueryResultLicensingReportSampleRecordType
-          QueryResultLicensingManagedServerRecordType: vcloud_QueryResultLicensingManagedServerRecordType
-          QueryResultLicensingVirtualMachineRecordType: vcloud_QueryResultLicensingVirtualMachineRecordType
-          QueryResultAdminEventCBMRecordType: vcloud_QueryResultAdminEventCBMRecordType
-          QueryResultToCloudTunnelRecordType: vcloud_QueryResultToCloudTunnelRecordType
-          QueryResultFromCloudTunnelRecordType: vcloud_QueryResultFromCloudTunnelRecordType
-          QueryResultSiteOrgAssociationRecordType: vcloud_QueryResultSiteOrgAssociationRecordType
-          QueryResultOrgRecordType: vcloud_QueryResultOrgRecordType
-          QueryResultOrgVdcRecordType: vcloud_QueryResultOrgVdcRecordType
-          QueryResultMediaRecordType: vcloud_QueryResultMediaRecordType
-          QueryResultVAppTemplateRecordType: vcloud_QueryResultVAppTemplateRecordType
-          QueryResultVAppRecordType: vcloud_QueryResultVAppRecordType
-          QueryResultVMRecordType: vcloud_QueryResultVMRecordType
-          QueryResultOrgNetworkRecordType: vcloud_QueryResultOrgNetworkRecordType
-          QueryResultAdminOrgNetworkRecordType: vcloud_QueryResultAdminOrgNetworkRecordType
-          QueryResultVAppNetworkRecordType: vcloud_QueryResultVAppNetworkRecordType
-          QueryResultCatalogRecordType: vcloud_QueryResultCatalogRecordType
-          QueryResultAdminVdcRecordType: vcloud_QueryResultAdminVdcRecordType
-          QueryResultVMWProviderVdcRecordType: vcloud_QueryResultVMWProviderVdcRecordType
-          QueryResultNetworkRecordType: vcloud_QueryResultNetworkRecordType
-          QueryResultGroupRecordType: vcloud_QueryResultGroupRecordType
-          QueryResultUserRecordType: vcloud_QueryResultUserRecordType
-          QueryResultStrandedUserRecordType: vcloud_QueryResultStrandedUserRecordType
-          QueryResultRoleRecordType: vcloud_QueryResultRoleRecordType
-          QueryResultAllocatedExternalAddressRecordType: vcloud_QueryResultAllocatedExternalAddressRecordType
-          QueryResultEventRecordType: vcloud_QueryResultEventRecordType
-          QueryResultResourcePoolRecordType: vcloud_QueryResultResourcePoolRecordType
-          QueryResultDatastoreRecordType: vcloud_QueryResultDatastoreRecordType
-          QueryResultNetworkPoolRecordType: vcloud_QueryResultNetworkPoolRecordType
-          QueryResultPortgroupRecordType: vcloud_QueryResultPortgroupRecordType
-          QueryResultDvSwitchRecordType: vcloud_QueryResultDvSwitchRecordType
-          QueryResultCellRecordType: vcloud_QueryResultCellRecordType
-          QueryResultVirtualCenterRecordType: vcloud_QueryResultVirtualCenterRecordType
-          QueryResultHostRecordType: vcloud_QueryResultHostRecordType
-          QueryResultAdminVAppRecordType: vcloud_QueryResultAdminVAppRecordType
-          QueryResultRightRecordType: vcloud_QueryResultRightRecordType
-          QueryResultAdminVMRecordType: vcloud_QueryResultAdminVMRecordType
-          QueryResultAdminAllocatedExternalAddressRecordType: vcloud_QueryResultAdminAllocatedExternalAddressRecordType
-          QueryResultVAppOrgNetworkRelationRecordType: vcloud_QueryResultVAppOrgNetworkRelationRecordType
-          QueryResultOrgVdcResourcePoolRelationRecordType: vcloud_QueryResultOrgVdcResourcePoolRelationRecordType
-          QueryResultProviderVdcResourcePoolRelationRecordType: vcloud_QueryResultProviderVdcResourcePoolRelationRecordType
-          QueryResultDatastoreProviderVdcRelationRecordType: vcloud_QueryResultDatastoreProviderVdcRelationRecordType
-          QueryResultAdminUserRecordType: vcloud_QueryResultAdminUserRecordType
-          QueryResultAdminGroupRecordType: vcloud_QueryResultAdminGroupRecordType
-          QueryResultAdminVAppNetworkRecordType: vcloud_QueryResultAdminVAppNetworkRecordType
-          QueryResultAdminCatalogRecordType: vcloud_QueryResultAdminCatalogRecordType
-          QueryResultAdminCatalogItemRecordType: vcloud_QueryResultAdminCatalogItemRecordType
-          QueryResultCatalogItemRecordType: vcloud_QueryResultCatalogItemRecordType
-          QueryResultAdminMediaRecordType: vcloud_QueryResultAdminMediaRecordType
-          QueryResultAdminVAppTemplateRecordType: vcloud_QueryResultAdminVAppTemplateRecordType
-          QueryResultAdminShadowVMRecordType: vcloud_QueryResultAdminShadowVMRecordType
-          QueryResultTaskRecordType: vcloud_QueryResultTaskRecordType
-          QueryResultAdminTaskRecordType: vcloud_QueryResultAdminTaskRecordType
-          QueryResultBlockingTaskRecordType: vcloud_QueryResultBlockingTaskRecordType
-          QueryResultDiskRecordType: vcloud_QueryResultDiskRecordType
-          QueryResultVmDiskRelationRecordType: vcloud_QueryResultVmDiskRelationRecordType
-          QueryResultAdminDiskRecordType: vcloud_QueryResultAdminDiskRecordType
-          QueryResultAdminVmDiskRelationRecordType: vcloud_QueryResultAdminVmDiskRelationRecordType
-          QueryResultConditionRecordType: vcloud_QueryResultConditionRecordType
-          QueryResultAdminEventRecordType: vcloud_QueryResultAdminEventRecordType
-          QueryResultStrandedItemRecordType: vcloud_QueryResultStrandedItemRecordType
-          QueryResultAdminServiceRecordType: vcloud_QueryResultAdminServiceRecordType
-          QueryResultServiceRecordType: vcloud_QueryResultServiceRecordType
-          QueryResultServiceLinkRecordType: vcloud_QueryResultServiceLinkRecordType
-          QueryResultStorageProfileRecordType: vcloud_QueryResultStorageProfileRecordType
-          QueryResultOrgVdcStorageProfileRecordType: vcloud_QueryResultOrgVdcStorageProfileRecordType
-          QueryResultAdminOrgVdcStorageProfileRecordType: vcloud_QueryResultAdminOrgVdcStorageProfileRecordType
-          QueryResultProviderVdcStorageProfileRecordType: vcloud_QueryResultProviderVdcStorageProfileRecordType
-          QueryResultApiFilterRecordType: vcloud_QueryResultApiFilterRecordType
-          QueryResultAdminApiDefinitionRecordType: vcloud_QueryResultAdminApiDefinitionRecordType
-          QueryResultApiDefinitionRecordType: vcloud_QueryResultApiDefinitionRecordType
-          QueryResultAdminFileDescriptorRecordType: vcloud_QueryResultAdminFileDescriptorRecordType
-          QueryResultFileDescriptorRecordType: vcloud_QueryResultFileDescriptorRecordType
-          QueryResultResourceClassActionRecordType: vcloud_QueryResultResourceClassActionRecordType
-          QueryResultAclRuleRecordType: vcloud_QueryResultAclRuleRecordType
-          QueryResultResourceClassRecordType: vcloud_QueryResultResourceClassRecordType
-          QueryResultServiceResourceRecordType: vcloud_QueryResultServiceResourceRecordType
-          QueryResultEdgeGatewayRecordType: vcloud_QueryResultEdgeGatewayRecordType
-          QueryResultOrgVdcNetworkRecordType: vcloud_QueryResultOrgVdcNetworkRecordType
-          QueryResultVAppOrgVdcNetworkRelationRecordType: vcloud_QueryResultVAppOrgVdcNetworkRelationRecordType
-          QueryResultExternalLocalizationRecordType: vcloud_QueryResultExternalLocalizationRecordType
-          QueryResultResourcePoolVMRecordType: vcloud_QueryResultResourcePoolVMRecordType
-          QueryResultVmGroupVmsRecordType: vcloud_QueryResultVmGroupVmsRecordType
-          QueryResultVmGroupsRecordType: vcloud_QueryResultVmGroupsRecordType
-          QueryResultAdminRoleRecordType: vcloud_QueryResultAdminRoleRecordType
-          QueryResultNsxTManagerRecordType: vcloud_QueryResultNsxTManagerRecordType
-          QueryResultAdminOrgVdcTemplateRecordType: vcloud_QueryResultAdminOrgVdcTemplateRecordType
-          QueryResultOrgVdcTemplateRecordType: vcloud_QueryResultOrgVdcTemplateRecordType
-          QueryResultGatewayUplinksRecordType: vcloud_QueryResultGatewayUplinksRecordType
-          QueryResultSiteRecordType: vcloud_QueryResultSiteRecordType
-          QueryResultSiteAssociationRecordType: vcloud_QueryResultSiteAssociationRecordType
-          QueryResultOrgAssociationRecordType: vcloud_QueryResultOrgAssociationRecordType
+          QueryResultLicensingReportRecordType: '#/components/schemas/vcloud_QueryResultLicensingReportRecordType'
+          QueryResultLicensingReportSampleRecordType: '#/components/schemas/vcloud_QueryResultLicensingReportSampleRecordType'
+          QueryResultLicensingManagedServerRecordType: '#/components/schemas/vcloud_QueryResultLicensingManagedServerRecordType'
+          QueryResultLicensingVirtualMachineRecordType: '#/components/schemas/vcloud_QueryResultLicensingVirtualMachineRecordType'
+          QueryResultAdminEventCBMRecordType: '#/components/schemas/vcloud_QueryResultAdminEventCBMRecordType'
+          QueryResultToCloudTunnelRecordType: '#/components/schemas/vcloud_QueryResultToCloudTunnelRecordType'
+          QueryResultFromCloudTunnelRecordType: '#/components/schemas/vcloud_QueryResultFromCloudTunnelRecordType'
+          QueryResultSiteOrgAssociationRecordType: '#/components/schemas/vcloud_QueryResultSiteOrgAssociationRecordType'
+          QueryResultOrgRecordType: '#/components/schemas/vcloud_QueryResultOrgRecordType'
+          QueryResultOrgVdcRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcRecordType'
+          QueryResultMediaRecordType: '#/components/schemas/vcloud_QueryResultMediaRecordType'
+          QueryResultVAppTemplateRecordType: '#/components/schemas/vcloud_QueryResultVAppTemplateRecordType'
+          QueryResultVAppRecordType: '#/components/schemas/vcloud_QueryResultVAppRecordType'
+          QueryResultVMRecordType: '#/components/schemas/vcloud_QueryResultVMRecordType'
+          QueryResultOrgNetworkRecordType: '#/components/schemas/vcloud_QueryResultOrgNetworkRecordType'
+          QueryResultAdminOrgNetworkRecordType: '#/components/schemas/vcloud_QueryResultAdminOrgNetworkRecordType'
+          QueryResultVAppNetworkRecordType: '#/components/schemas/vcloud_QueryResultVAppNetworkRecordType'
+          QueryResultCatalogRecordType: '#/components/schemas/vcloud_QueryResultCatalogRecordType'
+          QueryResultAdminVdcRecordType: '#/components/schemas/vcloud_QueryResultAdminVdcRecordType'
+          QueryResultVMWProviderVdcRecordType: '#/components/schemas/vcloud_QueryResultVMWProviderVdcRecordType'
+          QueryResultNetworkRecordType: '#/components/schemas/vcloud_QueryResultNetworkRecordType'
+          QueryResultGroupRecordType: '#/components/schemas/vcloud_QueryResultGroupRecordType'
+          QueryResultUserRecordType: '#/components/schemas/vcloud_QueryResultUserRecordType'
+          QueryResultStrandedUserRecordType: '#/components/schemas/vcloud_QueryResultStrandedUserRecordType'
+          QueryResultRoleRecordType: '#/components/schemas/vcloud_QueryResultRoleRecordType'
+          QueryResultAllocatedExternalAddressRecordType: '#/components/schemas/vcloud_QueryResultAllocatedExternalAddressRecordType'
+          QueryResultEventRecordType: '#/components/schemas/vcloud_QueryResultEventRecordType'
+          QueryResultResourcePoolRecordType: '#/components/schemas/vcloud_QueryResultResourcePoolRecordType'
+          QueryResultDatastoreRecordType: '#/components/schemas/vcloud_QueryResultDatastoreRecordType'
+          QueryResultNetworkPoolRecordType: '#/components/schemas/vcloud_QueryResultNetworkPoolRecordType'
+          QueryResultPortgroupRecordType: '#/components/schemas/vcloud_QueryResultPortgroupRecordType'
+          QueryResultDvSwitchRecordType: '#/components/schemas/vcloud_QueryResultDvSwitchRecordType'
+          QueryResultCellRecordType: '#/components/schemas/vcloud_QueryResultCellRecordType'
+          QueryResultVirtualCenterRecordType: '#/components/schemas/vcloud_QueryResultVirtualCenterRecordType'
+          QueryResultHostRecordType: '#/components/schemas/vcloud_QueryResultHostRecordType'
+          QueryResultAdminVAppRecordType: '#/components/schemas/vcloud_QueryResultAdminVAppRecordType'
+          QueryResultRightRecordType: '#/components/schemas/vcloud_QueryResultRightRecordType'
+          QueryResultAdminVMRecordType: '#/components/schemas/vcloud_QueryResultAdminVMRecordType'
+          QueryResultAdminAllocatedExternalAddressRecordType: '#/components/schemas/vcloud_QueryResultAdminAllocatedExternalAddressRecordType'
+          QueryResultVAppOrgNetworkRelationRecordType: '#/components/schemas/vcloud_QueryResultVAppOrgNetworkRelationRecordType'
+          QueryResultOrgVdcResourcePoolRelationRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcResourcePoolRelationRecordType'
+          QueryResultProviderVdcResourcePoolRelationRecordType: '#/components/schemas/vcloud_QueryResultProviderVdcResourcePoolRelationRecordType'
+          QueryResultDatastoreProviderVdcRelationRecordType: '#/components/schemas/vcloud_QueryResultDatastoreProviderVdcRelationRecordType'
+          QueryResultAdminUserRecordType: '#/components/schemas/vcloud_QueryResultAdminUserRecordType'
+          QueryResultAdminGroupRecordType: '#/components/schemas/vcloud_QueryResultAdminGroupRecordType'
+          QueryResultAdminVAppNetworkRecordType: '#/components/schemas/vcloud_QueryResultAdminVAppNetworkRecordType'
+          QueryResultAdminCatalogRecordType: '#/components/schemas/vcloud_QueryResultAdminCatalogRecordType'
+          QueryResultAdminCatalogItemRecordType: '#/components/schemas/vcloud_QueryResultAdminCatalogItemRecordType'
+          QueryResultCatalogItemRecordType: '#/components/schemas/vcloud_QueryResultCatalogItemRecordType'
+          QueryResultAdminMediaRecordType: '#/components/schemas/vcloud_QueryResultAdminMediaRecordType'
+          QueryResultAdminVAppTemplateRecordType: '#/components/schemas/vcloud_QueryResultAdminVAppTemplateRecordType'
+          QueryResultAdminShadowVMRecordType: '#/components/schemas/vcloud_QueryResultAdminShadowVMRecordType'
+          QueryResultTaskRecordType: '#/components/schemas/vcloud_QueryResultTaskRecordType'
+          QueryResultAdminTaskRecordType: '#/components/schemas/vcloud_QueryResultAdminTaskRecordType'
+          QueryResultBlockingTaskRecordType: '#/components/schemas/vcloud_QueryResultBlockingTaskRecordType'
+          QueryResultDiskRecordType: '#/components/schemas/vcloud_QueryResultDiskRecordType'
+          QueryResultVmDiskRelationRecordType: '#/components/schemas/vcloud_QueryResultVmDiskRelationRecordType'
+          QueryResultAdminDiskRecordType: '#/components/schemas/vcloud_QueryResultAdminDiskRecordType'
+          QueryResultAdminVmDiskRelationRecordType: '#/components/schemas/vcloud_QueryResultAdminVmDiskRelationRecordType'
+          QueryResultConditionRecordType: '#/components/schemas/vcloud_QueryResultConditionRecordType'
+          QueryResultAdminEventRecordType: '#/components/schemas/vcloud_QueryResultAdminEventRecordType'
+          QueryResultStrandedItemRecordType: '#/components/schemas/vcloud_QueryResultStrandedItemRecordType'
+          QueryResultAdminServiceRecordType: '#/components/schemas/vcloud_QueryResultAdminServiceRecordType'
+          QueryResultServiceRecordType: '#/components/schemas/vcloud_QueryResultServiceRecordType'
+          QueryResultServiceLinkRecordType: '#/components/schemas/vcloud_QueryResultServiceLinkRecordType'
+          QueryResultStorageProfileRecordType: '#/components/schemas/vcloud_QueryResultStorageProfileRecordType'
+          QueryResultOrgVdcStorageProfileRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcStorageProfileRecordType'
+          QueryResultAdminOrgVdcStorageProfileRecordType: '#/components/schemas/vcloud_QueryResultAdminOrgVdcStorageProfileRecordType'
+          QueryResultProviderVdcStorageProfileRecordType: '#/components/schemas/vcloud_QueryResultProviderVdcStorageProfileRecordType'
+          QueryResultApiFilterRecordType: '#/components/schemas/vcloud_QueryResultApiFilterRecordType'
+          QueryResultAdminApiDefinitionRecordType: '#/components/schemas/vcloud_QueryResultAdminApiDefinitionRecordType'
+          QueryResultApiDefinitionRecordType: '#/components/schemas/vcloud_QueryResultApiDefinitionRecordType'
+          QueryResultAdminFileDescriptorRecordType: '#/components/schemas/vcloud_QueryResultAdminFileDescriptorRecordType'
+          QueryResultFileDescriptorRecordType: '#/components/schemas/vcloud_QueryResultFileDescriptorRecordType'
+          QueryResultResourceClassActionRecordType: '#/components/schemas/vcloud_QueryResultResourceClassActionRecordType'
+          QueryResultAclRuleRecordType: '#/components/schemas/vcloud_QueryResultAclRuleRecordType'
+          QueryResultResourceClassRecordType: '#/components/schemas/vcloud_QueryResultResourceClassRecordType'
+          QueryResultServiceResourceRecordType: '#/components/schemas/vcloud_QueryResultServiceResourceRecordType'
+          QueryResultEdgeGatewayRecordType: '#/components/schemas/vcloud_QueryResultEdgeGatewayRecordType'
+          QueryResultOrgVdcNetworkRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcNetworkRecordType'
+          QueryResultVAppOrgVdcNetworkRelationRecordType: '#/components/schemas/vcloud_QueryResultVAppOrgVdcNetworkRelationRecordType'
+          QueryResultExternalLocalizationRecordType: '#/components/schemas/vcloud_QueryResultExternalLocalizationRecordType'
+          QueryResultResourcePoolVMRecordType: '#/components/schemas/vcloud_QueryResultResourcePoolVMRecordType'
+          QueryResultVmGroupVmsRecordType: '#/components/schemas/vcloud_QueryResultVmGroupVmsRecordType'
+          QueryResultVmGroupsRecordType: '#/components/schemas/vcloud_QueryResultVmGroupsRecordType'
+          QueryResultAdminRoleRecordType: '#/components/schemas/vcloud_QueryResultAdminRoleRecordType'
+          QueryResultNsxTManagerRecordType: '#/components/schemas/vcloud_QueryResultNsxTManagerRecordType'
+          QueryResultAdminOrgVdcTemplateRecordType: '#/components/schemas/vcloud_QueryResultAdminOrgVdcTemplateRecordType'
+          QueryResultOrgVdcTemplateRecordType: '#/components/schemas/vcloud_QueryResultOrgVdcTemplateRecordType'
+          QueryResultGatewayUplinksRecordType: '#/components/schemas/vcloud_QueryResultGatewayUplinksRecordType'
+          QueryResultSiteRecordType: '#/components/schemas/vcloud_QueryResultSiteRecordType'
+          QueryResultSiteAssociationRecordType: '#/components/schemas/vcloud_QueryResultSiteAssociationRecordType'
+          QueryResultOrgAssociationRecordType: '#/components/schemas/vcloud_QueryResultOrgAssociationRecordType'
       type: object
       properties:
         href:
@@ -25798,7 +25798,7 @@ components:
       discriminator:
         propertyName: _type
         mapping:
-          HardwareVersionType: vcloud_HardwareVersionType
+          HardwareVersionType: '#/components/schemas/vcloud_HardwareVersionType'
       type: object
       properties:
         content:
@@ -26897,7 +26897,7 @@ components:
       discriminator:
         propertyName: _type
         mapping:
-          SupportedHardwareVersionType: vcloud_SupportedHardwareVersionType
+          SupportedHardwareVersionType: '#/components/schemas/vcloud_SupportedHardwareVersionType'
       type: object
       properties:
         content:
