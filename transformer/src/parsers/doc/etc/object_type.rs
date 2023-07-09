@@ -46,10 +46,11 @@ impl
                 attributes,
                 children,
                 ..
-            }) if namespace == XML_SCHEMA_NS && match name.as_str() {
-                "complexType" | "group" | "attributeGroup" => true,
-                _ => false,
-            } =>
+            }) if namespace == XML_SCHEMA_NS
+                && match name.as_str() {
+                    "complexType" | "group" | "attributeGroup" => true,
+                    _ => false,
+                } =>
             {
                 let mut annotations = Vec::new();
                 // TODO: check qualified names in root by type and base attributes (PrefixedName = Prefix ':' LocalPart) see for details: https://www.w3.org/TR/xml-names11/#NT-QName
@@ -341,11 +342,13 @@ impl From<&ObjectType> for openapiv3::Schema {
                                 (
                                     s.name.clone(),
                                     match openapiv3::ReferenceOr::from(s) {
-                                        openapiv3::ReferenceOr::Item(v) => openapiv3::ReferenceOr::Item(Box::new(v)),
+                                        openapiv3::ReferenceOr::Item(v) => {
+                                            openapiv3::ReferenceOr::Item(Box::new(v))
+                                        }
                                         openapiv3::ReferenceOr::Reference { reference } => {
                                             openapiv3::ReferenceOr::Reference { reference }
                                         }
-                                    }
+                                    },
                                 )
                             })
                             .collect(),
@@ -454,8 +457,14 @@ impl From<&ObjectType> for openapiv3::Schema {
                         mapping: descendants
                             .iter()
                             .map(|type_name| match type_name.split_once(':') {
-                                Some((ns, name)) => (name.replace("_", "").to_owned(), format!("{}_{}", ns, name)),
-                                None => (type_name.to_owned(), type_name.to_owned()),
+                                Some((ns, name)) => (
+                                    name.replace("_", "").to_owned(),
+                                    format!("#/components/schemas/{ns}_{name}"),
+                                ),
+                                None => (
+                                    type_name.to_owned(),
+                                    format!("#/components/schemas/{type_name}"),
+                                ),
                             })
                             .collect(),
                         extensions: Default::default(),
