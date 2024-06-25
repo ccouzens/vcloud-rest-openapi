@@ -30,7 +30,7 @@ vCloud Director has an
 [official](https://vdc-download.vmware.com/vmwb-repository/dcr-public/772aa4c5-7e61-4d80-8432-b8e0d821c969/2747ec83-6aef-4560-b1d1-55ed9adc4e73/vcd-openapi-docs.html)
 [OpenAPI](https://github.com/vmware/vcd-api-schemas/blob/master/schemas/openapi/src/main/resources/schemas/vcloud-openapi-schemas.yaml),
 but it contains little of the functionality of the
-[Rest API](https://code.vmware.com/apis/1159/vmware-cloud-director).
+[Rest API](https://developer.broadcom.com/xapis/vmware-cloud-director-api/38.1/).
 
 [Some of the documentation](https://vdc-download.vmware.com/vmwb-repository/dcr-public/1b6cf07d-adb3-4dba-8c47-9c1c92b04857/241956dd-e128-4fcc-8131-bf66e1edd895/vcloud_sp_api_guide_30_0.pdf)
 instructs the user to follow `link` attributes in the responses and not to
