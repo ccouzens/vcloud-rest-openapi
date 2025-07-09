@@ -9,24 +9,37 @@ if [[ -z $1 ]];then
   exit 1
 fi
 
+mkdir -p "${destination}"
+
+#TODO: put exlude in array to tidy up line length
 echo " >> Mirror started...<<"
-# wget2 --directory-prefix="$destination" --adjust-extension --recursive --no-clobber --level=inf --convert-links --no-parent --no-host-directories --cut-dirs=3 "$href"
-  # --no-verbose \
-wget2 --directory-prefix="$destination" \
+wget2 \
+  --no-verbose \
+  --directory-prefix="$destination" \
   --recursive \
   --no-clobber \
   --level=inf \
   --convert-links \
+  --retry-connrefused \
   --no-parent \
   --no-host-directories \
   --cut-dirs=3 \
-  --include-directories='/xapis/vmware-cloud-director-api/doc/*/' \
+  --execute robots=off \
+  --compression=gzip \
+  --exclude-directories="/xapis/vmware-cloud-director-api/${version}/types,/xapis/vmware-cloud-director-api/${version}/operations,/xapis/vmware-cloud-director-api/${version}/queries,/xapis/vmware-cloud-director-api/${version}/etc" \
   "${href}"
 echo " >> Mirror Ended!<<"
-  # --exclude-directories="/xapis/vmware-cloud-director-api/${version}/{types}/" \
 
 echo Generating commonRes.js
 cat << EOF > "${destination}/doc/commonRes.js"
   var ID_Copyright = "&copy; 2025 Broadcom, Inc. All rights reserved.";
   var ID_VersionInformation = "Version ${version}";
 EOF
+echo Generating commonRes.js Done!
+
+echo Createing Zip Archive
+(cd "$destination"; zip -r "../${version}.zip" ./*)
+echo Createing Zip Archive Done!
+
+echo Cleanup downloaded files
+echo rm -rf "${destination}"
