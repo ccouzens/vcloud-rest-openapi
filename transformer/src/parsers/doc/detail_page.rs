@@ -171,7 +171,7 @@ impl TryFrom<&str> for DetailPage {
         let h1_selector = scraper::Selector::parse("h1:not([class])")
             .map_err(|e| Self::Error::SelectorParseError(format!("{:?}", e)))?;
 
-        let dl_selector = scraper::Selector::parse("body > dl")
+        let dl_selector = scraper::Selector::parse("dl")
             .map_err(|e| Self::Error::SelectorParseError(format!("{:?}", e)))?;
 
         let title = document
