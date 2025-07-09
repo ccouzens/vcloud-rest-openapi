@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+destination=${1/.zip/}
+version="${destination#*/}"
+href="https://developer.broadcom.com/xapis/vmware-cloud-director-api/${version}/"
+
+if [[ -z $1 ]];then
+  echo missing destination input.
+  exit 1
+fi
+
+echo " >> Mirror started...<<"
+# wget2 --directory-prefix="$destination" --adjust-extension --recursive --no-clobber --level=inf --convert-links --no-parent --no-host-directories --cut-dirs=3 "$href"
+  # --no-verbose \
+wget2 --directory-prefix="$destination" \
+  --recursive \
+  --no-clobber \
+  --level=inf \
+  --convert-links \
+  --no-parent \
+  --no-host-directories \
+  --cut-dirs=3 \
+  --include-directories='/xapis/vmware-cloud-director-api/doc/*/' \
+  "${href}"
+echo " >> Mirror Ended!<<"
+  # --exclude-directories="/xapis/vmware-cloud-director-api/${version}/{types}/" \
+
+echo Generating commonRes.js
+cat << EOF > "${destination}/doc/commonRes.js"
+  var ID_Copyright = "&copy; 2025 Broadcom, Inc. All rights reserved.";
+  var ID_VersionInformation = "Version ${version}";
+EOF
