@@ -1,22 +1,4 @@
 specs = \
-27.0.json \
-29.0.json \
-30.0.json \
-31.0.json \
-32.0.json \
-33.0.json \
-34.0.json \
-35.0.json \
-35.2.json \
-36.0.json \
-36.1.json \
-36.2.json \
-36.3.json \
-37.0.json \
-37.1.json \
-37.2.json \
-38.0.json \
-38.1.json \
 27.0.yml \
 29.0.yml \
 30.0.yml \
@@ -34,7 +16,11 @@ specs = \
 37.1.yml \
 37.2.yml \
 38.0.yml \
-38.1.yml
+38.1.yml \
+39.0.yml \
+39.1.yml 
+
+.NOTINTERMEDIATE: ./%.json
 
 .PHONY : all
 all : $(specs)
@@ -109,7 +95,11 @@ website/38.0.zip:
 
 website/38.1.zip:
 	mkdir -p $(dir $@)
+	wget2 --recursive --level inf --no-parent --cut-dirs=3 --no-clobber https://developer.broadcom.com/xapis/vmware-cloud-director-api/38.0/
 	curl https://vdc-repo.vmware.com/vmwb-repository/dcr-public/41315fde-2af1-4ea3-9172-36b7857aa0cd/a627618b-a055-4c39-a044-14daccc6dacc/doc/a627618b-a055-4c39-a044-14daccc6dacc.zip > $@
+
+website/%.zip:
+	./scripts/mirror $@
 
 ./%.json: website/%.zip
 	(cd transformer; RUST_LOG=transformer=debug cargo run --release) < $< > $@
