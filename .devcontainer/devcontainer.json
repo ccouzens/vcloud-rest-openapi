@@ -7,11 +7,8 @@
 		"dockerfile": "./Dockerfile",
 		"context": "."
 	},
-	// "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
-	// "image": "mcr.microsoft.com/devcontainers/rust:1-1-bullseye",
 	"features": {
 		"ghcr.io/devcontainers/features/rust": "latest",
-		// "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"username": "vscode",
 			"userUid": "1000",
