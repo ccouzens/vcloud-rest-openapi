@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+set -euo pipefail
+_destination=${1/.zip/}
+_basepath=$(dirname "${_destination}")
+_version="${_destination#*/}"
+_href="https://developer.broadcom.com/xapis/vmware-cloud-director-api/${_version}"
+
+if [[ -z $1 ]];then
+  echo missing destination input.
+  exit 1
+fi
+
+mkdir -p "${_destination}"
+
+debug_wrap() {
+  if [[ -n "${DEBUG:-}" ]]; then
+    set -x
+  fi
+  "$@"
+}
+
+echo " >> Mirror started...<<"
+debug_wrap wget2 \
+  --no-verbose \
+  --directory-prefix="${_destination}" \
+  --recursive \
+  --no-clobber \
+  --level=inf \
+  --convert-links \
+  --retry-connrefused \
+  --no-parent \
+  --no-host-directories \
+  --cut-dirs=3 \
+  --execute robots=off \
+  --compression=gzip \
+  --accept='*.html' \
+  --filter-urls \
+  "${_href}/doc/"
+{ set +x; } 2>/dev/null
+
+echo -e "\n >> Fetching about.html <<"
+debug_wrap curl -sL "${_href}/about.html" -o "${_destination}/about.html"
+{ set +x; } 2>/dev/null
+
+echo " >> Mirror Ended!<<"
+echo -e "\n >> Fetch schema-files.zip <<"
+_xrefs=$(curl -sL "${_href}/x-references/")
+_artifactId=$(grep --only-matching --perl-regexp --max-count=1 "(?<=_api_details_page_artifactId: )([0-9]+)" <<<"${_xrefs}")
+_dataCategoryId=$(grep --only-matching --perl-regexp --max-count=1 "(?<=data-categoryid=\")(\d+)(?=\")" <<<"${_xrefs}")
+_request=$(debug_wrap curl -s "${_href}" \
+  --url-query p_p_id=api_details_page \
+  --url-query p_p_lifecycle=2 \
+  --url-query p_p_resource_id=downloadApiArtifact \
+  --data '_api_details_page_fileName=schema-files.zip' \
+  --data "_api_details_page_artifactId=${_artifactId}" \
+  --data "_api_details_page_categoryId=${_dataCategoryId}" \
+  --data '_api_details_page_fileType=Document'
+)
+{ set +x; } 2>/dev/null
+_downloadUrl=$(jq -r '.data.downloadUrl' <<< "${_request}")
+
+if [[ -z $_downloadUrl ]]; then
+  echo "Download url for schema-files.zip is empty"
+  exit 1
+fi
+debug_wrap curl -sL "$_downloadUrl" -o "${_version}-schema-files.zip" --output-dir "${_basepath}"
+{ set +x; } 2>/dev/null
+echo " >> Fetch schema-files.zip Done <<"
+
+echo -e "\n >> Unpack schema-files to doc/etc <<"
+debug_wrap mkdir -p "${_destination}/doc/etc"
+debug_wrap unzip -q "${_basepath}/${_version}-schema-files.zip" -d "${_destination}/doc/etc"
+{ set +x; } 2>/dev/null
+echo " >> Unpack schema-files to doc/etc Done <<"
+
+echo -e "\n >> Generating commonRes.js <<"
+cat << EOF > "${_destination}/doc/commonRes.js"
+  var ID_Copyright = "&copy; 2025 Broadcom, Inc. All rights reserved.";
+  var ID_VersionInformation = "Version ${_version}";
+EOF
+echo " >> Generating commonRes.js Done <<"
+
+echo -e "\n >> Creating Zip Archive <<"
+(cd "${_destination}"; debug_wrap zip -rq "../${_version}.zip" ./*)
+{ set +x; } 2>/dev/null
+echo " >> Creating Zip Archive Done <<"
+
+echo -e "\n >> Cleanup downloaded files <<"
+debug_wrap rm -rf "${_destination}"
+debug_wrap rm -rf "${_destination}-schema-files.zip"
+{ set +x; } 2>/dev/null
+echo " >> Cleanup downloaded files Done! <<"
